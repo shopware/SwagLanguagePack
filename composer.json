@@ -1,0 +1,54 @@
+{
+    "name": "swag/language-pack",
+    "description": "Language pack for Shopware 6",
+    "version": "1.0.0",
+    "type": "shopware-platform-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Shopware"
+        }
+    ],
+    "require": {
+        "shopware/core": "~6.3.0",
+        "shopware/storefront": "~6.3.0"
+    },
+    "extra": {
+        "shopware-plugin-class": "Swag\\LanguagePack\\SwagLanguagePack",
+        "copyright": "(c) by shopware AG",
+        "label": {
+            "de-DE": "Sprachpaket",
+            "en-GB": "Language pack"
+        },
+        "description": {
+            "de-DE": "Das Sprachpaket von Shopware vereint alle Übersetzungen die von Shopware angeboten werden.",
+            "en-GB": "The Shopware language pack combines all the translations offered by Shopware."
+        },
+        "manufacturerLink": {
+            "de-DE": "https://store.shopware.com/shopware-ag.html",
+            "en-GB": "https://store.shopware.com/en/shopware-ag.html"
+        },
+        "supportLink": {
+            "de-DE": "https://issues.shopware.com/",
+            "en-GB": "https://issues.shopware.com/"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Swag\\LanguagePack\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Swag\\LanguagePack\\Test\\": "tests/"
+        }
+    },
+    "suggest": {
+        "shopware/administration": "Require '*'. Allows you to to set up the plugin easily",
+        "shopware/storefront": "Require '*'. Enables special features like configuring Custom Products on the product detail page."
+    },
+    "conflict": {
+        "shopware/storefront": "<6,>=7",
+        "shopware/administration": "<6,>=7"
+    }
+}

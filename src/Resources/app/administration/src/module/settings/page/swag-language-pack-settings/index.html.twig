@@ -1,0 +1,36 @@
+{% block swag_language_pack_settings %}
+    <sw-page>
+
+        {% block swag_language_pack_settings_header %}
+            <template #smart-bar-header>
+                <h2>
+                    {{ $tc('sw-settings.index.title') }}
+                    <sw-icon name="small-arrow-medium-right" small></sw-icon>
+                    {{ $tc('swag-language-pack.settings.header') }}
+                </h2>
+            </template>
+        {% endblock %}
+
+        {% block swag_language_pack_settings_content %}
+            <template #content>
+
+                {% block swag_language_pack_settings_content_card_view %}
+                    <sw-card-view>
+
+                        {% block swag_language_pack_settings_content_card_view_card %}
+                            <sw-card :title="$tc('swag-language-pack.settings.card.title')">
+                            </sw-card>
+                        {% endblock %}
+
+                        {% block swag_language_pack_settings_content_card_view_card_loader %}
+                            <sw-loader v-if="isLoading"></sw-loader>
+                        {% endblock %}
+
+                    </sw-card-view>
+                {% endblock %}
+
+            </template>
+        {% endblock %}
+
+    </sw-page>
+{% endblock %}

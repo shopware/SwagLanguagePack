@@ -1,0 +1,123 @@
+variables:
+    DOCKER_DRIVER: overlay2
+    DOCKER_HOST: "tcp://docker:2375"
+    MYSQL_ROOT_PASSWORD: app
+    WEB_DOCUMENT_ROOT: $CI_PROJECT_DIR/development/public
+    DEVELOPMENT_BRANCH: "master"
+    PLATFORM_BRANCH: "master"
+    DEVELOPMENT_MIN_VERSION: "v6.3.0.0"
+    PLATFORM_MIN_VERSION: "v6.3.0.0"
+    RUN_ECS: 1
+
+stages:
+    - Static validation
+    - Unit
+
+default:
+    image: shopware/development:latest
+    before_script:
+        - zip -rq plugin.zip .
+        - git clone http://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.shopware.com/shopware/6/product/development.git --branch $DEVELOPMENT_BRANCH
+        - rm -rf development/platform
+        - git clone http://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.shopware.com/shopware/6/product/platform.git development/platform --branch $PLATFORM_BRANCH
+        - unzip -q plugin.zip -d development/custom/plugins/SwagLanguagePack
+        - cd development
+        - cp -v dev-ops/gitlab/.psh.yaml.override .
+        - /entrypoint supervisord > /dev/null 2>&1 &
+
+# Stage: Static validation
+Static analyze:
+    stage: Static validation
+    services:
+        -   name: mysql:5.7
+            alias: mysql
+    script:
+        - cd $CI_PROJECT_DIR/development/custom/plugins/SwagLanguagePack
+        - make init
+        - >
+            if [ "$RUN_ECS" -eq 1 ]
+                then
+                if [ -f "../../../vendor/shopware/platform/easy-coding-standard.php" ];
+                then
+                    make ecs-dry
+                else
+                    php ../../../dev-ops/analyze/vendor/bin/ecs check --config=../../../vendor/shopware/platform/easy-coding-standard.yml src tests
+                    php ../../../dev-ops/analyze/vendor/bin/ecs check --config=easy-coding-standard.php
+                fi;
+            fi;
+        - make phpstan
+        - make psalm
+        - cd $CI_PROJECT_DIR/development
+        - ./psh.phar administration:init --APP_ENV="dev"
+        - cd $CI_PROJECT_DIR/development/custom/plugins/SwagLanguagePack
+        - make administration-lint
+
+Static analyze (Min version):
+    extends: Static analyze
+    variables:
+        DEVELOPMENT_BRANCH: $DEVELOPMENT_MIN_VERSION
+        PLATFORM_BRANCH: $PLATFORM_MIN_VERSION
+        RUN_ECS: 0
+
+ToDos resolved:
+    stage: Static validation
+    allow_failure: true
+    script:
+        - cd $CI_PROJECT_DIR/development/custom/plugins/SwagLanguagePack
+        - bin/check-todos.sh $CI_COMMIT_BRANCH
+
+# Stage: PHPUnit
+.phpunit_base:
+    stage: Unit
+    needs: [Static analyze]
+    services:
+        -   name: mysql:5.7
+            alias: mysql
+        -   name: elastic/elasticsearch:7.1.1
+            alias: elasticsearch
+            command: [ "bin/elasticsearch", "-Expack.security.enabled=false", "-Ediscovery.type=single-node" ]
+    script:
+        - cd $CI_PROJECT_DIR/development/custom/plugins/SwagLanguagePack
+        - make init
+        - cd $CI_PROJECT_DIR/development
+        - composer dump-autoload -d custom/plugins/SwagLanguagePack
+        - php -d pcov.enabled=1 -d pcov.directory=$CI_PROJECT_DIR
+            vendor/bin/phpunit
+            --configuration custom/plugins/SwagLanguagePack/phpunit.xml.dist
+            --log-junit build/artifacts/phpunit.junit.xml
+            --colors=never
+            --coverage-clover build/artifacts/phpunit.clover.xml
+            --coverage-html build/artifacts/phpunit-coverage-html
+            --coverage-text
+
+MySQL 5.7:
+    extends: .phpunit_base
+    stage: Unit
+    coverage: '/^\s*Lines:\s*(\d+(?:\.\d+)?%)/'
+    artifacts:
+        paths:
+            - development/build/artifacts/phpunit.clover.xml
+        reports:
+            junit: development/build/artifacts/phpunit.junit.xml
+
+.generate_mochawesome_reports:
+    after_script: &mochawesome_report_definition
+        - npx mochawesome-merge development/build/artifacts/e2e/mochawesome/single-reports/mochawesome*.json > development/build/artifacts/e2e/mochawesome/report-final.json
+        - npx mochawesome-report-generator development/build/artifacts/e2e/mochawesome/report-final.json --cdn true --reportDir development/build/artifacts/e2e/mochawesome
+        - docker rm -f cypress
+
+MySQL 5.7 (Min version):
+    extends: .phpunit_base
+    stage: Unit
+    allow_failure: true
+    script:
+        - cd $CI_PROJECT_DIR/development/custom/plugins/SwagLanguagePack
+        - make init
+        - cd $CI_PROJECT_DIR/development
+        - composer dump-autoload -d custom/plugins/SwagLanguagePack
+        - php vendor/bin/phpunit
+            --configuration custom/plugins/SwagLanguagePack/phpunit.xml.dist
+            --colors=never
+    variables:
+        DEVELOPMENT_BRANCH: $DEVELOPMENT_MIN_VERSION
+        PLATFORM_BRANCH: $PLATFORM_MIN_VERSION

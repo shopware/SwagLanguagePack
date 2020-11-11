@@ -1,2 +1,2 @@
 # 1.0.0
-- Initial Language Pack release for Shopware 6
+- LAN-20 - Initial Language Pack release for Shopware 6

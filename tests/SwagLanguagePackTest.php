@@ -14,12 +14,12 @@ use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
 use Shopware\Core\Framework\Plugin\PluginDefinition;
 use Shopware\Core\Framework\Plugin\PluginEntity;
-use Shopware\Core\Framework\Test\TestCaseBase\IntegrationTestBehaviour;
+use Shopware\Core\Framework\Test\TestCaseBase\KernelTestBehaviour;
 use Swag\LanguagePack\SwagLanguagePack;
 
 class SwagLanguagePackTest extends TestCase
 {
-    use IntegrationTestBehaviour;
+    use KernelTestBehaviour;
 
     /**
      * @var EntityRepositoryInterface

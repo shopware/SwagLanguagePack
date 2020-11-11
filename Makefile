@@ -31,14 +31,6 @@ ecs-dry: ## Run easy coding style in dry mode
 		&& php ../../../dev-ops/analyze/vendor/bin/ecs check --config=easy-coding-standard.php src tests
 .PHONY: ecs-dry
 
-php-cs-dry: ## Run php-cs fixer in dry mode
-	php ../../../dev-ops/analyze/vendor/bin/php-cs-fixer fix --dry-run --config=.php_cs.dist -vv src tests
-.PHONY: php-cs-dry
-
-php-cs-fix: ## Run php-cs fixer in fix mode
-	php ../../../dev-ops/analyze/vendor/bin/php-cs-fixer fix --config=.php_cs.dist -vv src tests
-.PHONY: php-cs-fix
-
 phpstan: ## Run phpstan
 	php bin/phpstan-config-generator.php \
  		&& composer dump-autoload \
@@ -46,7 +38,7 @@ phpstan: ## Run phpstan
 .PHONY: phpstan
 
 psalm: ## Run vimeo psalm
-	php ../../../dev-ops/analyze/vendor/bin/psalm --config=psalm.xml --threads=$(nproc) --diff --diff-methods --show-info=false
+	php ../../../dev-ops/analyze/vendor/bin/psalm --config=psalm.xml --threads=2 --diff --show-info=false
 .PHONY: psalm
 
 phpunit: ## Run phpunit

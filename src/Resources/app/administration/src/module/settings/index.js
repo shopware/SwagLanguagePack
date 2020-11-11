@@ -1,9 +1,6 @@
 import './page/swag-language-pack-settings';
 import './components/swag-language-pack-settings-icon';
 
-import deDE from './snippet/de-DE.json';
-import enGB from './snippet/en-GB.json';
-
 const { Module } = Shopware;
 
 Module.register('swag-language-pack', {
@@ -15,11 +12,6 @@ Module.register('swag-language-pack', {
     targetVersion: '1.0.0',
     color: '#6ac30b',
     icon: 'default-action-settings',
-
-    snippets: {
-        'de-DE': deDE,
-        'en-GB': enGB
-    },
 
     routes: {
         index: {

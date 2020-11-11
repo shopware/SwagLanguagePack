@@ -21,8 +21,6 @@ file that was distributed with this source code.', 'separate' => 'bottom', 'loca
     $parameters = $containerConfigurator->parameters();
 
     $parameters->set('cache_directory', __DIR__ . '/var/cache/cs_fixer');
-
     $parameters->set('cache_namespace', 'SwagLanguagePack');
-
     $parameters->set('paths', [__DIR__ . '/src', __DIR__ . '/tests']);
 };

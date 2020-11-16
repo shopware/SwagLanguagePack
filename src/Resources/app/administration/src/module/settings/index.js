@@ -1,5 +1,7 @@
-import './page/swag-language-pack-settings';
+import './components/swag-language-pack-flag';
+import './components/swag-pack-language-entry';
 import './components/swag-language-pack-settings-icon';
+import './page/swag-language-pack-settings';
 
 const { Module } = Shopware;
 

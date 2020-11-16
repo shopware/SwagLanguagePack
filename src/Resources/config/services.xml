@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <!-- Definitions -->
+        <service id="Swag\LanguagePack\PackLanguage\PackLanguageDefinition">
+            <tag name="shopware.entity.definition" entity="swag_language_pack_language"/>
+        </service>
+
+        <!-- Extensions -->
+        <service id="Swag\LanguagePack\Extension\LanguageExtension">
+            <tag name="shopware.entity.extension"/>
+        </service>
+
+        <!-- Decorators -->
+        <service id="Swag\LanguagePack\Core\Content\PackLanguageRepositoryDecorator" decorates="swag_language_pack_language.repository">
+            <argument type="service" id="Swag\LanguagePack\Core\Content\PackLanguageRepositoryDecorator.inner"/>
+        </service>
+    </services>
+</container>

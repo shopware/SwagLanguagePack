@@ -10,6 +10,7 @@ namespace Swag\LanguagePack\Test\Util\Lifecycle;
 use Doctrine\DBAL\Connection;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
+use Shopware\Core\Checkout\Test\Cart\Promotion\Helpers\Fakes\FakeResultStatement;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\Migration\MigrationCollection;
 use Shopware\Core\Framework\Plugin\Context\UninstallContext;
@@ -22,10 +23,13 @@ class UninstallerTest extends TestCase
     {
         $connection = $this->getConnectionMock();
 
-        $connection->expects(static::atLeast(3))
-            ->withConsecutive(['executeQuery', 'executeUpdate'])
+        $connection->expects(static::atLeast(4))
             ->method('executeUpdate')
             ->willReturnOnConsecutiveCalls([false, true]);
+
+        $connection->expects(static::atLeast(2))
+            ->method('executeQuery')
+            ->willReturn(new FakeResultStatement([]));
 
         $uninstaller = new Uninstaller($connection);
         $uninstaller->uninstall($this->getUninstallContext());

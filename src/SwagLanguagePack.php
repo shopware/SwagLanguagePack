@@ -15,10 +15,36 @@ use Swag\LanguagePack\Util\Lifecycle\Uninstaller;
 class SwagLanguagePack extends Plugin
 {
     public const SUPPORTED_LANGUAGES = [
-        // ToDo LAN-23 - Fill with all languages
+        'Deutsch' => 'de-DE',
+        'Bosanski' => 'bs-BA',
         'Čeština' => 'cs-CZ',
         'Dansk' => 'da-DK',
-        'Deutsch' => 'de-DE',
+        'Español' => 'es-ES',
+        'Français' => 'fr-FR',
+        'Bahasa Indonesia' => 'id-ID',
+        'Italiano' => 'it-IT',
+        'Latviešu' => 'lv-LV',
+        'Nederlands' => 'nl-NL',
+        'Polski' => 'pl-PL',
+        'Português' => 'pt-PT',
+        'Русский' => 'ru-RU',
+        'Svenska' => 'sv-SE',
+    ];
+
+    public const BASE_SNIPPET_SET_LOCALES = [
+        'bs-BA',
+        'cs-CZ',
+        'da-DK',
+        'es-ES',
+        'fr-FR',
+        'id-ID',
+        'it-IT',
+        'lv-LV',
+        'nl-NL',
+        'pl-PL',
+        'pt-PT',
+        'ru-RU',
+        'sv-SE',
     ];
 
     public function uninstall(UninstallContext $uninstallContext): void

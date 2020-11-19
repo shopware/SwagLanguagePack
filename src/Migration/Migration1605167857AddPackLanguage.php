@@ -24,6 +24,7 @@ class Migration1605167857AddPackLanguage extends MigrationStep
         $migrationHelper->createPackLanguageTable();
         $migrationHelper->alterLanguageAddPackLanguageColumn();
         $migrationHelper->createPackLanguages();
+        $migrationHelper->createSnippetSets();
     }
 
     public function updateDestructive(Connection $connection): void

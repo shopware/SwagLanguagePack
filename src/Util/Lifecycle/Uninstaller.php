@@ -11,6 +11,7 @@ use Doctrine\DBAL\Connection;
 use Shopware\Core\Framework\Plugin\Context\UninstallContext;
 use Shopware\Core\System\Language\LanguageDefinition;
 use Swag\LanguagePack\PackLanguage\PackLanguageDefinition;
+use Swag\LanguagePack\SwagLanguagePack;
 
 class Uninstaller
 {
@@ -30,9 +31,27 @@ class Uninstaller
             return;
         }
 
+        $this->deleteBaseSnippetSets();
         $this->dropConstraints();
         $this->dropTables();
         $this->dropColumns();
+    }
+
+    private function deleteBaseSnippetSets(): void
+    {
+        $sql = <<<SQL
+DELETE FROM `snippet_set` WHERE `name` = :name AND `base_file` = :baseFile;
+SQL;
+
+        foreach (SwagLanguagePack::BASE_SNIPPET_SET_LOCALES as $locale) {
+            $this->connection->executeUpdate(
+                $sql,
+                [
+                    'name' => \sprintf('BASE %s', $locale),
+                    'baseFile' => \sprintf('messages.%s', $locale),
+                ]
+            );
+        }
     }
 
     private function dropConstraints(): void

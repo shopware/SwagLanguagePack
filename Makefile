@@ -48,5 +48,5 @@ phpunit: ## Run phpunit
 
 phpunit-coverage: ## Run phpunit with coverage report
 	composer dump-autoload \
- 		&& ./../../../vendor/bin/phpunit --coverage-html coverage
+ 		&& php -d pcov.enabled=1 -d pcov.directory=./.. ./../../../vendor/bin/phpunit --configuration phpunit.xml.dist --log-junit ./../../../build/artifacts/phpunit.junit.xml --coverage-clover ./../../../build/artifacts/phpunit.clover.xml --coverage-html ./../../../build/artifacts/coverage-language-pack --coverage-text
 .PHONY: phpunit-coverage

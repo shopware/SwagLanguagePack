@@ -1,12 +1,11 @@
 <?xml version="1.0"?>
 <psalm
-    cacheDirectory="var/cache/psalm"
-    autoloader="../../../vendor/autoload.php"
-    findUnusedVariablesAndParams="true"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns="https://getpsalm.org/schema/config"
-    xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
->
+        cacheDirectory="var/cache/psalm"
+        autoloader="../../../vendor/autoload.php"
+        findUnusedVariablesAndParams="true"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="https://getpsalm.org/schema/config"
+        xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd">
     <projectFiles>
         <directory name="src"/>
         <directory name="tests"/>
@@ -17,11 +16,56 @@
     </projectFiles>
 
     <issueHandlers>
+        <MoreSpecificImplementedParamType>
+            <errorLevel type="info">
+                <file name="src/**/*Collection.php"/>
+            </errorLevel>
+        </MoreSpecificImplementedParamType>
+
+        <MissingConstructor>
+            <errorLevel type="info">
+                <file name="src/**/*Entity.php"/>
+            </errorLevel>
+        </MissingConstructor>
+
         <InternalMethod>
             <errorLevel type="info">
                 <referencedMethod name="Shopware\Core\Framework\Context::createDefaultContext"/>
+                <referencedMethod name="PHPUnit\Framework\MockObject\Builder\InvocationMocker::willReturn"/>
+                <referencedMethod name="PHPUnit\Framework\MockObject\Builder\InvocationMocker::withConsecutive"/>
+                <referencedMethod name="PHPUnit\Framework\MockObject\Builder\InvocationMocker::method"/>
             </errorLevel>
         </InternalMethod>
+
+        <InvalidArgument>
+            <errorLevel type="info">
+                <directory name="tests/"/>
+            </errorLevel>
+        </InvalidArgument>
+
+        <PossiblyInvalidArgument>
+            <errorLevel type="info">
+                <directory name="tests/"/>
+            </errorLevel>
+        </PossiblyInvalidArgument>
+
+        <PossiblyUndefinedMethod>
+            <errorLevel type="info">
+                <directory name="tests/"/>
+            </errorLevel>
+        </PossiblyUndefinedMethod>
+
+        <TypeCoercion>
+            <errorLevel type="info">
+                <directory name="tests/"/>
+            </errorLevel>
+        </TypeCoercion>
+
+        <ArgumentTypeCoercion>
+            <errorLevel type="info">
+                <directory name="tests/"/>
+            </errorLevel>
+        </ArgumentTypeCoercion>
 
         <UnresolvableInclude>
             <errorLevel type="info">

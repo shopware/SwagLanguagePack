@@ -1,4 +1,4 @@
-import template from './index.html.twig';
+import template from './swag-language-pack-settings-icon.html.twig';
 
 const { Component } = Shopware;
 

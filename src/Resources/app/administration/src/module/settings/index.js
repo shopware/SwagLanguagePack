@@ -1,7 +1,11 @@
 import './components/swag-language-pack-flag';
 import './components/swag-pack-language-entry';
 import './components/swag-language-pack-settings-icon';
+
 import './page/swag-language-pack-settings';
+import './page/swag-language-pack-settings-base';
+import './page/swag-language-pack-settings-administration';
+import './page/swag-language-pack-settings-storefront';
 
 const { Module } = Shopware;
 
@@ -19,9 +23,30 @@ Module.register('swag-language-pack', {
         index: {
             component: 'swag-language-pack-settings',
             path: 'index',
+            redirect: {
+                name: 'swag.language.pack.index.administration'
+            },
             meta: {
                 parentPath: 'sw.settings.index',
                 privilege: 'language.viewer'
+            },
+            children: {
+                administration: {
+                    component: 'swag-language-pack-settings-administration',
+                    path: 'administration',
+                    meta: {
+                        parentPath: 'sw.settings.index',
+                        privilege: 'language.viewer'
+                    }
+                },
+                storefront: {
+                    component: 'swag-language-pack-settings-storefront',
+                    path: 'storefront',
+                    meta: {
+                        parentPath: 'sw.settings.index',
+                        privilege: 'language.viewer'
+                    }
+                }
             }
         }
     },

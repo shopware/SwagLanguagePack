@@ -35,7 +35,8 @@ Component.register('swag-language-pack-settings', {
         },
 
         packLanguageCriteria() {
-            return new Criteria();
+            return (new Criteria())
+                .addSorting(Criteria.sort('language.name', 'ASC'));
         }
     },
 

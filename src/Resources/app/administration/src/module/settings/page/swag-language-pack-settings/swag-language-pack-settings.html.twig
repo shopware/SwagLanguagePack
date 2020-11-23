@@ -36,31 +36,37 @@
                 {% block swag_language_pack_settings_content_card_view %}
                     <sw-card-view>
 
-                        {% block swag_language_pack_settings_content_card_view_language_selection %}
-                            <sw-card :title="$tc('swag-language-pack.settings.card.title')"
-                                     :disabled="isLoading">
+                        {% block swag_language_pack_settings_content_tabs %}
+                            <sw-tabs v-if="!isLoading" class="swag-language-pack-settings__tabs">
 
-                                {% block swag_language_pack_settings_content_card_view_card_loader %}
-                                    <sw-loader v-if="isLoading"></sw-loader>
+                                {% block swag_language_pack_settings_content_tabs_administration %}
+                                    <sw-tabs-item
+                                            class="swag-language-pack-settings__tab-administration"
+                                            :route="{ name: 'swag.language.pack.index.administration' }">
+                                        {{ $tc('swag-language-pack.settings.card.administration.tabTitle') }}
+                                    </sw-tabs-item>
                                 {% endblock %}
 
-                                {% block swag_language_pack_settings_content_card_view_language_selection_languages %}
-                                    <template v-for="packLanguage in packLanguages">
-
-                                        {% block swag_language_pack_settings_content_card_view_language_selection_language %}
-                                            <swag-pack-language-entry
-                                                    :value="packLanguage"
-                                                    field="administrationActive"
-                                                    :label="packLanguage.language.name"
-                                                    :description="packLanguage.language.locale.code"
-                                                    :flagLocale="packLanguage.language.locale.code">
-                                            </swag-pack-language-entry>
-                                        {% endblock %}
-
-                                    </template>
+                                {% block swag_language_pack_settings_content_tabs_storefront %}
+                                    <sw-tabs-item
+                                            class="swag-language-pack-settings__tab-storefront"
+                                            :route="{ name: 'swag.language.pack.index.storefront' }">
+                                        {{ $tc('swag-language-pack.settings.card.storefront.tabTitle') }}
+                                    </sw-tabs-item>
                                 {% endblock %}
+                            </sw-tabs>
+                        {% endblock %}
 
-                            </sw-card>
+                        {% block swag_language_pack_settings_content_router_view %}
+                            <router-view
+                                    v-if="!isLoading"
+                                    :isLoading="isLoading"
+                                    :packLanguages="packLanguages">
+                            </router-view>
+                        {% endblock %}
+
+                        {% block swag_language_pack_settings_content_loader %}
+                            <sw-loader v-if="isLoading"></sw-loader>
                         {% endblock %}
 
                     </sw-card-view>

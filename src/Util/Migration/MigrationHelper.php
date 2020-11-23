@@ -29,23 +29,23 @@ class MigrationHelper
     public function createPackLanguageTable(): void
     {
         $sql = <<<SQL
-            CREATE TABLE IF NOT EXISTS `#table#` (
-                `id`                    BINARY(16)  NOT NULL,
-                `administration_active` TINYINT(1)  NULL DEFAULT '0',
-                `storefront_active`     TINYINT(1)  NULL DEFAULT '0',
-                `language_id`           BINARY(16)  NOT NULL,
-                `created_at`            DATETIME(3) NOT NULL,
-                `updated_at`            DATETIME(3) NULL,
-                PRIMARY KEY (`id`),
-                CONSTRAINT `fk.swag_language_pack_language_language`
-                    FOREIGN KEY (`language_id`)
-                    REFERENCES `language` (`id`)
-                    ON DELETE RESTRICT
-                    ON UPDATE CASCADE
-            )
-            ENGINE=InnoDB
-            DEFAULT CHARSET=utf8mb4
-            COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE IF NOT EXISTS `#table#` (
+    `id`                    BINARY(16)  NOT NULL,
+    `administration_active` TINYINT(1)  NULL DEFAULT '0',
+    `storefront_active`     TINYINT(1)  NULL DEFAULT '0',
+    `language_id`           BINARY(16)  NOT NULL,
+    `created_at`            DATETIME(3) NOT NULL,
+    `updated_at`            DATETIME(3) NULL,
+    PRIMARY KEY (`id`),
+    CONSTRAINT `fk.swag_language_pack_language_language`
+        FOREIGN KEY (`language_id`)
+        REFERENCES `language` (`id`)
+        ON DELETE RESTRICT
+        ON UPDATE CASCADE
+)
+ENGINE=InnoDB
+DEFAULT CHARSET=utf8mb4
+COLLATE=utf8mb4_unicode_ci;
 SQL;
 
         $this->connection->executeUpdate(\str_replace(
@@ -62,13 +62,10 @@ SQL;
         }
 
         $sql = <<<SQL
-            ALTER TABLE `#table#`
-            ADD COLUMN `#column#` BINARY(16) NULL AFTER `parent_id`,
-            ADD CONSTRAINT `fk.language_swag_language_pack_language`
-                FOREIGN KEY (`#column#`)
-                REFERENCES `#pack_language_table#` (`id`)
-                ON DELETE SET NULL
-                ON UPDATE CASCADE;
+ALTER TABLE `#table#`
+ADD COLUMN `#column#` BINARY(16) NULL AFTER `parent_id`,
+ADD CONSTRAINT `fk.language_swag_language_pack_language`
+FOREIGN KEY (`#column#`) REFERENCES `#pack_language_table#` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 SQL;
         $this->connection->executeUpdate(\str_replace(
             ['#table#', '#column#', '#pack_language_table#'],
@@ -110,8 +107,8 @@ SQL;
         }
 
         $insertLanguagesSql = <<<SQL
-            INSERT INTO `language` (`id`, `name`, `locale_id`, `translation_code_id`, `created_at`)
-            VALUES (:id, :name, :localeId, :translationCodeId, NOW());
+INSERT INTO `language` (`id`, `name`, `locale_id`, `translation_code_id`, `created_at`)
+VALUES (:id, :name, :localeId, :translationCodeId, NOW());
 SQL;
 
         foreach ($languages as $language) {
@@ -119,15 +116,15 @@ SQL;
         }
 
         $insertPackLanguagesSql = <<<SQL
-            DELETE FROM `swag_language_pack_language`
-            WHERE `language_id` = :languageId;
+DELETE FROM `swag_language_pack_language`
+WHERE `language_id` = :languageId;
 
-            INSERT INTO `swag_language_pack_language` (`id`, `language_id`, `created_at`)
-            VALUES (:id, :languageId, NOW());
-            
-            UPDATE `language`
-            SET swag_language_pack_language_id = :id
-            WHERE `id` = :languageId;
+INSERT INTO `swag_language_pack_language` (`id`, `language_id`, `created_at`)
+VALUES (:id, :languageId, NOW());
+
+UPDATE `language`
+SET swag_language_pack_language_id = :id
+WHERE `id` = :languageId;
 SQL;
 
         foreach ($packLanguages as $packLanguage) {
@@ -135,11 +132,27 @@ SQL;
         }
     }
 
+    public function createSnippetSets(): void
+    {
+        $insertSnippetSetSql = <<<SQL
+INSERT INTO `snippet_set` (`id`, `name`, `base_file`, `iso`, `created_at`) 
+VALUES (:id, :name, :baseFile, :iso, NOW())
+SQL;
+
+        foreach (SwagLanguagePack::BASE_SNIPPET_SET_LOCALES as $locale) {
+            $this->connection->executeUpdate($insertSnippetSetSql, [
+                'id' => Uuid::randomBytes(),
+                'name' => \sprintf('BASE %s', $locale),
+                'baseFile' => \sprintf('messages.%s', $locale),
+                'iso' => $locale,
+            ]);
+        }
+    }
+
     private function languageColumnAlreadyExists(): bool
     {
         $sql = <<<SQL
-            SHOW COLUMNS FROM `#table#`
-            LIKE '#column#';
+SHOW COLUMNS FROM `#table#` LIKE '#column#';
 SQL;
 
         $result = $this->connection->executeQuery(\str_replace(
@@ -157,9 +170,7 @@ SQL;
     private function getLocales(): array
     {
         $sql = <<<SQL
-            SELECT `id`, `code`
-            FROM `locale`
-            WHERE `code` IN (?);
+SELECT `id`, `code` FROM `locale` WHERE `code` IN (?);
 SQL;
 
         $locales = $this->connection->executeQuery(
@@ -196,10 +207,10 @@ SQL;
     private function createPackLanguageData(array $locales): array
     {
         $sql = <<<SQL
-            SELECT lang.`id` as id, loc.`code` as code
-            FROM `language` lang
-            LEFT JOIN `locale` loc ON loc.`id` = lang.`locale_id`
-            WHERE loc.`code` IN (?)
+SELECT lang.`id` as id, loc.`code` as code
+FROM `language` lang
+LEFT JOIN `locale` loc ON loc.`id` = lang.`locale_id`
+WHERE loc.`code` IN (?)
 SQL;
 
         $existingLanguages = $this->connection->executeQuery(
@@ -208,7 +219,7 @@ SQL;
             [Connection::PARAM_STR_ARRAY]
         )->fetchAll();
 
-        return \array_map(function ($locale) use ($existingLanguages): array {
+        return \array_map(static function ($locale) use ($existingLanguages): array {
             $languageId = null;
             foreach ($existingLanguages as $language) {
                 if ($locale['code'] === $language['code']) {

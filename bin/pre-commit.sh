@@ -56,7 +56,6 @@ fi
 if [[ -n "$JS_FILES" ]]
 then
     make administration-fix
-    make storefront-fix
 fi
 
 git add ${JS_FILES} ${PHP_FILES}

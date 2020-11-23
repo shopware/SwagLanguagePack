@@ -9,6 +9,7 @@ namespace Swag\LanguagePack\Test\Util\Migration;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Driver\ResultStatement;
+use Doctrine\DBAL\FetchMode;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Shopware\Core\Framework\Plugin\Context\UninstallContext;
@@ -35,7 +36,9 @@ class MigrationHelperTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->connection = $this->getContainer()->get(Connection::class);
+        /** @var Connection $connection */
+        $connection = $this->getContainer()->get(Connection::class);
+        $this->connection = $connection;
         $this->migrationHelper = new MigrationHelper($this->connection);
         $this->wipeDatabaseChanges();
     }
@@ -90,8 +93,16 @@ class MigrationHelperTest extends TestCase
         $this->migrationHelper->createPackLanguageTable();
         $this->migrationHelper->alterLanguageAddPackLanguageColumn();
 
-        $this->expectExceptionMessage('No LocaleEntities associated to the following locale codes: cs-CZ, da-DK, de-DE');
+        $this->expectExceptionMessage('No LocaleEntities associated to the following locale codes: de-DE, bs-BA, cs-CZ, da-DK, es-ES, fr-FR, id-ID, it-IT, lv-LV, nl-NL, pl-PL, pt-PT, ru-RU, sv-SE');
         (new MigrationHelper($connectionMock))->createPackLanguages();
+    }
+
+    public function testCreateSnippetSetsCorrectly(): void
+    {
+        static::assertFalse($this->databaseHasBaseSnippetSetsForPackLanguages());
+
+        $this->migrationHelper->createSnippetSets();
+        static::assertTrue($this->databaseHasBaseSnippetSetsForPackLanguages());
     }
 
     private function wipeDatabaseChanges(): void
@@ -186,5 +197,16 @@ class MigrationHelperTest extends TestCase
             ->willReturn($resultStatementMock);
 
         return $connectionMock;
+    }
+
+    private function databaseHasBaseSnippetSetsForPackLanguages(): bool
+    {
+        $sql = <<<SQL
+SELECT COUNT(DISTINCT `id`) FROM `snippet_set`;
+SQL;
+        $snippetSetCount = (int) $this->connection->executeQuery($sql)->fetch(FetchMode::COLUMN);
+
+        // de-DE is in supported languages but en-GB is a system standard so we have to calculate a +1
+        return $snippetSetCount === (\count(SwagLanguagePack::SUPPORTED_LANGUAGES) + 1);
     }
 }

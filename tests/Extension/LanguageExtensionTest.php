@@ -7,6 +7,7 @@
 
 namespace Swag\LanguagePack\Test\Extension;
 
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\FkField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\Flag\SetNullOnDelete;
@@ -20,6 +21,7 @@ class LanguageExtensionTest extends TestCase
 {
     public function testExtendFieldsAddsOneToOneAssociationField(): void
     {
+        /** @var MockObject|FieldCollection $collection */
         $collection = $this->getMockBuilder(FieldCollection::class)
             ->disableOriginalConstructor()
             ->onlyMethods(['add'])

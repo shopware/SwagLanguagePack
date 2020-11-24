@@ -40,7 +40,15 @@ class MigrationHelperTest extends TestCase
         $connection = $this->getContainer()->get(Connection::class);
         $this->connection = $connection;
         $this->migrationHelper = new MigrationHelper($this->connection);
-        $this->wipeDatabaseChanges();
+        $this->uninstallPluginAndDeleteLanguages();
+    }
+
+    protected function tearDown(): void
+    {
+        $this->migrationHelper->createPackLanguageTable();
+        $this->migrationHelper->alterLanguageAddPackLanguageColumn();
+        $this->migrationHelper->createPackLanguages();
+        $this->migrationHelper->createSnippetSets();
     }
 
     public function testCreateLanguageTableCorrectly(): void
@@ -105,7 +113,7 @@ class MigrationHelperTest extends TestCase
         static::assertTrue($this->databaseHasBaseSnippetSetsForPackLanguages());
     }
 
-    private function wipeDatabaseChanges(): void
+    private function uninstallPluginAndDeleteLanguages(): void
     {
         /** @var MockObject|UninstallContext $uninstallContext */
         $uninstallContext = $this->getMockBuilder(UninstallContext::class)
@@ -128,6 +136,11 @@ class MigrationHelperTest extends TestCase
         );
 
         $this->connection->executeUpdate($sql);
+
+        $deleteSnippetSetsSql = <<<SQL
+DELETE FROM `snippet_set` WHERE `name` NOT IN ("BASE de-DE", "BASE en-GB");
+SQL;
+        $this->connection->executeUpdate($deleteSnippetSetsSql);
     }
 
     private function databaseHasPackLanguageTable(): bool

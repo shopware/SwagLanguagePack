@@ -21,6 +21,12 @@ administration-lint: ## Run eslint on the administration files
 	../../../vendor/shopware/platform/src/Administration/Resources/app/administration/node_modules/.bin/eslint --ignore-path .eslintignore --config ../../../vendor/shopware/platform/src/Administration/Resources/app/administration/.eslintrc.js --ext .js,.vue src/Resources/app/administration
 .PHONY: administration-lint
 
+eslint: administration-lint ## Synonym to 'administration-lint'
+.PHONY: eslint
+
+eslint-fix: administration-fix ## Synonym to 'administration-fix'
+.PHONY: eslint-fix
+
 ecs-fix: ## Run easy coding style in fix mode
 	php ../../../dev-ops/analyze/vendor/bin/ecs check --fix --config=../../../vendor/shopware/platform/easy-coding-standard.php src tests\
 		&& php ../../../dev-ops/analyze/vendor/bin/ecs check --fix --config=easy-coding-standard.php src tests

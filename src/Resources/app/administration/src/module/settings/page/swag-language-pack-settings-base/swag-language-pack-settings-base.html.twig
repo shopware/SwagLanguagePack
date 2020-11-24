@@ -1,0 +1,37 @@
+{% block swag_language_pack_settings_base %}
+    {% block swag_language_pack_settings_base_card_view_language_selection %}
+        <sw-card
+                class="swag-language-pack-settings-base"
+                :title="$tc(`swag-language-pack.settings.card.${settingsType}.title`)"
+                :disabled="isLoading">
+
+            {% block swag_language_pack_settings_base_card_view_card_loader %}
+                <sw-loader v-if="isLoading"></sw-loader>
+            {% endblock %}
+
+            {% block swag_language_pack_settings_base_card_view_description%}
+                <div v-html="description"
+                     class="swag-language-pack-settings-base__description">
+                </div>
+            {% endblock %}
+
+            {% block swag_language_pack_settings_base_card_view_language_selection_languages %}
+                <template v-for="packLanguage in packLanguages">
+
+                    {% block swag_language_pack_settings_base_card_view_language_selection_language %}
+                        <swag-pack-language-entry
+                                class="swag-language-pack-settings-base__entry"
+                                :value="packLanguage"
+                                :field="`${settingsType}Active`"
+                                :label="packLanguage.language.name"
+                                :description="packLanguage.language.locale.code"
+                                :flagLocale="packLanguage.language.locale.code">
+                        </swag-pack-language-entry>
+                    {% endblock %}
+
+                </template>
+            {% endblock %}
+
+        </sw-card>
+    {% endblock %}
+{% endblock %}

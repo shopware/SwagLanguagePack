@@ -38,7 +38,7 @@ class SalesChannelDomainValidatorTest extends TestCase
     public function testCreatingASalesChannelDomainWithADeactivatedLanguageFails(): void
     {
         $context = Context::createDefaultContext();
-        $languageId = $this->setStorefrontActiveForLanguageByName('Dansk', false, $context);
+        $languageId = $this->setSalesChannelActiveForLanguageByName('Dansk', false, $context);
 
         $this->expectExceptionMessage(\sprintf('The language with the id "%s" is disabled for all Sales Channels.', $languageId));
         $this->crateSalesChannelDomain(Uuid::randomHex(), $languageId, $context);
@@ -47,8 +47,8 @@ class SalesChannelDomainValidatorTest extends TestCase
     public function testUpdatingASalesChannelDomainToADisabledLanguageFails(): void
     {
         $context = Context::createDefaultContext();
-        $enabledLanguageId = $this->setStorefrontActiveForLanguageByName('Dansk', true, $context);
-        $disabledLanguageId = $this->setStorefrontActiveForLanguageByName('Français', false, $context);
+        $enabledLanguageId = $this->setSalesChannelActiveForLanguageByName('Dansk', true, $context);
+        $disabledLanguageId = $this->setSalesChannelActiveForLanguageByName('Français', false, $context);
 
         $domainId = Uuid::randomHex();
         $this->crateSalesChannelDomain($domainId, $enabledLanguageId, $context);

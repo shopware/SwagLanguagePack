@@ -1,0 +1,87 @@
+{% block swag_language_pack_settings %}
+    <sw-page>
+
+        {% block swag_language_pack_settings_header %}
+            <template #smart-bar-header>
+                <h2>
+                    {{ $tc('sw-settings.index.title') }}
+                    <sw-icon name="small-arrow-medium-right" small></sw-icon>
+                    {{ $tc('swag-language-pack.settings.header') }}
+                </h2>
+            </template>
+        {% endblock %}
+
+        {% block swag_language_pack_settings_actions %}
+            <template #smart-bar-actions>
+
+                {% block swag_language_pack_settings_actions_save %}
+                    <sw-button-process
+                            class="swag-language-pack-settings__save-action"
+                            variant="primary"
+                            :processSuccess="isSaveSuccessful"
+{#                            ToDo LAN-37 - Implement ACL #}
+{#                            :disabled="!acl.can('swag_language_pack_language.editor')" #}
+                            @process-finish="onSaveFinish"
+                            @click="onSave">
+                        {{ $tc('global.default.save') }}
+                    </sw-button-process>
+                {% endblock %}
+
+            </template>
+        {% endblock %}
+
+        {% block swag_language_pack_settings_content %}
+            <template #content>
+
+                {% block swag_language_pack_settings_content_card_view %}
+                    <sw-card-view>
+
+                        {% block swag_language_pack_settings_content_tabs %}
+                            <sw-tabs v-if="!isLoading" class="swag-language-pack-settings__tabs">
+
+                                {% block swag_language_pack_settings_content_tabs_administration %}
+                                    <sw-tabs-item
+                                            class="swag-language-pack-settings__tab-administration"
+                                            :route="{ name: 'swag.language.pack.index.administration' }">
+                                        {{ $tc('swag-language-pack.settings.card.administration.tabTitle') }}
+                                    </sw-tabs-item>
+                                {% endblock %}
+
+                                {% block swag_language_pack_settings_content_tabs_sales_channel %}
+                                    <sw-tabs-item
+                                            class="swag-language-pack-settings__tab-sales-channel"
+                                            :route="{ name: 'swag.language.pack.index.salesChannel' }">
+                                        {{ $tc('swag-language-pack.settings.card.salesChannel.tabTitle') }}
+                                    </sw-tabs-item>
+                                {% endblock %}
+                            </sw-tabs>
+                        {% endblock %}
+
+                        {% block swag_language_pack_settings_content_router_view %}
+                            <router-view
+                                    v-if="!isLoading"
+                                    :isLoading="isLoading"
+                                    :packLanguages="packLanguages">
+                            </router-view>
+                        {% endblock %}
+
+                        {% block swag_language_pack_settings_content_loader %}
+                            <sw-loader v-if="isLoading"></sw-loader>
+                        {% endblock %}
+
+                        {% block swag_language_pack_settings_content_verify_user_modal %}
+                            <sw-verify-user-modal
+                                    v-if="confirmPasswordModal"
+                                    @verified="savePackLanguages"
+                                    @close="onCloseConfirmPasswordModal">
+                            </sw-verify-user-modal>
+                        {% endblock %}
+
+                    </sw-card-view>
+                {% endblock %}
+
+            </template>
+        {% endblock %}
+
+    </sw-page>
+{% endblock %}

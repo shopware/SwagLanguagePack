@@ -85,7 +85,7 @@ class MigrationHelperTest extends TestCase
         $this->migrationHelper->createPackLanguages();
 
         $counts = $this->getTableCounts($tables);
-        static::assertEquals(\count(SwagLanguagePack::SUPPORTED_LANGUAGES) + 1, $counts[LanguageDefinition::ENTITY_NAME]);
+        static::assertEquals(\count(SwagLanguagePack::SUPPORTED_LANGUAGES) + 2, $counts[LanguageDefinition::ENTITY_NAME]);
         static::assertEquals(\count(SwagLanguagePack::SUPPORTED_LANGUAGES), $counts[PackLanguageDefinition::ENTITY_NAME]);
     }
 
@@ -101,7 +101,7 @@ class MigrationHelperTest extends TestCase
         $this->migrationHelper->createPackLanguageTable();
         $this->migrationHelper->alterLanguageAddPackLanguageColumn();
 
-        $this->expectExceptionMessage('No LocaleEntities associated to the following locale codes: de-DE, bs-BA, cs-CZ, da-DK, es-ES, fr-FR, id-ID, it-IT, lv-LV, nl-NL, pl-PL, pt-PT, ru-RU, sv-SE');
+        $this->expectExceptionMessage('No LocaleEntities associated to the following locale codes: bs-BA, cs-CZ, da-DK, es-ES, fr-FR, id-ID, it-IT, lv-LV, nl-NL, pl-PL, pt-PT, ru-RU, sv-SE');
         (new MigrationHelper($connectionMock))->createPackLanguages();
     }
 
@@ -219,7 +219,7 @@ SELECT COUNT(DISTINCT `id`) FROM `snippet_set`;
 SQL;
         $snippetSetCount = (int) $this->connection->executeQuery($sql)->fetch(FetchMode::COLUMN);
 
-        // de-DE is in supported languages but en-GB is a system standard so we have to calculate a +1
-        return $snippetSetCount === (\count(SwagLanguagePack::SUPPORTED_LANGUAGES) + 1);
+        // de-DE & en-GB are system default languages so we have to add 2
+        return $snippetSetCount === (\count(SwagLanguagePack::SUPPORTED_LANGUAGES) + 2);
     }
 }

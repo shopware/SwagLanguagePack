@@ -19,7 +19,7 @@ trait ServicesTrait
 {
     use IntegrationTestBehaviour;
 
-    private function setStorefrontActiveForLanguageByName(string $name, bool $storefrontActive, Context $context): string
+    private function setSalesChannelActiveForLanguageByName(string $name, bool $salesChannelActive, Context $context): string
     {
         /** @var EntityRepositoryInterface $packLanguageRepository */
         $packLanguageRepository = $this->getContainer()->get(\sprintf('%s.repository', PackLanguageDefinition::ENTITY_NAME));
@@ -34,14 +34,14 @@ trait ServicesTrait
         $packLanguageRepository->update([
             [
                 'id' => $first->getId(),
-                'storefrontActive' => $storefrontActive,
+                'salesChannelActive' => $salesChannelActive,
             ],
         ], $context);
 
         return $first->getLanguageId();
     }
 
-    private function setStorefrontActiveForLanguageByLocale(string $locale, bool $storefrontActive, Context $context): string
+    private function setSalesChannelActiveForLanguageByLocale(string $locale, bool $salesChannelActive, Context $context): string
     {
         /** @var EntityRepositoryInterface $packLanguageRepository */
         $packLanguageRepository = $this->getContainer()->get(\sprintf('%s.repository', PackLanguageDefinition::ENTITY_NAME));
@@ -56,7 +56,7 @@ trait ServicesTrait
         $packLanguageRepository->update([
             [
                 'id' => $first->getId(),
-                'storefrontActive' => $storefrontActive,
+                'salesChannelActive' => $salesChannelActive,
             ],
         ], $context);
 

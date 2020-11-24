@@ -32,7 +32,7 @@ class MigrationHelper
 CREATE TABLE IF NOT EXISTS `#table#` (
     `id`                    BINARY(16)  NOT NULL,
     `administration_active` TINYINT(1)  NULL DEFAULT '0',
-    `storefront_active`     TINYINT(1)  NULL DEFAULT '0',
+    `sales_channel_active`  TINYINT(1)  NULL DEFAULT '0',
     `language_id`           BINARY(16)  NOT NULL,
     `created_at`            DATETIME(3) NOT NULL,
     `updated_at`            DATETIME(3) NULL,

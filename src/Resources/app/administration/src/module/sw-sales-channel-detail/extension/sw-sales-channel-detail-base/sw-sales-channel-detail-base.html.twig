@@ -1,0 +1,13 @@
+{% block sw_sales_channel_detail_base_general_input_languages %}
+    <swag-sales-channel-defaults-select-filterable
+            v-if="!isProductComparison"
+            :salesChannel="salesChannel"
+            :criteria="languageCriteria"
+            propertyName="languages"
+            defaultPropertyName="languageId"
+            propertyNameInDomain="languageId"
+            :propertyLabel="$tc('sw-sales-channel.detail.labelInputLanguages')"
+            :defaultPropertyLabel="$tc('sw-sales-channel.detail.labelInputDefaultLanguage')"
+            :disabled="!acl.can('sales_channel.editor')">
+    </swag-sales-channel-defaults-select-filterable>
+{% endblock %}

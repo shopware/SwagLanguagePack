@@ -19,5 +19,26 @@
         <service id="Swag\LanguagePack\Core\Content\PackLanguageRepositoryDecorator" decorates="swag_language_pack_language.repository">
             <argument type="service" id="Swag\LanguagePack\Core\Content\PackLanguageRepositoryDecorator.inner"/>
         </service>
+
+        <!-- Subscribers -->
+        <service id="Swag\LanguagePack\Core\Framework\DataAbstractionLayer\Write\Validation\SalesChannelValidator">
+            <argument type="service" id="Doctrine\DBAL\Connection"/>
+            <tag name="kernel.event_subscriber"/>
+        </service>
+
+        <service id="Swag\LanguagePack\Core\Framework\DataAbstractionLayer\Write\Validation\SalesChannelDomainValidator">
+            <argument type="service" id="Doctrine\DBAL\Connection"/>
+            <tag name="kernel.event_subscriber"/>
+        </service>
+
+        <service id="Swag\LanguagePack\Core\Framework\DataAbstractionLayer\Write\Validation\SalesChannelLanguageValidator">
+            <argument type="service" id="Doctrine\DBAL\Connection"/>
+            <tag name="kernel.event_subscriber"/>
+        </service>
+
+        <service id="Swag\LanguagePack\Core\Framework\DataAbstractionLayer\Write\Validation\UserValidator">
+            <argument type="service" id="Doctrine\DBAL\Connection"/>
+            <tag name="kernel.event_subscriber"/>
+        </service>
     </services>
 </container>

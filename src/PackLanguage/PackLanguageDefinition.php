@@ -36,6 +36,16 @@ class PackLanguageDefinition extends EntityDefinition
         ];
     }
 
+    public function getCollectionClass(): string
+    {
+        return PackLanguageCollection::class;
+    }
+
+    public function getEntityClass(): string
+    {
+        return PackLanguageEntity::class;
+    }
+
     protected function defineFields(): FieldCollection
     {
         return new FieldCollection([

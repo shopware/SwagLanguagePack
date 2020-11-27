@@ -20,11 +20,6 @@ use Shopware\Core\Framework\DataAbstractionLayer\EntityCollection;
  */
 class PackLanguageCollection extends EntityCollection
 {
-    public function getLocales(): array
-    {
-        return []; // ToDo LAN-28 - Implement
-    }
-
     protected function getExpectedClass(): string
     {
         return PackLanguageEntity::class;

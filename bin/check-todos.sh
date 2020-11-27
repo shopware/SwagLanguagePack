@@ -16,7 +16,7 @@ fi
 DESCRIPTION+="\n"
 printf "${DESCRIPTION}"
 
-RESULT=$(grep -inRw "${PATTERN}" --exclude-dir={\*node_modules,dist,vendor,public,.git\*} --exclude=\*.md | awk -F":" '{print "\033[1;37m"$1"\n\033[0;31m"$2":\t"$3"\033[0m\n"}')
+RESULT=$(grep -inRw "${PATTERN}" --exclude-dir={\*node_modules,dist,vendor,public,var,.git\*} --exclude={\*.md,\*.json} | awk -F":" '{print "\033[1;37m"$1"\n\033[0;31m"$2":\t"$3"\033[0m\n"}')
 
 if [[ -n "$RESULT" ]]; then
     printf "${RESULT}"

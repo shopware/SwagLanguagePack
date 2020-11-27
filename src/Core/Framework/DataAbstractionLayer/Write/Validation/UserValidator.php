@@ -27,7 +27,7 @@ class UserValidator extends AbstractLanguageValidator
     protected function validate(WriteCommand $command, ConstraintViolationList $violationList): void
     {
         $payload = $command->getPayload();
-        if (!isset($payload['locale_id']) || $this->getStorefrontActiveByLocale($payload['locale_id'])) {
+        if (!isset($payload['locale_id']) || $this->getSalesChannelActiveByLocale($payload['locale_id'])) {
             return;
         }
 
@@ -43,10 +43,10 @@ class UserValidator extends AbstractLanguageValidator
         );
     }
 
-    private function getStorefrontActiveByLocale(string $localeId): bool
+    private function getSalesChannelActiveByLocale(string $localeId): bool
     {
         $statement = $this->connection->createQueryBuilder()
-            ->select('packLanguage.storefront_active')
+            ->select('packLanguage.sales_channel_active')
             ->from(PackLanguageDefinition::ENTITY_NAME, 'packLanguage')
             ->leftJoin(
                 'packLanguage',

@@ -23,7 +23,7 @@ class PackLanguageEntity extends Entity
     /**
      * @var bool
      */
-    protected $storefrontActive;
+    protected $salesChannelActive;
 
     /**
      * @var string
@@ -45,14 +45,14 @@ class PackLanguageEntity extends Entity
         $this->administrationActive = $administrationActive;
     }
 
-    public function isStorefrontActive(): bool
+    public function isSalesChannelActive(): bool
     {
-        return $this->storefrontActive;
+        return $this->salesChannelActive;
     }
 
-    public function setStorefrontActive(bool $storefrontActive): void
+    public function setSalesChannelActive(bool $salesChannelActive): void
     {
-        $this->storefrontActive = $storefrontActive;
+        $this->salesChannelActive = $salesChannelActive;
     }
 
     public function getLanguageId(): string

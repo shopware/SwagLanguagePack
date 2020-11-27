@@ -15,7 +15,6 @@ use Swag\LanguagePack\Util\Lifecycle\Uninstaller;
 class SwagLanguagePack extends Plugin
 {
     public const SUPPORTED_LANGUAGES = [
-        'Deutsch' => 'de-DE',
         'Bosanski' => 'bs-BA',
         'Čeština' => 'cs-CZ',
         'Dansk' => 'da-DK',

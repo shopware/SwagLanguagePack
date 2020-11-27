@@ -63,7 +63,7 @@ abstract class AbstractLanguageValidator implements EventSubscriberInterface
     protected function validate(WriteCommand $command, ConstraintViolationList $violationList): void
     {
         $payload = $command->getPayload();
-        if (!isset($payload['language_id']) || $this->isStorefrontLanguageAvailable($payload['language_id'])) {
+        if (!isset($payload['language_id']) || $this->isSalesChannelLanguageAvailable($payload['language_id'])) {
             return;
         }
 
@@ -79,10 +79,10 @@ abstract class AbstractLanguageValidator implements EventSubscriberInterface
         );
     }
 
-    protected function isStorefrontLanguageAvailable(string $languageId): bool
+    protected function isSalesChannelLanguageAvailable(string $languageId): bool
     {
         $statement = $this->connection->createQueryBuilder()
-            ->select('storefront_active')
+            ->select('sales_channel_active')
             ->from(PackLanguageDefinition::ENTITY_NAME)
             ->where('language_id = :languageId')
             ->setParameter('languageId', $languageId)

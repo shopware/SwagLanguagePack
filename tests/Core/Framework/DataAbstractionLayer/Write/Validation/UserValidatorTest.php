@@ -37,7 +37,7 @@ class UserValidatorTest extends TestCase
     public function testCreatingASalesChannelDomainWithADeactivatedLanguageFails(): void
     {
         $context = Context::createDefaultContext();
-        $localeId = $this->setStorefrontActiveForLanguageByLocale('da-DK', false, $context);
+        $localeId = $this->setSalesChannelActiveForLanguageByLocale('da-DK', false, $context);
 
         $this->expectExceptionMessage(\sprintf('The language bound to the locale with the id "%s" is disabled for all Sales Channels.', $localeId));
         $this->createUser(Uuid::randomHex(), $localeId, $context);
@@ -46,8 +46,8 @@ class UserValidatorTest extends TestCase
     public function testUpdatingASalesChannelDomainToADisabledLanguageFails(): void
     {
         $context = Context::createDefaultContext();
-        $enabledLocaleId = $this->setStorefrontActiveForLanguageByLocale('da-DK', true, $context);
-        $disabledLocaleId = $this->setStorefrontActiveForLanguageByLocale('fr-FR', false, $context);
+        $enabledLocaleId = $this->setSalesChannelActiveForLanguageByLocale('da-DK', true, $context);
+        $disabledLocaleId = $this->setSalesChannelActiveForLanguageByLocale('fr-FR', false, $context);
 
         $userId = Uuid::randomHex();
         $this->createUser($userId, $enabledLocaleId, $context);

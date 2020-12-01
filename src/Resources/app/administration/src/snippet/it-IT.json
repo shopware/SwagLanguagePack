@@ -7,6 +7,7 @@
             "SHOPWARE_INVALID_IP": "Ti preghiamo di inserire un indirizzo IP valido.",
             "INVALID_URL": "Ti preghiamo di inserire un URL valido.",
             "DELIVERY_TIME_MIN_INVALID": "Il valore minimo non dovrebbe essere superiore al valore massimo.",
+            "DUPLICATED_PRODUCT_EXPORT_FILE_NAME": "Questo nome del file è già in uso. Sei pregato di sceglierne un altro.",
             "DUPLICATED_SNIPPET_KEY": "Esistono già moduli di testo per \"{key}\". Ti preghiamo di selezionare un altro nome.",
             "PROMOTION_VALID_UNTIL_VIOLATION": "L’inizio della promozione deve essere antecedente alla sua fine.",
             "PROMOTION_DISCOUNT_MAX_VALUE_VIOLATION": "Il valore dello sconto non deve essere superiore a {value}.",
@@ -29,7 +30,11 @@
             "success": "Successo",
             "info": "Info",
             "yes": "Sì",
-            "no": "No"
+            "no": "No",
+            "confirm": "Conferma",
+            "view": "Vista",
+            "ascending": "Crescente",
+            "descending": "Decrescente"
         },
         "notification": {
             "notificationSaveErrorMessage": "Si è verificato un errore durante il salvataggio dell'entità \"{entityName}\".",
@@ -125,7 +130,12 @@
             "deleteMessage": "Sei sicuro di voler cancellare l'immissione? | Sei sicuro di voler cancellare {count} queste immissioni?",
             "deleteTitle": "Cancella immissione",
             "placeholderToManyAssociationCard": "Ricerca per associazioni...",
-            "labelRemoveAssociation": "Annulla assegnazione"
+            "labelRemoveAssociation": "Annulla assegnazione",
+            "productStreamPreview": {
+                "emptyMessageNoStream": "Nessun gruppo di prodotti dinamici selezionato",
+                "emptyMessageNoProducts": "Nessun prodotto trovato",
+                "emptyMessageNoSearchResults": "Nessun prodotto trovato per \"{term}\""
+            }
         },
         "sw-field": {
             "notification": {
@@ -351,7 +361,6 @@
             "buttonOpenMedia": "Apri supporti",
             "notification": {
                 "success": {
-                    "title": "Upload supporti",
                     "message": "Nessun file salvato con successo. | Un file salvato con successo. | {count} / {total} file salvati con successo."
                 },
                 "failure": {
@@ -451,7 +460,10 @@
         },
         "sw-multi-tag-ip-select": {
             "enterValidIp": "Ti preghiamo di inserire un indirizzo IPv4 o IPv6 valido",
-            "addIpAdress": "Aggiungi indirizzo IP"
+            "addIpAdress": "Aggiungi indirizzo IP",
+            "knownIps": {
+                "you": "Tu"
+            }
         },
         "sw-multi-ip-select": {
             "enterValidIp": "Ti preghiamo di inserire un indirizzo IPv4 o IPv6 valido",
@@ -496,7 +508,9 @@
                 "greaterThan": "Maggiore",
                 "notEquals": "Diverso",
                 "isOneOf": "È uno di",
-                "isNoneOf": "Non è nessuno di"
+                "isNoneOf": "Non è nessuno di",
+                "gross": "Lordo",
+                "net": "Netto"
             },
             "placeholderErrorMessage": "Non è stato possibile salvare i caratteri jolly.",
             "dataErrorMessage": "Non sono stati compilati tutti i campi obbligatori.",
@@ -658,7 +672,8 @@
             "unit": "Unità di misura | Unità di misura",
             "user": "Utente",
             "delivery_time": "Tempo di consegna | Tempi di consegna",
-            "import_export_profile": "Profilo import/export | Profili import/export"
+            "import_export_profile": "Profilo import/export | Profili import/export",
+            "feature_set": "Modello | Modelli"
         },
         "day-of-week": {
             "monday": "Lunedì",
@@ -811,7 +826,8 @@
         "labelPriority": "Priorità",
         "placeholderPriority": "Stabilisci una priorità per questa regola...",
         "messageSaveSuccess": "La regola \"{name}\" è stata salvata con successo.",
-        "messageSaveError": "Si è verificato un errore durante il salvataggio della regola \"{name}\"."
+        "messageSaveError": "Si è verificato un errore durante il salvataggio della regola \"{name}\".",
+        "ruleCard": "Condizioni"
     },
     "sw-select-rule-create": {
         "addNewRule": "Crea nuova regola..."
@@ -913,6 +929,95 @@
         "tooltip": {
             "warning": "Non disponi delle autorizzazioni necessarie."
         },
+        "permissions": {
+            "customer": {
+                "label": "Clienti"
+            },
+            "delivery_times": {
+                "label": "Tempi di consegna"
+            },
+            "property": {
+                "label": "Proprietà"
+            },
+            "country": {
+                "label": "Paesi"
+            },
+            "number_ranges": {
+                "label": "Intervalli Numerici"
+            },
+            "currencies": {
+                "label": "Valute"
+            },
+            "media": {
+                "label": "Media"
+            },
+            "integration": {
+                "label": "Integrazioni"
+            },
+            "order": {
+                "label": "Ordini"
+            },
+            "product_stream": {
+                "label": "Gruppi di prodotti dinamici"
+            },
+            "payment": {
+                "label": "Metodi di pagamento"
+            },
+            "document": {
+                "label": "Documenti"
+            },
+            "category": {
+                "label": "Categorie"
+            },
+            "product_manufacturer": {
+                "label": "Produttori"
+            },
+            "custom_field": {
+                "label": "Campi personalizzati"
+            },
+            "customer_groups": {
+                "label": "Gruppi di clienti"
+            },
+            "product": {
+                "label": "Prodotti"
+            },
+            "sales_channel": {
+                "label": "Canali di vendita"
+            },
+            "shipping": {
+                "label": "Spedizione"
+            },
+            "cms": {
+                "label": "Esperienze di spedizione"
+            },
+            "language": {
+                "label": "Lingue"
+            },
+            "promotion": {
+                "label": "Promozioni"
+            },
+            "review": {
+                "label": "Recensioni"
+            },
+            "rule": {
+                "label": "Costruttore regola"
+            },
+            "salutation": {
+                "label": "Appellativi"
+            },
+            "parents": {
+                "catalogues": "Cataloghi",
+                "content": "Contenuto",
+                "customers": "Clienti",
+                "marketing": "Marketing",
+                "other": "Altro",
+                "orders": "Ordini",
+                "settings": "Impostazioni"
+            },
+            "users_and_permissions": {
+                "label": "Utenti & Permessi"
+            }
+        },
         "additional_permissions": {
             "system": {
                 "core_update": "Avvia aggiornamento",
@@ -929,17 +1034,6 @@
                 "label": "Ordini"
             }
         },
-        "permissions": {
-            "currencies": {
-                "label": "Currencies"
-            },
-            "product": {
-                "label": "Prodotti"
-            },
-            "sales_channel": {
-                "label": "Canali di vendita"
-            }
-        },
         "roles": {
             "all": "Tutti",
             "viewer": "Visualizza",
@@ -954,6 +1048,9 @@
         "labelCustomFieldSetSelect": "Sets campo aggiuntivo",
         "messagePluginSets": "Plugin sets campo aggiuntivo (non possono essere eliminati)"
     },
+    "sw-rating-stars": {
+        "ratingTooltipText": "{actual} di {max} stelle"
+    },
     "sw-customer": {
         "notification": {
             "requiredFields": "Ti preghiamo di compilare tutti i campi obbligatori."
@@ -966,6 +1063,19 @@
             "placeholderSearchBar": "Sfoglia tutti i clienti",
             "newCustomer": "Nuovo cliente",
             "tooltipLanguageSwitch": "La selezione della lingua è disattivata poiché non esistono campi traducibili."
+        },
+        "customerGroupRegistration": {
+            "alert": "Accesso al gruppo clienti \"{name}\" richiesto.",
+            "accept": "Accetta",
+            "acceptMessage": "Il gruppo clienti è stato modificato",
+            "decline": "Declina",
+            "declineMessage": "La richiesta è stata declinata",
+            "errorMessage": "Impossibile elaborare la richiesta",
+            "notification": {
+                "title": "Richiesta stato di commerciante",
+                "message": "Il cliente \"{name}\" richiede accesso al gruppi di clienti \"{groupName}\".",
+                "openCustomer": "Apri cliente"
+            }
         },
         "card": {
             "placeholderTitle": "Titolo",
@@ -990,6 +1100,8 @@
             "buttonAddCustomer": "Crea clienti",
             "columnCustomerNumber": "Codice cliente",
             "columnName": "Nome",
+            "columnGroup": "Gruppo clienti",
+            "columnGroupRequested": "Richiesta",
             "columnNameGuestLabel": "Ordina come ospite",
             "columnFirstName": "Nome",
             "columnLastName": "Cognome",
@@ -1012,7 +1124,8 @@
             "titleSidebarItemRefresh": "Aggiorna",
             "titleSidebarItemFilter": "Filtro",
             "titleSidebarItemFilterAffiliateCode": "Codice affiliato",
-            "titleSidebarItemFilterCampaignCode": "Codice campagna"
+            "titleSidebarItemFilterCampaignCode": "Codice campagna",
+            "titleSidebarItemFilterRequestedGroup": "Mostra solo le richieste del gruppo di clienti"
         },
         "baseForm": {
             "labelSalutation": "Appellativo",
@@ -1187,7 +1300,9 @@
             "messageSaveSuccess": "Aliquota d’imposta memorizzata."
         },
         "taxRuleCard": {
+            "tooltipCountries": "Se non tutti i paesi disponibili sono mostrati, digita un nome per accedere ai paesi non mostrati. I paesi potrebbero essere creato o modificati in Impostazioni/Paesi.",
             "labelTaxRate": "Aliquota",
+            "labelAppliesOn": "Si applica a",
             "labelCountryName": "Paese",
             "cardTitle": "Paesi",
             "searchBarPlaceholder": "Sfoglia tutti i Paesi...",
@@ -1505,6 +1620,7 @@
             "switchLanguageMessage": "Il plugin della lingua \"{pluginName}\" è stato installato con successo. Vuoi modificare la lingua dell’interfaccia utente?",
             "pluginsInstalled": "Plugin lingua{plural} installato",
             "pluginsInstalledMessage": "Plugin lingua installato: | Sono stati installati i plugin lingua per le seguenti lingue: ",
+            "pluginNotFoundMessage": "Impossibile trovare il plugin della lingua {languageName}.",
             "pluginInstallationFailedMessage": "Non è stato possibile installare il plugin: ",
             "pluginActivationFailedMessage": "Non è stato possibile attivare il plugin: ",
             "tryAgainLater": "Ti preghiamo di riprovare più tardi.",
@@ -2040,7 +2156,8 @@
             "headline": "Statistica degli ultimi 30 giorni",
             "orderNumber": "Ordini",
             "turnover": "Fatturato",
-            "numberOfOrders": "Quantità"
+            "numberOfOrders": "Quantità",
+            "totalTurnover": "Totale"
         }
     },
     "sw-order": {
@@ -2140,6 +2257,7 @@
             "columnTotalPriceGross": "Totale",
             "columnTax": "Aliquota d'imposta",
             "textCreditTax": "auto",
+            "taxDetail": "{taxRate}%: {tax}",
             "contextMenuShowProduct": "Visualizza prodotto",
             "messageEmptyItem": "Ancora nessuna voce presente",
             "buttonAddProduct": "Aggiungi prodotto",
@@ -2240,7 +2358,8 @@
             "placeholderTrackingCodeSelect": "Aggiungi codice di tracking...",
             "addTrackingCode": "Per aggiungerlo clicca qui",
             "enterValidTrackingCode": "Inserisci codice di tracking",
-            "textCreditTax": "auto"
+            "textCreditTax": "auto",
+            "taxDetail": "{taxRate}%: {tax}"
         },
         "detailDeliveries": {
             "cardTitleItems": "Consegna {count}",
@@ -2283,6 +2402,7 @@
             "labelSystemUser": "Sistema",
             "labelSelectStatePlaceholder": "Seleziona...",
             "labelSelectStateButton": "Modifica stato e invia e-mail",
+            "labelSendMailSwitch": "Invia email al cliente",
             "labelErrorStateChange": "Si è verificato un errore durante l’impostazione dello stato:",
             "labelErrorNoAction": "Nessun nuovo stato selezionato.",
             "labelNoTransactionState": "Nessuna transazione presente",
@@ -2303,6 +2423,7 @@
         "documentCard": {
             "searchBarPlaceholder": "Sfoglia documenti...",
             "cardTitle": "Documenti",
+            "modalTitle": "Aggiornamento dello stato",
             "labelDate": "Data",
             "labelNumber": "Numero",
             "labelType": "Tipo",
@@ -2430,6 +2551,10 @@
             "mainMenuItemGeneral": "Categorie di prodotti dinamiche",
             "placeholderSearchBar": "Sfoglia tutte le categorie di prodotto dinamiche...",
             "descriptionTextModule": "Gestisci qui le tue categorie di prodotti dinamiche."
+        },
+        "acl": {
+            "conditionsAlertHeading": "Non hai abbastanza permessi",
+            "conditionsAlertDescription": "Non hai abbastanza permessi per eseguire tutte le azioni nella sezione \"Condizioni\"."
         },
         "list": {
             "textProductStreamOverview": "Categorie di prodotti dinamiche",
@@ -2641,6 +2766,73 @@
     },
     "sw-plugin-box": {
         "buttonPluginSettings": "Impostazioni plugin"
+    },
+    "sw-settings-product-feature-sets": {
+        "general": {
+            "mainMenuItemGeneral": "Caratteristiche essenziali",
+            "placeholderSearchBar": "Cerca modelli...",
+            "searchType": "Caratteristiche essenziali"
+        },
+        "list": {
+            "textHeadline": "Caratteristiche essenziali",
+            "textDeleteConfirm": "Sei sicuro di voler eliminare la caratteristica essenziale \"{name}\"?",
+            "columnValues": "Valori",
+            "columnTemplate": "Modello",
+            "columnDescription": "Descrizione",
+            "buttonAddEssentialCharacteristics": "Crea nuovo",
+            "contextMenuEdit": "Modifica",
+            "contextMenuDelete": "Elimina",
+            "messageDeleteSuccess": "La caratteristica essenziale \"{name}\" è stata eliminata.",
+            "buttonCancel": "Annulla",
+            "buttonDelete": "Elimina"
+        },
+        "detail": {
+            "textHeadline": "Nuovo modello",
+            "titleCard": "Informazioni generali",
+            "titleCardValues": "Valori",
+            "messageSaveSuccess": "Il modello della caratteristica \"{name} è stato salvato.",
+            "labelName": "Nome",
+            "labelDescription": "Descrizione",
+            "labelValues": "Valori",
+            "placeholderName": "Inserisci il nome di un modello...",
+            "placeholderDescription": "Inserisci una descrizione...",
+            "buttonSave": "Salva",
+            "notificationErrorMessage": "Si è verificato un errore salvando il modello delle caratteristiche essenziali del tuo prodotto.",
+            "labelCreateNew": "Aggiungi valori"
+        },
+        "valuesCard": {
+            "createStateDescription": "Aggiungi valori per definire le caratteristiche essenziali su misura alla tua gamma di prodotti.",
+            "labelCreateNew": "Aggiungi campo",
+            "cardTitle": "Valori",
+            "labelValue": "Valore",
+            "labelType": "Tipo",
+            "labelPosition": "Posizione",
+            "emptyStateDescription": "Aggiungi valori per definire le caratteristiche essenziali su misura alla tua gamma di prodotti."
+        },
+        "modal": {
+            "buttonAdd": "Aggiungi",
+            "textPropertyLabel": "Proprietà",
+            "textCustomFieldLabel": "Campo personalizzato",
+            "textProductInfoLabel": "Informazioni del prodotto",
+            "textReferencePriceLabel": "Prezzo unitario",
+            "labelTitlePageOne": "Scegli un tipo di campo che vuoi aggiungere al tuo modello",
+            "labelTitleModal": "Aggiungi valori",
+            "labelName": "Nome",
+            "buttonNext": "Prossimo",
+            "buttonCancel": "Annulla",
+            "label": {
+                "property": "Proprietà",
+                "width": "Larghezza",
+                "height": "Altezza",
+                "length": "Lunghezza",
+                "weight": "Peso",
+                "releaseDate": "Data di rilascio",
+                "description": "Descrizione",
+                "manufacturerNumber": "Numero del prodotto del produttore",
+                "ean": "EAN",
+                "referencePrice": "Prezzo unitario"
+            }
+        }
     },
     "sw-settings-document": {
         "general": {
@@ -2902,9 +3094,18 @@
             "products": {
                 "productAssignmentHeadline": "Assegnazione prodotto",
                 "productAssignmentPlaceholder": "Sfoglia prodotti e assegna...",
+                "productAssignmentLabel": "Prodotti",
                 "productAssignmentEmptyStateDescription": "Nessun prodotto assegnato",
+                "productStreamAssignmentEmptyStateDescription": "Nessun gruppo dinamico di prodotti assegnato",
                 "columnNameLabel": "Nome",
-                "columnManufacturerLabel": "Produttore"
+                "columnManufacturerLabel": "Produttore",
+                "productAssignmentTypeLabel": "Tipo",
+                "productAssignmentTypeManualLabel": "Selezione manuale",
+                "productAssignmentTypeStreamLabel": "Gruppo dinamico di prodotti",
+                "productAssignmentTypeStreamPlaceholder": "Cerca ed assegna gruppi dinamici di prodotti...",
+                "alertManualAssignedProductsOnAssignmentTypeStream": "Esistono ancora prodotti assegnati manualmente in questa categoria. Questi prodotti non saranno visibili in questa categoria ma potrebbero esserlo nelle categorie madri.",
+                "dynamicProductGroupDetailLinkText": "Dettagli del gruppo dinamico di prodotti",
+                "dynamicProductGroupInvalidMessage": "Il gruppo dinamico di prodotti selezionato non è valido. Sei pregato di verificare i dettagli del tuo gruppo dinamico di prodotti."
             }
         },
         "modal": {
@@ -2966,6 +3167,7 @@
             },
             "detail": {
                 "labelTechnicalName": "Nome tecnico",
+                "labelPosition": "Posizione",
                 "textHeadline": "Set campo aggiuntivo",
                 "buttonCancel": "Interrompi",
                 "buttonSave": "Salva",
@@ -2979,7 +3181,8 @@
                 "buttonApply": "Salva",
                 "labelEntities": "Utilizza per",
                 "placeholderEntities": "Aggiungi utilizzo...",
-                "messageNameNotUnique": "Il nome tecnico esiste già"
+                "messageNameNotUnique": "Il nome tecnico esiste già",
+                "emptyStateDescription": "Prima che tu possa aggiungere un campo personalizzato devi salvare quest'impostazione."
             }
         },
         "customField": {
@@ -3015,7 +3218,8 @@
                 "labelCustomFieldPosition": "Voce",
                 "labelMultiSelect": "Selezione multipla",
                 "tooltipCustomFieldPosition": "Controlla la posizione del campo aggiuntivo sulle pagine dettagliate.",
-                "tooltipRequired": "Trasforma il campo aggiuntivo in un campo obbligatorio sulle pagine dettagliate."
+                "tooltipRequired": "Trasforma il campo aggiuntivo in un campo obbligatorio sulle pagine dettagliate.",
+                "infoText": "Se viene creato un campo personalizzato, anche il frammento riguardante tutti i tuoi set di frammenti sarà creato. Il frammento sarà nominato \"customField.{name}\"."
             },
             "list": {
                 "labelCustomFieldLabel": "Label",
@@ -3023,7 +3227,9 @@
                 "labelCustomFieldPosition": "Voce",
                 "contextMenuCustomFieldResetDelete": "Ripristina",
                 "contextMenuCustomFieldView": "Edita",
-                "contextMenuCustomFieldDelete": "Cancella"
+                "contextMenuCustomFieldDelete": "Cancella",
+                "titleDeleteAction": "Elimina campo personalizzato | Elimina campi personalizzati",
+                "textDeleteActionConfirmation": "Sei sicuro di voler eliminare questo campo personalizzato? | Sei sicuro di voler eliminare questi {count} campi personalizzati?"
             }
         },
         "types": {
@@ -3059,10 +3265,39 @@
             "fieldDisplayGrossValues": "Lordo | Netto",
             "placeholderName": "Inserisci un nome...",
             "placeholderNewCustomerGroup": "Nuova categoria di clienti...",
-            "notificationErrorMessage": "Errore durante il salvataggio della categoria clienti."
+            "notificationErrorMessage": "Errore durante il salvataggio della categoria clienti.",
+            "registrationForm": "Attiva/Disattiva modulo di registrazione"
+        },
+        "registration": {
+            "formTitle": "Modulo di registrazione",
+            "placeholderTitle": "Inserisci un titolo...",
+            "placeholderIntroduction": "Inserisci un'introduzione...",
+            "placeholderSeoMetaDescription": "Inserisci una descrizione seo meta...",
+            "title": "Titolo",
+            "introduction": "Introduzione",
+            "onlyCompaniesCanRegister": "Solo le aziende possono iscriversi",
+            "seoMetaDescription": "Descrizione SEO meta",
+            "linkUrlsTitle": "URL di collegamento",
+            "linkUrlDescription": "Clicca il pulsante a destra per generare gli URL che collegano ai moduli di richiesta ad ogni Canale delle Vendite.",
+            "linkUrlButton": "Genera URL",
+            "technicalUrl": "URL Tecnico",
+            "technicalUrlHelpText": "Gli URL tecnici possono essere usati come \"collegamenti personalizzabili\" entro il modulo della categoria e forniranno una mappatura automatica della lingua.",
+            "availabilitySalesChannel": "Canali di Vendite Disponibili"
+        },
+        "modal": {
+            "seoUrl": {
+                "title": "Impostazioni URL",
+                "salesChannel": "Canale delle Vendite",
+                "urlSuffix": "Suffisso URL",
+                "exampleUrl": "URL di esempio",
+                "cancel": "Annulla",
+                "generate": "Genera"
+            }
         },
         "notification": {
-            "errorMessageCannotDeleteCustomerGroup": "A questa categoria di clienti sono assegnati ancora canali di vendita e/o clienti, pertanto non può essere cancellata."
+            "errorMessageCannotDeleteCustomerGroup": "A questa categoria di clienti sono assegnati ancora canali di vendita e/o clienti, pertanto non può essere cancellata.",
+            "errorUnableToCreateSeoUrls": "Impossibile generare gli URL",
+            "successfulGeneratedSeoUrls": "Gli URL sono stati generati"
         }
     },
     "sw-settings-login-registration": {
@@ -3116,6 +3351,7 @@
         "priceForm": {
             "labelTaxRate": "Aliquota d'imposta",
             "labelPurchasePriceGross": "Prezzo di acquisto (lordo)",
+            "labelPurchasePriceNet": "Prezzo d'acquisto (netto)",
             "labelUnit": "Unità di misura",
             "labelPurchaseUnit": "Unità di vendita",
             "labelReferenceUnit": "Unità base",
@@ -3284,14 +3520,23 @@
             "advancedPricesNotExisting": "Per questo prodotto non esistono ancora prezzi estesi.",
             "columnFrom": "Quantità di...",
             "columnTo": "a...",
-            "selectRule": "Seleziona regola per condizioni..."
+            "selectRule": "Seleziona regola per condizioni...",
+            "advancedPricesInherited": "Questo prodotto ha ereditato i prezzi dai suoi genitori.",
+            "linkAdvancedPricesOfParent": "Mostra prezzi del prodotto padre",
+            "inheritSwitchLabel": "Usa prezzi avanzati dal prodotto padre",
+            "advancedPricesNotInherited": "Puoi ora usare le regole di prezzi personalizzate per questa variante."
         },
         "properties": {
             "cardTitleProperties": "Proprietà",
             "emptyStateNoOptionsTitle": "Nessuna peculiarità della proprietà presente.",
             "emptyStateNoOptionsDescription": "Devi innanzitutto creare proprietà e loro peculiarità, per poterle assegnare.",
             "emptyStateNoSelectedOptionsTitle": "Nessuna peculiarità della proprietà selezionata.",
-            "emptyStateNoSelectedOptionsDescription": "Ti preghiamo di selezionare le peculiarità dalla ricerca."
+            "emptyStateNoSelectedOptionsDescription": "Ti preghiamo di selezionare le peculiarità dalla ricerca.",
+            "propertiesInherited": "Questo prodotto ha ereditato le proprietà dai suoi genitori.",
+            "linkPropertiesOfParent": "Mostra le proprietà del prodotto genitore",
+            "inheritSwitchLabel": "Usa le proprietà dal prodotto genitore",
+            "propertiesNotInherited": "Puoi ora usare le proprietà personalizzate per questa variante.",
+            "propertiesNotExisting": "Nessuna proprietà è stata ancora assegnata a questo prodotto."
         },
         "variations": {
             "emptyStateDescription": "Questo prodotto non ha ancora nessuna variante.",
@@ -3323,7 +3568,6 @@
             "generatedListDeleteModalMessage": "Sei sicuro di voler cancellare la variante?",
             "generatedListDeleteModalButtonCancel": "Interrompi",
             "generatedListDeleteModalButtonDelete": "Cancella",
-            "generatedListDeleteModalTitle": "Variante",
             "generatedListMessageSaveSuccess": "La variante è stata salvata.",
             "generatedListMessageSaveError": "Non è stato possibile salvare la variante.",
             "generatedListMessageDeleteSuccess": "La variante è stata cancellata.",
@@ -3439,7 +3683,8 @@
             "placeholderSelectVariables": "Seleziona...",
             "labelSalesChannelSelect": "Canale di vendita",
             "textUrlPreviewNotPossible": "Per questo template non è disponibile un’anteprima.",
-            "textUrlNoEntitiesForPreview": "Non è presente alcuna {entity} per generare un’anteprima. Ti preghiamo di crearne una."
+            "textUrlNoEntitiesForPreview": "Non è presente alcuna {entity} per generare un’anteprima. Ti preghiamo di crearne una.",
+            "textUrlPreviewEmptyTemplate": "Il modello è vuoto, SEO-URL non sarà generato per i percorsi dell'entità {entity}."
         },
         "routeNames": {
             "frontend-detail-page": "Pagina dettagli prodotti",
@@ -3557,7 +3802,7 @@
             "titleProductSync": "Sincronizzazione prodotto",
             "titleSyncedProducts": "Prodotti sincronizzati",
             "titleCategoryMapping": "Assegnazione categorie",
-            "titleTemplate": "Template",
+            "titleTemplate": "Modello",
             "titleDomainHeadline": "Crea domini URLs",
             "buttonEditDomain": "Modifica domini",
             "titleCreateDomain": "Crea nuovi domini",
@@ -3797,7 +4042,8 @@
             "chooseOrCreateRule": "Seleziona o crea una regola",
             "unrestrictedRuleAlreadyExistsMessage": "Esiste già una matrice di prezzo senza limitazioni.",
             "newMatrixAlreadyExists": "Esiste già una nuova matrice di prezzo senza regola assegnata.",
-            "newMatrixAlertMessage": "Per salvare questa matrice di prezzo deve essere assegnata una regola."
+            "newMatrixAlertMessage": "Per salvare questa matrice di prezzo deve essere assegnata una regola.",
+            "contextMenuModifyPrice": "Cambia regola prezzo"
         },
         "sidebar": {
             "labelUseAsLogo": "Utilizza come logo"
@@ -4025,10 +4271,12 @@
             "productBox": {
                 "label": "Riquadro prodotto",
                 "component": {
-                    "actionBuy": "Nel carrello",
-                    "badgeTopseller": "Topseller",
-                    "badgeNew": "Nuovo",
-                    "priceUnitContent": "Contenuto:"
+                    "label": {
+                        "actionBuy": "Aggiungi al carrello",
+                        "badgeTopseller": "Più Venduti",
+                        "badgeNew": "Nuovo",
+                        "priceUnitContent": "Contenuto:"
+                    }
                 },
                 "config": {
                     "label": {
@@ -4055,13 +4303,34 @@
                         "navigation": "Navigazione",
                         "rotate": "Alternanza automatica",
                         "border": "Ambito",
-                        "minWidth": "Ampiezza minima"
+                        "minWidth": "Ampiezza minima",
+                        "productAssignmentType": "Assegnazione prodotto",
+                        "productStreamSorting": "Ordinamento",
+                        "productStreamLimit": "Numero massimo di prodotti",
+                        "productStreamChoice": "Gruppo dinamico di prodotti"
                     },
                     "placeholder": {
                         "title": "Titolo slider",
                         "selection": "Seleziona prodotti",
-                        "minWidth": "Larghezza minima"
-                    }
+                        "minWidth": "Larghezza minima",
+                        "productStreamChoice": "Seleziona un gruppo dinamico di prodotti",
+                        "productStreamSorting": "Seleziona un ordinamento..."
+                    },
+                    "productAssignmentTypeOptions": {
+                        "manual": "Assegnazione manuale",
+                        "productStream": "Gruppo dinamico di prodotti"
+                    },
+                    "productStreamSortingOptions": {
+                        "nameAsc": "Nome crescente",
+                        "nameDesc": "Nome decrescente",
+                        "priceAsc": "Prezzo crescente",
+                        "priceDesc": "Prezzo decrescente",
+                        "creationDateAsc": "Data di creazione crescente",
+                        "creationDateDesc": "Data di creazione decrescente",
+                        "random": "Casuale"
+                    },
+                    "textProductStreamPreviewLink": "Anteprima gruppo dinamico di prodotti",
+                    "textProductStreamPerformanceHint": "Sei pregato di tenere a mente che: I gruppi dinamici di prodotti potrebbero avere un notevole impatto sulle prestazioni, in base alla complessità dei filtri del gruppo di prodotti e la quantità di cursori mostrati su una pagina."
                 }
             },
             "sidebarCategoryNavigation": {
@@ -4400,7 +4669,6 @@
         },
         "fileUpload": {
             "buttonFileUpload": "Carica plugin",
-            "titleUploadSuccess": "Plugin caricato",
             "messageUploadSuccess": "Il plugin è stato caricato.",
             "buttonRefreshPlugins": "Aggiorna la panoramica"
         },
@@ -4451,6 +4719,11 @@
             "messageDeleteSuccess": "Il plugin è stato cancellato con successo.",
             "messageUpdateSuccess": "Il plugin è stato aggiornato con successo.",
             "messageDeleteConfirm": "Sei sicuro di voler cancellare questo plugin?",
+            "titleUninstallConfirm": "Disinstalla plugin",
+            "messageUninstallConfirm": "Sei sicuro di voler disinstallare {pluginName}?",
+            "labelRemovePluginData": "Rimuovi permanentemente tutti i dati del plugin",
+            "helpTextRemovePluginData": "Attenzione: Tutti i dati del plugin saranno permanentemente rimossi. Questo processo è irreversibile.",
+            "labelUninstallButton": "Disinstalla",
             "deactivated": "Disattivato",
             "activated": "Attivato",
             "config": "Configurazione",
@@ -4837,7 +5110,9 @@
             "close": "Chiudi",
             "labelUploadCaption": "Seleziona un file da caricare",
             "variantsWarning": "<strong>Attenzione durante l’importazione delle varianti:</strong> Se le varianti devono essere importate direttamente in modo completo, dovresti importarle comunque. Utilizza un profilo che importa le impostazioni della varianti.<br/>Se non lo fai, le varianti devono essere create manualmente in modo separato tramite l’amministratore.",
-            "importVariants": "Importa varianti prodotto"
+            "importVariants": "Importa varianti prodotto",
+            "messageExportSuccess": "L'esportazione è stata completata correttamente.",
+            "messageExportError": "Si sono verificati degli errori durante l'importazione."
         },
         "page": {
             "profileTab": "Profili",
@@ -5083,12 +5358,11 @@
             "columnTitle": "Titolo",
             "placeholderSearchBar": "Sfoglia tutte le valutazioni...",
             "messageEmpty": "Ancora nessuna valutazione",
-            "messageEmptySubline": "Gestisci le valutazioni qui"
+            "messageEmptySubline": "Gestisci le valutazioni qui",
+            "titleSidebarItemRefresh": "Aggiorna"
         },
         "detail": {
             "textHeadline": "Valutazione",
-            "buttonCancel": "Interrompi",
-            "buttonSave": "Salva",
             "cardTitleReviewInfo": "Valutazione",
             "cardTitleReviewProperties": "Proprietà",
             "labelTitle": "Titolo",
@@ -5106,7 +5380,6 @@
             "labelComment": "Commento",
             "labelCustomer": "Cliente",
             "titleCardComment": "Commento",
-            "messageSaveSuccess": "La valutazione \"{name}\" è stata salvata con successo.",
             "placeholderComment": "Inserisci commento...",
             "review1PointRatingText": "Insoddisfacente",
             "review2PointRatingText": "Accettabile",
@@ -5198,7 +5471,80 @@
             "textHeadline": "Prodotti",
             "description": "Gestione delle impostazioni per i prodotti.",
             "buttonSave": "Salva",
-            "messageSaveSuccess": "La configurazione è stata salvata con successo."
+            "messageSaveSuccess": "La configurazione è stata salvata con successo.",
+            "messageSaveError": "Si è verificato un errore salvando la configurazione.",
+            "labelDefaultSorting": "Ordinamento predefinito",
+            "placeholderDefaultSorting": "Seleziona un ordinamento predefinito...",
+            "productSortingCriteriaGrid": {
+                "header": {
+                    "name": "Nome",
+                    "order": "Ordine",
+                    "priority": "Priorità"
+                },
+                "options": {
+                    "criteriaAlreadyUsed": "L'opzione \"{criteriaName}\" è già in uso.",
+                    "label": {
+                        "product": {
+                            "name": "Nome del prodotto",
+                            "ratingAverage": "Valutazione media",
+                            "productNumber": "Numero prodotto",
+                            "releaseDate": "Data di rilascio",
+                            "stock": "Magazzino prodotto",
+                            "listingPrices": "Prezzo in listino del prodotto",
+                            "unitsSold": "Unità vendute",
+                            "isCloseout": "Svendita"
+                        },
+                        "customField": "Campo personalizzato",
+                        "_score": "_score"
+                    }
+                }
+            }
+        },
+        "index": {
+            "productSorting": {
+                "title": "Opzioni di ordinamento",
+                "addButton": "Aggiungi opzione",
+                "messageDeleteError": "Non si sono verificati errori eliminando l'opzione di ordinamento",
+                "emptyState": {
+                    "title": "Nessun opzione trovata",
+                    "subline": "Crea opzioni"
+                },
+                "grid": {
+                    "header": {
+                        "name": "Nome",
+                        "criteria": "Criteri",
+                        "priority": "Priorità"
+                    }
+                }
+            },
+            "deleteModal": {
+                "title": "Elimina opzione di ordinamento",
+                "description": "Sei sicuro di voler eliminare quest'opzione di ordinamento?"
+            }
+        },
+        "create": {
+            "smartBarTitle": "Crea ordinamento del prodotto"
+        },
+        "base": {
+            "smartBarTitle": "Modifica ordinamento del prodotto",
+            "general": {
+                "title": "Generale",
+                "labelName": "Nome",
+                "labelActive": "Attivo"
+            },
+            "notification": {
+                "saveSuccess": "Opzione di ordinamento \"{sortingOptionName}\" salvata correttamente.",
+                "saveError": "Si è verificato un errore salvando l'opzione di ordinamento \"{sortingOptionName}\"."
+            },
+            "criteria": {
+                "title": "Opzioni di ordinamento",
+                "selectPlaceholder": "Cerca ed aggiungi criteri...",
+                "emptyStateSubline": "Nessun criterio ancora definito per quest'opzione di ordinamento."
+            },
+            "delete": {
+                "modalTitle": "Elimina criterio",
+                "modalDescription": "Sei sicuro di voler eliminare questo criterio?"
+            }
         }
     },
     "sw-users-permissions": {
@@ -5207,7 +5553,8 @@
         },
         "roles": {
             "general": {
-                "labelCreateNewRole": "Nuova regola"
+                "labelCreateNewRole": "Nuova regola",
+                "cardLabel": "Ruoli"
             },
             "role-grid": {
                 "labelName": "Nome",
@@ -5236,7 +5583,8 @@
                 "permissions": "Autorizzazioni"
             },
             "grid": {
-                "title": "Autorizzazioni"
+                "title": "Autorizzazioni",
+                "disabledCheckboxMessage": "Per disabilitare quest'opzione, devi prima disabilitare altre opzioni attive."
             },
             "additional-permissions": {
                 "title": "Calcoli aggiuntivi"
@@ -5247,7 +5595,8 @@
                 "mainMenuItemGeneral": "Utente e diritti",
                 "placeholderSearchBar": "Trova utenti...",
                 "labelUserList": "Utente e diritti",
-                "labelCreateNewUser": "Nuovo utente"
+                "labelCreateNewUser": "Nuovo utente",
+                "cardLabel": "Utenti"
             },
             "user-grid": {
                 "labelUsername": "Nome utente",
@@ -5306,6 +5655,7 @@
                 "addAccessKey": "Nuova chiave di accesso",
                 "labelAccessKey": "Chiave di accesso",
                 "labelPermissions": "Autorizzazioni",
+                "disabledRoleSelectWarning": "I ruoli sono disponibili solo per gli utenti che non sono \"amministratori\".",
                 "modal": {
                     "detailModalTitle": "Crea integrazione",
                     "detailModalTitleEdit": "Modifica",

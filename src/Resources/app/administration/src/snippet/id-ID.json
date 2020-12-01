@@ -1,12 +1,13 @@
 {
     "global": {
         "error-codes": {
-            "c1051bb4-d103-4f74-8988-acbcafc7fdc3": "Nilai ini tidak seharusnya kosong",
+            "c1051bb4-d103-4f74-8988-acbcafc7fdc3": "Nilai ini tidak boleh kosong.",
             "INVALID_MEDIA_URL": "Silahkan masukkan URL valid untuk mengupload berkas.",
             "CONTENT__MISSING_RULE_TYPE_EXCEPTION": "Anda harus memilih tipe untuk aturan ini.",
-            "SHOPWARE_INVALID_IP": "Harap masukkan alamat IP yang valid",
-            "INVALID_URL": "Harap masukkan url yang valid",
+            "SHOPWARE_INVALID_IP": "Sila masukkan alamat IP yang valid.",
+            "INVALID_URL": "Sila masukkan url yang valid.",
             "DELIVERY_TIME_MIN_INVALID": "Nilai minimum tidak seharusnya lebih tinggi dari nilai maksimum.",
+            "DUPLICATED_PRODUCT_EXPORT_FILE_NAME": "Nama file ini sudah digunakan. Sila pilih yang lain.",
             "DUPLICATED_SNIPPET_KEY": "Potongan sudah ada untuk {key}. silahkan pilih nama baru.",
             "PROMOTION_VALID_UNTIL_VIOLATION": "Tanggal kadaluarsa promosi seharusnya di atur setelah mulai promosi.",
             "PROMOTION_DISCOUNT_MAX_VALUE_VIOLATION": "Nilai potongan harga tidak boleh lebih dari {value}.",
@@ -24,20 +25,27 @@
             "delete": "Hapus",
             "edit": "Sunting",
             "error": "Kesalahan",
+            "warning": "Peringatan",
             "save": "Simpan",
             "success": "Berhasil",
             "info": "Info",
             "yes": "Ya",
-            "no": "Tidak"
+            "no": "Tidak",
+            "confirm": "Konfirmasi",
+            "view": "Tampilkan",
+            "ascending": "Urut Atas",
+            "descending": "Urut Turun"
         },
         "notification": {
             "notificationSaveErrorMessage": "Kesalahan terjadi ketika menyimpan entitas \"{entityName}\".",
+            "notificationSaveErrorMessageRequiredFieldsInvalid": "Sila isi semua kolom yang diwajibkan.",
             "unspecifiedSaveErrorMessage": "Terjadi kesalahan.",
-            "notificationSaveSuccessMessage": "Entitas \"{entityName} \"telah disimpan."
+            "notificationSaveSuccessMessage": "Entitas \"{entityName} \"telah disimpan.",
+            "messageDeleteSuccess": "\"{name}\" telah berhasil dihapus."
         },
         "notification-center": {
             "title": "Notifikasi",
-            "emptyText": "Tidak ada yang di tampilkan.",
+            "emptyText": "Tidak ada hal baru yang terjadi.",
             "deleteModal": {
                 "title": "Hapus notifikasi",
                 "textConfirm": "Apakah anda yakin ingin menghapus semua notifikasi?"
@@ -45,8 +53,26 @@
             "worker-listener": {
                 "thumbnailGeneration": {
                     "title": "Menghasilkan thumbnails",
-                    "message": "Tidak ada thumbnail tersisa.| Satu thumbnail tersisa.| {n} thumbnail tersisa.",
+                    "message": "Tidak ada thumbnail tersisa. | Satu thumbnail tersisa... | {n} thumbnail tersisa...",
                     "messageSuccess": "Thumbnail sudah di hasilkan."
+                },
+                "dalIndexing": {
+                    "message": "Seluruh data telah terindeks. | Mengindeks data.",
+                    "messageSuccess": "Indeks telah selesai."
+                },
+                "warmupIndexing": {
+                    "message": "Cache dipersiapkan.| Satu halaman tersisa... | Sekitar {n} halaman tersisa...",
+                    "messageSuccess": "Cache telah siap."
+                },
+                "category": {
+                    "title": "Kategori pengindeksan",
+                    "message": "Kategori telah terindeks. | Satu kategori tersisa... | {n} kategori tersisa...",
+                    "messageSuccess": "Kategori telah terindeks."
+                },
+                "media": {
+                    "title": "Mengindeks media",
+                    "message": "Media telah terindeks. | Satu media tersisa ... | {n} media tersisa...",
+                    "messageSuccess": "Media telah terindeks."
                 }
             },
             "plugin-updates-listener": {
@@ -62,8 +88,9 @@
         "sw-admin-menu": {
             "linkLogout": "Keluar",
             "linkMinimizeMenu": "Minimalkan menu",
-            "textShopwareAdmin": "Administrasu Shopware",
+            "textShopwareAdmin": "Administrasi Shopware",
             "textProjectName": "Administrasi",
+            "administrator": "Administrator",
             "navigation": {
                 "mainMenuItemCatalogue": "Katalog",
                 "mainMenuItemContent": "Konten",
@@ -73,8 +100,11 @@
         "entity-components": {
             "deleteMessage": "Anda yakin ingin menghapus item ini? |\nAnda yakin ingin menghapus {count} item?",
             "deleteTitle": "Hapus entri",
-            "placeholderToManyAssociationCard": "Mencari asosiasi",
-            "labelRemoveAssociation": "Menghapus asosiasi"
+            "labelRemoveAssociation": "Menghapus asosiasi",
+            "productStreamPreview": {
+                "emptyMessageNoProducts": "Produk tidak ditemukan",
+                "emptyMessageNoSearchResults": "Produk tidak ditemukan untuk \"{term}\""
+            }
         },
         "sw-field": {
             "notification": {
@@ -96,14 +126,13 @@
             "buttonChoose": "Pilih berkas",
             "notification": {
                 "invalidFileType": {
-                    "title": "Tidak mendukung jenis berkas",
                     "message": "Berkas terpilih \"{name}\" memiliki format yang tidak didukung. Silahkan gunakan sayu dari jenis berikut: {supportedTypes}."
                 },
                 "invalidFileSize": {
-                    "title": "Ukuran berkas melewati limit unggahan",
                     "message": "Berkas yang terpilih \"{name}\" terlalu besar untuk di upload. Ukuran berkas tidak boleh melebihi {limit}."
                 }
-            }
+            },
+            "caption": "Seret berkas untuk diunggah"
         },
         "sw-price-field": {
             "labelPriceGross": "Harga(gross)",
@@ -186,17 +215,24 @@
                 "mediaAndFolder": "Hapus folder dan berkas media"
             },
             "deleteMessage": {
-                "media": "Anda yakin ingin menghapus \"{name}\"?|\nAnda yakin ingin menghapus {count} item media?",
+                "media": "Apakah anda yakin ingin menghapus \"{name}\"? | Apakah anda yakin ingin menghapus {count} berkas media?",
                 "folder": "Apakah anda yakin ingin menghapus \"{name} \"?<br> semua subfolder dan yang berisi item media akan dihapus juga.| Apakah anda yakin ingin menghapus{count} folder? <br>semua subfolder dan yang berisi item media akan dihapus juga.",
                 "mediaAndFolder": "Apakah anda yakin ingin menghapus {mediaCount} item media dan {folderCount} folder?<br> Semua subfolder dan semua item media didalamnya akan terhapus juga."
             },
-            "mediaQuickInfoMessage": "Berkas media saat ini masih digunakan dan dihubungkan sebagai berikut",
+            "mediaQuickInfoMessage": "Nama berkas media ini sudah digunakan",
             "mediaInUsagesMessage": "Berkas media berikut sedang digunakan",
             "notification": {
                 "errorSingle": {
                     "message": {
                         "media": "Kesalahan menghapus berkas \"{name}\".",
                         "folder": "Kesalahan menghapus folder \"{name}\"."
+                    }
+                },
+                "successOverall": {
+                    "message": {
+                        "media": "Tidak ada berkas yang dihapus. | Berkas telah dihapus. | {count} / {total} berkas telah dihapus.",
+                        "folder": "Tidak ada folder yang dihapus. | Folder telah terhapus. | {count} / {total} folder telah terhapus.",
+                        "mediaAndFolder": "Tidak ada berkas atau folder yang terhapus. | Berkas atau folder telah terhapus. | {count} / {total} berkas atau folder telah terhapus."
                     }
                 },
                 "errorOverall": {
@@ -209,7 +245,6 @@
             }
         },
         "sw-media-modal-folder-dissolve": {
-            "titleModal": "Buka foder",
             "dissolveMessage": "Anda yakin ingin membuka {folderName}?| Anda yakin ingin mrmbuka {count} folder?",
             "buttonDissolve": "Memutus",
             "notification": {
@@ -241,8 +276,17 @@
             "labelNewFile": "Unggah berkas"
         },
         "sw-duplicated-media-v2": {
+            "titleModal": "Berkas sudah ada",
+            "description": "Berkas dengan nama \"{fileName}\" sudah ada.",
+            "buttonReplace": "Timpa berkas",
+            "buttonRename": "Ubah nama berkas",
+            "buttonSkip": "Lewati berkas",
+            "labelSaveSelection": "Simpan bagian dan terapkan ke {count} lainnya.",
             "labelOptionReplace": "Unggah dan ganti",
-            "labelOptionRename": "Unggah dan namai kembali"
+            "labelOptionRename": "Unggah dan namai kembali",
+            "labelOptionSkip": "Lewati berkas",
+            "labelOldFile": "Berkas yang ada",
+            "labelNewFile": "Berkas yang diunggah"
         },
         "sw-media-modal-move": {
             "titleModal": "Pindah \"{mediaName}\"| Pindah {count} item",
@@ -263,7 +307,7 @@
             }
         },
         "sw-media-modal-replace": {
-            "titleModal": "Mengganti berkas media",
+            "titleModal": "Timpa berkas media",
             "buttonUpload": "Unggah",
             "buttonReplace": "Mengganti",
             "warningFileExtension": "Berkas baru memiliki berkas ekstensi berbeda ({extension}). Berkas mungkin perlu untuk membuat ulang indeks oleh mesin pencari."
@@ -273,6 +317,11 @@
             "fallbackAudioTagSupport": "Peramban anda tidak mendukung tag audio",
             "textNoMedia": "Tidak ada media tersedia"
         },
+        "sw-media-preview-v2": {
+            "fallbackVideoTagSupport": "Browser anda tidak mendukung tag video",
+            "fallbackAudioTagSupport": "Browser anda tidak mendukung tag audio",
+            "textNoMedia": "Tidak ada media yang tersedia"
+        },
         "sw-media-upload": {
             "buttonFileUpload": "Unggah berkas",
             "buttonUrlUpload": "Unggah berkas dari URL",
@@ -281,31 +330,48 @@
             "buttonOpenMedia": "Media terbuka",
             "notification": {
                 "success": {
-                    "title": "Unggah media",
                     "message": "Tidak ada berkas disimpan.| Berkas telah disimpan.|{count}/{total} berkas telah disimpan."
                 },
                 "failure": {
                     "message": "Kesalahan saat mengunggah berkas."
                 },
                 "illegalFilename": {
-                    "title": "Nama berkas tidak valid",
                     "message": "Nama berkas \"{fileName}\" berisi karakter tidak valid."
+                },
+                "illegalFileUrl": {
+                    "title": "URL tidak valid",
+                    "message": "Tidak diperbolehkan untuk mengunggah dari URL lokal."
                 }
             },
             "caption": "Tetapkan berkas disini untuk diunggah"
         },
         "sw-media-upload-v2": {
+            "buttonFileUpload": "Unggah berkas",
+            "buttonUrlUpload": "Unggah berkas dari URL",
+            "buttonSwitchToFileUpload": "Unggah berkas dari komputer anda",
+            "buttonSwitchToUrlUpload": "Unggah berkas dari url",
+            "buttonOpenMedia": "Buka media",
             "notification": {
+                "success": {
+                    "title": "Unggah media",
+                    "message": "Tidak ada berkas yang disimpan. | Berkas berhasil disimpan. | {count} / {total} telah berhasil disimpan."
+                },
                 "failure": {
                     "message": "Kesalàhan saat memuat berkas."
+                },
+                "illegalFilename": {
+                    "title": "Nama Berkas Tidak Valid",
+                    "message": "Nama berkas \"{fileName}\" berisi karakter yang tidak valid."
                 }
-            }
+            },
+            "caption": "Seret berkas untuk diunggah"
         },
         "sw-media-url-form": {
             "title": "Unggah berkas dari URL",
             "upload": "Unggah",
             "example": "https://www.example.com",
-            "labelFileExtension": "Ekstensi berkas"
+            "labelFileExtension": "Ekstensi berkas",
+            "missingFileExtension": "URL tidak memiliki ekstensi berkas. Sila masukkan ekstensi berkas tersebut di bawah ini."
         },
         "sw-media-modal-folder-settings": {
             "labelSettings": "Pengaturan",
@@ -327,7 +393,8 @@
                     "message": "Kesalahan saat menyimpan pengaturan."
                 }
             },
-            "labelDefaultFolder": "Untuk lokasi default:"
+            "labelDefaultFolder": "Untuk lokasi default:",
+            "placeholderDefaultFolder": "Pilih lokasi yang ditentukan..."
         },
         "sw-media-add-thumbnail-form": {
             "labelMaximumSize": "Ukuran maksimal"
@@ -338,6 +405,9 @@
             "labelLoadMore": "Memuat lebih banyak item"
         },
         "sw-media-list-selection-item": {
+            "buttonRemove": "Hapus"
+        },
+        "sw-media-list-selection-item-v2": {
             "buttonRemove": "Hapus"
         },
         "sw-select": {
@@ -352,6 +422,21 @@
         },
         "sw-multi-select": {
             "messageNoResults": "Tidak ada hasil ditemukan untuk\"{term}\"."
+        },
+        "sw-multi-tag-select": {
+            "enterValidData": "Sila masukkan nilai yang valid",
+            "addData": "Tambahkan entri baru"
+        },
+        "sw-multi-tag-ip-select": {
+            "enterValidIp": "Harap masukkan alamat IPv4 atau IPv6 yang valid",
+            "addIpAdress": "Tambahkan alamat IP",
+            "knownIps": {
+                "you": "Anda"
+            }
+        },
+        "sw-multi-ip-select": {
+            "enterValidIp": "Harap masukkan alamat IPv4 atau IPv6 yang valid",
+            "addIpAdress": "Tambahkan alamat IP"
         },
         "sw-entity-multi-select": {
             "messageNoResults": "Tidak ada hasil ditemukan untuk\"{term}\"."
@@ -380,14 +465,21 @@
         "sw-search-more-results": {
             "labelShowResultsInModule": "Tampilkan hasil di modul ({count})"
         },
+        "sw-tagged-field": {
+            "text-default-placeholder": "Tekan enter untuk menambahkan nilai."
+        },
         "sw-condition": {
             "operator": {
+                "lowerThanEquals": "Kurang dari / sama dengan",
                 "equals": "Adalah sama dengan",
+                "greaterThanEquals": "Lebih besar dari / sama dengan",
                 "lowerThan": "Kurang dari",
                 "greaterThan": "Lebih besar dari",
                 "notEquals": "Tidak sama dengan",
                 "isOneOf": "Salah satu dari",
-                "isNoneOf": "Tidak ada"
+                "isNoneOf": "Tidak ada",
+                "gross": "Gros",
+                "net": "Net"
             },
             "placeholderErrorMessage": "Placeholder tidak dapat disimpan.",
             "dataErrorMessage": "Kolom yang diperlukan tidak diisi.",
@@ -398,19 +490,21 @@
                 },
                 "placeholder": "Kondisi pencarian...",
                 "orderCountRule": "Menghitung pesanan",
-                "salesChannelRule": "Saluran penjualan",
                 "currencyRule": "Mata uang",
                 "billingCountryRule": "Negara tagihan",
                 "billingStreetRule": "Jalan tagihan",
+                "billingZipCodeRule": "Kode pos penagihan",
                 "customerGroupRule": "Kelompok pelanggan",
+                "customerTagRule": "Tag pembeli",
                 "customerNumberRule": "Nomor pelanggan",
                 "differentAddressesRule": "Alamat berbeda",
-                "isNewCustomerRule": "Pelanggan baru",
+                "isNewCustomerRule": "Pembeli baru",
                 "lastNameRule": "Nama belakang",
                 "isCompanyRule": "Pelanggan bisnis",
                 "daysSinceLastOrderRule": "Hari sejak pesanan terakhir",
                 "shippingCountryRule": "Negara pengirim",
                 "shippingStreetRule": "Jalan pengiriman",
+                "shippingZipCodeRule": "Kode pos pengiriman",
                 "cartAmountRule": "Jumlah keranjang",
                 "goodsCountRule": "Hitung barang",
                 "goodsPriceRule": "Harga bagus",
@@ -422,7 +516,6 @@
                 "lineItemRule": "Item baris",
                 "lineItemsInCartRule": "Baris item di keranjang",
                 "lineItemsInCartCountRule": "Hitung baris item di keranjang",
-                "lineItemUnitPriceRule": "Harga satuan baris item",
                 "lineItemTotalPriceRule": "Harga total baris item",
                 "lineItemWithQuantityRule": "Baris item dengan kuantitas",
                 "yes": "Ya",
@@ -448,7 +541,10 @@
                 "timeRangeRule": "Rentang waktu",
                 "weightOfCartRule": "Berat bagan",
                 "dayOfWeekRule": "Hari dalam minggu",
-                "lineItemTagRule": "Tag item baris"
+                "lineItemTagRule": "Tag item baris",
+                "lineItemOfManufacturerRule": "Manufaktur",
+                "paymentMethodRule": "Metode pembayaran",
+                "shippingMethodRule": "Metode pengiriman"
             }
         },
         "sw-product-image": {
@@ -506,7 +602,6 @@
             "rule": "Aturan | aturan",
             "rule_condition": "Kondisi | kondisi",
             "sales_channel": "Jalur penjualan | jalur penjualan",
-            "sales_channel_type": "Tipe jalur penjualan | tipe jalur penjualan",
             "salutation": "Salam | salam",
             "seo_url": "SEO URL | SEO URL",
             "shipping_method": "Metode pengiriman | metode pengiriman",
@@ -515,7 +610,9 @@
             "theme": "Tema",
             "unit": "Satuan",
             "user": "Pengguna",
-            "delivery_time": "Waktu pengiriman"
+            "delivery_time": "Waktu pengiriman",
+            "import_export_profile": "Impor/Ekspor Profil | Impor/Ekspor Profil",
+            "feature_set": "Template | Template"
         },
         "day-of-week": {
             "monday": "Senin",
@@ -536,13 +633,41 @@
             "buttonVariantSecondary": "Sekunder",
             "buttonVariantPrimarySmall": "Utama(kecil)",
             "buttonVariantSecondarySmall": "Sekunder (kecil)",
+            "placeholder": "Masukkan URL...",
             "linkTo": "Tautan ke",
             "insert": "Masukkan"
         },
         "table": {
             "addHeading": "Tambah judul tabel",
             "cols": "Kolom",
-            "rows": "Baris"
+            "rows": "Baris",
+            "editInfo": "Tabel masih dapat diperluas nanti."
+        },
+        "title": {
+            "format": "Format",
+            "paragraph": "Paragraf",
+            "h1": "Judul 1",
+            "h2": "Judul 2",
+            "h3": "Judul 3",
+            "h4": "Judul 4",
+            "h5": "Judul 5",
+            "h6": "Judul 6",
+            "text-color": "Warna teks",
+            "bold": "Tebal",
+            "italic": "Cetak miring",
+            "underline": "Garis bawah",
+            "strikethrough": "Coret",
+            "superscript": "Tulisan di atas",
+            "subscript": "Tulisan di bawah",
+            "textAlign": "Perataan teks",
+            "alignLeft": "Rata kiri",
+            "alignCenter": "Rata tengah",
+            "alignRight": "Rata kanan",
+            "justify": "Rata kiri-kanan",
+            "link": "Tautan",
+            "undo": "Urungkan",
+            "redo": "Ulangi",
+            "insert-table": "Masukan tabel"
         }
     },
     "sw-tree": {
@@ -559,7 +684,6 @@
             }
         },
         "modal": {
-            "modalTitleDelete": "Hapus elemen",
             "textDeleteConfirm": "Anda yakin ingin menghapus elemen {name}?",
             "textDeleteMultipleConfirm": "Anda yakin ingin menghapus {count}\" elemen yang dipilih?",
             "textDeleteChildrenConfirm": "Semua sub kategori akan terhapus juga."
@@ -580,8 +704,13 @@
     },
     "sw-property-assignment": {
         "columnGroup": "Properti",
+        "columnOptions": "Nilai",
         "messageEmptyTitle": "Belum ada properti",
         "messageEmptySubline": "Untuk menambahkan properti, kunjungi modul properti."
+    },
+    "sw-language-info": {
+        "infoTextChildLanguage": "\"{entityDescription}\" ditampilkan dengan konten berbahasa <span>\"{language}\"</span>, diambil dari",
+        "infoTextNewEntity": "\"{entityDescription}\" ditampilkan dengan bahasa yang ditetapkan oleh sistem. Selalu memperbarui data baru di dalam bahasa terpilih yang ditetapkan oleh sistem."
     },
     "sw-language-switch": {
         "messageModalUnsavedChanges": "Ada perubahan yang tidak disimpan dalam bahasa saat ini. Anda ingin menyimpannya sekarang?",
@@ -594,12 +723,12 @@
     "sw-license-violation": {
         "title": "Peringatan plugin(s)",
         "reload": "Muat ulang",
-        "alert-text": "Kami mendeteksi sebuah pelanggaran lisensi untuk paling tidak satu dari plugin anda pada instalasi ini. Untuk memperbaiki pelanggaran lisensi dan menghindari konsekuensi hukum, pesanlah plugin berlangganan setelah atau membeli/menyewa plugin(tergantung pada jenis pelanggaran). Anda tidak menggunakan plugin lagi? Hapus secara lengkap dari Plugin Manager. Jika tidak ada tindakan yang diambil, Shopware A G berhak untuk membeli untuk pelanggaran lisensi.",
-        "delete-plugin": "Hapus plugin secara permanen",
-        "message-delete-confirm": "Anda ingin menghapus plugin {pluginName}?",
-        "checkbox-message": "Saya telah menerima pesan ini sebagai pemberitahuan",
-        "close-modal": "Menutup notifikasi",
-        "ignore-plugin": "Abaikan secara permanen",
+        "alertText": "Kami mendeteksi pelanggaran lisensi dari salah satu plugin di instalasi anda. Untuk memperbaiki hal ini dan menghindari konsekuensi hukum, pesan langganan plugin atau beli/sewa plugin (sesuai dengan jenis pelanggaran). Apakah anda tidak ingin menggunakan plugin ini lagi? Sila hapus melalui Pengelola Plugin. Jika hal ini tidak dilakukan, shopware AG reserves memiliki hak untuk memberikan biaya hukuman untuk setiap pelanggaran lisensi.",
+        "deletePlugin": "Hapus plugin secara permanen",
+        "messageDeleteConfirm": "Apakah anda ingin menghapus seluruh plugin \"{pluginName}\"?",
+        "checkboxMessage": "Saya telah melihat pesan ini dan sadar akan adanya konsekuensi.",
+        "closeModal": "Tutup notifikasi",
+        "ignorePlugin": "Abaikan secara permanen",
         "table": {
             "plugin": "Plugin",
             "warning": "Peringatan"
@@ -614,8 +743,7 @@
     "sw-config-form-renderer": {
         "placeholder": "Silahkan isi di {name}...",
         "option": "Tidak ada label ditetapkan untuk lokal {locale}...",
-        "configLoadErrorMessage": "Kesalahan ditemukan saat memuat konfigurasi: | Ada kesalahan memuat konfigurasi:",
-        "configLoadErrorTitle": "Kesalahan memuat konfigurasi."
+        "configLoadErrorMessage": "Kesalahan ditemukan saat memuat konfigurasi: | Ada kesalahan memuat konfigurasi:"
     },
     "locale": {
         "de-DE": "Jerman",
@@ -631,7 +759,8 @@
         "labelPriority": "Prioritas",
         "placeholderPriority": "Prioritaskan aturan ini...",
         "messageSaveSuccess": "Aturan {name} telah disimpan.",
-        "messageSaveError": "Kesalahan terjadi saat menyimpan aturan {name}."
+        "messageSaveError": "Kesalahan terjadi saat menyimpan aturan {name}.",
+        "ruleCard": "Kondisi"
     },
     "sw-select-rule-create": {
         "addNewRule": "Buat aturan baru..."
@@ -640,6 +769,7 @@
         "title": "Pintasan keyboard",
         "iconTooltip": "Tekan {key} untuk melihat daftar pintasan",
         "modalTitle": "Pintasan keyboard",
+        "sectionAddingItems": "Menambahkan Item",
         "sectionNavigation": "Navigasi",
         "sectionSpecialShortcuts": "Pintasan khusus",
         "function": "Fungsi",
@@ -656,6 +786,7 @@
         "keyboardShortcutAddProperties": "A P R",
         "functionAddManufacturer": "Tambah manufaktur",
         "keyboardShortcutAddManufacturer": "A M",
+        "functionAddRule": "Tambahkan aturan",
         "keyboardShortcutAddRule": "A R",
         "keyboardShortcutAddSaleschannel": "A S",
         "functionGoToDashboard": "Pergi ke dasbor",
@@ -676,11 +807,13 @@
         "keyboardShortcutGoToCustomers": "G U",
         "functionGoToShoppingExperience": "Pergi ke pengalaman belanja",
         "keyboardShortcutGoToShoppingExperience": "G E",
+        "functionGoToMedia": "Buka media",
         "keyboardShortcutGoToMedia": "G M E",
         "functionGoToPromotion": "Pergi ke promosi",
         "keyboardShortcutGoToPromotion": "G P O",
         "functionGoToNewsletterRecipients": "Pergi ke penerima newslatter",
         "keyboardShortcutGoToNewsletterRecipients": "G N",
+        "functionGoToSettingsListing": "Buka pengaturan",
         "keyboardShortcutGoToSettingsListing": "G S",
         "functionGoToSnippets": "Pergi ke potongan",
         "keyboardShortcutGoToSnippets": "G S N",
@@ -714,7 +847,119 @@
     },
     "sw-maintain-currencies-modal": {
         "title": "Harga tergantung mata uang",
-        "columnPrice": "Harga (kotor/bersih)"
+        "columnPrice": "Harga (kotor/bersih)",
+        "columnListPriceHeader": "Daftar harga (gros / net)"
+    },
+    "sw-privileges": {
+        "tooltip": {
+            "warning": "Anda tidak memiliki izin yang cukup."
+        },
+        "permissions": {
+            "customer": {
+                "label": "Pelanggan"
+            },
+            "delivery_times": {
+                "label": "Waktu pengiriman"
+            },
+            "property": {
+                "label": "Properti"
+            },
+            "country": {
+                "label": "Negara"
+            },
+            "number_ranges": {
+                "label": "Kisaran Angka"
+            },
+            "currencies": {
+                "label": "Mata uang"
+            },
+            "media": {
+                "label": "Media"
+            },
+            "integration": {
+                "label": "Integrasi"
+            },
+            "order": {
+                "label": "Lainnya"
+            },
+            "product_stream": {
+                "label": "Grup produk dinamis"
+            },
+            "payment": {
+                "label": "Metode pembayaran"
+            },
+            "document": {
+                "label": "Dokumen"
+            },
+            "category": {
+                "label": "Kategori"
+            },
+            "product_manufacturer": {
+                "label": "Manufaktur"
+            },
+            "custom_field": {
+                "label": "Kolom khusus"
+            },
+            "customer_groups": {
+                "label": "Grup pelanggan"
+            },
+            "product": {
+                "label": "Produk"
+            },
+            "shipping": {
+                "label": "Pengiriman"
+            },
+            "cms": {
+                "label": "Shopping Experiences"
+            },
+            "language": {
+                "label": "Bahasa"
+            },
+            "promotion": {
+                "label": "Promosi"
+            },
+            "review": {
+                "label": "Ulasan"
+            },
+            "parents": {
+                "catalogues": "Katalog",
+                "content": "Isi",
+                "customers": "Pelanggan",
+                "marketing": "Pemasaran",
+                "other": "Lainnya",
+                "orders": "Pesanan",
+                "settings": "Pengaturan"
+            },
+            "users_and_permissions": {
+                "label": "Pengguna dan Izin"
+            }
+        },
+        "additional_permissions": {
+            "system": {
+                "core_update": "Jalankan pembaruan",
+                "plugin_maintain": "Pelihara plugin",
+                "clear_cache": "Hapus cache",
+                "label": "Sistem"
+            },
+            "marketing": {
+                "send_newsletter": "Kirimkan buletin",
+                "label": "Pemasaran"
+            },
+            "orders": {
+                "create_discounts": "Buat diskon",
+                "label": "Pesanan"
+            }
+        },
+        "roles": {
+            "all": "Semua",
+            "viewer": "Tampilkan",
+            "editor": "Sunting",
+            "creator": "Buat",
+            "deleter": "Hapus"
+        }
+    },
+    "sw-rating-stars": {
+        "ratingTooltipText": "bintang {actual} dari {max}"
     },
     "sw-customer": {
         "notification": {
@@ -726,19 +971,37 @@
             "mainMenuItemAdd": "Tambah pelanggan",
             "descriptionTextModule": "Kelola pelanggan di sini.",
             "placeholderSearchBar": "Mencari pelanggan",
-            "newCustomer": "Pelanggan baru"
+            "newCustomer": "Pelanggan baru",
+            "tooltipLanguageSwitch": "Pilihan bahasa dinonaktifkan karena tidak ada bagian yang dapat diterjemahkan."
+        },
+        "customerGroupRegistration": {
+            "alert": "Akses ke grup pelanggan \"{name}\" telah diminta.",
+            "accept": "Terima",
+            "acceptMessage": "Grup pelanggan telah diubah",
+            "decline": "Tolak",
+            "declineMessage": "Permohonan telah ditolak",
+            "errorMessage": "Tidak bisa memproses permintaan",
+            "notification": {
+                "title": "Permintaan status pedagang",
+                "message": "Pelanggan \"{name}\" meminta akses ke grup \"{groupName}\".",
+                "openCustomer": "Buka pelanggan"
+            }
         },
         "card": {
             "placeholderTitle": "Judul",
             "placeholderFirstName": "Nama depan",
             "placeholderLastName": "Nama belakang",
             "placeholderCompany": "Perusahaan",
+            "placeholderEmail": "Alamat surel",
+            "placeholderNewPassword": "Masukkan kata sandi baru...",
+            "placeholderNewPasswordConfirm": "Masukkan lagi kata sandi baru...",
             "labelTitle": "Judul",
             "labelFirstName": "Nama depan",
             "labelLastName": "Nama belakang",
             "labelCompany": "Perusahaan",
             "labelEmail": "Email",
-            "labelTags": "Tag"
+            "labelTags": "Tag",
+            "labelGuest": "Akun tamu"
         },
         "list": {
             "textCustomers": "Pelanggan",
@@ -746,31 +1009,37 @@
             "buttonAddCustomer": "Tambah pelanggan",
             "columnCustomerNumber": "Nomor pelanggan",
             "columnName": "Nama",
+            "columnGroup": "Grup Pelanggan",
+            "columnGroupRequested": "Permintaan",
+            "columnNameGuestLabel": "Akun tamu",
             "columnFirstName": "Nama depan",
             "columnLastName": "Nama belakang",
             "columnStreet": "Jalan",
+            "columnZip": "Kode pos",
             "columnCity": "Kota",
-            "columnEmail": "Email",
+            "columnEmail": "Alamat surel",
             "columnLastLogin": "Login terakhir",
             "columnActions": "Tindakan(s)",
+            "columnAffiliateCode": "Kode Afiliasi",
             "contextMenuView": "Lihat",
             "contextMenuDelete": "Hapus",
             "contextMenuDuplicate": "Duplikat",
             "contextMenuEdit": "Sunting",
             "messageEmpty": "Belum jadi pelanggan",
-            "modalTitleDelete": "Hapus pelanggan",
             "textDeleteConfirm": "Anda yakin ingin menghapus pelanggan {name}?",
             "buttonCancel": "Batal",
             "buttonDelete": "Hapus",
             "titleSidebarItemRefresh": "Segarkan",
-            "titleSidebarItemFilter": "Saring"
+            "titleSidebarItemFilter": "Saring",
+            "titleSidebarItemFilterAffiliateCode": "Kode Afiliasi",
+            "titleSidebarItemFilterRequestedGroup": "Hanya tampilkan permintaan grup pelanggan"
         },
         "baseForm": {
             "labelSalutation": "Salam",
             "labelTitle": "Judul",
             "labelFirstName": "Nama depan",
             "labelLastName": "Nama belakang",
-            "labelEmail": "Email",
+            "labelEmail": "Alamat surel",
             "labelPhoneNumber": "Nomor telepon",
             "labelCompany": "Perusahaan",
             "labelCustomerGroup": "Kelompok pelanggan",
@@ -779,10 +1048,21 @@
             "labelCustomerNumber": "Nomor pelanggan",
             "labelBirthday": "Tanggal lahir",
             "labelPassword": "Kata sandi",
+            "placeholderPassword": "Masukkan kata sandi...",
             "helpTextPassword": "Setelah menyimpan kata sandi pelanggan hanya bisa diubah secara langsung oleh pelanggan.",
-            "labelTags": "Tags"
+            "placeholderSalutation": "Pilih...",
+            "placeholderTitle": "Masukkan judul...",
+            "placeholderFirstName": "Masukkan nama depan...",
+            "placeholderLastName": "Masukkan nama belakang...",
+            "placeholderEmail": "Masukkan alamat surel...",
+            "placeholderCustomerNumber": "Masukkan nomor pelanggan...",
+            "placeholderCustomerGroup": "Sila pilih grup pelanggan...",
+            "placeholderPaymentMethod": "Sila pilih metode pembayaran...",
+            "labelTags": "Tags",
+            "placeholderTags": "Pilih tag..."
         },
         "baseInfo": {
+            "contactEmail": "Alamat surel",
             "labelCustomerNumber": "Nomor pelanggan",
             "labelCustomerGroup": "Kelompok pelanggan",
             "labelBirthday": "Tanggal lahir",
@@ -816,7 +1096,6 @@
             "buttonDelete": "Hapus",
             "modalTitleAddress": "Alamat",
             "modalTitleEditAddress": "Edit alamat",
-            "modalTitleDeleteAddress": "Hapus alamat",
             "textDeleteAddressConfirm": "Anda yakin ingin menghapus alamat ini?",
             "columnDefaultShippingAddress": "Alamat pengiriman default",
             "columnDefaultBillingAddress": "Alamat tagihan default",
@@ -863,8 +1142,6 @@
             "buttonEdit": "Edit/sunting",
             "tabGeneral": "Umum",
             "tabAddresses": "Alamat",
-            "titleSaveError": "Kesalahan",
-            "titleSaveSuccess": "Berhasil",
             "messageSaveError": "Pelanggan tidak dapat dihapus.",
             "messageSaveSuccess": "Pelanggan \"{name}\" sudah dihapus."
         }
@@ -872,7 +1149,7 @@
     "sw-settings-tax": {
         "general": {
             "mainMenuItemGeneral": "Pajak",
-            "taxRateSymbol": "%"
+            "taxRateSymbol": "&#037;"
         },
         "list": {
             "textHeadline": "Pajak",
@@ -881,29 +1158,36 @@
             "buttonAddTax": "Tambah pajak",
             "contextMenuEdit": "Edit/sunting",
             "contextMenuDelete": "Hapus",
-            "modalTitleDelete": "Hapus pajak",
-            "titleDeleteSuccess": "Berhasil",
             "messageDeleteSuccess": "Pajak\"{name}\" sudah dihapus.",
             "buttonCancel": "Batal",
             "buttonDelete": "Hapus"
         },
         "detail": {
-            "textHeadline": "Pajak baru",
             "titleCard": "Pengaturan",
             "labelName": "Nama",
             "placeholderName": "Masukkan nama...",
             "placeholderDefaultTaxRate": "Masukkan peringkat default...",
             "buttonCancel": "Batal",
             "buttonSave": "Simpan",
-            "notificationErrorTitle": "Kesalahan"
+            "messageSaveSuccess": "Tarif pajak telah tersimpan."
         },
         "taxRuleCard": {
+            "tooltipCountries": "Jika semua negara yang tersedia tidak terlihat, ketik di nama untuk mengakses negara yang tidak ditampilkan. Negara dapat dibuat atau disunting pada Penyuntingan/Negara.",
             "labelTaxRate": "Peringkat",
+            "labelAppliesOn": "Berlaku untuk",
             "labelCountryName": "Negara",
             "cardTitle": "Negara negara",
+            "searchBarPlaceholder": "Cari negara...",
             "labelCreateNew": "Tambah negara",
             "labelCancel": "Batal",
-            "labelStates": "Kondisi"
+            "labelStates": "Kondisi",
+            "labelZipCode": "Kode pos",
+            "labelFromZipCode": "Dari...",
+            "labelToZipCode": "Ke...",
+            "emptyStateDescription": "Tambahkan tarif pajak individual untuk masing-masing negara.",
+            "createStateDescription": "Simpan tarif pajak ini, lalu tambahkan negara lainnya.",
+            "textDeleteConfirm": "Apakah anda yakin ingin menghapus negara ini: \"{name}\"?",
+            "placeholderStates": "Tambahkan negara bagian..."
         }
     },
     "sw-settings-delivery-time": {
@@ -912,7 +1196,8 @@
             "description": "Pengaturan modul untuk pengelolaan waktu pengiriman",
             "buttonCancel": "Batal",
             "buttonCreate": "Tambah waktu pengiriman",
-            "buttonSave": "Simpan"
+            "buttonSave": "Simpan",
+            "placeholder": "Cari seluruh waktu pengiriman..."
         },
         "list": {
             "textHeadline": "Waktu pengiriman",
@@ -951,8 +1236,9 @@
             "headlineForm": "Masuk ke toko Shopware",
             "labelUsername": "Nama pengguna",
             "labelPassword": "Kata sandi",
+            "placeholderUsername": "Masukkan nama pengguna anda...",
+            "placeholderPassword": "Masukkan kata sandi anda...",
             "buttonLogin": "Masuk",
-            "titleErrorMessage": "Kesalahan",
             "messageUnsupportedGrantType": "Otorisasi jenis hibah tidak didukung oleh otorisasi server.",
             "messageInvalidRequest": "Permintaan tidak valid.",
             "messageInvalidClient": "Otentifikasi klien gagal.",
@@ -962,41 +1248,67 @@
             "messageInvalidRefreshToken": "Token penyegaran tidak valid.",
             "messageAccessDenied": "Permintaan ditolak oleh otorisasi server.",
             "messageInvalidGrant": "Otorisasi hibah atau penyegaran token tidak valid.",
-            "messageGeneralRequestError": "Sesuatu permintaan yang salah {url}."
+            "messageGeneralRequestError": "Sesuatu permintaan yang salah {url}.",
+            "forgottenPasswordLink": "Lupa kata sandi?"
         },
         "recovery": {
             "info": {
                 "headline": "Kembali ke login",
-                "info": "Jika anda memasukkan alamat email yang valid, anda akan menerima kata sandi pemulihan mail dalam beberapa menit.",
-                "warning": "Tolong perhatikan, bahwa tautan pemulihan hanya valid selama 2 jam kedepan."
+                "info": "Jika alamat surel yang dimasukkan benar, anda akan mendapatkan surat pemulihan kata sandi dalam beberapa menit.",
+                "warning": "Mohon ingat tautan pemulihan hanya berlaku selama 2 jam saja."
             },
             "recovery": {
                 "headline": "Pemulihan kata sandi",
+                "newPasswordField": {
+                    "label": "Masukkan kata sandi anda yang baru..."
+                },
+                "passwordConfirmField": {
+                    "label": "Masukkan kembali kata sandi anda yang baru..."
+                },
                 "submit": {
                     "label": "Pembaharuan kata sandi"
                 },
                 "errorMessage": "Tautan pemulihan anda telah kadaluarsa atau tidak valid!"
             },
             "headline": "Pemulihan kata sandi",
+            "text": "Masukkan alamat surel anda yang terhubung dengan akun anda.",
             "email": {
-                "label": "Alamat email:"
+                "label": "Alamat email:",
+                "placeholder": "shop@example.com"
             },
-            "error": {
-                "passwordUpdateTitle": "Ada kesalahan pembaharuan kata sandi anda:"
-            }
+            "submit": "Kirim tautan pemulihan"
         }
     },
     "sw-settings-shopware-updates": {
         "general": {
+            "menuTitle": "Pembaruan Shopware",
+            "title": "Perbaruan Shopware ({version})",
+            "emptyTitle": "Pembaruan Shopware",
+            "emptyState": "Anda telah memiliki versi yang terbaru.",
             "checkForUpdates": "Periksa pembaharuan",
             "currentVersion": "versi saat ini:"
         },
         "cards": {
+            "info": "Ada yang baru?",
             "requirements": "Persyaratan sistem",
-            "plugins": "Kompatibel plugin"
+            "plugins": "Kompatibel plugin",
+            "updating": "Memperbarui..."
+        },
+        "notifications": {
+            "updateStarted": "Pembaruan dimulai.",
+            "updateStopped": "Pembaruan berhenti.",
+            "downloadFailed": "Unduhan gagal.",
+            "deactivationFailed": "Tidak dapat menonaktifkan plugin.",
+            "alreadyUpToDate": "Anda telah menggunakan versi yang terbaru."
         },
         "infos": {
-            "startUpdate": "Mulai pembaharuan"
+            "backupCheckboxLabel": "Saya telah membuat cadangan dan ingin menjalankan pembaruan sekarang.",
+            "startUpdate": "Mulai pembaharuan",
+            "requirementsNotMet": "Tidak semua persyaratan sistem terpenuhi.",
+            "progress": {
+                "download": "Mengunduh berkas pembaruan...",
+                "deactivate": "Menonaktifkan plugin..."
+            }
         },
         "requirements": {
             "columns": {
@@ -1005,7 +1317,9 @@
             },
             "message": {
                 "writeableCheckValid": "Direktori dan berkas berikut bisa ditulis: <br/>{checkedDirectories}",
-                "writeableCheckFailed": "Direktori dan berkas berikut tidak dapat di tulis:<br>{failedDirectories}"
+                "writeableCheckFailed": "Direktori dan berkas berikut tidak dapat di tulis:<br>{failedDirectories}",
+                "validShopwareLicense": "Versi Shopware anda yang sekarang telah kadaluarsa. Sila anda memperbarui ke versi yang terbaru.",
+                "invalidShopwareLicense": "Tidak ada langganan Shopware yang ditemukan.<br>Pembaruan otomatis tidak dapat dilakukan.<br>Silahkan membeli langganan Shopware melalui <a target=\"_blank\" href=\"https://account.shopware.com\">halaman akun Shopware.</a>"
             },
             "ready": "Siap",
             "notReady": "Todak siap"
@@ -1018,8 +1332,11 @@
             "actions": {
                 "openPluginManager": "Buka plugin manager",
                 "deactivateAll": "Nonaktifkan semua plugin.",
+                "deactivateIncompatible": "Nonaktifkan plugin yang tidak cocok.",
+                "deactivateNone": "Saya mengetahui bahaya tidak langsung dan tetap ingin memperbarui Shopware tanpa menonaktifkan plugin yang tidak cocok terlebih dahulu. Saya sadar bahwa Shopware tidak dapat menanggung kegunaan instalasi saya setelah pembaruan yang tidak cocok.",
                 "recommended": "(Direkomendasikan)"
             },
+            "pluginNotInStore": "Plugin ini tidak tersedia di toko. Sila hubungi pembuat plugin.",
             "pluginWillBeDeactivatedHint": "(Plugin ini akan dinonaktifkan pada pembaharuan)"
         },
         "updateModal": {
@@ -1027,7 +1344,11 @@
                 "cancel": "Batal",
                 "install": "Pasang",
                 "goToUpdate": "Buka pembaharuan wizard"
-            }
+            },
+            "messageIncompatible": "Beberapa plugin yang terinstal tidak cocok dengan versi Shopware yang terbaru. Jika anda melanjutkan pembaruan sekarang, akan terjadi masalah yang tidak diketahui dan merusak sistem anda. Shopware dapat menonaktifkan plugin yang tidak cocok secara otomatis selama proses pembaruan untuk memastikan kelanjutan kegunaan instalasi anda. Setelah memperbarui plugin tersebut, kemungkinan anda harus mengaktifkannya kembali secara manual.",
+            "messageNotInStore": "Terdapat plugin yang terinstal yang tidak berhasil dites kecocokannya. Sila hubungi pembuat plugin untuk informasi selanjutnya. Dalam hal ini, sangat direkomendasikan untuk membuat cadangan sebelum memperbarui.",
+            "messageUpdateCheck": "Versi anda saat ini dapat diperbarui ke versi {version}. Apakah yang anda ingin lakukan?",
+            "backupLabel": "Iya, saya telah membuat cadangan."
         }
     },
     "sw-property": {
@@ -1040,6 +1361,7 @@
             "textProperties": "Properti properti",
             "buttonAddProperty": "Tambah",
             "columnName": "Properti",
+            "columnFilterable": "Tampilkan saringan produk",
             "contextMenuView": "Edit/sunting",
             "contextMenuDelete": "Hapus",
             "titleSidebarItemRefresh": "Menyegarkan",
@@ -1047,21 +1369,25 @@
             "columnDescription": "Deskripsi",
             "buttonCancel": "Batal",
             "buttonDelete": "Hapus",
-            "modalTitleDelete": "Properti",
             "textDeleteConfirm": "Anda yakin benar benar ingin menghapus properti\"{name}\"?"
         },
         "detail": {
             "mediaDisplayType": "Gambar",
             "textDisplayType": "Teks",
+            "colorDisplayType": "Warna",
             "numericSortingType": "Numerik",
             "alphanumericSortingType": "Alpanumerik",
             "positionSortingType": "Pengaturan sendiri",
             "cardTitleGroupInfo": "Informasi dasar",
             "labelName": "Nama",
             "placeholderName": "Masukkan nama...",
+            "labelFilterable": "Tampilkan saringan produk",
             "labelSortingType": "Sortir",
             "labelOptionName": "Nama",
+            "labelOptionColor": "Warna",
             "labelOptionMedia": "Gambar",
+            "labelPosition": "Posisi",
+            "placeholderPosition": "Berikan peringkat untuk grup ini...",
             "placeholderOptionName": "Masukkan nama...",
             "labelOptionPosition": "Posisi",
             "addMediaCaption": "Gunakan media",
@@ -1073,11 +1399,38 @@
             "buttonSave": "Simpan",
             "labelDescription": "Deskripsi",
             "placeholderDescription": "Masukkan deskripsi...",
+            "addOption": "Tambah nilai",
             "contextMenuOptionResetDelete": "Mengembalikan",
-            "titleSaveSuccess": "Berhasil",
+            "textOptionHeadline": "Nilai baru",
             "messageSaveSuccess": "Properti \"{name}\"telah disimpan.",
-            "titleSaveError": "Kesalahan",
-            "messageSaveError": "Properti \"{name}\"tidak bisa disimpan"
+            "messageSaveError": "Properti \"{name}\"tidak bisa disimpan",
+            "labelMediaUpload": "Gambar yang telah ditetapkan"
+        }
+    },
+    "sw-settings-cache": {
+        "general": {
+            "mainMenuItemGeneral": "Cache & Indeks"
+        },
+        "toolbar": {
+            "environmentDev": "Pengembangan",
+            "environmentProd": "Produksi",
+            "httpCache": "Cache HTTP",
+            "httpCacheOff": "Mati",
+            "httpCacheOn": "Menyala"
+        },
+        "section": {
+            "clearCachesHeadline": "Hapus cache",
+            "clearCachesButton": "Hapus cache"
+        },
+        "notifications": {
+            "clearCache": {
+                "started": "Menghapus cache.",
+                "success": "Seluruh cache telah dihapus.",
+                "error": "Tidak dapat menghapus cache ."
+            }
+        },
+        "modal": {
+            "title": "Hapus Cache"
         }
     },
     "sw-first-run-wizard": {
@@ -1095,12 +1448,17 @@
         "welcome": {
             "modalTitle": "Selamat datang",
             "headlineWelcome": "Selamat datang di Shopware 6 Administration",
-            "messageWelcome": "Setup wizard memandu anda melalui pengaturan sangat penting dan memberi anda tip berharga untuk konfigurasi.<br> apakah anda ingin menggunakan toko anda dalam berbagai bahasa dan menjangkau pelanggan di negara lain? maka anda cukup memasang paket bahasa yang diinginkan disini.",
             "headlineChangeLanguage": "Pasang plugin bahasa tambahan",
-            "switchLanguageModalTitle": "Pilih bahasa antar muka anda",
             "confirmLanguageSwitch": "Ganti bahasa",
             "cancelLanguageSwitch": "Batal",
-            "switchLanguageMessage": "Plugin bahasa anda \"{pluginName}\" telah berhasil terpasang. Apakan anda ingin mengubah bahasa antarmuka?"
+            "switchLanguageMessage": "\"{pluginName}\" telah berhasil diinstal. Apakah anda ingin mengubah bahasa antarmuka anda?",
+            "pluginsInstalled": "Plugin telah terinstal | Plugin telah terinstal",
+            "pluginsInstalledMessage": "Bahasa plugin yang telah terinstal: | Bahasa plugin telah terinstal: ",
+            "pluginNotFoundMessage": "Bahasa plugin {languageName} tidak dapat ditemukan.",
+            "pluginInstallationFailedMessage": "Plugin tidak dapat diinstal: ",
+            "pluginActivationFailedMessage": "Plugin tidak dapat diaktifkan: ",
+            "tryAgainLater": "Sila coba lagi nanti.",
+            "noConnectionMessage": "Sepertinya terdapat masalah koneksi, bahasa ini tidak dapat diinstal."
         },
         "dataImport": {
             "modalTitle": "Mulai Shopware 6",
@@ -1108,15 +1466,15 @@
             "messageDemoData": "Mulai mengeksplor Shopware 6 dengan menambahkan pengaturan dari demo data. Demo data memberikan kesan dari toko yang bekerja penuh, tetapi harus digunakan hanya untuk tujuan pengujian saja.",
             "buttonInstallDemoData": "Pasang demo data",
             "headlineMigration": "Migrasikan data toko anda",
-            "messageMigration": "Migration Asisstant membantu anda untuk menghubungkan dan mengirim data dari sistem toko sebelumnya ke lingkungan Shopware 6 anda yang baru.",
-            "buttonInstallMigration": "Pasang Migration Asisstant",
+            "messageMigration": "Migration Assistant membantu anda untuk menghubungkan dan mengirim data dari sistem belanja sebelumnya langsung ke tampilan Shopware 6 baru anda.",
+            "buttonInstallMigration": "Instal Migration Assistant",
             "loadingMessage": "Pasang plugin<br>ini mungkin memerlukan waktu..."
         },
         "mailerSelection": {
             "headline": "Membangun komunikasi email",
             "modalTitle": "Konfigurasi Mailer",
-            "description": "Komunikasi dengan pelanggan adalah faktor kunci dalam e-commerce sehari hari. konsekuensinya, pengaturan skema mailing harus di coret dari daftar anda sesegera mungkin.",
-            "chooseSubline": "Pilih agen surat pilihan anda.",
+            "description": "Berkomunikasi dengan pelanggan adalah kunci utama dalam ecommerce sehari-hari. Oleh karena itu, mengatur skema pengiriman surat seharusnya dicoret dari daftar anda segera.",
+            "chooseSubline": "Pilih agen surel pilihan anda.",
             "localOption": "Gunakan agen lokal email",
             "localOptionHelptext": "Opsi ini menggunakan sistem dafault mailer (sendmail) anda. Pastikan Sendmail bekerja tersedia dilingkungan hosting milik anda.",
             "localOptionSubline": "(Sendmail)",
@@ -1126,6 +1484,9 @@
         },
         "mailerSmtp": {
             "headline": "SMTP server"
+        },
+        "mailerLocal": {
+            "headline": "Agen surel lokal"
         },
         "paypalInfo": {
             "modalTitle": "Setup PayPal",
@@ -1145,7 +1506,7 @@
         "recommendedPlugins": {
             "headline": "Rekomendasi kami",
             "modalTitle": "Plugin",
-            "message": "Di sini anda akan menemukan pilihan dari tambahan yang berguna bagi toko anda. Pertama pilih wilayah yang relevan untuk anda. Kemudian anda bisa melihat- lihat kategori yang berbeda.",
+            "message": "Ini adalah pilihan dari sambungan yang berguna untuk toko anda. Pertama, pilih bagian yang relevan untuk anda. Lalu anda dapat menelusuri berbagai kategori yang berbeda.",
             "availableInRegion": "Tersedia di wilayah",
             "category": "Kategori",
             "topRecommendations": "Rekomendasi teratas",
@@ -1153,17 +1514,22 @@
         },
         "shopwareAccount": {
             "headline": "Akun Shopware",
+            "passwordPlaceholder": "Masukkan kata sandi...",
+            "idPlaceholder": "Masukkan ID Shopware...",
             "modalTitle": "Shopware",
-            "message": "Daftar sekarang dengan Shopware ID anda. Ini akan memberikan anda akses untuk membeli plugin dan lisensi.<br><br> Dengan Shopware ID anda bisa masuk ke platform Shopware yang lain seperti <a href=\"https://store.shopware.com/en\" class=\"external-link\" target=\"_blank\">komunitas toko</a>,<a href=\"https://forum.shopware.com\" class=\"external-link\" target=\"_blank\">forum</a>atau personal anda<a href=\"https://account.shopware.com/\" class=\"external-link\" target=\"_blank\">akun Shopware</a>.",
-            "registerAccountText": "Anda belum punya Shopware ID? Ayo daftar secara langsung",
+            "message": "Buat akun ID Shopware anda sekarang agar anda mendapatkan akses untuk membeli plugin dan lisensi.<br><br>Dengan ID Shopware, anda dapat masuk ke berbagai platform Shopware seperti <a href=\"https://store.shopware.com/en\" class=\"external-link\" target=\"_blank\">Toko Komunitas</a>, <a href=\"https://forum.shopware.com\" class=\"external-link\" target=\"_blank\">forum</a> atau <a href=\"https://account.shopware.com/\" class=\"external-link\" target=\"_blank\">akun Shopware personal anda</a>.",
+            "registerAccountText": "Apakah anda belum memiliki ID Shopware? Buat akun sekarang juga!",
             "registerAccountHere": "di sini",
-            "registerAccountUrl": "https://account.shopware.com/register?Lang=en",
+            "registerAccountUrl": "https://account.shopware\nCom/register?\nLang=en",
             "forgotPasswordText": "Lupa kata sandi?",
-            "forgotPasswordUrl": "https://account.shopware.com/recovery?Lang=en"
+            "forgotPasswordUrl": "https://account.shopware.com/recovery?\nLang=en"
+        },
+        "error": {
+            "messageLoginDataInvalid": "Kredensial masuk salah, sila coba lagi."
         },
         "shopwareDomain": {
             "headline": "Verifikasi domain anda",
-            "message": "Dengan domain apa anda ingin menautkan toko ini? Pilih domain yang tepat atau buat baru.",
+            "message": "Domain mana yang anda ingin sambungkan ke toko ini? Pilih domain yang valid atau buat domain baru.",
             "labelCreateDomain": "Buat sebuah domain toko baru",
             "testEnvironment": "Uji lingkungan"
         },
@@ -1204,8 +1570,6 @@
             "buttonAddCountry": "Tambah negara",
             "contextMenuEdit": "Edit/sunting",
             "contextMenuDelete": "Hapus",
-            "modalTitleDelete": "Hapus negara",
-            "titleDeleteSuccess": "Berhasil",
             "messageDeleteSuccess": "Negara\"{name}\"sudah di hapus.",
             "buttonCancel": "Batal",
             "buttonDelete": "Hapus"
@@ -1213,9 +1577,7 @@
         "detail": {
             "textHeadline": "Negara baru",
             "titleCard": "Pengaturan",
-            "titleSaveSuccess": "Berhasil",
             "messageSaveSuccess": "Negara\"{name}\"sudah di simpan.",
-            "titleSaveError": "Kesalahan",
             "messageSaveError": "Negara\"{name}\" tidak bisa di simpan.",
             "labelName": "Nama",
             "labelPosition": "Posisi",
@@ -1225,6 +1587,7 @@
             "labelShippingAvailable": "Pengiriman tersedia",
             "labelTaxFree": "Bebas pajak",
             "labelForceStateInRegistration": "Negara yang di perlukan saat pendaftaran",
+            "placeholderName": "Masukkan nama...",
             "placeholderPosition": "1",
             "placeholderIso3": "Masukkan kode alpa-3 ISO...",
             "buttonCancel": "Batal",
@@ -1258,8 +1621,6 @@
             "buttonAddNumberRange": "Tambah kisaran angka",
             "contextMenuEdit": "Edit/sunting",
             "contextMenuDelete": "Hapus",
-            "modalTitleDelete": "Hapus kisaran angka",
-            "titleDeleteSuccess": "Berhasil",
             "messageDeleteSuccess": "Kisaran angka\"{name}\"sudah di hapus.",
             "buttonCancel": "Batal",
             "buttonDelete": "Hapus",
@@ -1269,9 +1630,7 @@
             "textHeadline": "Kisaran angka baru",
             "configCard": "Pengaturan",
             "assignmentCard": "Tugas",
-            "titleSaveSuccess": "Berhasil",
             "messageSaveSuccess": "Kisaran angka\"{name}\"sudah di simpan.",
-            "titleSaveError": "Kesalahan",
             "messageSaveError": "Kisaran angka\"{name}\" tidak di simpan.",
             "labelName": "Nama",
             "labelDescription": "Deskripsi",
@@ -1289,14 +1648,11 @@
             "placeholderPrefix": "Masukkan awalan...",
             "placeholderSuffix": "Masukkan akhiran...",
             "placeholderPattern": "Masukkan pola...\"awalan_{n}_akhiran\"",
+            "placeholderStart": "Masukkan nomor awal...",
             "placeholderPleaseSelect": "Silahkan pilih...",
             "placeholderSimpleModeImpossible": "Mode aktif lanjutan",
             "buttonCancel": "Batal",
-            "buttonSave": "Simpan",
-            "errorSalesChannelNeededTitle": "Tidak ada jalur penjualan di pilih!",
-            "errorSalesChannelNeededMessage": "Silahkan pilih paling tidak satu jalur penjualan.",
-            "errorPatternNeededTitle": "Tidak ada pola ditetapkan!",
-            "errorPatternNeededMessage": "Silahkan tetapkan paling tidak sebuah nilai awal."
+            "buttonSave": "Simpan"
         }
     },
     "sw-settings-currency": {
@@ -1316,8 +1672,6 @@
             "buttonAddCurrency": "Tambah mata uang",
             "contextMenuEdit": "Edit/sunting",
             "contextMenuDelete": "Hapus",
-            "modalTitleDelete": "Hapus mata uang",
-            "titleDeleteSuccess": "Mata uang",
             "messageDeleteSuccess": "Mata uang\"{name}\"telah dihapus.",
             "buttonCancel": "Batal",
             "buttonDelete": "Hapus"
@@ -1327,7 +1681,6 @@
             "labelPrecision": "Desimal",
             "placeholderPrecision": "Masukkan nomor desimal untuk ditampilkan...",
             "titleCard": "Pengaturan",
-            "titleSaveSuccess": "Berhasil",
             "messageSaveSuccess": "Mata uang\"{name}\"telah di simpan.",
             "labelName": "Nama",
             "labelIsoCode": "Kode ISO",
@@ -1341,7 +1694,6 @@
             "placeholderFactor": "Masukkan faktor konversi...",
             "buttonCancel": "Batal",
             "buttonSave": "Simpan",
-            "notificationErrorTitle": "Kesalahan",
             "notificationErrorMessage": "Kesalahan terjadi saat menyimpan mata uang anda."
         }
     },
@@ -1352,7 +1704,6 @@
             "placeholderSearchBar": "Mencari folder saat ini...",
             "notification": {
                 "urlCopied": {
-                    "title": "Berhasil",
                     "message": "URL sudah di salin ke papan klip."
                 }
             }
@@ -1396,6 +1747,11 @@
                 "tooltipFoundInProducts": "Temukan pada produk",
                 "tooltipFoundInCategories": "Temukan pada kategori",
                 "tooltipFoundInManufacturers": "Temukan pada manufaktur",
+                "tooltipFoundInMailTemplate": "Ditemukan di template surat",
+                "tooltipFoundInDocument": "Ditemukan di Dokumen",
+                "tooltipFoundInUser": "Ditemukan di Pengguna",
+                "tooltipFoundInPayment": "Ditemukan di Pembayaran",
+                "tooltipFoundShipping": "Ditemukan di Pengiriman",
                 "titleMediaNotUsed": "Media tidak di gunakan",
                 "labelMediaNotUsed": "Item media ini saat ini tidak di gunakan."
             }
@@ -1411,8 +1767,8 @@
         },
         "sorting": {
             "labelSort": "Sortir dengan:",
-            "labelSortByNameAsc": "Nama, asc.",
-            "labelSortByNameDsc": "Nama, desc.",
+            "labelSortByNameAsc": "Nama, A-Z",
+            "labelSortByNameDsc": "Nama, Z-A",
             "labelSortBySizeAsc": "Ukuran, asc.",
             "labelSortBySizeDsc": "Ukuran, desc.",
             "labelSortByCreatedAsc": "Tanggal pembuatan, asc.",
@@ -1431,6 +1787,13 @@
             "labelTabItemUpload": "Unggah berkas",
             "labelButtonCancel": "Batal",
             "labelButtonSaveSelection": "Tambah media"
+        },
+        "sw-media-modal-v2": {
+            "titleModal": "Pilih media",
+            "labelTabItemLibrary": "Pustaka Media",
+            "labelTabItemUpload": "Berkas yang diunggah",
+            "labelButtonCancel": "Batal",
+            "labelButtonSaveSelection": "Tambahkan media"
         }
     },
     "sw-integration": {
@@ -1469,11 +1832,8 @@
             "permissions": "Izin",
             "readAccessFieldLabel": "Baca(default)",
             "writeAccessFieldLabel": "Menulis(opsional)",
-            "titleSaveSuccess": "Brhasil",
             "messageSaveSuccess": "Integrasi telah di simpan.",
-            "titleSaveError": "Kesalahan",
             "messageSaveError": "Integrasi tidak bisa di simpan.",
-            "titleCreateNewError": "Kesalahan",
             "messageCreateNewError": "Integrasi tidak bisa di simpan."
         }
     },
@@ -1483,9 +1843,7 @@
             "description": "Ubah pengaturan sitemap di sini.",
             "textHeadline": "Sitemap",
             "buttonSave": "Simpan",
-            "titleSaveSuccess": "Berhasil",
-            "messageSaveSuccess": "Konfigurasi telah di simpan.",
-            "titleSaveError": "Konfigurasi tidak bisa di simpan"
+            "messageSaveSuccess": "Konfigurasi telah di simpan."
         }
     },
     "sw-settings-store": {
@@ -1494,14 +1852,19 @@
             "textHeadline": "Akun Shopware",
             "description": "Ubah pengaturan akun Shopware anda disini.",
             "buttonSave": "Simpan",
-            "titleSaveSuccess": "Berhasil",
-            "messageSaveSuccess": "Informasi akun Shopware anda sudah disimpan.",
-            "titleSaveError": "Kesalahan"
+            "messageSaveSuccess": "Informasi akun Shopware anda sudah disimpan."
         },
         "detail": {
             "titleCard": "Pengaturan",
             "labelHost": "Domain lisensi",
             "placeholderHost": "Masukkan domain lisensi(domain toko), ditentukan di akun Shopware anda."
+        }
+    },
+    "sw-privilege-error": {
+        "general": {
+            "mainMenuItemGeneral": "Akses ditolak",
+            "descriptionTextModule": "Sepertinya anda tidak mendapatkan izin untuk mengakses halaman ini. Sila hubungi administrator untuk mendapatkan akses.",
+            "goBack": "Kembali"
         }
     },
     "sw-settings-cart": {
@@ -1510,9 +1873,7 @@
             "textHeadline": "Pengaturan keranjang",
             "description": "Kelola pengaturan keranjang di sini.",
             "buttonSave": "Simpan",
-            "titleSaveSuccess": "Kinfigurasi di simpan",
-            "messageSaveSuccess": "Konfigurasi telah di simpan.",
-            "titleSaveError": "Konfigurasi tidak bisa di simpan"
+            "messageSaveSuccess": "Konfigurasi telah di simpan."
         }
     },
     "sw-settings-address": {
@@ -1521,9 +1882,7 @@
             "textHeadline": "Pengaturan alamat",
             "description": "Kelola pengaturan alamat di sini.",
             "buttonSave": "Simpan",
-            "titleSaveSuccess": "Berhasil",
-            "messageSaveSuccess": "Kinfigurasi telah simpan.",
-            "titleSaveError": "Konfigurasi tidak bisa di simpan"
+            "messageSaveSuccess": "Kinfigurasi telah simpan."
         }
     },
     "sw-newsletter-recipient": {
@@ -1539,9 +1898,7 @@
             "tags": "Tag"
         },
         "detail": {
-            "titleSaveSuccess": "Berhasil",
             "messageSaveSuccess": "Data untuk\"{key}\" telah di simpan.",
-            "titleSaveError": "Kesalahan",
             "messageSaveError": "Data untuk\"{key}\"tidak bisa di simpan."
         },
         "list": {
@@ -1555,6 +1912,7 @@
             "firstName": "Nama depan",
             "lastName": "Nama belakang",
             "salesChannel": "Jalur penjualan",
+            "zipCode": "Kode pos",
             "city": "Kota",
             "street": "Jalan",
             "notSet": "Aktivasi menunggu",
@@ -1568,7 +1926,8 @@
     },
     "sw-settings-logging": {
         "general": {
-            "mainMenuItemGeneral": "Pencatatan"
+            "mainMenuItemGeneral": "Pencatatan",
+            "placeholderSearchBar": "Cari log..."
         },
         "list": {
             "title": "Log",
@@ -1600,20 +1959,23 @@
     },
     "sw-dashboard": {
         "general": {
-            "mainMenuItemGeneral": "Dashboard"
+            "mainMenuItemGeneral": "Dashboard",
+            "descriptionTextModule": "Halaman utama administrasi, menampilkan informasi statistik dan sistem"
         },
         "introduction": {
             "headline": "Selamat datang di Shopware 6",
             "enduserDocumentation": "Dokumentasi pengguna",
-            "enduserDocumentationLink": "https://docs.shopware.com/en/shopware-6-en",
+            "enduserDocumentationLink": "https://docs.shopware.com/en/shopware 6-en",
             "developerDocumentation": "Dokumentasi pengembang",
-            "developerDocumentationLink": "https://docs.shopware.com/en/shopware-platform-dev-en",
+            "developerDocumentationLink": "https://docs.shopware.com/en/shopware platform-dev-en",
             "migrationDocumentation": "Dokumentasi migrasi",
             "migrationDocumentationLink": "https://docs.shopware.com/en/migration-en",
             "roadmapLink": "https://www.shopware.com/en/roadmap/",
-            "feedbackLink": "https://issues.shopware.com"
+            "feedback": "Umpan balik",
+            "feedbackLink": "https://issue.shopware.com"
         },
         "todayStats": {
+            "headline": "Statistik hari ini",
             "orders": "Pesanan",
             "turnover": "Pergantian",
             "orderTime": "Waktu"
@@ -1639,7 +2001,6 @@
             "columnTransactionState": "Status pembayaran",
             "columnDeliveryState": "Status pengiriman",
             "columnOrderNumber": "Nomor pesanan",
-            "columnSalesChannel": "Jalur penjualan",
             "orderDate": "Tanggal pesanan",
             "buttonAddOrder": "Tambah pesanan",
             "textOrders": "Pesanan",
@@ -1660,14 +2021,95 @@
             "textHeadline": "Pesanan",
             "textHeadlineNew": "Pesanan baru",
             "tabGeneral": "Secara umum",
-            "titleRecalculationError": "Kesalahan",
             "messageRecalculationError": "Kesalahan terjadi saat penghitungan harga:<br>",
-            "titleSaveError": "Kesalahan",
-            "messageSaveError": "Kesalahan terjadi selama penyimpanan",
-            "notification": {
-                "shippingNotAvailable": {
-                    "title": "Kesalahan",
-                    "message": "Pengiriman ke negara yang dipilih tidak mungkin"
+            "messageSaveError": "Kesalahan terjadi selama penyimpanan"
+        },
+        "create": {
+            "buttonSaveOrder": "Simpan pesanan",
+            "buttonCancelOrder": "Batalkan",
+            "messageSaveError": "Pesanan tidak dapat disimpan."
+        },
+        "createBase": {
+            "labelDetailsCard": "Rincian",
+            "detailsHeader": {
+                "textCustomer": "Pelanggan",
+                "placeholder": "Pilih pelanggan...",
+                "buttonAddNewCustomer": "Tambah pelanggan baru"
+            },
+            "detailsBody": {
+                "labelEmail": "Surel",
+                "labelPhoneNumber": "Nomor telepon",
+                "placeholderEmail": "Masukkan alamat surel...",
+                "placeholderPhoneNumber": "Masukkan nomor telepon...",
+                "labelBillingAddress": "Alamat tagihan",
+                "labelShippingAddress": "Alamat pengiriman",
+                "placeholder": "Pilih atau tambahkan pelanggan terlebih dahulu...",
+                "textIdentical": "Alamat penagihan dan pengiriman identik",
+                "buttonAddNewAddress": "Tambahkan alamat baru"
+            },
+            "detailsFooter": {
+                "labelPaymentMethod": "Metode pembayaran",
+                "labelShippingMethod": "Metode pengiriman",
+                "labelOrderLanguage": "Bahasa pesanan",
+                "labelCurrency": "Mata uang",
+                "placeholderPaymentMethod": "Pilih metode pembayaran...",
+                "placeholderShippingMethod": "Pilih metode pengiriman...",
+                "placeholderOrderLanguage": "Pilih bahasa pesanan...",
+                "placeholderCurrency": "Pilih mata uang..."
+            },
+            "cardTitleLineItems": "Item",
+            "placeholderSearchBarItem": "Cari item...",
+            "columnProductName": "Item",
+            "columnQuantity": "Jumlah",
+            "columnPriceNet": "Harga (net)",
+            "columnPriceGross": "Harga (gros)",
+            "columnTotalPriceNet": "Total",
+            "columnPrice": "Harga",
+            "columnTotalPrice": "Total",
+            "columnTotalPriceGross": "Subtotal",
+            "columnTax": "PPN",
+            "textCreditTax": "otomatis",
+            "taxDetail": "{taxRate}%: {tax}",
+            "contextMenuShowProduct": "Tampilkan produk",
+            "messageEmptyItem": "Belum ada item yang ditambahkan",
+            "buttonAddProduct": "Tambahkan produk",
+            "buttonAddBlankProduct": "Tambahkan item khusus",
+            "buttonAddCredit": "Tambah kredit",
+            "summaryLabelAmount": "Total",
+            "summaryLabelAmountWithoutTaxes": "Total diluar PPN",
+            "summaryLabelAmountTotal": "Total termasuk PPN",
+            "summaryLabelShippingCosts": "ditambah biaya pengiriman",
+            "discountLabelShippingCosts": "diskon biaya pengiriman",
+            "summaryLabelTaxes": "ditambah PPN {taxRate}%",
+            "tax": "Termasuk pajak:",
+            "shippingCostsTax": "{taxRate}%: {tax}",
+            "labelAddPromotion": "Tambahkan promosi",
+            "placeholderAddPromotion": "Masukkan kode promosi ...",
+            "textInvalidPromotionCode": "Kode promosi tidak valid",
+            "textPromotionDescription": {
+                "cart": {
+                    "percentage": "Diskon {value}% di keranjang belanja",
+                    "absolute": "Diskon {value} dalam keranjang belanja",
+                    "absoluteUpto": "Diskon sampai dengan {value}. (Diskon {totalPrice} dalam keranjang ini)",
+                    "fixed_unit": "{value} tetap untuk setiap produk secara spesifik dalam keranjang belanja"
+                },
+                "delivery": {
+                    "percentage": "Diskon {value}% untuk biaya pengiriman",
+                    "absolute": "Diskon {value} untuk biaya pengiriman",
+                    "fixed_unit": "{value} tetap untuk biaya pengiriman",
+                    "fixed": "{value} tetap untuk biaya pengiriman"
+                },
+                "set": {
+                    "percentage": "Diskon {value}% untuk set produk",
+                    "absolute": "Diskon {value} untuk set produk",
+                    "fixed_unit": "{value} tetap untuk setiap produk dari set produk",
+                    "fixed": "{value} tetap untuk setiap set produk"
+                },
+                "setgroup": {
+                    "percentage": "Diskon {value}% dalam set grup {groupId}",
+                    "absolute": "Diskon {value} dalam set grup {groupId}",
+                    "fixed_unit": "{value} tetap untuk setiap produk dalam set grup {groupId}",
+                    "fixed": "{value} tetap setiap set grup {groupId}"
                 }
             }
         },
@@ -1688,6 +2130,7 @@
             "summaryLabelAmountWithoutTaxes": "Total tidak termasuk VAT",
             "summaryLabelAmountTotal": "Total termasuk VAT",
             "summaryLabelShippingCosts": "tambah biaya pengiriman",
+            "discountLabelShippingCosts": "diskon biaya pengiriman",
             "summaryLabelTaxes": "tambah {taxRate}%VAT",
             "labelOrderStatus": "Status pesanan",
             "labelPaymentStatus": "Status pembayaran",
@@ -1710,18 +2153,24 @@
             "labelPaymentMethod": "Metode pembayaran",
             "labelShippingMethod": "Metode pengiriman",
             "labelPartnerCode": "Kode mitra",
+            "labelCustomerEmail": "Alamat surel",
             "labelNoDeliveriesYet": "Belum ada pengiriman",
             "labelNoDeliveryTrackingCodeYet": "Tidak ada",
             "labelLastChange": "Perubahan terakhir",
             "labelNoChangesYet": "Belum ada perubahan",
-            "labelTrackingCodes": "Lacak dan lacak kode (s)",
-            "labelAffiliateCode": "Kode-afiliasi",
-            "labelCampaignCode": "Kode-kampanye",
+            "labelTrackingCodes": "Lacak dan telusuri kode",
+            "labelAffiliateCode": "Kode Afiliasi",
             "buttonAddDeliveryAddress": "Tambah alamat baru",
+            "labelSameDeliveryAndBillingAddress": "Alamat tagihan / pengiriman identik",
             "buttonContinueOnVersionedOrder": "Memuat",
             "tax": "Termasuk pajak:",
             "shippingCostsTax": "{taxRate} % {tax}",
-            "placeholderTagSelect": "Mencari tag..."
+            "placeholderTagSelect": "Mencari tag...",
+            "placeholderTrackingCodeSelect": "Tambahkan kode pelacakan...",
+            "addTrackingCode": "Klik disini untuk menambahkan kode",
+            "enterValidTrackingCode": "Masukkan kode pelacakan",
+            "textCreditTax": "otomatis",
+            "taxDetail": "{taxRate}%: {tax}"
         },
         "detailDeliveries": {
             "cardTitleItems": "Pengiriman {count}",
@@ -1732,10 +2181,22 @@
             "buttonMerge": "Menggabungkan pesanan",
             "buttonDelete": "Hapus"
         },
+        "detailCustomerComment": {
+            "title": "Informasi tambahan"
+        },
         "addressSelection": {
             "modalTitleEditAddress": "Alamat",
+            "modalTitleSelectAddress": "Ganti alamat",
+            "modalTitleAddBillingAddress": "Tambahkan alamat tagihan baru",
+            "modalTitleEditBillingAddress": "Ganti alamat tagihan",
+            "modalTitleAddShippingAddress": "Tambahkan alamat pengiriman baru",
+            "modalTitleEditShippingAddress": "Ganti alamat pengiriman",
             "headlineTabEditAddress": "Edit alamat",
-            "headlineTabSelectAddress": "Pilih alamat"
+            "headlineTabSelectAddress": "Pilih alamat",
+            "headlineTabCreateAddress": "Tambah alamat",
+            "currentlySelected": "Dipilih saat ini",
+            "searchAddressToolbarPlaceholder": "Cari alamat...",
+            "emptySearchResults": "Tidak ada alamat ditemukan."
         },
         "leavePageModal": {
             "headline": "Peringatan",
@@ -1751,12 +2212,11 @@
             "labelLastEditedBy": "Diedit terakhir oleh",
             "labelSystemUser": "Sistem",
             "labelSelectStatePlaceholder": "Pilih status...",
-            "labelSelectStateButton": "Perbarui status dan kirim email",
-            "headlineErrorStateChange": "Kesalahan",
-            "labelErrorStateChange": "Kesalahan terjadi saat pembaruan status. Informasi tambahan:",
-            "labelErrorNoAction": "Saat ini status tidak valid.",
-            "labelNoTransactionState": "Belum ada transaksi",
-            "labelNoDeliveryState": "Belum ada prngiriman"
+            "labelSelectStateButton": "Perbarui status",
+            "labelSendMailSwitch": "Kirim surel ke pelanggan",
+            "labelErrorStateChange": "Terjadi eror ketika memperbarui status:",
+            "labelErrorNoAction": "Status tidak berubah.",
+            "labelNoTransactionState": "Belum ada transaksi"
         },
         "assignMailTemplateCard": {
             "cardTitle": "Menetapkan templat email",
@@ -1777,7 +2237,6 @@
             "labelType": "Jenis",
             "labelSent": "Kirim",
             "labelAttach": "Melampirkan",
-            "labelDownloadPdf": "Unduh sebagai PDF",
             "labelCreateNew": "Buat baru",
             "messageEmptyTitle": "Belum ada dokumen",
             "messageEmptySubline": "Kelola dokumen di sini."
@@ -1799,7 +2258,6 @@
             "labelPreview": "Pratinjau",
             "labelHighlightedItemsHeader": "Nama",
             "labelHighlightedItemsEntry": "Total",
-            "labelNoItems": "Tidal ada kredit",
             "fileInputLabel": "Unggah dokumen khusus"
         },
         "stateModal": {
@@ -1809,8 +2267,7 @@
     "sw-settings-units": {
         "general": {
             "mainMenuItemGeneral": "Satuan perbandingan",
-            "placeholderSearchBar": "Mencari satuan perbandingan...",
-            "createNewUnit": "Membuat satuan perbandingan baru"
+            "placeholderSearchBar": "Mencari satuan perbandingan..."
         },
         "grid": {
             "columnName": "Satuan perbandingan",
@@ -1822,9 +2279,7 @@
             "subline": "Kelola satuan perbandingan di sini."
         },
         "notification": {
-            "successTitle": "Berhasil",
             "successMessage": "Satuan perbandingan telah di simpan.",
-            "errorTitle": "Kesalahan",
             "errorMessage": "Satuan perbandingan tidak bisa fi simpan. Silahkan isi semua persyaratan di kolom."
         }
     },
@@ -1834,9 +2289,7 @@
             "description": "Ubah informasi dasar di sini.",
             "textHeadline": "Informasi dasar",
             "buttonSave": "Simpan",
-            "titleSaveSuccess": "Berhasil",
-            "messageSaveSuccess": "Konfigurasi telah dismpan.",
-            "titleSaveError": "Konfigurasi tidak bisa di simpan."
+            "messageSaveSuccess": "Konfigurasi telah dismpan."
         }
     },
     "sw-profile": {
@@ -1970,7 +2423,6 @@
             "textHeadline": "Kelompok produk dinamis baru",
             "titleFilter": "Kondisi",
             "titleResult": "Kelompok produk",
-            "titleSaveSuccess": "Berhasil",
             "messageSaveSuccess": "Kelompok produk dinamis \"{name}\" telah disimpan.",
             "buttonOpenPreview": "Pratinjau"
         },
@@ -2010,8 +2462,7 @@
             "sender-address-placeholder": "Isi pada alamat email yang harus anda akses...",
             "delivery-address": "Alamat pengiriman",
             "delivery-address-placeholder": "Isi pada alamat email untuk uji coba...",
-            "delivery-address-helptext": "Semua emai keluar akan terkirim ke alamat target penerima dan juga ke alamat ini. Hanya untuk uji coba.",
-            "disable-delivery": "Pengiriman email nonaktif (sementara)"
+            "delivery-address-helptext": "Semua emai keluar akan terkirim ke alamat target penerima dan juga ke alamat ini. Hanya untuk uji coba."
         },
         "encryption": {
             "no-encryption": "Tidak ada enkripsi",
@@ -2040,8 +2491,6 @@
             "buttonAddPaymentMethod": "Tambah metode pembayaran",
             "contextMenuEdit": "Edit/sunting",
             "contextMenuDelete": "Hapus",
-            "modalTitleDelete": "Hapus metode pembayaran",
-            "titleDeleteSuccess": "Berhasil",
             "messageDeleteSuccess": "Metode pembayaran\"{name}\"telah dihapus.",
             "buttonCancel": "Batal",
             "buttonDelete": "Hapus",
@@ -2050,7 +2499,6 @@
         "detail": {
             "textHeadline": "Metode pembayaran baru",
             "titleCard": "Metode pembayaran",
-            "titleSaveSuccess": "Berhasil",
             "messageSaveSuccess": "Metode pembayaran\"{name}\"telah disimpan.",
             "labelName": "Nama",
             "labelPosition": "Posisi",
@@ -2061,12 +2509,69 @@
                 "labelUseAsLogo": "Gunakan sebagai logo"
             },
             "topRule": "Aturan ketersediaan",
+            "placeholderName": "Masukkan nama...",
+            "placeholderPosition": "Masukkan posisi...",
+            "placeholderDescription": "Masukkan deskripsi...",
             "buttonCancel": "Batal",
             "buttonSave": "Simpan"
         }
     },
     "sw-plugin-box": {
         "buttonPluginSettings": "Pengaturan plugin"
+    },
+    "sw-settings-product-feature-sets": {
+        "general": {
+            "mainMenuItemGeneral": "Karakteristik spesial",
+            "placeholderSearchBar": "Cari template...",
+            "searchType": "Karakteristik spesial"
+        },
+        "list": {
+            "textHeadline": "Karakteristik spesial",
+            "textDeleteConfirm": "Apakah anda yakin ingin menghapus karakteristik spesial \"{name}\"?",
+            "columnValues": "Nilai",
+            "columnTemplate": "Template",
+            "columnDescription": "Deskripsi",
+            "buttonAddEssentialCharacteristics": "Buat baru",
+            "contextMenuEdit": "Sunting",
+            "contextMenuDelete": "Hapus",
+            "messageDeleteSuccess": "Karakteristik spesial \"{name}\" telah dihapus.",
+            "buttonCancel": "Batal",
+            "buttonDelete": "Hapus"
+        },
+        "detail": {
+            "textHeadline": "Template baru",
+            "titleCard": "Informasi Umum",
+            "titleCardValues": "Nilai",
+            "messageSaveSuccess": "Template spesial \"{name}\" telah tersimpan.",
+            "labelName": "Nama",
+            "labelDescription": "Deskripsi",
+            "labelValues": "Nilai",
+            "placeholderName": "Masukkan nama template...",
+            "placeholderDescription": "Masukkan deskripsi...",
+            "buttonSave": "Simpan",
+            "notificationErrorMessage": "Terjadi eror ketika menyimpan tempate produk karakteristik spesial.",
+            "labelCreateNew": "Tambah nilai"
+        },
+        "valuesCard": {
+            "cardTitle": "Nilai",
+            "labelValue": "Nilai",
+            "labelType": "Tipe",
+            "labelPosition": "Posisi"
+        },
+        "modal": {
+            "buttonAdd": "Tambah",
+            "textProductInfoLabel": "Informasi produk",
+            "textReferencePriceLabel": "Harga barang",
+            "labelTitleModal": "Tambah nilai",
+            "labelName": "Nama",
+            "buttonNext": "Selanjutnya",
+            "buttonCancel": "Batalkan",
+            "label": {
+                "property": "Properti",
+                "width": "Lebar",
+                "height": "Tinggi"
+            }
+        }
     },
     "sw-settings-document": {
         "general": {
@@ -2083,8 +2588,6 @@
             "columnAssignment": "Tigas",
             "buttonAddDocument": "Tambah dokumen",
             "contextMenuEdit": "Edit/sunting",
-            "modalTitleDelete": "Hapus dokumen",
-            "titleDeleteSuccess": "Berhasil",
             "messageDeleteSuccess": "Dokumen\"{name}\"telah dihapus.",
             "buttonCancel": "Batal",
             "buttonDelete": "Hapus",
@@ -2095,7 +2598,6 @@
             "configCard": "Pengaturan",
             "companyCard": "Pengaturan perusahaan",
             "assignmentCard": "Tugas",
-            "titleSaveSuccess": "Berhasil",
             "messageSaveSuccess": "Dokumen\"{name}\"telah disimpan.",
             "labelName": "Nama teknis",
             "labelFileNamePrefix": "Awalan nama berkas",
@@ -2186,7 +2688,6 @@
             "labelAccessKey": "Kunci akses",
             "labelPermissions": "Izin",
             "modal": {
-                "deleteModalTitle": "Hapus",
                 "detailModalTitle": "Buat integrasi",
                 "detailModalTitleEdit": "Edit/sunting",
                 "confirmDelete": "Anda yakin menghapus integrasi ini?",
@@ -2203,11 +2704,8 @@
                 "permissions": "Izin",
                 "readAccessFieldLabel": "Baca (default)",
                 "writeAccessFieldLabel": "Tulis (default)",
-                "titleSaveSuccess": "Berhasil",
                 "messageSaveSuccess": "Integrasi telah disimpan.",
-                "titleSaveError": "Kesalahan",
                 "messageSaveError": "Integrasi tidak bisa disimpan.",
-                "titleCreateNewError": "Kesalahan",
                 "messageCreateNewError": "Integrasi tidak bisa disimpan."
             },
             "notification": {
@@ -2232,7 +2730,6 @@
             "buttonCreate": "Membuat kategori",
             "buttonSafeCategory": "Simpan",
             "descriptionLabel": "Deskripsi",
-            "titleSaveSuccess": "Berhasil",
             "messageSaveSuccess": "Kategori\"{name}\"telah di simpan.",
             "useAsLogo": "Gunakan sebagai gambar tampilan",
             "treeHeadline": "Struktur kategori",
@@ -2260,7 +2757,6 @@
                     "title": "Jenis kategori",
                     "page": "Kategori",
                     "folder": "Elemen penataan",
-                    "link": "Tautan dapat disesuaikan",
                     "help": "Kategori struktur tidak bisa dihubungi dengan dirinya sendiri tetapi hanya digunakan untuk tujuan menguraikan."
                 }
             },
@@ -2289,7 +2785,6 @@
                 "defaultDesc": "Halaman kategori"
             },
             "link": {
-                "title": "Tautan yang dapat di sesuaikan",
                 "example": "Contoh:",
                 "internalExampleText": "/kategori-saya",
                 "externalDesc": "Untuk mengatur tautan eksternal, masukkan alamat web lengkap:",
@@ -2305,7 +2800,6 @@
             }
         },
         "modal": {
-            "modalTitleDelete": "Hapus kategori",
             "textDeleteConfirm": "Anda yakin ingin menghapus kategori\"{name}\"?",
             "textDeleteChildrenConfirm": "Semua sub kategori akan dihapus juga.",
             "textDeleteMultipleConfirm": "Anda yakin ingin menghapus{count} kategori yang dipilih?"
@@ -2336,7 +2830,6 @@
             "placeholderName": "Masukkan nama manufaktur...",
             "placeholderDescription": "Masukkan deskripsi...",
             "placeholderLink": "Masukkan situs manufaktur...",
-            "titleSaveSuccess": "Berhasil",
             "messageSaveSuccess": "Manufaktur \"{name}\" telah disimpan.",
             "labelLogo": "Logo",
             "labelUseAsLogo": "Gunakan sebagai logo"
@@ -2347,24 +2840,24 @@
             "description": "Kelola kolom khusus disini.",
             "mainMenuItemGeneral": "Kolom khusus",
             "placeholderSearchBar": "Mencari semua kolom khusus...",
-            "tooltipTechnicalName": "Nama teknis harus unik dan tidak bisa diubah nantinya."
+            "tooltipTechnicalName": "Nama teknis harus unik dan tidak bisa diubah nantinya.",
+            "tooltipType": "Tipe ini nantinya tidak dapat diubah."
         },
         "set": {
             "list": {
                 "textHeadline": "Kolom khusus",
-                "titleModalDelete": "Hapus atur",
                 "textDeleteConfirm": "Anda yakin ingin menghapus atur \"{name}\"?",
                 "buttonCancel": "Batal",
                 "buttonAdd": "Tambah atur baru",
                 "columnName": "Label",
                 "contextMenuEdit": "Edit/sunting",
                 "buttonDelete": "Hapus",
-                "titleDeleteSuccess": "Berhasil",
                 "messageDeleteSuccess": "Atur \"{name}\"telah dihapus.",
                 "messageEmpty": "Belum ada kolom khusus."
             },
             "detail": {
                 "labelTechnicalName": "Nama teknis",
+                "labelPosition": "Posisi",
                 "textHeadline": "Atur kolom khusus",
                 "buttonCancel": "Batal",
                 "buttonSave": "Simpan",
@@ -2372,14 +2865,12 @@
                 "labelName": "Atur nama",
                 "placeholderName": "Masukkan sebuah nama...",
                 "labelCheckboxTranslated": "Kelola label di semua bahasa administrasi",
-                "titleSaveSuccess": "Atur kolom khusus",
                 "messageSaveSuccess": "Atur\"{name}\"telah disimpan.",
                 "messageCustomFieldsEmpty": "Belum ada kolom khusus.",
                 "addCustomField": "Kolom khusus baru",
                 "buttonApply": "Simpan",
                 "labelEntities": "Menetapkan ke",
                 "placeholderEntities": "Pilih modul...",
-                "titleNameNotUnique": "Kesalahan",
                 "messageNameNotUnique": "Nama teknis sudah ada."
             }
         },
@@ -2431,12 +2922,13 @@
             "text": "Kolom teks",
             "number": "Nomor",
             "media": "Media",
-            "date": "Tanggal/waktu",
+            "date": "Tanggal /waktu",
             "checkbox": "Kotak centang",
             "switch": "Aktif/beralih tidak aktif",
             "textEditor": "Editor teks",
             "string": "Teks",
-            "int": "Nomor"
+            "int": "Nomor",
+            "colorpicker": "Pilihan warna"
         }
     },
     "sw-settings-customer-group": {
@@ -2457,8 +2949,30 @@
             "fieldDisplayGrossLabel": "Tampilan pajak",
             "fieldDisplayGrossValues": "Kotor | bersih",
             "placeholderName": "Masukkan nama...",
-            "notificationErrorTitle": "Kesalahan",
+            "placeholderNewCustomerGroup": "Grup pelanggan baru",
             "notificationErrorMessage": "Kesalahan terjadi saat menyimpan kelompok pelanggan anda."
+        },
+        "registration": {
+            "formTitle": "Formulir registrasi",
+            "placeholderTitle": "Masukkan judul...",
+            "placeholderIntroduction": "Masukkan pengantar...",
+            "title": "Judul",
+            "introduction": "Pengantar",
+            "onlyCompaniesCanRegister": "Hanya perusahaan yang dapat mendaftar",
+            "linkUrlsTitle": "Tautan URL",
+            "linkUrlButton": "Buat URL"
+        },
+        "modal": {
+            "seoUrl": {
+                "title": "Pengaturan URL",
+                "exampleUrl": "Contoh URL",
+                "cancel": "Batalkan",
+                "generate": "Buat"
+            }
+        },
+        "notification": {
+            "errorUnableToCreateSeoUrls": "URL tidak dapat dibuat",
+            "successfulGeneratedSeoUrls": "URL telah dibuat"
         }
     },
     "sw-settings-login-registration": {
@@ -2467,9 +2981,7 @@
             "description": "Ubah informasi dasar di sini.",
             "textHeadline": "Login / pendaftaran",
             "buttonSave": "Simpan",
-            "titleSaveSuccess": "Konfigurasi disimpan",
-            "messageSaveSuccess": "Konfigurasi berhasil disimpan.",
-            "titleSaveError": "Konfigurasi tidak bisa disimpan"
+            "messageSaveSuccess": "Konfigurasi telah tersimpan."
         }
     },
     "sw-product": {
@@ -2490,7 +3002,11 @@
             "descriptionTextModule": "Kelola produk di sini.",
             "placeholderSearchBar": "Mencari produk...",
             "inheritanceModuleName": "Produk ini",
-            "backToParent": "Kembali ke varian ikhtisar"
+            "backToParent": "Kembali ke varian ikhtisar",
+            "copy": "Salin",
+            "cloneSuffix": "variasi",
+            "cloneNotice": "Variasi produk ini ganda. Jika proses ini diinterupsi, ada kemungkinan tidak seluruh variasi ini terduplikasi dengan benar. Dalam hal ini, anda dapat membuat variasi lagi di produk baru.",
+            "cloneTitle": "Variasi yang ganda"
         },
         "basicForm": {
             "labelTitle": "Judul",
@@ -2509,12 +3025,16 @@
         },
         "priceForm": {
             "labelTaxRate": "Tarif pajak",
-            "labelPurchasePriceGross": "Harga pembelian ( kotor)",
+            "labelPurchasePriceGross": "Harga beli (gros)",
+            "labelPurchasePriceNet": "Harga beli (net)",
             "labelUnit": "Ukuran dari unit",
             "labelPurchaseUnit": "Satuan penjualan",
             "labelReferenceUnit": "Satuan dasar",
             "labelPackUnit": "Satuan kemasan",
             "placeholderTaxRate": "Pilih tarif pajak...",
+            "placeholderPurchasePriceGross": "Masukkan harga beli...",
+            "placeholderPriceGross": "Masukkan harga gros...",
+            "placeholderPriceNet": "Masukkan harga net...",
             "placeholderPurchaseUnit": "Masukkan satuan penjualan...",
             "placeholderReferenceUnit": "Masukkan satuan dasar...",
             "placeholderPackUnit": "Masukkan satuan kemasan...",
@@ -2525,6 +3045,7 @@
         "seoForm": {
             "labelMetaTitle": "Judul meta",
             "labelMetaDescription": "Deskripsi meta",
+            "labelKeywords": "Kata kunci SEO",
             "placeholderMetaTitle": "Masukkan judul meta...",
             "placeholderMetaDescription": "Masukkan deskripsi meta..."
         },
@@ -2565,9 +3086,7 @@
         },
         "packagingForm": {
             "placeholderUnit": "Pilih...",
-            "labelUnit": "Unit perbandingan",
-            "referenceUnitHelpText": "Nilai digunakan untuk menghitung harga dasar untuk produk yang diberikan. Tergantung pada satuan perbandingan yang dipilih. Anda kemungkinan besar ingin menempatkan '1' di sini. Contoh jika satuan penjualan diukur dengan 'liter'a'1'akan menghitung harga dasar untuk 1liter dari produk.'0,1'akan menghitung harga dasar untuk 100 mililiter dan seterusnya.",
-            "purchaseUnitHelpText": "Memberitahu jumlah keseluruhan dari konten unit penjualan. Untuk enam pak kaleng (6×0,331= 2 l) taruh '2'. Jangan lupa menaruh 'enam pak' sebagai satuan kemasan dan tambahkan unit perbandingan 'liter' dalam 'pengaturan>berbelanja dengan sesuai."
+            "labelUnit": "Unit perbandingan"
         },
         "detailBase": {
             "cardTitleDeliverabilityInfo": "Pengiriman",
@@ -2626,16 +3145,13 @@
             "columnActive": "Aktif",
             "columnPrice": "Harga",
             "columnInStock": "Persediaan",
-            "columnAvailableStock": "Masih tersedia",
             "columnActions": "Tindakan(s)",
             "contextMenuEdit": "Edit/sunting",
             "contextMenuDelete": "Hapus",
             "contextMenuDuplicate": "Duplikat",
             "messageEmpty": "Belum ada produk",
-            "modalTitleDelete": "Produk",
             "textDeleteConfirm": "Anda yakin ingin menghapus produk \"{name}\"?| Anda yakin ingin menghapus produk {count} ini?",
             "titleSidebarItemRefresh": "Segarkan",
-            "titleSaveSuccess": "Berhasil",
             "messageSaveSuccess": "Produk \"{name}\"telah disimpan."
         },
         "detail": {
@@ -2644,13 +3160,10 @@
             "buttonSave": "Simpan",
             "tabGeneral": "Umum",
             "tabAdvancedPrices": "Harga lanjutan",
-            "tabVariation": "Penghasil varian",
             "tabCrossSelling": "Penjualan silang",
             "tabProperties": "Penetapan properti",
-            "titleSaveSuccess": "Berhasil",
             "messageSaveSuccess": "Produk\"{name}\"telah disimpan.",
             "messageUploadSuccess": "{count} dari {total} berkas tersimpan.",
-            "titleSaveWarning": "Info",
             "messageSaveWarning": "Tidak ada perubahan terdeteksi."
         },
         "mediaForm": {
@@ -2692,7 +3205,7 @@
             "generationNotificationButtonContinue": "Menghasilkan",
             "generatedFilterList": "Saring",
             "generatedListColumnVariation": "Nama",
-            "generatedListColumnPrice": "Harga (kotor/bersih)",
+            "generatedListColumnPrice": "Harga (kotor/ bersih)",
             "generatedListColumnProductNumber": "Nomor produk",
             "generatedListColumnActive": "Aktif",
             "generatedListColumnStock": "Persediaan",
@@ -2701,12 +3214,8 @@
             "generatedListDeleteModalMessage": "Anda yakin ingin menghapus varian ini?",
             "generatedListDeleteModalButtonCancel": "Batal",
             "generatedListDeleteModalButtonDelete": "Hapus",
-            "generatedListDeleteModalTitle": "Varian",
-            "generatedListTitleSaveSuccess": "Simpan",
-            "generatedListTitleSaveError": "Kesalahan",
             "generatedListMessageSaveSuccess": "Varian telah disimpan.",
             "generatedListMessageSaveError": "Varian tidak bisa disimpan.",
-            "generatedListTitleDeleteError": "Hapus",
             "generatedListMessageDeleteSuccess": "Varian telah dihapus.",
             "overview": {
                 "filterReset": "Setel ulang",
@@ -2719,13 +3228,16 @@
                 "priceSurcharges": "Biaya tambahan harga",
                 "resetSurcharges": "Hapus biaya tambahan",
                 "defineRestrictions": "Mendefinisikan batasan",
+                "priceOptions": "Nilai",
                 "addNewRestriction": "Tambah batasan",
                 "editRestriction": "Edit batasan",
                 "deleteRestriction": "Hapus batasan",
                 "singleRestrictionSeperation": "Dan",
                 "deleteCombination": "Hapus kombinasi",
+                "isOneFrom": "adalah salah satu dari",
                 "cancel": "Batal",
                 "save": "Simpan",
+                "searchPlaceholder": "Cari nilai...",
                 "singleRestrictionAddTitle": "Tambah batasan"
             },
             "deliveryModal": {
@@ -2738,10 +3250,13 @@
         },
         "crossselling": {
             "buttonDeleteCrossSelling": "Hapus",
+            "inputCrossSellingTitle": "Nama",
             "inputCrossSellingActive": "Aktif",
+            "inputCrossSellingType": "Tipe",
             "inputCrossSellingPosition": "Posisi",
             "inputCrossSellingSorting": "Pilah",
             "inputCrossSellingProductStream": "Kelompok produk",
+            "inputCrossSellingTitlePlaceholder": "Masukkan nama...",
             "inputCrossSellingPositionPlaceholder": "Pilih posisi...",
             "inputCrossSellingProductStreamPlaceholder": "Pilih kelompok produk dinamis...",
             "inputCrossSellingLimit": "Jumlah maksimum dari produk",
@@ -2753,7 +3268,14 @@
             "releaseDateDescendingSortingType": "Tanggal rilis, turun",
             "deleteButtonCancel": "Batal",
             "deleteButtonDelete": "Hapus",
-            "linkOpenStreamPreview": "Buka pratinjau"
+            "linkOpenStreamPreview": "Buka pratinjau",
+            "assignPlaceholder": "Cari produk..."
+        },
+        "featureSets": {
+            "cardTitle": "Karakteristik spesial",
+            "descriptionTitle": "Karakteristik spesial",
+            "templateSelectFieldLabel": "Template",
+            "templateSelectFieldPlaceholder": "Pilih template..."
         }
     },
     "sw-settings-seo": {
@@ -2773,13 +3295,10 @@
             "labelPossibleValues": "Variabel kemungkinan",
             "tooltipValidTemplate": "Valid template",
             "tooltipInvalidTemplate": "Template tidak valid",
-            "titleSaveError": "Kesalahan",
             "messageSaveError": "Tidak semua template valid.",
-            "titleSaveSuccess": "Berhasil",
             "preview": "Pratinjau:",
             "placeholderSelectVariables": "Cari dan pilih...",
-            "textUrlPreviewNotPossible": "Pratinjau untuk template ini tidak bisa di hasilkan.",
-            "textUrlNoEntitiesForPreview": "Tidak ada entitas {entity} untuk menghasilkan sebuah pratinjau untuk. Silahkan membuatnya."
+            "textUrlPreviewNotPossible": "Pratinjau untuk template ini tidak bisa di hasilkan."
         },
         "routeNames": {
             "frontend-detail-page": "Halaman detil produk",
@@ -2820,21 +3339,19 @@
             "titleDescription": "Informasi"
         },
         "detail": {
-            "titleSaveSuccess": "Berhasil",
             "messageSaveSuccess": "Jalur penjualan \"{name}\"telah disimpan.",
-            "titleSaveError": "Kesalahan",
-            "titleActivateError": "Kesalahan aktifasi",
             "messageSaveError": "Jalur penjualan \"{name}\" tidak bisa disimpan. Silahkan periksa entri anda.",
             "buttonSave": "Simpan",
             "buttonCreateNewApiKeys": "Buat kunci API baru",
             "tabBase": "Umum",
             "tabTheme": "Tema",
+            "tabAnalytics": "Analitik",
             "tabProductComparison": "Template",
+            "tabProducts": "Produk",
             "titleProductComparisonTemplate": "Template",
             "titleProductComparisonPreview": "Pratinjau",
             "titleProductComparisonPreviewErrors": "Kesalahan saat menghasilkan",
             "labelAccessKeyField": "Kunci akses API",
-            "titleAPIError": "Kesalahan",
             "messageAPIError": "Tidak bisa menghasilkan kunci akses API.",
             "titleGeneralSettings": "Pengaturan umum",
             "labelInputName": "Nama",
@@ -2877,14 +3394,13 @@
             "customerGroup": "Kelompok pelanggan",
             "navigation": "Navigasi",
             "navigationCategoryDepth": "Tingkat navigasi",
-            "navigationCategoryHelpText": "Untuk titik masuk ini, anda tidak bisa memilih kategori dari jenis\"tautan yang dapat disesuaikan\" atau \" elemen struktur\".",
             "titleOptionsApiKey": "Akses API",
-            "titleDeleteSalesChannelWarning": "Peringatan:",
             "buttonCopyApiKeyButton": "Salin kunci API",
             "titleStatus": "Status",
             "titleDomainHeadline": "Buat domain URLs",
             "buttonEditDomain": "Edit domain",
             "titleCreateDomain": "Membuat domain",
+            "titleEditDomain": "Sunting domain \"{name}\"",
             "textApiAccessDescription": "Agar mendapatkan akses API, anda memerlukan kunci API yang ditampilkan di bawah. Membuat kunci baru akan menimpa kunci lama dan dengan itu mengakhiri semua akses yang ada yang ditetapkan dengannya.<strong>tindakan initidak bisa di batalkan.</strong>",
             "columnDomainUrl": "URL",
             "columnDomainLanguage": "Bahasa",
@@ -2917,8 +3433,8 @@
                 },
                 "interval": "Interval",
                 "generateByCronjob": "Hasilkan lewat penjadwalan",
-                "notificationTitleValidateSuccessful": "Validasi berhasil",
-                "notificationMessageValidateSuccessful": "Tidak ada kesalahan terjadi",
+                "notificationTitleValidateSuccessful": "Berhasil",
+                "notificationMessageValidateSuccessful": "Tidak terjadi eror.",
                 "notificationTitleValidateError": "Validasi gagal",
                 "notificationTitlePreviewError": "Pratinjau gagal",
                 "intervalLabels": {
@@ -2952,9 +3468,9 @@
                 "storefrontSalesChannelCustomerGroup": {
                     "label": "Kelompok pelanggan"
                 },
-                "titleAccessKeyChanged": "Kunci akses diubah",
                 "templates": {
                     "label": "Template",
+                    "placeholderSelectTemplate": "Tidak boleh menggunakan template...",
                     "template-label": {
                         "billiger-de": "billiger.de (CSV)",
                         "idealo": "idealo.de (CSV)",
@@ -2964,7 +3480,40 @@
                     "modal-confirm": "Terapkan template",
                     "modal-cancel": "Batal"
                 }
+            },
+            "hreflang": {
+                "domainSettings": {
+                    "byIso": "Lokalisasi menurut standar ISO",
+                    "byAbbreviation": "Lokalisasi menurut bahasa"
+                }
+            },
+            "analytics": {
+                "cardTitle": "Google Analytics",
+                "headline": "Integrasi Google Analytics",
+                "description": "Dengan menggunakan bantuan Google Analytics, anda dapat mengumpulkan dan menganalisa data toko anda. Untuk menggunakan fungsi ini, anda harus memiliki akun Google. Jika anda belum memiliki akun Google Analytics, sila daftar disini: <a href=\"https://analytics.google.com/\" target=\"_blank\">Google Analytics</a>. Setelah berhasil membuat akun anda akan mendapatkan ID pelacakan, selanjutnya bisa dimasukkan di bawah ini untuk mengaktifkan integrasi.",
+                "fields": {
+                    "trackingId": {
+                        "label": "ID Pelacakan",
+                        "placeHolder": "Masukkan ID pelacakan...",
+                        "helpText": "Jika anda masuk ke akun Google Analytics, anda akan diberikan akses ID pelacakan yang terlihat seperti ini: UA-12345678-1"
+                    },
+                    "active": {
+                        "label": "Aktifkan Google Analytics"
+                    },
+                    "trackOrders": {
+                        "label": "Lacak pengiriman"
+                    }
+                }
+            },
+            "titleShippingPayment": "Pembayaran dan pengiriman",
+            "labelTaxCalculation": "Perhitungan pajak",
+            "taxCalculation": {
+                "verticalDescription": "PPN dihitung dari total pesanan. Tidak ada nilai PPN individual yang ditampilkan saat checkout.",
+                "horizontalName": "Perhitungan tiap baris (horizontal)"
             }
+        },
+        "sw-sales-channel-defaults-select": {
+            "messageError": "Nilai ini digunakan oleh domain ini: \"%{url}\"."
         }
     },
     "sw-settings-shipping": {
@@ -2985,10 +3534,8 @@
             "contextMenuDelete": "Hapus",
             "contextMenuDuplicate": "Duplikat",
             "messageEmpty": "Belum ada metode pengiriman",
-            "modalTitleDelete": "Metode pengiriman",
             "textDeleteConfirm": "Anda yakin ingin menghapus metode pengiriman\"{name}\"?",
             "titleSidebarItemRefresh": "Segarkan",
-            "titleSaveSuccess": "Berhasil",
             "messageSaveSuccess": "Metode pengiriman\"{name}\"telah disimpan.",
             "messageSaveError": "Metode pengiriman\"{name}\"tidak bisa di simpan.",
             "messageDeleteError": "Metode pengiriman\"{name}\"tidak bisa dihapus.",
@@ -2997,7 +3544,6 @@
         "detail": {
             "textHeadline": "Metode pengiriman baru",
             "titleCard": "Pengaturan",
-            "titleSaveSuccess": "Berhasil",
             "messageSaveSuccess": "Tingkat pengiriman\"{name}\"sudah disimpan.",
             "labelName": "Nama",
             "labelActive": "Aktif",
@@ -3012,11 +3558,14 @@
             "labelBasicInfo": "Informasi dasar",
             "topRule": "Ketersediaan",
             "placeholderTopRule": "Cari atau buat aturan ketersediaan...",
-            "labelLogoUpload": "Unggah logo"
+            "labelLogoUpload": "Unggah logo",
+            "labelTrackingUrl": "Lacak URL",
+            "placeholderTrackingUrl": "Masukkan URL..."
         },
         "constants": {
             "weight": "Berat",
-            "price": "Harga"
+            "price": "Harga",
+            "lineItemCount": "Jumlah produk"
         },
         "priceMatrix": {
             "titleCard": "Matriks harga",
@@ -3043,7 +3592,6 @@
             "any": "∞",
             "buttonCancel": "Batal",
             "buttonDelete": "Hapus",
-            "modalTitleDelete": "Hapus matriks harga",
             "textDeleteConfirm": "Anda yakin ingin menghapus matriks harga \"{name}\"?| anda yakin ingin menghapus harga matriks ini?"
         },
         "sidebar": {
@@ -3165,16 +3713,10 @@
             "notification": {
                 "titleMissingFields": "Kesalahan",
                 "messageMissingFields": "Konfigurasi diperlukan. Silahkan isi semua bagian yang diperlukan.",
-                "titleMissingBlockFields": "Konfigurasi hilang",
                 "messageMissingBlockFields": "Konfigurasi diperlukan. Silahkan isi semua elemen yang diperlukan.",
-                "titleMissingProductListing": "Kesalahan",
                 "messageMissingProductListing": "Tidak bisa disimpan. Silahkan tambah blok daftar produk atau ubah jenis layout.",
-                "titlePageError": "Layout tidak bisa disimpan!",
-                "titleMissingSections": "Kesalahan",
                 "messageMissingSections": "Anda tidak bisa menyimpan halaman kosong. Silahkan tambah bagian sebelumnya.",
-                "titleMissingBlocks": "Kesalahan",
                 "messageMissingBlocks": "Anda tidak bisa menyimpan halaman kosong. Silahkan tambah beberapa blok sebelumnya.",
-                "titleMissingElements": "Kesalahan",
                 "messageMissingElements": "Konfigurasi diperlukan. Silahkan isi semua elemen konfigurasi yang diperlukan."
             },
             "placeholder": {
@@ -3268,14 +3810,15 @@
             "productBox": {
                 "label": "Kotak produk",
                 "component": {
-                    "actionBuy": "Tambah ke keranjang",
-                    "badgeTopseller": "Penjual teratas",
-                    "badgeNew": "Baru",
-                    "priceUnitContent": "Konten:"
+                    "label": {
+                        "badgeNew": "Baru",
+                        "priceUnitContent": "Isi:"
+                    }
                 },
                 "config": {
                     "label": {
                         "selection": "Produk",
+                        "layoutType": "Tipe tampilan",
                         "layoutTypeStandard": "Standar",
                         "layoutTypeImage": "Gambar besar",
                         "layoutTypeMinimal": "Minimal konten"
@@ -3297,12 +3840,24 @@
                         "navigation": "Produk",
                         "rotate": "Sliding otomatis",
                         "border": "Batas",
-                        "minWidth": "Minimal lebar"
+                        "minWidth": "Minimal lebar",
+                        "productStreamSorting": "Penyortiran",
+                        "productStreamLimit": "Jumlah produk maksimal"
                     },
                     "placeholder": {
                         "title": "Judul slider",
                         "selection": "Pilih produk",
-                        "minWidth": "Lebar minimal"
+                        "minWidth": "Lebar minimal",
+                        "productStreamSorting": "Pilih penyortiran..."
+                    },
+                    "productStreamSortingOptions": {
+                        "nameAsc": "Nama susun ke atas",
+                        "nameDesc": "Nama susun ke bawah",
+                        "priceAsc": "Harga susun ke atas",
+                        "priceDesc": "Harga susun ke bawah",
+                        "creationDateAsc": "Tanggal pembuatan susun ke atas",
+                        "creationDateDesc": "Tanggal pembuatan susun ke bawah",
+                        "random": "Acak"
                     }
                 }
             },
@@ -3501,7 +4056,7 @@
                     "label": "Tiga kolom, gambar kotak dan teks"
                 },
                 "imageText": {
-                    "label": "Tiga kolom, gambar kotak & teks"
+                    "label": "Tiga kolom, gambar kotak& teks"
                 },
                 "imageTextBubble": {
                     "label": "Tiga kolom, di beri keterangan & bulat"
@@ -3547,10 +4102,8 @@
                 "duplicate": "Duplikat",
                 "addPreviewImage": "Tambah gambar pratinjau",
                 "removePreviewImage": "Hapus pratinjau",
-                "notificationDeleteErrorTitle": "Kesalahan",
                 "notificationDeleteErrorMessage": "Layout yang ingin anda hapus masih ditugaskan untuk minimal satu kategori.",
                 "modal": {
-                    "modalTitleDelete": "Hapus layout",
                     "textDeleteConfirm": "Anda yakin ingin menghapus layout \"{pageName}\"?",
                     "buttonCancel": "Batal",
                     "buttonDelete": "Hapus"
@@ -3573,8 +4126,6 @@
             "columnDefault": "Default",
             "buttonAddLanguage": "Tambah bahasa",
             "contextMenuEdit": "Edit/sunting",
-            "modalTitleDelete": "Hapus bahasa",
-            "titleDeleteSuccess": "Berhasil",
             "messageDeleteSuccess": "Bahasa \"{name}\" telah dihapus.",
             "buttonCancel": "Batal",
             "buttonDelete": "Hapus",
@@ -3586,19 +4137,19 @@
         "detail": {
             "textHeadline": "Bahasa baru",
             "titleCard": "Pengaturan",
-            "titleSaveSuccess": "Berhasil",
             "messageSaveSuccess": "Bahasa \"{name}\"telah disimpan.",
             "labelName": "Nama",
             "labelLocale": "Lolal",
             "labelParent": "Diwarisi dari",
             "labelIsoCode": "Kode ISO",
+            "placeholderName": "Masukkan nama...",
+            "placeholderPleaseSelect": "Sila pilih...",
             "buttonCancel": "Batal",
             "buttonSave": "Simpan",
             "tooltipLanguageNotChoosable": "Anda tidak bisa menggunakan bahasa yang sudah mewarisi dari bahasa lain.",
             "tooltipIsoCodeNotChoosable": "Anda hanya bisa memilih bahasa lokal yang belum digunakan.",
             "tooltipInheritanceNotPossible": "Bahasa default sistem tidak bisa mewarisi dari bahasa lain.",
             "textAlertChangeParent": "Ubah bahasa induk yang bisa menyebabkan inkonsisten pada terjemahan anda.",
-            "titleAlertChangeParent": "Waspada",
             "textIsoCodeIsInUse": "Kode ISO ini sudah bisa digunakan.",
             "textLanguageHasParent": "Bahasa ini sudah mewarisi bahasa lainnya."
         }
@@ -3615,68 +4166,58 @@
             "tabUpdates": "Pembaharuan",
             "version": "Versi",
             "accountLink": "https://account.shopware.com/?lang=en",
-            "accountLabel": "Pergi ke akun",
+            "accountLabel": "Ke Akun Shopware",
             "login": "Login",
             "logout": "Logout",
-            "titleDownloadSuccess": "Berhasil",
             "messageDownloadSuccess": "Plugin telah di unduh.",
             "downloadButton": "Unduh",
             "recommendationsLabel": "Rekomendasi",
             "storeLink": "https://store.shopware.com/en",
             "storeLabel": "Toko Shopware",
+            "storeNotAvailable": "Tidak dapat menghubungkan ke toko Shopware.",
             "loggedIn": "Telah masuk sebagai"
         },
         "errors": {
             "messageToTheShopwareDocumentation": "<a href=\"{documentationLink}\" target=\"_blank\">buka dokumen Shopware</a>",
-            "titleGenericFailure": "Kesalahan",
-            "messageGenericFailure": "Kesalahan telah terjadi.",
-            "titleUploadFailure": "Kesalahan",
+            "messageGenericFailure": "Tidak dapat dilakukan.",
             "messageUploadFailureNotAZipFile": "Unggahan berkas bukan berkas ZIP.",
             "messageUploadFailureUnzipFailed": "Tidak bisa mengekstrak berkas ZIP.",
             "messageUploadFailureNoPluginFoundInZipFile": "Tidak ditemukan plugin di berkas ZIP.",
-            "titleLoginDataInvalid": "Kesalahan",
             "messageLoginDataInvalid": "Data login tidak lengkap.",
-            "titleStoreHostMissing": "Kesalahan",
             "messageStoreLicenseDomainMissing": "Gagal login. Apakah anda memberikan domain lisensi yang benar dari akun Shopware di \"pengaturan/akun Shopware\"?",
-            "titleStoreNotAvailable": "Koneksi di tolak",
-            "titlePluginBaseClassNotFound": "Kesalahan saat memuat plugin",
+            "messageStoreNotAvailable": "Shopware Store tidak tersedia.",
             "messagePluginBaseClassNotFound": "Kelas dasar login tidak bisa dimuat. Periksa komposer.json plugin anda sehubungan dengan kelas loading otomatis",
-            "titlePluginInstallationFailed": "Gagal memasang plugin",
             "messagePluginInstallationFailed": "Plugin tidak bisa dipasang disebabkan oleh kesalahan pesan \"{message}\"",
-            "titlePluginUninstallationFailed": "Gagal mencopot instalasi plugin",
             "messagePluginUninstallationFailed": "Plugin tidak bisa dipasang disebabkan oleh kesalahan pesan \"{message}\"",
-            "titlePluginActivationFailed": "Aktivasi plugin gagal",
             "messagePluginActivationFailed": "Plugin tidak bisa di aktivasi disebabkan oleh kesalahan pesan \"{message}\"",
-            "titlePluginDeactivationFailed": "Deaktivasi plugin gagal",
             "messagePluginDeactivationFailed": "Plugin tidak bisa di deaktivasi disebabkan oleh kesalahan pesan \"{message}\"",
-            "titlePluginUpdateFailed": "Pembaruan plugin gagal"
+            "messagePluginUpdateFailed": "Plugin tidak dapat diperbarui karena pesan eror \"{message}\". {pluginDeactivatedHint}",
+            "pluginDeactivatedHint": "Plugin dinonaktifkan."
         },
         "fileUpload": {
             "buttonFileUpload": "Unggah plugin",
-            "titleUploadSuccess": "Berhasil",
             "messageUploadSuccess": "Plugin telah di unggah.",
             "buttonRefreshPlugins": "Segarkan ihktisar"
         },
         "store-login": {
             "headline": "Akun Shopware",
             "information": "ID Shopware adalah nama pengguna pribadi untuk anda masuk ke akun Shopware anda dan layanan Shopware lainnya.",
-            "titleLoginSuccess": "Berhasil",
-            "titleLoginMessage": "Masuk.",
+            "loginMessage": "Anda telah masuk ke Akun Shopware.",
             "labelShopwareId": "ID Shopware",
             "labelShopwareIdHelp": "Dimana saya menemukan ID Shopware saya?",
-            "linkShopwareIdHelp": "https://docs.shopware.com/en/shopware-5-en/first-steps/shopware-account#what-is-the-shopware-id",
+            "linkShopwareIdHelp": "https://docs.shopware.com/en/shopware-5-en/first steps/shopware-account#what-is-the-shopware-id",
             "labelPassword": "Kata sandi",
             "buttonLogin": "Login",
             "buttonCancel": "Batal",
             "footerNoAccount": "Anda belum punya akun?",
             "footerRegisterAccount": "Buat akun baru",
             "forgotPassword": "Anda lupa kata sandi?",
-            "forgotPasswordUrl": "https://account.shopware.com/recovery?lang=en",
+            "forgotPasswordUrl": "htpps://account.shopware.com/recovery?lang=en",
             "registerAccountUrl": "https://account.shopware.com/register?lang=en"
         },
         "list": {
             "textPluginManager": "Plugin",
-            "messageEmpty": "Anda belum mengunggah plugin.",
+            "messageEmpty": "Belum ada plugin yang diunggah.",
             "columnPluginName": "Plugin",
             "columnVersion": "Versi",
             "columnInstalledAt": "Dipasang pada",
@@ -3698,23 +4239,22 @@
             "sortPluginNameAsc": "Nama plugin, asc.",
             "sortPluginNameDsc": "Nama plugin, desc.",
             "sortLabel": "Pilah dengan:",
-            "titleActivateSuccess": "Berhasil",
             "messageActivateSuccess": "Plugin telah di aktivasi.",
-            "titleDeactivateSuccess": "Berhasil",
             "messageDeactivateSuccess": "Plugin telah di deaktivasi.",
-            "titleInstallSuccess": "Berhasil",
             "messageInstallSuccess": "Plugin telah terpasang.",
-            "titleUninstallSuccess": "Berhasil",
             "messageUninstallSuccess": "Plugin telah di copot.",
-            "titleDeleteSuccess": "Berhasil",
             "messageDeleteSuccess": "Plugin telah dihapus.",
-            "titleUpdateSuccess": "Berhasil",
             "messageUpdateSuccess": "Plugin telah di perbarui.",
-            "titleDeleteConfirm": "Hapus plugin",
             "messageDeleteConfirm": "Anda yakin ingin menghapus plugin ini?",
+            "titleUninstallConfirm": "Uninstal plugin",
+            "messageUninstallConfirm": "Apakah anda yakin ingin menguninstal {pluginName}?",
+            "labelRemovePluginData": "Hapus seluruh data plugin secara permanen",
+            "helpTextRemovePluginData": "Peringatan: Seluruh data plugin akan dihapus secara permanan. Proses ini tidak dapat dibatalkan.",
+            "labelUninstallButton": "Uninstal",
             "deactivated": "Deaktivasi",
             "activated": "Aktivasi",
             "config": "Konfig",
+            "description": "Deskripsi",
             "tooltipActivationDisabled": "Anda hanya bisa mengaktivasi plugin yang terpasang."
         },
         "license-list": {
@@ -3739,16 +4279,16 @@
             "updateAllButton": "Perbaharui semua",
             "updateHeader": "Pembaruan",
             "lastUpdatesHeader": "Pembaruan terakhir",
-            "titleUpdateSuccess": "Pembaruan berhasil",
             "messageUpdateSuccess": "Plugin telah diperbaharui.",
             "messageUpdatesSuccess": "Plugin telah diperbaharui.",
             "cancelUpdates": "Batal"
         }
     },
     "sw-plugin-config": {
-        "titleSaveSuccess": "Berhasil",
-        "messageSaveSuccess": "Konfigurasi telah disimpan.",
-        "titleSaveError": "Tidak bisa menyimpan konfigurasi."
+        "messageSaveSuccess": "Konfigurasi telah disimpan."
+    },
+    "sw-plugin-description": {
+        "buttonBack": "Kembali"
     },
     "sw-settings-snippet": {
         "general": {
@@ -3770,18 +4310,15 @@
             "cardSnippetSetsTitle": "Penerjemahan",
             "labelContent": "Set cuplikan: {name}",
             "labelName": "Nama",
-            "labelNamePlaceholder": "Tambah nama",
+            "labelNamePlaceholder": "Tambahkan nama...",
             "labelNamespace": "Bagian",
             "labelNamespacePlaceholder": "Pilih bagian",
             "messageSaveError": "Cuplikan untuk \"{key}\" tidak bisa disimpan.",
             "messageSaveSuccess": "Cuplikan untuk \"{key}\" telah disimpan.",
-            "textHeadline": "Cuplikan baru",
-            "titleSaveError": "Kesalahan",
-            "titleSaveSuccess": "Berhasil"
+            "textHeadline": "Cuplikan baru"
         },
         "list": {
             "identifier": "{setName} | set cuplikan perbandingan",
-            "buttonAdd": "Cuplikan baru",
             "buttonCancel": "Batal",
             "buttonDelete": "Hapus",
             "buttonEmpty": "Kembali ke cuplikan standar",
@@ -3795,22 +4332,17 @@
             "messageDeleteSuccess": "Cuplikan \"{key}\" telah diatur ulang.",
             "messageSaveError": "Cuplikan \"{key}\" tidak bisa disimpan. |\nCuplikan untuk \"{key}\" tidak bisa disimpan.",
             "messageSaveSuccess": "Cuplikan \"{key}\" telah disimpan.| Cuplikan untuk \"{key}\" telah disimpan.",
-            "modalTitleDelete": "Cuplikan",
             "textDeleteConfirm": "Anda yakin ingin menghapus cuplikan untuk \"{key}\"?",
             "textResetConfirm": "Anda yakin ingin mengatur ulang cuplikan \"{key}\" untuk perangkat ini? | Anda yakin ingin mengatur ulang cuplikan untuk \"{key}\"?",
             "textSnippetList": "Cuplikan untuk \"{setName}\" |cuplikan",
-            "titleDeleteSuccess": "Berhasil",
-            "titleSaveError": "Kesalahan",
             "resetErrorMessage": "Cuplikan \"{key}\"tidak bisa diatur ulang. | Cuplikan \"{key}\" tidak bisa dihapus.",
             "resetSuccessMessage": "Cuplikan \"{key}\" telah diatur ulang ke\"{value}\".| Cuplikan \"{key}\" telah dihapus.",
-            "titleSaveSuccess": "Berhasil",
             "titleSidebarCustomItems": "Cuplikan khusus",
             "titleSidebarItemRefresh": "Segarkan",
             "titleSidebarItemFilter": "Saring"
         },
         "setList": {
             "title": "Kelola cuplikan",
-            "description": "Ini adalah ikhtisar dari perangkat cuplikan milik anda. Pilih atur dan edit cuplikan perorangan sesuai keinginan anda. Ini juga memungkinkan untuk mengimpor cuplikan, membuat yang baru dan mengekspor yang ada ke berkas CSV lokal.",
             "cardTitle": "Set cuplikan",
             "buttonAddSet": "Tambah perangkat cuplikan",
             "buttonCancel": "Batal",
@@ -3820,8 +4352,6 @@
             "buttonExport": "Ekspor",
             "buttonImport": "Impor",
             "cloneErrorMessage": "Kesalahan saat menyalin perangkat cuplikan.",
-            "cloneNoteErrorTitle": "Kesalahan",
-            "cloneNoteSuccessTitle": "Berhasil",
             "cloneSuccessMessage": "Cuplikan telah di salin.",
             "columnBaseFile": "Berkas dasar",
             "columnChangedAt": "Pembaruan terakhir",
@@ -3830,16 +4360,10 @@
             "contextMenuDelete": "Hapus",
             "contextMenuEdit": "Edit",
             "deleteNoteErrorMessage": "Perangkat cuplikan tidak bisa di hapus.",
-            "deleteNoteErrorTitle": "Kesalahan",
-            "deleteNoteSuccessTitle": "Berhasil",
             "deleteNoteSuccessMessage": "Perangkat cuplikan telah dihapus.",
             "inlineEditErrorMessage": "Perangkat cuplikan tidak bisa disimpan | perangkat cuplikan \"{name}\" tidak bisa disimpan.",
-            "inlineEditErrorTitle": "Kesalahan",
-            "inlineEditSuccessTitle": "Berhasil",
             "inlineEditSuccessMessage": "Perangkat cuplikan \"{name}\" telah disimpan.",
             "modalTitleClone": "Salin perangkat cuplikan",
-            "modalTitleDelete": "Perangkat cuplikan",
-            "notEditableNoteErrorTitle": "Kesalahan",
             "notEditableNoteErrorMessage": "Kesalahan terjadi saat pengeditan perangkat cuplikan.",
             "placeholderName": "Masukkan nama perangkat cuplikan...",
             "splitButtonDuplicateContent": "Duplikat dari",
@@ -3858,10 +4382,8 @@
         "general": {
             "mainMenuItemList": "Ihktisar",
             "mainMenuItemGeneral": "Template email",
-            "notificationTestMailErrorTitle": "Kesalahan",
-            "notificationTestMailSalesChannelErrorMessage": "Silahkan pilih jalur penjualan",
+            "placeholderSearchBar": "Cari template surel...",
             "notificationTestMailErrorMessage": "Kesalahan terjadi saat mengirim email untuk tes.",
-            "notificationTestMailSuccessTitle": "Berhasil",
             "notificationTestMailSuccessMessage": "Email tes telah di kirim."
         },
         "list": {
@@ -3877,22 +4399,20 @@
             "contextMenuEdit": "Edit",
             "contextMenuDuplicate": "Duplikat",
             "textDeleteConfirm": "Anda yakin ingin menghapus template email \"{subject}\"?",
-            "modalTitleDelete": "Hapus template email",
             "buttonCancel": "Batal",
             "buttonDelete": "Hapus",
             "messageEmpty": "Belum ada template email",
             "titleSidebarItemRefresh": "Segarkan",
-            "errorMediaItemDuplicated": "Item media sudah ditugaskan"
+            "errorMediaItemDuplicated": "Item media sudah ditugaskan",
+            "columnFilename": "Nama berkas"
         },
         "detail": {
             "basic": {
                 "titleCard": "Informasi",
                 "labelMailType": "Jenis",
                 "labelDescription": "Deskripsi",
-                "labelSalesChannels": "Jalur penjualan",
-                "placeholderMailType": "Pilih jenis...",
-                "placeholderDescription": "Masukkan deskripsi template email...",
-                "placeholderSalesChannels": "Pilih template email jalur penjualan..."
+                "placeholderMailType": "Pilih tipe...",
+                "placeholderDescription": "Masukkan deskripsi template email..."
             },
             "options": {
                 "titleCard": "Opsi",
@@ -3926,8 +4446,6 @@
             "textHeadline": "Template email baru",
             "textHeadlineEdit": "Edit template email",
             "titleResult": "Template email",
-            "titleSaveSuccess": "Berhasil",
-            "titleSaveError": "Kwsalahan",
             "messageSaveSuccess": "Template email \"{subject}\" telah disimpan.",
             "messageSaveError": "Template email \"{subject}\" tidak bisa disimpan."
         }
@@ -3948,7 +4466,6 @@
             "contextMenuEdit": "Edit/sunting",
             "contextMenuDuplicate": "Duplikat",
             "textDeleteConfirm": "Anda yakin ingin menghapus header dan footer \"{name}\"?",
-            "modalTitleDelete": "Hapus header dan footer",
             "buttonCancel": "Batal",
             "buttonDelete": "Hapus",
             "messageEmpty": "Belum ada header dan footer email",
@@ -3961,8 +4478,7 @@
                 "labelDescription": "Deskripsi",
                 "labelSalesChannels": "Jalur penjualan",
                 "placeholderName": "Masukkan sebuah nama...",
-                "placeholderDescription": "Masukkan deskripsi...",
-                "placeholderSalesChannels": "Pilih jalur penjualan yang terkait..."
+                "placeholderDescription": "Masukkan deskripsi..."
             },
             "header": {
                 "titleCard": "Header mail",
@@ -3982,8 +4498,6 @@
             "buttonSave": "Simpan",
             "textHeadline": "Header/footer email baru",
             "titleResult": "Header/footer email",
-            "titleSaveSuccess": "Berhasil",
-            "titleSaveError": "Kesalahan",
             "messageSaveSuccess": "Header/footer email \"{name}\"telah disimpan.",
             "messageSaveError": "Header/footer email \"{name}\" tidak bisa disimpan."
         }
@@ -3991,7 +4505,81 @@
     "sw-import-export": {
         "general": {
             "mainMenuItemGeneral": "Impor/ekspor",
-            "descriptionTextModule": "Mengelola impor ekspor aplikasi"
+            "descriptionTextModule": "Manajemen impor dan ekspor"
+        },
+        "profile": {
+            "messageDeleteSuccess": "Profil ini telah berhasil dihapus.",
+            "messageDeleteError": "Profil tidak dapat disimpan. Mohon periksa semua log dalam profil ini telah terhapus.",
+            "messageDuplicateSuccess": "Profil berhasil diduplikat.",
+            "messageDuplicateError": "Profil tidak dapat di duplikat.",
+            "productLabel": "Produk",
+            "customerLabel": "Pelanggan",
+            "categoriesLabel": "Kategori",
+            "mediaLabel": "Media",
+            "newsletterRecipientLabel": "Penerima buletin",
+            "caretsLabel": "Karet (^)",
+            "commasLabel": "Koma (,)",
+            "semicolonLabel": "Titik Koma (;)",
+            "doubleQuoteLabel": "Kutip Ganda (\")",
+            "newProfileLabel": "Profil baru",
+            "editProfileLabel": "Sunting Profil",
+            "addProfileLabel": "Tambah profil",
+            "addNewProfileLabel": "Tambah profil baru",
+            "openLabel": "Buka",
+            "duplicateLabel": "Duplikat",
+            "copyOfLabel": "Salin dari:",
+            "saveProfileLabel": "Simpan profil",
+            "closeProfileLabel": "Tutup profil",
+            "generalTab": "Umum",
+            "profileNameFieldLabel": "Nama profil",
+            "separatorFieldLabel": "Pemisah karakter",
+            "cancelLabel": "Batalkan",
+            "deleteLabel": "Hapus",
+            "typeColumn": "Tipe",
+            "nameColumn": "Nama",
+            "customTypeLabel": "Khusus",
+            "propertyLabel": "Properti",
+            "configuratorSettingLabel": "Pengaturan konfigurasi varian",
+            "closeViolation": "Tutup"
+        },
+        "exporter": {
+            "messageExportSuccess": "Ekspor telah berhasil diselesaikan.",
+            "startExportLabel": "Mulai ekspor",
+            "showLogLabel": "Tampilkan berkas log",
+            "exportActivityLabel": "Ekspor aktivitas",
+            "exportActivityDescription": "Aktivitas yang lebih lama dari 30 hari akan otomatis dihapus.",
+            "exportLabel": "Ekspor",
+            "close": "Tutup"
+        },
+        "importer": {
+            "startImportLabel": "Mulai impor",
+            "selectProfileLabel": "Pilih profil",
+            "profileLabel": "Profil",
+            "importLabel": "Impor",
+            "close": "Tutup",
+            "labelUploadCaption": "Pilih berkas untuk diunggah",
+            "messageExportError": "Terjadi eror ketika mengimpor."
+        },
+        "page": {
+            "profileTab": "Profil",
+            "importTab": "Impor",
+            "exportTab": "Ekspor"
+        },
+        "progress": {
+            "startImportLabel": "Mulai impor",
+            "startExportLabel": "Mulai ekspor",
+            "successTitle": "berhasil",
+            "downloadFileLabel": "Unduh berkas",
+            "succeededImportText": "Impor telah berhasil",
+            "succeededExportText": "Ekspor berhasil",
+            "failedImportText": "Impor gagal",
+            "progressImportText": "Sedang memproses",
+            "progressExportText": "Sedang memproses",
+            "downloadFailedLabel": "Unduh rekaman yang gagal",
+            "successfulImportsText": "{records} rekaman berhasil diimpor.",
+            "failedImportsText": "{failedRecords} rekaman gagal diimpor. Rekaman gagal ini dapat diunduh, disunting dan diimpor kembali.",
+            "failedExportText": "Gagal diekspor",
+            "showLogFileLabel": "Tampilkan catatan log"
         }
     },
     "sw-promotion": {
@@ -4041,7 +4629,6 @@
             "contextMenuDuplicate": "Duplikat",
             "contextMenuEdit": "Edit/sunting",
             "messageEmpty": "Belum ada promosi",
-            "modalTitleDelete": "Hapus promosi",
             "placeholderSearchBar": "Mencari promosi...",
             "textDeleteConfirm": "Anda yakin ingin menghapus promosi \"{name}\"?",
             "titleSidebarItemRefresh": "Segarkan"
@@ -4052,7 +4639,6 @@
                 "titleEdit": "Promosi",
                 "buttonCancel": "Batal",
                 "buttonSave": "Simpan",
-                "titleSaveSuccess": "Berhasil",
                 "messageSaveSuccess": "Promosi \"{name}\" telah disimpan."
             },
             "tabs": {
@@ -4069,6 +4655,10 @@
                     "labelActive": "Aktif",
                     "labelValidFrom": "Valid dari:",
                     "labelValidUntil": "Valid sampai:",
+                    "placeholderMaxRedemptionsGlobal": "Masukkan nilai...",
+                    "helpTextMaxRedemptionsGlobal": "Masukkan '0' untuk penggunaan tak terbatas.",
+                    "placeholderMaxRedemptionsPerCustomer": "Masukkan nilai...",
+                    "helpTextMaxRedemptionsPerCustomer": "Masukkan '0' untuk penggunaan tak terbatas setiap individual pelanggan.",
                     "labelPromotionExclusions": "Jangan dikombinasi dengan",
                     "placeholderPromotionExclusions": "Tambah promosi...",
                     "codes": {
@@ -4092,6 +4682,8 @@
                             "buttonOpenCustomer": "Buka pelanggan",
                             "alerts": {
                                 "errorNoPatternTitle": "Tidak ada pola kode",
+                                "successGeneratedTitle": "Berhasil.",
+                                "successDeletedTitle": "Kode dihapus.",
                                 "errorDeletedTitle": "Kesalahan saat menghapus kode."
                             }
                         }
@@ -4159,7 +4751,7 @@
                     "valueScopeSetGroup": "Kelompok perangkat",
                     "valueTypePercentage": "Presentase",
                     "valueTypeFixed": "Harga tetap",
-                    "valueTypeFixedUnit": "Harga satuan tetap",
+                    "valueTypeFixedUnit": "Harga tetap barang",
                     "buttonAddDiscount": "Tambah diskon",
                     "buttonDeleteDiscount": "Hapus diskon",
                     "delete": {
@@ -4200,12 +4792,11 @@
             "columnTitle": "Judul ulasan",
             "placeholderSearchBar": "Mencari ulasan...",
             "messageEmpty": "Belum ada ulasan",
-            "messageEmptySubline": "Kelola ulasan di sini"
+            "messageEmptySubline": "Kelola ulasan di sini",
+            "titleSidebarItemRefresh": "Segarkan"
         },
         "detail": {
             "textHeadline": "Ulasan",
-            "buttonCancel": "Batal",
-            "buttonSave": "Simpan",
             "cardTitleReviewInfo": "Ulasan",
             "cardTitleReviewProperties": "Properti",
             "labelTitle": "Judul",
@@ -4213,6 +4804,7 @@
             "labelUser": "Pengguna",
             "labelCreatedAt": "Dibuat pada",
             "labelProduct": "Produk",
+            "labelEmail": "Alamat surel",
             "labelLanguage": "Bahasa",
             "labelPositive": "Suara positif",
             "labelNegative": "Suara negatif",
@@ -4221,8 +4813,6 @@
             "labelComment": "Komentar",
             "labelCustomer": "Pelanggan",
             "titleCardComment": "Komentar",
-            "titleSaveSuccess": "Berhasil",
-            "messageSaveSuccess": "Ulasan \"{name}\" telah disimpan.",
             "placeholderComment": "Masukkan komentar...",
             "review1PointRatingText": "Tidak memuaskan",
             "review2PointRatingText": "Dapat di terima",
@@ -4263,10 +4853,8 @@
             "placeholderName": "Tetapkan nama untuk aturan ini...",
             "placeholderDescription": "Tetapkan deskripsi untuk aturan ini...",
             "placeholderPriority": "Tetapkan prioritas untuk aturan ini...",
-            "titleSaveSuccess": "Berhasil",
             "messageSaveSuccess": "Aturan \"{name}\" telah disimpan.",
             "ruleCard": "Syarat",
-            "titleSaveError": "Kedalahan",
             "messageSaveError": "Kesalahan terjadi saat menyimpan aturan \"{name}\".",
             "types": {
                 "shipping": "Pengiriman",
@@ -4281,7 +4869,6 @@
             "modalTitle": "Saring",
             "delete": "Hapus",
             "close": "Tutup",
-            "titleSaveError": "Kesalahan",
             "messageSaveError": "Kesalahan terjadi saat menyimpan filter."
         }
     },
@@ -4306,15 +4893,216 @@
             "fieldSalutationKeyTooltip": "Pilih nama teknis unik yang diperlukan termasuk salam,contoh di template email.",
             "fieldSalutationKeyLabel": "Nama teknis",
             "fieldSalutationKeyPlaceholder": "Masukkan nama teknis...",
-            "notificationErrorTitle": "Kesalahan",
             "notificationErrorMessage": "Kesalahan terjadi saat menyimpan salam."
         }
     },
     "sw-settings-listing": {
         "general": {
+            "mainMenuItemGeneral": "Produk",
+            "textHeadline": "Produk",
+            "description": "Atur tampilan produk disini.",
             "buttonSave": "Simpan",
-            "titleSaveSuccess": "Berhasil",
-            "messageSaveSuccess": "Konfigurasi telah disimpan."
+            "messageSaveSuccess": "Konfigurasi tersimpan.",
+            "messageSaveError": "Terjadi eror ketika menyimpan konfigurasi.",
+            "productSortingCriteriaGrid": {
+                "header": {
+                    "name": "Nama",
+                    "order": "Pesanan",
+                    "priority": "Prioritas"
+                },
+                "options": {
+                    "criteriaAlreadyUsed": "Opsi \"{criteriaName}\" ini telah digunakan.",
+                    "label": {
+                        "product": {
+                            "name": "Nama produk",
+                            "ratingAverage": "Penilaian rata-rata",
+                            "productNumber": "Nomor produk",
+                            "releaseDate": "Tanggal diterbitkan",
+                            "stock": "Stok produk",
+                            "listingPrices": "Daftar harga produk",
+                            "unitsSold": "Unit terjual",
+                            "isCloseout": "Obral"
+                        }
+                    }
+                }
+            }
+        },
+        "index": {
+            "productSorting": {
+                "title": "Urutan opsi",
+                "addButton": "Tambahkan opsi",
+                "messageDeleteError": "Terjadi eror ketika menghapus urutan opsi",
+                "emptyState": {
+                    "title": "Tidak ada opsi ditemukan",
+                    "subline": "Buat opsi"
+                },
+                "grid": {
+                    "header": {
+                        "name": "Nama",
+                        "criteria": "Kriteria",
+                        "priority": "Prioritas"
+                    }
+                }
+            },
+            "deleteModal": {
+                "title": "Hapus opsi urutan",
+                "description": "Apakah anda yakin ingin menghapus opsi urutan?"
+            }
+        },
+        "base": {
+            "general": {
+                "title": "Umum",
+                "labelName": "Nama",
+                "labelActive": "Aktif"
+            },
+            "notification": {
+                "saveSuccess": "Opsi urutan \"{sortingOptionName}\" berhasil disimpan.",
+                "saveError": "Terjadi eror keika menyimpan opsi urutan \"{sortingOptionName}\"."
+            },
+            "criteria": {
+                "title": "Opsi urutan",
+                "selectPlaceholder": "Cari dan tambah kriteria..."
+            },
+            "delete": {
+                "modalTitle": "Hapus kriteria",
+                "modalDescription": "Apakah anda yakin ingin menghapus kriteria ini?"
+            }
+        }
+    },
+    "sw-users-permissions": {
+        "general": {
+            "label": "Pengguna & izin"
+        },
+        "roles": {
+            "general": {
+                "labelCreateNewRole": "Buat peran baru",
+                "cardLabel": "Peran"
+            },
+            "role-grid": {
+                "labelName": "Nama",
+                "labelDescription": "Deskripsi",
+                "messageEmptyTitle": "Belum ada peran",
+                "contextMenuEdit": "Sunting",
+                "contextMenuDelete": "Hapus",
+                "titleModalDelete": "Hapus peran",
+                "textModalDelete": "Apakah anda yakin ingin menghapus peran\"{name}\"?",
+                "labelButtonCancel": "Batalkan",
+                "labelButtonDelete": "Hapus",
+                "notification": {
+                    "deleteSuccess": {
+                        "message": "Peran \"{name}\" telah dihapus."
+                    },
+                    "deleteError": {
+                        "message": "Terjadi eror ketika menghapus peran \"{name}\"."
+                    }
+                }
+            },
+            "detail": {
+                "role": "Peran",
+                "basicInformation": "Informasi dasar",
+                "labelName": "Nama",
+                "labelDescription": "Deskripsi",
+                "permissions": "Izin"
+            },
+            "grid": {
+                "title": "Izin",
+                "disabledCheckboxMessage": "Untuk menonaktifkan opsi ini, anda harus menonaktifkan opsi aktif lainnya terlebih dahulu."
+            },
+            "additional-permissions": {
+                "title": "Izin tambahan"
+            }
+        },
+        "users": {
+            "general": {
+                "mainMenuItemGeneral": "Pengguna & izin",
+                "placeholderSearchBar": "Cari pengguna...",
+                "labelUserList": "Pengguna & izin",
+                "labelCreateNewUser": "Buat pengguna baru",
+                "cardLabel": "Pengguna"
+            },
+            "user-grid": {
+                "labelUsername": "Nama pengguna",
+                "labelFirstName": "Nama depan",
+                "labelLastName": "Nama belakang",
+                "labelRoles": "Peran",
+                "labelEmail": "Surel",
+                "contextMenuEdit": "Sunting",
+                "contextMenuDelete": "Hapus",
+                "contextMenuDuplicate": "Duplikat",
+                "titleModalDelete": "Hapus pengguna",
+                "textModalDelete": "Apakah anda yakin ingin menghapus pengguna \"{name}\"?",
+                "labelButtonCancel": "Batalkan",
+                "labelButtonDelete": "Hapus",
+                "notification": {
+                    "deleteSuccess": {
+                        "message": "Pengguna \"{name}\" telah dihapus."
+                    },
+                    "deleteError": {
+                        "message": "Terjadi eror ketika menghapus pengguna \"{name}\"."
+                    },
+                    "deleteUserLoggedInError": {
+                        "message": "Pengguna tidak dapat menghapus dirinya sendiri."
+                    }
+                }
+            },
+            "user-detail": {
+                "labelCard": "Informasi dasar",
+                "labelIntegrationsCard": "Integrasi",
+                "labelFirstName": "Nama depan",
+                "labelLastName": "Nama belakang",
+                "labelEmail": "Surel",
+                "errorEmailUsed": "Surel ini telah digunakan.",
+                "errorUsernameUsed": "Nama pengguna ini telah digunakan.",
+                "labelUsername": "Nama pengguna",
+                "labelPassword": "Kata sandi",
+                "labelProfilePicture": "Foto profil",
+                "labelLanguage": "Bahasa antarmuka pengguna",
+                "labelLanguagePlaceholder": "Pilih bahasa...",
+                "labelChangePassword": "Ganti kata sandi",
+                "labelAdministrator": "Administrator",
+                "labelJobTitle": "Jabatan",
+                "labelRoles": "Peran",
+                "labelNewPassword": "Kata sandi baru",
+                "labelNewUser": "Pengguna baru",
+                "placeholderNewPassword": "Masukkan kata sandi baru...",
+                "placeholderNewPasswordConfirm": "Masukkan kata kembali sandi baru...",
+                "labelButtonCancel": "Batalkan",
+                "labelButtonChangePassword": "Ganti",
+                "labelButtonSave": "Simpan",
+                "writeAccess": "Tulis",
+                "readAccess": "Baca",
+                "contextMenuEdit": "Sunting",
+                "contextMenuDelete": "Hapus",
+                "textChangePassword": "Jika klik tombol ganti, kata sandi baru akan otomatis tersimpan!",
+                "labelPermissions": "Izin",
+                "disabledRoleSelectWarning": "Peran hanya tersedia untuk pengguna yang bukan \"administrator\".",
+                "modal": {
+                    "detailModalTitle": "Buat integrasi",
+                    "detailModalTitleEdit": "Sunting",
+                    "confirmDelete": "Apakah anda yakin ingin mengahpus integrasi ini?",
+                    "buttonApply": "Simpan integrasi",
+                    "buttonApplyEdit": "Simpan perubahan",
+                    "buttonCancel": "Batalkan",
+                    "buttonDelete": "Hapus",
+                    "labelFieldLabel": "Nama",
+                    "permissions": "Izin",
+                    "readAccessFieldLabel": "Baca (standar)",
+                    "writeAccessFieldLabel": "Tulis (opsional)",
+                    "messageSaveSuccess": "Inegrasi telah tersimpan.",
+                    "messageSaveError": "Integrasi tidak dapat tersimpan.",
+                    "messageCreateNewError": "Integrasi tidak dapat tersimpan."
+                },
+                "notification": {
+                    "saveError": {
+                        "message": "Terjadi eror ketika menyimpan pengguna \"{name}\"."
+                    },
+                    "saveSuccess": {
+                        "message": "Pengguna \"{name}\" telah tersimpan."
+                    },
+                    "invalidEmailErrorMessage": "Mohon masukan surel yang valid.",
+                    "duplicateEmailErrorMessage": "Surel ini telah terdaftar."
+                }
+            }
         }
     }
 }

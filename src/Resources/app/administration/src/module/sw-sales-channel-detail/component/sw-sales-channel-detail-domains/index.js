@@ -7,7 +7,7 @@ Component.override('sw-sales-channel-detail-domains', {
     template,
 
     computed: {
-        snippetCriteria() {
+        snippetSetCriteria() {
             const locales = this.salesChannel.languages.map(language => language.locale.code);
 
             return (new Criteria())

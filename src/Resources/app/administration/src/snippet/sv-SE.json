@@ -7,6 +7,7 @@
             "SHOPWARE_INVALID_IP": "Vänligen, ange en giltig IP-adress",
             "INVALID_URL": "Vänligen, ange en giltig URL.",
             "DELIVERY_TIME_MIN_INVALID": "Minsta värdet bör inte vara större än det maximala värdet.",
+            "DUPLICATED_PRODUCT_EXPORT_FILE_NAME": "Detta användarnamn används redan. Välj ett annat.",
             "DUPLICATED_SNIPPET_KEY": "Det finns redan textmoduler för \"{key}\". Vänligen välj ett annat namn.",
             "PROMOTION_VALID_UNTIL_VIOLATION": "Kampanjens början måste vara före dess slut.",
             "PROMOTION_DISCOUNT_MAX_VALUE_VIOLATION": "Rabattvärdet får inte vara större än {value}.",
@@ -29,7 +30,11 @@
             "success": "Framgångsrikt",
             "info": "Info",
             "yes": "Ja",
-            "no": "Nej"
+            "no": "Nej",
+            "confirm": "Bekräfta",
+            "view": "Visa",
+            "ascending": "Stigande",
+            "descending": "Fallande"
         },
         "notification": {
             "notificationSaveErrorMessage": "Vid sparande av enheten \"{entityName}\" uppstod ett fel.",
@@ -125,7 +130,12 @@
             "deleteMessage": "Ska posten verkligen raderas? | Ska dessa {count} poster verkligen raderas?",
             "deleteTitle": "Radera posten",
             "placeholderToManyAssociationCard": "Sök efter föreningar",
-            "labelRemoveAssociation": "Ta bort tilldelning"
+            "labelRemoveAssociation": "Ta bort tilldelning",
+            "productStreamPreview": {
+                "emptyMessageNoStream": "Ingen dynamisk produktgrupp har valts",
+                "emptyMessageNoProducts": "Inga produkter hittades",
+                "emptyMessageNoSearchResults": "Inga produkter hittades för \"{term}\""
+            }
         },
         "sw-field": {
             "notification": {
@@ -351,7 +361,6 @@
             "buttonOpenMedia": "Öppna media",
             "notification": {
                 "success": {
-                    "title": "Ladda upp media",
                     "message": "Ingen fil framgångsrikt sparad. | En fil framgångsrikt sparad | {count} / {total} Filer framgångsrikt sparade."
                 },
                 "failure": {
@@ -451,7 +460,10 @@
         },
         "sw-multi-tag-ip-select": {
             "enterValidIp": "Ange en giltig IPv4- eller IPv6-adress",
-            "addIpAdress": "Lägg till IP-adress"
+            "addIpAdress": "Lägg till IP-adress",
+            "knownIps": {
+                "you": "Du"
+            }
         },
         "sw-multi-ip-select": {
             "enterValidIp": "Ange en giltig IPv4- eller IPv6-adress",
@@ -496,7 +508,9 @@
                 "greaterThan": "Större",
                 "notEquals": "Ej lika med",
                 "isOneOf": "Är en av",
-                "isNoneOf": "Är ingen av"
+                "isNoneOf": "Är ingen av",
+                "gross": "Brutto",
+                "net": "Netto"
             },
             "placeholderErrorMessage": "Platshållaren kunde inte sparas.",
             "dataErrorMessage": "Alla obligatoriska fält har inte fyllts i.",
@@ -658,7 +672,8 @@
             "unit": "Måttenhet | Måttenheter",
             "user": "Användare",
             "delivery_time": "Leveranstid | Leveranstider",
-            "import_export_profile": "Import/Export profil | Import/Export profil"
+            "import_export_profile": "Import/Export profil | Import/Export profil",
+            "feature_set": "Mall | Mallar"
         },
         "day-of-week": {
             "monday": "Måndag",
@@ -811,7 +826,8 @@
         "labelPriority": "Prioritet",
         "placeholderPriority": "Definiera en prioritet för den här regeln...",
         "messageSaveSuccess": "Regeln \"{name}\" sparades framgångsrikt.",
-        "messageSaveError": "Vid sparande av regeln \"{name}\" uppstod ett fel."
+        "messageSaveError": "Vid sparande av regeln \"{name}\" uppstod ett fel.",
+        "ruleCard": "Villkor"
     },
     "sw-select-rule-create": {
         "addNewRule": "Skapa en ny regel"
@@ -913,6 +929,95 @@
         "tooltip": {
             "warning": "Du har inte nödvändiga behörigheter."
         },
+        "permissions": {
+            "customer": {
+                "label": "Kunder"
+            },
+            "delivery_times": {
+                "label": "Leveranstider"
+            },
+            "property": {
+                "label": "Egenskaper"
+            },
+            "country": {
+                "label": "Länder"
+            },
+            "number_ranges": {
+                "label": "Nummerområden"
+            },
+            "currencies": {
+                "label": "Valutor"
+            },
+            "media": {
+                "label": "Media"
+            },
+            "integration": {
+                "label": "Integrationer"
+            },
+            "order": {
+                "label": "Beställningar"
+            },
+            "product_stream": {
+                "label": "Dynamiska produktgrupper"
+            },
+            "payment": {
+                "label": "Betalningsmetoder"
+            },
+            "document": {
+                "label": "Dokument"
+            },
+            "category": {
+                "label": "Kategorier"
+            },
+            "product_manufacturer": {
+                "label": "Tillverkare"
+            },
+            "custom_field": {
+                "label": "Tilläggsfält"
+            },
+            "customer_groups": {
+                "label": "Kundgrupper"
+            },
+            "product": {
+                "label": "Produkter"
+            },
+            "sales_channel": {
+                "label": "Försäljningskanaler"
+            },
+            "shipping": {
+                "label": "Leverans"
+            },
+            "cms": {
+                "label": "Shoppingupplevelse"
+            },
+            "language": {
+                "label": "Språk"
+            },
+            "promotion": {
+                "label": "Kampanjer"
+            },
+            "review": {
+                "label": "Recensioner"
+            },
+            "rule": {
+                "label": "Rule Builder"
+            },
+            "salutation": {
+                "label": "Hälsningsfras"
+            },
+            "parents": {
+                "catalogues": "Kataloger",
+                "content": "Innehåll",
+                "customers": "Kunder",
+                "marketing": "Marknadsföring",
+                "other": "Övrigt",
+                "orders": "Order",
+                "settings": "Inställningar"
+            },
+            "users_and_permissions": {
+                "label": "Användare & Användarbehörigheter"
+            }
+        },
         "additional_permissions": {
             "system": {
                 "core_update": "Starta uppdatering",
@@ -929,17 +1034,6 @@
                 "label": "Beställningar"
             }
         },
-        "permissions": {
-            "currencies": {
-                "label": "Valutor"
-            },
-            "product": {
-                "label": "Produkter"
-            },
-            "sales_channel": {
-                "label": "Försäljningskanaler"
-            }
-        },
         "roles": {
             "all": "Alla",
             "viewer": "Visa",
@@ -954,6 +1048,9 @@
         "labelCustomFieldSetSelect": "Tilläggsfält-set",
         "messagePluginSets": "Plugin Tilläggsfält-set (kan inte tas bort)"
     },
+    "sw-rating-stars": {
+        "ratingTooltipText": "{actual} av {max} stjärnor"
+    },
     "sw-customer": {
         "notification": {
             "requiredFields": "Vänligen fyll i alla obligatoriska fält."
@@ -966,6 +1063,19 @@
             "placeholderSearchBar": "Sök igenom alla kunder",
             "newCustomer": "Ny kund",
             "tooltipLanguageSwitch": "Språkvalet är inaktiverat eftersom det inte finns några översättningsbara fält."
+        },
+        "customerGroupRegistration": {
+            "alert": "Åtkomst till kundgrupp \"{name}\" begärs.",
+            "accept": "Acceptera",
+            "acceptMessage": "Kundgruppen har ändrats",
+            "decline": "Avböj",
+            "declineMessage": "Begäran har avvisats",
+            "errorMessage": "Det går inte att behandla begäran",
+            "notification": {
+                "title": "Merchant status begäran",
+                "message": "Kunden \"{name}\" begär åtkomst till kundgruppen \"{groupName}\".",
+                "openCustomer": "Öppna kund"
+            }
         },
         "card": {
             "placeholderTitle": "Titel",
@@ -990,6 +1100,8 @@
             "buttonAddCustomer": "Skapa kunder",
             "columnCustomerNumber": "Kundnummer",
             "columnName": "Namn",
+            "columnGroup": "Kundgrupp",
+            "columnGroupRequested": "Förfrågan",
             "columnNameGuestLabel": "Gästkund",
             "columnFirstName": "Förnamn",
             "columnLastName": "Efternamn",
@@ -1012,7 +1124,8 @@
             "titleSidebarItemRefresh": "Uppdatera",
             "titleSidebarItemFilter": "Filter",
             "titleSidebarItemFilterAffiliateCode": "Affiliate-kod",
-            "titleSidebarItemFilterCampaignCode": "Kampanjkod"
+            "titleSidebarItemFilterCampaignCode": "Kampanjkod",
+            "titleSidebarItemFilterRequestedGroup": "Visa endast kundgruppförfrågningar"
         },
         "baseForm": {
             "labelSalutation": "Hälsningsfras",
@@ -1187,7 +1300,9 @@
             "messageSaveSuccess": "Skattesats sparad"
         },
         "taxRuleCard": {
+            "tooltipCountries": "Om inte alla tillgängliga länder visas anger du ett specifikt namn för att välja detta land. Länder kan redigeras och skapas i Inställningar/Länder.",
             "labelTaxRate": "Skattesats",
+            "labelAppliesOn": "Gäller för",
             "labelCountryName": "Land",
             "cardTitle": "Länder",
             "searchBarPlaceholder": "Sök igenom alla länder...",
@@ -1505,6 +1620,7 @@
             "switchLanguageMessage": "Språk-plugin \"{pluginName}\" installerades framgångsrikt. Vill du ändra användargränssnittets språk?",
             "pluginsInstalled": "Språk-plugin{plural} har installerats",
             "pluginsInstalledMessage": "Språk-plugin har installerats: | Språk-plugin för följande språk har installerats: ",
+            "pluginNotFoundMessage": "Språk-plugin {languageName} hittades inte.",
             "pluginInstallationFailedMessage": "Plugin kunde inte installeras: ",
             "pluginActivationFailedMessage": "Plugin kunde inte aktiveras: ",
             "tryAgainLater": "Vänligen försök på nytt senare.",
@@ -2040,7 +2156,8 @@
             "headline": "Statistik för de senaste 30 dagarna",
             "orderNumber": "Beställningar",
             "turnover": "Omsättning",
-            "numberOfOrders": "Antal"
+            "numberOfOrders": "Antal",
+            "totalTurnover": "Totalsumma"
         }
     },
     "sw-order": {
@@ -2140,6 +2257,7 @@
             "columnTotalPriceGross": "Totalt",
             "columnTax": "Skattesats",
             "textCreditTax": "auto",
+            "taxDetail": "{taxRate}%: {tax}",
             "contextMenuShowProduct": "Visa produkt",
             "messageEmptyItem": "Inga positioner tillgängliga än",
             "buttonAddProduct": "Lägg till produkt",
@@ -2240,7 +2358,8 @@
             "placeholderTrackingCodeSelect": "Lägg till spårningskod...",
             "addTrackingCode": "Klicka här för att lägga till",
             "enterValidTrackingCode": "Ange spårningskod",
-            "textCreditTax": "auto"
+            "textCreditTax": "auto",
+            "taxDetail": "{taxRate}%: {tax}"
         },
         "detailDeliveries": {
             "cardTitleItems": "Leverans {count}",
@@ -2283,6 +2402,7 @@
             "labelSystemUser": "System",
             "labelSelectStatePlaceholder": "Vänligen välj...",
             "labelSelectStateButton": "Ändra status och skicka e-post",
+            "labelSendMailSwitch": "Skicka e-post till kund",
             "labelErrorStateChange": "Vid inställning av status uppstod ett fel:",
             "labelErrorNoAction": "Inget nytt tillstånd har valts.",
             "labelNoTransactionState": "Det finns inga transaktioner ännu",
@@ -2303,6 +2423,7 @@
         "documentCard": {
             "searchBarPlaceholder": "Sök igenom kvitton...",
             "cardTitle": "Kvitton",
+            "modalTitle": "Statusuppdatering",
             "labelDate": "Datum",
             "labelNumber": "Nummer",
             "labelType": "Typ",
@@ -2641,6 +2762,31 @@
     },
     "sw-plugin-box": {
         "buttonPluginSettings": "Inställningar för plugin"
+    },
+    "sw-settings-product-feature-sets": {
+        "modal": {
+            "textPropertyLabel": "Egenskap",
+            "textCustomFieldLabel": "Anpassat fält",
+            "textProductInfoLabel": "Produktinformation",
+            "textReferencePriceLabel": "Styckpris",
+            "labelTitlePageOne": "Välj en fälttyp som du vill lägga till i din mall",
+            "labelTitleModal": "Lägg till värden",
+            "labelName": "Namn",
+            "buttonNext": "Nästa",
+            "buttonCancel": "Avbryt",
+            "label": {
+                "property": "Egenskap",
+                "width": "Bredd",
+                "height": "Höjd",
+                "length": "Längd",
+                "weight": "Vikt",
+                "releaseDate": "Utgivningsdatum",
+                "description": "Beskrivning",
+                "manufacturerNumber": "Tillverkarens produktnummer",
+                "ean": "EAN",
+                "referencePrice": "Styckpris"
+            }
+        }
     },
     "sw-settings-document": {
         "general": {
@@ -3323,7 +3469,6 @@
             "generatedListDeleteModalMessage": "Vill du ta bort varianten?",
             "generatedListDeleteModalButtonCancel": "Avbryt",
             "generatedListDeleteModalButtonDelete": "Radera",
-            "generatedListDeleteModalTitle": "Variant",
             "generatedListMessageSaveSuccess": "Varianten sparades.",
             "generatedListMessageSaveError": "Varianten kunde inte sparas.",
             "generatedListMessageDeleteSuccess": "Varianten raderades.",
@@ -4024,12 +4169,6 @@
             },
             "productBox": {
                 "label": "Produktbox",
-                "component": {
-                    "actionBuy": "I kundvagnen",
-                    "badgeTopseller": "Bästsäljare",
-                    "badgeNew": "Ny",
-                    "priceUnitContent": "Innehåll:"
-                },
                 "config": {
                     "label": {
                         "selection": "Produkt",
@@ -4400,7 +4539,6 @@
         },
         "fileUpload": {
             "buttonFileUpload": "Ladda upp plugin",
-            "titleUploadSuccess": "Plugin uppladdad",
             "messageUploadSuccess": "Plugin har laddats upp.",
             "buttonRefreshPlugins": "Uppdatera översikt"
         },
@@ -5087,8 +5225,6 @@
         },
         "detail": {
             "textHeadline": "Omdöme",
-            "buttonCancel": "Avbryt",
-            "buttonSave": "Spara",
             "cardTitleReviewInfo": "Omdöme",
             "cardTitleReviewProperties": "Egenskaper",
             "labelTitle": "Titel",
@@ -5106,7 +5242,6 @@
             "labelComment": "Kommentar",
             "labelCustomer": "Kund",
             "titleCardComment": "Kommentar",
-            "messageSaveSuccess": "Omdömet \"{name}\" sparades framgångsrikt.",
             "placeholderComment": "Ange kommentar...",
             "review1PointRatingText": "Otillfredsställande",
             "review2PointRatingText": "Acceptabel",

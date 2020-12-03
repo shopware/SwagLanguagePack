@@ -62,4 +62,26 @@ trait ServicesTrait
 
         return $first->getLanguage()->getLocaleId();
     }
+
+    private function setAdministrationActiveForLanguageByLocale(string $locale, bool $administrationActive, Context $context): string
+    {
+        /** @var EntityRepositoryInterface $packLanguageRepository */
+        $packLanguageRepository = $this->getContainer()->get(\sprintf('%s.repository', PackLanguageDefinition::ENTITY_NAME));
+
+        $criteria = new Criteria();
+        $criteria->addFilter(new EqualsFilter('language.locale.code', $locale));
+
+        /** @var PackLanguageEntity|null $first */
+        $first = $packLanguageRepository->search($criteria, $context)->first();
+        static::assertNotNull($first);
+
+        $packLanguageRepository->update([
+            [
+                'id' => $first->getId(),
+                'administrationActive' => $administrationActive,
+            ],
+        ], $context);
+
+        return $first->getLanguage()->getLocaleId();
+    }
 }

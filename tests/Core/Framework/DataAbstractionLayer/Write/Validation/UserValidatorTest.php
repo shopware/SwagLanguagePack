@@ -12,8 +12,8 @@ use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\Uuid\Uuid;
-use Shopware\Core\System\SalesChannel\Aggregate\SalesChannelDomain\SalesChannelDomainEntity;
 use Shopware\Core\System\User\UserDefinition;
+use Shopware\Core\System\User\UserEntity;
 use Swag\LanguagePack\Test\Helper\ServicesTrait;
 
 class UserValidatorTest extends TestCase
@@ -34,31 +34,31 @@ class UserValidatorTest extends TestCase
         $this->userRepository = $userRepository;
     }
 
-    public function testCreatingASalesChannelDomainWithADeactivatedLanguageFails(): void
+    public function testCreateUserWithADeactivatedLanguageFails(): void
     {
         $context = Context::createDefaultContext();
-        $localeId = $this->setSalesChannelActiveForLanguageByLocale('da-DK', false, $context);
+        $localeId = $this->setAdministrationActiveForLanguageByLocale('da-DK', false, $context);
 
-        $this->expectExceptionMessage(\sprintf('The language bound to the locale with the id "%s" is disabled for all Sales Channels.', $localeId));
+        $this->expectExceptionMessage(\sprintf('The language bound to the locale with the id "%s" is disabled for the Administration.', $localeId));
         $this->createUser(Uuid::randomHex(), $localeId, $context);
     }
 
-    public function testUpdatingASalesChannelDomainToADisabledLanguageFails(): void
+    public function testUpdateUserToDisabledLanguageFails(): void
     {
         $context = Context::createDefaultContext();
-        $enabledLocaleId = $this->setSalesChannelActiveForLanguageByLocale('da-DK', true, $context);
-        $disabledLocaleId = $this->setSalesChannelActiveForLanguageByLocale('fr-FR', false, $context);
+        $enabledLocaleId = $this->setAdministrationActiveForLanguageByLocale('da-DK', true, $context);
+        $disabledLocaleId = $this->setAdministrationActiveForLanguageByLocale('fr-FR', false, $context);
 
         $userId = Uuid::randomHex();
         $this->createUser($userId, $enabledLocaleId, $context);
 
         $criteria = new Criteria([$userId]);
 
-        /** @var SalesChannelDomainEntity|null $user */
+        /** @var UserEntity|null $user */
         $user = $this->userRepository->search($criteria, $context)->first();
         static::assertNotNull($user);
 
-        $this->expectExceptionMessage(\sprintf('The language bound to the locale with the id "%s" is disabled for all Sales Channels.', $disabledLocaleId));
+        $this->expectExceptionMessage(\sprintf('The language bound to the locale with the id "%s" is disabled for the Administration.', $disabledLocaleId));
         $this->userRepository->update([
             [
                 'id' => $userId,

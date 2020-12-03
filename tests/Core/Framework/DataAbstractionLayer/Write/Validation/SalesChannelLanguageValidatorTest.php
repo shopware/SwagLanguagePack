@@ -32,7 +32,7 @@ class SalesChannelLanguageValidatorTest extends TestCase
         $this->salesChannelLanguageRepository = $salesChannelLanguageRepository;
     }
 
-    public function testCreatingASalesChannelDomainWithADeactivatedLanguageFails(): void
+    public function testCreatingASalesChannelLanguageWithADeactivatedLanguageFails(): void
     {
         $context = Context::createDefaultContext();
         $languageId = $this->setSalesChannelActiveForLanguageByName('Dansk', false, $context);

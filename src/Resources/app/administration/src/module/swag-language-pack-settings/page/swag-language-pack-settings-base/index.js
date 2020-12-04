@@ -28,7 +28,7 @@ Component.register('swag-language-pack-settings-base', {
 
     computed: {
         description() {
-            const userInterfaceLanguageLink = `<a href="/#/sw/profile/index">
+            const userInterfaceLanguageLink = `<a href="#/sw/profile/index">
                 ${this.$tc('swag-language-pack.settings.card.administration.descriptionTargetLinkText')}
             </a>`;
 

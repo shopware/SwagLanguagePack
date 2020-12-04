@@ -27,14 +27,14 @@ class UserValidator extends AbstractLanguageValidator
     protected function validate(WriteCommand $command, ConstraintViolationList $violationList): void
     {
         $payload = $command->getPayload();
-        if (!isset($payload['locale_id']) || $this->getSalesChannelActiveByLocale($payload['locale_id'])) {
+        if (!isset($payload['locale_id']) || $this->getAdministrationActiveByLocale($payload['locale_id'])) {
             return;
         }
 
         $violationList->add(
             new ConstraintViolation(
-                \sprintf('The language bound to the locale with the id "%s" is disabled for all Sales Channels.', Uuid::fromBytesToHex($payload['locale_id'])),
-                'The language with the id "{{ languageId }}" is disabled for all Sales Channels.',
+                \sprintf('The language bound to the locale with the id "%s" is disabled for the Administration.', Uuid::fromBytesToHex($payload['locale_id'])),
+                'The language with the id "{{ languageId }}" is disabled for the Administration.',
                 [$payload['locale_id']],
                 null,
                 $command->getPath(),
@@ -43,10 +43,10 @@ class UserValidator extends AbstractLanguageValidator
         );
     }
 
-    private function getSalesChannelActiveByLocale(string $localeId): bool
+    private function getAdministrationActiveByLocale(string $localeId): bool
     {
         $statement = $this->connection->createQueryBuilder()
-            ->select('packLanguage.sales_channel_active')
+            ->select('packLanguage.administration_active')
             ->from(PackLanguageDefinition::ENTITY_NAME, 'packLanguage')
             ->leftJoin(
                 'packLanguage',

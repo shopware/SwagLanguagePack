@@ -1,0 +1,316 @@
+{
+    "swag-paypal-frw-credentials": {
+        "buttonGetCredentials": "Nabavite API akreditive",
+        "textIntroPayPal": "Da bi PayPal bio pokrenut, trebate samo dostaviti svoje PayPal API akreditive.",
+        "labelClientId": "ID klijenta",
+        "labelClientSecret": "Klijentska tajna",
+        "labelClientIdSandbox": "Sandbox ID klijenta",
+        "labelClientSecretSandbox": "Sandbox tajna klijenta",
+        "labelSandbox": "Sandbox",
+        "tooltipSandbox": "Ovisno o aktivaciji sandboxa, spremljeni su zasebni akreditivi.",
+        "textSettingsHeader": "Napredne postavke",
+        "messageFetchedError": "Pokušajte ponovo ili upotrijebite napredne postavke za davanje akreditiva.",
+        "titleFetchedError": "Dogodila se greška",
+        "textFetchedSuccessful": "Donešeni su akreditivi.",
+        "titleNoCredentials": "Greška",
+        "messageNoCredentials": "Nisu dostavljeni nikakvi podaci.",
+        "messageTestSuccess": "Akreditivi su važeći.",
+        "titleTestError": "Dogodila se greška"
+    },
+    "swag-paypal-payment": {
+        "general": {
+            "title": "Narudžbe"
+        },
+        "tabs": {
+            "overview": "Pregled"
+        },
+        "paymentDetails": {
+            "cardTitle": "Plaćanje",
+            "invoice": {
+                "heading": "Iznos fakture",
+                "totalAmount": "Ukupan iznos:",
+                "subTotal": "Suma stavki:",
+                "shipping": "Dostava:"
+            },
+            "payment": {
+                "heading": "Detalji o plaćanju",
+                "intent": "Namjera:",
+                "paymentId": "ID plaćanja:",
+                "cartId": "ID korpe:",
+                "state": "Stanje:",
+                "createTime": "Vrijeme kreiranja:",
+                "updateTime": "Vrijeme Ažuriranja:"
+            },
+            "customer": {
+                "heading": "Kupac",
+                "payerId": "ID uplatitelja:"
+            },
+            "error": {
+                "title": "Greška pri dohvaćanju podataka o plaćanju iz PayPal-a"
+            }
+        },
+        "transactionHistory": {
+            "cardTitle": "Historija plaćanja",
+            "states": {
+                "authorization": "Autorizacija",
+                "sale": "Prodaja",
+                "refund": "Izvrši povrat novca",
+                "capture": "Uhvati",
+                "order": "Narudžba"
+            },
+            "types": {
+                "type": "Vrsta",
+                "amount": "Količina",
+                "createTime": "Stvoreno",
+                "updateTime": "Ažurirano",
+                "state": "Status",
+                "trackingId": "ID Praćenje",
+                "transactionFee": "Naknada za transakciju",
+                "paymentMode": "Način plačanja"
+            }
+        },
+        "buttons": {
+            "label": {
+                "refund": "Stvorite novi povrat",
+                "capture": "Uhvati",
+                "void": "Otkaži autorizaciju"
+            }
+        },
+        "modal": {
+            "title": {
+                "refund": "Novi povrat novca",
+                "capture": "Uhvati",
+                "void": "Otkaži autorizaciju"
+            }
+        },
+        "refundAction": {
+            "successMessage": "Povrat novca je uspješan.",
+            "invoiceSelect": {
+                "label": "Odaberite snimanje"
+            },
+            "refundAmount": {
+                "label": "Količina",
+                "helpText": "Iznos '0' uzrokovat će povrat cjelokupne uplate"
+            },
+            "refundDescription": {
+                "label": "Opis",
+                "placeholder": "Unesite opis"
+            },
+            "refundReason": {
+                "label": "Razlog",
+                "placeholder": "Unesi razlog"
+            },
+            "refundInvoiceNumber": {
+                "label": "Broj računa",
+                "placeholder": "Unesite broj fakture"
+            },
+            "confirmButton": {
+                "text": "Izvršiti"
+            }
+        },
+        "captureAction": {
+            "successMessage": "Vaše hvatanje je uspješno.",
+            "maxAmount": "Maksimalan iznos",
+            "currentAmount": "Količina",
+            "isFinal": "Ovo je konačno hvatanje",
+            "isFinalHint": "Savjet: Označeno kao konačno hvatanje, iako ne treba uhvatiti cijeli iznos.",
+            "button": {
+                "text": "Snimite uplatu"
+            }
+        },
+        "voidAction": {
+            "successMessage": "Uplata je uspješno poništena.",
+            "confirm": {
+                "message": "Da li stvarno želite otkazati ovo plaćanje?",
+                "button": {
+                    "confirm": "Otkaži autorizaciju",
+                    "cancel": "Ne"
+                }
+            }
+        },
+        "errorPage": {
+            "title": "Podaci o plaćanju više nisu dostupni",
+            "canceledPaymentContent": "Došlo je do greške (INVALID_RESOURCE_ID) prilikom preuzimanja podataka o plaćanju iz PayPal-a. Ako vidite ovu poruku, vjerojatno je riječ o uplati koju je kupac otkazao. Otkazane uplate PayPal će izbrisati nakon nekog vremena i više neće biti dostupne.",
+            "sandboxLiveContent": "Došlo je do greške (INVALID_RESOURCE_ID) prilikom preuzimanja podataka o plaćanju iz PayPal-a. Ako vidite ovu poruku, vjerojatno se radi o uplati koja je kreirana s omogućenim sandboxom i koja je sada zatražena s živim podacima ili obrnuto. Ispravite postavke PayPal-a ili izbrišite probne naloge iz sistema."
+        }
+    },
+    "swag-paypal": {
+        "header": "PayPal",
+        "saleschannelCard": {
+            "button": {
+                "description": "Kliknite ovo dugme da omogućite PayPal i odaberete ga kao zadani u odabranom kanalu prodaje",
+                "label": "Postavite PayPal kao zadani"
+            }
+        },
+        "general": {
+            "mainMenuItemGeneral": "PayPal",
+            "descriptionTextModule": "PayPal postavke"
+        },
+        "messageNotBlank": "Ova vrijednost ne bi trebala biti prazna.",
+        "settingForm": {
+            "save": "Spremi",
+            "testLive": "Testiraj API akreditive",
+            "testSandbox": "Testiraj sandbox API akreditive",
+            "credentials": {
+                "cardTitle": "API akreditivi",
+                "clientId": {
+                    "label": "ID klijenta",
+                    "tooltipText": "ID klijenta REST API koristi se za provjeru autentičnosti ovog dodatka pomoću PayPal API-ja."
+                },
+                "clientSecret": {
+                    "label": "Klijentska tajna",
+                    "tooltipText": "ID klijenta REST API koristi se za provjeru autentičnosti ovog dodatka pomoću PayPal API-ja."
+                },
+                "clientIdSandbox": {
+                    "label": "Sandbox ID klijenta",
+                    "tooltipText": "ID klijenta REST API koristi se tijekom testiranja za autentifikaciju ovog dodatka pomoću PayPal API-ja."
+                },
+                "clientSecretSandbox": {
+                    "label": "Sandbox tajna klijenta",
+                    "tooltipText": "Tajna klijenta REST API koristi se tijekom testiranja za provjeru autentičnosti ovog dodatka pomoću PayPal API-ja."
+                },
+                "sandbox": {
+                    "label": "Omogući sandbox",
+                    "tooltipText": "Omogućite ako želite testirati PayPal integraciju."
+                },
+                "button": {
+                    "title": "Nabavite API akreditive",
+                    "titleSandbox": "Nabavite sandbox API akreditive",
+                    "messageFetchedError": "Pokušajte ponovo ili ručno unesite svoje akreditive.",
+                    "titleFetchedError": "Dogodila se greška"
+                }
+            },
+            "behaviour": {
+                "cardTitle": "Ponašanje",
+                "merchantLocation": {
+                    "label": "Lokacija trgovca",
+                    "germany": "Njemačka",
+                    "other": "Druga lokacija trgovca"
+                },
+                "intent": {
+                    "label": "Akvizicija plaćanja",
+                    "hint": "Napomena: PayPal PLUS radi samo sa akvizicijom plaćanja \"Prodaja\". Postavit će se automatski, bez obzira na odabranu opciju.",
+                    "sale": "Odmah izvršite uplatu (Prodaja)"
+                },
+                "submitCart": {
+                    "label": "Predaj košaricu",
+                    "helpText": "Ako je ova opcija aktivna, podaci o košarici će se dostaviti PayPalu pri naplati."
+                },
+                "brandName": {
+                    "label": "Ime vašeg vlastitog brenda na PayPal stranici",
+                    "tooltipText": "Ovaj tekst će biti prikazan kao naziv brenda na PayPal stranici za plaćanje."
+                },
+                "landingPage": {
+                    "label": "PayPal odredišna stranica",
+                    "helpText": {
+                        "Login": "Prijava: PayPal stranica prikazuje zaslon za prijavu kao odredišnu stranicu.",
+                        "Billing": "Registracija: PayPal stranica prikazuje obrazac za registraciju kao odredišnu stranicu."
+                    },
+                    "options": {
+                        "Login": "Prijava",
+                        "Billing": "Registracija"
+                    }
+                },
+                "sendOrderNumber": {
+                    "label": "Pošaljite broj narudžbe",
+                    "helpText": "Ako je ova opcija aktivna, broj narudžbe bit će poslan PayPalu pri naplati."
+                },
+                "orderNumberPrefix": {
+                    "label": "Prefiks broja narudžbe",
+                    "tooltipText": "Ovaj se tekst stavlja ispred originalnog broja narudžbe (npr. MyShop_SW20001). Ovo pomaže identificirati trgovinu u kojoj je izvršeno plaćanje."
+                }
+            },
+            "express": {
+                "cardTitle": "PayPal Express Checkout",
+                "ecsDetailEnabled": {
+                    "label": "'Plati odmah' na stranici s detaljima:",
+                    "helpText": "Ako je ova opcija aktivna, dugme Express Checkout prikazat će se na svakoj stranici s detaljima proizvoda."
+                },
+                "ecsCartEnabled": {
+                    "label": "'Plati odmah' na košarici:",
+                    "helpText": "Ako je ova opcija aktivna, dugme Express Checkout prikazat će se na košarici."
+                },
+                "ecsOffCanvasEnabled": {
+                    "label": "'Plati odmah' na košarici bez platna:",
+                    "helpText": "Ako je ova opcija aktivna, dugme Express Checkout prikazat će se na košarici bez platna."
+                },
+                "ecsLoginEnabled": {
+                    "label": "'Plati odmah' na stranici za prijavu:",
+                    "helpText": "Ako je ova opcija aktivna, dugme Express Checkout prikazat će se na stranici za prijavu i registraciju."
+                },
+                "ecsListingEnabled": {
+                    "label": "'Plati odmah' na stranicama s popisima:",
+                    "helpText": "Ako je ova opcija aktivna, dugme Express Checkout prikazat će se na stranicama s popisom."
+                },
+                "ecsButtonColor": {
+                    "label": "Boja dugmeta:",
+                    "options": {
+                        "blue": "Plava",
+                        "black": "Crna",
+                        "gold": "Zlatna",
+                        "silver": "Srebrna"
+                    }
+                },
+                "ecsButtonShape": {
+                    "label": "Oblik dugmeta:",
+                    "options": {
+                        "pill": "Okruglo",
+                        "rect": "Pravokutni"
+                    }
+                },
+                "ecsSubmitCart": {
+                    "label": "Predaj košaricu",
+                    "helpText": "Ako je ova opcija aktivna, košarica će biti poslana PayPalu za brze narudžbe."
+                },
+                "ecsButtonLanguageIso": {
+                    "label": "Mjesto dugmeta:",
+                    "helpText": "Ako nije postavljeno, jezik prodajnog kanala će biti u upotrebi."
+                }
+            },
+            "installment": {
+                "cardTitle": "Na rate",
+                "installmentBannerEnabled": {
+                    "label": "Omogući natpis na rate"
+                }
+            },
+            "spb": {
+                "cardTitle": "PayPal naplata pomoću pametnih dugmadi za plaćanje",
+                "spbCheckoutEnabled": {
+                    "label": "Omogućite pametne dugmad za plaćanje"
+                },
+                "spbButtonLanguageIso": {
+                    "label": "Mjesto dugmeta:",
+                    "helpText": "Ako nije postavljeno, jezik prodajnog kanala će biti u upotrebi."
+                },
+                "spbAlternativePaymentMethodsEnabled": {
+                    "label": "Omogućite alternativne načine plaćanja za pametne dugmad za plaćanje.",
+                    "helpText": "Alternativni načini plaćanja su, kreditne kartice, fakture i drugi."
+                }
+            },
+            "plus": {
+                "cardTitle": "PayPal PLUS",
+                "introduction": "<strong>PayPal PLUS:</strong> Vaše cjelovito rješenje za plaćanje sve u jednom, uključujući PayPal, Debit, Kreditnu karticu i Plaćanje po fakturi. PayPal PLUS nudi svojim kupcima potpunu fleksibilnost u odabiru željenog načina plaćanja. Vaše prednosti kao prodavač? Jednostavnije računovodstvo sa samo jednom ugovornom stranom, jednim računom i jednim pregledom transakcija koji prikazuje sve dolazne uplate. Novac dobivate izravno nakon što kupci dovrše postupak narudžbe.<br>Možete se prijaviti za PayPal PLUS<a href='https://www.paypal.com/de/webapps/mpp/paypal-plus' target='_blank'>ovdje</a>Prijavite se za plaćanje na fakturi<a href='https://www.paypal.com/de/webapps/mpp/pui-start' target='_blank'>ovdje</a>.",
+                "plusCheckoutEnabled": {
+                    "label": "Omogućite PayPal PLUS"
+                }
+            },
+            "locale-field": {
+                "infobox": {
+                    "text": "Da biste vidjeli listu važećih lokalnih kodova, kliknite ",
+                    "href": "ovdje"
+                },
+                "error": {
+                    "detail": "Lokalni kod koji ste naveli ne odgovara formatu koji zahtijeva PayPal. Važeći format je \"en_GB\"."
+                }
+            },
+            "titleSuccess": "Uspješno",
+            "titleError": "Greška",
+            "messageSaveSuccess": "Postavke PayPal-a su sačuvane.",
+            "messageTestSuccess": "API akreditivi su potvrđeni.",
+            "messageTestError": "API akreditivi nisu mogli biti potvrđeni.",
+            "messageWebhookCreated": "Webhook je registrovan.",
+            "messageWebhookUpdated": "Webhook je ažuriran.",
+            "messageWebhookError": "Webhook nije moguće spremiti. Dogodile su se sljedeće greške:"
+        }
+    }
+}

@@ -1,0 +1,318 @@
+{
+    "swag-paypal-frw-credentials": {
+        "buttonGetCredentials": "Krijg API aanmeldgegevens",
+        "textIntroPayPal": "Om PayPal werkend te krijgen, zijn alleen de PayPal API aanmeldgegevens nodig.",
+        "labelClientId": "Klant ID",
+        "labelClientSecret": "Klant geheim",
+        "labelClientIdSandbox": "Zandbox klant ID",
+        "labelClientSecretSandbox": "Zandbox klant geheim",
+        "labelSandbox": "Zandbak",
+        "tooltipSandbox": "Afhankelijk van de activering van de zandbox worden afzonderlijke aanmeldgegevens opgeslagen.",
+        "textSettingsHeader": "Geavanceerde instellingen",
+        "messageFetchedError": "Probeer het opnieuw of gebruik de geavanceerde instellingen om de aanmeldgegevens op te geven.",
+        "titleFetchedError": "Er is een fout opgetreden",
+        "textFetchedSuccessful": "Aanmeldgegevens zijn opgehaald.",
+        "titleNoCredentials": "Fout",
+        "messageNoCredentials": "Geen aanmeldgegevens verkregen.",
+        "messageTestSuccess": "Referenties zijn geldig.",
+        "titleTestError": "Er is een fout opgetreden"
+    },
+    "swag-paypal-payment": {
+        "general": {
+            "title": "Bestellingen"
+        },
+        "tabs": {
+            "overview": "Overzicht"
+        },
+        "paymentDetails": {
+            "cardTitle": "Betaalwijze",
+            "invoice": {
+                "heading": "Facturatiebedrag",
+                "totalAmount": "Totaal bedrag:",
+                "subTotal": "Subtotaal:",
+                "shipping": "Verzending:"
+            },
+            "payment": {
+                "heading": "Betaalgegevens",
+                "intent": "Intentie:",
+                "paymentId": "Betaling-ID:",
+                "cartId": "Winkelwagen ID:",
+                "state": "Provincie:",
+                "createTime": "Aanmaaktijdstip:",
+                "updateTime": "Tijd bijwerken:"
+            },
+            "customer": {
+                "heading": "Klant",
+                "payerId": "Betaler ID:"
+            },
+            "error": {
+                "title": "Fout bij het ophalen van betalingsgegevens van PayPal"
+            }
+        },
+        "transactionHistory": {
+            "cardTitle": "Betalingsgeschiedenis",
+            "states": {
+                "authorization": "Autorisatie",
+                "sale": "Aanbieding",
+                "refund": "Restitutie",
+                "capture": "Vastleggen",
+                "order": "Bestelling"
+            },
+            "types": {
+                "type": "Type",
+                "amount": "Hoeveelheid",
+                "createTime": "Gemaakt",
+                "updateTime": "Bijgewerkt",
+                "state": "Provincie",
+                "trackingId": "Tracking ID",
+                "transactionFee": "Transactiekosten",
+                "paymentMode": "Betaalwijze"
+            }
+        },
+        "buttons": {
+            "label": {
+                "refund": "Maak een nieuwe terugbetaling aan",
+                "capture": "Vastleggen",
+                "void": "Annuleer autorisatie"
+            }
+        },
+        "modal": {
+            "title": {
+                "refund": "Nieuwe terugbetaling",
+                "capture": "Vastleggen",
+                "void": "Autorisatie intrekken"
+            }
+        },
+        "refundAction": {
+            "successMessage": "De terugbetaling was succesvol.",
+            "invoiceSelect": {
+                "label": "Selecteer vastleggen"
+            },
+            "refundAmount": {
+                "label": "Hoeveelheid",
+                "helpText": "Een bedrag van '0' zorgt voor terugbetaling van de volledige betaling"
+            },
+            "refundDescription": {
+                "label": "Beschrijving",
+                "placeholder": "Beschrijving invullen"
+            },
+            "refundReason": {
+                "label": "Reden",
+                "placeholder": "Geef een reden"
+            },
+            "refundInvoiceNumber": {
+                "label": "Factuurnummer",
+                "placeholder": "Vul een factuurnummer in"
+            },
+            "confirmButton": {
+                "text": "Uitvoeren"
+            }
+        },
+        "captureAction": {
+            "successMessage": "De opname is gelukt.",
+            "maxAmount": "Maximum bedrag",
+            "currentAmount": "Hoeveelheid",
+            "isFinal": "Dit is de laatste opname",
+            "isFinalHint": "Hint: Gemarkeerd als laatste opname, hoewel niet het volledige bedrag opgenomen is geworden.",
+            "button": {
+                "text": "Betaling vastleggen"
+            }
+        },
+        "voidAction": {
+            "successMessage": "De betaling is succesvol geannuleerd.",
+            "confirm": {
+                "message": "Deze betaling echt annuleren?",
+                "button": {
+                    "confirm": "Annuleer autorisatie",
+                    "cancel": "Nee"
+                }
+            }
+        },
+        "errorPage": {
+            "title": "Betalingsgegevens niet meer beschikbaar",
+            "canceledPaymentContent": "Een fout is opgetreden (INVALID_RESOURCE_ID) bij het ophalen van betalingsgegevens van PayPal. Indien dit bericht zichtbaar is, heeft een klant waarschijnlijk een betaling geannuleerd. Geannuleerde betalingen worden na enige tijd door PayPal verwijderd en zijn dan niet meer beschikbaar.",
+            "sandboxLiveContent": "Een fout is opgetreden (INVALID_RESOURCE_ID) bij het ophalen van betalingsgegevens van PayPal. Indien dit bericht zichtbaar is, was het waarschijnlijk een betaling die is gemaakt met sandbox ingeschakeld en nu is aangevraagd met live gegevens, of vice versa. Corrigeer uw PayPal instellingen of verwijder testbestellingen uit het systeem."
+        }
+    },
+    "swag-paypal": {
+        "header": "PayPal",
+        "saleschannelCard": {
+            "button": {
+                "description": "Klik deze knop om PayPal in te schakelen en kies het als standaard in het geselecteerde verkoopkanaal",
+                "label": "Stel PayPal als standaard in"
+            }
+        },
+        "general": {
+            "mainMenuItemGeneral": "PayPal",
+            "descriptionTextModule": "PayPal instellingen"
+        },
+        "messageNotBlank": "Deze waarde mag niet leeg zijn.",
+        "settingForm": {
+            "save": "Opslaan",
+            "testLive": "Test API aanmeldgegevens",
+            "testSandbox": "Test zandbox API aanmeldgegevens",
+            "credentials": {
+                "cardTitle": "API aanmeldgegevens",
+                "clientId": {
+                    "label": "Klant ID",
+                    "tooltipText": "De REST API klant ID wordt gebruikt om deze plug-in te verifiëren met de PayPal API."
+                },
+                "clientSecret": {
+                    "label": "Klant geheim",
+                    "tooltipText": "De REST API klant geheim wordt gebruikt om deze plug-in te verifiëren met de PayPal API."
+                },
+                "clientIdSandbox": {
+                    "label": "Zandbox klant ID",
+                    "tooltipText": "De REST API klant ID wordt gebruikt tijdens testen om deze plug-in te verifiëren met de PayPal API."
+                },
+                "clientSecretSandbox": {
+                    "label": "Zandbox klant geheim",
+                    "tooltipText": "De REST API klant geheim wordt gebruikt tijdens testen om deze plug-in te verifiëren met de PayPal API."
+                },
+                "sandbox": {
+                    "label": "Zandbox inschakelen",
+                    "tooltipText": "Inschakelen om de PayPal integratie te testen."
+                },
+                "button": {
+                    "title": "Krijg API aanmeldgegevens",
+                    "titleSandbox": "Krijg zandbox API aanmeldgegevens",
+                    "messageFetchedError": "Probeer het opnieuw of vul de inloggegevens handmatig in.",
+                    "titleFetchedError": "Een fout is opgetreden"
+                }
+            },
+            "behaviour": {
+                "cardTitle": "Gedrag",
+                "merchantLocation": {
+                    "label": "Handelaar locatie",
+                    "germany": "Duitsland",
+                    "other": "Andere handelaar locatie"
+                },
+                "intent": {
+                    "label": "Betalingsacquisitie",
+                    "hint": "Let op: PayPal PLUS werkt alleen met de betalingsacquisitie \"Verkoop\". Het wordt automatisch ingesteld, ongeacht de geselecteerde optie.",
+                    "sale": "Voltooi de betaling onmiddellijk (verkoop)",
+                    "authorize": "Uitgestelde incasso (Auth-Capture)",
+                    "order": "Uitgestelde incasso (Order-Auth-Capture)"
+                },
+                "submitCart": {
+                    "label": "Winkelwagen indienen",
+                    "helpText": "Als deze optie actief is, worden de winkelwagen gegevens bij het afrekenen naar PayPal verzonden."
+                },
+                "brandName": {
+                    "label": "Uw eigen merknaam op de PayPal-pagina",
+                    "tooltipText": "Deze tekst wordt weergegeven als de merknaam op de PayPal-betaalpagina."
+                },
+                "landingPage": {
+                    "label": "PayPal-bestemmingspagina",
+                    "helpText": {
+                        "Login": "Inloggen: de PayPal-site geeft een inlogscherm weer als landingspagina.",
+                        "Billing": "Registratie: de PayPal website geeft een registratieformulier weer als bestemmingspagina."
+                    },
+                    "options": {
+                        "Login": "Login",
+                        "Billing": "Registratie"
+                    }
+                },
+                "sendOrderNumber": {
+                    "label": "Geef het bestelnummer op",
+                    "helpText": "Als deze optie actief is, wordt het bestelnummer bij het afrekenen naar PayPal verzonden."
+                },
+                "orderNumberPrefix": {
+                    "label": "Bestelnummer prefix",
+                    "tooltipText": "Deze tekst wordt voor het originele bestelnummer geplaatst (bijvoorbeeld MyShop_SW20001). Dit helpt om de winkel te identificeren waar de betaling is gedaan."
+                }
+            },
+            "express": {
+                "cardTitle": "PayPal Express Afrekenen",
+                "ecsDetailEnabled": {
+                    "label": "'Betaal nu' op de detailpagina:",
+                    "helpText": "Als deze optie actief is, wordt de knop Snel afrekenen weergegeven op elke product detailpagina."
+                },
+                "ecsCartEnabled": {
+                    "label": "'Betaal nu' op winkelwagen:",
+                    "helpText": "Als deze optie actief is, wordt de knop Express Checkout op de winkelwagen weergegeven."
+                },
+                "ecsOffCanvasEnabled": {
+                    "label": "'Betaal nu' op Off-Canvas-winkelwagen:",
+                    "helpText": "Als deze optie actief is, wordt de knop Express Checkout weergegeven op de Off-Canvas winkelwagen."
+                },
+                "ecsLoginEnabled": {
+                    "label": "'Betaal nu' op inlogpagina:",
+                    "helpText": "Als deze optie actief is, wordt de knop Snel afrekenen weergegeven op de inlog- en registratiepagina."
+                },
+                "ecsListingEnabled": {
+                    "label": "'Betaal nu' op vermeldingspagina's:",
+                    "helpText": "Als deze optie actief is, wordt de knop Snel afrekenen weergegeven op de vermeldingspagina's."
+                },
+                "ecsButtonColor": {
+                    "label": "Knop kleur:",
+                    "options": {
+                        "blue": "Blauw",
+                        "black": "Zwart",
+                        "gold": "Goud",
+                        "silver": "Zilver"
+                    }
+                },
+                "ecsButtonShape": {
+                    "label": "Knop vorm:",
+                    "options": {
+                        "pill": "Rond",
+                        "rect": "Rechthoekig"
+                    }
+                },
+                "ecsSubmitCart": {
+                    "label": "Winkelwagen indienen",
+                    "helpText": "Als deze optie actief is, wordt de winkelwagen voor Express-bestellingen naar PayPal verzonden."
+                },
+                "ecsButtonLanguageIso": {
+                    "label": "Knop locale:",
+                    "helpText": "Indien niet ingesteld, wordt de taal van het verkoopkanaal gebruikt."
+                }
+            },
+            "installment": {
+                "cardTitle": "Termijnen",
+                "installmentBannerEnabled": {
+                    "label": "Schakel termijnbanner in"
+                }
+            },
+            "spb": {
+                "cardTitle": "PayPal afrekenen met slimme betaalknoppen",
+                "spbCheckoutEnabled": {
+                    "label": "Schakel slimme betalingsknoppen in"
+                },
+                "spbButtonLanguageIso": {
+                    "label": "Knop locale:",
+                    "helpText": "Indien niet ingesteld, wordt de taal van het verkoopkanaal gebruikt."
+                },
+                "spbAlternativePaymentMethodsEnabled": {
+                    "label": "Schakel de alternatieve betaalmethoden in voor de slimme betaalknoppen.",
+                    "helpText": "Alternatieve betaalmethoden zijn: creditkaarteb, factuur en meer."
+                }
+            },
+            "plus": {
+                "cardTitle": "PayPal PLUS",
+                "introduction": "<strong>PayPal PLUS:</strong> de complete alles-in-één betalingsoplossing inclusief PayPal, automatische incasso, creditcard en betalen op factuur. PayPal PLUS biedt klanten volledige flexibiliteit bij het kiezen van hun favoriete betaalmethode. De voordelen als verkoper? Makkelijker boekhouden met slechts één contractant, één rekening en één transactieoverzicht met alle inkomende betalingen. Ontvangt het geld direct nadat klanten het bestelproces hebben voltooid.<br>PayPal PLUS aanvragen kan via <a href='https://www.paypal.com/de/webapps/mpp/paypal-plus' target='_ blank'>hier</a>. Vraag betaling op factuur <a href='https://www.paypal.com/de/webapps/mpp/pui-start' target='_blank'>hier</a> aan.",
+                "plusCheckoutEnabled": {
+                    "label": "Schakel PayPal PLUS in"
+                }
+            },
+            "locale-field": {
+                "infobox": {
+                    "text": "Om een lijst met geldige locale codes te zien, klik ",
+                    "href": "hier"
+                },
+                "error": {
+                    "detail": "De landcode die u heeft opgegeven, komt niet overeen met het door PayPal vereiste formaat. Een geldig formaat is \"en_GB\"."
+                }
+            },
+            "titleSuccess": "Gelukt",
+            "titleError": "Fout",
+            "messageSaveSuccess": "De PayPal instellingen zijn opgeslagen.",
+            "messageTestSuccess": "De API aanmeld gegevens zijn gevalideerd.",
+            "messageTestError": "De API aanmeld gegevens kunnen niet worden gevalideerd.",
+            "messageWebhookCreated": "De webhook is geregistreerd.",
+            "messageWebhookUpdated": "De webhook is bijgewerkt.",
+            "messageWebhookError": "De webhook kan niet worden opgeslagen. De volgende fouten zijn opgetreden:"
+        }
+    }
+}

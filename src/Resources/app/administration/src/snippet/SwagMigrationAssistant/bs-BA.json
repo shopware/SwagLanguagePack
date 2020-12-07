@@ -1,0 +1,611 @@
+{
+    "swag-migration": {
+        "dashboard": {
+            "title": "Pomoćnik za migracije",
+            "headline": "Prelazak na Shopware",
+            "information": "Prva stvar je povezati vaš postojeći sistem trgovine - pomoćnik za migraciju pomoći će vam u radu.",
+            "button": "Otvorite Pomoćnika za Migracije",
+            "shopInfoCard": {
+                "header": "Pomoćnik za migracije",
+                "button": "Otvori",
+                "resetButton": "Zaključati"
+            }
+        },
+        "general": {
+            "mainMenuItemGeneral": "Pomoćnik za migracije",
+            "descriptionTextModule": "Modul za migraciju podataka",
+            "tabMain": "Opšte",
+            "tabHistory": "Historija",
+            "tabDataSelector": "Izbor podataka"
+        },
+        "wizard": {
+            "buttonAbort": "Poništi",
+            "buttonLetsGo": "Početak",
+            "buttonConnectionCreate": "Uspostavite vezu",
+            "buttonConnectionSelect": "Promijenite vezu",
+            "buttonConnect": "Poveži",
+            "buttonToProfileInformation": "Informacije",
+            "buttonNext": "Nastavite",
+            "buttonFinish": "Izvršeno",
+            "buttonEdit": "Uredi vezu",
+            "buttonLater": "Zatvori",
+            "buttonUseSsl": "Koristite HTTPS",
+            "pages": {
+                "introduction": {
+                    "title": "Pomoćnik za migracije",
+                    "contentHeadline": "Premjestimo neke stvari",
+                    "contentInformation": "Zajedno ćemo povezati vaš trgovinski sistem sa Shopware 6. Nakon toga, pomoćnik za migraciju pomoći će vam da premjestite podatke korak po korak."
+                },
+                "profileInstallation": {
+                    "title": "Migracija - Shopsystem-Profile",
+                    "content": "Odaberite sistem trgovine iz kojeg ćete migrirati podatke i obavezno instalirajte i odgovarajući dodatak za profil.",
+                    "availabilityHeadline": "Prethodno dostupno:",
+                    "availableVersionHeadline": "Podržano:",
+                    "installedHint": "Instalirano",
+                    "installationButton": "Instaliraj",
+                    "shopwareProfileHeadline": "Shopware 5 - Profil",
+                    "magentoProfileHeadline": "Magento - Profil",
+                    "profileManufacturer": "hopware AG"
+                },
+                "connectionSelect": {
+                    "title": "Migracija - Promjena veze",
+                    "contentInformation": "Odaberite postojeću vezu sa popisa da biste ažurirali podatke.",
+                    "connectionLabel": "Naziv veze",
+                    "connectionPlaceholder": "Odaberite vezu"
+                },
+                "connectionCreate": {
+                    "title": "Migracija - stvorite novu vezu",
+                    "contentInformation": "Za obavljanje migracije potrebne su sljedeće informacije.",
+                    "profileLabel": "Profil sistema trgovine",
+                    "profilePlaceholder": "Odaberite profil",
+                    "profileInstall": "Instalirajte drugi profil",
+                    "gatewayLabel": "Ulaz",
+                    "gatewayTooltip": "Vrsta veze između sistema.",
+                    "gatewayPlaceholder": "Odaberite ulaz",
+                    "connectionLabel": "Naziv veze",
+                    "connectionPlaceholder": "Unesite naziv",
+                    "connectionTooltip": "Unesite jedinstveno ime veze.",
+                    "gateways": {
+                        "shopwareApi": "API",
+                        "shopwareLocal": "Lokalna baza podataka"
+                    },
+                    "hint": {
+                        "local": "Napomena: Trgovački sistemi moraju biti na istom serveru. Potrebni su vam podaci za pristup bazi podataka."
+                    }
+                },
+                "profileInformation": {
+                    "title": "Migracija - Priprema veze",
+                    "shopware55Api": {
+                        "contentTitle": "Potreban dodatak",
+                        "contentInformation": "Potrebni dodatak „Konektor za migraciju“ je besplatan i može se naći u pozadini vašeg Shopware 5 u odjeljku Upravitelj dodataka> Proširenja> Alati za migraciju. Molimo vas instalirajte i aktivirajte dodatak da biste nastavili.",
+                        "pluginLink": "Više informacija o dodatku"
+                    }
+                },
+                "credentials": {
+                    "title": "Migracija - uspostavite vezu",
+                    "emptyState": "Žao nam je, nije pronađen obrazac za odabrani profil.",
+                    "shopware55": {
+                        "api": {
+                            "contentInformation": "Potrebni su vam važeći API akreditivi kako biste uspostavili vezu između Shopwarea 5 i Shopwarea 6. Vaše API akreditive možete pronaći u pozadini Shopwarea 5 u odjeljku „Administracija korisnika“. API pristup treba tamo aktivirati i potvrditi spremanjem.",
+                            "apiKeyLabel": "API ključ",
+                            "apiKeyTooltip": "API ključ koristi se za sigurnost i identifikaciju.",
+                            "apiKeyPlaceholder": "Unesite ključ",
+                            "apiUserLabel": "Korisničko ime (API korisnik)",
+                            "apiUserTooltip": "Korisničko ime vašeg backware-a Shopware 5.",
+                            "apiUserPlaceholder": "Unesi korisničko ime",
+                            "endpointLabel": "Domena trgovine",
+                            "endpointPlaceholder": "www.demoshop.com",
+                            "endpointSSLLabel": "Moja trgovina koristi sigurnu vezu (SSL)"
+                        },
+                        "local": {
+                            "contentInformation": "I dalje nam trebaju pristupni podaci za povezivanje s vašom bazom podataka Shopware 5.",
+                            "dbHostLabel": "Host",
+                            "dbHostPlaceholder": "Unesite server",
+                            "dbPortLabel": "Port",
+                            "dbNameLabel": "Naziv baze podataka",
+                            "dbNamePlaceholder": "Unesite naziv",
+                            "dbUserLabel": "Korisnik",
+                            "dbUserPlaceholder": "Unesi korisničko ime",
+                            "dbPasswordLabel": "Lozinka",
+                            "dbPasswordPlaceholder": "Unesite lozinku",
+                            "installationRoot": "Kupujte instalacijski folder",
+                            "installationRootPlaceholder": "Unesite instalacijski root"
+                        }
+                    },
+                    "statusTitle": "Provjera veze",
+                    "success": {
+                        "contentTitle": "Veza uspješna",
+                        "contentInformation": "Možete započeti migraciju.",
+                        "undefinedErrorMsg": "Došlo je do nepoznate greške prilikom provjere SSL certifikata iz navedene domene trgovine.",
+                        "SWAG_MIGRATION__REQUEST_CERTIFICATE_INVALID": "Utvrdili smo da SSL certifikat navedene domene trgovine nije siguran. Provjerite certifikat radi vlastite sigurnosti."
+                    },
+                    "error": {
+                        "contentTitle": "Nema konekcije",
+                        "alertErrorTitle": "Pažnja",
+                        "undefinedErrorMsg": "Interna greška servera. Molimo pokušajte ponovo.",
+                        "SWAG_MIGRATION__GATEWAY_READ": "Povezivanje sa serverom nije uspjelo. Molimo provjerite navedenu domenu trgovine.",
+                        "SWAG_MIGRATION__CONNECTION_AUTHENTICATION_INVALID": "Vaši podaci nisu tačni. Molimo provjerite ih i pokušajte ponovo.",
+                        "SWAG_MIGRATION__PLUGIN_NOT_INSTALLED": "Potrebni dodatak “Migration Connector” nije instaliran u Shopware 5. Molimo instalirajte besplatni dodatak i pokušajte ponovo.",
+                        "SWAG_MIGRATION__DATABASE_CONNECTION_ERROR": "Nije moguće uspostaviti vezu s bazom podataka.",
+                        "SWAG_MIGRATION__IS_RUNNING": "Migracija je trenutno u toku. Stoga ne možete uređivati akreditive dok se migracija ne dovrši.",
+                        "SWAG_MIGRATION__SSL_REQUIRED": "Utvrdili smo da je za određenu domenu trgovine potrebna SSL veza."
+                    }
+                }
+            }
+        },
+        "emptyScreen": {
+            "title": "Nema konekcije",
+            "link": "Dokumentacija: Migracija na Shopware 6",
+            "connectButton": "Stvori vezu"
+        },
+        "index": {
+            "title": "Opšte",
+            "migrateButton": "Započnite migraciju",
+            "startButton": "Nastavite",
+            "savePremapping": {
+                "saveButton": "Spremite prethodno mapiranje",
+                "message": "Prethodno mapiranje je spremljeno."
+            },
+            "pauseButton": "Pauza",
+            "continueButton": "Nastavite",
+            "abortButton": "Poništi",
+            "finishButton": "Završi",
+            "backButton": "Pregled",
+            "migrationAlreadyRunning": "Migracija je već započela.",
+            "pluginVersionText": "Primijetili smo da je ažuriranje dodatka dostupno u vašem izvornom sistemu {sourceSystem}. Ažurirajte dodatak \"{pluginName}\" prije početka migracije.",
+            "shopInfoCard": {
+                "cardTitle": "Trgovinski sistem",
+                "buttonEditSettings": "Uredi vezu",
+                "buttonCreateConnection": "Stvori novu vezu",
+                "buttonSelectConnection": "Promijenite vezu",
+                "buttonRemoveCredentials": "Izbrišite pristupne podatke",
+                "buttonProfileInstallation": "Instalirajte drugi profil",
+                "buttonResetChecksums": "Resetirajte kontrolne sume",
+                "buttonResetMigration": "Završi migraciju",
+                "connected": "Povezano",
+                "notConnected": "Nije povezan",
+                "profile": "Sistemski profil:",
+                "gateway": "Ulaz:",
+                "connectionCheck": "Provjera veze:",
+                "lastMigration": "Zadnja migracija:",
+                "displayDateTime": "{time} - {date}",
+                "noMigrationDoneYet": "-",
+                "removeCredentialsConfirmDialog": {
+                    "title": "Izbrišite pristupne podatke",
+                    "content": "Nakon ovoga neće biti aktivne veze. Ponovo unesite svoje pristupne podatke da biste uspostavili vezu.",
+                    "contentHint": "Želite li izbrisati trenutne podatke o pristupu?",
+                    "abortButtonText": "Poništi",
+                    "confirmButtonText": "Da, izbriši"
+                },
+                "resetChecksumsConfirmDialog": {
+                    "title": "Resetirajte kontrolne sume",
+                    "content": "Ako resetirate kontrolne sume, svi podaci iz izvornog sistema bit će prepoznati u sljedećoj migraciji. To uključuje već migrirane ili nepromijenjene skupove podataka.<br><br><strong>Važno:</strong> Izmjene zapisa podataka koje ste napravili u Shopware 6 od posljednje migracije bit će izbrisane. Izvorni sistemski podaci imaju prioritet.",
+                    "contentHint": "Želite li resetirati kontrolne sume?",
+                    "abortButtonText": "Poništi",
+                    "confirmButtonText": "Da, resetuj"
+                },
+                "resetMigrationConfirmDialog": {
+                    "title": "Završiti migraciju",
+                    "header": "Jeste li završili s migracijom podataka o vašoj trgovini?",
+                    "contentHint": "Želite li sada završiti migraciju?",
+                    "abortButtonText": "Poništi",
+                    "confirmButtonText": "Dovršite sada",
+                    "errorNotification": {
+                        "title": "Došlo je do greške prilikom finaliziranja migracije",
+                        "message": "Migracija je trenutno u toku."
+                    }
+                }
+            },
+            "assistantCard": {
+                "title": "Informacije",
+                "headline": "Kako migracija funkcionira",
+                "finish": "Završeno!",
+                "connection": {
+                    "title": "Uspostavite vezu",
+                    "content": "Pomoćnik za migraciju pomoći će uspostaviti vezu između vašeg sistema trgovine i Shopwarea 6 za prijenos i migraciju vaših podataka.",
+                    "link": "Pomoć i dokumentacija"
+                },
+                "dataSelection": {
+                    "title": "Navedite podatke za migraciju",
+                    "content": "Odaberite podatke koje želite migrirati. Moguće je uključiti i podatke o dodatku, ako je dodatak već dostupan za Shopware 6. Provjerite dostupnost dodatka na svom Shopware računu."
+                },
+                "migrationOverview": {
+                    "title": "Koraci migracije",
+                    "content": "1.Automatski postupak provjerava odabrane podatke za nedostajuće zadatke. Pripremite se za dovršavanje automatskog postupka dodavanjem ručnih zadataka.{linebreak}2. Podaci vaše trgovine se čitaju i dodjeljuju.{linebreak}3. Svi odabrani i pravilno dodijeljeni podaci prenose se u Shopware 6.{linebreak}4. Preuzimaju se medijske stavke."
+                }
+            },
+            "selectDataCard": {
+                "cardTitle": "Izbor podataka",
+                "dataHeader": "Podaci",
+                "dataTypes": {
+                    "basicData": "Podaci o trgovini",
+                    "pluginData": "Podaci o dodacima"
+                },
+                "headers": {
+                    "name": "Ime",
+                    "dataType": "Vrsta",
+                    "total": "Skupovi podataka"
+                },
+                "dataSelection": {
+                    "customersOrders": "Kupci i narudžbe",
+                    "products": "Proizvodi",
+                    "media": "Mediji",
+                    "processMediaFiles": "Mediji",
+                    "basicSettings": "Osnovni podaci",
+                    "newsletterRecipient": "Primatelji biltena",
+                    "productReviews": "Recenzije proizvoda",
+                    "seoUrls": "Seo urls"
+                },
+                "entities": {
+                    "category": "Kategorije:",
+                    "product": "Proizvodi:",
+                    "customer": "Kupci:",
+                    "order": "Narudžbe:",
+                    "media": "Mediji:",
+                    "translation": "Prijevodi:",
+                    "customer_group": "Grupe kupaca:",
+                    "product_option_relation": "Opcije proizvoda:",
+                    "product_property_relation": "Svojstva proizvoda:",
+                    "property_group_option": "Svojstva:",
+                    "number_range": "Rasponi brojeva:",
+                    "order_document": "Dokumenti za narudžbu:",
+                    "shipping_method": "Način dostave:",
+                    "currency": "Valute:",
+                    "sales_channel": "Prodajni kanali:",
+                    "product_review": "Recenzije:",
+                    "seo_url": "Seo urls:",
+                    "product_cross_selling": "Unakrsna prodaja:"
+                },
+                "noData": "Ništa nije pronađeno za migriranje."
+            },
+            "confirmWarningCard": {
+                "currencyMismatch": {
+                    "title": "Migracija je prepoznala drugu valutu",
+                    "text": "Valuta podataka koji se premještaju ne podudara se sa standardnom valutom [{targetSystemCurrency}]. Podaci s [{sourceSystemCurrency}] i dalje se mogu migrirati, ali se neće automatski pretvoriti. Nakon toga možete ručno prilagoditi cijene.",
+                    "question": "Da li ste sigurni da bi podaci trebali biti migrirani u standardnoj valuti [{targetSystemCurrency}]?",
+                    "checkboxLabel": "Da, volio bih da nastavim"
+                }
+            },
+            "premappingCard": {
+                "validTitle": "Provjera podataka je završena",
+                "validCaption": "Podaci su spremni za nastavak",
+                "loadingTitle": "Provjera podataka je pokrenuta",
+                "loadingCaption": "Postojeći podaci su provjereni.",
+                "unfilledTitle": "Provjera podataka je završena",
+                "unfilledCaption": "Možete nastaviti tek nakon završetka ručnog dodjeljivanja.",
+                "unfilledAlert": "Otkrili smo da postoje podaci koji zahtijevaju ručno dodjeljivanje.",
+                "previousTitle": "Prethodno",
+                "newAssignmentTitle": "Novi zadaci",
+                "placeholder": "Odaberite",
+                "filledCardTitle": "Obrađeni zadaci",
+                "expandTitle": "Sakrij obrađene zadatke",
+                "collapseTitle": "Prikaži obrađene zadatke",
+                "unfilledCardTitle": "Ručni zadaci",
+                "group": {
+                    "order_state": "Statu narudžbe",
+                    "order_delivery_state": "Stanje dostave",
+                    "transaction_state": "Stanje transakcije",
+                    "payment_method": "Način plačanja",
+                    "manufacturer": "Proizvođači",
+                    "salutation": "Pozdrav",
+                    "delivery_time": "Vrijeme isporuke",
+                    "salesChannel": "Bilten prodajnog kanala",
+                    "newsletter_status": "Status biltena"
+                }
+            },
+            "loadingScreenCard": {
+                "flowChart": {
+                    "premapping": "Provjeravajući",
+                    "fetchData": "Čitanje",
+                    "writeData": "Pisanje",
+                    "processMedia": "Preuzimanje",
+                    "finish": "Izvršeno"
+                },
+                "status": {
+                    "FETCH_DATA": {
+                        "long": "Podaci će se čitati iz vašeg sistema",
+                        "caption": "Novi zadaci su obrađeni.",
+                        "short": "Čitanje",
+                        "hint": "Savjet: Migracija se nastavlja korak po korak u pozadini, istražite Shopware 6."
+                    },
+                    "WRITE_DATA": {
+                        "long": "Podaci se zapisuju u Shopware 6",
+                        "caption": "Ovisno o veličini trgovine, može potrajati nekoliko trenutaka.",
+                        "short": "Pisanje",
+                        "hint": "Savjet: U bilo kojem trenutku možete pauzirati i nastaviti postupak migracije."
+                    },
+                    "PROCESS_MEDIA_FILES": {
+                        "long": "Mediji se preuzimaju",
+                        "caption": "Obrada velikih slika može potrajati neko vrijeme.",
+                        "short": "Preuzimanje",
+                        "hint": "Savjet: Ako je veza slaba, pauzirajte preuzimanje i nastavite kasnije."
+                    },
+                    "finish": "Izvršeno"
+                },
+                "result": {
+                    "title": "Pomoćnik za migraciju je gotov",
+                    "caption": "Preuzimanje medija nastavlja se u pozadini. Velike datoteke mogu potrajati.",
+                    "historyLink": "Pogledajte detalje o migraciji",
+                    "survey": {
+                        "title": "Vaše misli su važne",
+                        "caption": "Molimo vas da nam pomognete da poboljšamo proces migracije davanjem povratnih informacija o vašem iskustvu.",
+                        "buttonText": "Pošaljite povratne informacije sada",
+                        "link": "https://www.surveymonkey.de/r/RF7J3LV"
+                    },
+                    "notification": {
+                        "title": "Historija migracija",
+                        "message": "Pogledajte ili preuzmite datoteku dnevnika",
+                        "actionLabel": "Otvori historiju"
+                    },
+                    "indexingNotification": {
+                        "running": {
+                            "title": "Ndeksiranje je u toku",
+                            "message": "Trenutno indeksiranje u pozadini."
+                        },
+                        "finished": {
+                            "title": "Indeksiranje je završeno",
+                            "message": "Indeksiranje je završeno."
+                        }
+                    }
+                },
+                "pauseScreen": {
+                    "title": "Migracija je pauzirana",
+                    "message": "Nisi zastao? Ako nema internetske veze, migracija se automatski prebacuje u pauzu kako bi se spriječio gubitak podataka."
+                },
+                "takeoverScreen": {
+                    "buttonCheck": "Provjeri status",
+                    "buttonRedirect": "Opšte",
+                    "running": {
+                        "title": "Migracija je već započela",
+                        "message": "Već se izvršava migracija iz drugog preglednika ili kartice preglednika. Sada možete ili preuzeti tekuću migraciju ili je otkazati."
+                    },
+                    "interrupted": {
+                        "title": "Migracija je preuzeta",
+                        "message": "Postupak migracije preuzet je iz drugog preglednika ili kartice preglednika. Možete otkazati ili preuzeti postupak, ovisno o trenutnom statusu migracije."
+                    },
+                    "aborted": {
+                        "title": "Migracija je otkazana",
+                        "message": "Drugi je korisnik otkazao postupak migracije u zasebnom pregledniku ili kartici preglednika. Molimo započnite novu migraciju."
+                    },
+                    "forbidden": {
+                        "title": "Migracija je već započela",
+                        "message": "Migracija je već započeta u drugom pregledniku ili na kartici pregledača. Prebacite se na ovu karticu za prikaz postupka migracije."
+                    },
+                    "takeoverModal": {
+                        "title": "Preuzmi migraciju",
+                        "message": "Moguće je preuzeti aktivnu migraciju. Ako želite, možete nastaviti migraciju u ovom prozoru preglednika.",
+                        "hint": "Želite li preuzeti migraciju?",
+                        "cancel": "Poništi",
+                        "confirm": "Preuzmi migraciju"
+                    },
+                    "abortModal": {
+                        "title": "Otkaži migraciju",
+                        "message": "Trenutno nije moguće preuzeti aktivnu migraciju. Ako želite, sada možete otkazati aktivnu migraciju i odmah nakon toga započeti novu.",
+                        "hint": "Želite li otkazati migraciju?",
+                        "cancel": "Poništi",
+                        "confirm": "Otkaži migraciju"
+                    },
+                    "redirectModal": {
+                        "title": "Migracija završena",
+                        "message": "Migracija je već dovršena u drugom pregledniku ili na kartici preglednika.",
+                        "confirm": "Opšte"
+                    }
+                },
+                "connectionLostScreen": {
+                    "title": "Veza je izgubljena",
+                    "message": "Migracija je završila proces kako bi se izbjegao gubitak podataka. Provjerite internetsku vezu i započnite novu migraciju.",
+                    "buttonNavigateToMain": "Opšte"
+                },
+                "mediaProcessScreen": {
+                    "title": "Pokretanje preuzimanja medija",
+                    "message": "Proces se izvodi u pozadini"
+                }
+            },
+            "confirmAbortDialog": {
+                "title": "Zaustavi migraciju",
+                "content": "Migracija nije u potpunosti dovršena. Već migrirani podaci mogu biti neupotrebljivi. Ako sada prestanete, morat ćete u potpunosti ponoviti postupak migracije.",
+                "hint": "Želite li zaustaviti migraciju?",
+                "cancelRunning": "Nastavite",
+                "cancelPause": "Pauza",
+                "confirm": "Zaustavi migraciju"
+            },
+            "errorTypes": {
+                "error": "Greška",
+                "warning": "Upozorenje",
+                "info": "Informacije"
+            },
+            "error": {
+                "authorizationError": {
+                    "information": "Utorizacije. Podaci o pristupu nisu tačni. Molimo provjerite i pokušajte ponovo."
+                },
+                "canNotConnectToServer": "Nema veze sa serverom. Molimo provjerite ima li problema sa vezom.",
+                "customerExists": {
+                    "information": "Kupac sa e-mailom\"{mail}\" već postoji. Ne možete dodati ovog korisnika s tom e-poštom u svoju bazu podataka."
+                },
+                "gatewayNotFound": {
+                    "information": "Prolaz \"{notFoundGateway}\" nije pronađen."
+                },
+                "gatewayRead": {
+                    "information": "Nije moguće pročitati mrežni prolaz \"{unreadableGateway}\"."
+                },
+                "localeNotFound": {
+                    "information": "Unos lokalnog koda \"{notFoundCode}\" nije pronađen."
+                },
+                "migrationContextPropertyMissing": {
+                    "information": "Potrebno svojstvo \"{notFoundProperty}\" za kontekst migracije nije pronađeno."
+                },
+                "migrationsWorkloadPropertyMissing": {
+                    "information": "Potrebno svojstvo \"{notFoundProperty}\" za radno opterećenje migracije nije pronađeno."
+                },
+                "noFileSystemPermissions": {
+                    "information": "Nema dozvola sistema datoteka za kreiranje ili pisanje datoteka ili direktorija. Molimo provjerite svoje dozvole."
+                },
+                "profileNotFound": {
+                    "information": "Profil za migraciju \"{notFoundProfile}\" nije pronađen."
+                },
+                "undefinedIndex": {
+                    "title": "Neidentificirani indeks",
+                    "detail": "Nije moguće pronaći neidentificirani indeks.",
+                    "information": "Indeks \"{unidentifiedIndex}\" nije pronađen. Molimo provjerite svoje podatke."
+                },
+                "unknownError": "Nepoznata greška. Za više informacija možete provjeriti tablicu evidentiranja svoje baze podataka.",
+                "mediaProcessConnectionError": "Došlo je do greške u vezi prilikom kopiranja medijskih podataka. Molimo provjerite vezu.",
+                "SWAG_MIGRATION__WRITER_NOT_FOUND": {
+                    "title": "Pisač datoteka nije pronađen",
+                    "description": "Pisač datoteka za entitet \"{entity}\" nije pronađen."
+                },
+                "SWAG_MIGRATION__SHOPWARE_CANNOT_DOWNLOAD_DATA": {
+                    "title": "Nije moguće preuzeti medij",
+                    "description": "Nije moguće preuzeti medij. Pogođena datoteka: {uri}"
+                },
+                "SWAG_MIGRATION__SHOPWARE_PARENT_ENTITY_NOT_FOUND": {
+                    "title": "Matični entitet nije pronađen",
+                    "description": "Matični entitet za \"{entity}\" nije pronađen."
+                },
+                "SWAG_MIGRATION__SHOPWARE_ASSOCIATION_REQUIRED_MISSING": {
+                    "title": "Pridruženi {entity} nije pronađen",
+                    "description": "{missingEntity} s izvornim Id-om \"{sourceId}\" nije moguće pronaći, ali je potreban za {requiredFor}."
+                },
+                "SWAG_MIGRATION__SHOPWARE_EMPTY_NECESSARY_DATA_FIELDS": {
+                    "title": "Entitet {entity} ima prazno potrebno polje",
+                    "description": "Entitet {entity} s izvornim Id-om \"{sourceId}\" nema potrebne podatke za polje \"{emptyField}\""
+                },
+                "SWAG_MIGRATION__SHOPWARE_UNSUPPORTED_OBJECT_TYPE": {
+                    "title": "Nepodržani tip objekta",
+                    "description": "{entity} tipa objekta \"{objectType}\" s id-om izvora \"{sourceId}\" nije moguće pretvoriti."
+                },
+                "SWAG_MIGRATION__SHOPWARE_INVALID_UNSERIALIZED_DATA": {
+                    "title": "Nevaljani neserijalizirani podaci",
+                    "description": "Entitet {entity} s id-om izvora \"{sourceId}\" nije se mogao pretvoriti zbog nevaljanih neserijaliziranih podataka objekta za entitet \"{unserializedEntity}\", a neobrađeni podaci su: {serializedData}"
+                },
+                "SWAG_MIGRATION__SHOPWARE_CANNOT_COPY_DATA": {
+                    "title": "Zvorna datoteka nije pronađena",
+                    "description": "Izvorna datoteka se nije mogla kopirati. Datoteka: {path}"
+                },
+                "SWAG_MIGRATION_CANNOT_CONVERT_CHILD_ENTITY": {
+                    "title": "Podređeni entitet {entity} nije se mogao pretvoriti",
+                    "description": "Podređeni entitet {entity} iz nadređenog entiteta {parentEntity} s Id-om \"{parentSourceId}\" nije se mogao pretvoriti."
+                },
+                "SWAG_MIGRATION_CANNOT_CONVERT_ENTITY": {
+                    "title": "Entitet {entity} nije moguće pretvoriti",
+                    "description": "Entitet {entity} s izvornim Id-om \"{sourceId}\" nije moguće pretvoriti."
+                },
+                "SWAG_MIGRATION_CANNOT_GET_FILE": {
+                    "title": "Datoteka {entity} ne može se preuzeti / kopirati",
+                    "description": "Datoteka {entity} s uri \"{uri}\" i Id-om medija \"{sourceId}\" ne može se preuzeti / kopirati."
+                },
+                "SWAG_MIGRATION__COULD_NOT_READ_ENTITY_COUNT": {
+                    "title": "Nije moguće pročitati broj entiteta",
+                    "description": "Nije moguće pročitati ukupan broj za entitet {entity}. Provjerite postoji li tablica \"{table}\" u vašem izvornom sistemu i da li je neobavezni uvjet \"{condition}\" valjan. Poruka o izuzeću: {exceptionMessage}"
+                },
+                "SWAG_MIGRATION__DATASET_NOT_FOUND": {
+                    "title": "Skup podataka nije pronađen",
+                    "description": "Skup podataka za profil \"{profileName}\" i entitet \"{entity}\" nije pronađen. Entitet sa Id-om \"{sourceId}\" nije mogao biti obrađen."
+                },
+                "SWAG_MIGRATION_ENTITY_ALREADY_EXISTS": {
+                    "title": "Entitet {entity} već postoji",
+                    "description": "Entitet {entity} s id-om izvora \"{sourceId}\" već postoji i ne može se zapisati."
+                },
+                "SWAG_MIGRATION_ENTITY_FIELD_REASSIGNED": {
+                    "title": "Entitet {entity} ima polje koje je dodijeljeno",
+                    "description": "Entitet {entity} s izvornim Id-om \"{sourceId}\" dobio je polje \"{emptyField}\" zamijenjeno sa \"{replacementField}\"."
+                },
+                "SWAG_MIGRATION__PROCESSOR_NOT_FOUND": {
+                    "title": "Procesor nije pronađen",
+                    "description": "Procesor za profil \"{profileName}\", ulaz\"{gatewayName}\" i entitet \"{entity}\" nije pronađen."
+                },
+                "SWAG_MIGRATION_ENTITY_UNKNOWN": {
+                    "title": "Nije moguće pronaći {entity}",
+                    "description": "Entitet {requiredForEntity} s izvornim id-om \"{requiredForSourceId}\" ne može pronaći zavisni entitet {entity} s izvornim id-om \"{sourceId}\"."
+                },
+                "SWAG_MIGRATION__SHOPWARE_UNSUPPORTED_NUMBER_RANGE_TYPE": {
+                    "title": "Nepodržani tip raspona brojeva",
+                    "description": "NumberRange-Entity s izvornim Id-om \"{sourceId}\" nije moguće pretvoriti zbog nepodržanog tipa: {type}."
+                },
+                "SWAG_MIGRATION__SHOPWARE_UNSUPPORTED_SHIPPING_PRICE": {
+                    "title": "Nepodržani izračun cijene faktora isporuke",
+                    "description": "Entitet cijene otpreme sa id-om izvora \"{sourceId}\" načina otpreme \"{shippingMethodId}\" nije moguće pretvoriti zbog nepodržane kalkulacije cijene faktora."
+                },
+                "SWAG_MIGRATION__SHOPWARE_UNSUPPORTED_SHIPPING_CALCULATION_TYPE": {
+                    "title": "Nepodržani tip proračuna isporuke",
+                    "description": "Entitet metode isporuke s izvornim Id-om \"{sourceId}\" nije moguće pretvoriti zbog nepodržane vrste izračuna: {type}."
+                },
+                "SWAG_MIGRATION__THEME_COMPILING_ERROR": {
+                    "title": "Pogreška pri kompiliranju teme",
+                    "description": "Tema s id-om \"{sourceId}\" nije mogla biti kompajlirana."
+                },
+                "SWAG_MIGRATION_RUN_EXCEPTION": {
+                    "title": "Dogodila se iznimka",
+                    "description": "{description}"
+                },
+                "SWAG_MIGRATION__DEBUG": {
+                    "title": "Izlaz za otklanjanje grešaka",
+                    "description": "{logData}"
+                },
+                "SWAG_MIGRATION__DOCUMENT_TYPE_NOT_SUPPORTED": {
+                    "title": "Vrsta dokumenta nije podržana",
+                    "description": "Dokument s izvornim Id-om \"{sourceId}\" nije moguće pretvoriti jer vrsta dokumenta \"{type}\" nije podržana.\npodržan."
+                },
+                "SWAG_MIGRATION__WRITE_EXCEPTION_OCCURRED": {
+                    "title": "Dogodila se iznimka pri pisanju",
+                    "description": "{description}"
+                }
+            }
+        },
+        "history": {
+            "connectionName": "Naziv veze",
+            "profileAndGateway": "Profil i pristupnik",
+            "status": "Status",
+            "importDateTime": "Vreme početka",
+            "shopDomain": "Domena trgovine",
+            "shopSystem": "Trgovinski sistem",
+            "selectedData": "Podaci",
+            "contextMenu": {
+                "details": "Prikaži detalje",
+                "downloadLogs": "Dnevnik preuzimanja",
+                "clearLogs": "Izbrišite podatke o migraciji"
+            },
+            "clearRunDialog": {
+                "title": "Izbrišite podatke o migraciji",
+                "content": "Brisanjem podataka o migraciji uklonit će se unosi dnevnika, unosi medijske datoteke, privremeni zapisi podataka o migraciji i pokretanje migracije, koji tada više neće biti dostupni u historiji migracije.",
+                "contentHint": "Da li stvarno želite izbrisati podatke?"
+            },
+            "noData": "Nisu pronađene migracije.",
+            "detailPage": {
+                "title": "Detalji migracije",
+                "timestamp": "Vrijeme:",
+                "runStatus": "Status migracije:",
+                "status": {
+                    "finished": "Završeno",
+                    "aborted": "Obustavljeno",
+                    "running": "Pokretanje"
+                },
+                "data": "Podaci",
+                "errors": "Detalji",
+                "logDescription": "Za više detalja {link}",
+                "logDownload": "preuzmite datoteku dnevnika.",
+                "errorCode": "Poruka o grešci",
+                "errorCount": "Broj",
+                "noErrorsOccurred": "Nije došlo do greške.",
+                "dataName": "Ime",
+                "dataCount": "Skupovi podataka",
+                "close": "Zatvori"
+            }
+        },
+        "worker-listener": {
+            "mediaProcessing": {
+                "title": "Mediji se preuzimaju",
+                "message": "Nema preostalih datoteka. | Preostala je jedna datoteka. | Preostalo datoteka: {n}.",
+                "titleSuccess": "Preuzimanje medija završeno",
+                "messageSuccess": "Preuzimanje medija je završeno."
+            }
+        }
+    },
+    "global": {
+        "error-codes": {
+            "SWAG_MIGRATION_CONNECTION_NAME_ALREADY_EXISTS": "Naziv veze već postoji.",
+            "SWAG_MIGRATION_CONNECTION_NAME_TO_SHORT": "Naziv veze mora imati najmanje 6 znakova.",
+            "SWAG_MIGRATION_INVALID_API_KEY": "API ključ nema ispravnu dužinu ({length} / 40 znakova)."
+        }
+    }
+}

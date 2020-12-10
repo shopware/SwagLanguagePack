@@ -27,18 +27,23 @@ class UserValidator extends AbstractLanguageValidator
     protected function validate(WriteCommand $command, ConstraintViolationList $violationList): void
     {
         $payload = $command->getPayload();
-        if (!isset($payload['locale_id']) || $this->getAdministrationActiveByLocale($payload['locale_id'])) {
+        if (!isset($payload['locale_id'])) {
+            return;
+        }
+
+        $localeId = $payload['locale_id'];
+        if (!$this->isLocaleManagedByLanguagePack($localeId) || $this->getAdministrationActiveByLocale($localeId)) {
             return;
         }
 
         $violationList->add(
             new ConstraintViolation(
-                \sprintf('The language bound to the locale with the id "%s" is disabled for the Administration.', Uuid::fromBytesToHex($payload['locale_id'])),
+                \sprintf('The language bound to the locale with the id "%s" is disabled for the Administration.', Uuid::fromBytesToHex($localeId)),
                 'The language with the id "{{ languageId }}" is disabled for the Administration.',
-                [$payload['locale_id']],
+                [$localeId],
                 null,
                 $command->getPath(),
-                $payload['locale_id']
+                $localeId
             )
         );
     }
@@ -55,6 +60,23 @@ class UserValidator extends AbstractLanguageValidator
                 'packLanguage.language_id = language.id'
             )
             ->where('language.locale_id = :localeId')
+            ->setParameter('localeId', $localeId)
+            ->setMaxResults(1)
+            ->execute();
+
+        if (!$statement instanceof ResultStatement) {
+            return false;
+        }
+
+        return (bool) $statement->fetch(FetchMode::COLUMN);
+    }
+
+    private function isLocaleManagedByLanguagePack(string $localeId): bool
+    {
+        $statement = $this->connection->createQueryBuilder()
+            ->select('swag_language_pack_language_id')
+            ->from(LanguageDefinition::ENTITY_NAME)
+            ->where('locale_id = :localeId')
             ->setParameter('localeId', $localeId)
             ->setMaxResults(1)
             ->execute();

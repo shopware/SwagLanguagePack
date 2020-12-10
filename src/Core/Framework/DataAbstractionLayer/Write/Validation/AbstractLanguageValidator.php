@@ -16,6 +16,7 @@ use Shopware\Core\Framework\DataAbstractionLayer\Write\Command\WriteCommand;
 use Shopware\Core\Framework\DataAbstractionLayer\Write\Validation\PostWriteValidationEvent;
 use Shopware\Core\Framework\Uuid\Uuid;
 use Shopware\Core\Framework\Validation\WriteConstraintViolationException;
+use Shopware\Core\System\Language\LanguageDefinition;
 use Swag\LanguagePack\PackLanguage\PackLanguageDefinition;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Validator\ConstraintViolation;
@@ -63,18 +64,23 @@ abstract class AbstractLanguageValidator implements EventSubscriberInterface
     protected function validate(WriteCommand $command, ConstraintViolationList $violationList): void
     {
         $payload = $command->getPayload();
-        if (!isset($payload['language_id']) || $this->isSalesChannelLanguageAvailable($payload['language_id'])) {
+        if (!isset($payload['language_id'])) {
+            return;
+        }
+
+        $languageId = $payload['language_id'];
+        if (!$this->isLanguageManagedByLanguagePack($languageId) || $this->isSalesChannelLanguageAvailable($languageId)) {
             return;
         }
 
         $violationList->add(
             new ConstraintViolation(
-                \sprintf('The language with the id "%s" is disabled for all Sales Channels.', Uuid::fromBytesToHex($payload['language_id'])),
+                \sprintf('The language with the id "%s" is disabled for all Sales Channels.', Uuid::fromBytesToHex($languageId)),
                 'The language with the id "{{ languageId }}" is disabled for all Sales Channels.',
-                [$payload['language_id']],
+                [$languageId],
                 null,
                 $command->getPath(),
-                $payload['language_id']
+                $languageId
             )
         );
     }
@@ -85,6 +91,23 @@ abstract class AbstractLanguageValidator implements EventSubscriberInterface
             ->select('sales_channel_active')
             ->from(PackLanguageDefinition::ENTITY_NAME)
             ->where('language_id = :languageId')
+            ->setParameter('languageId', $languageId)
+            ->setMaxResults(1)
+            ->execute();
+
+        if (!$statement instanceof ResultStatement) {
+            return false;
+        }
+
+        return (bool) $statement->fetch(FetchMode::COLUMN);
+    }
+
+    protected function isLanguageManagedByLanguagePack(string $languageId): bool
+    {
+        $statement = $this->connection->createQueryBuilder()
+            ->select('swag_language_pack_language_id')
+            ->from(LanguageDefinition::ENTITY_NAME)
+            ->where('id = :languageId')
             ->setParameter('languageId', $languageId)
             ->setMaxResults(1)
             ->execute();

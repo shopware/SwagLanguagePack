@@ -11,5 +11,12 @@ Component.override('sw-users-permissions-user-create', {
                     Criteria.equalsAny('name', ['English', 'Deutsch'])
                 ]));
         }
+    },
+
+    methods: {
+        onSave() {
+            // This override is needed to fix the broken inheritance
+            this.$super('onSave');
+        }
     }
 });

@@ -7,7 +7,8 @@ Component.register('swag-language-pack-settings', {
     template,
 
     inject: [
-        'repositoryFactory'
+        'repositoryFactory',
+        'userService'
         // 'acl' // ToDo LAN-37 - Implement ACL
     ],
 
@@ -110,16 +111,21 @@ Component.register('swag-language-pack-settings', {
         },
 
         async resetInvalidUserLanguages() {
-            const usableLocaleIds = await this.fetchInvalidLocaleIds();
-            const userCriteria = (new Criteria()).addFilter(
-                Criteria.not('OR', [
-                    Criteria.equalsAny('localeId', usableLocaleIds)
-                ])
+            const currentUser = await this.userService.getUser();
+            const invalidLocales = await this.fetchInvalidLocaleIds();
+            const invalidUserCriteria = (new Criteria()).addFilter(
+                Criteria.equalsAny('localeId', invalidLocales)
             );
 
-            let invalidUsers = await this.userRepository.search(userCriteria, Shopware.Context.api);
+            let invalidUsers = await this.userRepository.search(invalidUserCriteria, Shopware.Context.api);
             invalidUsers = invalidUsers.reduce((accumulator, user) => {
                 user.localeId = this.fallbackLocaleId;
+
+                // If we change the locale of the current logged in user
+                if (currentUser.data.id === user.id) {
+                    Shopware.Service('localeHelper').setLocaleWithId(user.localeId);
+                }
+
                 accumulator.push(user);
 
                 return accumulator;
@@ -129,27 +135,15 @@ Component.register('swag-language-pack-settings', {
         },
 
         async fetchInvalidLocaleIds() {
-            const languageCriteria = (new Criteria())
-                .addFilter(Criteria.multi('OR', [
-                    Criteria.equals('id', Shopware.Defaults.systemLanguageId),
-                    Criteria.equalsAny('name', ['English', 'Deutsch'])
-                ]));
+            const invalidAdminLanguagesCriteria = (new Criteria())
+                .addFilter(Criteria.equals('extensions.swagLanguagePackLanguage.administrationActive', false));
+            const invalidAdminLanguages = await this.languageRepository.search(invalidAdminLanguagesCriteria, Shopware.Context.api);
 
-            const defaultLanguages = await this.languageRepository.search(languageCriteria, Shopware.Context.api);
-            const usableLocaleIds = defaultLanguages.map((language) => {
-                if (language.id === Defaults.systemLanguageId) {
-                    this.fallbackLocaleId = language.localeId;
-                }
+            const fallbackLanguageCriteria = (new Criteria()).setIds([Defaults.systemLanguageId]);
+            const fallbackLanguage = await this.languageRepository.search(fallbackLanguageCriteria, Shopware.Context.api);
+            this.fallbackLocaleId = fallbackLanguage.first().localeId;
 
-                return language.localeId;
-            });
-
-            const activeSalesChannelPackLanguages = this.packLanguages.filter(
-                packLanguage => packLanguage.administrationActive
-            );
-            usableLocaleIds.push(...activeSalesChannelPackLanguages.map(packLanguage => packLanguage.language.localeId));
-
-            return usableLocaleIds;
+            return invalidAdminLanguages.map(language => language.localeId);
         }
     }
 });

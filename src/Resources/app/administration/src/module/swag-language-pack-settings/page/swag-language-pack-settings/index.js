@@ -8,8 +8,8 @@ Component.register('swag-language-pack-settings', {
 
     inject: [
         'repositoryFactory',
-        'userService'
-        // 'acl' // ToDo LAN-37 - Implement ACL
+        'userService',
+        'acl'
     ],
 
     mixins: [
@@ -137,7 +137,10 @@ Component.register('swag-language-pack-settings', {
         async fetchInvalidLocaleIds() {
             const invalidAdminLanguagesCriteria = (new Criteria())
                 .addFilter(Criteria.equals('extensions.swagLanguagePackLanguage.administrationActive', false));
-            const invalidAdminLanguages = await this.languageRepository.search(invalidAdminLanguagesCriteria, Shopware.Context.api);
+            const invalidAdminLanguages = await this.languageRepository.search(
+                invalidAdminLanguagesCriteria,
+                Shopware.Context.api
+            );
 
             const fallbackLanguageCriteria = (new Criteria()).setIds([Defaults.systemLanguageId]);
             const fallbackLanguage = await this.languageRepository.search(fallbackLanguageCriteria, Shopware.Context.api);

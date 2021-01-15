@@ -8,6 +8,7 @@
 namespace Swag\LanguagePack;
 
 use Doctrine\DBAL\Connection;
+use Shopware\Core\Framework\Api\Acl\Role\AclRoleDefinition;
 use Shopware\Core\Framework\Plugin;
 use Shopware\Core\Framework\Plugin\Context\UninstallContext;
 use Swag\LanguagePack\Util\Lifecycle\Uninstaller;
@@ -45,6 +46,19 @@ class SwagLanguagePack extends Plugin
         'ru-RU',
         'sv-SE',
     ];
+
+    public function enrichPrivileges(): array
+    {
+        return [
+            AclRoleDefinition::ALL_ROLE_KEY => [
+                'swag_language_pack_language:read',
+                'language:read',
+            ],
+            'language.editor' => [
+                'swag_language_pack_language:update',
+            ],
+        ];
+    }
 
     public function uninstall(UninstallContext $uninstallContext): void
     {

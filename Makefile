@@ -5,7 +5,9 @@ help:
 .PHONY: help
 
 init:  ## Initialize shopware, install language pack, dump the test database
-	cd ../../../ \
+	cd src/Resources/app/administration \
+		&& npm i \
+		&& cd ../../../../../../../ \
 		&& ./psh.phar init\
 		&& php bin/console plugin:install --activate -c SwagLanguagePack\
 		&& ./psh.phar init-test-databases\

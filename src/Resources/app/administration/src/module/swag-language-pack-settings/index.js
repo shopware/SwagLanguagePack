@@ -1,3 +1,4 @@
+import './acl';
 import './component/swag-language-pack-flag';
 import './component/swag-pack-language-entry';
 import './component/swag-language-pack-settings-icon';

@@ -6,6 +6,10 @@ const { Component } = Shopware;
 Component.register('swag-pack-language-entry', {
     template,
 
+    inject: [
+        'acl'
+    ],
+
     props: {
         value: {
             type: Object,
@@ -22,6 +26,12 @@ Component.register('swag-pack-language-entry', {
             required: true
         },
 
+        disabled: {
+            type: Boolean,
+            required: true,
+            default: false
+        },
+
         description: {
             type: String,
             required: false,
@@ -32,12 +42,6 @@ Component.register('swag-pack-language-entry', {
             type: String,
             required: false,
             default: ''
-        },
-
-        disabled: {
-            type: Boolean,
-            required: false,
-            default: false
         }
     }
 });

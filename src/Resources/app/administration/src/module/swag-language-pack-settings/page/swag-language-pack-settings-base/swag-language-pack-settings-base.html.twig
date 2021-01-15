@@ -16,22 +16,19 @@
             {% endblock %}
 
             {% block swag_language_pack_settings_base_card_view_language_selection_languages %}
-                <template v-for="packLanguage in packLanguages">
-
-                    {% block swag_language_pack_settings_base_card_view_language_selection_language %}
-                        <swag-pack-language-entry
-                                class="swag-language-pack-settings-base__entry"
-                                :value="packLanguage"
-                                :field="`${settingsType}Active`"
-                                :label="packLanguage.language.name"
-                                :description="packLanguage.language.locale.code"
-                                :flagLocale="packLanguage.language.locale.code"
-                                :disabled="settingsType !== 'administration' && packLanguage.language.salesChannels.length > 0">
-{#                            ToDo LAN-37 - Implement ACL #}
-                        </swag-pack-language-entry>
-                    {% endblock %}
-
-                </template>
+                {% block swag_language_pack_settings_base_card_view_language_selection_language %}
+                    <swag-pack-language-entry
+                            v-for="packLanguage in packLanguages"
+                            class="swag-language-pack-settings-base__entry"
+                            :key="packLanguage.id"
+                            :value="packLanguage"
+                            :field="`${settingsType}Active`"
+                            :label="packLanguage.language.name"
+                            :description="packLanguage.language.locale.code"
+                            :flagLocale="packLanguage.language.locale.code"
+                            :disabled="!acl.can('swag_language_pack_language:update')">
+                    </swag-pack-language-entry>
+                {% endblock %}
             {% endblock %}
 
         </sw-card>

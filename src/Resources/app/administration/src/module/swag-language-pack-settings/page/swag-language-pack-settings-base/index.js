@@ -6,6 +6,10 @@ const { Component } = Shopware;
 Component.register('swag-language-pack-settings-base', {
     template,
 
+    inject: [
+        'acl'
+    ],
+
     props: {
         isLoading: {
             type: Boolean,

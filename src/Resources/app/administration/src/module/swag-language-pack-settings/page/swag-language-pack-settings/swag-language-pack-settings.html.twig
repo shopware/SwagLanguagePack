@@ -19,8 +19,7 @@
                             class="swag-language-pack-settings__save-action"
                             variant="primary"
                             :processSuccess="isSaveSuccessful"
-{#                            ToDo LAN-37 - Implement ACL #}
-{#                            :disabled="!acl.can('swag_language_pack_language.editor')" #}
+                            :disabled="!acl.can('swag_language_pack_language:update')"
                             @process-finish="onSaveFinish"
                             @click="onSave">
                         {{ $tc('global.default.save') }}
@@ -42,7 +41,8 @@
                                 {% block swag_language_pack_settings_content_tabs_administration %}
                                     <sw-tabs-item
                                             class="swag-language-pack-settings__tab-administration"
-                                            :route="{ name: 'swag.language.pack.index.administration' }">
+                                            :route="{ name: 'swag.language.pack.index.administration' }"
+                                            :disabled="!acl.can('language.viewer')">
                                         {{ $tc('swag-language-pack.settings.card.administration.tabTitle') }}
                                     </sw-tabs-item>
                                 {% endblock %}
@@ -50,7 +50,8 @@
                                 {% block swag_language_pack_settings_content_tabs_sales_channel %}
                                     <sw-tabs-item
                                             class="swag-language-pack-settings__tab-sales-channel"
-                                            :route="{ name: 'swag.language.pack.index.salesChannel' }">
+                                            :route="{ name: 'swag.language.pack.index.salesChannel' }"
+                                            :disabled="!acl.can('language.viewer')">
                                         {{ $tc('swag-language-pack.settings.card.salesChannel.tabTitle') }}
                                     </sw-tabs-item>
                                 {% endblock %}

@@ -11,7 +11,8 @@ Component.override('sw-first-run-wizard-welcome', {
                     Criteria.equals('extensions.swagLanguagePackLanguage.administrationActive', true),
                     Criteria.equals('id', Defaults.systemLanguageId),
                     Criteria.equalsAny('name', ['English', 'Deutsch'])
-                ]));
+                ]))
+                .setLimit(500);
         }
     }
 });

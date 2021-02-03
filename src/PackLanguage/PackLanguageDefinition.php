@@ -31,7 +31,7 @@ class PackLanguageDefinition extends EntityDefinition
     public function getDefaults(): array
     {
         return [
-            'administrationActive' => false,
+            'administrationActive' => true,
             'salesChannelActive' => false,
         ];
     }

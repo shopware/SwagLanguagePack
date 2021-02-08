@@ -8,21 +8,55 @@
 namespace Swag\LanguagePack\Util\Lifecycle;
 
 use Doctrine\DBAL\Connection;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\MultiFilter;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\NotFilter;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Sorting\FieldSorting;
+use Shopware\Core\Framework\Plugin\Context\DeactivateContext;
 use Shopware\Core\Framework\Plugin\Context\UninstallContext;
 use Shopware\Core\System\Language\LanguageDefinition;
 use Swag\LanguagePack\PackLanguage\PackLanguageDefinition;
 use Swag\LanguagePack\SwagLanguagePack;
+use Swag\LanguagePack\Util\Exception\PackLanguagesStillInUseException;
 
-class Uninstaller
+class Lifecycle
 {
     /**
      * @var Connection
      */
     private $connection;
 
-    public function __construct(Connection $connection)
+    /**
+     * @var EntityRepositoryInterface
+     */
+    private $languageRepository;
+
+    public function __construct(Connection $connection, EntityRepositoryInterface $languageRepository)
     {
         $this->connection = $connection;
+        $this->languageRepository = $languageRepository;
+    }
+
+    public function deactivate(DeactivateContext $deactivateContext): void
+    {
+        $criteria = (new Criteria())->addFilter(
+            new MultiFilter('AND', [
+                new NotFilter('AND', [
+                    new EqualsFilter('salesChannels.id', null),
+                ]),
+                new NotFilter('AND', [
+                    new EqualsFilter('swagLanguagePackLanguageId', null),
+                ]),
+            ])
+        )->addSorting(new FieldSorting('name', 'ASC'));
+
+        $result = $this->languageRepository->search($criteria, $deactivateContext->getContext());
+
+        if ($result->getTotal() > 0) {
+            throw new PackLanguagesStillInUseException($result->getEntities());
+        }
     }
 
     public function uninstall(UninstallContext $uninstallContext): void
@@ -47,7 +81,7 @@ SQL;
             $this->connection->executeUpdate(
                 $sql,
                 [
-                    'name' => \sprintf('BASE %s', $locale),
+                    'name' => \sprintf('LanguagePack %s', $locale),
                     'baseFile' => \sprintf('messages.%s', $locale),
                 ]
             );

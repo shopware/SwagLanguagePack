@@ -113,9 +113,13 @@ Component.register('swag-language-pack-settings', {
         async resetInvalidUserLanguages() {
             const currentUser = await this.userService.getUser();
             const invalidLocales = await this.fetchInvalidLocaleIds();
-            const invalidUserCriteria = (new Criteria()).addFilter(
-                Criteria.equalsAny('localeId', invalidLocales)
-            );
+            const invalidUserCriteria = new Criteria();
+
+            if (invalidLocales && invalidLocales.length > 0) {
+                invalidUserCriteria.addFilter(
+                    Criteria.equalsAny('localeId', invalidLocales)
+                );
+            }
 
             let invalidUsers = await this.userRepository.search(invalidUserCriteria, Shopware.Context.api);
             invalidUsers = invalidUsers.reduce((accumulator, user) => {

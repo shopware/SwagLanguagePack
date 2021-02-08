@@ -12,12 +12,13 @@ use Doctrine\DBAL\Driver\ResultStatement;
 use Doctrine\DBAL\FetchMode;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
 use Shopware\Core\Framework\Plugin\Context\UninstallContext;
 use Shopware\Core\Framework\Test\TestCaseBase\IntegrationTestBehaviour;
 use Shopware\Core\System\Language\LanguageDefinition;
 use Swag\LanguagePack\PackLanguage\PackLanguageDefinition;
 use Swag\LanguagePack\SwagLanguagePack;
-use Swag\LanguagePack\Util\Lifecycle\Uninstaller;
+use Swag\LanguagePack\Util\Lifecycle\Lifecycle;
 use Swag\LanguagePack\Util\Migration\MigrationHelper;
 
 class MigrationHelperTest extends TestCase
@@ -126,7 +127,11 @@ class MigrationHelperTest extends TestCase
             ->method('keepUserData')
             ->willReturn(false);
 
-        (new Uninstaller($this->connection))->uninstall($uninstallContext);
+        /** @var EntityRepositoryInterface $languageRepository */
+        $languageRepository = $this->getContainer()->get('language.repository');
+
+        (new Lifecycle($this->connection, $languageRepository))
+            ->uninstall($uninstallContext);
 
         $sql = \str_replace(
             ['#table#'],

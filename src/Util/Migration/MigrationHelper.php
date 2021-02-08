@@ -143,7 +143,7 @@ SQL;
         foreach (SwagLanguagePack::BASE_SNIPPET_SET_LOCALES as $locale) {
             $this->connection->executeUpdate($insertSnippetSetSql, [
                 'id' => Uuid::randomBytes(),
-                'name' => \sprintf('BASE %s', $locale),
+                'name' => \sprintf('LanguagePack %s', $locale),
                 'baseFile' => \sprintf('messages.%s', $locale),
                 'iso' => $locale,
             ]);
@@ -199,8 +199,11 @@ SQL;
 
     private function getMissingLocales(array $locales): array
     {
+        $supportedLanguages = SwagLanguagePack::SUPPORTED_LANGUAGES;
+        \asort($supportedLanguages);
+
         return \array_diff(
-            SwagLanguagePack::SUPPORTED_LANGUAGES,
+            $supportedLanguages,
             \array_column($locales, 'code')
         );
     }

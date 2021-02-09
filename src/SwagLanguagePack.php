@@ -9,19 +9,21 @@ namespace Swag\LanguagePack;
 
 use Doctrine\DBAL\Connection;
 use Shopware\Core\Framework\Api\Acl\Role\AclRoleDefinition;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
 use Shopware\Core\Framework\Plugin;
+use Shopware\Core\Framework\Plugin\Context\DeactivateContext;
 use Shopware\Core\Framework\Plugin\Context\UninstallContext;
-use Swag\LanguagePack\Util\Lifecycle\Uninstaller;
+use Swag\LanguagePack\Util\Lifecycle\Lifecycle;
 
 class SwagLanguagePack extends Plugin
 {
     public const SUPPORTED_LANGUAGES = [
+        'Bahasa Indonesia' => 'id-ID',
         'Bosanski' => 'bs-BA',
         'Čeština' => 'cs-CZ',
         'Dansk' => 'da-DK',
         'Español' => 'es-ES',
         'Français' => 'fr-FR',
-        'Bahasa Indonesia' => 'id-ID',
         'Italiano' => 'it-IT',
         'Latviešu' => 'lv-LV',
         'Nederlands' => 'nl-NL',
@@ -60,6 +62,19 @@ class SwagLanguagePack extends Plugin
         ];
     }
 
+    public function deactivate(DeactivateContext $deactivateContext): void
+    {
+        parent::deactivate($deactivateContext);
+
+        /** @var Connection $connection */
+        $connection = $this->container->get(Connection::class);
+
+        /** @var EntityRepositoryInterface $languageRepository */
+        $languageRepository = $this->container->get('language.repository');
+
+        (new Lifecycle($connection, $languageRepository))->deactivate($deactivateContext);
+    }
+
     public function uninstall(UninstallContext $uninstallContext): void
     {
         parent::uninstall($uninstallContext);
@@ -67,6 +82,9 @@ class SwagLanguagePack extends Plugin
         /** @var Connection $connection */
         $connection = $this->container->get(Connection::class);
 
-        (new Uninstaller($connection))->uninstall($uninstallContext);
+        /** @var EntityRepositoryInterface $languageRepository */
+        $languageRepository = $this->container->get('language.repository');
+
+        (new Lifecycle($connection, $languageRepository))->uninstall($uninstallContext);
     }
 }

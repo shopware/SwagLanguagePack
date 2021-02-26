@@ -89,7 +89,8 @@ SQL;
             $packLanguage = [
                 'id' => Uuid::randomBytes(),
                 'languageId' => $locale['languageId'],
-                'administrationActive' => true,
+                'administrationActive' => 1,
+                'salesChannelActive' => (int) ($locale['languageId'] !== null),
             ];
 
             if ($locale['languageId'] === null) {
@@ -120,8 +121,8 @@ SQL;
 DELETE FROM `swag_language_pack_language`
 WHERE `language_id` = :languageId;
 
-INSERT INTO `swag_language_pack_language` (`id`, `language_id`, `administration_active`, `created_at`)
-VALUES (:id, :languageId, :administrationActive, NOW());
+INSERT INTO `swag_language_pack_language` (`id`, `language_id`, `administration_active`, `sales_channel_active`, `created_at`)
+VALUES (:id, :languageId, :administrationActive, :salesChannelActive, NOW());
 
 UPDATE `language`
 SET swag_language_pack_language_id = :id

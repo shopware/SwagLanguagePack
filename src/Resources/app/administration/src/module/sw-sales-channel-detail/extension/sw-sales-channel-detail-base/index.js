@@ -13,8 +13,8 @@ Component.override('sw-sales-channel-detail-base', {
                 .addSorting(Criteria.sort('name', 'ASC'))
                 .addFilter(Criteria.multi('OR', [
                     Criteria.equals('extensions.swagLanguagePackLanguage.salesChannelActive', true),
-                    Criteria.equals('id', Defaults.systemLanguageId),
-                    Criteria.equalsAny('name', ['English', 'Deutsch'])
+                    Criteria.equals('extensions.swagLanguagePackLanguage.id', null),
+                    Criteria.equals('id', Defaults.systemLanguageId)
                 ]));
         }
     }

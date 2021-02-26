@@ -32,7 +32,6 @@ class PackLanguageDefinition extends EntityDefinition
     {
         return [
             'administrationActive' => true,
-            'salesChannelActive' => false,
         ];
     }
 

@@ -23,14 +23,19 @@ class SwagLanguagePack extends Plugin
         'Čeština' => 'cs-CZ',
         'Dansk' => 'da-DK',
         'Español' => 'es-ES',
+        'Suomi' => 'fi-FI',
         'Français' => 'fr-FR',
+        'Magyar' => 'hu-HU',
         'Italiano' => 'it-IT',
         'Latviešu' => 'lv-LV',
         'Nederlands' => 'nl-NL',
+        'Norsk' => 'nn-NO',
         'Polski' => 'pl-PL',
         'Português' => 'pt-PT',
+        'Română' => 'ro-MD',
         'Русский' => 'ru-RU',
         'Svenska' => 'sv-SE',
+        'Tiếng Việt Nam' => 'vi-VN',
     ];
 
     public const BASE_SNIPPET_SET_LOCALES = [
@@ -38,15 +43,20 @@ class SwagLanguagePack extends Plugin
         'cs-CZ',
         'da-DK',
         'es-ES',
+        'fi-FI',
         'fr-FR',
+        'hu-HU',
         'id-ID',
         'it-IT',
         'lv-LV',
         'nl-NL',
+        'nn-NO',
         'pl-PL',
         'pt-PT',
+        'ro-MD',
         'ru-RU',
         'sv-SE',
+        'vi-VN',
     ];
 
     public function enrichPrivileges(): array

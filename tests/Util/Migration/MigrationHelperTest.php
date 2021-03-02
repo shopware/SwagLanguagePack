@@ -102,7 +102,7 @@ class MigrationHelperTest extends TestCase
         $this->migrationHelper->createPackLanguageTable();
         $this->migrationHelper->alterLanguageAddPackLanguageColumn();
 
-        $this->expectExceptionMessage('No LocaleEntities associated to the following locale codes: bs-BA, cs-CZ, da-DK, es-ES, fr-FR, id-ID, it-IT, lv-LV, nl-NL, pl-PL, pt-PT, ru-RU, sv-SE');
+        $this->expectExceptionMessage('No LocaleEntities associated to the following locale codes: bs-BA, cs-CZ, da-DK, es-ES, fi-FI, fr-FR, hu-HU, id-ID, it-IT, lv-LV, nl-NL, nn-NO, pl-PL, pt-PT, ro-MD, ru-RU, sv-SE, vi-VN');
         (new MigrationHelper($connectionMock))->createPackLanguages();
     }
 

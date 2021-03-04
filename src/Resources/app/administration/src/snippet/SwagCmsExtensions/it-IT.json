@@ -7,10 +7,19 @@
         },
         "sw-cms": {
             "detail": {
+                "errors": {
+                    "customFormConfigurationInvalid": "Uno o più elementi del modulo personalizzati hanno una configurazione non valida. Si prega di controllare tutte le configurazioni."
+                },
                 "quickview": {
                     "showQuickviewLabel": "Usa Vista Rapida",
                     "showQuickviewHelpText": "Quando clicchi sui blocchi correlati al prodotto, la Vista Rapida è mostrata invece della pagina dei dettagli.",
                     "sidebarHeaderBlockBehaviorSettings": "Vista Rapida"
+                },
+                "blockRule": {
+                    "sidebarHeaderBlockBehaviorSettings": "Visibilità",
+                    "invertedSwitchLabel": "Visibile, se la regola non si applica",
+                    "alwaysVisiblePlaceholder": "Sempre visibile (Predefinito)",
+                    "ruleHelpText": "Definire le condizioni che devono essere soddisfatte per visualizzare questo blocco."
                 },
                 "scrollNavigation": {
                     "title": "Scorri navigazione",
@@ -41,7 +50,11 @@
                 }
             },
             "sidebar": {
-                "emptyAnchorName": "(Nessun nome è stato impostato)"
+                "emptyAnchorName": "(Nessun nome è stato impostato)",
+                "rulesOnAllBlocks": "Questa sezione ha solo contenuti con visibilità limitata. Tieni presente che alcuni clienti potrebbero vedere una sezione vuota qui.",
+                "navElement": {
+                    "blockRuleTooltip": "La visibilità di questo elemento è limitata da una regola."
+                }
             },
             "section": {
                 "actions": {
@@ -52,6 +65,126 @@
                     "pageForm": {
                         "labelPrefix": "Punto di navigazione",
                         "emptyAnchorName": "(Nessun nome è stato impostato)"
+                    }
+                }
+            },
+            "components": {
+                "sw-cms-slot": {
+                    "formModalTitle": "Crea modulo",
+                    "formModalPrimary": "Crea"
+                },
+                "form-editor": {
+                    "title": "Campi",
+                    "addGroupButton": "Aggiungi gruppo",
+                    "emptyState": {
+                        "text": "Non sono stati ancora creati campi modulo.",
+                        "buttonText": "Crea campo modulo"
+                    },
+                    "group": {
+                        "groupNamePrefix": "Gruppo",
+                        "actions": {
+                            "moveUp": "Sposta in alto",
+                            "moveDown": "Sposta in basso",
+                            "duplicate": "Duplica",
+                            "moveToGroup": "Sposta nel gruppo"
+                        },
+                        "field": {
+                            "addFieldButton": "Aggiungi campo",
+                            "fieldPrefix": "Campo"
+                        }
+                    },
+                    "settings-group": {
+                        "titleFieldLabel": "TitOLI",
+                        "internalNameHelpText": "Il nome interno funge da identificazione univoca per l'utilizzo di questo gruppo come variabile, ad esempio, i modelli di posta elettronica.",
+                        "explanation": "I gruppi aiutano a strutturare il modulo. Tutti i campi di un gruppo formano una sezione visiva."
+                    },
+                    "settings-field": {
+                        "titleFieldLabel": "Titolo",
+                        "typeFieldLabel": "Tipo",
+                        "widthFieldLabel": "Larghezza",
+                        "requiredFieldLabel": "Campo obbligatorio",
+                        "placeholderFieldLabel": "Segnaposto",
+                        "errorMessageFieldLabel": "Messaggio di errore",
+                        "minFieldLabel": "Min.",
+                        "maxFieldLabel": "- Max.",
+                        "stepFieldLabel": "Passo",
+                        "modeFieldLabel": "Contenuti",
+                        "modeOptionEntity": "Entità",
+                        "modeOptionCustom": "Personalizzato",
+                        "entityFieldLabel": "Entità",
+                        "optionsFieldLabel": "Valori",
+                        "rowsFieldLabel": "Altezza",
+                        "rowsLabel": "{n} riga | {n} righe",
+                        "scalableFieldLabel": "Scalabile",
+                        "defaultValueFieldLabel": "Valore predefinito",
+                        "defaultValues": {
+                            "checked": "Controllato",
+                            "notChecked": "Non selezionata"
+                        },
+                        "internalNameHelpText": "Il nome interno funge da identificazione univoca per l'utilizzo di questo campo come variabile, ad esempio, i modelli di posta elettronica.",
+                        "types": {
+                            "text": "Testo",
+                            "email": "E-mail",
+                            "number": "Numero",
+                            "checkbox": "Casella di controllo",
+                            "select": "Seleziona",
+                            "textarea": "Textarea"
+                        }
+                    },
+                    "moveToGroupModal": {
+                        "title": "Sposta nel gruppo",
+                        "groupSelectLabel": "Gruppo",
+                        "primaryButtonText": "Sposta"
+                    }
+                }
+            },
+            "elements": {
+                "custom-form": {
+                    "label": "Modulo personalizzato",
+                    "config": {
+                        "templateSelectLabel": "Modello",
+                        "templateSelectPlaceholder": "Nessuno",
+                        "editFormTemplateLink": "Modifica modelli"
+                    },
+                    "templateListing": {
+                        "templateNameLabel": "Nome modello",
+                        "emptyState": "Nessun modello trovato",
+                        "renameContextAction": "Rinomina"
+                    },
+                    "editor": {
+                        "title": "Impostazioni modulo",
+                        "tabs": {
+                            "options": {
+                                "tabTitle": "Opzioni",
+                                "confirmationTextLabel": "Testo di conferma",
+                                "internalNameLabel": "Nome (interno)",
+                                "headlineLabel": "TitOLI",
+                                "mailTemplateLabel": "Modello di posta elettronica"
+                            },
+                            "fields": {
+                                "tabTitle": "Campi",
+                                "templateLabel": "Modello",
+                                "templateText": "Risparmia tempo in futuro e salva questo modulo come modello."
+                            }
+                        },
+                        "footer": {
+                            "createTemplateButton": "Salva come modello"
+                        }
+                    },
+                    "createTemplateModal": {
+                        "titles": {
+                            "default": "Salva come modello di modulo",
+                            "overwrite": "Sovrascrivi il modello"
+                        },
+                        "templateNameLabel": "Nome",
+                        "placeholder": "Denominare il modello di modulo...",
+                        "overwriteButtonLabel": "sovrascrivi",
+                        "overwriteLinkText": "Sovrascrivi modello di modulo esistente",
+                        "overwriteWarningText": "Esiste già un modello di modulo con questo nome.",
+                        "successMessage": "Il modello di modulo è stato salvato!",
+                        "overwriteMessage": "Il modello di modulo è stato sovrascritto!",
+                        "overwriteSelectLabel": "Modello di modulo",
+                        "overwriteConfirmationText": "Sei sicuro di voler sovrascrivere il modello di modulo \"<span>{templateName}</span>«?"
                     }
                 }
             }

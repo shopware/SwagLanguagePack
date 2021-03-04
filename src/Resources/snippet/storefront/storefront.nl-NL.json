@@ -46,7 +46,8 @@
         "searchResults": "{1} 1 Resultaat|]1,Inf[ %count% Resultaten",
         "supportInfo": "<strong>Vragen over uw bestelling?</strong><br/><strong><a href=\"tel:+4912345-123456789\">12345-123456789</a></strong> <small>Dagelijks van 7.30 tot 22.00 uur</small>",
         "indexLinkService": "Service/help",
-        "searchNoResult": "Geen zoek resultaten gevonden."
+        "searchNoResult": "Geen zoek resultaten gevonden.",
+        "wishlist": "Verlanglijst"
     },
     "error": {
         "VIOLATION::IS_BLANK_ERROR": "%field% mag niet leeg zijn.",
@@ -54,6 +55,7 @@
         "VIOLATION::STRICT_CHECK_FAILED_ERROR": "%field% is ongeldig",
         "VIOLATION::CUSTOMER_EMAIL_NOT_UNIQUE": "Dit e-mailadres is al geregistreerd.",
         "VIOLATION::CUSTOMER_PASSWORD_NOT_CORRECT": "Verkeerd wachtwoord.",
+        "VIOLATION::VAT_ID_FORMAT_NOT_CORRECT": "Het btw-reg.Nee dat u hebt ingevoerd, heeft niet het juiste formaat.",
         "message-default": "Er is helaas een fout opgetreden",
         "message-404": "De gevraagde pagina kan niet worden gevonden.",
         "addToCartError": "Bij het toevoegen in het winkelmandje is een fout opgetreden.",
@@ -63,13 +65,19 @@
         "payment-method-blocked": "De gekozen betaalwijze %name% is niet beschikbaar.",
         "shipping-method-blocked": "De gekozen verzendwijze %name% is niet beschikbaar.",
         "shipping-address-blocked": "Leveringen aan het geselecteerde afleveradres zijn niet mogelijk.",
+        "shipping-address-invalid": "Het geselecteerde verzendadres is niet geldig of onvolledig. Controleer uw inzendingen.",
+        "billing-address-blocked": "Facturering naar het geselecteerde adres is niet mogelijk.",
+        "billing-address-invalid": "Het geselecteerde factuuradres is niet geldig of onvolledig. Controleer uw inzendingen.",
         "VIOLATION::TOO_SHORT_ERROR": "%field% is te kort.",
         "product-not-found": "Het product is niet gevonden.",
         "message-403-ajax": "Je sessie is afgelopen. Laad de pagina opnieuw en probeer het nogmaals.",
         "message-403": "Je sessie is afgelopen. Laad de laatste pagina opnieuw en probeer het nogmaals.",
-        "product-out-of-stock": "%name% is momenteel niet beschikbaar."
+        "product-out-of-stock": "%name% is momenteel niet beschikbaar.",
+        "auto-promotion-not-found": "Promotie \"%name%\" was niet meer geldig!"
     },
     "account": {
+        "externalPaymentCanceled": "We hebben je bestelling ontvangen, maar de betaling is afgebroken. Wijzig uw betaalmethode of probeer het opnieuw",
+        "externalPaymentFailure": "We hebben je bestelling ontvangen, maar we konden je betaling niet verwerken. Wijzig de betaalmethode of probeer het opnieuw",
         "confirmationIsAlreadyDone": "De bevestiging is al gekomen of de URL is ongeldig.",
         "doubleOptInMailConfirmationSuccessfully": "Dank voor het bevestigen van het e-mailadres. De order kan nu worden gecompleteerd.",
         "doubleOptInRegistrationSuccessfully": "Hartelijk dank voor uw aanmelding. Uw account is met succes vrijgeschakeld.",
@@ -176,6 +184,12 @@
         "profileRecoverPasswordInfo": "Wij sturen u een bevestigings-e-mail. Klik op de link in de mail, om uw wachtwoord te wijzigen.",
         "profileRecoverPasswordSubmit": "E-mail versturen",
         "profileSaveChanges": "Wijzigingen opslaan",
+        "profileDelete": "<a href=\"%target%\" data-toggle=\"modal\" data-target=\"%target%\">Klik hier</a> om al uw persoonlijke gegevens te verwijderen",
+        "profileDeleteAlert": "Na het verwijderen van uw klantaccount zijn persoonlijke gegevens, nieuwsbriefberichten en recensies niet meer toegankelijk voor u. Merk op dat records van alle bestellingen niettemin worden bijgehouden om te voldoen aan de wettelijke voorschriften.",
+        "profileDeleteConfirm": "Wilt u uw klantaccount echt verwijderen?",
+        "profileDeleteModalTitle": "Klant-account",
+        "profileDeleteButton": "Account verwijderen",
+        "profileDeleteSuccessAlert": "Uw klantaccount is verwijderd.",
         "addressWelcome": "Adressen",
         "addressText": "Bekijk de huidige standaard adressen of voeg nieuwe toe.",
         "addressListHeader": "Alle adressen",
@@ -199,9 +213,9 @@
         "addressDefaultChanged": "Standaardadres succesvol gewijzigd.",
         "addressDefaultNotChanged": "Standaardadres kon niet worden gewijzigd.",
         "addressSaved": "Adres succesvol opgeslagen",
-        "inactiveAccountAlert": "Uw klantaccount is nog niet geactiveerd. We hebben een bevestigingsmail gestuurd met een activatielink. Controleer in de inbox en klik op de link om de registratie te voltooien!",
+        "inactiveAccountAlert": "Uw klantaccount is nog niet geactiveerd. We hebben een bevestigingsmail gestuurd met een activeringslink. Controleer uw inbox en klik op de link om de aanmelding te voltooien!",
         "optInGuestAlert": "Hartelijk dank voor uw belangstelling! U ontvangt binnenkort een bevestigingsmail. Klik op de link in de mail, om uw mailadres te bevestigen.",
-        "optInRegistrationAlert": "Hartelijk dank voor uw aanmelding. U ontvangt binnenkort een bevestigingsmail. Klik op de link in de mail om de aanmelding te voltooien.",
+        "optInRegistrationAlert": "Bedankt voor het aanmelden! U ontvangt binnenkort een bevestigingsmail. Klik op de link erin om de aanmelding te voltooien.",
         "optInSuccessAlert": "Wij hebben u een bevestigings-e-mail gestuurd, voor zover het door u ingevoerde e-mailadres geregistreerd is.",
         "ordersWelcome": "Uw recente bestellingen:",
         "ordersInfoEmpty": "U hebt nog geen bestelling geplaatst.",
@@ -217,6 +231,7 @@
         "orderContextMenuChangePayment": "Betalingswijze wijzigen",
         "orderContextMenuReorder": "Bestelling herhalen",
         "orderContextMenuCancel": "Bestelling annuleren",
+        "completePayment": "Voltooi betaling",
         "editOrder": "Bestelling bewerken",
         "editOrderUpdateButton": "Betaling afronden",
         "editOrderBackToAccountButton": "Terug naar overzicht",
@@ -235,9 +250,9 @@
         "orderItemColumnActions": "Acties",
         "orderItemColumnName": "Product",
         "orderItemColumnQuantity": "Aantal",
-        "orderItemColumnPrice": "Aantal stuks",
+        "orderItemColumnPrice": "Prijs per eenheid",
         "orderItemColumnTotal": "Bedrag",
-        "orderItemDate": "Van:",
+        "orderItemDate": "Bestelling datum:",
         "orderItemNumber": "Bestelnummer:",
         "orderItemPaymentMethod": "Betaalwijze:",
         "orderItemShippingMethod": "Verzendwijze:",
@@ -248,19 +263,25 @@
         "orderItemComment": "Ons commentaar",
         "orderItemCustomerComment": "Uw commentaar",
         "orderItemInfoContent": "Inhoud:",
-        "orderItemInfoCurrentPrice": "Huidige artikelprijs",
+        "orderItemInfoCurrentPrice": "Huidige prijs per eenheid",
         "orderItemInfoFree": "GRATIS",
         "orderItemInfoNotAvailable": "Het product is voor een volgende bestelling niet meer beschikbaar.",
         "orderActionView": "Tonen",
         "orderActionHide": "Verbergen",
         "orderInfoNoDispatch": "Niet aangegeven",
         "orderLinkRepeat": "Bestelling herhalen",
+        "documentItemColumnTitle": "Document",
+        "documentItemColumnDate": "Datum",
+        "documentItemViewFileButton": "Bestand bekijken",
         "newsletterTitle": "Nieuwsbriefinschrijving",
         "newsletterSettings": "Ja, ik wil de gratis nieuwsbrief van %shopname% ontvangen. (Ik kan deze elk moment opzeggen.)",
         "passwordResetTitle": "Wachtwoord vergeten?",
         "passwordResetInfo": "Indien u het wachtwoord voor uw account vergeten bent, kunt u hier een nieuw wachtwoord instellen. Wanneer u het nieuwe wachtwoord opslaat, wordt uw oude wachtwoord ongeldig.",
         "passwordOptInInfo": "Bevestigingsmail verzonden. Klik op de bijgevoegde link om uw wachtwoord te wijzigen.",
-        "colonCharacter": ":"
+        "colonCharacter": ":",
+        "orderGuestLoginTitle": "authenticatie",
+        "orderGuestLoginDescription": "Om uw bestelling te bekijken, vul dan uw e-mailadres en de postcode in die u bij uw factuuradres hebt opgegeven.",
+        "orderGuestLoginWrongCredentials": "De gegeven gegevens konden niet aan een bestelling worden gekoppeld."
     },
     "address": {
         "streetLabel": "Straat en huisnr.",
@@ -283,8 +304,8 @@
         "companyNamePlaceholder": "Firma invoeren ...",
         "companyDepartmentLabel": "Afdeling",
         "companyDepartmentPlaceholder": "Afdeling invoeren ...",
-        "companyVatLabel": "BTW Nummer",
-        "companyVatPlaceholder": "BTW Nummer"
+        "companyVatLabel": "BTW Reg.nr.",
+        "companyVatPlaceholder": "BTW Reg.nr."
     },
     "checkout": {
         "itemCounter": "%count% Product(en)",
@@ -307,7 +328,7 @@
         "cartEmpty": "Uw winkelwagen is leeg.",
         "cartHeaderInfo": "Product",
         "cartHeaderQuantity": "Hoeveelheid",
-        "cartHeaderUnitPrice": "Artikelprijs",
+        "cartHeaderUnitPrice": "Prijs per eenheid",
         "cartHeaderTotalPrice": "Bedrag",
         "cartHeaderTaxIncludeVat": "incl. BTW",
         "cartHeaderTaxExcludeVat": "excl. BTW",
@@ -319,6 +340,7 @@
         "summaryPositionPrice": "Totaal",
         "summaryShipping": "Verzendkosten",
         "summaryTotalPrice": "Eindtotaal",
+        "summaryTotalPriceRounded": "Totaal afgerond",
         "summaryNetPrice": "Totaal netto",
         "summaryTax": "plus %rate%% BTW",
         "proceedLink": "Naar de kassa gaan",
@@ -360,20 +382,26 @@
         "shippingCountry": "Afleverland",
         "paymentMethod": "Betaalwijze",
         "shippingMethod": "Verzendwijze",
-        "product-stock-reached": "Het product %name% is nog slechts %quantity% keer beschikbaar.",
-        "product-out-of-stock": "Het product %name% is niet meer beschikbaar.",
-        "purchase-steps-quantity": "De ingevoerde aantallen komen niet overeen met de setup van de %name%. Het aantal is gewijzigd in %quantity%",
-        "shipping-method-blocked": "De verzendwijze %name% is voor uw huidige winkelmandje geblokkeerd.",
-        "payment-method-blocked": "De betaalwijze %name% is voor uw huidige winkelmandje geblokkeerd.",
+        "product-stock-reached": "Het product \"%name%\" is slechts %quantity% keer beschikbaar",
+        "product-out-of-stock": "Het product \"%name%\" is niet meer beschikbaar",
+        "purchase-steps-quantity": "Het product \"%name%\" is niet beschikbaar in deze hoeveelheid. De hoeveelheid is gewijzigd in %quantity%",
+        "shipping-method-blocked": "De verzendmethode \"%name%\" is geblokkeerd voor uw huidige winkelwagen.",
+        "payment-method-blocked": "De betaalmethode \"%name%\" is geblokkeerd voor uw huidige winkelwagen.",
         "lineItemDeliveryDate": "Levertermijn: %earliest% - %latest%",
         "promotion-discount-deleted": "De korting \"%name%\" is uit het winkelmandje verwijderd",
         "promotion-discount-added": "De korting \"%name%\" is aan het winkelmandje toegevoegd",
         "promotion-not-found": "Promotie met code \"%code%\" kan niet worden gevonden.",
+        "auto-promotion-not-found": "Promotie \"%name%\" niet meer geldig!",
         "promotion-not-eligible": "De vouchercode werd opgeslagen, maar niet op het winkelmandje toegepast omdat de voorwaarden hiervoor niet vervuld zijn. Zodra de voorwaarden vervuld zijn, wordt de vouchercode automatisch toegevoegd.",
         "shipping-address-blocked": "Leveringen aan het geselecteerde afleveradres zijn niet mogelijk.",
+        "billing-address-blocked": "Facturering naar het geselecteerde adres is niet mogelijk.",
         "customerCommentHeader": "Extra informatie",
         "customerCommentLabel": "Wilt u ons iets meedelen over uw bestelling?",
-        "customerCommentPlaceholder": "Commentaar hier..."
+        "customerCommentPlaceholder": "Commentaar hier...",
+        "cart-merged-hint": "Het huidige winkelwagentje kan extra producten bevatten die zijn toegevoegd en opgeslagen tijdens een eerder bezoek.",
+        "collapseTriggerMore": "Toon meer",
+        "collapseTriggerLess": "Minder tonen",
+        "product-not-found": "Het product kon niet worden gevonden."
     },
     "listing": {
         "filterTitleText": "Filter",
@@ -382,7 +410,7 @@
         "boxLabelTopseller": "Tip!",
         "boxLabelNew": "Nieuw",
         "listingTextSite": "Pagina",
-        "listingTextFrom": "van",
+        "listingTextFrom": "Van",
         "boxAddProduct": "In het winkelmandje",
         "boxProductDetails": "Details",
         "emptyResultMessage": "Er konden geen producten worden gevonden.",
@@ -391,16 +419,22 @@
         "filterPriceDisplayName": "Prijs",
         "filterManufacturerDisplayName": "Fabrikant",
         "filterRatingDisplayName": "Beoordeling min.",
-        "filterRatingActiveLabelStart": "Tenminste",
+        "filterRatingActiveLabelStart": "min.",
         "filterRatingActiveLabelEndSingular": "ster",
         "filterRatingActiveLabelEnd": "sterren",
+        "filterRatingAndMore": "min. %points%/%maxPoints%",
         "filterRangeMinLabel": "Minimaal",
         "filterRangeMaxLabel": "Maximaal",
         "filterRangeActiveMinLabel": "Prijs vanaf",
         "filterRangeActiveMaxLabel": "Prijs tot",
         "filterRangeErrorMessage": "De minimumprijs kan niet hoger zijn dan de maximumprijs.",
         "filterSubmitText": "Filter",
-        "defaultProductSortingLabel": "Naam, oplopend"
+        "defaultProductSortingLabel": "Naam, oplopend",
+        "disabledFilterTooltip": "Dit filter geeft geen verdere resultaten weer in combinatie met de geselecteerde filters.",
+        "cheapestPriceLabel": "Varianten van",
+        "addToWishlist": "Toevoegen aan verlanglijst",
+        "removeFromWishlist": "Verwijderen uit verlanglijst",
+        "toggleWishlist": "Verlanglijst aan/uitzetten"
     },
     "newsletter": {
         "headline": "Nieuwsbrief abonneren",
@@ -408,7 +442,7 @@
         "subscribeOption": "Nieuwsbrief abonneren",
         "unsubscribeOption": "Nieuwsbrief opzeggen",
         "formSubmit": "Opslaan",
-        "subscriptionPersistedSuccess": "U heeft zich zojuist aangemeld voor onze nieuwsbrief.\n Om het registratieproces te voltooien, zoekt u in uw inbox naar onze bevestigingsmail en klikt u op de bijgeleverde link.",
+        "subscriptionPersistedSuccess": "U heeft zich zojuist aangemeld voor onze nieuwsbrief.\n Om het aanmeldingsproces te voltooien, zoekt u in uw inbox naar onze bevestigingsmail en klikt u op de link die bij het inschrijven is geleverd.",
         "subscriptionPersistedInfo": "Indien u geen e-mail hebt ontvangen, dient u het proces te herhalen of contact op te nemen met ons ondersteuningsteam.",
         "subscriptionRevokeSuccess": "U hebt zich succesvol afgemeld voor de nieuwsbrief.",
         "subscriptionConfirmationSuccess": "Uw abonnement op de nieuwsbrief is succesvol geregistreerd!",
@@ -447,8 +481,8 @@
         "priceDataInfoFrom": "vanaf",
         "listPricePercentage": "(%price%% bespaard)",
         "dataColumnQuantity": "Hoeveelheid",
-        "dataColumnPrice": "Artikelprijs",
-        "dataColumnReferencePrice": "Stukprijs",
+        "dataColumnPrice": "Prijs per eenheid",
+        "dataColumnReferencePrice": "Basisprijs",
         "deliveryTimeAvailable": "Direct beschikbaar, levertijd %name%",
         "deliveryTimeRestock": "{1} Beschikbaar over 1 dag, levertijd %name%|]1,Inf[ Beschikbaar in %restockTime% dagen, levertijd %name%",
         "soldOut": "Niet meer beschikbaar",
@@ -469,7 +503,7 @@
         "reviewFormSubmitText": "Verzenden",
         "reviewFormCancelText": "Annuleren",
         "reviewFormErrorAlert": "Er is een fout opgetreden. Controleer of alle velden correct zijn ingevuld.",
-        "reviewFormSuccessAlert": "Bedankt voor het plaatsen van de review. We zullen de recensie bekijken en uiteindelijk ontgrendelen. Wees in de tussentijd geduldig.",
+        "reviewFormSuccessAlert": "Hartelijk dank voor het indienen van uw beoordeling. We zullen de beoordeling onderzoeken en uiteindelijk ontgrendelen, wees geduldig.",
         "reviewFormSuccessUpdateAlert": "Hartelijk dank voor het bewerken van uw beoordeling. De beoordeling wordt weer zichtbaar zodra die door ons is vrijgegeven.",
         "reviewTeaserTitle": "Geef een beoordeling",
         "reviewTeaserText": "Deel uw ervaringen met andere klanten.",
@@ -491,7 +525,21 @@
         "reviewLoginSignupLink": "Klik hier om u aan te melden.",
         "reviewLoginCancelButton": "Annuleren",
         "reviewAvgRate": "van",
-        "reviewAvgRateElements": "Sterren"
+        "reviewAvgRateElements": "Sterren",
+        "reviewNotPublicYetAlert": "Uw beoordeling is nog niet goedgekeurd"
+    },
+    "wishlist": {
+        "cartTitle": "Uw verlanglijstje",
+        "headline": "Uw verlanglijstje",
+        "itemDeleteSuccess": "Je hebt het product met succes van je verlanglijst verwijderd.",
+        "itemAddedSuccess": "Je hebt het product met succes toegevoegd aan je verlanglijstje.",
+        "currentlyNotAvailable": "Momenteel niet beschikbaar",
+        "manufacturerDisplayName": "Fabrikant",
+        "deliveryTimeAvailable": "Beschikbaar, levertijd %name%",
+        "noLongerAvailableTooltip": "Het product is niet meer leverbaar.",
+        "wishlistMergeHint": "Uw verlanglijstje kan producten bevatten die zijn toegevoegd en opgeslagen tijdens een eerder bezoek.",
+        "wishlistEmptyHeader": "Uw verlanglijstje is leeg",
+        "wishlistEmptyDescription": "Houd producten die u leuk vindt in de gaten door ze toe te voegen aan uw verlanglijstje."
     },
     "footer": {
         "serviceHotlineHeadline": "Service hotline",
@@ -517,10 +565,13 @@
         "groupRequired": "Technisch vereist",
         "groupRequiredDescription": "Cookies die nodig zijn om deze winkel te laten functioneren:",
         "groupRequiredSession": "Sessie",
+        "groupRequiredCsrf": "CSRF-bescherming",
         "groupRequiredTimezone": "Tijdzone",
         "groupStatistical": "Statistieken",
         "groupStatisticalDescription": "Deze cookies worden gebruikt voor statistieken en shop performance metrieken.",
-        "groupStatisticalGoogleAnalytics": "Google Analytics"
+        "groupStatisticalGoogleAnalytics": "Google Analytics",
+        "groupComfortFeatures": "Comfort-functies",
+        "groupComfortFeaturesWishlist": "Verlanglijst"
     },
     "ellipsis": {
         "expandLabel": "meer tonen",
@@ -530,7 +581,7 @@
         "product": {
             "feature": {
                 "label": {
-                    "manufacturerNumber": "Leveranciersnummer:",
+                    "manufacturerNumber": "Nummer fabrikant:",
                     "ean": "EAN:",
                     "weight": "Gewicht:",
                     "width": "Breedte:",
@@ -544,6 +595,12 @@
                     "true": "Ja",
                     "false": "Nee"
                 }
+            }
+        },
+        "cms": {
+            "vimeo": {
+                "privacyNotice": "Door het bekijken van de video gaat u ermee akkoord dat uw gegevens worden overgedragen naar %platform% en dat u <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Privacy policy\">Privacy Policy</a>heeft gelezen.",
+                "acceptButtonLabel": "Akkoord"
             }
         }
     }

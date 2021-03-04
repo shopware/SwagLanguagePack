@@ -46,7 +46,8 @@
         "searchResults": "{1} 1 результат|]1,Inf[ %count% Результатов",
         "supportInfo": "<strong>Вопросы по вашему заказу?</strong><br /><strong><a href=\"tel:+4912345-123456789\">12345-123456789</a></strong> <small>Ежедневно с 7:30 до 22:00 часов</small>",
         "indexLinkService": "Сервис/Помощь",
-        "searchNoResult": "Ничего не найдено."
+        "searchNoResult": "Ничего не найдено.",
+        "wishlist": "Список желаний"
     },
     "error": {
         "VIOLATION::IS_BLANK_ERROR": "%field% не может быть пустым.",
@@ -54,6 +55,7 @@
         "VIOLATION::STRICT_CHECK_FAILED_ERROR": "%field% недействителен",
         "VIOLATION::CUSTOMER_EMAIL_NOT_UNIQUE": "Этот адрес email уже зарегистрирован.",
         "VIOLATION::CUSTOMER_PASSWORD_NOT_CORRECT": "Неверный пароль.",
+        "VIOLATION::VAT_ID_FORMAT_NOT_CORRECT": "Введенный вами регистрационный номер НДС не имеет правильного формата.",
         "message-default": "К сожалению, что-то пошло не так.",
         "message-404": "Запрашиваемая страница не найдена.",
         "addToCartError": "Произошла ошибка при попытке добавить товары в корзину.",
@@ -63,13 +65,19 @@
         "payment-method-blocked": "Способ оплаты %name% не доступен.",
         "shipping-method-blocked": "%name% доставкa не доступна.",
         "shipping-address-blocked": "Доставка на выбранный адрес доставки в настоящее время невозможна.",
+        "shipping-address-invalid": "Выбранный адрес доставки недействителен или незавершен. Пожалуйста, проверьте свои записи.",
+        "billing-address-blocked": "Выставление счетов по выбранному адресу невозможно.",
+        "billing-address-invalid": "Выбранный адрес для выставления счетов недействителен или неполон. Пожалуйста, проверьте свои записи.",
         "VIOLATION::TOO_SHORT_ERROR": "%field% слишком короткий.",
         "product-not-found": "Продукт не найден.",
         "message-403-ajax": "Ваша сессия истекла. Пожалуйста, перезагрузите страницу и повторите попытку.",
         "message-403": "Ваша сессия истекла. Вернитесь на последнюю страницу и повторите попытку.",
-        "product-out-of-stock": "%name% недоступно в данный момент."
+        "product-out-of-stock": "%name% недоступно в данный момент.",
+        "auto-promotion-not-found": "Акция «%name%» больше не действительна!"
     },
     "account": {
+        "externalPaymentCanceled": "Мы получили ваш заказ, но оплата была прервана. Измените способ оплаты или повторите попытку",
+        "externalPaymentFailure": "Мы получили ваш заказ, но не смогли обработать ваш платеж, пожалуйста, измените способ оплаты или повторите попытку",
         "confirmationIsAlreadyDone": "Aдрес электронной почты уже подтвержден либо URL недействителен.",
         "doubleOptInMailConfirmationSuccessfully": "Спасибо за подтверждение вашей электронной почты! Теперь вы можете завершить свой заказ.",
         "doubleOptInRegistrationSuccessfully": "Спасибо за регистрацию! Ваша учетная запись успешно разблокирована.",
@@ -176,6 +184,12 @@
         "profileRecoverPasswordInfo": "Мы вышлем вам подтверждение по электронной почте. Нажмите на ссылку в этом письме, чтобы изменить пароль.",
         "profileRecoverPasswordSubmit": "Отправить email",
         "profileSaveChanges": "Сохранить изменения",
+        "profileDelete": "<a href=\"%target%\" data-toggle=\"modal\" data-target=\"%target%\">Нажмите здесь</a> , чтобы удалить все ваши персональные данные",
+        "profileDeleteAlert": "После удаления личных данных вашей учетной записи клиента записи и отзывы о новостных рассылках больше не будут доступны для вас. Обратите внимание, что записи всех заказов будут храниться, тем не менее, для того, чтобы выполнить правовые нормы.",
+        "profileDeleteConfirm": "Вы действительно хотите удалить свою учетную запись клиента?",
+        "profileDeleteModalTitle": "Счет клиента",
+        "profileDeleteButton": "Удалить учетную запись",
+        "profileDeleteSuccessAlert": "Ваша учетная запись клиента была удалена.",
         "addressWelcome": "Адреса",
         "addressText": "Просмотрите свои текущие адреса по умолчанию или добавьте новые.",
         "addressListHeader": "Все адреса",
@@ -199,9 +213,9 @@
         "addressDefaultChanged": "Адрес по умолчанию был изменен.",
         "addressDefaultNotChanged": "Адрес по умолчанию не может быть изменен.",
         "addressSaved": "Адрес был сохранен.",
-        "inactiveAccountAlert": "Ваша учетная запись клиента еще не активирована. Мы отправили письмо с подтверждением, содержащее ссылку для активации. Проверьте свой почтовый ящик и нажмите ссылку, чтобы завершить регистрацию!",
+        "inactiveAccountAlert": "Ваша учетная запись клиента еще не активирована. Мы отправили электронное письмо с подтверждением, содержащее ссылку для активации. Пожалуйста, проверьте свой почтовый ящик и нажмите на ссылку, чтобы завершить регистрацию!",
         "optInGuestAlert": "Спасибо за ваш интерес! Вскоре вы получите подтверждение по электронной почте. Нажмите на ссылку в ней, чтобы подтвердить ваш адрес электронной почты.",
-        "optInRegistrationAlert": "Спасибо за регистрацию! Вскоре вы получите подтверждение по электронной почте. Нажмите на ссылку в нем, чтобы завершить регистрацию.",
+        "optInRegistrationAlert": "Спасибо, что зарегистрировались! Вы получите подтверждение по электронной почте в ближайшее время. Нажмите на ссылку в нем, чтобы завершить регистрацию.",
         "optInSuccessAlert": "Мы только что отправили вам письмо с подтверждением.",
         "ordersWelcome": "Ваши недавние заказы:",
         "ordersInfoEmpty": "Вы еще не заказали.",
@@ -217,6 +231,7 @@
         "orderContextMenuChangePayment": "Изменить метод оплаты",
         "orderContextMenuReorder": "Повторить заказ",
         "orderContextMenuCancel": "Отменить заказ",
+        "completePayment": "Полная оплата",
         "editOrder": "Редактировать заказ",
         "editOrderUpdateButton": "Завершить платеж",
         "editOrderBackToAccountButton": "Вернуться к обзору",
@@ -237,7 +252,7 @@
         "orderItemColumnQuantity": "Количество",
         "orderItemColumnPrice": "Цена за единицу",
         "orderItemColumnTotal": "Итого",
-        "orderItemDate": "От:",
+        "orderItemDate": "Дата заказа:",
         "orderItemNumber": "Номер заказа:",
         "orderItemPaymentMethod": "Способ оплаты:",
         "orderItemShippingMethod": "Способ доставки:",
@@ -248,19 +263,25 @@
         "orderItemComment": "Наш комментарий",
         "orderItemCustomerComment": "Ваш комментарий",
         "orderItemInfoContent": "Содержимое:",
-        "orderItemInfoCurrentPrice": "Текущая цена единицы",
+        "orderItemInfoCurrentPrice": "Текущая цена за единицу",
         "orderItemInfoFree": "БЕСПЛАТНО",
         "orderItemInfoNotAvailable": "Продукт больше не доступен для последующего заказа",
         "orderActionView": "Вид",
         "orderActionHide": "Скрыть",
         "orderInfoNoDispatch": "Не указано",
         "orderLinkRepeat": "Повторить заказ",
+        "documentItemColumnTitle": "Документ",
+        "documentItemColumnDate": "Дата",
+        "documentItemViewFileButton": "Просмотр файла",
         "newsletterTitle": "Подписка на новостную рассылку",
         "newsletterSettings": "Да, я хотел бы подписаться на бесплатную рассылку %shopname%. (Я могу отписаться в любое время.)",
         "passwordResetTitle": "Вы забыли свой пароль?",
         "passwordResetInfo": "Если вы забыли свой пароль, вы можете ввести новый пароль. Когда вы нажмете \"сохранить\", старый пароль будет аннулирован.",
         "passwordOptInInfo": "Письмо с подтверждением отправлено. Нажмите на введенную ссылку, чтобы изменить пароль.",
-        "colonCharacter": ":"
+        "colonCharacter": ":",
+        "orderGuestLoginTitle": "Проверка подлинности",
+        "orderGuestLoginDescription": "Для просмотра заказа, пожалуйста, введите свой почтовый адрес и почтовый индекс, указанный с вашим платежным адресом.",
+        "orderGuestLoginWrongCredentials": "Данные не могут быть связаны с заказом."
     },
     "address": {
         "streetLabel": "Адрес улицы",
@@ -283,8 +304,8 @@
         "companyNamePlaceholder": "Введите компанию...",
         "companyDepartmentLabel": "Отдел",
         "companyDepartmentPlaceholder": "Введите департамент...",
-        "companyVatLabel": "Идентификационный номер НДС",
-        "companyVatPlaceholder": "Идентификационный номер НДС"
+        "companyVatLabel": "НДС Reg.No.",
+        "companyVatPlaceholder": "НДС Reg.No."
     },
     "checkout": {
         "itemCounter": "{1} 1 элемент |]1, Inf[ %count% элементов",
@@ -307,7 +328,7 @@
         "cartEmpty": "Ваша корзина пуста.",
         "cartHeaderInfo": "Товар",
         "cartHeaderQuantity": "Количество",
-        "cartHeaderUnitPrice": "Цена товара",
+        "cartHeaderUnitPrice": "Цена за единицу",
         "cartHeaderTotalPrice": "Итого",
         "cartHeaderTaxIncludeVat": "вкл. НДС",
         "cartHeaderTaxExcludeVat": "без НДС",
@@ -319,6 +340,7 @@
         "summaryPositionPrice": "Всего",
         "summaryShipping": "Стоимость доставки",
         "summaryTotalPrice": "Общая сумма",
+        "summaryTotalPriceRounded": "Округленная сумма",
         "summaryNetPrice": "Итого",
         "summaryTax": "плюс %rate%% НДС",
         "proceedLink": "Перейти к оформлению заказа",
@@ -360,20 +382,26 @@
         "shippingCountry": "Страна доставки",
         "paymentMethod": "Способ оплаты",
         "shippingMethod": "Способ доставки",
-        "product-stock-reached": "Продукт %name% доступен только %quantity% раз",
-        "product-out-of-stock": "Продукт %name% больше не доступен",
-        "purchase-steps-quantity": "Ваше вводимое количество не соответствует настройке %name%. Количество было изменено на %quantity%",
-        "shipping-method-blocked": "Способ доставки %name% заблокирован для текущей корзины.",
-        "payment-method-blocked": "Способ оплаты %name% заблокирован для вашей корзины.",
+        "product-stock-reached": "Продукт «%name%» доступен только %quantity% раз",
+        "product-out-of-stock": "Товар «%name%» больше не доступен",
+        "purchase-steps-quantity": "Товар «%name%» недоступен в этом количестве. Количество было изменено на %quantity%",
+        "shipping-method-blocked": "Способ доставки «%name%» заблокирован для вашей текущей корзины.",
+        "payment-method-blocked": "Способ оплаты «%name%» заблокирован для вашей текущей корзины.",
         "lineItemDeliveryDate": "Период доставки: %earliest% - %latest%",
         "promotion-discount-deleted": "Скидка \"%name%\" была удалена",
         "promotion-discount-added": "Скидка \"%name%\" была добавлена",
         "promotion-not-found": "Не удалось найти акцию с кодом \"%code%\".",
+        "auto-promotion-not-found": "Акция «%name%» больше не действует!",
         "promotion-not-eligible": "Промо-код действителен - однако не все условия были выполнены и скидка не была применена. Как только все условия будут выполнены, скидка будет применена автоматически.",
         "shipping-address-blocked": "Доставка по выбранному адресу доставки в настоящее время невозможна.",
+        "billing-address-blocked": "Выставление счетов по выбранному адресу невозможно.",
         "customerCommentHeader": "Дополнительная информация",
         "customerCommentLabel": "Хотите рассказать нам что-нибудь о своем заказе?",
-        "customerCommentPlaceholder": "Комментарий здесь..."
+        "customerCommentPlaceholder": "Комментарий здесь...",
+        "cart-merged-hint": "Текущая корзина может содержать дополнительные продукты, которые были добавлены и сохранены во время предыдущего посещения.",
+        "collapseTriggerMore": "Показать больше",
+        "collapseTriggerLess": "Показать меньше",
+        "product-not-found": "Не удалось найти продукт."
     },
     "listing": {
         "filterTitleText": "Фильтр",
@@ -382,7 +410,7 @@
         "boxLabelTopseller": "Совет",
         "boxLabelNew": "Новый",
         "listingTextSite": "Страница",
-        "listingTextFrom": "от",
+        "listingTextFrom": "От",
         "boxAddProduct": "Добавить в корзину",
         "boxProductDetails": "Детали",
         "emptyResultMessage": "Продукты не найдены.",
@@ -391,7 +419,7 @@
         "filterPriceDisplayName": "Цена",
         "filterManufacturerDisplayName": "Производитель",
         "filterRatingDisplayName": "Рейтинг мин.",
-        "filterRatingActiveLabelStart": "Не меньше",
+        "filterRatingActiveLabelStart": "мин.",
         "filterRatingActiveLabelEndSingular": "звездочка",
         "filterRatingActiveLabelEnd": "звезды",
         "filterRangeMinLabel": "Минимум",
@@ -400,7 +428,12 @@
         "filterRangeActiveMaxLabel": "Цена до",
         "filterRangeErrorMessage": "Минимальная цена не должна быть выше, чем максимальная цена.",
         "filterSubmitText": "Фильтр",
-        "defaultProductSortingLabel": "Названия по возрастанию"
+        "defaultProductSortingLabel": "Названия по возрастанию",
+        "disabledFilterTooltip": "Этот фильтр не отображает никаких дальнейших результатов в сочетании с выбранными фильтрами.",
+        "cheapestPriceLabel": "Варианты из",
+        "addToWishlist": "Добавить в список желаний",
+        "removeFromWishlist": "Удалить из списка желаний",
+        "toggleWishlist": "Переключить список желаний"
     },
     "newsletter": {
         "headline": "Подписаться на рассылку",
@@ -408,7 +441,7 @@
         "subscribeOption": "Подписаться на рассылку",
         "unsubscribeOption": "Отписаться от рассылки",
         "formSubmit": "Сохранить",
-        "subscriptionPersistedSuccess": "Вы только что подписались на нашу рассылку.\n Чтобы завершить процесс регистрации, найдите в папке \"Входящие\" письмо с подтверждением и нажмите на ссылку с ней.",
+        "subscriptionPersistedSuccess": "Вы только что подписались на нашу рассылку.\n Чтобы завершить процесс регистрации, найдите в вашем почтовом ящике наше электронное письмо с подтверждением и нажмите на ссылку, предоставленную вместе с ним.",
         "subscriptionPersistedInfo": "Если вы не получили письмо, повторите процесс или обратитесь к оператору магазина.",
         "subscriptionRevokeSuccess": "Вы отписались от рассылки.",
         "subscriptionConfirmationSuccess": "Вы подписались на рассылку.",
@@ -447,8 +480,8 @@
         "priceDataInfoFrom": "От",
         "listPricePercentage": "(%price%% сохранена)",
         "dataColumnQuantity": "Количество",
-        "dataColumnPrice": "Цена товара",
-        "dataColumnReferencePrice": "Цена за единицу",
+        "dataColumnPrice": "Цена за единицу",
+        "dataColumnReferencePrice": "Базовая цена",
         "deliveryTimeAvailable": "Доступно, время доставки %name%",
         "deliveryTimeRestock": "{1} Доступно в течение 1 дня, время доставки %name%|]1,Inf[ Доступно в %restockTime% дней, время доставки %name%",
         "soldOut": "Больше не доступно",
@@ -469,7 +502,7 @@
         "reviewFormSubmitText": "Подтвердить",
         "reviewFormCancelText": "Отменить",
         "reviewFormErrorAlert": "Произошла ошибка. Пожалуйста, убедитесь, что вы правильно заполнили форму.",
-        "reviewFormSuccessAlert": "Спасибо за отправку вашего отзыва. Однако, отзыв не будет виден до тех пор, пока мы его не разблокируем. Пожалуйста, будьте терпеливы.",
+        "reviewFormSuccessAlert": "Благодарим вас за отправку вашего отзыва. Мы изучим обзор и в конечном итоге разблокируем его, пожалуйста, будьте терпеливы.",
         "reviewFormSuccessUpdateAlert": "Спасибо за редактирование отзыва. Изменения будут видны, как только мы разблокируем их.",
         "reviewTeaserTitle": "Оставьте отзыв!",
         "reviewTeaserText": "Поделитесь своим опытом с другими клиентами.",
@@ -491,7 +524,21 @@
         "reviewLoginSignupLink": "Нажмите здесь, чтобы зарегистрироваться.",
         "reviewLoginCancelButton": "Отменить",
         "reviewAvgRate": "снаружи",
-        "reviewAvgRateElements": "звезды"
+        "reviewAvgRateElements": "звезды",
+        "reviewNotPublicYetAlert": "Ваш отзыв еще не одобрен"
+    },
+    "wishlist": {
+        "cartTitle": "Ваш список желаний",
+        "headline": "Ваш список желаний",
+        "itemDeleteSuccess": "Вы успешно удалили товар из списка желаний.",
+        "itemAddedSuccess": "Вы успешно добавили продукт в свой список желаний.",
+        "currentlyNotAvailable": "В настоящее время недоступно",
+        "manufacturerDisplayName": "Производитель",
+        "deliveryTimeAvailable": "Доступно, время доставки %name%",
+        "noLongerAvailableTooltip": "Продукт больше не доступен.",
+        "wishlistMergeHint": "Ваш список желаний может содержать продукты, которые были добавлены и сохранены во время предыдущего посещения.",
+        "wishlistEmptyHeader": "Ваш список желаний пуст",
+        "wishlistEmptyDescription": "Следите за продуктами, которые вам нравятся, добавляя их в свой список желаний."
     },
     "footer": {
         "serviceHotlineHeadline": "Горячая линия обслуживания",
@@ -517,10 +564,13 @@
         "groupRequired": "Технически требуется",
         "groupRequiredDescription": "Эти cookie необходимые для работы этого магазина:",
         "groupRequiredSession": "Сессия",
+        "groupRequiredCsrf": "Защита CSRF",
         "groupRequiredTimezone": "Часовой пояс",
         "groupStatistical": "Статистика",
         "groupStatisticalDescription": "Файлы cookie используемые для статистики и показателей эффективности магазина.",
-        "groupStatisticalGoogleAnalytics": "Google Analytics"
+        "groupStatisticalGoogleAnalytics": "Google Analytics",
+        "groupComfortFeatures": "Характеристики комфорта",
+        "groupComfortFeaturesWishlist": "Список желаний"
     },
     "ellipsis": {
         "expandLabel": "показать больше",
@@ -530,7 +580,7 @@
         "product": {
             "feature": {
                 "label": {
-                    "manufacturerNumber": "Номер поставщика:",
+                    "manufacturerNumber": "Номер производителя:",
                     "ean": "EAN:",
                     "weight": "Вес:",
                     "width": "Ширина:",
@@ -544,6 +594,12 @@
                     "true": "Да",
                     "false": "Нет"
                 }
+            }
+        },
+        "cms": {
+            "vimeo": {
+                "privacyNotice": "Просматривая видео, вы соглашаетесь с тем, что ваши данные будут переданы %platform% и что вы прочитали <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Privacy policy\">Политику конфиденциальности</a>.",
+                "acceptButtonLabel": "Принять"
             }
         }
     }

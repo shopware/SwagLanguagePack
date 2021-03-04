@@ -46,7 +46,8 @@
         "searchResults": "{1} 1 résultat|]1,Inf[ %count% résultats",
         "supportInfo": "<strong>Des questions concernant votre commande ?</strong><br/>Nous sommes joignables au <strong><a href=\"tel:+4912345-123456789\">12345-123456789</a></strong> <small>tous les jours de 7h30 à 22h</small>",
         "indexLinkService": "Service/Assistance",
-        "searchNoResult": "Votre recherche n'a donné aucun résultat."
+        "searchNoResult": "Votre recherche n'a donné aucun résultat.",
+        "wishlist": "Liste d'envies"
     },
     "error": {
         "VIOLATION::IS_BLANK_ERROR": "%field% ne doit pas être vide.",
@@ -54,6 +55,7 @@
         "VIOLATION::STRICT_CHECK_FAILED_ERROR": "%field% n'est pas valide.",
         "VIOLATION::CUSTOMER_EMAIL_NOT_UNIQUE": "Cette adresse e-mail est déjà enregistrée.",
         "VIOLATION::CUSTOMER_PASSWORD_NOT_CORRECT": "Ce mot de passe n'est pas valide.",
+        "VIOLATION::VAT_ID_FORMAT_NOT_CORRECT": "Le numéro de TVA que vous avez entré n'a pas le format correct.",
         "message-default": "Un problème est malheureusement survenu.",
         "message-404": "La page souhaitée est introuvable.",
         "addToCartError": "Une erreur est survenue lors de l'ajout du produit dans le panier.",
@@ -63,13 +65,19 @@
         "payment-method-blocked": "Le moyen de paiement sélectionné %name% est indisponible.",
         "shipping-method-blocked": "Le mode d'expédition sélectionné %name% est indisponible.",
         "shipping-address-blocked": "Impossible de livrer à l'adresse sélectionnée.",
+        "shipping-address-invalid": "L'adresse d'expédition sélectionnée n'est pas valide ou incomplète. Veuillez vérifier vos entrées.",
+        "billing-address-blocked": "La facturation à l'adresse sélectionnée n'est pas possible.",
+        "billing-address-invalid": "L'adresse de facturation sélectionnée n'est pas valide ou incomplète. Veuillez vérifier vos entrées.",
         "VIOLATION::TOO_SHORT_ERROR": "%field% est trop court.",
         "product-not-found": "Produit introuvable.",
         "message-403-ajax": "La session a expiré. Veuillez actualiser la page et recommencer.",
         "message-403": "La session a expiré. Veuillez retourner à la page précédente et recommencer.",
-        "product-out-of-stock": "%name% n'est pas disponible actuellement."
+        "product-out-of-stock": "%name% n'est pas disponible actuellement.",
+        "auto-promotion-not-found": "La promotion \"%name%\" n'était plus valide !"
     },
     "account": {
+        "externalPaymentCanceled": "Nous avons reçu votre commande, mais le paiement a été annulé. Veuillez modifier votre mode de paiement ou réessayer",
+        "externalPaymentFailure": "Nous avons reçu votre commande, mais nous n'avons pas été en mesure de traiter votre paiement, veuillez modifier le mode de paiement ou réessayer",
         "confirmationIsAlreadyDone": "La confirmation a déjà été enregistrée ou bien l'URL n'est pas valide.",
         "doubleOptInMailConfirmationSuccessfully": "Merci d'avoir confirmé votre adresse e-mail ! Vous pouvez à présent terminer votre commande.",
         "doubleOptInRegistrationSuccessfully": "Merci beaucoup pour votre inscription ! Votre compte a bien été créé.",
@@ -150,6 +158,7 @@
         "overviewChangeBilling": "Modifier les réglages par défaut",
         "overviewChangeShipping": "Modifier les réglages par défaut",
         "overviewNewestOrderHeader": "Dernière commande",
+        "overviewCustomerGroupRequest": "Accès au groupe de clients \"%group%\" demandé.",
         "paymentChangeSubmit": "Modifier",
         "profilePersonalTitle": "Données personnelles",
         "profileMailTitle": "Adresse e-mail",
@@ -175,6 +184,12 @@
         "profileRecoverPasswordInfo": "Nous vous enverrons un e-mail de confirmation. Cliquez sur le lien pour changer votre mot de passe.",
         "profileRecoverPasswordSubmit": "Envoyer un e-mail",
         "profileSaveChanges": "Enregistrer les modifications",
+        "profileDelete": "<a href=\"%target%\" data-toggle=\"modal\" data-target=\"%target%\">Cliquez ici</a> pour supprimer toutes vos données personnelles",
+        "profileDeleteAlert": "Après avoir supprimé les données personnelles de votre compte client, les inscriptions à la newsletter et les avis ne seront plus accessibles pour vous. Notez que les registres de toutes les commandes seront néanmoins conservés afin de respecter les réglementations légales.",
+        "profileDeleteConfirm": "Voulez-vous vraiment supprimer votre compte client ?",
+        "profileDeleteModalTitle": "Compte client",
+        "profileDeleteButton": "Supprimer le compte",
+        "profileDeleteSuccessAlert": "Votre compte client a été supprimé.",
         "addressWelcome": "Adresses",
         "addressText": "Modifiez vos adresses par défaut ou ajoutez-en de nouvelles.",
         "addressListHeader": "Toutes les adresses",
@@ -198,15 +213,16 @@
         "addressDefaultChanged": "L'adresse standard a été modifiée",
         "addressDefaultNotChanged": "L'adresse standard n'a pas pu être modifiée",
         "addressSaved": "Adresse enregistrée.",
-        "inactiveAccountAlert": "Votre compte client n'est pas encore actif. Nous vous avons envoyé un lien d'activation. Veuillez consulter votre messagerie afin de finaliser l'inscription.",
+        "inactiveAccountAlert": "Votre compte client n'a pas encore été activé. Nous avons envoyé un e-mail de confirmation contenant un lien d'activation. Veuillez vérifier votre boîte de réception et cliquez sur le lien pour terminer votre inscription !",
         "optInGuestAlert": "Nous vous remercions de votre intérêt pour notre boutique ! Vous allez recevoir un e-mail de confirmation dans quelques instants. Cliquez sur le lien contenu dans le message afin de confirmer votre adresse e-mail.",
-        "optInRegistrationAlert": "Merci beaucoup pour votre inscription ! Vous allez recevoir un e-mail de confirmation dans quelques instants. Cliquer sur le lien contenu dans le message afin de finaliser l'inscription.",
+        "optInRegistrationAlert": "Merci de vous inscrire ! Vous recevrez un e-mail de confirmation sous peu. Cliquez sur le lien qui s'y trouve pour terminer l'inscription.",
         "optInSuccessAlert": "Si l'adresse e-mail que vous avez saisie a bien été enregistrée, vous avez reçu un e-mail de confirmation de notre part.",
         "ordersWelcome": "Vos dernières commandes :",
         "ordersInfoEmpty": "Vous n'avez pas encore passé de commande.",
         "orderHeadline": "Commande :",
         "orderStatus": "Statut :",
         "orderStatusActionRequired": "Modification nécessaire",
+        "orderStatusActionCompletePayment": "Paiement complet",
         "orderShippingStatus": "Statut de la livraison",
         "orderPaymentStatus": "Statut du paiement",
         "orderPaymentMethod": "Moyen de paiement",
@@ -215,6 +231,7 @@
         "orderContextMenuChangePayment": "Modifier le moyen de paiement",
         "orderContextMenuReorder": "Passer la même commande",
         "orderContextMenuCancel": "Annuler la commande",
+        "completePayment": "Paiement complet",
         "editOrder": "Modifier la commande",
         "editOrderUpdateButton": "Confirmer les modifications",
         "editOrderBackToAccountButton": "Retour à votre compte",
@@ -235,7 +252,7 @@
         "orderItemColumnQuantity": "Nombre",
         "orderItemColumnPrice": "Prix unitaire",
         "orderItemColumnTotal": "Montant",
-        "orderItemDate": "De :",
+        "orderItemDate": "Date de commande :",
         "orderItemNumber": "Numéro de commande :",
         "orderItemPaymentMethod": "Moyen de paiement :",
         "orderItemShippingMethod": "Mode d'expédition :",
@@ -253,11 +270,18 @@
         "orderActionHide": "Masquer",
         "orderInfoNoDispatch": "Non précisé",
         "orderLinkRepeat": "Passer la même commande",
+        "documentItemColumnTitle": "Document",
+        "documentItemColumnDate": "Date",
+        "documentItemViewFileButton": "Afficher le fichier",
         "newsletterTitle": "Abonnement à la newsletter",
         "newsletterSettings": "Oui, je souhaite recevoir régulièrement la newsletter gratuite de %shopname% ! (Désinscription possible à tout moment.)",
         "passwordResetTitle": "Vous avez oublié votre mot de passe ?",
         "passwordResetInfo": "Si vous avez oublié votre mot de passe, vous pouvez en définir un nouveau ici. Dès que vous enregistrez un nouveau mot de passe, l'ancien n'est plus valide.",
-        "passwordOptInInfo": "E-mail de confirmation envoyé. Cliquez sur le lien pour changer votre mot de passe."
+        "passwordOptInInfo": "E-mail de confirmation envoyé. Cliquez sur le lien pour changer votre mot de passe.",
+        "colonCharacter": " :",
+        "orderGuestLoginTitle": "L'authentification",
+        "orderGuestLoginDescription": "Pour consulter votre commande, veuillez saisir votre adresse postale et le code postal fourni avec votre adresse de facturation.",
+        "orderGuestLoginWrongCredentials": "Les données données n'ont pas pu être associées à une commande."
     },
     "address": {
         "streetLabel": "Adresse et n° de rue",
@@ -280,8 +304,8 @@
         "companyNamePlaceholder": "Entrer le nom de la société...",
         "companyDepartmentLabel": "Service",
         "companyDepartmentPlaceholder": "Entrer le nom du service...",
-        "companyVatLabel": "N° TVA",
-        "companyVatPlaceholder": "N° TVA"
+        "companyVatLabel": "N° de TVA",
+        "companyVatPlaceholder": "N° de TVA"
     },
     "checkout": {
         "itemCounter": "{1} 1 Produit|]1,Inf[ %count% Produits",
@@ -316,6 +340,7 @@
         "summaryPositionPrice": "Total intermédiaire",
         "summaryShipping": "Frais de livraison",
         "summaryTotalPrice": "Total",
+        "summaryTotalPriceRounded": "Total arrondi",
         "summaryNetPrice": "Total hors TVA",
         "summaryTax": "%rate% % TVA inclus",
         "proceedLink": "Payer",
@@ -339,6 +364,7 @@
         "confirmTermsHeader": "CGV et droit de rétraction",
         "confirmRevocationNotice": "Veuillez noter le droit de rétractation.",
         "confirmTerms": "J'ai lu les <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"CGV\">CGV</a> et les accepte.",
+        "confirmTermsReminder": "Vous avez déjà accepté les conditions générales <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"general terms and conditions\"></a>.",
         "finishInfoPayment": "Moyen de paiement :",
         "finishInfoShipping": "Mode d'expédition :",
         "finishHeader": "Nous vous remercions pour votre commande chez %shop% !",
@@ -356,19 +382,26 @@
         "shippingCountry": "Pays de livraison",
         "paymentMethod": "Moyen de paiement",
         "shippingMethod": "Mode d'expédition",
-        "product-stock-reached": "Il ne reste plus que %quantity% exemplaires du produit %name%.",
-        "product-out-of-stock": "Ce produit %name% n'est plus disponible.",
-        "shipping-method-blocked": "Le mode d'expédition %name% est bloqué pour votre panier actuel.",
-        "payment-method-blocked": "Le moyen de paiement %name% est bloqué pour votre panier actuel.",
+        "product-stock-reached": "Le produit \"%name%\" n'est disponible que %quantity% fois",
+        "product-out-of-stock": "Le produit \"%name%\" n'est plus disponible",
+        "purchase-steps-quantity": "Le produit \"%name%\" n'est pas disponible dans cette quantité. La quantité a été modifiée à %quantity%",
+        "shipping-method-blocked": "Le mode d'expédition \"%name%\" est bloqué pour votre panier actuel.",
+        "payment-method-blocked": "Le mode de paiement \"%name%\" est bloqué pour votre panier actuel.",
         "lineItemDeliveryDate": "Délai de livraison : %earliest% – %latest%",
         "promotion-discount-deleted": "La réduction \"%name%\" a été supprimée du panier",
         "promotion-discount-added": "La réduction \"%name%\" a été ajoutée au panier",
         "promotion-not-found": "Le code promo \"%code%\" n'existe pas.",
+        "auto-promotion-not-found": "La promotion \"%name%\" n'est plus valide !",
         "promotion-not-eligible": "Le bon d'achat a été enregistré, mais n'a pas été appliqué au panier, car les conditions ne sont pas remplies. Une fois les conditions remplies, le bon d'achat sera automatiquement ajouté.",
         "shipping-address-blocked": "Impossible de livrer à l'adresse sélectionnée.",
+        "billing-address-blocked": "La facturation à l'adresse sélectionnée n'est pas possible.",
         "customerCommentHeader": "Informations complémentaires :",
         "customerCommentLabel": "Avez-vous des informations à nous communiquer sur votre commande ?",
-        "customerCommentPlaceholder": "Entrez votre commentaire ici..."
+        "customerCommentPlaceholder": "Entrez votre commentaire ici...",
+        "cart-merged-hint": "Le panier actuel peut contenir des produits supplémentaires qui ont été ajoutés et enregistrés lors d'une visite précédente.",
+        "collapseTriggerMore": "Montrer plus",
+        "collapseTriggerLess": "Afficher moins",
+        "product-not-found": "Le produit n'a pas pu être trouvé."
     },
     "listing": {
         "filterTitleText": "Filtre",
@@ -377,7 +410,7 @@
         "boxLabelTopseller": "Conseil",
         "boxLabelNew": "Nouveau",
         "listingTextSite": "Page",
-        "listingTextFrom": "de",
+        "listingTextFrom": "De",
         "boxAddProduct": "Ajouter au panier",
         "boxProductDetails": "Détails",
         "emptyResultMessage": "Aucun produit n'a été trouvé.",
@@ -386,15 +419,22 @@
         "filterPriceDisplayName": "Prix",
         "filterManufacturerDisplayName": "Fabricant",
         "filterRatingDisplayName": "Évaluation min.",
-        "filterRatingActiveLabelStart": "Minimum",
+        "filterRatingActiveLabelStart": "min.",
         "filterRatingActiveLabelEndSingular": "Astérisque",
         "filterRatingActiveLabelEnd": "Étoiles",
+        "filterRatingAndMore": "min. %points%/%maxPoints%",
         "filterRangeMinLabel": "Minimum",
         "filterRangeMaxLabel": "Maximum",
         "filterRangeActiveMinLabel": "Prix à partir de",
         "filterRangeActiveMaxLabel": "Prix jusqu'à",
         "filterRangeErrorMessage": "Le montant minimum ne doit pas dépasser le montant maximum.",
-        "filterSubmitText": "Filtre"
+        "filterSubmitText": "Filtre",
+        "defaultProductSortingLabel": "Nom, croissant",
+        "disabledFilterTooltip": "Ce filtre n'affiche pas d'autres résultats en combinaison avec les filtres sélectionnés.",
+        "cheapestPriceLabel": "Variantes de",
+        "addToWishlist": "Ajouter à la liste de souhaits",
+        "removeFromWishlist": "Supprimer de la liste d'envies",
+        "toggleWishlist": "Basculer la liste d'envies"
     },
     "newsletter": {
         "headline": "Abonnement à la newsletter",
@@ -402,7 +442,7 @@
         "subscribeOption": "Abonnement à la newsletter",
         "unsubscribeOption": "Désabonnement de la newsletter",
         "formSubmit": "Enregistrer",
-        "subscriptionPersistedSuccess": "Nous venez de vous abonner à notre newsletter. Pour finaliser votre abonnement, ouvrez le message de confirmation que nous vous avons envoyé dans votre boîte de messagerie et cliquez sur le lien qu'il contient.",
+        "subscriptionPersistedSuccess": "Vous venez de vous abonner à notre newsletter.\n Pour terminer le processus d'inscription, recherchez notre e-mail de confirmation dans votre boîte de réception et cliquez sur le lien fourni avec celui-ci.",
         "subscriptionPersistedInfo": "Si vous n'avez pas reçu d'e-mail, veuillez répéter la procédure ou contacter le service d'assistance.",
         "subscriptionRevokeSuccess": "Votre abonnement à la newsletter a réussi.",
         "subscriptionConfirmationSuccess": "Votre abonnement à la newsletter a bien été pris en compte.",
@@ -463,7 +503,7 @@
         "reviewFormSubmitText": "Envoyer",
         "reviewFormCancelText": "Annuler",
         "reviewFormErrorAlert": "Une erreur est survenue. Veuillez vérifiez que tous les champs sont correctement remplis.",
-        "reviewFormSuccessAlert": "Nous vous remercions pour cette évaluation. Nous allons vérifier votre évaluation et l'activerons le cas échéant. Merci de patienter un instant.",
+        "reviewFormSuccessAlert": "Merci d'avoir soumis votre avis. Nous examinerons l'examen et finirons par le déverrouiller, s'il vous plaît soyez patient.",
         "reviewFormSuccessUpdateAlert": "Nous vous remercions d'avoir pris le temps de réaliser cette évaluation. Elle réapparaitra dès que nous l'aurons à nouveau activée.",
         "reviewTeaserTitle": "Laissez une évaluation !",
         "reviewTeaserText": "Partagez avec d'autres clients votre avis sur le produit.",
@@ -485,7 +525,21 @@
         "reviewLoginSignupLink": "Cliquez ici pour vous inscrire.",
         "reviewLoginCancelButton": "Annuler",
         "reviewAvgRate": "de",
-        "reviewAvgRateElements": "Étoiles"
+        "reviewAvgRateElements": "Étoiles",
+        "reviewNotPublicYetAlert": "Votre avis n'a pas encore été approuvé"
+    },
+    "wishlist": {
+        "cartTitle": "Votre liste d'envies",
+        "headline": "Votre liste d'envies",
+        "itemDeleteSuccess": "Vous avez supprimé le produit de votre liste d'envies.",
+        "itemAddedSuccess": "L'article a été ajouté avec succès à votre liste d'envies.",
+        "currentlyNotAvailable": "Actuellement non disponible",
+        "manufacturerDisplayName": "Fabricant",
+        "deliveryTimeAvailable": "Disponible, délai de livraison %name%",
+        "noLongerAvailableTooltip": "Le produit n'est plus disponible.",
+        "wishlistMergeHint": "Votre liste d'envies peut contenir des produits qui ont été ajoutés et enregistrés lors d'une visite précédente.",
+        "wishlistEmptyHeader": "Votre liste de souhaits est vide",
+        "wishlistEmptyDescription": "Gardez un œil sur les produits que vous aimez en les ajoutant à votre liste d'envies."
     },
     "footer": {
         "serviceHotlineHeadline": "Assistance téléphonique",
@@ -506,14 +560,18 @@
         "configure": "Configurer",
         "configuration": "Paramètres",
         "save": "Enregistrer",
+        "acceptAll": "Accepter tous les cookies",
         "headline": "Réglages par défaut des cookies",
         "groupRequired": "Nécessaires sur le plan technique",
         "groupRequiredDescription": "Cookies nécessaires au fonctionnement de la boutique :",
         "groupRequiredSession": "Session",
+        "groupRequiredCsrf": "Protection CSRF",
         "groupRequiredTimezone": "Fuseau horaire",
         "groupStatistical": "Statistiques",
         "groupStatisticalDescription": "Cookies utilisés pour les statistiques et les mesures de performance de la boutique.",
-        "groupStatisticalGoogleAnalytics": "Google Analytics"
+        "groupStatisticalGoogleAnalytics": "Google Analytics",
+        "groupComfortFeatures": "Caractéristiques de confort",
+        "groupComfortFeaturesWishlist": "Liste d'envies"
     },
     "ellipsis": {
         "expandLabel": "afficher la suite",
@@ -523,7 +581,7 @@
         "product": {
             "feature": {
                 "label": {
-                    "manufacturerNumber": "Réf. Fabricant :",
+                    "manufacturerNumber": "Numéro du fabricant :",
                     "ean": "EAN :",
                     "weight": "Poids :",
                     "width": "Largeur :",
@@ -537,6 +595,12 @@
                     "true": "Oui",
                     "false": "Non"
                 }
+            }
+        },
+        "cms": {
+            "vimeo": {
+                "privacyNotice": "En regardant la vidéo, vous acceptez que vos données soient transférées à %platform% et que vous avez lu la politique de confidentialité <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Privacy policy\"></a>.",
+                "acceptButtonLabel": "Accepter"
             }
         }
     }

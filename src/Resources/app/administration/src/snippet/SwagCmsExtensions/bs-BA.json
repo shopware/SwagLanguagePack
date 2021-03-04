@@ -7,10 +7,19 @@
         },
         "sw-cms": {
             "detail": {
+                "errors": {
+                    "customFormConfigurationInvalid": "Jedan ili više elemenata prilagođenog oblika imaju nevažeću konfiguraciju. Molimo provjerite sve svoje konfiguracije."
+                },
                 "quickview": {
                     "showQuickviewLabel": "Koristite Brzi Pregled",
                     "showQuickviewHelpText": "Kada kliknete na blokove povezane s proizvodom, prikazuje se Brzi Pregled umjesto stranice s detaljima.",
                     "sidebarHeaderBlockBehaviorSettings": "Brzi Pregled"
+                },
+                "blockRule": {
+                    "sidebarHeaderBlockBehaviorSettings": "Vidljivost",
+                    "invertedSwitchLabel": "Vidljivo, ako se pravilo ne primjenjuje",
+                    "alwaysVisiblePlaceholder": "Uvijek vidljivo (Zadano)",
+                    "ruleHelpText": "Definirajte uslove koji moraju biti ispunjeni da bi se prikazali ovaj blok."
                 },
                 "scrollNavigation": {
                     "title": "Navigacija pomicanja",
@@ -32,13 +41,20 @@
                         "easingDegreeHelpText": "Stepen označava veličinu ubrzanja ili usporavanja. Što je niži stepen, to je pomicanje glađe. Vrijednost između 2 i 5 preporučuje se za intuitivno pomicanje. Ova vrijednost ne utječe na poskakivanje ili linearno pomicanje.",
                         "bouncyLabel": "Poskočno pomicanje",
                         "easing": {
-                            "linear": "Konstantno (linearno)"
+                            "linear": "Konstantno (linearno)",
+                            "in": "Ubrzanje (Olakšanje u)",
+                            "out": "usporavajući (Olakšati Out)",
+                            "inOut": "Ubrzavanje i usporavanje (Ease InOut)"
                         }
                     }
                 }
             },
             "sidebar": {
-                "emptyAnchorName": "(Nije postavljeno ime)"
+                "emptyAnchorName": "(Nije postavljeno ime)",
+                "rulesOnAllBlocks": "Ovaj odjeljak sadrži samo sadržaj s ograničenom vidljivošću. Imajte na umu da neki korisnici mogu vidjeti prazan odjeljak ovdje.",
+                "navElement": {
+                    "blockRuleTooltip": "Vidljivost ovog elementa ograničena je pravilom."
+                }
             },
             "section": {
                 "actions": {
@@ -49,6 +65,126 @@
                     "pageForm": {
                         "labelPrefix": "Navigacijska tačka",
                         "emptyAnchorName": "(Nije postavljeno ime)"
+                    }
+                }
+            },
+            "components": {
+                "sw-cms-slot": {
+                    "formModalTitle": "Stvaranje obrasca",
+                    "formModalPrimary": "Stvaranje"
+                },
+                "form-editor": {
+                    "title": "Polja",
+                    "addGroupButton": "Dodavanje grupe",
+                    "emptyState": {
+                        "text": "Još niste stvorili nikakva polja obrazaca.",
+                        "buttonText": "Stvaranje polja obrasca"
+                    },
+                    "group": {
+                        "groupNamePrefix": "Grupa",
+                        "actions": {
+                            "moveUp": "Pomicanje prema gore",
+                            "moveDown": "Pomicanje prema dolje",
+                            "duplicate": "Duplikat",
+                            "moveToGroup": "Premještanje u grupu"
+                        },
+                        "field": {
+                            "addFieldButton": "Dodaj polje",
+                            "fieldPrefix": "Polje"
+                        }
+                    },
+                    "settings-group": {
+                        "titleFieldLabel": "Naslov",
+                        "internalNameHelpText": "Interni naziv služi kao jedinstvena identifikacija za upotrebu ove grupe kao varijable u npr. predlošcima e-pošte.",
+                        "explanation": "Grupe pomažu u strukturiranju obrasca. Sva polja unutar grupe čine vizuelni odjeljak."
+                    },
+                    "settings-field": {
+                        "titleFieldLabel": "Naslov",
+                        "typeFieldLabel": "Tip",
+                        "widthFieldLabel": "Širina",
+                        "requiredFieldLabel": "Obavezno polje",
+                        "placeholderFieldLabel": "Rezervirano mjesto",
+                        "errorMessageFieldLabel": "Poruka o pogrešci",
+                        "minFieldLabel": "Min.",
+                        "maxFieldLabel": "Maks.",
+                        "stepFieldLabel": "Korak",
+                        "modeFieldLabel": "Sadržaj",
+                        "modeOptionEntity": "Entitet",
+                        "modeOptionCustom": "običaj",
+                        "entityFieldLabel": "Entitet",
+                        "optionsFieldLabel": "Vrijednosti",
+                        "rowsFieldLabel": "Visina",
+                        "rowsLabel": "{n} red | {n} redovi",
+                        "scalableFieldLabel": "Skalabilan",
+                        "defaultValueFieldLabel": "Zadana vrijednost",
+                        "defaultValues": {
+                            "checked": "Provjereno",
+                            "notChecked": "Nije provjereno"
+                        },
+                        "internalNameHelpText": "Interni naziv služi kao jedinstvena identifikacija za korištenje ovog polja kao varijable u npr. predlošcima e-pošte.",
+                        "types": {
+                            "text": "tekst",
+                            "email": "E-mail",
+                            "number": "Broj",
+                            "checkbox": "Potvrdni okvir",
+                            "select": "Odaberite",
+                            "textarea": "Textarea"
+                        }
+                    },
+                    "moveToGroupModal": {
+                        "title": "Premještanje u grupu",
+                        "groupSelectLabel": "Grupa",
+                        "primaryButtonText": "Pomakni se"
+                    }
+                }
+            },
+            "elements": {
+                "custom-form": {
+                    "label": "Prilagođeni obrazac",
+                    "config": {
+                        "templateSelectLabel": "predložak",
+                        "templateSelectPlaceholder": "Niti jedan",
+                        "editFormTemplateLink": "Uređivanje predložaka"
+                    },
+                    "templateListing": {
+                        "templateNameLabel": "Naziv predloška",
+                        "emptyState": "Nisu pronađeni šabloni",
+                        "renameContextAction": "Preimenuj"
+                    },
+                    "editor": {
+                        "title": "Postavke obrasca",
+                        "tabs": {
+                            "options": {
+                                "tabTitle": "Mogućnosti",
+                                "confirmationTextLabel": "Tekst potvrde",
+                                "internalNameLabel": "Ime (unutrašnje)",
+                                "headlineLabel": "Naslov",
+                                "mailTemplateLabel": "Predložak e-pošte"
+                            },
+                            "fields": {
+                                "tabTitle": "Polja",
+                                "templateLabel": "predložak",
+                                "templateText": "Uštedite vrijeme u budućnosti i spremite ovaj obrazac kao predložak."
+                            }
+                        },
+                        "footer": {
+                            "createTemplateButton": "Spremi kao predložak"
+                        }
+                    },
+                    "createTemplateModal": {
+                        "titles": {
+                            "default": "Spremanje kao predložak obrasca",
+                            "overwrite": "Prebrisati predložak obrasca"
+                        },
+                        "templateNameLabel": "Ime",
+                        "placeholder": "Nazovite predložak obrasca...",
+                        "overwriteButtonLabel": "Prebrisati",
+                        "overwriteLinkText": "Prebrisati postojeći predložak obrasca",
+                        "overwriteWarningText": "Predložak obrasca s tim imenom već postoji.",
+                        "successMessage": "Predložak obrasca je sačuvan!",
+                        "overwriteMessage": "Obrazac predložak je prepisan!",
+                        "overwriteSelectLabel": "Predložak obrasca",
+                        "overwriteConfirmationText": "Jeste li sigurni, da želite prepisati obrazac predložak \"<span>{templateName}</span>“?"
                     }
                 }
             }

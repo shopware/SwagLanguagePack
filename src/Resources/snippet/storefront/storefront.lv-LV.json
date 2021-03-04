@@ -46,7 +46,8 @@
         "searchResults": "{1} 1 Rezultāts|]1,Inf[ %count% Rezultāti",
         "supportInfo": "<strong>Jautājumi par jūsu pasūtījumu?</strong><br /><strong><a href=\"tel:+4912345-123456789\">12345-123456789</a></strong> <small>Ik dienu no 7:30 līdz 22:00</small>",
         "indexLinkService": "Serviss/Palīdzība",
-        "searchNoResult": "Nekas netika atrasts."
+        "searchNoResult": "Nekas netika atrasts.",
+        "wishlist": "Vēlmju saraksts"
     },
     "error": {
         "VIOLATION::IS_BLANK_ERROR": "%field% nedrīkst būt tukšs.",
@@ -54,6 +55,7 @@
         "VIOLATION::STRICT_CHECK_FAILED_ERROR": "%field% nav derīgs",
         "VIOLATION::CUSTOMER_EMAIL_NOT_UNIQUE": "E-pasta adrese jau ir reģistrēta.",
         "VIOLATION::CUSTOMER_PASSWORD_NOT_CORRECT": "Nepareiza parole.",
+        "VIOLATION::VAT_ID_FORMAT_NOT_CORRECT": "PVN reģ.Nē, kuru esat ievadījis, nav pareizā formāta.",
         "message-default": "Diemžēl kaut kas nogāja greizi.",
         "message-404": "Pieprasīto lapu nevar atrast.",
         "addToCartError": "Radās kļūda mēģinot pievienot preci iepirkumu grozam.",
@@ -63,13 +65,19 @@
         "payment-method-blocked": "Maksājums ar %name% nav pieejams.",
         "shipping-method-blocked": "%name% piegāde nav pieejama.",
         "shipping-address-blocked": "Piegāde uz izvēlēto piegādes adresi nav iespējama.",
+        "shipping-address-invalid": "Izvēlētā piegādes adrese nav derīga vai nepilnīga. Lūdzu, pārbaudiet savus ierakstus.",
+        "billing-address-blocked": "Norēķini uz izvēlēto adresi nav iespējams.",
+        "billing-address-invalid": "Izvēlētā norēķinu adrese nav derīga vai nepilnīga. Lūdzu, pārbaudiet savus ierakstus.",
         "VIOLATION::TOO_SHORT_ERROR": "%field% ir par īsu.",
         "product-not-found": "Produktu nevarēja atrast.",
         "message-403-ajax": "Jūsu sesijas termiņš ir beidzies. Lūdzu atkārtoti atveriet lapu un mēģiniet vēlreiz.",
         "message-403": "Jūsu sesijas termiņš ir beidzies. Lūdzu atgriezieties pēdējā lapā un mēģiniet vēlreiz.",
-        "product-out-of-stock": "%name% šobrīd nav pieejams."
+        "product-out-of-stock": "%name% šobrīd nav pieejams.",
+        "auto-promotion-not-found": "Promotion \"%name%\" vairs nebija derīgs!"
     },
     "account": {
+        "externalPaymentCanceled": "Mēs saņēmām jūsu pasūtījumu, bet maksājums tika pārtraukts. Lūdzu, mainiet maksājuma veidu vai mēģiniet vēlreiz",
+        "externalPaymentFailure": "Mēs saņēmām jūsu pasūtījumu, bet mēs nevarējām apstrādāt jūsu maksājumu, lūdzu, mainiet maksājuma veidu vai mēģiniet vēlreiz",
         "confirmationIsAlreadyDone": "Vai nu e-pasta adrese jau ir apstiprināta, vai arī URL nav derīgs.",
         "doubleOptInMailConfirmationSuccessfully": "Paldies par jūsu e-pasta apstiprinājumu! Tagad jūs varat pabeigt pasūtījumu.",
         "doubleOptInRegistrationSuccessfully": "Paldies, ka pierakstījāties! Jūsu konts ir veiksmīgi atbloķēts.",
@@ -176,6 +184,12 @@
         "profileRecoverPasswordInfo": "Mēs jums nosūtīsim apstiprinājuma e-pastu. Noklikšķiniet uz saites šajā e-pastā lai mainītu paroli.",
         "profileRecoverPasswordSubmit": "Nosūtīt e-pastu",
         "profileSaveChanges": "Saglabāt izmaiņas",
+        "profileDelete": "<a href=\"%target%\" data-toggle=\"modal\" data-target=\"%target%\">Noklikšķiniet šeit</a> , lai dzēstu visus jūsu personas datus",
+        "profileDeleteAlert": "Pēc jūsu klienta konta personas datu dzēšanas, biļetenu ieraksti un atsauksmes vairs nebūs pieejamas. Ņemiet vērā, ka visu pasūtījumu uzskaite tiks saglabāta, lai izpildītu normatīvos aktus.",
+        "profileDeleteConfirm": "Vai tiešām vēlaties dzēst savu klienta kontu?",
+        "profileDeleteModalTitle": "Klienta konts",
+        "profileDeleteButton": "Dzēst kontu",
+        "profileDeleteSuccessAlert": "Jūsu klienta konts tika dzēsts.",
         "addressWelcome": "Adreses",
         "addressText": "Skatiet pašreizējās noklusējuma adreses vai pievienojiet jaunas.",
         "addressListHeader": "Visas adreses",
@@ -199,9 +213,9 @@
         "addressDefaultChanged": "Pamata adrese ir mainīta.",
         "addressDefaultNotChanged": "Pamata adresi nevarēja mainīt.",
         "addressSaved": "Adrese ir saglabāta.",
-        "inactiveAccountAlert": "Jūsu klienta konts vēl nav aktivizēts. Mēs jums esam nosūtījuši aktivizācijas saiti. Lūdzu, pārbaudiet iesūtni un noklikšķiniet uz saites, lai pabeigtu reģistrāciju!",
+        "inactiveAccountAlert": "Jūsu klienta konts vēl nav aktivizēts. Mēs esam nosūtījuši apstiprinājuma e-pastu ar aktivizācijas saiti. Lūdzu, pārbaudiet savu iesūtni un noklikšķiniet uz saites, lai pabeigtu reģistrāciju!",
         "optInGuestAlert": "Paldies par jūsu interesi! Drīz jūs saņemsit apstiprinājuma e-pastu. Noklikšķiniet uz tajā esošās saites, lai apstiprinātu savu e-pasta adresi.",
-        "optInRegistrationAlert": "Paldies, ka piereģistrējāties! Drīz jūs saņemsit apstiprinājuma e-pastu. Noklikšķiniet uz tajā esošās saites, lai pabeigtu reģistrāciju.",
+        "optInRegistrationAlert": "Paldies, ka pierakstījāties! Drīzumā jūs saņemsiet apstiprinājuma e-pastu. Noklikšķiniet uz saites tajā, lai pabeigtu pierakstīšanos.",
         "optInSuccessAlert": "Mēs tikko nosūtījām jums apstiprinājuma e-pastu.",
         "ordersWelcome": "Jūsu nesenie pasūtījumi:",
         "ordersInfoEmpty": "Jūs vēl neesat pasūtījis.",
@@ -217,6 +231,7 @@
         "orderContextMenuChangePayment": "Mainīt apmaksas veidu",
         "orderContextMenuReorder": "Atkārtot pasutījumu",
         "orderContextMenuCancel": "Atcelt pasūtījumu",
+        "completePayment": "Pabeigt maksājumu",
         "editOrder": "Labot pasūtījumu",
         "editOrderUpdateButton": "Pabeigt maksājumu",
         "editOrderBackToAccountButton": "Atpakaļ uz pārskatu",
@@ -235,9 +250,9 @@
         "orderItemColumnActions": "Darbība",
         "orderItemColumnName": "Produkts",
         "orderItemColumnQuantity": "Skaits",
-        "orderItemColumnPrice": "Cena par vienību",
+        "orderItemColumnPrice": "Vienības cena",
         "orderItemColumnTotal": "Starpsumma",
-        "orderItemDate": "No:",
+        "orderItemDate": "Pasūtījuma datums:",
         "orderItemNumber": "Pasūtījuma numurs:",
         "orderItemPaymentMethod": "Maksāšanas veids:",
         "orderItemShippingMethod": "Piegādes veids:",
@@ -255,12 +270,18 @@
         "orderActionHide": "Slēpt",
         "orderInfoNoDispatch": "Nav norādīts",
         "orderLinkRepeat": "Atkārtot pasutījumu",
+        "documentItemColumnTitle": "Dokumentu",
+        "documentItemColumnDate": "Datums",
+        "documentItemViewFileButton": "Skatīt failu",
         "newsletterTitle": "Jaunumu abonēšana",
         "newsletterSettings": "Jā, es vēlētos abonēt bezmaksas %shopname% jaunumus. (Es varu pārtraukt abonēšanu jebkurā laikā.)",
         "passwordResetTitle": "Vai aizmirsāt paroli?",
         "passwordResetInfo": "Ja esat aizmirsis paroli, šeit varat ievadīt jaunu. Pēc saglabāšanas jūsu vecā parole nebūs derīga.",
         "passwordOptInInfo": "Nosūtīts apstiprinājuma e-pasts. Noklikšķiniet uz iekļautās saites, lai mainītu paroli.",
-        "colonCharacter": ":"
+        "colonCharacter": ":",
+        "orderGuestLoginTitle": "Autentifikācija",
+        "orderGuestLoginDescription": "Lai apskatītu pasūtījumu, lūdzu, ievadiet savu pasta adresi un pasta indeksu, kas norādīts ar jūsu norēķinu adresi.",
+        "orderGuestLoginWrongCredentials": "Dotos datus nevarēja saistīt ar pasūtījumu."
     },
     "address": {
         "streetLabel": "Adrese",
@@ -283,8 +304,8 @@
         "companyNamePlaceholder": "Ievadiet uzņēmumu...",
         "companyDepartmentLabel": "Departaments",
         "companyDepartmentPlaceholder": "Ievadiet departamentu...",
-        "companyVatLabel": "PVN ID",
-        "companyVatPlaceholder": "PVN ID"
+        "companyVatLabel": "PVN reģ.Nr.",
+        "companyVatPlaceholder": "PVN reģ.Nr."
     },
     "checkout": {
         "itemCounter": "{1} 1 vienība|]1,Inf[ %count% vienības",
@@ -319,6 +340,7 @@
         "summaryPositionPrice": "Kopā",
         "summaryShipping": "Piegādes izmaksas",
         "summaryTotalPrice": "Kopsumma",
+        "summaryTotalPriceRounded": "Noapaļots kopā",
         "summaryNetPrice": "Kopsumma",
         "summaryTax": "plus %rate%% PVN",
         "proceedLink": "Noformēt pirkumu",
@@ -360,20 +382,26 @@
         "shippingCountry": "Piegādes valsts",
         "paymentMethod": "Maksāšanas veids",
         "shippingMethod": "Piegādes veids",
-        "product-stock-reached": "Produkts %name% ir pieejams tikai %quantity% reizes",
-        "product-out-of-stock": "Produkts %name% vairs nav pieejams",
-        "purchase-steps-quantity": "Jūsu ievadītais daudzums neatbilst %name% iestatījumam. Daudzums tika mainīts uz %quantity%",
-        "shipping-method-blocked": "Piegādes veids %name% ir bloķēts jūsu iepirkuma grozam.",
-        "payment-method-blocked": "Apmaksas veids %name% ir bloķēts jūsu iepirkuma grozam.",
+        "product-stock-reached": "Produkts \"%name%\" ir pieejams tikai %quantity% reizes",
+        "product-out-of-stock": "Produkts \"%name%\" vairs nav pieejams",
+        "purchase-steps-quantity": "Produkts \"%name%\" šajā daudzumā nav pieejams. Daudzums tika mainīts uz %quantity%",
+        "shipping-method-blocked": "Piegādes metode \"%name%\" ir bloķēta jūsu pašreizējam iepirkumu grozam.",
+        "payment-method-blocked": "Maksājuma veids \"%name%\" ir bloķēts jūsu pašreizējam iepirkumu grozam.",
         "lineItemDeliveryDate": "Piegādes periods: %earliest% - %latest%",
         "promotion-discount-deleted": "Atlaide \"%name%\" ir noņemta",
         "promotion-discount-added": "Atlaide \"%name%\" ir pievienota",
         "promotion-not-found": "Akcija ar kodu \"%code%\" netika atrasta.",
+        "auto-promotion-not-found": "Promotion \"%name%\" vairs nav derīgs!",
         "promotion-not-eligible": "Akcijas kods ir derīgs - tomēr ne visi nosacījumi tika izpildīti un atlaide netika piemērota. Kad visi nosacījumi būs izpildīti, atlaide tiks piemērota automātiski.",
         "shipping-address-blocked": "Piegāde uz izvēlēto piegādes adresi šobrīd nav iespējama.",
+        "billing-address-blocked": "Norēķini uz izvēlēto adresi nav iespējams.",
         "customerCommentHeader": "Papildus informācija",
         "customerCommentLabel": "Vai vēlaties pastāstīt mums kaut ko par jūsu pasūtījumu?",
-        "customerCommentPlaceholder": "Komentēt šeit..."
+        "customerCommentPlaceholder": "Komentēt šeit...",
+        "cart-merged-hint": "Pašreizējais iepirkumu grozs var saturēt papildu produktus, kas ir pievienoti un saglabāti iepriekšējā apmeklējuma laikā.",
+        "collapseTriggerMore": "Rādīt vairāk",
+        "collapseTriggerLess": "Rādīt mazāk",
+        "product-not-found": "Produktu nevarēja atrast."
     },
     "listing": {
         "filterTitleText": "Filtrs",
@@ -382,7 +410,7 @@
         "boxLabelTopseller": "Padoms",
         "boxLabelNew": "Jauns",
         "listingTextSite": "Lapa",
-        "listingTextFrom": "no",
+        "listingTextFrom": "No",
         "boxAddProduct": "Pievienot grozam",
         "boxProductDetails": "Informācija",
         "emptyResultMessage": "Produkti nav atrasti.",
@@ -391,16 +419,22 @@
         "filterPriceDisplayName": "Cena",
         "filterManufacturerDisplayName": "Ražotājs",
         "filterRatingDisplayName": "Min. vērtējums",
-        "filterRatingActiveLabelStart": "Vismaz",
+        "filterRatingActiveLabelStart": "min.",
         "filterRatingActiveLabelEndSingular": "zvaigzne",
         "filterRatingActiveLabelEnd": "zvaigznes",
+        "filterRatingAndMore": "min. %points%/%maxPoints%",
         "filterRangeMinLabel": "Minimums",
         "filterRangeMaxLabel": "Maksimums",
         "filterRangeActiveMinLabel": "Cena no",
         "filterRangeActiveMaxLabel": "Cena līdz",
         "filterRangeErrorMessage": "Minimālā cena nevar būt lielāka par maksimālo cenu.",
         "filterSubmitText": "Filtrs",
-        "defaultProductSortingLabel": "Vārds, augoši"
+        "defaultProductSortingLabel": "Vārds, augoši",
+        "disabledFilterTooltip": "Šis filtrs nerāda turpmākus rezultātus kopā ar atlasītajiem filtriem.",
+        "cheapestPriceLabel": "Varianti no",
+        "addToWishlist": "Pievienot vēlmju sarakstam",
+        "removeFromWishlist": "Izņemt no vēlmju saraksta",
+        "toggleWishlist": "Pārslēgt vēlmju sarakstu"
     },
     "newsletter": {
         "headline": "Parakstīties uz Jaunumiem",
@@ -408,7 +442,7 @@
         "subscribeOption": "Parakstīties uz Jaunumiem",
         "unsubscribeOption": "Atrakstīties no Jaunumiem",
         "formSubmit": "Saglabāt",
-        "subscriptionPersistedSuccess": "Jūs tikko esat abonējis mūsu Jaunumu izdevumu.\nLai pabeigtu reģistrācijas procesu, atrodiet savā e-pastā apstiprinājuma e-pastu un noklikšķiniet uz saiti, kas tam pievienots.",
+        "subscriptionPersistedSuccess": "Jūs tikko abonējāt mūsu biļetenu.\n Lai pabeigtu reģistrēšanas procesu, meklējiet iesūtnē mūsu apstiprinājuma e-pastu un noklikšķiniet uz saites, kas tai pievienota.",
         "subscriptionPersistedInfo": "Ja nesaņēmāt e-pastu, lūdzu, atkārtojiet procesu vai sazinieties ar veikala pārzini.",
         "subscriptionRevokeSuccess": "Jūs esat atteicies no Jaunumu saņemšanas.",
         "subscriptionConfirmationSuccess": "Jūs esat pieteicies Jaunumu saņemšanai.",
@@ -448,7 +482,7 @@
         "listPricePercentage": "(%price%% saglabāta)",
         "dataColumnQuantity": "Daudzums",
         "dataColumnPrice": "Vienības cena",
-        "dataColumnReferencePrice": "Vienības cena",
+        "dataColumnReferencePrice": "Bāzes cena",
         "deliveryTimeAvailable": "Pieejams, piegādes laiks %name%",
         "deliveryTimeRestock": "{1} Pieejams 1 dienā, piegādes laiks %name%|]1,Inf[ Pieejams %restockTime% dienu laikā, piegādes laiks %name%",
         "soldOut": "Vairāk nav pieejams",
@@ -469,7 +503,7 @@
         "reviewFormSubmitText": "Apstiprināt",
         "reviewFormCancelText": "Atcelt",
         "reviewFormErrorAlert": "Radās kļūda. Lūdzu pārliecinieties vai esat pareizi aizpildījis visus laukus.",
-        "reviewFormSuccessAlert": "Paldies, ka iesniedzāt pārskatu. Pārskats nebūs redzams, kamēr mēs to nebūsim atbloķējuši. Lūdzu, esiet pacietīgi.",
+        "reviewFormSuccessAlert": "Paldies, ka iesniedzāt savu atsauksmi. Mēs izskatīsim pārskatu un galu galā atbloķēsim to, lūdzu, esiet pacietīgi.",
         "reviewFormSuccessUpdateAlert": "Paldies ka rediģējāt pārskatu. Izmaiņas būs redzamas, tiklīdz tās būsim atbloķējuši.",
         "reviewTeaserTitle": "Uzrakstiet vērtējumu!",
         "reviewTeaserText": "Dalieties pieredzē ar citiem klientiem.",
@@ -491,7 +525,21 @@
         "reviewLoginSignupLink": "Nospiediet šeit lai pieslēgtos.",
         "reviewLoginCancelButton": "Atcelt",
         "reviewAvgRate": "beidzās",
-        "reviewAvgRateElements": "zvaigznes"
+        "reviewAvgRateElements": "zvaigznes",
+        "reviewNotPublicYetAlert": "Jūsu pārskats vēl nav apstiprināts"
+    },
+    "wishlist": {
+        "cartTitle": "Jūsu vēlmju saraksts",
+        "headline": "Jūsu vēlmju saraksts",
+        "itemDeleteSuccess": "Jūs esat veiksmīgi noņēmis produktu no jūsu vēlmju saraksta.",
+        "itemAddedSuccess": "Jūs esat veiksmīgi pievienojis produktu savam vēlmju sarakstam.",
+        "currentlyNotAvailable": "Pašlaik nav pieejams",
+        "manufacturerDisplayName": "Ražotājs",
+        "deliveryTimeAvailable": "Pieejams, piegādes laiks %name%",
+        "noLongerAvailableTooltip": "Produkts vairs nav pieejams.",
+        "wishlistMergeHint": "Jūsu vēlmju sarakstā var būt ietverti produkti, kas ir pievienoti un saglabāti iepriekšējā apmeklējuma laikā.",
+        "wishlistEmptyHeader": "Jūsu vēlmju saraksts ir tukšs",
+        "wishlistEmptyDescription": "Sekojiet līdzi produktiem, kas jums patīk, pievienojot tos savam vēlmju sarakstam."
     },
     "footer": {
         "serviceHotlineHeadline": "Pakalpojuma karstā līnija",
@@ -517,10 +565,13 @@
         "groupRequired": "Tehniski nepieciešams",
         "groupRequiredDescription": "Sīkfaili, kas nepieciešami šī veikala darbībai:",
         "groupRequiredSession": "Sesija",
+        "groupRequiredCsrf": "CSRF aizsardzība",
         "groupRequiredTimezone": "Laika zona",
         "groupStatistical": "Statistika",
         "groupStatisticalDescription": "Šīs sīkdatnes tiek izmantotas statistikai un veikalu veiktspējas rādītājiem.",
-        "groupStatisticalGoogleAnalytics": "Google Analytics"
+        "groupStatisticalGoogleAnalytics": "Google Analytics",
+        "groupComfortFeatures": "Komforta iezīmes",
+        "groupComfortFeaturesWishlist": "Vēlmju saraksts"
     },
     "ellipsis": {
         "expandLabel": "rādīt vairāk",
@@ -530,7 +581,7 @@
         "product": {
             "feature": {
                 "label": {
-                    "manufacturerNumber": "Piegādātāja numurs:",
+                    "manufacturerNumber": "Ražotāja numurs:",
                     "ean": "EAN:",
                     "weight": "Svars:",
                     "width": "Platums:",
@@ -544,6 +595,12 @@
                     "true": "Jā",
                     "false": "Nē"
                 }
+            }
+        },
+        "cms": {
+            "vimeo": {
+                "privacyNotice": "Skatot videoklipu, jūs piekrītat, ka jūsu dati tiks pārsūtīti uz %platform% un ka esat izlasījis <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Privacy policy\">Privātuma politiku</a>.",
+                "acceptButtonLabel": "Pieņemt"
             }
         }
     }

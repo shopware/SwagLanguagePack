@@ -46,7 +46,8 @@
         "searchResults": "{1} 1 risultato|]1,Inf[ %count% risultati",
         "supportInfo": "<strong>Domande sul tuo ordine?</strong><br/><strong><a href=\"tel:+4912345-123456789\">+49 12345-123456789</a></strong> <small>tutti i giorni dalle 7:30 alle 22:00</small>",
         "indexLinkService": "Assistenza/aiuto",
-        "searchNoResult": "Nessun risultato trovato."
+        "searchNoResult": "Nessun risultato trovato.",
+        "wishlist": "Lista dei desideri"
     },
     "error": {
         "VIOLATION::IS_BLANK_ERROR": "%field% non può essere vuoto.",
@@ -54,6 +55,7 @@
         "VIOLATION::STRICT_CHECK_FAILED_ERROR": "%field% non è valido.",
         "VIOLATION::CUSTOMER_EMAIL_NOT_UNIQUE": "Questo indirizzo e-mail è già registrato.",
         "VIOLATION::CUSTOMER_PASSWORD_NOT_CORRECT": "La password non è corretta.",
+        "VIOLATION::VAT_ID_FORMAT_NOT_CORRECT": "Il numero di partita IVA inserito non ha il formato corretto.",
         "message-default": "Purtroppo qualcosa è andato storto",
         "message-404": "Non è possibile trovare la pagina richiesta.",
         "addToCartError": "Si è verificato un errore durante l'aggiunta al carrello degli acquisti.",
@@ -63,13 +65,19 @@
         "payment-method-blocked": "La modalità di pagamento selezionata %name% non è disponibile.",
         "shipping-method-blocked": "La modalità di spedizione selezionata %name% non è disponibile.",
         "shipping-address-blocked": "Le consegne all'indirizzo di consegna selezionato non possono essere effettuate.",
+        "shipping-address-invalid": "L'indirizzo di spedizione selezionato non è valido o incompleto. Si prega di controllare le voci.",
+        "billing-address-blocked": "La fatturazione all'indirizzo selezionato non è possibile.",
+        "billing-address-invalid": "L'indirizzo di fatturazione selezionato non è valido o incompleto. Si prega di controllare le voci.",
         "VIOLATION::TOO_SHORT_ERROR": "%field% è troppo breve.",
         "product-not-found": "Il prodotto non è stato trovato.",
         "message-403-ajax": "La sessione è scaduta. Ti preghiamo di ricaricare la pagina e riprovare.",
         "message-403": "La sessione è scaduta. Ti preghiamo di ritornare all’ultima pagina e riprovare.",
-        "product-out-of-stock": "%name% non è momentaneamente disponibile."
+        "product-out-of-stock": "%name% non è momentaneamente disponibile.",
+        "auto-promotion-not-found": "La promozione \"%name%\" non era più valida!"
     },
     "account": {
+        "externalPaymentCanceled": "Abbiamo ricevuto il tuo ordine, ma il pagamento è stato interrotto. Modificare il metodo di pagamento o riprovare",
+        "externalPaymentFailure": "Abbiamo ricevuto l'ordine, ma non siamo stati in grado di elaborare il pagamento, si prega di modificare il metodo di pagamento o riprovare",
         "confirmationIsAlreadyDone": "La conferma è già avvenuta o l’URL non è valido.",
         "doubleOptInMailConfirmationSuccessfully": "Grazie per aver confermato la tua e-mail! Ora puoi concludere il tuo ordine.",
         "doubleOptInRegistrationSuccessfully": "Ti ringraziamo per aver effettuato la registrazione. Il tuo account è stato attivato.",
@@ -176,6 +184,12 @@
         "profileRecoverPasswordInfo": "Ti invieremo un’e-mail di conferma. Fai clic sul link in essa contenuto per modificare la tua password.",
         "profileRecoverPasswordSubmit": "Invia e-mail",
         "profileSaveChanges": "Salva modifiche",
+        "profileDelete": "<a href=\"%target%\" data-toggle=\"modal\" data-target=\"%target%\">Clicca qui</a> per cancellare tutti i tuoi dati personali",
+        "profileDeleteAlert": "Dopo aver eliminato i dati personali del tuo account cliente, le voci di newsletter e le recensioni non ti saranno più accessibili. Si noti che i registri di tutti gli ordini saranno comunque conservati al fine di adempiere alle normative di legge.",
+        "profileDeleteConfirm": "Vuoi davvero cancellare il tuo account cliente?",
+        "profileDeleteModalTitle": "Conto cliente",
+        "profileDeleteButton": "Elimina account",
+        "profileDeleteSuccessAlert": "Il tuo account cliente è stato eliminato.",
         "addressWelcome": "Indirizzi",
         "addressText": "Modifica i tuoi indirizzi standard o aggiungine di nuovi.",
         "addressListHeader": "Tutti gli indirizzi",
@@ -199,9 +213,9 @@
         "addressDefaultChanged": "L'indirizzo standard è stato modificato con successo.",
         "addressDefaultNotChanged": "Non è stato possibile modificare l'indirizzo standard.",
         "addressSaved": "L’indirizzo è stato salvato con successo.",
-        "inactiveAccountAlert": "Il tuo account cliente non è stato ancora attivato. Ti abbiamo inviato un link di attivazione. Controlla la tua casella di posta elettronica per concludere la tua registrazione!",
+        "inactiveAccountAlert": "Il tuo account cliente non è stato ancora attivato. Abbiamo inviato un'e-mail di conferma contenente un link di attivazione. Controlla la tua casella di posta e clicca sul link per completare l'iscrizione!",
         "optInGuestAlert": "Ti ringraziamo per il tuo interesse! A breve riceverai una e-mail di conferma. Fai clic sul link in essa contenuto per confermare il tuo indirizzo e-mail.",
-        "optInRegistrationAlert": "Ti ringraziamo per aver effettuato la registrazione. A breve riceverai una e-mail di conferma. Fai clic sul link in essa contenuto per concludere la registrazione.",
+        "optInRegistrationAlert": "Grazie per esserti iscritto! Riceverai a breve un'e-mail di conferma. Clicca sul link in esso contenuto per completare l'iscrizione.",
         "optInSuccessAlert": "Ti abbiamo inviato un’e-mail di conferma, purché l’indirizzo e-mail da te indicato sia registrato.",
         "ordersWelcome": "I tuoi ultimi ordini:",
         "ordersInfoEmpty": "Non hai ancora effettuato alcun ordine.",
@@ -217,6 +231,7 @@
         "orderContextMenuChangePayment": "Modifica modalità di pagamento",
         "orderContextMenuReorder": "Ripeti l’ordine",
         "orderContextMenuCancel": "Annulla ordine",
+        "completePayment": "Pagamento completo",
         "editOrder": "Modifica l’ordine",
         "editOrderUpdateButton": "Conferma modifiche",
         "editOrderBackToAccountButton": "Torna all’account",
@@ -237,7 +252,7 @@
         "orderItemColumnQuantity": "Quantità",
         "orderItemColumnPrice": "Prezzo unitario",
         "orderItemColumnTotal": "Somma",
-        "orderItemDate": "Da:",
+        "orderItemDate": "Data ordine:",
         "orderItemNumber": "Codice ordine:",
         "orderItemPaymentMethod": "Modalità di pagamento:",
         "orderItemShippingMethod": "Modalità di spedizione:",
@@ -248,19 +263,25 @@
         "orderItemComment": "Il nostro commento",
         "orderItemCustomerComment": "Il tuo commento",
         "orderItemInfoContent": "Contenuto:",
-        "orderItemInfoCurrentPrice": "Prezzo unitario attuale",
+        "orderItemInfoCurrentPrice": "Prezzo unitario corrente",
         "orderItemInfoFree": "GRATIS",
         "orderItemInfoNotAvailable": "Il prodotto non è più disponibile per un ordine successivo",
         "orderActionView": "Visualizza",
         "orderActionHide": "Nascondi",
         "orderInfoNoDispatch": "Non indicato",
         "orderLinkRepeat": "Ripeti l’ordine",
+        "documentItemColumnTitle": "Documento",
+        "documentItemColumnDate": "Data",
+        "documentItemViewFileButton": "Visualizza file",
         "newsletterTitle": "Abbonamento alla newsletter",
         "newsletterSettings": "Sì, desidero ricevere regolarmente la newsletter gratuita %shopname%! (Annullamento dell’iscrizione sempre possibile.)",
         "passwordResetTitle": "Hai dimenticato la password?",
         "passwordResetInfo": "Se hai dimenticato la password per il tuo account, qui è possibile definirne una nuova. Non appena avrai salvato la nuova password, la tua vecchia password non sarà più valida.",
         "passwordOptInInfo": "E-mail di conferma inviata Fai clic sul link in essa contenuto per modificare la tua password.",
-        "colonCharacter": ":"
+        "colonCharacter": ":",
+        "orderGuestLoginTitle": "Autenticazione",
+        "orderGuestLoginDescription": "Per visualizzare il tuo ordine, inserisci il tuo indirizzo di posta elettronica e il codice postale fornito con il tuo indirizzo di fatturazione.",
+        "orderGuestLoginWrongCredentials": "I dati forniti non possono essere associati a un ordine."
     },
     "address": {
         "streetLabel": "Via e numero civico",
@@ -283,8 +304,8 @@
         "companyNamePlaceholder": "Inserisci ditta...",
         "companyDepartmentLabel": "Ufficio",
         "companyDepartmentPlaceholder": "Inserisci ufficio...",
-        "companyVatLabel": "Numero di partiva IVA",
-        "companyVatPlaceholder": "Numero di partiva IVA"
+        "companyVatLabel": "P.IVA n.",
+        "companyVatPlaceholder": "P.IVA n."
     },
     "checkout": {
         "itemCounter": "{1} 1 prodotto|]1,Inf[ %count% prodotti",
@@ -319,6 +340,7 @@
         "summaryPositionPrice": "Subtotale",
         "summaryShipping": "Costi di spedizione",
         "summaryTotalPrice": "Somma totale",
+        "summaryTotalPriceRounded": "Totale arrotondato",
         "summaryNetPrice": "Somma totale senza IVA",
         "summaryTax": "più %rate% % IVA",
         "proceedLink": "Continua alla cassa",
@@ -360,20 +382,26 @@
         "shippingCountry": "Paese di consegna",
         "paymentMethod": "Modalità di pagamento",
         "shippingMethod": "Modalità di spedizione",
-        "product-stock-reached": "Il prodotto %name% è disponibile ancora in solo %quantity% unità",
-        "product-out-of-stock": "Il prodotto %name% non è più disponibile.",
-        "purchase-steps-quantity": "La quantità che hai inserito non corrisponde alla configurazione del %name%. La quantità è stata cambiata a %quantity%",
-        "shipping-method-blocked": "La modalità di spedizione %name% è bloccata per il tuo carrello degli acquisti attuale.",
-        "payment-method-blocked": "La modalità di pagamento %name% è bloccata per il tuo carrello degli acquisti attuale.",
+        "product-stock-reached": "Il prodotto \"%name%\" è disponibile solo %quantity% volte",
+        "product-out-of-stock": "Il prodotto \"%name%\" non è più disponibile",
+        "purchase-steps-quantity": "Il prodotto \"%name%\" non è disponibile in questa quantità. La quantità è stata modificata in %quantity%",
+        "shipping-method-blocked": "Il metodo di spedizione \"%name%\" è bloccato per il tuo carrello corrente.",
+        "payment-method-blocked": "Il metodo di pagamento \"%name%\" è bloccato per il tuo carrello corrente.",
         "lineItemDeliveryDate": "Tempo di consegna: %earliest% - %latest%",
         "promotion-discount-deleted": "Lo sconto \"%name%\" è stato cancellato dal carrello degli acquisti",
         "promotion-discount-added": "Lo sconto \"%name%\" è stato aggiunto al carrello degli acquisti",
         "promotion-not-found": "Il codice buono \"%code%\" non esiste.",
+        "auto-promotion-not-found": "Promozione \"%name%\" non più valida!",
         "promotion-not-eligible": "Il codice buono è stato memorizzato, ma non è stato applicato al carrello degli acquisti, perché i requisiti non sono applicabili. Non appena i requisiti saranno applicabili, sarà aggiunto automaticamente.",
         "shipping-address-blocked": "Le consegne all'indirizzo di consegna selezionato non possono essere effettuate.",
+        "billing-address-blocked": "La fatturazione all'indirizzo selezionato non è possibile.",
         "customerCommentHeader": "Informazioni aggiuntive",
         "customerCommentLabel": "Vuoi comunicarci qualcosa sul tuo ordine?",
-        "customerCommentPlaceholder": "Commenta qui..."
+        "customerCommentPlaceholder": "Commenta qui...",
+        "cart-merged-hint": "Il carrello corrente potrebbe contenere altri prodotti che sono stati aggiunti e salvati durante una visita precedente.",
+        "collapseTriggerMore": "Mostra di più",
+        "collapseTriggerLess": "Mostra meno",
+        "product-not-found": "Il prodotto non è stato trovato."
     },
     "listing": {
         "filterTitleText": "Filtro",
@@ -382,7 +410,7 @@
         "boxLabelTopseller": "Suggerimento",
         "boxLabelNew": "Nuovo",
         "listingTextSite": "Pagina",
-        "listingTextFrom": "da",
+        "listingTextFrom": "Da",
         "boxAddProduct": "Nel carrello",
         "boxProductDetails": "Dettagli",
         "emptyResultMessage": "Nessun prodotto trovato.",
@@ -391,16 +419,22 @@
         "filterPriceDisplayName": "Prezzo",
         "filterManufacturerDisplayName": "Produttore",
         "filterRatingDisplayName": "Valutazione minima",
-        "filterRatingActiveLabelStart": "Non meno di",
+        "filterRatingActiveLabelStart": "min.",
         "filterRatingActiveLabelEndSingular": "Stella",
         "filterRatingActiveLabelEnd": "Stelle",
+        "filterRatingAndMore": "min. %points%/%maxPoints%",
         "filterRangeMinLabel": "Minimo",
         "filterRangeMaxLabel": "Massimo",
         "filterRangeActiveMinLabel": "Prezzo da",
         "filterRangeActiveMaxLabel": "Prezzo fino a",
         "filterRangeErrorMessage": "Il prezzo minimo non può essere maggiore del prezzo massimo.",
         "filterSubmitText": "Filtro",
-        "defaultProductSortingLabel": "Nome, crescente"
+        "defaultProductSortingLabel": "Nome, crescente",
+        "disabledFilterTooltip": "Questo filtro non visualizza ulteriori risultati in combinazione con i filtri selezionati.",
+        "cheapestPriceLabel": "Varianti da",
+        "addToWishlist": "Aggiungi alla wishlist",
+        "removeFromWishlist": "Rimuovi dalla lista dei desideri",
+        "toggleWishlist": "Attiva/disattiva la lista dei desideri"
     },
     "newsletter": {
         "headline": "Abbonati alla newsletter",
@@ -408,7 +442,7 @@
         "subscribeOption": "Abbonati alla newsletter",
         "unsubscribeOption": "Annulla l’abbonamento alla newsletter",
         "formSubmit": "Salva",
-        "subscriptionPersistedSuccess": "Ti sei abbonato alla nostra newsletter. Per concludere la registrazione, cerca un'e-mail di conferma nella tua casella di posta e clicca sul link in essa contenuto.",
+        "subscriptionPersistedSuccess": "Ti sei appena iscritto alla nostra newsletter.\n Per completare il processo di iscrizione, cerca nella tua casella di posta la nostra email di conferma e clicca sul link fornito con essa.",
         "subscriptionPersistedInfo": "Se non l'hai ricevuta, ripeti la procedura o rivolgiti al supporto.",
         "subscriptionRevokeSuccess": "L'annullamento dell'iscrizione alla newsletter si è concluso con successo.",
         "subscriptionConfirmationSuccess": "Il tuo abbonamento alla newsletter è stato registrato con successo.",
@@ -469,7 +503,7 @@
         "reviewFormSubmitText": "Invia",
         "reviewFormCancelText": "Interrompi",
         "reviewFormErrorAlert": "Si è verificato un errore. Ti preghiamo di verificare se tutti i campi sono stati compilati correttamente.",
-        "reviewFormSuccessAlert": "Ti ringraziamo per la tua valutazione. Verificheremo la tua valutazione ed eventualmente la attiveremo. Ti preghiamo di avere un po’ di pazienza.",
+        "reviewFormSuccessAlert": "Grazie per aver inviato la tua recensione. Esamineremo la recensione e alla fine la sbloccheremo, per favore sii paziente.",
         "reviewFormSuccessUpdateAlert": "Ti ringraziamo per aver modificato la tua valutazione. La valutazione sarà nuovamente visibile non appena l’avremo attivata.",
         "reviewTeaserTitle": "Formula una valutazione!",
         "reviewTeaserText": "Condividi le tue esperienze con il prodotto con altri clienti.",
@@ -491,7 +525,21 @@
         "reviewLoginSignupLink": "Clicca qui per registrarti.",
         "reviewLoginCancelButton": "Interrompi",
         "reviewAvgRate": "di",
-        "reviewAvgRateElements": "Stelle"
+        "reviewAvgRateElements": "Stelle",
+        "reviewNotPublicYetAlert": "La tua recensione non è stata ancora approvata"
+    },
+    "wishlist": {
+        "cartTitle": "La tua lista dei desideri",
+        "headline": "La tua lista dei desideri",
+        "itemDeleteSuccess": "Hai rimosso correttamente il prodotto dalla tua lista dei desideri.",
+        "itemAddedSuccess": "Il prodotto è stato aggiunto correttamente alla lista dei desideri.",
+        "currentlyNotAvailable": "Attualmente non disponibile",
+        "manufacturerDisplayName": "Produttore",
+        "deliveryTimeAvailable": "Disponibile, tempi di consegna %name%",
+        "noLongerAvailableTooltip": "Il prodotto non è più disponibile.",
+        "wishlistMergeHint": "La tua lista dei desideri potrebbe contenere prodotti che sono stati aggiunti e salvati durante una visita precedente.",
+        "wishlistEmptyHeader": "La tua lista dei desideri è vuota",
+        "wishlistEmptyDescription": "Tieni d'occhio i prodotti che ti piacciono aggiungendoli alla tua lista dei desideri."
     },
     "footer": {
         "serviceHotlineHeadline": "Linea telefonica di assistenza",
@@ -517,10 +565,13 @@
         "groupRequired": "Tecnicamente necessari",
         "groupRequiredDescription": "Cookie necessari al funzionamento dello shop:",
         "groupRequiredSession": "Sessione",
+        "groupRequiredCsrf": "Protezione CSRF",
         "groupRequiredTimezone": "Fuso orario",
         "groupStatistical": "Statistiche",
         "groupStatisticalDescription": "Cookie utilizzati per statistiche e per le metriche di performance dello shop.",
-        "groupStatisticalGoogleAnalytics": "Google Analytics"
+        "groupStatisticalGoogleAnalytics": "Google Analytics",
+        "groupComfortFeatures": "Caratteristiche del comfort",
+        "groupComfortFeaturesWishlist": "Lista dei desideri"
     },
     "ellipsis": {
         "expandLabel": "mostra di più",
@@ -530,7 +581,7 @@
         "product": {
             "feature": {
                 "label": {
-                    "manufacturerNumber": "Codice produttore:",
+                    "manufacturerNumber": "Numero del produttore:",
                     "ean": "EAN:",
                     "weight": "Peso:",
                     "width": "Larghezza:",
@@ -544,6 +595,12 @@
                     "true": "Sì",
                     "false": "No"
                 }
+            }
+        },
+        "cms": {
+            "vimeo": {
+                "privacyNotice": "Visualizzando il video accetti che i tuoi dati saranno trasferiti a %platform% e di aver letto l'informativa sulla privacy <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Privacy policy\"></a>.",
+                "acceptButtonLabel": "Accetta"
             }
         }
     }

@@ -10,135 +10,314 @@
         "tooltipSandbox": "Ovisno o aktivaciji sandboxa, spremljeni su zasebni akreditivi.",
         "textSettingsHeader": "Napredne postavke",
         "messageFetchedError": "Pokušajte ponovo ili upotrijebite napredne postavke za davanje akreditiva.",
-        "titleFetchedError": "Dogodila se greška",
         "textFetchedSuccessful": "Donešeni su akreditivi.",
-        "titleNoCredentials": "Greška",
         "messageNoCredentials": "Nisu dostavljeni nikakvi podaci.",
-        "messageTestSuccess": "Akreditivi su važeći.",
-        "titleTestError": "Dogodila se greška"
+        "messageTestSuccess": "Akreditivi su važeći."
     },
-    "swag-paypal-payment": {
+    "swag-paypal-disputes": {
         "general": {
-            "title": "Narudžbe"
+            "mainMenuItemGeneral": "PayPal sporovi",
+            "descriptionTextModule": "Upravljajte PayPal sporovima ovdje"
         },
-        "tabs": {
-            "overview": "Pregled"
+        "common": {
+            "dispute_id": "ID",
+            "update_time": "Vrijeme ažuriranja",
+            "response_due_date": {
+                "label": "Datum dospijeća odgovora",
+                "seller": "Prodavac",
+                "buyer": "Kupac"
+            },
+            "status": "Status",
+            "dispute_life_cycle_stage": "Faza",
+            "dispute_amount": "Iznos"
         },
-        "paymentDetails": {
-            "cardTitle": "Plaćanje",
-            "invoice": {
-                "heading": "Iznos fakture",
-                "totalAmount": "Ukupan iznos:",
-                "subTotal": "Suma stavki:",
-                "shipping": "Dostava:"
-            },
-            "payment": {
-                "heading": "Detalji o plaćanju",
-                "intent": "Namjera:",
-                "paymentId": "ID plaćanja:",
-                "cartId": "ID korpe:",
-                "state": "Stanje:",
-                "createTime": "Vrijeme kreiranja:",
-                "updateTime": "Vrijeme Ažuriranja:"
-            },
-            "customer": {
-                "heading": "Kupac",
-                "payerId": "ID uplatitelja:"
-            },
-            "error": {
-                "title": "Greška pri dohvaćanju podataka o plaćanju iz PayPal-a"
+        "list": {
+            "title": "Sporovi",
+            "titleSidebarItemRefresh": "Osvježi",
+            "titleSidebarItemFilter": "Filter",
+            "errorTitle": "Greška pri dobivanju sporova od PayPala",
+            "emptyState": {
+                "title": "Nisu pronađeni sporovi",
+                "subline": "Promijenite filtar da biste prikazali sve sporove."
             }
         },
-        "transactionHistory": {
-            "cardTitle": "Historija plaćanja",
-            "states": {
-                "authorization": "Autorizacija",
-                "sale": "Prodaja",
-                "refund": "Izvrši povrat novca",
-                "capture": "Uhvati",
-                "order": "Narudžba"
-            },
-            "types": {
-                "type": "Vrsta",
-                "amount": "Količina",
-                "createTime": "Stvoreno",
-                "updateTime": "Ažurirano",
-                "state": "Status",
-                "trackingId": "ID Praćenje",
-                "transactionFee": "Naknada za transakciju",
-                "paymentMode": "Način plačanja"
+        "detail": {
+            "title": "PayPal spor:",
+            "titleAddition": "(Tehnički podaci)",
+            "mainFieldsCardTitle": "Pojedinosti",
+            "externalLinkText": "Otvoreni spor u PayPal centru za rješavanje",
+            "orderModuleLinkText": "Otvaranje redoslijeda",
+            "rawDataCardTitle": "Sirovi podaci",
+            "copyButtonLabel": "Kopiraj sirove podatke"
+        }
+    },
+    "swag-paypal-pos": {
+        "general": {
+            "moduleTitle": "iZettle",
+            "salesChannelDetailDescription": {
+                "title": "Razvijte svoje poslovanje s Shopware i iZettle",
+                "manufacturer": "iZettle po PayPal"
             }
         },
-        "buttons": {
-            "label": {
-                "refund": "Stvorite novi povrat",
-                "capture": "Uhvati",
-                "void": "Otkaži autorizaciju"
-            }
+        "header": "Prodajni kanal iZettle",
+        "tabTitle": {
+            "overview": "Pregled",
+            "syncedProducts": "Sinkronizirani proizvodi",
+            "settings": "Postavke",
+            "runs": "Zapisnici",
+            "help": "Pomoć"
         },
-        "modal": {
-            "title": {
-                "refund": "Novi povrat novca",
-                "capture": "Uhvati",
-                "void": "Otkaži autorizaciju"
-            }
-        },
-        "refundAction": {
-            "successMessage": "Povrat novca je uspješan.",
-            "invoiceSelect": {
-                "label": "Odaberite snimanje"
+        "detail": {
+            "disclaimer": {
+                "headline": "iZettle je PayPal usluga",
+                "subheadline": "Pomozite povećati prodaju kroz snagu PayPal. Započnite besplatno.",
+                "linkTarget": "https://www.paypal.com/en/webapps/mpp/merchant",
+                "linkText": "Aktivirajte PayPal za svoju trgovinu"
             },
-            "refundAmount": {
-                "label": "Količina",
-                "helpText": "Iznos '0' uzrokovat će povrat cjelokupne uplate"
-            },
-            "refundDescription": {
-                "label": "Opis",
-                "placeholder": "Unesite opis"
-            },
-            "refundReason": {
-                "label": "Razlog",
-                "placeholder": "Unesi razlog"
-            },
-            "refundInvoiceNumber": {
-                "label": "Broj računa",
-                "placeholder": "Unesite broj fakture"
-            },
-            "confirmButton": {
-                "text": "Izvršiti"
-            }
-        },
-        "captureAction": {
-            "successMessage": "Vaše hvatanje je uspješno.",
-            "maxAmount": "Maksimalan iznos",
-            "currentAmount": "Količina",
-            "isFinal": "Ovo je konačno hvatanje",
-            "isFinalHint": "Savjet: Označeno kao konačno hvatanje, iako ne treba uhvatiti cijeli iznos.",
-            "button": {
-                "text": "Snimite uplatu"
-            }
-        },
-        "voidAction": {
-            "successMessage": "Uplata je uspješno poništena.",
-            "confirm": {
-                "message": "Da li stvarno želite otkazati ovo plaćanje?",
-                "button": {
-                    "confirm": "Otkaži autorizaciju",
-                    "cancel": "Ne"
+            "overview": {
+                "titleSync": "Sinkronizacija",
+                "buttonSync": "Sinkroniziraj sada",
+                "buttonSyncProducts": "Sinkronizirajte pojedinosti o proizvodu",
+                "buttonSyncImages": "Učitaj slike",
+                "buttonSyncInventory": "Sinkronizirajte inventar",
+                "buttonSyncAbort": "Obustavljanje sinkronizacije",
+                "syncErrorTitle": "Greška sinhronizacije",
+                "status": {
+                    "disabled": "Sinkronizacija nije omogućena jer je prodajni kanal onemogućen.",
+                    "message": {
+                        "syncing": "Sinkronizacija u tijeku",
+                        "noRunYet": "Nije pronađena nedavna vožnja",
+                        "success": "Uspješno sinkronizirano",
+                        "warning": "Posljednja sinkronizacija završena upozorenjima",
+                        "error": "Posljednja sinkronizacija završena greškama",
+                        "aborted": "Korisnik je prekinuo posljednju sinkronizaciju"
+                    },
+                    "task": {
+                        "complete": "potpun",
+                        "product": "proizvodi",
+                        "image": "slike",
+                        "inventory": "inventara"
+                    },
+                    "lastSynced": "Posljednja sinkronizacija",
+                    "lastSyncedComplete": "Posljednja potpuna sinkronizacija",
+                    "syncingDetail": "Ovo bi moglo potrajati nekoliko minuta. Ovaj proces radi u pozadini, u međuvremenu možete koristiti svoj dućan kao i obično."
+                },
+                "continueSetup": {
+                    "cardTitle": "postavljanje",
+                    "content": {
+                        "headline": "Podešavanje sinkronizacije proizvoda",
+                        "firstLine": "Vaši iZettle i Shopware računi su sada povezani! Sada možete postaviti sinkronizaciju proizvoda.",
+                        "secondLine": "Jednom kada se aktivira, iZettle će se automatski sinkronizirati s vašim Shopware proizvodima. Prodaja izvršena putem iZettle također se sinkronizira sa Shopware i možete koristiti Administraciju kako biste se ažurirali i na iZettle i Shopware prodaji."
+                    }
                 }
+            },
+            "syncedProducts": {
+                "title": "Sinkronizirani proizvodi",
+                "notSyncedYet": "Još nije sinkronizirano",
+                "columns": {
+                    "name": "Ime",
+                    "state": "Status",
+                    "date": "Datum"
+                },
+                "emptyState": {
+                    "title": "Nema odabranih proizvoda",
+                    "message": "Nema proizvoda u prodajnom kanalu ili dinamičkoj grupi proizvoda."
+                },
+                "actions": {
+                    "productDetails": "Pojedinosti o proizvodu"
+                }
+            },
+            "settings": {
+                "titleGeneralSettings": "Opšta podešavanja",
+                "domain": "Vaša trgovina-domena",
+                "domainHelpText": "iZettle će koristiti ovu domenu za preuzimanje medija povezanih s vašim sinkroniziranim proizvodima. iZettle će prihvatiti samo sigurne URL-ove (https).",
+                "productStream": "Dinamička grupa proizvoda",
+                "titleCredentials": "Vjerodajnice",
+                "titleSync": "Sinkronizacija",
+                "titlePrices": "Cijene",
+                "syncPrices": "Sinkronizirajte cijene",
+                "replace": "Zamijenite postojeće proizvode u iZettle",
+                "activeHelpText": "Ako je aktivna, sinhronizacija iZettle će se automatski desiti u pozadini.",
+                "saveAlert": "Spremljene promjene dostupne su nakon završetka trenutne sinkronizacije između Shopwarea i iZettle.",
+                "optionsTitle": "Mogućnosti",
+                "reset": {
+                    "buttonTitle": "Ponovno postavljanje sinkronizacije",
+                    "descriptionText": "Ako imate problema, možete ponovno prenijeti sve proizvode i slike.",
+                    "modalConfirmText": "Time će se resetirati povijest sinkronizacije za prodajni kanal",
+                    "modalTextInfo": "Sve stavke će biti ponovno učitane na sljedećoj sinkronizaciji. Ovo može potrajati neko vrijeme. Nećete izgubiti nikakve podatke u Shopware, neki podaci mogu biti prepisani na iZettle.",
+                    "modalTitle": "Poništavanje istorije sinhronizacije",
+                    "modalButtonConfirm": "Ponovno postavljanje sinkronizacije"
+                }
+            },
+            "logs": {
+                "columnLastSync": "Pojedinosti",
+                "noEntry": "Još nije sinkronizirano",
+                "states": {
+                    "success": "Ažurirano",
+                    "failed": "Nije uspjelo",
+                    "aborted": "Prekida"
+                }
+            },
+            "runs": {
+                "title": "Istorija sinhronizacije",
+                "toolbarText": "“Očistite dnevnike” izbrisat će sve dnevnike. Zapisi stariji od 30 dana bit će automatski uklonjeni.",
+                "completeTask": "Kompletan",
+                "productTask": "Proizvod",
+                "inventoryTask": "Inventar",
+                "imageTask": "slika",
+                "states": {
+                    "withWarnings": "Dovršeno upozorenjima",
+                    "successful": "Završen",
+                    "aborted": "Prekid od strane korisnika"
+                },
+                "actions": {
+                    "showDetails": "Pokaži pojedinosti"
+                },
+                "emptyState": {
+                    "title": "Nema završenih sinkronizacija",
+                    "message": "Sinkronizirajte sada za generiranje dnevnika."
+                },
+                "columns": {
+                    "task": "Tip",
+                    "state": "Država",
+                    "date": "Datum"
+                }
+            },
+            "save": "Sačuvajte",
+            "cleanLog": "Očistite dnevnik"
+        },
+        "wizard": {
+            "salesChannelPrototypeName": "iZettle POS",
+            "stepItemTitle": {
+                "connection": "Podešavanje naloga",
+                "connectionSuccess": "Veza",
+                "customization": "Prilagođavanje",
+                "productSelection": "Odabir proizvoda",
+                "syncLibrary": "Sinkronizacija proizvoda",
+                "syncPrices": "Sinkronizacija cijena",
+                "finish": "Završi"
+            },
+            "connection": {
+                "modalTitle": "Podešavanje naloga",
+                "headerConnect": "Povežite svoj iZettle nalog",
+                "headerNewCustomer": "Novo u iZettle?",
+                "buttonCreateAccount": "Stvaranje iZettle računa",
+                "buttonCreateAccountLink": "https://www.izettle.com/gb/integrations/e-commerce/shopware?utm_source=local_partnership&utm_medium=ecommerce&utm_campaign=shopware"
+            },
+            "connectionSuccess": {
+                "modalTitle": "Uspostavljena veza",
+                "headline": "Vaši iZettle i Shopware računi su sada povezani!",
+                "info": "Slijedite sljedeće korake da biste dovršili podešavanje sinkronizacije proizvoda.",
+                "disconnectButton": "Odspojite",
+                "disclaimer": "Sve promjene koje napravite u Shopware proizvodima automatski će se ažurirati na vašem povezanom iZettle računu.",
+                "fakeFirstName": "Trenutno",
+                "fakeLastName": "utovar...",
+                "fakeMail": "pos@example.com"
+            },
+            "connectionDisconnect": {
+                "modalTitle": "Isključite iZettle nalog",
+                "headline": "Prekinut ćete vezu s iZettle",
+                "info": "Proizvodi se više neće ažurirati i sinkronizirati s vašim prikazanim iZettle nalogom prilikom isključivanja vašeg naloga.",
+                "disconnectButton": "Odspojite nalog",
+                "disconnectErrorMessage": "Došlo je do greške prilikom odspajanja."
+            },
+            "customization": {
+                "salesChannelLabel": "Naziv prodajnog kanala",
+                "modalTitle": "Detalji prodajnog kanala",
+                "labelDomain": "Vaša trgovina-domena",
+                "subtitle": "iZettle će koristiti ovu domenu za preuzimanje medija povezanih s vašim sinkroniziranim proizvodima.",
+                "placeholderDomain": "www.my-store.shopware.com"
+            },
+            "productSelection": {
+                "modalTitle": "Prijenos proizvoda sa postojećeg prodajnog kanala",
+                "labelSelect": "Prodajni kanal",
+                "labelToggle": "Prijenos odabira proizvoda",
+                "info": "Da biste brže započeli, sada imate mogućnost dodijeliti proizvode s postojećeg prodajnog kanala novostvorenom. Svi dodijeljeni proizvodi bit će dostupni za sinkronizaciju u iZettle POS. Nije potreban ručni rad."
+            },
+            "syncLibrary": {
+                "modalTitle": "Podešavanje sinkronizacije proizvoda",
+                "header": "Pronašli smo {shopwareProducts} i {iZettleProducts}",
+                "shopwareProducts": "bez Shopware proizvoda | jedan Shopware proizvod | {n} Shopware proizvodi",
+                "iZettleProducts": "nema iZettle proizvoda | jedan iZettle proizvod | {n} iZettle proizvodi",
+                "description": "Svi proizvodi se sinkroniziraju s vašeg novostvorenog prodajnog kanala u Shopwareu. Kako biste željeli postaviti svoju biblioteku iZettle?",
+                "optionReplacePermanentlyLabel": "Koristite samo Shopware proizvode",
+                "optionReplacePermanentlyDescription": "Samo vaši Shopware proizvodi i količine zaliha će postojati u vašoj biblioteci iZettle.",
+                "optionReplaceOneTimeLabel": "Zamijenite biblioteku iZettle",
+                "optionReplaceOneTimeDescription": "Zamijenite postojeću biblioteku iZettle proizvodima i količinama zaliha iz Shopwarea jednom.",
+                "optionReplaceNotLabel": "Dodavanje proizvoda Shopware",
+                "optionReplaceNotDescription": "Vaši Shopware proizvodi i količine zaliha bit će dodani u postojeću biblioteku iZettle.",
+                "disclaimer": "Te postavke možete promijeniti kasnije u bilo kojem trenutku."
+            },
+            "syncPrices": {
+                "modalTitle": "Podešavanje sinkronizacije proizvoda",
+                "header": "Kako želite sinkronizirati cijene proizvoda s iZettle?",
+                "description": "Cijene vaših proizvoda uključuju PDV kada se sinkroniziraju s iZettle.",
+                "disclaimer": "Možete ručno uređivati PDV u biblioteci proizvoda iZettle.",
+                "optionTrueLabel": "Sinhronizacija cijena sa PDV-om",
+                "optionTrueDescription": "Cijene sinkronizirane na iZettle uključuju PDV.",
+                "optionFalseLabel": "Nemojte sinkronizirati cijene",
+                "optionFalseDescription": "Cijene proizvoda neće biti prenesene pri sinkronizaciji. Možete ih postaviti u biblioteci proizvoda iZettle."
+            },
+            "finish": {
+                "modalTitle": "Završi",
+                "header": "Podešavanje sinkronizacije proizvoda završeno!",
+                "firstParagraph": "Vaš iZettle račun sada je povezan s vašim prodajnim kanalom i vaši će proizvodi biti prebačeni na iZettle. U budućnosti, kada izvršite prodaju, ažurirat ćemo vaše zalihe u iZettle i Shopware.",
+                "secondParagraph": "Ako želite ažurirati svoje proizvode, preporučujemo vam da to uradite u Shopware i oni će se automatski sinhronizovati sa vašom aplikacijom iZettle."
             }
         },
-        "errorPage": {
-            "title": "Podaci o plaćanju više nisu dostupni",
-            "canceledPaymentContent": "Došlo je do greške (INVALID_RESOURCE_ID) prilikom preuzimanja podataka o plaćanju iz PayPal-a. Ako vidite ovu poruku, vjerojatno je riječ o uplati koju je kupac otkazao. Otkazane uplate PayPal će izbrisati nakon nekog vremena i više neće biti dostupne.",
-            "sandboxLiveContent": "Došlo je do greške (INVALID_RESOURCE_ID) prilikom preuzimanja podataka o plaćanju iz PayPal-a. Ako vidite ovu poruku, vjerojatno se radi o uplati koja je kreirana s omogućenim sandboxom i koja je sada zatražena s živim podacima ili obrnuto. Ispravite postavke PayPal-a ili izbrišite probne naloge iz sistema."
+        "authentication": {
+            "messageTestError": "Vjerodajnice nisu mogle biti potvrđene.",
+            "labelApiKey": "API ključ",
+            "placeholderApiKey": "Unesite API ključ...",
+            "apiKeyDescription": "Tipke API funkcioniraju kao lozinke. Shopware će koristiti vaš iZettle API ključ za uspostavljanje sigurne veze s vašim iZettle nalogom.",
+            "buttonGenerateKey": "Generirajte API ključ"
+        },
+        "account": {
+            "loadingName": "Trenutno učitava...",
+            "loadingEmail": "pos@example.com",
+            "errorName": "Greška tokom provjere autentičnosti",
+            "errorEmail": "Vaš API ključ nije mogao biti potvrđen",
+            "connectedStatus": "Povezan",
+            "noConnectionStatus": "Nema veze",
+            "manageAccount": "Upravljanje nalogom",
+            "editConnection": "Uređivanje veze",
+            "lastUpdated": "Posljednje ažuriranje"
+        },
+        "gettingStarted": {
+            "cardTitle": "Započnite s iZettle",
+            "readerHeadline": "Prijavite se na iZettle da biste naručili čitač kartica iZettle",
+            "readerText": "Saznajte više o čitaču kartica i naručite jedan ovdje:",
+            "readerLinkTarget": "https://shop.izettle.com",
+            "readerLinkText": "shop.izettle.com",
+            "readerImageAlt": "Čitač kartica iZettle",
+            "appHeadline": "Preuzimanje aplikacije iZettle Go",
+            "appText": "Dostupan za iOS i Android tablete i telefone.<br>Povežite svoj iZettle račun i čitač kartica za početak prodaje.",
+            "appImageAlt": "Aplikacija iZettle"
+        },
+        "messageCloneError": "Nije moguće prenijeti vidljivost proizvoda s drugog prodajnog kanala.",
+        "messageWebhookRegisterError": "Webhook nije mogao biti registriran na iZettle"
+    },
+    "swag-image-slider": {
+        "imageAlt": "Slika {index} / {total}"
+    },
+    "sw-privileges": {
+        "permissions": {
+            "parents": {
+                "swag_paypal": "PayPal"
+            },
+            "swag_paypal": {
+                "label": "Postavke PayPal"
+            },
+            "swag_paypal_disputes": {
+                "label": "PayPal sporovi"
+            }
         }
     },
     "swag-paypal": {
         "header": "PayPal",
         "saleschannelCard": {
             "button": {
-                "description": "Kliknite ovo dugme da omogućite PayPal i odaberete ga kao zadani u odabranom kanalu prodaje",
+                "description": "Kliknite ovaj gumb da biste omogućili PayPal i odaberite ga kao zadani u odabranom prodajnom kanalu",
                 "label": "Postavite PayPal kao zadani"
             }
         },
@@ -176,11 +355,10 @@
                 "button": {
                     "title": "Nabavite API akreditive",
                     "titleSandbox": "Nabavite sandbox API akreditive",
-                    "messageFetchedError": "Pokušajte ponovo ili ručno unesite svoje akreditive.",
-                    "titleFetchedError": "Dogodila se greška"
+                    "messageFetchedError": "Pokušajte ponovo ili ručno unesite svoje akreditive."
                 }
             },
-            "behaviour": {
+            "behavior": {
                 "cardTitle": "Ponašanje",
                 "merchantLocation": {
                     "label": "Lokacija trgovca",
@@ -188,36 +366,41 @@
                     "other": "Druga lokacija trgovca"
                 },
                 "intent": {
-                    "label": "Akvizicija plaćanja",
-                    "hint": "Napomena: PayPal PLUS radi samo sa akvizicijom plaćanja \"Prodaja\". Postavit će se automatski, bez obzira na odabranu opciju.",
-                    "sale": "Odmah izvršite uplatu (Prodaja)"
+                    "label": "Stjecanje plaćanja",
+                    "sale": "Kompletna uplata odmah (prodaja)",
+                    "authorize": "Odgođeno prikupljanje plaćanja (Auth-Capture)",
+                    "order": "Odgođeno prikupljanje plaćanja (Narud-Auth-Capture)",
+                    "CAPTURE": "Kompletna uplata odmah (Cvatanje",
+                    "AUTHORIZE": "Prikupljanje odgođenog plaćanja (autorizirati)"
                 },
                 "submitCart": {
-                    "label": "Predaj košaricu",
-                    "helpText": "Ako je ova opcija aktivna, podaci o košarici će se dostaviti PayPalu pri naplati."
+                    "label": "Pošaljite korpu",
+                    "helpText": "Ako je ova opcija aktivna, podaci o košarici će biti dostavljeni PayPal prilikom naplate."
                 },
                 "brandName": {
-                    "label": "Ime vašeg vlastitog brenda na PayPal stranici",
-                    "tooltipText": "Ovaj tekst će biti prikazan kao naziv brenda na PayPal stranici za plaćanje."
+                    "label": "Vaše vlastito ime marke na PayPal stranici",
+                    "tooltipText": "Ovaj tekst će biti prikazan kao brend na stranici za plaćanje PayPal."
                 },
                 "landingPage": {
                     "label": "PayPal odredišna stranica",
                     "helpText": {
-                        "Login": "Prijava: PayPal stranica prikazuje zaslon za prijavu kao odredišnu stranicu.",
-                        "Billing": "Registracija: PayPal stranica prikazuje obrazac za registraciju kao odredišnu stranicu."
+                        "login": "Prijava: PayPal sajt prikazuje ekran za prijavu kao odredišnu stranicu.",
+                        "billing": "Registracija: PayPal sajt prikazuje obrazac za registraciju kao odredišnu stranicu.",
+                        "no_preference": "Nema preferencija: PayPal odlučuje koja stranica je prikazana, ovisno o prethodnoj interakciji kupca s PayPalom."
                     },
                     "options": {
-                        "Login": "Prijava",
-                        "Billing": "Registracija"
+                        "login": "Prijava",
+                        "billing": "Registracija",
+                        "no_preference": "Nema preferencije"
                     }
                 },
                 "sendOrderNumber": {
                     "label": "Pošaljite broj narudžbe",
-                    "helpText": "Ako je ova opcija aktivna, broj narudžbe bit će poslan PayPalu pri naplati."
+                    "helpText": "Ako je ova opcija aktivna, broj narudžbe bit će dostavljen PayPal prilikom naplate."
                 },
                 "orderNumberPrefix": {
                     "label": "Prefiks broja narudžbe",
-                    "tooltipText": "Ovaj se tekst stavlja ispred originalnog broja narudžbe (npr. MyShop_SW20001). Ovo pomaže identificirati trgovinu u kojoj je izvršeno plaćanje."
+                    "tooltipText": "Ovaj tekst se stavlja ispred izvornog broja narudžbe (npr. MyShop_SW20001). To pomaže da se identifikuje prodavnica u kojoj je uplata izvršena."
                 }
             },
             "express": {
@@ -289,10 +472,11 @@
             },
             "plus": {
                 "cardTitle": "PayPal PLUS",
-                "introduction": "<strong>PayPal PLUS:</strong> Vaše cjelovito rješenje za plaćanje sve u jednom, uključujući PayPal, Debit, Kreditnu karticu i Plaćanje po fakturi. PayPal PLUS nudi svojim kupcima potpunu fleksibilnost u odabiru željenog načina plaćanja. Vaše prednosti kao prodavač? Jednostavnije računovodstvo sa samo jednom ugovornom stranom, jednim računom i jednim pregledom transakcija koji prikazuje sve dolazne uplate. Novac dobivate izravno nakon što kupci dovrše postupak narudžbe.<br>Možete se prijaviti za PayPal PLUS<a href='https://www.paypal.com/de/webapps/mpp/paypal-plus' target='_blank'>ovdje</a>Prijavite se za plaćanje na fakturi<a href='https://www.paypal.com/de/webapps/mpp/pui-start' target='_blank'>ovdje</a>.",
+                "introduction": "<strong>PayPal PLUS:</strong> Vaše cjelovito rješenje za plaćanje sve u jednom, uključujući PayPal, Debit, Kreditnu karticu i Plaćanje po fakturi. PayPal PLUS nudi svojim kupcima potpunu fleksibilnost u odabiru željenog načina plaćanja. Vaše prednosti kao prodavač? Jednostavnije računovodstvo sa samo jednom ugovornom stranom, jednim računom i jednim pregledom transakcija koji prikazuje sve dolazne uplate. Novac dobivate izravno nakon što kupci dovrše postupak narudžbe.<br>Možete se prijaviti za PayPal PLUS <a href='https://www.paypal.com/de/webapps/mpp/paypal-plus' target='_blank'>ovdje</a> Prijavite se za plaćanje na fakturi <a href='https://www.paypal.com/de/webapps/mpp/pui-start' target='_blank'>ovdje</a>.",
                 "plusCheckoutEnabled": {
                     "label": "Omogućite PayPal PLUS"
-                }
+                },
+                "hint": "Napomena: PayPal PLUS radi samo s akvizicijom plaćanja “Prodaja”. Bit će postavljen automatski."
             },
             "locale-field": {
                 "infobox": {
@@ -303,14 +487,146 @@
                     "detail": "Lokalni kod koji ste naveli ne odgovara formatu koji zahtijeva PayPal. Važeći format je \"en_GB\"."
                 }
             },
-            "titleSuccess": "Uspješno",
-            "titleError": "Greška",
             "messageSaveSuccess": "Postavke PayPal-a su sačuvane.",
             "messageTestSuccess": "API akreditivi su potvrđeni.",
             "messageTestError": "API akreditivi nisu mogli biti potvrđeni.",
             "messageWebhookCreated": "Webhook je registrovan.",
             "messageWebhookUpdated": "Webhook je ažuriran.",
             "messageWebhookError": "Webhook nije moguće spremiti. Dogodile su se sljedeće greške:"
+        }
+    },
+    "swag-paypal-payment": {
+        "general": {
+            "title": "Narudžbe"
+        },
+        "tabs": {
+            "overview": "Pregled"
+        },
+        "paymentDetails": {
+            "cardTitle": "Plaćanje",
+            "invoice": {
+                "heading": "Iznos fakture",
+                "totalAmount": "Ukupan iznos:",
+                "subTotal": "Suma stavki:",
+                "shipping": "Dostava:",
+                "discount": "Popust:",
+                "handling": "Naknada za rukovanje:",
+                "insurance": "Osiguranje:",
+                "shipping_discount": "Popust za dostavu:"
+            },
+            "payment": {
+                "heading": "Detalji o plaćanju",
+                "intent": "Namjera:",
+                "paymentId": "ID plaćanja:",
+                "cartId": "ID korpe:",
+                "state": "Stanje:",
+                "createTime": "Vrijeme kreiranja:",
+                "updateTime": "Vrijeme Ažuriranja:"
+            },
+            "customer": {
+                "heading": "Kupac",
+                "payerId": "ID uplatitelja:"
+            },
+            "error": {
+                "title": "Greška pri dohvaćanju podataka o plaćanju iz PayPal-a"
+            }
+        },
+        "transactionHistory": {
+            "cardTitle": "Historija plaćanja",
+            "states": {
+                "authorization": "Autorizacija",
+                "sale": "Prodaja",
+                "refund": "Izvrši povrat novca",
+                "capture": "Uhvati",
+                "order": "Narudžba"
+            },
+            "types": {
+                "type": "Vrsta",
+                "amount": "Količina",
+                "createTime": "Stvoreno",
+                "updateTime": "Ažurirano",
+                "state": "Status",
+                "trackingId": "ID Praćenje",
+                "transactionFee": "Naknada za transakciju",
+                "paymentMode": "Način plačanja"
+            }
+        },
+        "buttons": {
+            "label": {
+                "refund": "Stvorite novi povrat",
+                "capture": "Uhvati",
+                "void": "Otkaži autorizaciju"
+            }
+        },
+        "modal": {
+            "title": {
+                "refund": "Novi povrat novca",
+                "capture": "Uhvati",
+                "void": "Otkaži autorizaciju"
+            }
+        },
+        "refundAction": {
+            "successMessage": "Povrat novca je uspješan.",
+            "invoiceSelect": {
+                "label": "Odaberite snimanje"
+            },
+            "refundAmount": {
+                "label": "Količina",
+                "helpText": "Iznos '0' uzrokovat će povrat cjelokupne uplate"
+            },
+            "refundDescription": {
+                "label": "Opis",
+                "placeholder": "Unesite opis"
+            },
+            "refundReason": {
+                "label": "Razlog",
+                "placeholder": "Unesi razlog"
+            },
+            "refundNoteToPayer": {
+                "label": "Napomena platitelju",
+                "placeholder": "Unesite bilješku platitelju"
+            },
+            "refundInvoiceNumber": {
+                "label": "Broj računa",
+                "placeholder": "Unesite broj fakture"
+            },
+            "confirmButton": {
+                "text": "Izvršiti"
+            }
+        },
+        "captureAction": {
+            "successMessage": "Vaše hvatanje je uspješno.",
+            "maxAmount": "Maksimalan iznos",
+            "currentAmount": "Količina",
+            "captureInvoiceNumber": {
+                "label": "Broj fakture",
+                "placeholder": "Unesite broj fakture"
+            },
+            "captureNoteToPayer": {
+                "label": "Napomena platitelju",
+                "placeholder": "Unesite bilješku platitelju"
+            },
+            "isFinal": "Ovo je konačno hvatanje",
+            "isFinalHint": "Savjet: Označeno kao konačno hvatanje, iako ne treba uhvatiti cijeli iznos.",
+            "button": {
+                "text": "Snimite uplatu"
+            }
+        },
+        "voidAction": {
+            "successMessage": "Uplata je uspješno poništena.",
+            "confirm": {
+                "message": "Da li stvarno želite otkazati ovo plaćanje?",
+                "button": {
+                    "confirm": "Otkaži autorizaciju",
+                    "cancel": "Ne"
+                }
+            }
+        },
+        "errorPage": {
+            "title": "Pojedinosti o plaćanju nisu dostupne",
+            "canceledPaymentContent": "Došlo je do greške prilikom dohvaćanja podataka o plaćanju iz PayPala. Ako vidite ovu poruku, vjerovatno je to bila uplata koju je kupac otkazao. Otkazana plaćanja će biti izbrisani od strane PayPal nakon nekog vremena, a zatim više nisu dostupne.",
+            "sandboxLiveContent": "Došlo je do greške prilikom dohvaćanja podataka o plaćanju iz PayPala. Ako vidite ovu poruku, vjerovatno je to bilo plaćanje koje je kreirano sa omogućenim pješčanim sandučićem i sada je zatraženo sa živim podacima ili obrnuto. Ispravite postavke PayPal ili izbrišite testne naloge iz sistema.",
+            "other": "Došlo je do greške prilikom dohvaćanja podataka o plaćanju iz PayPala."
         }
     }
 }

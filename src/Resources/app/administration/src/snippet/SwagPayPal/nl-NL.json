@@ -10,135 +10,314 @@
         "tooltipSandbox": "Afhankelijk van de activering van de zandbox worden afzonderlijke aanmeldgegevens opgeslagen.",
         "textSettingsHeader": "Geavanceerde instellingen",
         "messageFetchedError": "Probeer het opnieuw of gebruik de geavanceerde instellingen om de aanmeldgegevens op te geven.",
-        "titleFetchedError": "Er is een fout opgetreden",
         "textFetchedSuccessful": "Aanmeldgegevens zijn opgehaald.",
-        "titleNoCredentials": "Fout",
         "messageNoCredentials": "Geen aanmeldgegevens verkregen.",
-        "messageTestSuccess": "Referenties zijn geldig.",
-        "titleTestError": "Er is een fout opgetreden"
+        "messageTestSuccess": "Referenties zijn geldig."
     },
-    "swag-paypal-payment": {
+    "swag-paypal-disputes": {
         "general": {
-            "title": "Bestellingen"
+            "mainMenuItemGeneral": "PayPal-geschillen",
+            "descriptionTextModule": "PayPal-geschillen hier beheren"
         },
-        "tabs": {
-            "overview": "Overzicht"
+        "common": {
+            "dispute_id": "ID",
+            "update_time": "Tijd bijwerken",
+            "response_due_date": {
+                "label": "Vervaldatum reactie",
+                "seller": "Verkoper",
+                "buyer": "Koper"
+            },
+            "status": "Status",
+            "dispute_life_cycle_stage": "Fase",
+            "dispute_amount": "bedrag"
         },
-        "paymentDetails": {
-            "cardTitle": "Betaalwijze",
-            "invoice": {
-                "heading": "Facturatiebedrag",
-                "totalAmount": "Totaal bedrag:",
-                "subTotal": "Subtotaal:",
-                "shipping": "Verzending:"
-            },
-            "payment": {
-                "heading": "Betaalgegevens",
-                "intent": "Intentie:",
-                "paymentId": "Betaling-ID:",
-                "cartId": "Winkelwagen ID:",
-                "state": "Provincie:",
-                "createTime": "Aanmaaktijdstip:",
-                "updateTime": "Tijd bijwerken:"
-            },
-            "customer": {
-                "heading": "Klant",
-                "payerId": "Betaler ID:"
-            },
-            "error": {
-                "title": "Fout bij het ophalen van betalingsgegevens van PayPal"
+        "list": {
+            "title": "Geschillen",
+            "titleSidebarItemRefresh": "Vernieuwen",
+            "titleSidebarItemFilter": "Filter",
+            "errorTitle": "Fout bij ophalen van geschillen van PayPal",
+            "emptyState": {
+                "title": "Geen geschillen gevonden",
+                "subline": "Wijzig het filter om alle geschillen weer te geven."
             }
         },
-        "transactionHistory": {
-            "cardTitle": "Betalingsgeschiedenis",
-            "states": {
-                "authorization": "Autorisatie",
-                "sale": "Aanbieding",
-                "refund": "Restitutie",
-                "capture": "Vastleggen",
-                "order": "Bestelling"
-            },
-            "types": {
-                "type": "Type",
-                "amount": "Hoeveelheid",
-                "createTime": "Gemaakt",
-                "updateTime": "Bijgewerkt",
-                "state": "Provincie",
-                "trackingId": "Tracking ID",
-                "transactionFee": "Transactiekosten",
-                "paymentMode": "Betaalwijze"
+        "detail": {
+            "title": "PayPal geschil:",
+            "titleAddition": "(Technische details)",
+            "mainFieldsCardTitle": "Details",
+            "externalLinkText": "Geschil openen in PayPal-oplossingscentrum",
+            "orderModuleLinkText": "Open bestelling",
+            "rawDataCardTitle": "Ruwe gegevens",
+            "copyButtonLabel": "onbewerkte gegevens kopiëren"
+        }
+    },
+    "swag-paypal-pos": {
+        "general": {
+            "moduleTitle": "iZettle",
+            "salesChannelDetailDescription": {
+                "title": "Laat uw bedrijf groeien met Shopware en iZettle",
+                "manufacturer": "iZettle door PayPal"
             }
         },
-        "buttons": {
-            "label": {
-                "refund": "Maak een nieuwe terugbetaling aan",
-                "capture": "Vastleggen",
-                "void": "Annuleer autorisatie"
-            }
+        "header": "iZettle Verkoopkanaal",
+        "tabTitle": {
+            "overview": "Overzicht",
+            "syncedProducts": "Gesynchroniseerde producten",
+            "settings": "Instellingen",
+            "runs": "Logboeken",
+            "help": "Hulp"
         },
-        "modal": {
-            "title": {
-                "refund": "Nieuwe terugbetaling",
-                "capture": "Vastleggen",
-                "void": "Autorisatie intrekken"
-            }
-        },
-        "refundAction": {
-            "successMessage": "De terugbetaling was succesvol.",
-            "invoiceSelect": {
-                "label": "Selecteer vastleggen"
+        "detail": {
+            "disclaimer": {
+                "headline": "iZettle is een PayPal-service",
+                "subheadline": "Help de omzet te verhogen door de kracht van PayPal. Ga gratis aan de slag.",
+                "linkTarget": "https://www.paypal.com/en/webapps/mpp/merchant",
+                "linkText": "Activeer PayPal voor uw winkel"
             },
-            "refundAmount": {
-                "label": "Hoeveelheid",
-                "helpText": "Een bedrag van '0' zorgt voor terugbetaling van de volledige betaling"
-            },
-            "refundDescription": {
-                "label": "Beschrijving",
-                "placeholder": "Beschrijving invullen"
-            },
-            "refundReason": {
-                "label": "Reden",
-                "placeholder": "Geef een reden"
-            },
-            "refundInvoiceNumber": {
-                "label": "Factuurnummer",
-                "placeholder": "Vul een factuurnummer in"
-            },
-            "confirmButton": {
-                "text": "Uitvoeren"
-            }
-        },
-        "captureAction": {
-            "successMessage": "De opname is gelukt.",
-            "maxAmount": "Maximum bedrag",
-            "currentAmount": "Hoeveelheid",
-            "isFinal": "Dit is de laatste opname",
-            "isFinalHint": "Hint: Gemarkeerd als laatste opname, hoewel niet het volledige bedrag opgenomen is geworden.",
-            "button": {
-                "text": "Betaling vastleggen"
-            }
-        },
-        "voidAction": {
-            "successMessage": "De betaling is succesvol geannuleerd.",
-            "confirm": {
-                "message": "Deze betaling echt annuleren?",
-                "button": {
-                    "confirm": "Annuleer autorisatie",
-                    "cancel": "Nee"
+            "overview": {
+                "titleSync": "Synchronisatie",
+                "buttonSync": "Nu synchroniseren",
+                "buttonSyncProducts": "Productgegevens synchroniseren",
+                "buttonSyncImages": "Afbeeldingen uploaden",
+                "buttonSyncInventory": "Synchroniseer voorraad",
+                "buttonSyncAbort": "Synchronisatie afbreken",
+                "syncErrorTitle": "Synchronisatiefout",
+                "status": {
+                    "disabled": "Synchronisatie is niet ingeschakeld, omdat uw verkoopkanaal is uitgeschakeld.",
+                    "message": {
+                        "syncing": "Synchronisatie in uitvoering",
+                        "noRunYet": "Geen recente run gevonden",
+                        "success": "Gesynchroniseerd",
+                        "warning": "Laatste synchronisatie voltooid met waarschuwingen",
+                        "error": "Laatste synchronisatie voltooid met fouten",
+                        "aborted": "Laatste synchronisatie is afgebroken door de gebruiker"
+                    },
+                    "task": {
+                        "complete": "compleet",
+                        "product": "producten",
+                        "image": "afbeeldingen",
+                        "inventory": "inventariseren"
+                    },
+                    "lastSynced": "Laatste synchronisatie",
+                    "lastSyncedComplete": "Laatste volledige synchronisatie",
+                    "syncingDetail": "Dit kan een paar minuten duren. Dit proces loopt op de achtergrond, ondertussen kunt u uw winkel gebruiken zoals gebruikelijk."
+                },
+                "continueSetup": {
+                    "cardTitle": "Setup",
+                    "content": {
+                        "headline": "Synchronisatie van producten instellen",
+                        "firstLine": "Uw iZettle en Shopware accounts zijn nu verbonden! U kunt nu productsynchronisatie instellen.",
+                        "secondLine": "Eenmaal geactiveerd wordt iZettle automatisch gesynchroniseerd met uw Shopware producten. Verkoop via iZettle worden ook gesynchroniseerd met Shopware en u kunt de Administratie gebruiken om ook op de hoogte te blijven van iZettle en Shopware verkopen."
+                    }
                 }
+            },
+            "syncedProducts": {
+                "title": "Gesynchroniseerde producten",
+                "notSyncedYet": "Nog niet gesynchroniseerd",
+                "columns": {
+                    "name": "Naam",
+                    "state": "Status",
+                    "date": "Datum"
+                },
+                "emptyState": {
+                    "title": "Geen producten geselecteerd",
+                    "message": "Er zijn geen producten in uw verkoopkanaal of dynamische productgroep."
+                },
+                "actions": {
+                    "productDetails": "Details van het product"
+                }
+            },
+            "settings": {
+                "titleGeneralSettings": "Algemene instellingen",
+                "domain": "Uw Winkel-Domein",
+                "domainHelpText": "iZettle gebruikt dit domein om media te downloaden die gekoppeld zijn aan uw gesynchroniseerde producten. iZettle accepteert alleen beveiligde URL's (https).",
+                "productStream": "Dynamische productgroep",
+                "titleCredentials": "Inloggegevens",
+                "titleSync": "Synchronisatie",
+                "titlePrices": "Prijzen",
+                "syncPrices": "Prijzen synchroniseren",
+                "replace": "Vervang bestaande producten in iZettle",
+                "activeHelpText": "Indien actief zal de iZettle synchronisatie automatisch op de achtergrond plaatsvinden.",
+                "saveAlert": "Opgeslagen wijzigingen zijn beschikbaar nadat de huidige synchronisatie tussen Shopware en iZettle is beëindigd.",
+                "optionsTitle": "Opties",
+                "reset": {
+                    "buttonTitle": "Synchronisatie opnieuw instellen",
+                    "descriptionText": "Als u problemen ondervindt, kunt u alle producten en afbeeldingen opnieuw uploaden.",
+                    "modalConfirmText": "Hiermee wordt de synchronisatiegeschiedenis voor het verkoopkanaal opnieuw ingesteld",
+                    "modalTextInfo": "Alle items worden opnieuw geüpload bij de volgende synchronisatie. Dit kan even duren. U verliest geen gegevens in Shopware, sommige gegevens kunnen worden overschreven op iZettle.",
+                    "modalTitle": "Synchronisatiegeschiedenis opnieuw instellen",
+                    "modalButtonConfirm": "Synchronisatie opnieuw instellen"
+                }
+            },
+            "logs": {
+                "columnLastSync": "Details",
+                "noEntry": "Nog niet gesynchroniseerd",
+                "states": {
+                    "success": "Bijgewerkt",
+                    "failed": "Mislukt",
+                    "aborted": "Afgebroken"
+                }
+            },
+            "runs": {
+                "title": "Synchronisatie geschiedenis",
+                "toolbarText": "„Logs opruimen” zal alle logboeken verwijderen. Logs ouder dan 30 dagen worden automatisch verwijderd.",
+                "completeTask": "Compleet",
+                "productTask": "Product",
+                "inventoryTask": "Voorraad",
+                "imageTask": "Afbeelding",
+                "states": {
+                    "withWarnings": "Voltooid met waarschuwingen",
+                    "successful": "voltooid",
+                    "aborted": "Afgebroken door gebruiker"
+                },
+                "actions": {
+                    "showDetails": "Details tonen"
+                },
+                "emptyState": {
+                    "title": "Geen voltooide synchronisaties",
+                    "message": "Synchroniseer nu om logboeken te genereren."
+                },
+                "columns": {
+                    "task": "Type",
+                    "state": "Staat",
+                    "date": "Datum"
+                }
+            },
+            "save": "Opslaan",
+            "cleanLog": "Log opruimen"
+        },
+        "wizard": {
+            "salesChannelPrototypeName": "iZettle POS",
+            "stepItemTitle": {
+                "connection": "Account instellen",
+                "connectionSuccess": "Verbinding",
+                "customization": "Maatwerk",
+                "productSelection": "Product selectie",
+                "syncLibrary": "Synchronisatie van producten",
+                "syncPrices": "Prijssynchronisatie",
+                "finish": "Finish"
+            },
+            "connection": {
+                "modalTitle": "Account instellen",
+                "headerConnect": "Verbind uw iZettle account",
+                "headerNewCustomer": "Nieuw bij iZettle?",
+                "buttonCreateAccount": "iZettle account aanmaken",
+                "buttonCreateAccountLink": "https://www.izettle.com/gb/integrations/e-commerce/shopware?utm_source=local_partnership&utm_medium=ecommerce&utm_campaign=shopware"
+            },
+            "connectionSuccess": {
+                "modalTitle": "Verbinding tot stand",
+                "headline": "Uw iZettle en Shopware accounts zijn nu verbonden!",
+                "info": "Volg de volgende stappen om het instellen van productsynchronisatie te voltooien.",
+                "disconnectButton": "Verbinding verbreken",
+                "disclaimer": "Eventuele wijzigingen die u aanbrengt in uw Shopware producten worden nu automatisch bijgewerkt in uw verbonden iZettle account.",
+                "fakeFirstName": "Momenteel",
+                "fakeLastName": "laden...",
+                "fakeMail": "pos@example.com"
+            },
+            "connectionDisconnect": {
+                "modalTitle": "iZettle account verbreken",
+                "headline": "U staat op het punt om iZettle los te koppelen",
+                "info": "Producten worden niet meer bijgewerkt en gesynchroniseerd met uw getoonde iZettle account wanneer u uw account loskoppelt.",
+                "disconnectButton": "Account verbreken",
+                "disconnectErrorMessage": "Er is een fout opgetreden tijdens het verbreken van de verbinding"
+            },
+            "customization": {
+                "salesChannelLabel": "Naam van het verkoopkanaal",
+                "modalTitle": "Details verkoopkanaal",
+                "labelDomain": "Uw Winkel-Domein",
+                "subtitle": "iZettle gebruikt dit domein om media te downloaden die gekoppeld zijn aan uw gesynchroniseerde producten.",
+                "placeholderDomain": "www.my-store.shopware.com"
+            },
+            "productSelection": {
+                "modalTitle": "Producten overdragen van bestaand Sales Channel",
+                "labelSelect": "Kanaal voor verkoop",
+                "labelToggle": "Selectie product overdragen",
+                "info": "Om sneller aan de slag te gaan heb je nu de mogelijkheid om producten uit een bestaand verkoopkanaal toe te wijzen aan je nieuw gemaakte kanaal. Alle toegewezen producten zijn dan beschikbaar voor synchronisatie in iZettle POS. Geen handwerk nodig."
+            },
+            "syncLibrary": {
+                "modalTitle": "Synchronisatie van producten instellen",
+                "header": "We vonden {shopwareProducts} en {iZettleProducts}",
+                "shopwareProducts": "geen Shopware producten | één Shopware product | {n} Shopware producten",
+                "iZettleProducts": "geen iZettle producten | een iZettle product | {n} iZettle producten",
+                "description": "Alle producten worden gesynchroniseerd vanaf uw nieuw aangemaakte Sales Channel in Shopware. Hoe zou je je iZettle bibliotheek willen opzetten?",
+                "optionReplacePermanentlyLabel": "Gebruik alleen Shopware producten",
+                "optionReplacePermanentlyDescription": "Alleen uw Shopware producten en voorraadhoeveelheden zullen aanwezig zijn in uw iZettle bibliotheek.",
+                "optionReplaceOneTimeLabel": "iZettle bibliotheek vervangen",
+                "optionReplaceOneTimeDescription": "Vervang uw bestaande iZettle bibliotheek eenmaal door producten en voorraadhoeveelheden van Shopware.",
+                "optionReplaceNotLabel": "Shopware producten toevoegen",
+                "optionReplaceNotDescription": "Uw Shopware producten en voorraadhoeveelheden worden toegevoegd aan uw bestaande iZettle bibliotheek.",
+                "disclaimer": "U kunt deze instellingen later op elk gewenst moment wijzigen."
+            },
+            "syncPrices": {
+                "modalTitle": "Synchronisatie van producten instellen",
+                "header": "Hoe wilt u productprijzen synchroniseren met iZettle?",
+                "description": "De prijzen van uw producten zijn inclusief btw wanneer deze worden gesynchroniseerd met iZettle.",
+                "disclaimer": "Je kunt je btw handmatig bewerken in de iZettle productbibliotheek.",
+                "optionTrueLabel": "Prijzen synchroniseren met btw",
+                "optionTrueDescription": "Prijzen gesynchroniseerd met iZettle zijn inclusief BTW.",
+                "optionFalseLabel": "Prijzen niet synchroniseren",
+                "optionFalseDescription": "Productprijzen worden niet overgedragen bij synchronisatie. Je kunt ze instellen in je iZettle productbibliotheek."
+            },
+            "finish": {
+                "modalTitle": "Finish",
+                "header": "Installatie van productsynchronisatie voltooid!",
+                "firstParagraph": "Uw iZettle account is nu gekoppeld aan uw Sales Channel en uw producten worden overgezet naar iZettle. Wanneer u in de toekomst een verkoop doet, zullen wij uw voorraad updaten in iZettle en Shopware.",
+                "secondParagraph": "Als je je producten moet updaten, raden we je aan dit te doen in Shopware en deze worden automatisch gesynchroniseerd met je iZettle app."
             }
         },
-        "errorPage": {
-            "title": "Betalingsgegevens niet meer beschikbaar",
-            "canceledPaymentContent": "Een fout is opgetreden (INVALID_RESOURCE_ID) bij het ophalen van betalingsgegevens van PayPal. Indien dit bericht zichtbaar is, heeft een klant waarschijnlijk een betaling geannuleerd. Geannuleerde betalingen worden na enige tijd door PayPal verwijderd en zijn dan niet meer beschikbaar.",
-            "sandboxLiveContent": "Een fout is opgetreden (INVALID_RESOURCE_ID) bij het ophalen van betalingsgegevens van PayPal. Indien dit bericht zichtbaar is, was het waarschijnlijk een betaling die is gemaakt met sandbox ingeschakeld en nu is aangevraagd met live gegevens, of vice versa. Corrigeer uw PayPal instellingen of verwijder testbestellingen uit het systeem."
+        "authentication": {
+            "messageTestError": "De referenties konden niet worden gevalideerd.",
+            "labelApiKey": "API-sleutel",
+            "placeholderApiKey": "API-sleutel invoeren...",
+            "apiKeyDescription": "API-sleutels werken als wachtwoorden. Shopware zal uw iZettle API sleutel gebruiken om een veilige verbinding tot stand te brengen met uw iZettle account.",
+            "buttonGenerateKey": "API-sleutel genereren"
+        },
+        "account": {
+            "loadingName": "Momenteel aan het laden...",
+            "loadingEmail": "pos@example.com",
+            "errorName": "Fout tijdens verificatie",
+            "errorEmail": "Uw API-sleutel kon niet worden geverifieerd",
+            "connectedStatus": "Aangesloten",
+            "noConnectionStatus": "Geen verbinding",
+            "manageAccount": "Account beheren",
+            "editConnection": "Verbinding bewerken",
+            "lastUpdated": "Laatst bijgewerkt"
+        },
+        "gettingStarted": {
+            "cardTitle": "Aan de slag met iZettle",
+            "readerHeadline": "Log in op iZettle om uw iZettle kaartlezer te bestellen",
+            "readerText": "Lees meer over de kaartlezer en bestel er hier een:",
+            "readerLinkTarget": "https://shop.izettle.com",
+            "readerLinkText": "shop.izettle.com",
+            "readerImageAlt": "iZettle kaartlezer",
+            "appHeadline": "Download de iZettle Go-app",
+            "appText": "Beschikbaar voor iOS en Android tablets en telefoons.<br>Verbind je iZettle account en je kaartlezer om te beginnen met verkopen.",
+            "appImageAlt": "iZettle app"
+        },
+        "messageCloneError": "Kan de zichtbaarheid van het product niet overbrengen vanuit een ander verkoopkanaal.",
+        "messageWebhookRegisterError": "De webhook kon niet geregistreerd worden bij iZettle"
+    },
+    "swag-image-slider": {
+        "imageAlt": "Afbeelding {index} / {total}"
+    },
+    "sw-privileges": {
+        "permissions": {
+            "parents": {
+                "swag_paypal": "PayPal"
+            },
+            "swag_paypal": {
+                "label": "PayPal-instellingen"
+            },
+            "swag_paypal_disputes": {
+                "label": "PayPal-geschillen"
+            }
         }
     },
     "swag-paypal": {
         "header": "PayPal",
         "saleschannelCard": {
             "button": {
-                "description": "Klik deze knop om PayPal in te schakelen en kies het als standaard in het geselecteerde verkoopkanaal",
+                "description": "Klik op deze knop om PayPal in te schakelen en deze als standaard te selecteren in het geselecteerde verkoopkanaal",
                 "label": "Stel PayPal als standaard in"
             }
         },
@@ -176,50 +355,52 @@
                 "button": {
                     "title": "Krijg API aanmeldgegevens",
                     "titleSandbox": "Krijg zandbox API aanmeldgegevens",
-                    "messageFetchedError": "Probeer het opnieuw of vul de inloggegevens handmatig in.",
-                    "titleFetchedError": "Een fout is opgetreden"
+                    "messageFetchedError": "Probeer het opnieuw of vul de inloggegevens handmatig in."
                 }
             },
-            "behaviour": {
-                "cardTitle": "Gedrag",
+            "behavior": {
+                "cardTitle": "gedrag",
                 "merchantLocation": {
-                    "label": "Handelaar locatie",
+                    "label": "Locatie handelaar",
                     "germany": "Duitsland",
                     "other": "Andere handelaar locatie"
                 },
                 "intent": {
-                    "label": "Betalingsacquisitie",
-                    "hint": "Let op: PayPal PLUS werkt alleen met de betalingsacquisitie \"Verkoop\". Het wordt automatisch ingesteld, ongeacht de geselecteerde optie.",
-                    "sale": "Voltooi de betaling onmiddellijk (verkoop)",
-                    "authorize": "Uitgestelde incasso (Auth-Capture)",
-                    "order": "Uitgestelde incasso (Order-Auth-Capture)"
+                    "label": "Betaling acquisitie",
+                    "sale": "Voltooi betaling onmiddellijk (Verkoop)",
+                    "authorize": "Vertraagde betaling incasso (Auth-Capture)",
+                    "order": "Vertraagde betaling incasso (Order-Auth-Capture)",
+                    "CAPTURE": "Volledige betaling onmiddellijk (CAPTURE)",
+                    "AUTHORIZE": "Vertraagde betaling incasseren (ATAM"
                 },
                 "submitCart": {
                     "label": "Winkelwagen indienen",
-                    "helpText": "Als deze optie actief is, worden de winkelwagen gegevens bij het afrekenen naar PayPal verzonden."
+                    "helpText": "Als deze optie actief is, worden de gegevens van het winkelwagentje bij het afrekenen naar PayPal verzonden."
                 },
                 "brandName": {
-                    "label": "Uw eigen merknaam op de PayPal-pagina",
-                    "tooltipText": "Deze tekst wordt weergegeven als de merknaam op de PayPal-betaalpagina."
+                    "label": "Uw eigen merknaam op PayPal-pagina",
+                    "tooltipText": "Deze tekst wordt weergegeven als merknaam op de PayPal-betalingspagina."
                 },
                 "landingPage": {
-                    "label": "PayPal-bestemmingspagina",
+                    "label": "PayPal landingspagina",
                     "helpText": {
-                        "Login": "Inloggen: de PayPal-site geeft een inlogscherm weer als landingspagina.",
-                        "Billing": "Registratie: de PayPal website geeft een registratieformulier weer als bestemmingspagina."
+                        "login": "Inloggen: De PayPal-site geeft een inlogscherm weer als bestemmingspagina.",
+                        "billing": "Inschrijving: De PayPal-site geeft een registratieformulier weer als bestemmingspagina.",
+                        "no_preference": "Geen voorkeur: PayPal bepaalt welke pagina wordt getoond, afhankelijk van de eerdere interactie van de klant met PayPal."
                     },
                     "options": {
-                        "Login": "Login",
-                        "Billing": "Registratie"
+                        "login": "Inloggen",
+                        "billing": "Inschrijving",
+                        "no_preference": "Geen voorkeur"
                     }
                 },
                 "sendOrderNumber": {
-                    "label": "Geef het bestelnummer op",
-                    "helpText": "Als deze optie actief is, wordt het bestelnummer bij het afrekenen naar PayPal verzonden."
+                    "label": "Bestellingsnummer verzenden",
+                    "helpText": "Als deze optie actief is, wordt het ordernummer bij het afrekenen bij PayPal ingediend."
                 },
                 "orderNumberPrefix": {
-                    "label": "Bestelnummer prefix",
-                    "tooltipText": "Deze tekst wordt voor het originele bestelnummer geplaatst (bijvoorbeeld MyShop_SW20001). Dit helpt om de winkel te identificeren waar de betaling is gedaan."
+                    "label": "Volgnummer voorvoegsel",
+                    "tooltipText": "Deze tekst wordt geplaatst voor het oorspronkelijke ordernummer (bijv. MyShop_SW20001). Dit helpt bij het identificeren van de winkel waar de betaling is gedaan."
                 }
             },
             "express": {
@@ -294,7 +475,8 @@
                 "introduction": "<strong>PayPal PLUS:</strong> de complete alles-in-één betalingsoplossing inclusief PayPal, automatische incasso, creditcard en betalen op factuur. PayPal PLUS biedt klanten volledige flexibiliteit bij het kiezen van hun favoriete betaalmethode. De voordelen als verkoper? Makkelijker boekhouden met slechts één contractant, één rekening en één transactieoverzicht met alle inkomende betalingen. Ontvangt het geld direct nadat klanten het bestelproces hebben voltooid.<br>PayPal PLUS aanvragen kan via <a href='https://www.paypal.com/de/webapps/mpp/paypal-plus' target='_ blank'>hier</a>. Vraag betaling op factuur <a href='https://www.paypal.com/de/webapps/mpp/pui-start' target='_blank'>hier</a> aan.",
                 "plusCheckoutEnabled": {
                     "label": "Schakel PayPal PLUS in"
-                }
+                },
+                "hint": "Opmerking: PayPal PLUS werkt alleen met de betaalacquisitie „Verkoop”. Het wordt automatisch ingesteld."
             },
             "locale-field": {
                 "infobox": {
@@ -305,14 +487,146 @@
                     "detail": "De landcode die u heeft opgegeven, komt niet overeen met het door PayPal vereiste formaat. Een geldig formaat is \"en_GB\"."
                 }
             },
-            "titleSuccess": "Gelukt",
-            "titleError": "Fout",
             "messageSaveSuccess": "De PayPal instellingen zijn opgeslagen.",
             "messageTestSuccess": "De API aanmeld gegevens zijn gevalideerd.",
             "messageTestError": "De API aanmeld gegevens kunnen niet worden gevalideerd.",
             "messageWebhookCreated": "De webhook is geregistreerd.",
             "messageWebhookUpdated": "De webhook is bijgewerkt.",
             "messageWebhookError": "De webhook kan niet worden opgeslagen. De volgende fouten zijn opgetreden:"
+        }
+    },
+    "swag-paypal-payment": {
+        "general": {
+            "title": "Bestellingen"
+        },
+        "tabs": {
+            "overview": "Overzicht"
+        },
+        "paymentDetails": {
+            "cardTitle": "Betaalwijze",
+            "invoice": {
+                "heading": "Facturatiebedrag",
+                "totalAmount": "Totaal bedrag:",
+                "subTotal": "Subtotaal:",
+                "shipping": "Verzending:",
+                "discount": "Korting:",
+                "handling": "Kosten voor verwerking:",
+                "insurance": "Verzekering:",
+                "shipping_discount": "Korting op verzending:"
+            },
+            "payment": {
+                "heading": "Betaalgegevens",
+                "intent": "Intentie:",
+                "paymentId": "Betaling-ID:",
+                "cartId": "Winkelwagen ID:",
+                "state": "Provincie:",
+                "createTime": "Aanmaaktijdstip:",
+                "updateTime": "Tijd bijwerken:"
+            },
+            "customer": {
+                "heading": "Klant",
+                "payerId": "Betaler ID:"
+            },
+            "error": {
+                "title": "Fout bij het ophalen van betalingsgegevens van PayPal"
+            }
+        },
+        "transactionHistory": {
+            "cardTitle": "Betalingsgeschiedenis",
+            "states": {
+                "authorization": "Autorisatie",
+                "sale": "Aanbieding",
+                "refund": "Restitutie",
+                "capture": "Vastleggen",
+                "order": "Bestelling"
+            },
+            "types": {
+                "type": "Type",
+                "amount": "Hoeveelheid",
+                "createTime": "Gemaakt",
+                "updateTime": "Bijgewerkt",
+                "state": "Provincie",
+                "trackingId": "Tracking ID",
+                "transactionFee": "Transactiekosten",
+                "paymentMode": "Betaalwijze"
+            }
+        },
+        "buttons": {
+            "label": {
+                "refund": "Maak een nieuwe terugbetaling aan",
+                "capture": "Vastleggen",
+                "void": "Annuleer autorisatie"
+            }
+        },
+        "modal": {
+            "title": {
+                "refund": "Nieuwe terugbetaling",
+                "capture": "Vastleggen",
+                "void": "Autorisatie intrekken"
+            }
+        },
+        "refundAction": {
+            "successMessage": "De terugbetaling was succesvol.",
+            "invoiceSelect": {
+                "label": "Selecteer vastleggen"
+            },
+            "refundAmount": {
+                "label": "Hoeveelheid",
+                "helpText": "Een bedrag van '0' zorgt voor terugbetaling van de volledige betaling"
+            },
+            "refundDescription": {
+                "label": "Beschrijving",
+                "placeholder": "Beschrijving invullen"
+            },
+            "refundReason": {
+                "label": "Reden",
+                "placeholder": "Geef een reden"
+            },
+            "refundNoteToPayer": {
+                "label": "Opmerking aan betaler",
+                "placeholder": "Voer een notitie in voor de betaler"
+            },
+            "refundInvoiceNumber": {
+                "label": "Factuurnummer",
+                "placeholder": "Vul een factuurnummer in"
+            },
+            "confirmButton": {
+                "text": "Uitvoeren"
+            }
+        },
+        "captureAction": {
+            "successMessage": "De opname is gelukt.",
+            "maxAmount": "Maximum bedrag",
+            "currentAmount": "Hoeveelheid",
+            "captureInvoiceNumber": {
+                "label": "Factuurnummer",
+                "placeholder": "Voer een factuurnummer in"
+            },
+            "captureNoteToPayer": {
+                "label": "Opmerking aan betaler",
+                "placeholder": "Voer een notitie in voor de betaler"
+            },
+            "isFinal": "Dit is de laatste opname.",
+            "isFinalHint": "Hint: Gemarkeerd als laatste opname, hoewel niet het volledige bedrag opgenomen is geworden.",
+            "button": {
+                "text": "Betaling vastleggen"
+            }
+        },
+        "voidAction": {
+            "successMessage": "De betaling is succesvol geannuleerd.",
+            "confirm": {
+                "message": "Deze betaling echt annuleren?",
+                "button": {
+                    "confirm": "Annuleer autorisatie",
+                    "cancel": "Nee"
+                }
+            }
+        },
+        "errorPage": {
+            "title": "Betalingsgegevens niet beschikbaar",
+            "canceledPaymentContent": "Er is een fout opgetreden bij het ophalen van betalingsgegevens van PayPal. Als u dit bericht ziet, was het waarschijnlijk een betaling die door de klant is geannuleerd. Geannuleerde betalingen worden na een tijdje verwijderd door PayPal en zijn dan niet meer beschikbaar.",
+            "sandboxLiveContent": "Er is een fout opgetreden bij het ophalen van betalingsgegevens van PayPal. Als u dit bericht ziet, was het waarschijnlijk een betaling die is gemaakt met sandbox ingeschakeld en is nu aangevraagd met live data, of vice versa. Corrigeer uw PayPal-instellingen of verwijder testorders uit het systeem.",
+            "other": "Er is een fout opgetreden bij het ophalen van betalingsgegevens van PayPal."
         }
     }
 }

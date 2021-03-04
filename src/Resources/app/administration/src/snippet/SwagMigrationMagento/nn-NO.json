@@ -1,1 +1,63 @@
-{}
+{
+    "swag-migration": {
+        "index": {
+            "premappingCard": {
+                "group": {
+                    "customer_group": "Salgskanaler",
+                    "language": "språk",
+                    "shipping_method": "Forsendelsesmetoder",
+                    "tax": "Skatter",
+                    "country": "Land",
+                    "currency": "Valutaer"
+                }
+            },
+            "selectDataCard": {
+                "entities": {
+                    "product_custom_field": "Produktattributter:",
+                    "product_child_property_relation": "Variant egenskaper:",
+                    "product_multi_select_property": "Ext. produktegenskaper:",
+                    "product_child_multi_select_property": "Variantegenskaper:",
+                    "property_group": "Egenskaper:"
+                }
+            }
+        },
+        "wizard": {
+            "pages": {
+                "connectionCreate": {
+                    "gateways": {
+                        "magentoLocal": "Lokal database"
+                    }
+                },
+                "credentials": {
+                    "error": {
+                        "SWAG_MIGRATION_MAGENTO__NO_MAGENTO2_DATABASE": "Den valgte databasen er ikke en Magento 2-database."
+                    },
+                    "magento": {
+                        "local": {
+                            "contentInformation": "Vi trenger fortsatt tilgang til data for å koble til Magento-databasen din.",
+                            "dbHostLabel": "Vert",
+                            "dbHostPlaceholder": "Skriv inn vert",
+                            "dbPortLabel": "Havn",
+                            "dbNameLabel": "Navn på database",
+                            "dbNamePlaceholder": "Skriv inn navn",
+                            "dbUserLabel": "Bruker",
+                            "dbUserPlaceholder": "Skriv inn brukernavn",
+                            "dbPasswordLabel": "Passord",
+                            "dbPasswordPlaceholder": "Skriv inn passord",
+                            "installationRoot": "Butikk installasjonsmappe",
+                            "installationRootPlaceholder": "Skriv inn installasjonsrot",
+                            "installationRootHelp": "Lokal bane for installasjon av kildesystem. Migreringsprosessen vil prøve å kopiere medier lokalt fra gitt bane til destinasjonen Shopware 6.",
+                            "shopUrl": "Kildesystem url",
+                            "shopUrlActiveLabel": "Overføre medier via nedlasting",
+                            "shopUrlActiveHelp": "Aktiver dette alternativet hvis mediebanen til kildesystemet ikke er tilgjengelig lokalt for Overføringsassistenten.",
+                            "shopUrlPlaceholder": "Skriv inn url for kildesystemet",
+                            "shopUrlHelp": "Migreringsprocessen downloader medier via shop-url i kildesystemet.",
+                            "tablePrefix": "Tabellprefiks for database",
+                            "tablePrefixPlaceholder": "Databasetabell pre"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

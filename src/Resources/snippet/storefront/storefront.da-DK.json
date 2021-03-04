@@ -46,7 +46,8 @@
         "searchResults": "{1} 1 resultat|]1,Inf[ %count% resultater",
         "supportInfo": "<strong>Spørgsmål til din ordre?</strong><br /><strong><a href=\"tel:+4912345-123456789\">12345-123456789</a></strong> <small>Dagligt fra 7:30 til 20:00</small>",
         "indexLinkService": "Service/hjælp",
-        "searchNoResult": "Ingen resultater blev fundet."
+        "searchNoResult": "Ingen resultater blev fundet.",
+        "wishlist": "Ønskeliste"
     },
     "error": {
         "VIOLATION::IS_BLANK_ERROR": "%field% må ikke være tomt.",
@@ -54,6 +55,7 @@
         "VIOLATION::STRICT_CHECK_FAILED_ERROR": "%field% er ikke gyldig",
         "VIOLATION::CUSTOMER_EMAIL_NOT_UNIQUE": "Denne email er allerede registreret.",
         "VIOLATION::CUSTOMER_PASSWORD_NOT_CORRECT": "Forkert adgangskode.",
+        "VIOLATION::VAT_ID_FORMAT_NOT_CORRECT": "Den indtastede momsreg.Nr. har ikke det korrekte format.",
         "message-default": "Beklager, noget gik galt.",
         "message-404": "Den ønskede side kunne ikke findes.",
         "addToCartError": "En fejl opstod da du tilføjede varen til kruven.",
@@ -63,13 +65,19 @@
         "payment-method-blocked": "Betaling med %name% er ikke tilgængelig.",
         "shipping-method-blocked": "%name% er ikke tilgængelig.",
         "shipping-address-blocked": "Forsendelse til den valgte adresse er ikke muligt.",
+        "shipping-address-invalid": "Den valgte forsendelsesadresse er ikke gyldig eller ufuldstændig. Tjek venligst dine indgange.",
+        "billing-address-blocked": "Fakturering til den valgte adresse er ikke mulig.",
+        "billing-address-invalid": "Den valgte faktureringsadresse er ikke gyldig eller ufuldstændig. Tjek venligst dine indgange.",
         "VIOLATION::TOO_SHORT_ERROR": "%field% er for kort.",
         "product-not-found": "Produktet kunne ikke findes.",
         "message-403-ajax": "Din session er udløbet. Opdater siden og prøv igen.",
         "message-403": "Din session er udløbet. Vælg venligst tilbage til forrige side og prøv igen.",
-        "product-out-of-stock": "%name% er ikke tilgængelig i øjeblikket."
+        "product-out-of-stock": "%name% er ikke tilgængelig i øjeblikket.",
+        "auto-promotion-not-found": "Kampagnen \"%name%\" var ikke længere gyldig!"
     },
     "account": {
+        "externalPaymentCanceled": "Vi modtog din ordre, men betalingen blev afbrudt. Skift din betalingsmetode, eller prøv igen",
+        "externalPaymentFailure": "Vi har modtaget din ordre, men vi var ikke i stand til at behandle din betaling, bedes du ændre betalingsmetoden eller prøve igen",
         "confirmationIsAlreadyDone": "Enten er email adressen allerede bekræftet eller URLen blevet invalid.",
         "doubleOptInMailConfirmationSuccessfully": "Tak fordi du bekræftede din email. Du kan nu gennemføre dit køb.",
         "doubleOptInRegistrationSuccessfully": "Tak fordi du oprettede en konto! Din konto er nu klar til brug.",
@@ -176,6 +184,12 @@
         "profileRecoverPasswordInfo": "Vi sender dig en bekræftelsese-mail. Klik på linket i denne e-mail for at ændre din adgangskode.",
         "profileRecoverPasswordSubmit": "Send e-mail",
         "profileSaveChanges": "Gem ændringer",
+        "profileDelete": "<a href=\"%target%\" data-toggle=\"modal\" data-target=\"%target%\">Klik her</a> for at slette alle dine personlige data",
+        "profileDeleteAlert": "Når du har slettet dine personlige data på din kundekonto, vil nyhedsbrev og anmeldelser ikke længere være tilgængelige for dig. Bemærk, at optegnelser over alle ordrer vil blive opbevaret ikke desto mindre for at opfylde lovbestemmelserne.",
+        "profileDeleteConfirm": "Vil du virkelig slette din kundekonto?",
+        "profileDeleteModalTitle": "Kundekonto",
+        "profileDeleteButton": "Slet konto",
+        "profileDeleteSuccessAlert": "Din kundekonto blev slettet.",
         "addressWelcome": "Adresser",
         "addressText": "Vis dine nuværende standardadresser, eller tilføj nye.",
         "addressListHeader": "Alle adresser",
@@ -199,9 +213,9 @@
         "addressDefaultChanged": "Standard adresse er blevet ændret.",
         "addressDefaultNotChanged": "Standard adresse kunne ikke blive ændret.",
         "addressSaved": "Adressen er blevet gemt.",
-        "inactiveAccountAlert": "Din kundekonto er ikke aktiveret endnu. Vi har sendt en bekræftelses-e-mail med et aktiveringslink. Kontroller din indbakke og klik på linket for at afslutte registreringen!",
+        "inactiveAccountAlert": "Din kundekonto er ikke blevet aktiveret endnu. Vi har sendt en bekræftelses-e-mail med et aktiveringslink. Tjek din indbakke og klik på linket for at fuldføre tilmeldingen!",
         "optInGuestAlert": "Tak for din interesse. Du vil modtage en email om kort tid, hvor du skal bekræfte din konto.",
-        "optInRegistrationAlert": "Tak fordi du tilmeldte dig! Du vil om kort tid modtage en email med et link til at bekræfte din tilmelding.",
+        "optInRegistrationAlert": "Tak fordi du tilmeldte dig! Du vil modtage en bekræftelsesmail om kort tid. Klik på linket i det for at fuldføre tilmeldingen.",
         "optInSuccessAlert": "Vi har lige sendt dig en bekræftelsesmail.",
         "ordersWelcome": "Dine seneste ordrer:",
         "ordersInfoEmpty": "Du har ikke bestilt endnu.",
@@ -217,6 +231,7 @@
         "orderContextMenuChangePayment": "Skift betalingsmetode",
         "orderContextMenuReorder": "Genbestil ordre",
         "orderContextMenuCancel": "Annuller ordre",
+        "completePayment": "Komplet betaling",
         "editOrder": "Rediger ordre",
         "editOrderUpdateButton": "Fuldfør betaling",
         "editOrderBackToAccountButton": "Tilbage til oversigt",
@@ -237,7 +252,7 @@
         "orderItemColumnQuantity": "Antal",
         "orderItemColumnPrice": "Pris pr. enhed",
         "orderItemColumnTotal": "Subtotal",
-        "orderItemDate": "Fra:",
+        "orderItemDate": "Ordredato:",
         "orderItemNumber": "Ordrenummer:",
         "orderItemPaymentMethod": "Betalingsmetode:",
         "orderItemShippingMethod": "Leveringsmetode:",
@@ -248,19 +263,25 @@
         "orderItemComment": "Vores kommentar",
         "orderItemCustomerComment": "Din kommentar",
         "orderItemInfoContent": "Indhold:",
-        "orderItemInfoCurrentPrice": "Nuværende varepris",
+        "orderItemInfoCurrentPrice": "Løbende enhedspris",
         "orderItemInfoFree": "GRATIS",
         "orderItemInfoNotAvailable": "Produktet er ikke længere muligt at bestille",
         "orderActionView": "Vis",
         "orderActionHide": "Skjul",
         "orderInfoNoDispatch": "Ikke angivet",
         "orderLinkRepeat": "Genbestil ordre",
+        "documentItemColumnTitle": "Dokument",
+        "documentItemColumnDate": "Dato",
+        "documentItemViewFileButton": "Vis fil",
         "newsletterTitle": "Nyhedsbrev abonnement",
         "newsletterSettings": "Ja tak, jeg vil gerne tilmelde mig %shopname% nyhedsbrev. (Det er altid muligt at afmelde sig til hver en tid.)",
         "passwordResetTitle": "Glemt din adgangskode?",
         "passwordResetInfo": "Hvis du har glemt din adgangskode, kan du indtaste en ny her. I det øjeblik du gemmer, bliver din gamle adgangskode ugyldig.",
         "passwordOptInInfo": "Bekræftelses-e-mail sendt. Klik på det medfølgende link for at ændre din adgangskode.",
-        "colonCharacter": ":"
+        "colonCharacter": ":",
+        "orderGuestLoginTitle": "Godkendelse",
+        "orderGuestLoginDescription": "For at se din ordre skal du indtaste din postadresse og det postnummer, der er angivet med din faktureringsadresse.",
+        "orderGuestLoginWrongCredentials": "De givne data kunne ikke knyttes til en ordre."
     },
     "address": {
         "streetLabel": "Gadenavn",
@@ -283,8 +304,8 @@
         "companyNamePlaceholder": "Indtast firmanavn...",
         "companyDepartmentLabel": "Afdeling",
         "companyDepartmentPlaceholder": "Indtast afdeling...",
-        "companyVatLabel": "CVR Nr",
-        "companyVatPlaceholder": "CVR Nr"
+        "companyVatLabel": "Momsreg.nr.",
+        "companyVatPlaceholder": "Momsreg.nr."
     },
     "checkout": {
         "itemCounter": "{1} 1 vare|]1,Inf[ %count% varer",
@@ -307,7 +328,7 @@
         "cartEmpty": "Din indkøbskurv er tom.",
         "cartHeaderInfo": "Vare",
         "cartHeaderQuantity": "Antal",
-        "cartHeaderUnitPrice": "Varepris",
+        "cartHeaderUnitPrice": "Pris pr. enhed",
         "cartHeaderTotalPrice": "Subtotal",
         "cartHeaderTaxIncludeVat": "inkl. moms",
         "cartHeaderTaxExcludeVat": "ekskl. moms",
@@ -319,6 +340,7 @@
         "summaryPositionPrice": "I alt",
         "summaryShipping": "Fragt",
         "summaryTotalPrice": "Pris i alt",
+        "summaryTotalPriceRounded": "Afrundet",
         "summaryNetPrice": "I alt inkl. moms",
         "summaryTax": "plus %rate% % moms",
         "proceedLink": "Gå til checkout",
@@ -360,20 +382,26 @@
         "shippingCountry": "Leveringsland",
         "paymentMethod": "Betalingsmetode",
         "shippingMethod": "Forsendelsesmetode",
-        "product-stock-reached": "Produktet %name% er kun tilgængelig i %quantity% stk",
-        "product-out-of-stock": "Produktet %name% er ikke længere tilgængelig",
-        "purchase-steps-quantity": "Din inputmængde stemmer ikke overens med opsætningen af %name%. Mængden blev ændret til %quantity%",
-        "shipping-method-blocked": "Forsendelsesmetoden %name% er ikke tilladt for din nuværende kurv.",
-        "payment-method-blocked": "Betalingsmetoden %name% er ikke tilladt for din nuværende kurv.",
+        "product-stock-reached": "Produktet \"%name%\" er kun tilgængelig %quantity% gange",
+        "product-out-of-stock": "Produktet \"%name%\" er ikke tilgængelig mere",
+        "purchase-steps-quantity": "Produktet \"%name%\" er ikke tilgængeligt i denne mængde. Mængden blev ændret til %quantity%",
+        "shipping-method-blocked": "Forsendelsesmetoden \"%name%\" er blokeret for din nuværende indkøbskurv.",
+        "payment-method-blocked": "Betalingsmetoden \"%name%\" er blokeret for din nuværende indkøbskurv.",
         "lineItemDeliveryDate": "Leveringsperiode: %earliest% - %latest%",
         "promotion-discount-deleted": "Rabat: %name% er blevet fjernet",
         "promotion-discount-added": "Rabat: %name% er blevet tilføjet",
         "promotion-not-found": "Kampagnekoden \"%code%\" kunne ikke findes.",
+        "auto-promotion-not-found": "Kampagne \"%name%\" ikke længere gyldig!",
         "promotion-not-eligible": "Rabatkoden er gyldig, men ikke alle betingelser er opnået. Rabatten fratrækkes automatisk så snart alle betingelser er opfyldt.",
         "shipping-address-blocked": "Den valgte forsendelsesmetode kan ikke benyttes til din adresse.",
+        "billing-address-blocked": "Fakturering til den valgte adresse er ikke mulig.",
         "customerCommentHeader": "Yderligere information",
         "customerCommentLabel": "Ønsker du at fortælle os noget omkring din ordre?",
-        "customerCommentPlaceholder": "Skriv din kommentar her..."
+        "customerCommentPlaceholder": "Skriv din kommentar her...",
+        "cart-merged-hint": "Den aktuelle indkøbskurv kan indeholde yderligere produkter, der er blevet tilføjet og gemt under et tidligere besøg.",
+        "collapseTriggerMore": "Vis mere",
+        "collapseTriggerLess": "Vis mindre",
+        "product-not-found": "Produktet kunne ikke findes."
     },
     "listing": {
         "filterTitleText": "Filter",
@@ -382,7 +410,7 @@
         "boxLabelTopseller": "Tip",
         "boxLabelNew": "Ny",
         "listingTextSite": "Side",
-        "listingTextFrom": "fra",
+        "listingTextFrom": "Fra",
         "boxAddProduct": "Tilføj til indkøbskurv",
         "boxProductDetails": "Detaljer",
         "emptyResultMessage": "Ingen produkter fundet.",
@@ -391,16 +419,22 @@
         "filterPriceDisplayName": "Pris",
         "filterManufacturerDisplayName": "Leverandør",
         "filterRatingDisplayName": "Bedømmelse min.",
-        "filterRatingActiveLabelStart": "Mindst",
+        "filterRatingActiveLabelStart": "min.",
         "filterRatingActiveLabelEndSingular": "stjerne",
         "filterRatingActiveLabelEnd": "stjerner",
+        "filterRatingAndMore": "min. %points%/%maxPoints%",
         "filterRangeMinLabel": "Minimum",
         "filterRangeMaxLabel": "Maksimum",
         "filterRangeActiveMinLabel": "Pris fra",
         "filterRangeActiveMaxLabel": "Pris til",
         "filterRangeErrorMessage": "Minimumsprisen kan ikke være højere end maksimumsprisen.",
         "filterSubmitText": "Filter",
-        "defaultProductSortingLabel": "Navn, stigende"
+        "defaultProductSortingLabel": "Navn, stigende",
+        "disabledFilterTooltip": "Dette filter viser ikke yderligere resultater i kombination med de valgte filtre.",
+        "cheapestPriceLabel": "Varianter fra",
+        "addToWishlist": "Tilføj til ønskeliste",
+        "removeFromWishlist": "Fjern fra ønskeliste",
+        "toggleWishlist": "Slå ønskeliste til/ fra"
     },
     "newsletter": {
         "headline": "Tilmeld nyhedsbrev",
@@ -408,7 +442,7 @@
         "subscribeOption": "Tilmeld nyhedsbrev",
         "unsubscribeOption": "Afmeld nyhedsbrev",
         "formSubmit": "Gem",
-        "subscriptionPersistedSuccess": "Du har netop tilmeldt dig vores nyhedsbrev.\nDu mangler nu kun at bekræfte din tilmelding via den email vi netop har sendt dig.",
+        "subscriptionPersistedSuccess": "Du har netop tilmeldt dig vores nyhedsbrev.\n For at fuldføre tilmeldingsprocessen skal du søge i din indbakke efter vores bekræftelsesmail og klikke på linket, der følger med den.",
         "subscriptionPersistedInfo": "Hvis du ikke har modtaget en e-mail, skal du gentage processen eller kontakte vores supportteam.",
         "subscriptionRevokeSuccess": "Du er blevet afmeldt fra nyhedsbrevet.",
         "subscriptionConfirmationSuccess": "Du har tilmeldt dig nyhedsbrevet.",
@@ -447,8 +481,8 @@
         "priceDataInfoFrom": "Fra",
         "listPricePercentage": "(%price%% besparet)",
         "dataColumnQuantity": "Antal",
-        "dataColumnPrice": "Varepris",
-        "dataColumnReferencePrice": "Enhedspris",
+        "dataColumnPrice": "Pris pr. enhed",
+        "dataColumnReferencePrice": "Basispris",
         "deliveryTimeAvailable": "På lager, leveringstid: %name%",
         "deliveryTimeRestock": "{1} Stk tilgængelig for 1 dags leveringstid %name%|]1,Inf[ Tilgængelig om %restockTime% dage, leveringstid %name%",
         "soldOut": "Ikke længere tilgængelig",
@@ -469,7 +503,7 @@
         "reviewFormSubmitText": "Gem",
         "reviewFormCancelText": "Annuller",
         "reviewFormErrorAlert": "En fejl opstod. Sørg for, at du udfylder alle felter korrekt.",
-        "reviewFormSuccessAlert": "Tak, fordi du indsendte din anmeldelse. Vi vil gennemgå din anmeldelse før den godkendes.",
+        "reviewFormSuccessAlert": "Tak, fordi du indsendte din anmeldelse. Vi vil undersøge anmeldelsen og til sidst låse den op, vær tålmodig.",
         "reviewFormSuccessUpdateAlert": "Tak for at redigere din bedømmelse. Dine ændringer vil være synlige så snart de er blevet godkendt.",
         "reviewTeaserTitle": "Skriv en anmeldelse!",
         "reviewTeaserText": "Del dine oplevelser med andre kunder.",
@@ -491,7 +525,21 @@
         "reviewLoginSignupLink": "Klik her for at registrere dig som kunde.",
         "reviewLoginCancelButton": "Annullér",
         "reviewAvgRate": "ud af",
-        "reviewAvgRateElements": "stjerner"
+        "reviewAvgRateElements": "stjerner",
+        "reviewNotPublicYetAlert": "Din anmeldelse er endnu ikke godkendt"
+    },
+    "wishlist": {
+        "cartTitle": "Din ønskeliste",
+        "headline": "Din ønskeliste",
+        "itemDeleteSuccess": "Du har fjernet produktet fra din ønskeliste.",
+        "itemAddedSuccess": "Du har tilføjet produktet til din ønskeliste.",
+        "currentlyNotAvailable": "I øjeblikket er ikke tilgængelig",
+        "manufacturerDisplayName": "Producent",
+        "deliveryTimeAvailable": "Tilgængelig, leveringstid %name%",
+        "noLongerAvailableTooltip": "Produktet er ikke længere tilgængeligt.",
+        "wishlistMergeHint": "Din ønskeliste kan indeholde produkter, der er blevet tilføjet og gemt under et tidligere besøg.",
+        "wishlistEmptyHeader": "Din ønskeliste er tom",
+        "wishlistEmptyDescription": "Hold øje med produkter, du kan lide, ved at tilføje dem til din ønskeliste."
     },
     "footer": {
         "serviceHotlineHeadline": "Kontaktinformationer",
@@ -517,10 +565,13 @@
         "groupRequired": "Teknisk påkrævet",
         "groupRequiredDescription": "Cookies, der kræves for at denne butik skal fungere:",
         "groupRequiredSession": "Session",
+        "groupRequiredCsrf": "CSRF-beskyttelse",
         "groupRequiredTimezone": "Tidszone",
         "groupStatistical": "Statistik",
         "groupStatisticalDescription": "Cookies brugt til statistik og performance målinger.",
-        "groupStatisticalGoogleAnalytics": "Google Analytics"
+        "groupStatisticalGoogleAnalytics": "Google Analytics",
+        "groupComfortFeatures": "Komfort-funktioner",
+        "groupComfortFeaturesWishlist": "Ønskeliste"
     },
     "ellipsis": {
         "expandLabel": "vis mere",
@@ -530,7 +581,7 @@
         "product": {
             "feature": {
                 "label": {
-                    "manufacturerNumber": "Leverandørnummer:",
+                    "manufacturerNumber": "Fabrikantens nummer:",
                     "ean": "EAN:",
                     "weight": "Vægt:",
                     "width": "Bredde:",
@@ -544,6 +595,12 @@
                     "true": "Ja",
                     "false": "Nej"
                 }
+            }
+        },
+        "cms": {
+            "vimeo": {
+                "privacyNotice": "Ved at se videoen accepterer du, at dine data vil blive overført til %platform% , og at du har læst <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Privacy policy\">Privatlivspolitik</a>.",
+                "acceptButtonLabel": "Accept"
             }
         }
     }

@@ -8,6 +8,7 @@
 namespace Swag\LanguagePack\Util\Migration;
 
 use Doctrine\DBAL\Connection;
+use Doctrine\DBAL\FetchMode;
 use Shopware\Core\Framework\Uuid\Uuid;
 use Shopware\Core\System\Language\LanguageDefinition;
 use Swag\LanguagePack\PackLanguage\PackLanguageDefinition;
@@ -136,12 +137,45 @@ SQL;
 
     public function createSnippetSets(): void
     {
+        $sql = <<<SQL
+SELECT `id`, `iso` FROM `snippet_set` WHERE `name` LIKE 'BASE%' AND `iso` IN (:isos);
+SQL;
+
+        $existingSnippetSets = $this->connection->executeQuery(
+            $sql,
+            [
+                'isos' => SwagLanguagePack::BASE_SNIPPET_SET_LOCALES,
+            ],
+            [
+                'isos' => Connection::PARAM_STR_ARRAY,
+            ]
+        )->fetchAll(FetchMode::ASSOCIATIVE);
+
+        $existingIsos = [];
+        foreach ($existingSnippetSets as $snippetSet) {
+            $existingIsos[] = $snippetSet['iso'];
+
+            $this->connection->update(
+                'snippet_set',
+                [
+                    'name' => \sprintf('LanguagePack %s', $snippetSet['iso']),
+                ],
+                [
+                    'id' => $snippetSet['id'],
+                ]
+            );
+        }
+
         $insertSnippetSetSql = <<<SQL
 INSERT INTO `snippet_set` (`id`, `name`, `base_file`, `iso`, `created_at`) 
 VALUES (:id, :name, :baseFile, :iso, NOW())
 SQL;
 
         foreach (SwagLanguagePack::BASE_SNIPPET_SET_LOCALES as $locale) {
+            if (\in_array($locale, $existingIsos, true)) {
+                continue;
+            }
+
             $this->connection->executeUpdate($insertSnippetSetSql, [
                 'id' => Uuid::randomBytes(),
                 'name' => \sprintf('LanguagePack %s', $locale),

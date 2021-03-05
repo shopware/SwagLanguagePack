@@ -95,18 +95,43 @@ Component.register('swag-language-pack-settings', {
         savePackLanguages() {
             this.isLoading = true;
 
-            return this.packLanguageRepository.saveAll(this.packLanguages, Shopware.Context.api).then(() => {
-                this.hasChanges = true;
-                return this.resetInvalidUserLanguages();
-            }).catch(() => {
+            return this.validateStates(this.packLanguages).then(() => {
+                return this.packLanguageRepository.saveAll(this.packLanguages, Shopware.Context.api).then(() => {
+                    this.hasChanges = true;
+                    return this.resetInvalidUserLanguages();
+                }).catch(() => {
+                    this.createNotificationError({
+                        message: this.$tc('swag-language-pack.settings.card.messageSaveError')
+                    });
+                });
+            }).catch((invalidLanguages) => {
+                const languageList = invalidLanguages.map(packLanguage => packLanguage.language.name);
+                const languages = `<b>${languageList.join(', ')}</b>`;
+
                 this.createNotificationError({
-                    message: this.$tc('swag-language-pack.settings.card.messageSaveError')
+                    message: this.$tc('swag-language-pack.settings.card.messageSalesChannelActiveError', 0, {
+                        languages
+                    }),
+                    autoClose: false
                 });
             }).finally(() => {
                 this.isLoading = false;
                 this.isSaveSuccessful = true;
 
                 this.loadPackLanguages();
+            });
+        },
+
+        validateStates(packLanguages) {
+            return new Promise((resolve, reject) => {
+                const invalidLanguages = packLanguages.filter((packLanguage) => {
+                    return !(packLanguage.salesChannelActive || packLanguage.language.salesChannels.length <= 0);
+                });
+
+                if (invalidLanguages.length > 0) {
+                    reject(invalidLanguages);
+                }
+                resolve();
             });
         },
 

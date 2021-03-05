@@ -49,7 +49,7 @@ DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
 SQL;
 
-        $this->connection->executeUpdate(\str_replace(
+        $this->connection->executeStatement(\str_replace(
             ['#table#'],
             [PackLanguageDefinition::ENTITY_NAME],
             $sql
@@ -68,7 +68,7 @@ ADD COLUMN `#column#` BINARY(16) NULL AFTER `parent_id`,
 ADD CONSTRAINT `fk.language_swag_language_pack_language`
 FOREIGN KEY (`#column#`) REFERENCES `#pack_language_table#` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 SQL;
-        $this->connection->executeUpdate(\str_replace(
+        $this->connection->executeStatement(\str_replace(
             ['#table#', '#column#', '#pack_language_table#'],
             [
                 LanguageDefinition::ENTITY_NAME,
@@ -115,7 +115,7 @@ VALUES (:id, :name, :localeId, :translationCodeId, NOW());
 SQL;
 
         foreach ($languages as $language) {
-            $this->connection->executeUpdate($insertLanguagesSql, $language);
+            $this->connection->executeStatement($insertLanguagesSql, $language);
         }
 
         $insertPackLanguagesSql = <<<SQL
@@ -131,7 +131,7 @@ WHERE `id` = :languageId;
 SQL;
 
         foreach ($packLanguages as $packLanguage) {
-            $this->connection->executeUpdate($insertPackLanguagesSql, $packLanguage);
+            $this->connection->executeStatement($insertPackLanguagesSql, $packLanguage);
         }
     }
 
@@ -176,7 +176,7 @@ SQL;
                 continue;
             }
 
-            $this->connection->executeUpdate($insertSnippetSetSql, [
+            $this->connection->executeStatement($insertSnippetSetSql, [
                 'id' => Uuid::randomBytes(),
                 'name' => \sprintf('LanguagePack %s', $locale),
                 'baseFile' => \sprintf('messages.%s', $locale),

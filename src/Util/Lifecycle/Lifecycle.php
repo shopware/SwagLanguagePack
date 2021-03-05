@@ -78,7 +78,7 @@ DELETE FROM `snippet_set` WHERE `name` = :name AND `base_file` = :baseFile;
 SQL;
 
         foreach (SwagLanguagePack::BASE_SNIPPET_SET_LOCALES as $locale) {
-            $this->connection->executeUpdate(
+            $this->connection->executeStatement(
                 $sql,
                 [
                     'name' => \sprintf('LanguagePack %s', $locale),
@@ -120,7 +120,7 @@ SQL;
                     DROP FOREIGN KEY `#constraint#`;'
             );
 
-            $this->connection->executeUpdate($dropSql);
+            $this->connection->executeStatement($dropSql);
         }
     }
 
@@ -131,7 +131,7 @@ SQL;
         ];
 
         foreach ($classNames as $className) {
-            $this->connection->executeUpdate(\sprintf('DROP TABLE IF EXISTS `%s`', $className));
+            $this->connection->executeStatement(\sprintf('DROP TABLE IF EXISTS `%s`', $className));
         }
     }
 
@@ -163,7 +163,7 @@ SQL;
                         DROP COLUMN `#column#`;'
             );
 
-            $this->connection->executeUpdate($dropSql);
+            $this->connection->executeStatement($dropSql);
         }
     }
 }

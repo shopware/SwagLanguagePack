@@ -16,6 +16,21 @@
     </projectFiles>
 
     <issueHandlers>
+        <DeprecatedClass>
+            <errorLevel type="info">
+                <referencedClass name="Doctrine\DBAL\FetchMode"/>
+            </errorLevel>
+        </DeprecatedClass>
+
+        <DeprecatedMethod>
+            <errorLevel type="info">
+                <referencedMethod name="Doctrine\DBAL\Connection::fetchColumn"/>
+                <referencedMethod name="Doctrine\DBAL\Driver\ResultStatement::fetchColumn"/>
+                <referencedMethod name="Doctrine\DBAL\Driver\ResultStatement::fetch"/>
+                <referencedMethod name="Doctrine\DBAL\Driver\ResultStatement::fetchAll"/>
+            </errorLevel>
+        </DeprecatedMethod>
+
         <MoreSpecificImplementedParamType>
             <errorLevel type="info">
                 <file name="src/**/*Collection.php"/>

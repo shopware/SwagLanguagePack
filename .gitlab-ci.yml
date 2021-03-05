@@ -1,18 +1,21 @@
 variables:
     DOCKER_DRIVER: overlay2
     DOCKER_HOST: 'tcp://docker:2375'
+    DEV_IMAGE: shopware/development:8.0-composer-2
     MYSQL_ROOT_PASSWORD: app
     WEB_DOCUMENT_ROOT: $CI_PROJECT_DIR/development/public
-    DEVELOPMENT_BRANCH: '6.3.5.2'
-    PLATFORM_BRANCH: '6.3.5.2'
+    DEVELOPMENT_BRANCH: 'trunk'
+    PLATFORM_BRANCH: 'trunk'
+    DEVELOPMENT_MIN_VERSION: 'v6.4.0.0'
+    PLATFORM_MIN_VERSION: 'v6.4.0.0'
     RUN_IN_MR: 'true'
 
 stages:
     - Static validation
-    - Testing
+    - Unit
 
 default:
-    image: shopware/development:latest
+    image: $DEV_IMAGE
     before_script:
         - zip -rq plugin.zip .
         - git clone http://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.shopware.com/shopware/6/product/development.git --branch $DEVELOPMENT_BRANCH
@@ -23,6 +26,7 @@ default:
         - cp -v dev-ops/gitlab/.psh.yaml.override .
         - /entrypoint supervisord > /dev/null 2>&1 &
 
+# Stage: Static validation
 Check built JS files:
     only:
         refs:
@@ -72,12 +76,15 @@ Static analyze:
         -   if: '$RUN_IN_MR == "true" && $CI_PIPELINE_SOURCE == "merge_request_event"'
     parallel:
         matrix:
-            -   PLATFORM_BRANCH: 'v6.3.5.0'
-                DEVELOPMENT_BRANCH: 'v6.3.5.0'
-            -   PLATFORM_BRANCH: 'v6.3.5.1'
-                DEVELOPMENT_BRANCH: 'v6.3.5.1'
-            -   PLATFORM_BRANCH: '6.3.5.2'
-                DEVELOPMENT_BRANCH: '6.3.5.2'
+            - DEV_IMAGE:
+                - shopware/development:7.4-composer-2
+                - shopware/development:8.0-composer-2
+#            ToDo LAN-45 reactivate job matrix
+#            - PLATFORM_BRANCH: $PLATFORM_MIN_VERSION
+#              DEVELOPMENT_BRANCH: $DEVELOPMENT_MIN_VERSION
+#              DEV_IMAGE:
+#                - shopware/development:7.4-composer-2
+#                - shopware/development:8.0-composer-2
 
 ToDos resolved:
     only:
@@ -90,53 +97,43 @@ ToDos resolved:
         - cd $CI_PROJECT_DIR/development/custom/plugins/SwagLanguagePack
         - if [[ -n $CI_COMMIT_BRANCH ]]; then bin/check-todos.sh $CI_COMMIT_BRANCH; else bin/check-todos.sh $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME; fi
 
-PHPUnit Coverage (6.3.x.x dev):
-    only:
-        refs:
-            - merge_requests
-            - master
-    stage: Testing
+# Stage: Unit Testing
+PHPUnit:
+    stage: Unit
     services:
         -   name: mariadb:10.3
             alias: mysql
     script:
         - cd $CI_PROJECT_DIR/development/custom/plugins/SwagLanguagePack
         - make init
+        - composer dump-autoload
+        - touch vendor/composer/InstalledVersions.php
         - cd $CI_PROJECT_DIR/development
-        - composer dump-autoload -d custom/plugins/SwagLanguagePack
         - php -d pcov.enabled=1 -d pcov.directory=$CI_PROJECT_DIR
-            vendor/bin/phpunit
-            --configuration custom/plugins/SwagLanguagePack/phpunit.xml.dist
-            --log-junit build/artifacts/phpunit.junit.xml
-            --colors=never
-            --coverage-clover build/artifacts/phpunit.clover.xml
-            --coverage-html build/artifacts/phpunit-coverage-html
-            --coverage-text
-
+          vendor/bin/phpunit
+          --configuration custom/plugins/SwagLanguagePack/phpunit.xml.dist
+          --log-junit build/artifacts/phpunit.junit.xml
+          --colors=never
+          --coverage-clover build/artifacts/phpunit.clover.xml
+          --coverage-html build/artifacts/phpunit-coverage-html
+          --coverage-text
     coverage: '/^\s*Lines:\s*(\d+(?:\.\d+)?%)/'
     artifacts:
         paths:
             - development/build/artifacts/phpunit.clover.xml
         reports:
             junit: development/build/artifacts/phpunit.junit.xml
-
-PHPUnit:
-    stage: Testing
-    services:
-        -   name: mysql:5.7
-            alias: mysql
-    script:
-        - cd $CI_PROJECT_DIR/development/custom/plugins/SwagLanguagePack
-        - make init
-        - make phpunit
     rules:
         -   if: '$CI_COMMIT_BRANCH == "master"'
         -   if: '$RUN_IN_MR == "true" && $CI_PIPELINE_SOURCE == "merge_request_event"'
     parallel:
         matrix:
-            -   PLATFORM_BRANCH: 'v6.3.5.0'
-                DEVELOPMENT_BRANCH: 'v6.3.5.0'
-            -   PLATFORM_BRANCH: 'v6.3.5.1'
-                DEVELOPMENT_BRANCH: 'v6.3.5.1'
-            -   PLATFORM_BRANCH: '6.3.5.2'
-                DEVELOPMENT_BRANCH: '6.3.5.2'
+            - DEV_IMAGE:
+                - shopware/development:7.4-composer-2
+                - shopware/development:8.0-composer-2
+#            ToDo LAN-45 reactivate job matrix
+#            - PLATFORM_BRANCH: $PLATFORM_MIN_VERSION
+#              DEVELOPMENT_BRANCH: $DEVELOPMENT_MIN_VERSION
+#              DEV_IMAGE:
+#                - shopware/development:7.4-composer-2
+#                - shopware/development:8.0-composer-2

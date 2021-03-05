@@ -14,7 +14,13 @@ use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
 use Shopware\Core\Framework\Plugin\Context\UninstallContext;
-use Shopware\Core\Framework\Test\TestCaseBase\IntegrationTestBehaviour;
+use Shopware\Core\Framework\Test\TestCaseBase\BasicTestDataBehaviour;
+use Shopware\Core\Framework\Test\TestCaseBase\CacheTestBehaviour;
+use Shopware\Core\Framework\Test\TestCaseBase\DatabaseTransactionBehaviour;
+use Shopware\Core\Framework\Test\TestCaseBase\FilesystemBehaviour;
+use Shopware\Core\Framework\Test\TestCaseBase\KernelTestBehaviour;
+use Shopware\Core\Framework\Test\TestCaseBase\RequestStackTestBehaviour;
+use Shopware\Core\Framework\Test\TestCaseBase\SessionTestBehaviour;
 use Shopware\Core\System\Language\LanguageDefinition;
 use Swag\LanguagePack\PackLanguage\PackLanguageDefinition;
 use Swag\LanguagePack\SwagLanguagePack;
@@ -23,7 +29,13 @@ use Swag\LanguagePack\Util\Migration\MigrationHelper;
 
 class MigrationHelperTest extends TestCase
 {
-    use IntegrationTestBehaviour;
+    use KernelTestBehaviour;
+    use DatabaseTransactionBehaviour;
+    use FilesystemBehaviour;
+    use CacheTestBehaviour;
+    use BasicTestDataBehaviour;
+    use SessionTestBehaviour;
+    use RequestStackTestBehaviour;
 
     /**
      * @var MigrationHelper
@@ -40,6 +52,9 @@ class MigrationHelperTest extends TestCase
         /** @var Connection $connection */
         $connection = $this->getContainer()->get(Connection::class);
         $this->connection = $connection;
+
+        $this->connection->rollback();
+
         $this->migrationHelper = new MigrationHelper($this->connection);
         $this->uninstallPluginAndDeleteLanguages();
     }
@@ -50,6 +65,8 @@ class MigrationHelperTest extends TestCase
         $this->migrationHelper->alterLanguageAddPackLanguageColumn();
         $this->migrationHelper->createPackLanguages();
         $this->migrationHelper->createSnippetSets();
+
+        $this->connection->beginTransaction();
     }
 
     public function testCreateLanguageTableCorrectly(): void
@@ -103,7 +120,9 @@ class MigrationHelperTest extends TestCase
         $this->migrationHelper->alterLanguageAddPackLanguageColumn();
 
         $this->expectExceptionMessage('No LocaleEntities associated to the following locale codes: bs-BA, cs-CZ, da-DK, es-ES, fi-FI, fr-FR, hu-HU, id-ID, it-IT, lv-LV, nl-NL, nn-NO, pl-PL, pt-PT, ro-MD, ru-RU, sv-SE, vi-VN');
-        (new MigrationHelper($connectionMock))->createPackLanguages();
+
+        $mockedMigrationHelper = new MigrationHelper($connectionMock);
+        $mockedMigrationHelper->createPackLanguages();
     }
 
     public function testCreateSnippetSetsCorrectly(): void
@@ -140,12 +159,12 @@ class MigrationHelperTest extends TestCase
             WHERE `name` NOT IN ("Deutsch", "English");'
         );
 
-        $this->connection->executeUpdate($sql);
+        $this->connection->executeStatement($sql);
 
         $deleteSnippetSetsSql = <<<SQL
 DELETE FROM `snippet_set` WHERE `name` NOT IN ("BASE de-DE", "BASE en-GB");
 SQL;
-        $this->connection->executeUpdate($deleteSnippetSetsSql);
+        $this->connection->executeStatement($deleteSnippetSetsSql);
     }
 
     private function databaseHasPackLanguageTable(): bool

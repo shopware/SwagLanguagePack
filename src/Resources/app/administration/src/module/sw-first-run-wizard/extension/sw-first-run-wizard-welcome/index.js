@@ -8,9 +8,9 @@ Component.override('sw-first-run-wizard-welcome', {
                 .addAssociation('swagLanguagePackLanguage')
                 .addSorting(Criteria.sort('name', 'ASC'))
                 .addFilter(Criteria.multi('OR', [
+                    Criteria.equals('extensions.swagLanguagePackLanguage.id', null),
                     Criteria.equals('extensions.swagLanguagePackLanguage.administrationActive', true),
-                    Criteria.equals('id', Defaults.systemLanguageId),
-                    Criteria.equalsAny('name', ['English', 'Deutsch'])
+                    Criteria.equals('id', Defaults.systemLanguageId)
                 ]))
                 .setLimit(500);
         }

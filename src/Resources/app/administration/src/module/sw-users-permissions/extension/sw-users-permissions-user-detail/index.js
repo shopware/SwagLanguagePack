@@ -6,9 +6,9 @@ Component.override('sw-users-permissions-user-detail', {
         languageCriteria() {
             const criteria = this.$super('languageCriteria');
             criteria.addFilter(Criteria.multi('OR', [
+                Criteria.equals('extensions.swagLanguagePackLanguage.id', null),
                 Criteria.equals('extensions.swagLanguagePackLanguage.administrationActive', true),
-                Criteria.equals('id', Shopware.Defaults.systemLanguageId),
-                Criteria.equalsAny('name', ['English', 'Deutsch'])
+                Criteria.equals('id', Shopware.Defaults.systemLanguageId)
             ]));
 
             return criteria;

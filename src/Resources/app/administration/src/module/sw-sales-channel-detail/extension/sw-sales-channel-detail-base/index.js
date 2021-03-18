@@ -12,8 +12,8 @@ Component.override('sw-sales-channel-detail-base', {
                 .addAssociation('swagLanguagePackLanguage')
                 .addSorting(Criteria.sort('name', 'ASC'))
                 .addFilter(Criteria.multi('OR', [
-                    Criteria.equals('extensions.swagLanguagePackLanguage.salesChannelActive', true),
                     Criteria.equals('extensions.swagLanguagePackLanguage.id', null),
+                    Criteria.equals('extensions.swagLanguagePackLanguage.salesChannelActive', true),
                     Criteria.equals('id', Defaults.systemLanguageId)
                 ]));
         }

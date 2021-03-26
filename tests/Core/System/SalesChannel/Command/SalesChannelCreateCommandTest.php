@@ -202,11 +202,11 @@ class SalesChannelCreateCommandTest extends TestCase
         $languages = $result->getLanguages();
         static::assertNotNull($languages);
 
-        return array_map(function (LanguageEntity $lang) {
+        return \array_map(function (LanguageEntity $lang) {
             $locale = $lang->getLocale();
             static::assertNotNull($locale);
 
             return $locale->getCode();
-        }, array_values($languages->getElements()));
+        }, \array_values($languages->getElements()));
     }
 }

@@ -161,7 +161,7 @@ class SalesChannelCreateCommand extends Command
             'countries' => $this->getAllIdsOf('country', $context),
         ];
 
-        $data = array_replace_recursive($data, $this->getSalesChannelConfiguration($input, $output));
+        $data = \array_replace_recursive($data, $this->getSalesChannelConfiguration($input, $output));
 
         try {
             $this->salesChannelRepository->create([$data], Context::createDefaultContext());
@@ -263,7 +263,7 @@ class SalesChannelCreateCommand extends Command
             return $repository->searchIds(new Criteria(), $context);
         });
 
-        return array_map(
+        return \array_map(
             /**
              * @psalm-suppress MissingClosureParamType
              */
@@ -297,7 +297,7 @@ class SalesChannelCreateCommand extends Command
             return $this->languageRepository->searchIds($criteria, $context);
         });
 
-        return array_map(
+        return \array_map(
             /**
              * @psalm-suppress MissingClosureParamType
              */

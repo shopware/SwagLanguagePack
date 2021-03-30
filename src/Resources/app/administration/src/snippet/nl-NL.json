@@ -181,7 +181,7 @@
             "buttonAddBlankProduct": "Lege positie toevoegen",
             "buttonAddCredit": "Creditnota toevoegen",
             "buttonEditAddress": "Bewerken",
-            "labelNoPhoneNumber": "Geen",
+            "labelNoPhoneNumber": "Nog geen telefoonnummer",
             "labelNoEmail": "Geen",
             "labelCustomerPhoneNumber": "Telefoonnummer",
             "labelLanguage": "Taal van de bestelling",
@@ -280,7 +280,13 @@
             "labelDownloadPdf": "Download PDF",
             "labelCreateNew": "Nieuw aanmaken",
             "messageEmptyTitle": "Nog geen documenten",
-            "messageEmptySubline": "Beheer van documenten."
+            "messageEmptySubline": "Beheer van documenten.",
+            "error": {
+                "DOCUMENT__NUMBER_ALREADY_EXISTS": "Documentnummer {number} is al toegewezen."
+            },
+            "info": {
+                "DOCUMENT__NUMBER_WAS_CHANGED": "Duplicaat documentnummer. Er is automatisch een opeenvolgend nummer uit het betreffende nummerbereik getrokken."
+            }
         },
         "documentModal": {
             "modalTitle": "Document aanmaken",
@@ -319,6 +325,63 @@
             "message": "De volgende automatische promotie zal worden gedeactiveerd:",
             "messageNoItems": "Nog geen automatische reclamecampagnes",
             "buttonDisable": "Deactiveren"
+        },
+        "filters": {
+            "documentFilter": {
+                "label": "Documenten",
+                "placeholder": "Status van het document selecteren...",
+                "textHasCriteria": "Ten minste één document toegewezen",
+                "textNoCriteria": "Geen documenten toegewezen"
+            },
+            "orderDateFilter": {
+                "label": "Bestelling datum"
+            },
+            "statusFilter": {
+                "label": "Status van bestelling",
+                "placeholder": "Status van bestelling selecteren..."
+            },
+            "paymentStatusFilter": {
+                "label": "Status betaling",
+                "placeholder": "Selecteer betalingsstatus..."
+            },
+            "deliveryStatusFilter": {
+                "label": "Status van levering",
+                "placeholder": "Status van levering selecteren..."
+            },
+            "paymentMethodFilter": {
+                "label": "Betaalmethode",
+                "placeholder": "Selecteer betaalmethode..."
+            },
+            "shippingMethodFilter": {
+                "label": "Verzendmethode",
+                "placeholder": "Selecteer verzendmethode..."
+            },
+            "salesChannelFilter": {
+                "label": "Verkoop Kanalen",
+                "placeholder": "Selecteer Verkoopkanalen..."
+            },
+            "billingCountryFilter": {
+                "label": "Land van facturering",
+                "placeholder": "Selecteer landen voor facturering..."
+            },
+            "shippingCountryFilter": {
+                "label": "Land van verzending",
+                "placeholder": "Selecteer verzendlanden..."
+            },
+            "customerGroupFilter": {
+                "label": "Groep klant",
+                "placeholder": "Selecteer klantgroep..."
+            },
+            "tagFilter": {
+                "label": "Labels",
+                "placeholder": "Tags selecteren..."
+            },
+            "productFilter": {
+                "label": "Producten",
+                "placeholder": "Selecteer producten..."
+            },
+            "messageEmptyTitle": "Niets gevonden",
+            "messageEmptySubline": "Bewerk uw filters om resultaten te vinden."
         }
     },
     "sw-privileges": {
@@ -378,7 +441,7 @@
                 "label": "Nieuwsbrief ontvangers"
             },
             "product_search_config": {
-                "label": "Product zoeken"
+                "label": "Zoeken"
             },
             "scale_unit": {
                 "label": "Eenheden schalen"
@@ -443,7 +506,7 @@
         },
         "additional_permissions": {
             "orders": {
-                "create_discounts": "Korting aanmaken",
+                "create_discounts": "Creëer tegoed",
                 "label": "Bestellingen"
             },
             "user": {
@@ -453,8 +516,9 @@
             "system": {
                 "core_update": "Update uitvoeren",
                 "plugin_maintain": "Extensies onderhouden",
+                "extension_store": "Winkelware Winkel",
                 "clear_cache": "Cache wissen",
-                "logging": "Logging",
+                "logging": "Logboeken voor gebeurtenissen",
                 "frw": "Wizard Eerste uitvoeren",
                 "import_export": "Importeren/exporteren",
                 "label": "Instellingen",
@@ -466,7 +530,7 @@
             },
             "routes": {
                 "label": "Routes",
-                "api_action_access-key_integration": "Nieuwe API-sleutel maken",
+                "api_action_access-key_integration": "API-sleutels maken",
                 "api_acl_privileges_get": "Alle ACL-privileges lezen",
                 "api_acl_privileges_route_get": "ACL-route-privileges lezen",
                 "api_action_cache_info": "Cache info lezen",
@@ -544,11 +608,11 @@
     },
     "sw-settings-basic-information": {
         "general": {
-            "mainMenuItemGeneral": "Stamgegevens",
-            "description": "Hier kunnen instellingen voor de stamgegevens worden aangepast.",
+            "mainMenuItemGeneral": "Basisgegevens",
+            "description": "Wijzig basisgegevens hier.",
             "textHeadline": "Stamgegevens",
             "buttonSave": "Opslaan",
-            "messageSaveSuccess": "De configuratie is succesvol opgeslagen."
+            "messageSaveSuccess": "De configuratie is opgeslagen."
         },
         "captcha": {
             "label": {
@@ -558,7 +622,7 @@
     },
     "sw-cms": {
         "general": {
-            "placeholderSearchBar": "In lay-outs zoeken …",
+            "placeholderSearchBar": "Lay-outs zoeken...",
             "mainMenuItemGeneral": "Belevingswerelden",
             "moduleTitle": "Belevingswerelden",
             "greeting": "Lay-outs",
@@ -576,7 +640,7 @@
             "labelSortByUpdatedDsc": "Bewerkingsdatum, aflopend",
             "labelSortByAllPages": "Alle typen",
             "labelSortByShopPages": "Shoppagina's",
-            "labelSortByLandingPages": "Landingpages",
+            "labelSortByLandingPages": "Landingpaginas",
             "labelSortByProductPages": "Productpagina's",
             "labelSortByCategoryPages": "Categoriepagina's"
         },
@@ -592,16 +656,16 @@
             "positionLeft": "Inhoud, links",
             "positionRight": "Inhoud, rechts",
             "fullWidth": "Volledige breedte",
-            "sidebar": "Sidebar",
+            "sidebar": "Zijbalk",
             "layoutSection": "Lay-outsectie",
-            "isSidebar": "Lay-outsectie - balk opzij",
+            "isSidebar": "Lay-outsectie - zijbalk",
             "isDefault": "Lay-outsectie - standaard",
-            "sectionEmptyState": "Deze sectie is leeg. Voeg blokken en elementen toe."
+            "sectionEmptyState": "Niets hier. Voeg blokken en elementen toe."
         },
         "sidebar": {
             "contentMenu": {
-                "moveUp": "Naar boven verplaatsen",
-                "moveDown": "Naar beneden verplaatsen",
+                "moveUp": "Omhoog verplaatsen",
+                "moveDown": "Omlaag verplaatsen",
                 "generalSettings": "Algemeen",
                 "settings": "Instellingen",
                 "layoutSettings": "Lay-out",
@@ -614,22 +678,22 @@
             }
         },
         "createWizard": {
-            "choosePageTypeTitle": "Hoe wil je je pagina vormgeven?",
-            "choosePageTypeHelpText": "De verschillende lay-outs helpen om je lay-out in het beheer sneller terug te vinden. Indien je van gedachten verandert, kun je altijd het type lay-out wijzigen in de instellingen van de lay-out.",
-            "chooseSectionTitle": "Met welke sectie wil je beginnen?",
-            "chooseSectionHelpText": "Secties delen je werkveld in gedeeltes, waar je creatief kunt worden. Je kunt secties met elkaar combineren en te allen tijde weer verwijderen of verplaatsen.",
-            "chooseNameTitle": "Wat wordt de naam van jouw lay-out?",
-            "createLayout": "Lay-out aanmaken",
+            "choosePageTypeTitle": "Wat voor soort pagina zouden we willen creëren?",
+            "choosePageTypeHelpText": "Deze verschillende lay-outs helpen ons om bestaande lay-outs sneller te vinden. Het layouttype kan achteraf op elk moment wijzigen via de layoutinstellingen.",
+            "chooseSectionTitle": "Kies een sectietype om te beginnen.",
+            "chooseSectionHelpText": "Secties delen het werkveld in gedeeltes en helpen om meer creatief te zijn. Verschillende secties kunnen worden gecombineerd en op elk moment weer worden verwijderd of verplaatst.",
+            "chooseNameTitle": "Hoe moet de nieuwe lay-out worden genoemd?",
+            "createLayout": "Lay-out maken",
             "abortCreation": "Annuleren",
             "stepBack": "Terug"
         },
         "detail": {
             "alert": {
                 "titleTranslations": "Vertalingen momenteel niet beschikbaar!",
-                "contentTranslations": "Een lay-out kan momenteel alleen in de standaard systeemtaal worden bewerkt."
+                "contentTranslations": "Lay-outs kunnen alleen in de standaard systeemtaal worden bewerkt."
             },
             "helpText": {
-                "cssClassField": "Je kan een of meerdere, door een spatie gescheiden, CSS-klassen toevoegen"
+                "cssClassField": "Een of meerdere CSS-klassen toevoegen kan door met een spatie te scheiden"
             },
             "label": {
                 "buttonSave": "Opslaan",
@@ -642,18 +706,18 @@
                 "demoEntity": "Voorbeeldrecord",
                 "blockCategorySelection": "Blokcategorie",
                 "blockCategoryText": "Tekst",
-                "blockCategoryTextImage": "Tekst &amp; afbeelding",
-                "blockCategorySidebar": "Sidebar",
+                "blockCategoryTextImage": "Tekst & afbeeldingen",
+                "blockCategorySidebar": "Zijbalk",
                 "blockCategoryImage": "Afbeeldingen",
-                "blockCategoryCommerce": "Commerce",
+                "blockCategoryCommerce": "Handel",
                 "blockCategoryVideo": "Video",
                 "blockCategoryForm": "Formulier",
                 "buttonElementSettingsConfirm": "Gereed",
                 "buttonElementChangeAbort": "Annuleren",
                 "blockNameField": "Bloknaam",
-                "blockNameFieldPlaceholder": "Voer een naam in …",
+                "blockNameFieldPlaceholder": "Een naam in...",
                 "blockSizingField": "Formaatmodus",
-                "blockSizingOptionBoxed": "Gecentreerde inhoud",
+                "blockSizingOptionBoxed": "Ingesloten inhoud",
                 "blockSizingOptionFull": "Volledige breedte",
                 "backgroundColorField": "Kleur",
                 "backgroundColorLabel": "Achtergrondkleur",
@@ -661,38 +725,38 @@
                 "backgroundMediaLabel": "Achtergrondafbeelding",
                 "backgroundMediaMode": "Afbeeldingmodus",
                 "backgroundMediaModeContain": "Bevatten",
-                "backgroundMediaModeCover": "Vullen",
+                "backgroundMediaModeCover": "Bedekking",
                 "backgroundMediaModeAuto": "Auto",
                 "sizingField": "Formaatmodus",
                 "cssClassField": "CSS-klassen",
                 "sectionNameField": "Sectienaam",
-                "blockTopMarginField": "Afstand boven",
-                "blockRightMarginField": "Afstand rechts",
-                "blockBottomMarginField": "Afstand onder",
-                "blockLeftMarginField": "Afstand links",
-                "sizingOptionBoxed": "Gecentreerde inhoud",
+                "blockTopMarginField": "Bovenmarge",
+                "blockRightMarginField": "Rechter marge",
+                "blockBottomMarginField": "Ondermarge",
+                "blockLeftMarginField": "Linker marge",
+                "sizingOptionBoxed": "Ingesloten inhoud",
                 "sizingOptionFull": "Volledige breedte",
                 "buttonMappingAction": "Gegevenstoewijzing",
                 "buttonMappingRemoveAction": "Gegevenstoewijzing verwijderen",
-                "mappingPreview": "Gegevenstoewijzing:",
-                "mappingEmptyPreview": "Voor deze gegevenstoewijzing zijn helaas geen voorbeeldgegevens beschikbaar.",
-                "addBlocks": "Voeg met drag-and-drop blokken toe",
+                "mappingPreview": "Veld toegewezen aan:",
+                "mappingEmptyPreview": "Geen voorbeelden beschikbaar.",
+                "addBlocks": "Voeg blokken met drag & drop toe",
                 "labelNavigation": "Navigatie",
-                "lockedNotification": "Deze lay-out is geblokkeerd en kun je niet aanpassen. Wil je deze standaard template op je eigen behoeftes aanpassen, dupliceer hem dan en pas het duplicaat aan.",
+                "lockedNotification": "Dit is een vergrendelde standaardlay-out die vanaf het begin voor de inhoud kan worden gebruikt. Merk op dat deze sjabloon niet kan worden bewerkt! Om de lay-out te kunnen aanpassen, dupliceert dan de lay-out en wijzig de kopie.",
                 "headlineEmptyState": "Ruimte voor creativiteit",
-                "claimEmptyState": "Stel met secties nieuwe lay-outs samen. Kies een sectie en voeg deze gewoon per drag &amp; drop aan iedere sectie toe en vul de blokken dan met je individuele inhoud."
+                "claimEmptyState": "Maak nieuwe lay-outs door een sectie te kiezen. Kies eerst een sectietype, sleep blokken naar een sectie en vul de inhoud in."
             },
             "notification": {
-                "messageMissingFields": "Vul alle vereiste configuratievelden in.",
+                "messageMissingFields": "Configuratie vereist.  alle vereiste configuratievelden in.",
                 "messageMissingBlockFields": "Configuratie vereist. Gelieve alle gegevens in te vullen.",
                 "messageMissingProductListing": "Kan niet opslaan. Voeg ten minste één blok met productvermeldingen toe of wijzig het type van deze lay-out.",
-                "messageMissingSections": "Je kunt geen lege pagina opslaan. Voeg een sectie toe.",
-                "messageMissingBlocks": "Je kunt geen lege pagina opslaan. Voeg blokken toe.",
+                "messageMissingSections": "Er kan geen lege pagina worden opslaan. Voeg eerst een sectie toe.",
+                "messageMissingBlocks": "Er kan geen lege pagina worden opgeslagen. Voeg eerst blokken toe.",
                 "messageMissingElements": "Configuratie vereist. Configureer alle elementen van uw lay-out.",
                 "messageRedundantElements": "Layouts mogen niet meer dan één {name} element bevatten."
             },
             "placeholder": {
-                "demoEntity": "Selecteer een record voor het voorbeeld …"
+                "demoEntity": "Selecteer een record voor het voorbeeld..."
             },
             "sidebar": {
                 "titlePageSettings": "Instellingen",
@@ -703,17 +767,17 @@
                 "titleNavigator": "Navigator",
                 "titleSectionSettings": "Sectie-instellingen",
                 "titleLayoutAssignment": "Layout opdracht",
-                "mobile": "Gedrag mobiele balk opzij",
-                "mobileOptionHidden": "Niet weergegeven",
-                "mobileOptionWrap": "Annuleren"
+                "mobile": "Mobiel zijbalkgedrag",
+                "mobileOptionHidden": "Verborgen",
+                "mobileOptionWrap": "Wikkel"
             },
             "title": {
                 "elementSettingsModal": "Elementinstellingen",
                 "elementChangeModal": "Element vervangen"
             },
             "tooltip": {
-                "blockNameField": "Geef dit blok een duidelijke naam.",
-                "sectionNameField": "Geef deze sectie een omschrijvende naam.",
+                "blockNameField": "Benoem elk blok afzonderlijk om het werk bij te houden.",
+                "sectionNameField": "Benoem elke sectie afzonderlijk om het werk bij te houden.",
                 "cannotSelectProductPageLayout": "U kunt een lay-out van het type productpagina niet wijzigen in een ander lay-outtype."
             }
         },
@@ -731,7 +795,7 @@
                         "verticalAlignBottom": "Onder",
                         "displayMode": "Weergavemodus",
                         "displayModeStandard": "Standaard",
-                        "displayModeCover": "Vullen",
+                        "displayModeCover": "Dekking",
                         "displayModeStretch": "Uitrekken",
                         "displayModeContain": "Bevatten"
                     },
@@ -751,11 +815,11 @@
                     "label": {
                         "minHeight": "Minimale hoogte",
                         "linkTo": "Link naar",
-                        "linkNewTab": "Link in nieuw tabblad openen"
+                        "linkNewTab": "Open link in nieuw tabblad"
                     },
                     "placeholder": {
-                        "enterMinHeight": "Minimale hoogte invoeren ...",
-                        "enterUrl": "URL invoeren …"
+                        "enterMinHeight": "Minimale hoogte invoeren...",
+                        "enterUrl": "URL invoeren..."
                     }
                 }
             },
@@ -784,7 +848,7 @@
                 }
             },
             "productBox": {
-                "label": "Productbox",
+                "label": "Product doos",
                 "component": {
                     "label": {
                         "actionBuy": "Aan winkelwagen toevoegen",
@@ -796,13 +860,13 @@
                 "config": {
                     "label": {
                         "selection": "Product",
-                        "layoutType": "Indelingstype",
+                        "layoutType": "Lay-out type",
                         "layoutTypeStandard": "Standaard",
                         "layoutTypeImage": "Grote afbeelding",
                         "layoutTypeMinimal": "Minimale inhoud"
                     },
                     "placeholder": {
-                        "selection": "Selecteer een product …"
+                        "selection": "Selecteer een product..."
                     }
                 }
             },
@@ -854,7 +918,7 @@
                         "title": "Titel slider",
                         "selection": "Producten",
                         "navigation": "Navigatie",
-                        "rotate": "Automatische wissel",
+                        "rotate": "Automatische sliding",
                         "border": "Rand",
                         "minWidth": "Minimale breedte",
                         "productAssignmentType": "Producttoewijzing",
@@ -1209,6 +1273,7 @@
                 "infoTextProductDetailPages": "De lay-out is alleen zichtbaar in uw winkel wanneer u deze aan een actief product toewijst.",
                 "labelCategories": "categorieën",
                 "placeholderCategories": "Categorieën kiezen...",
+                "placeholderLandingPages": "Kies bestemmingspagina's...",
                 "labelSalesChannel": "Kanaal voor verkoop",
                 "placeholderSalesChannel": "Kies een verkoopkanaal...",
                 "resetOptionSalesChannel": "Alle verkoopkanalen",
@@ -1219,6 +1284,8 @@
                 "confirmChangesRestorePrev": "Gooi weg",
                 "confirmChangesTextCategories": "U hebt lay-outtoewijzingen uit categorieën verwijderd. Als u deze wijzigingen bevestigt, wordt aan deze categorieën geen lay-out meer toegewezen.",
                 "confirmChangesTextCategoriesAssignedLayouts": "Sommige van de geselecteerde categorieën hebben al een lay-out toegewezen. Als u doorgaat zullen de vorige toewijzingen vervangen worden door de huidige lay-out.",
+                "confirmChangesTextLandingPages": "U hebt lay-outtoewijzingen van bestemmingspagina's verwijderd. Als u deze wijzigingen bevestigt, heeft deze bestemmingspagina's geen lay-out meer toegewezen.",
+                "confirmChangesTextLandingPagesAssignedLayouts": "Sommige van de geselecteerde bestemmingspagina's hebben al een lay-out toegewezen. Als u doorgaat zullen de vorige toewijzingen vervangen worden door de huidige lay-out.",
                 "confirmChangesTextProducts": "U hebt lay-outtoewijzingen uit producten verwijderd. Als u deze wijzigingen bevestigt, hebben deze producten geen lay-out meer toegewezen.",
                 "confirmChangesTextProductsAssignedLayouts": "Sommige van de geselecteerde producten hebben al een lay-out toegewezen. Als u doorgaat, worden de vorige toewijzingen vervangen door de huidige lay-out.",
                 "confirmChangesTextShopPages": "U hebt lay-outtoewijzingen van winkelpagina's verwijderd. Als u deze wijzigingen bevestigt, hebben deze winkelpagina's geen lay-out meer toegewezen",
@@ -1228,6 +1295,7 @@
                 "shopPagesSaveError": "Kan winkelpagina's niet opslaan",
                 "tabCategories": "categorieën",
                 "tabShopPages": "Shop pagina's",
+                "tabLandingPages": "Landingspagina's",
                 "shopPages": {
                     "tosPage": "TOS-pagina's",
                     "revocationPage": "Kennisgevingen van herroeping",
@@ -1536,7 +1604,7 @@
                 "keywords": "Sleutelwoorden",
                 "length": "Lengte",
                 "linked": "Gelinkt",
-                "manufacturer": "Fabrikant",
+                "manufacturerId": "Fabrikant",
                 "manufacturerNumber": "Fabrikantnummer",
                 "markAsTopseller": "Als topseller gemarkeerd",
                 "maxDeliveryTime": "Maximale levertijd",
@@ -1549,7 +1617,7 @@
                 "option": "Optie",
                 "packUnit": "Verpakkingseenheid",
                 "packUnitPlural": "Verpakkingseenheid meervoud",
-                "price": "Prijs",
+                "cheapestPrice": "Prijs",
                 "product": "Product",
                 "productNumber": "Productnummer",
                 "purchasePrice": "Verkoopprijs",
@@ -1681,7 +1749,7 @@
             "c1051bb4-d103-4f74-8988-acbcafc7fdc3": "Dit veld mag niet leeg zijn.",
             "INVALID_MEDIA_URL": "Voer een geldige URL in om een bestand te uploaden.",
             "CONTENT__MISSING_RULE_TYPE_EXCEPTION": "Kies een type voor deze regel uit.",
-            "CONTENT__INVALID_CATEGORY_TYPE_AS_ENTRY_POINT": "Het type kan niet worden toegewezen terwijl categorie ingangspunt is.",
+            "CONTENT__INVALID_CATEGORY_TYPE_AS_ENTRY_POINT": "Het type kan niet worden toegewezen terwijl categorie een ingangspunt is.",
             "SHOPWARE_INVALID_IP": "Voer een geldig IP-adres in",
             "INVALID_URL": "Voer een geldige URL in"
         },
@@ -1704,7 +1772,9 @@
             "ascending": "Oplopend",
             "descending": "Aflopend",
             "xTimesIn": "{n} keer in",
-            "close": "Sluiten"
+            "close": "Sluiten",
+            "from": "Van",
+            "to": "Naar"
         },
         "notification": {
             "notificationSaveErrorMessage": "Bij het opslaan van de entiteit \"{entityName}\" is een fout opgetreden.",
@@ -2688,7 +2758,12 @@
     "sw-settings-number-range": {
         "general": {
             "mainMenuItemGeneral": "Getalbereik",
-            "placeholderSearchBar": "Zoek in getalbereiken..."
+            "placeholderSearchBar": "Zoek in getalbereiken...",
+            "infoGlobalType": "Er kan slechts één \"{typeName}\" nummerbereik zijn. Wijzigingen in het nummerbereik van het type \"{typeName}\" moeten hier worden aangebracht en zullen wereldwijd van invloed zijn op alle verkoopkanalen.",
+            "infoGlobalTypeTitle": "Globale nummerbereiktype \"{typeName}”",
+            "infoGlobal": "U kunt het type van een globaal getalbereik niet wijzigen. Maar u kunt extra nummerbereiken maken voor de meeste typen en bepaalde verkoopkanalen terug in het overzicht.",
+            "infoGlobalTitle": "Wereldwijd nummerbereik \"{name}”",
+            "infoSalesChannelBound": "Als u het type van een nummerbereik wilt wijzigen, verwijdert u eerst alle toewijzingen van het verkoopkanaal."
         },
         "list": {
             "textHeadline": "Getalbereik",
@@ -3006,9 +3081,11 @@
             "descriptionLabel": "Beschrijving",
             "messageSaveSuccess": "De categorie \"{name}\" is succesvol opgeslagen.",
             "useAsLogo": "Als schermafbeelding gebruiken",
-            "treeHeadline": "Categoriestructuur",
+            "treeHeadline": "categorieën",
             "treeHeadSelected": "{count} geselecteerd",
             "emptyStateHeadline": "Geen categorie geselecteerd",
+            "errorNavigationEntryPoint": "Deze categorie wordt gedefinieerd als een hoofdnavigatie van ten minste één verkoopkanaal en kan daarom niet worden verwijderd.",
+            "errorNavigationEntryPointMultiple": "Een of meer categorieën worden gedefinieerd als een hoofdnavigatie van ten minste één verkoopkanaal en kunnen daarom niet worden verwijderd.",
             "actions": {
                 "actionsDisabledInLanguage": "Categorieën kunnen alleen in de standaardtaal worden aangemaakt.",
                 "createSub": "Nieuwe subcategorie",
@@ -3022,58 +3099,54 @@
             "products": "Producten",
             "seo": "SEO",
             "columnInfoHeader": "Voettekstelement",
-            "columnInfo": "Deze categorie stelt een aangewezen kolom in de voettekst in. De categorienaam wordt weergegeven als een niet-klikbare kop voor de kolom. Alle categorieën hieronder worden weergegeven als klikbare rijen onder de kolomkop."
+            "columnInfo": "Deze categorie stelt een aangewezen kolom in de voettekst in. De categorienaam wordt weergegeven als een kop voor de kolom. Alle categorieën op het eerste niveau onder deze categorie worden weergegeven als rijen onder de kolomkop."
         },
         "base": {
             "general": {
                 "categoryNameLabel": "Naam",
                 "headlineInformationCard": "Algemeen",
-                "isCategoryActiveLabel": "Categorie is actief",
+                "isCategoryActiveLabel": "Actief",
                 "useAsLink": "Als link gebruiken",
                 "labelCategoryTags": "Tags",
                 "labelCategoryTagsPlaceholder": "Voer enkele tags in...",
                 "types": {
                     "title": "Categorietype",
-                    "page": "Categorie",
-                    "folder": "Toelatingspunt",
-                    "link": "Aanpasbare li k",
-                    "column": "Kolom",
-                    "entrypoint": "Toelatingspunt",
-                    "pageList": "Pagina/Lijst",
-                    "help": "Een structuurcategorie is zelf niet oproepbaar, maar dient alleen voor de structurering."
-                }
-            },
-            "entry-point": {
-                "title": "Startpunt",
-                "navigation": {
-                    "descriptionGeneral": "U hebt deze categorie toegewezen als toegangspunt voor de hoofdnavigatie in deze verkoopkanalen:"
-                },
-                "serviceSales": {
-                    "descriptionGeneral": "U hebt deze categorie toegewezen als toegangspunt voor de onderhoud navigatie in deze verkoopkanalen:"
-                },
-                "footerSales": {
-                    "descriptionGeneral": "U hebt deze categorie toegewezen als toegangspunt voor de voettekst navigatie in deze verkoopkanalen:"
+                    "page": "Pagina/Lijst",
+                    "folder": "Structureren element/Instappunt",
+                    "link": "Link",
+                    "linkUnavailable": "Koppeling (niet selecteerbaar als categorie is gedefinieerd als ingangspunt)",
+                    "help": "Een structuurcategorie is zelf niet oproepbaar, maar dient alleen voor de structurering.",
+                    "helpText": {
+                        "page": "Een pagina/lijst heeft bijbehorende producten en is rechtstreeks toegankelijk met de toegewezen lay-out.",
+                        "folder": "Een structurerend element /ingangspunt wordt alleen weergegeven in de structuur en is niet direct toegankelijk, behalve dat het wordt toegewezen als een ingangspunt van een verkoopkanaal.",
+                        "link": "Een koppeling maakt het mogelijk om te verwijzen naar een product, een andere categorie, een bestemmingspagina of een externe site."
+                    }
                 }
             },
             "entry-point-card": {
-                "cardTitle": "Toelatingspunt",
+                "cardTitle": "navigatie",
                 "labelEntryPoint": "Toelatingspunt",
                 "placeholderEntryPoint": "Selecteer ingangspunt...",
-                "labelSalesChannels": "Sales kanalen",
-                "placeholderSalesChannels": "Selecteer verkoopkanaal...",
-                "buttonConfigureHome": "Home configureren",
+                "existingNavigationDescription": "U hebt deze categorie toegewezen als een toegangspunt voor de hoofdnavigatie in deze verkoopkanalen:",
+                "labelSalesChannelsAdd": "Sales Channel toewijzing",
+                "placeholderSalesChannels": "Verkoopkanalen toevoegen...",
+                "buttonConfigureHome": "Startpagina configureren",
                 "types": {
                     "labelMainNavigation": "Hoofdnavigatie",
+                    "helpTextMainNavigation": "Het ingangspunt voor de hoofdnavigatie is een verplicht veld voor verkoopkanalen. Als u deze categorie als het ingangspunt voor de hoofdnavigatie aan een of meer verkoopkanalen toewijst, kunt u deze toewijzing alleen wijzigen op het verkoopkanaal zelf.",
                     "labelFooterNavigation": "Voettekst navigatie",
-                    "labelServiceNavigation": "Service-navigatie"
+                    "helpTextFooterNavigation": "Als u deze categorie als het ingangspunt voor de voettekst-navigatie aan een of meer verkoopkanalen toewijst, zijn de categorieën op het volgende niveau kolommen. Hiermee kunt u uw voettekstnavigatie in verschillende gebieden verdelen.",
+                    "labelServiceNavigation": "Service-navigatie",
+                    "helpTextServiceNavigation": "Als u deze categorie als toegangspunt voor de Servicenavigatie aan een of meer verkoopkanalen toewijst, worden de categorieën op het volgende niveau weergegeven als tweede navigatie in het voettekstgebied."
                 }
             },
             "entry-point-modal": {
-                "modalTitle": "Home configureren",
-                "salesChannelSelection": "Hoofdnavigatie van het ingangspunt",
-                "showInMainNavigation": "Weergeven als startpagina in hoofdnavigatie",
-                "mainNavigationName": "Naam in hoofdnavigatie",
-                "mainNavigationNamePlaceholder": "Naam in de hoofdnavigatie...",
+                "modalTitle": "Startpagina configureren",
+                "salesChannelSelection": "Kanaal voor verkoop",
+                "showInMainNavigation": "Weergeven in hoofdnavigatie",
+                "mainNavigationName": "Naam weergeven",
+                "mainNavigationNamePlaceholder": "Alternatieve naam van de startpagina invoeren...",
+                "mainNavigationNameHelpText": "Standaard wordt deze categorie weergegeven als „home”. Voer een alternatieve weergavenaam in als de standaardconfiguratie niet in het huidige verkoopkanaal past.",
                 "layoutHeadline": "Indeling",
                 "seoSettingsHeadline": "SEO-instellingen",
                 "metaTitleLabel": "Meta-titel",
@@ -3154,6 +3227,10 @@
             "textDeleteConfirm": "Wil je de categorie \"{name}\" echt verwijderen?",
             "textDeleteChildrenConfirm": "Ook alle onderliggende categorieën worden verwijderd.",
             "textDeleteMultipleConfirm": "Wil je deze {count} geselecteerde categorie echt verwijderen?"
+        },
+        "entry-point-overwrite-modal": {
+            "textBefore": "U hebt al een ingangspunt toegewezen aan het volgende verkoopkanaal: | U hebt al invoerpunten toegewezen aan de volgende verkoopkanalen:",
+            "textAfter": "Moet deze opdracht worden overschreven? | Moeten deze opdrachten worden overschreven?"
         }
     },
     "sw-landing-page": {
@@ -3164,14 +3241,17 @@
         "general": {
             "placeholderSearchBar": "Zoek bestemmingspagina's...",
             "treeHeadSelected": "{count} geselecteerd",
-            "buttonCreate": "Bestandingspagina toevoegen",
-            "treeHeadline": "Landingspagina's"
+            "buttonCreate": "Landingspagina toevoegen",
+            "treeHeadline": "Landingspagina's",
+            "actions": {
+                "actionsDisabledInLanguage": "Landingspagina's kunnen alleen worden gemaakt in de standaardtaal van het systeem."
+            }
         },
         "base": {
             "general": {
                 "labelName": "Naam",
                 "headlineInformationCard": "Generaal",
-                "isActiveLabel": "Landingspagina actief",
+                "isActiveLabel": "Actief",
                 "labelTags": "Labels",
                 "labelTagsPlaceholder": "Tags afzonderlijk invoeren..."
             },
@@ -3186,7 +3266,7 @@
                 "placeholderMetaTitle": "Voer de meta titel in...",
                 "placeholderMetaDescription": "Voer een metabeschrijving in...",
                 "placeholderKeywords": "Voer een of meer trefwoorden in...",
-                "placeholderUrl": "Voer een URL in..."
+                "placeholderUrl": "URL invoeren..."
             },
             "cms": {
                 "title": "Layout opdracht",
@@ -3196,7 +3276,8 @@
                 "editInPagebuilderEmpty": "Nieuwe lay-out maken",
                 "editContent": "Inhoud bewerken",
                 "defaultTitle": "Standaardlay-out",
-                "defaultDesc": "Categorie pagina"
+                "defaultDesc": "Categorie pagina",
+                "cmsLayoutModalHeadline": "Landing pagina"
             }
         },
         "modal": {
@@ -3213,7 +3294,8 @@
             "columnLinkOnly": "Verborgen",
             "linkAdvancedVisibility": "Geavanceerde zichtbaarheid configureren",
             "labelVisibility": "Zichtbaarheid",
-            "closeModal": "Toepassen"
+            "closeModal": "Toepassen",
+            "bodyVisibility": "Voeg verkoopkanalen toe waar het product moet worden weergegeven. Je kunt ook de zichtbaarheid van het product voor elk Storefront Sales Channel verder definiëren via de onderstaande link."
         },
         "general": {
             "mainMenuItemGeneral": "Producten",
@@ -3223,10 +3305,13 @@
             "placeholderSearchBar": "Zoek in alle producten …",
             "inheritanceModuleName": "Dit product",
             "backToParent": "terug naar variantenoverzicht",
+            "backToGeneralOverview": "Ga terug naar algemeen overzicht",
             "copy": "Kopie",
             "cloneSuffix": "varianten",
             "cloneNotice": "De productvarianten zijn gedupliceerd. Als dit proces wordt onderbroken, is het mogelijk dat niet alle varianten volledig worden gedupliceerd. In dit geval kunnen de varianten in het nieuwe product opnieuw worden gegeneerd.",
-            "cloneTitle": "Dubbele varianten"
+            "cloneTitle": "Dubbele varianten",
+            "tooltipModeSettings": "Mode-instellingen",
+            "textAdvancedMode": "Geavanceerde modus"
         },
         "basicForm": {
             "labelTitle": "Titel",
@@ -3256,7 +3341,10 @@
             "textAddSearchKeyword": "Klik hier om zoekwoord toe te voegen",
             "textEnterValidSearchKeyword": "Doorzoekbare trefwoorden",
             "helpTextSearchKeyword": "Het product in de Storefront is ook te vinden met behulp van deze trefwoorden.",
-            "helpTextTags": "Tags zijn alleen bedoeld voor intern gebruik. Ze kunnen u helpen groepen producten te beheren, regels toe te passen of dienen als aangepaste zoektermen."
+            "helpTextTags": "Tags zijn alleen bedoeld voor intern gebruik. Ze kunnen u helpen groepen producten te beheren, regels toe te passen of dienen als aangepaste zoektermen.",
+            "categoriesTitle": "Categorieën en tags",
+            "descriptionCategories": "Voeg categorieën toe zodat het product kan worden gevonden via het hoofdmenu van Storefront of via API-verbindingen. Zorg ervoor dat u categorieën selecteert die beschikbaar en actief zijn in het geselecteerde verkoopkanaal.",
+            "descriptionTags": "Tags helpen u producten sneller te vinden. Ze maken het makkelijker om producten te groeperen en kunnen worden gebruikt om taken te automatiseren met de Rule Builder."
         },
         "priceForm": {
             "labelTaxRate": "Belastingtarief",
@@ -3306,7 +3394,7 @@
             "labelEan": "EAN",
             "labelManufacturerNumber": "Fabrikantnummer",
             "labelStock": "Magazijnvoorraad",
-            "labelActive": "Actief",
+            "labelActive": "Actief voor alle geselecteerde verkoopkanalen",
             "labelShippingFree": "Verzendkostenvrij",
             "labelMarkAsTopseller": "Product markeren",
             "labelIsCloseout": "Uitverkoop",
@@ -3341,7 +3429,7 @@
         "detailBase": {
             "cardTitleDeliverabilityInfo": "Leverbaarheid",
             "cardTitleProductInfo": "Informatie",
-            "cardTitleAssignment": "Toewijzing",
+            "cardTitleAssignment": "Zichtbaarheid & structuur",
             "cardTitlePrices": "Prijzen",
             "cardTitleSettings": "Onderscheiding",
             "cardTitlePackaging": "Maatregelen & verpakking",
@@ -3350,12 +3438,15 @@
             "cardTitleReviews": "Reviews",
             "cardTitleMedia": "Media",
             "labelContextMenuAddToProduct": "Aan product toevoegen",
-            "cardTitleSeo": "SEO"
+            "cardTitleSeo": "SEO",
+            "cardTitleVisibilityStructure": "Zichtbaarheid structuur"
         },
         "specifications": {
             "cardTitleMeasuresPackaging": "Maatregelen & verpakking",
             "cardTitleEssentialCharacteristics": "Essentiële kenmerken",
-            "cardTitleCustomFields": "Aangepaste velden"
+            "cardTitleCustomFields": "Aangepaste velden",
+            "cardTitleProperties": "Eigenschappen",
+            "cardTitleCustomProduct": "Producten op maat"
         },
         "seo": {
             "cardTitleSeo": "SEO"
@@ -3509,7 +3600,7 @@
             "generationNotificationCountDeletion": "1 variant wordt verwijderd | {count} varianten worden verwijderd",
             "generationNotificationButtonCancel": "Annuleren",
             "generationNotificationButtonContinue": "Genereren",
-            "generatedFilterList": "Lijst filteren",
+            "generatedFilterList": "Filter lijst",
             "generatedListColumnVariation": "Variant",
             "generatedListColumnPrice": "Prijs (bruto / netto)",
             "generatedListColumnProductNumber": "Productnummer",
@@ -3532,24 +3623,26 @@
             },
             "configuratorModal": {
                 "title": "Varianten genereren",
-                "selectOptions": "Waarde selecteren",
-                "selectOptionsExplanation": "Selecteer eigenschappen om varianten te genereren.",
-                "priceSurcharges": "Prijs toeslagen/kortingen",
+                "selectOptions": "Waarde selectie",
+                "selectOptionsExplanation": "Selecteer eigenschapswaarden waaruit u varianten wilt genereren.",
+                "selectRestrictionsExplanation": "Selecteer eigenschapswaarden die u wilt uitsluiten van het genereren van varianten",
+                "selectPricesExplanation": "Voeg toeslagen toe aan waarden of valuta's.",
+                "priceSurcharges": "Prijs toeslagen",
                 "resetSurcharges": "Toeslagen/kortingen verwijderen",
-                "defineRestrictions": "Uitsluitingen definiëren",
-                "priceOptions": "Waarden",
-                "restrictedCombinations": "Beperkte eigenschappen",
-                "searchRestrictions": "Zoek eigenschappen...",
-                "addNewRestriction": "Nieuwe uitsluiting toevoegen",
-                "editRestriction": "Uitsluiting bewerken",
-                "deleteRestriction": "Uitsluiting verwijderen",
+                "defineRestrictions": "Waarde uitsluiting",
+                "priceOptions": "Waarde",
+                "restrictedCombinations": "Uitgesloten eigenschapswaarden",
+                "searchRestrictions": "Uitgesloten waarden zoeken...",
+                "addNewRestriction": "Waarden uitsluiten",
+                "editRestriction": "Bewerken",
+                "deleteRestriction": "Verwijderen",
                 "singleRestrictionSeperation": "En",
-                "deleteCombination": "Combinatie verwijderen",
+                "deleteCombination": "Verwijderen",
                 "isOneFrom": "is één van",
                 "cancel": "Annuleren",
                 "save": "Opslaan",
                 "searchPlaceholder": "Zoek waarden...",
-                "singleRestrictionAddTitle": "Uitsluiting toevoegen",
+                "singleRestrictionAddTitle": "Waarden uitsluiten",
                 "surchargeNotice": "Wijzigingen aan de toeslagen hebben geen effect op bestaande gegenereerde varianten. Ga naar de variantdetail-pagina en wijzig daar reeds gegenereerde prijzen."
             },
             "deliveryModal": {
@@ -3573,7 +3666,7 @@
         "layout": {
             "title": "Layout opdracht",
             "subtitle": "U kunt productgegevenspagina's wijzigen door aangepaste lay-outs toe te wijzen. Als hier geen aangepaste lay-out is toegewezen, wordt de standaardlay-out gebruikt.",
-            "textNoConfig": "De huidige geselecteerde lay-out heeft geen bewerkbare elementen",
+            "textNoConfig": "De momenteel geselecteerde lay-out heeft geen bewerkbare elementen",
             "textContentInfo": "Standaard productblokken worden automatisch gevuld met productgegevens. De werkelijke inhoud wordt hier dus niet vermeld."
         },
         "crossselling": {
@@ -3618,7 +3711,7 @@
             "templateSelectFieldPlaceholder": "Selecteer een sjabloon..."
         },
         "layoutAssignment": {
-            "title": "Standaard fallback",
+            "title": "Standaardwaarde",
             "subtitle": "Product pagina",
             "textAssignLayout": "Lay-out toewijzen",
             "textChangeLayout": "Lay-out wijzigen",
@@ -3626,14 +3719,45 @@
             "textEditInDesigner": "Bewerken in ontwerper"
         },
         "filters": {
+            "fromPlaceholder": "Voer startwaarde in...",
+            "toPlaceholder": "End-waarde invoeren...",
             "activeFilter": {
                 "label": "Actief",
                 "placeholder": "Selecteer een status..."
             },
             "imagesFilter": {
                 "label": "Beelden",
-                "placeholder": "Selecteer de status van een afbeelding..."
-            }
+                "placeholder": "Selecteer de status van een afbeelding...",
+                "textHasCriteria": "Ten minste één productafbeelding toegewezen",
+                "textNoCriteria": "Geen productafbeeldingen toegewezen"
+            },
+            "releaseDateFilter": {
+                "label": "Release datum"
+            },
+            "stockFilter": {
+                "label": "Voorraad"
+            },
+            "priceFilter": {
+                "label": "Prijs"
+            },
+            "manufacturerFilter": {
+                "label": "Fabrikant",
+                "placeholder": "Selecteer fabrikant..."
+            },
+            "salesChannelsFilter": {
+                "label": "Verkoop Kanalen",
+                "placeholder": "Selecteer Verkoopkanalen..."
+            },
+            "categoriesFilter": {
+                "label": "categorieën",
+                "placeholder": "Categorieën selecteren..."
+            },
+            "tagsFilter": {
+                "label": "Labels",
+                "placeholder": "Tags selecteren..."
+            },
+            "messageEmptyTitle": "Niets gevonden",
+            "messageEmptySubline": "Bewerk uw filters om resultaten te zien."
         },
         "notification": {
             "notificationSaveErrorProductNoAlreadyExists": "Productnr. \"{productNo}\" is al toegewezen."
@@ -3873,6 +3997,7 @@
             "info": "Wat is er nieuw?",
             "requirements": "Systeemvereisten",
             "plugins": "Plug-in-compatibiliteit",
+            "extensions": "Uitbreiding compatibiliteit",
             "updating": "Aan het updaten..."
         },
         "notifications": {
@@ -3916,6 +4041,7 @@
             },
             "actions": {
                 "openPluginManager": "Plug-in-manager openen",
+                "openMyExtensions": "Mijn extensies openen",
                 "deactivateAll": "Deactiveer alle plug-ins.",
                 "deactivateIncompatible": "Deactiveer alle incompatibele plug-ins.",
                 "deactivateNone": "Ik ben me van het gevaar bewust en wil een update uitvoeren, zonder de plug-ins te deactiveren. Ik weet dat Shopware geen garantie op het functioneren van mijn installatie geeft na een incompatibele update.",
@@ -3987,82 +4113,83 @@
         },
         "generalTab": {
             "labelSearchBehaviour": "Gedrag zoeken",
-            "textTitleSearchBehaviour": "Definieer vooraf uw zoekgedrag in de winkel.",
+            "textTitleSearchBehaviour": "Definieer vooraf het zoekgedrag van uw verkoopkanalen.",
             "labelSearchAndCondition": "„EN” Zoeken",
-            "textSearchAndConditionExplain": "De zoekresultaten komen overeen met elk element van de ingevoerde zoekterm.\nVoorbeeld: „Jeans summer” vindt producten die zowel trefwoorden „jeans” als „zomer” bevatten.",
+            "textSearchAndConditionExplain": "De zoekresultaten komen overeen met elk element van de ingevoerde zoekterm.\nVoorbeeld: „Jeans summer” vindt zoekresultaten die zowel zoektermen „jeans” als „zomer” bevatten.",
             "labelSearchOrCondition": "„OR” Zoeken",
-            "textSearchOrConditionExplain": "Zoekresultaten komen overeen met elk element van de ingevoerde zoekterm.\nVoorbeeld: „Jeans summer” vindt producten die ofwel het trefwoord „jeans” en „summer” bevatten.",
+            "textSearchOrConditionExplain": "Zoekresultaten komen overeen met elk element van de ingevoerde zoekterm.\nVoorbeeld: „Jeans summer” vindt zoekresultaten die de zoekterm „jeans” of de zoekterm „zomer” bevatten.",
             "labelMinimalSearchTerm": "Minimale lengte zoekterm",
             "labelExcludedSearchTerms": "Uitgesloten zoektermen",
             "textEmptyStateExcludedSearchTerms": "Nog geen zoektermen uitgesloten",
-            "buttonAddExcludedSearch": "Uitsluiting toevoegen",
-            "textPlaceholderTermsFilter": "Uitgesloten termen zoeken...",
-            "buttonAddExcludedSearchTerms": "Uitsluitingstermijn toevoegen",
+            "buttonAddExcludedSearch": "Zoekterm uitsluiten",
+            "textPlaceholderTermsFilter": "Uitgesloten zoektermen zoeken...",
+            "buttonAddExcludedSearchTerms": "Zoekterm uitsluiten",
             "labelExcludedSearchTermsNoResults": "Geen resultaten gevonden.",
             "labelSearchableContent": "Doorzoekbare inhoud",
-            "textDescriptionSearchableContent": "Alle doorzoekbare inhoud wordt weergegeven in de onderstaande tabel. Als je zoekresultaten in je Storefront wilt aanpassen, ga je gang en sluit je content helemaal uit van doorzoekbaar of pas je de rangschikking van elk afzonderlijk element naar wens aan. Elementen met hogere rangorde hebben een verhoogde „zoekwaarde” en worden hoger in de zoekresultaten geplaatst.",
+            "textDescriptionSearchableContent": "Alle doorzoekbare inhoud wordt weergegeven in de onderstaande tabel. Als je zoekresultaten in je verkoopkanalen wilt aanpassen, ga je gang en sluit je content helemaal uit van doorzoekbaar of pas je de rangschikking van elk afzonderlijk element naar wens aan. Elementen met hogere rangorde hebben een verhoogde „zoekwaarde” en worden hoger in de zoekresultaten geplaatst.",
             "buttonResetDefault": "Reset naar standaard",
             "linkExample": "Voorbeeld tonen",
-            "buttonAddContent": "Inhoud toevoegen",
+            "buttonAddContent": "Doorzoekbare inhoud toevoegen",
             "labelGeneralTab": "Generaal",
             "labelCustomFieldsTab": "Aangepaste velden",
             "textEmptyStateSearchableContent": "Nog geen doorzoekbare inhoud toegevoegd.",
             "titleExampleModal": "Voorbeeld van ranking zoeken",
-            "textColumnSearchTerm": "Zoektermen",
+            "textColumnSearchTerm": "Uitgesloten zoektermen",
             "modal": {
                 "textExplain": "Hieronder vindt u drie fictieve zoekresultaten voor de zoekterm „jeans”. Doorzoekbaar zijn producttitels (ranking score 100), productbeschrijvingen (ranking score 50) en producttags (ranking score 20).",
                 "textTitle": "Titel",
-                "textSuperJeans": "super jeans",
+                "textSuperJeans": "Super jeans",
                 "textDescription": "Omschrijving",
-                "textFancyJeans": "fancy jeans",
+                "textFancyJeans": "Fancy jeans",
                 "textTag": "Label",
                 "textJeans": "Jeans",
                 "textTotal": "Totaal",
                 "textProductRankedFirstScore": "Het product dat als eerste wordt gerangschikt, heeft een zoekhit in elke doorzoekbare entiteit, wat resulteert in een totale ranking score van 170.",
-                "textFancyPants": "fancy broek",
-                "textProductRankedSecondScore": "Het tweede product heeft zoekresultaten voor producttitel en producttags, wat resulteert in een totale ranking score van 120.",
+                "textFancyPants": "Fancy broek",
+                "textProductRankedSecondScore": "Het tweede product heeft zoekresultaten voor productnaam en producttags, wat resulteert in een totale ranking score van 120.",
                 "textSuperPants": "Super broek",
                 "textProductRankedThirdScore": "Het product gerangschikt derde heeft slechts één hit in producttags, wat resulteert in een totale ranking score van 20."
             },
             "labelSearchIndex": "Zoek index",
             "buttonRebuildSearchIndex": "Zoekindex opnieuw opbouwen",
-            "textWarningOpenTab": "Houd dit venster/tabblad open.",
-            "textRebuildSearchIndexDescription": "Het herbouwen van de zoekindex kost wat tijd. Gedurende die tijd is het verplicht om dit venster/tabblad open te houden om de zoekindex opnieuw op te bouwen. U ontvangt een melding zodra het proces is voltooid.",
+            "textWarningOpenTab": "Hou dit raam open.",
+            "textRebuildSearchIndexDescription": "Het opnieuw opbouwen van de zoekindex duurt enige tijd. Gedurende die tijd is het verplicht om dit venster open te houden om de zoekindex opnieuw op te bouwen. U ontvangt een melding zodra het proces is voltooid.",
             "textRebuildingSearchIndex": "Zoekindex opnieuw opbouwen",
             "textLastedBuild": "Laatste build:",
+            "textSearchNotIndexedYet": "Zoek nog niet geïndexeerd.",
             "list": {
                 "columnSearchable": "Doorzoekbaar",
-                "columnRankingPoints": "Ranking punten",
+                "columnRankingPoints": "Rangschikking score",
                 "columnContent": "Inhoud",
-                "columnSplitKeywords": "Trefwoorden splitsen",
+                "columnSplitKeywords": "Zoektermen splitsen",
                 "textResetRanking": "Ranking opnieuw instellen",
                 "textRemove": "Verwijderen"
             },
             "configFields": {
-                "name": "Naam",
-                "description": "Omschrijving",
+                "name": "Naam van het product",
+                "description": "Beschrijving van het product",
                 "productNumber": "Product nummer",
                 "manufacturerNumber": "Nummer fabrikant",
-                "ean": "EAN",
-                "customSearchKeywords": "Trefwoorden op maat",
+                "ean": "EAN product",
+                "customSearchKeywords": "Aangepaste zoektermen",
                 "manufacturerName": "Naam van de fabrikant",
                 "manufacturerCustomFields": "Aangepaste velden van fabrikant",
-                "categoriesName": "Naam van categorieën",
-                "categoriesCustomFields": "Categorieën aangepaste velden",
-                "tagsName": "Naam van tag",
-                "metaTitle": "Meta-titel",
-                "metaDescription": "Meta-beschrijving",
+                "categoriesName": "Naam categorie",
+                "categoriesCustomFields": "Categorie aangepaste velden",
+                "tagsName": "Product tag",
+                "metaTitle": "Product meta titel",
+                "metaDescription": "Product meta beschrijving",
                 "propertiesName": "Naam eigenschap",
-                "variantValue": "Variant waarde"
+                "variantValue": "Waarde eigenschap"
             }
         },
         "notification": {
-            "saveSuccess": "De configuratie is opgeslagen.",
-            "excludedTermRequired": "Uitgesloten term mag niet leeg zijn.",
-            "excludedTermAlreadyExists": "Uitgesloten term bestaat al.",
-            "updateExcludedTermSuccess": "Uitgesloten term update succes.",
-            "createExcludedTermSuccess": "Uitgesloten term succes maken.",
-            "deleteExcludedTermSuccess": "Uitgesloten term verwijderen succes.",
+            "saveSuccess": "Configuratie opgeslagen.",
+            "excludedTermRequired": "Uitgesloten zoektermen mogen niet leeg zijn.",
+            "excludedTermAlreadyExists": "Uitgesloten zoekterm bestaat al.",
+            "updateExcludedTermSuccess": "Uitgesloten zoekterm bijgewerkt.",
+            "createExcludedTermSuccess": "Uitgesloten zoekterm aangemaakt.",
+            "deleteExcludedTermSuccess": "Uitgesloten zoekterm verwijderd.",
             "saveError": "Er is een fout opgetreden bij het opslaan van uw configuratie.",
             "index": {
                 "started": "Product-indexen bouwen.",
@@ -4071,14 +4198,14 @@
             "loadError": "Er is een fout opgetreden tijdens het laden van uw configuratie."
         },
         "liveSearchTab": {
-            "titleCard": "Storefront live zoeken",
-            "textDescription": "Test hieronder uw aangepaste zoekinstellingen. Als u zojuist wijzigingen hebt aangebracht in uw zoekinstellingen, moet u deze instellingen opslaan voordat u ze test met deze live zoekopdracht.",
+            "titleCard": "Sales Channel live zoeken",
+            "textDescription": "Test hieronder uw aangepaste zoekinstellingen.",
             "labelSalesChannelSelect": "Kanaal voor verkoop",
-            "textPlaceholderSalesChannel": "Selecteer een verkoopkanaal om de live zoekopdracht te testen",
+            "textPlaceholderSalesChannel": "Selecteer een verkoopkanaal...",
             "linkRebuildSearchIndex": "Zoekindex opnieuw opbouwen",
-            "labelName": "Naam",
-            "labelScore": "score",
-            "textNoResult": "Geen resultaten voor het (de) zoekwoord (en) dat u hebt ingevoerd. Probeer een ander trefwoord (en)"
+            "labelName": "Zoekresultaat",
+            "labelScore": "Rangschikking score",
+            "textNoResult": "Geen resultaten gevonden. Probeer het opnieuw met een andere zoekterm."
         }
     },
     "sw-settings-mailer": {
@@ -4115,8 +4242,6 @@
             "password-placeholder": "Voer je wachtwoord in...",
             "encryption": "Coderingsmethode",
             "encryption-placeholder": "Selecteer een coderingsmethode ...",
-            "authentication": "Authenticatiemethode",
-            "authentication-placeholder": "Selecteer een authenticatiemethode ...",
             "sender-address": "Adres afzender",
             "sender-address-placeholder": "Geef een e-mailadres aan, waar je toegang tot hebt ...",
             "delivery-address": "E-mailadres ontvanger",
@@ -4128,12 +4253,6 @@
             "no-encryption": "Geen codificering",
             "ssl": "SSL",
             "tls": "TLS"
-        },
-        "authentication": {
-            "no-authentication": "Geen authenticatie",
-            "plain": "Eenvoudig",
-            "login": "Login",
-            "cram-md5": "Cram MD5"
         },
         "helpText": "Kijk voor meer informatie in de <a target=\"_blank\" href=\"https://docs.shopware.com/en/shopware-6-en\">documentatie</a>"
     },
@@ -4151,42 +4270,44 @@
         "my-extensions": {
             "listing": {
                 "initialSearchType": "Extensies",
-                "placeholderSearchBar": "Zoek extensies…",
+                "placeholderSearchBar": "Extensies zoeken...",
                 "controls": {
                     "labelActiveStateSwitch": "Inactieve extensies verbergen",
                     "filterOptions": {
                         "last-updated": "Laatst bijgewerkt",
-                        "name-asc": "Naam van extensie, asc.",
-                        "name-desc": "Naam extensie, desc."
+                        "name-asc": "Naam A - Z.",
+                        "name-desc": "Naam Z - A."
                     }
-                }
+                },
+                "version": "Versie",
+                "update": "Bijwerken"
             },
             "account": {
                 "headline": "Shopware Account",
-                "isLoggedIn": "Account is succesvol verbonden. Ga naar het tabblad „App” of „Thema's” en controleer of uw gekochte extensies worden vermeld. Als dit niet het geval is, ga dan naar je Showare-account en controleer of het juiste domein voor extensies is ingesteld.",
+                "isLoggedIn": "Shopware Account succesvol verbonden. Ga naar het tabblad „App” of „Thema's” en controleer of uw gekochte extensies worden vermeld. Als dit niet het geval is, ga dan naar je Showare-account en controleer of het juiste domein voor extensies is ingesteld.",
                 "login": "Inloggen",
                 "logout": "Afmelden",
-                "loginMessage": "Log in met uw Shopware Account om toegang te krijgen tot de extensies die u hebt gekocht op store.shopware.com",
-                "register": "Registreer en word lid van de Shopware community!",
-                "registerNow": "Registreer nu",
+                "loginMessage": "Log in met uw Shopware account om toegang te krijgen tot extensies die u hebt gekocht op store.shopware.com",
+                "register": "Meld je nu aan en word lid van de Shopware community!",
+                "registerNow": "Meld je nu aan",
                 "registerUrl": "https://account.shopware.com/register?lang=en",
                 "mailLabel": "E-mailadres",
-                "mailPlaceholder": "Voer uw e-mailadres in…",
+                "mailPlaceholder": "Voer uw e-mailadres in...",
                 "passwordLabel": "Password",
-                "passwordPlaceholder": "Voer uw wachtwoord in…",
+                "passwordPlaceholder": "Voer uw wachtwoord in...",
                 "recoveryUrl": "https://account.shopware.com/recovery?lang=en",
                 "passwordForgot": "Ben je je wachtwoord vergeten?",
                 "loginNotificationMessage": "U bent ingelogd op het Shopware Account."
             },
             "tabs": {
-                "app": "App",
-                "theme": "Thema",
+                "app": "Apps",
+                "theme": "Thema's",
                 "recommendation": "aanbevelingen",
                 "shopwareAccount": "Shopware Account"
             },
             "fileUpload": {
-                "buttonFileUpload": "Plugin uploaden",
-                "messageUploadSuccess": "De plugin is geüpload."
+                "buttonFileUpload": "Upload extensie",
+                "messageUploadSuccess": "Uitbreiding geüpload."
             }
         },
         "errors": {
@@ -4194,19 +4315,19 @@
             "messageGenericFailure": "Dat werkte niet.",
             "messageUploadFailureNotAZipFile": "Geüpload bestand is geen ZIP-bestand.",
             "messageUploadFailureUnzipFailed": "Kan ZIP-bestand niet uitpakken.",
-            "messageUploadFailureNoPluginFoundInZipFile": "Geen plugin gevonden in ZIP-bestand.",
+            "messageUploadFailureNoPluginFoundInZipFile": "Geen extensie gevonden in ZIP-bestand.",
             "messageLoginDataInvalid": "Inloggegevens onvolledig.",
             "messageStoreLicenseDomainMissing": "Aanmelden is mislukt. Heeft u het juiste licentiedomein van uw Shopware Account opgeeft in „Instellingen/Shopware Account”?",
-            "messageStoreNotAvailable": "Shopware Store is niet beschikbaar.",
-            "messagePluginBaseClassNotFound": "De basisklasse van de plug-in kon niet worden geladen. Controleer uw plugin composer.json met betrekking tot de klasse autoloading",
-            "messagePluginInstallationFailed": "Plugin kon niet worden geïnstalleerd vanwege foutbericht \"{message}”",
-            "messagePluginUninstallationFailed": "Plugin kon niet worden verwijderd vanwege foutbericht \"{message}”",
-            "messagePluginActivationFailed": "Plugin kon niet geactiveerd worden vanwege foutbericht \"{message}”",
-            "messagePluginDeactivationFailed": "Plugin kon niet worden gedeactiveerd vanwege foutbericht \"{message}”",
-            "messageDeactivationFailedDependencies": "Plugin \"{dependency}\" kan niet worden gedeactiveerd, omdat er andere plugins zijn die er afhankelijk van zijn. Deactiveer de volgende plug-ins voordat u de update opnieuw start: {dependantNames}",
+            "messageStoreNotAvailable": "De Shopware Store is niet beschikbaar.",
+            "messagePluginBaseClassNotFound": "De basisklasse van de extensie kon niet worden geladen. Controleer uw plugin composer.json met betrekking tot de klasse autoloading.",
+            "messagePluginInstallationFailed": "De extensie kon niet worden geïnstalleerd: \"{message}”.",
+            "messagePluginUninstallationFailed": "De extensie kon niet worden verwijderd: \"{message}”.",
+            "messagePluginActivationFailed": "De extensie kon niet worden geactiveerd: \"{message}”.",
+            "messagePluginDeactivationFailed": "De extensie kon niet worden gedeactiveerd: \"{message}”.",
+            "messageDeactivationFailedDependencies": "De extensie \"{dependency}\" kan niet worden gedeactiveerd, omdat er andere extensies afhankelijk van zijn. Deactiveer de volgende extensies voordat u de update opnieuw start: {dependantNames}",
             "messageDeactivationFailedThemeAssignment": "Kan thema \"{themeName}” niet deactiveren of verwijderen. Verwijder de volgende themaopdrachten: {assignments}.",
-            "messagePluginUpdateFailed": "Plugin kon niet worden bijgewerkt vanwege foutbericht \"{message}”. {pluginDeactivatedHint}",
-            "pluginDeactivatedHint": "Plugin is gedeactiveerd."
+            "messagePluginUpdateFailed": "De extensie kon niet worden bijgewerkt: \"{message}”. {pluginDeactivatedHint}",
+            "pluginDeactivatedHint": "Uitbreiding uitgeschakeld."
         },
         "mainMenu": {
             "mainMenuItemExtensionStore": "Extensies",
@@ -4216,6 +4337,20 @@
         }
     },
     "sw-extension-store": {
+        "landing-page": {
+            "enablingShopwareStore": "De Shopware Store activeren...",
+            "takeMinutes": "Dit kan een paar minuten duren.",
+            "activationErrorTitle": "Fout tijdens activering",
+            "activationErrorDescription": "Probeer het opnieuw. Als dat niet werkt, vraagt u uw beheerder om hulp.",
+            "retryButton": "Opnieuw proberen",
+            "activationSuccessTitle": "Geactiveerd",
+            "activationSuccessDescription": "Veel plezier met het verkennen van de Shopware Store.",
+            "label": "Nu beschikbaar",
+            "activationDescriptionTitleFirst": "Ontdek en koop eenvoudig extensies -",
+            "activationDescriptionTitleSecond": "rechtstreeks vanuit uw eigen Shopware shop.",
+            "activationDescriptionTitleDescription": "Activeer de geheel nieuwe Shopware Store en krijg toegang tot tal van handige extensies en moderne thema's die naadloos in uw winkel kunnen worden geïntegreerd - zonder programmeervaardigheden.",
+            "activate": "Activeren"
+        },
         "title": "Winkel",
         "descriptionTextModule": "Uw extensies beheren",
         "general": {
@@ -4234,8 +4369,8 @@
                 "releaseDateDesc": "Releasedatum nieuwste - oudste",
                 "nameAsc": "Naam A - Z",
                 "nameDesc": "Naam Z - A",
-                "ratingAsc": "Waardering Laag - Hoog",
-                "ratingDesc": "Waardering Hoog - Laag"
+                "ratingAsc": "Waardering laag - hoog",
+                "ratingDesc": "Waardering hoog - laag"
             }
         },
         "detail": {
@@ -4243,7 +4378,7 @@
             "labelButtonOpenExtension": "Open extensie",
             "labelButtonInstallExtension": "Uitbreiding installeren",
             "labelBy": "door",
-            "numberOfRatings": "{count} Beoordeling | {count} Beoordelingen",
+            "numberOfRatings": "{count} beoordeling | {count} beoordelingen",
             "noRatings": "Nog geen beoordelingen",
             "cardTitleInformation": "Informatie",
             "labelButtonReadMore": "Lees meer",
@@ -4254,7 +4389,7 @@
                 "labelUpdatedAt": "Laatst bijgewerkt",
                 "labelLanguages": "Talen",
                 "labelWebsite": "Website voor ontwikkelaars",
-                "labelPrivacy": "Privacylink"
+                "labelPrivacy": "Privacybeleid"
             },
             "cardTitleFAQ": "FAQ",
             "cardTitleChangelog": "Veranderingslogboek",
@@ -4268,7 +4403,7 @@
             },
             "sw-extension-buy-modal": {
                 "title": "Extensie toevoegen",
-                "labelAcceptPermissions": "Ik ben me ervan bewust dat deze extensie rechten nodig heeft",
+                "labelAcceptPermissions": "Ik ben me ervan bewust dat deze extensie extra machtigingen nodig heeft",
                 "labelAcceptPrivacyExtensions": "Ik ben me ervan bewust dat ik mijn privacybeleid moet uitbreiden",
                 "buttonShowPrivacyExtensions": "Details tonen",
                 "variantCard": {
@@ -4280,7 +4415,7 @@
                 "variantSummary": {
                     "labelVat": "plus BTW",
                     "labelPrice": "Prijs",
-                    "renewal": "Verlenging {renewalDate}"
+                    "renewal": "Verlenging op {renewalDate}"
                 },
                 "purchaseButtonsLabels": {
                     "free": "Gratis uitbreiding toevoegen",
@@ -4288,23 +4423,23 @@
                     "buy": "Koop nu extensie"
                 },
                 "successNotification": {
-                    "titleSuccess": "Extensies met succes toegevoegd!",
+                    "titleSuccess": "Uitbreiding succesvol toegevoegd!",
                     "subtitleSuccess": "U kunt nu uw nieuwe extensie uitproberen.",
                     "labelButtonBack": "Terug naar details"
                 },
                 "alertCanNotBuy": {
-                    "text": "Hiervoor moet u zijn ingelogd in de Store",
+                    "text": "U moet ingelogd zijn bij de Store om dit te doen",
                     "linkChoosePLan": "Kies een plan"
                 }
             },
             "sw-extension-adding-failed": {
-                "titleFailure": "Toevoegen van extensie mislukt",
-                "textProblem": "Er is een probleem opgetreden bij het toevoegen van uw extensie.",
+                "titleFailure": "Toevoegen van de extensie is mislukt ",
+                "textProblem": "Er is een probleem opgetreden bij het toevoegen van de extensie.",
                 "installationFailed": {
                     "titleFailure": "Installatie is mislukt",
                     "textProblem": "Er is een probleem opgetreden tijdens het installeren van uw extensie. We zullen de fabrikant op de hoogte stellen.",
-                    "notificationLicense": "Houd er rekening mee dat het abonnement op deze app of thema actief blijft.",
-                    "textSupport": "Als u vragen heeft over de licentie, neem dan contact op met Shopware Financial Services. Beschikbaar per e-mail op {0} of per telefoon op {1}.",
+                    "notificationLicense": "Houd er rekening mee dat het abonnement op deze extensie actief blijft.",
+                    "textSupport": "Als u vragen heeft over de licentie, neem dan contact op met Shopware Financial Services. Beschikbaar via e-mail op {0} of via telefoon op {1}.",
                     "supportEmail": "financial.services@shopware.com",
                     "supportPhone": "+49 (0) 2555/9288510"
                 }
@@ -4321,7 +4456,7 @@
                     "submitBtn": "Verzenden"
                 },
                 "sw-extension-ratings-summary": {
-                    "labelRating": "Geen beoordelingen | {numberOfRatings} Beoordeling | {numberOfRatings} Beoordelingen"
+                    "labelRating": "Geen beoordelingen | {numberOfRatings} beoordeling | {numberOfRatings} beoordelingen"
                 },
                 "sw-extension-review": {
                     "labelLastChangeDate": "Door {author} op {lastChangeDate}",
@@ -4334,6 +4469,7 @@
                     "labelNoReviews": "Deze extensie heeft nog geen beoordelingen of reviews ontvangen."
                 },
                 "sw-extension-review-creation-inputs": {
+                    "title": "Tarief uitbreiding",
                     "labelHeadline": "Kop",
                     "placeholderHeadline": "Voer een korte kop in...",
                     "labelRating": "Beoordeling",
@@ -4346,8 +4482,8 @@
             "sw-extension-card-base": {
                 "subscriptionLabel": "Abonnement",
                 "inactiveLabel": "(inactief)",
-                "purchasedLabel": "Gekocht: ",
-                "installedLabel": "Geïnstalleerd: ",
+                "purchasedLabel": "Gekocht op ",
+                "installedLabel": "Geïnstalleerd op ",
                 "openExtensionLabel": "App openen",
                 "installExtensionLabel": "App installeren",
                 "labelAcceptAndInstall": "Accepteren en installeren",
@@ -4355,7 +4491,7 @@
                     "getHelpLabel": "Hulp krijgen",
                     "seeDetailsLabel": "Zie details",
                     "config": "Configuratie",
-                    "privacyAndSafetyLabel": "Privacy & veiligheid",
+                    "privacyAndSafetyLabel": "Privacy & veiligheid van gegevens",
                     "removeLabel": "Verwijderen",
                     "cancelAndRemoveLabel": "Annuleren en verwijderen",
                     "uninstallLabel": "Verwijderen",
@@ -4368,18 +4504,18 @@
             "sw-extension-deactivation-modal": {
                 "deactivateExtensionLabel": "\"{extensionName}” deactiveren",
                 "description": "De \"{extensionName}\" extensie heeft een maandelijkse contributie.<br>Het deactiveren van de extensie zal het abonnement <b>niet</b> annuleren en de contributie zal geïnd blijven worden!",
-                "descriptionCancel": "Als u in plaats daarvan het abonnement wilt opzeggen, kunt u het verwijderen in het contextmenu onder \"{removeLabel}”.",
+                "descriptionCancel": "Als u het abonnement wilt opzeggen, kunt u het verwijderen via \"{removeLabel}\" in het contextmenu.",
                 "alertDeactivate": "Wilt u de extensie nog steeds deactiveren?",
                 "deactivateLabel": "Deactiveren"
             },
             "sw-extension-permissions-modal": {
                 "title": "{extensionLabel} machtigingen",
-                "description": "{extensionLabel} krijgt toegang tot de volgende onderdelen. Klik op de koppeling naast de component om de details van de entiteit weer te geven.",
+                "description": "{extensionLabel} heeft toegang tot de volgende onderdelen. Klik op de koppeling naast de component om de details van de entiteit weer te geven.",
                 "textEntities": "Toestemming tonen"
             },
             "sw-extension-privacy-policy-extensions-modal": {
                 "title": "{extensionLabel}: uitbreidingen van het privacybeleid",
-                "intro": "Deze app verwerkt persoonlijke gegevens. De fabrikant geeft het volgende advies voor de aanpassingen van uw privacybeleid:"
+                "intro": "Deze app verwerkt persoonlijke gegevens. De fabrikant beveelt de aanpassingen aan uw privacybeleid aan:"
             },
             "sw-extension-permissions-details-modal": {
                 "operationRead": "Bekijk",
@@ -4388,16 +4524,23 @@
                 "operationDelete": "Verwijderen"
             },
             "sw-extension-my-extensions-listing": {
-                "noActivePlugins": "Er zijn geen actieve extensies.",
-                "titleEmptyState": "Nog geen apps geïnstalleerd",
-                "textEmptyState": "Als u apps installeert, worden deze hier vermeld.",
+                "apps": {
+                    "noActivePlugins": "Geen actieve extensies gevonden.",
+                    "titleEmptyState": "Nog geen apps geïnstalleerd",
+                    "textEmptyState": "Als u apps installeert, worden deze hier vermeld."
+                },
+                "themes": {
+                    "noActivePlugins": "Geen actieve thema's gevonden.",
+                    "titleEmptyState": "Nog geen thema's geïnstalleerd",
+                    "textEmptyState": "Als u thema's installeert, worden deze hier vermeld."
+                },
                 "btnOpenStore": "Openen winkel"
             },
             "sw-extension-removal-modal": {
                 "titleCancel": "„{extensionName}\" annuleren en verwijderen",
                 "titleRemove": "„{extensionName}\" verwijderen",
                 "description": "Als u de extensie verwijdert, kunt u deze niet meer gebruiken.",
-                "alertCancel": "Weet u zeker dat u de extensie wilt verwijderen?",
+                "alertCancel": "Weet u zeker dat u de extensie wilt annuleren en verwijderen?",
                 "alertRemove": "Weet u zeker dat u de extensie wilt verwijderen?",
                 "labelCancel": "Annuleren en verwijderen",
                 "labelRemove": "Verwijderen"
@@ -4415,7 +4558,7 @@
                 "labelLicensed": "Aangekocht"
             },
             "sw-extension-config": {
-                "messageSaveSuccess": "Configuratie is opgeslagen."
+                "messageSaveSuccess": "Configuratie opgeslagen."
             }
         },
         "errors": {
@@ -4423,7 +4566,7 @@
                 "message": "U moet onze algemene voorwaarden accepteren om verder te gaan."
             },
             "FRAMEWORK__EXTENSION_THEME_STILL_IN_USE": {
-                "message": "Het thema wordt momenteel nog steeds gebruikt in een of meer verkoopkanalen."
+                "message": "Het thema wordt momenteel gebruikt door een of meer verkoopkanalen."
             },
             "FRAMEWORK__INVALID_EXTENSION_ID": {
                 "message": "Het identificatienummer van de extensie is ongeldig."
@@ -4450,7 +4593,7 @@
                 "message": "De extensie kan niet worden geannuleerd."
             },
             "SAAS_EXTENSION_CANCELLATION__STILL_IN_USE": {
-                "message": "De extensie kan niet worden geannuleerd omdat deze nog steeds in gebruik is."
+                "message": "De extensie kan niet worden geannuleerd, omdat deze nog steeds in gebruik is."
             },
             "SAAS_EXTENSION_RATING__ALREADY_RATED": {
                 "message": "De extensie is al beoordeeld."
@@ -4465,39 +4608,39 @@
                 "message": "Het geselecteerde prijsmodeltje is niet toegestaan voor de extensie."
             },
             "SAAS_EXTENSION_ORDER__NO_DEFAULT_PAYMENT_MEAN": {
-                "message": "Er is geen standaard betalingsmiddel beschikbaar.",
-                "labelLink": "Standaardbetaling instellen"
+                "message": "Er is geen standaard betaalmethode beschikbaar.",
+                "labelLink": "Standaardbetaalmethode instellen"
             },
             "SAAS_EXTENSION_ORDER__INSUFFICIENT_BALANCE": {
-                "message": "Er is onvoldoende saldo beschikbaar."
+                "message": "Onvoldoende balans."
             },
             "SAAS_EXTENSION_REQUEST__INVALID_CONTENT": {
                 "message": "Vereiste aanvraaggegevens ontbreken of zijn ongeldig."
             },
             "SAAS_EXTENSION_INVALID_BASKET__MULTIPLE_LICENSES_OR_LICENSE_ALREADY_OWNED": {
-                "message": "Het winkelmandje is ongeldig omdat het meerdere licenties bevat of een licentie die al eigendom is."
+                "message": "Het winkelwagentje is ongeldig, omdat het meerdere licenties bevat of een licentie die al eigendom is van al."
             },
             "SAAS_EXTENSION_INVALID_BASKET__INVALID_ORDER_POSITION": {
-                "message": "Het winkelmandje is ongeldig vanwege een ongeldige orderpositie."
+                "message": "Het winkelwagentje is ongeldig vanwege een ongeldige orderpositie."
             },
             "SAAS_EXTENSION_INVALID_BASKET__GENERAL": {
-                "message": "Het winkelmandje is ongeldig."
+                "message": "Het winkelwagentje is ongeldig."
             },
             "SAAS_EXTENSION_INVALID_BASKET__INVALID_COMPANY": {
-                "message": "Het winkelmandje is ongeldig omdat er geen land is toegewezen aan uw bedrijf."
+                "message": "Het winkelwagentje is ongeldig, omdat er geen land is toegewezen aan uw bedrijf."
             },
             "SAAS_EXTENSION_RATING__INVALID_EXTENSION": {
-                "message": "Uw beoordeling kon niet worden opgeslagen omdat de gerelateerde extensie ongeldig is."
+                "message": "Uw beoordeling kon niet worden opgeslagen, omdat de gerelateerde extensie ongeldig is."
             },
             "SAAS_COMPANY__MISSING": {
-                "message": "Vereiste bedrijf wordt vermist.",
+                "message": "Vereiste bedrijfsverklaring ontbreekt.",
                 "labelLink": "Bedrijf toewijzen"
             }
         }
     },
     "entityCategories": {
         "admin_user": {
-            "title": "Admin gebruiker",
+            "title": "Administratie gebruiker",
             "entities": {
                 "integration": "integratie",
                 "user": "Gebruiker",
@@ -4541,7 +4684,7 @@
                 "customer_address": "Adres",
                 "customer_group": "Groep klant",
                 "customer_group_translation": "Klantengroep vertaling",
-                "customer_group_registration_sales_channels": "Verkoopkanaal voor klantgroepregistratie",
+                "customer_group_registration_sales_channels": "Verkoopkanaal voor klantgroepregistraties",
                 "customer_recovery": "Herstel",
                 "customer_tag": "Label"
             }
@@ -4558,7 +4701,7 @@
             "title": "Documenten",
             "entities": {
                 "document": "Document",
-                "document_base_config": "Basis configuratie",
+                "document_base_config": "Basisconfiguratie",
                 "document_base_config_sales_channel": "Basisconfiguratie voor verkoopkanalen",
                 "document_type": "Type",
                 "document_type_translation": "Type vertaling"
@@ -4599,8 +4742,8 @@
         "media": {
             "title": "Media",
             "entities": {
-                "media": "Media",
-                "media_translation": "Media Vertaling",
+                "media": "Medium",
+                "media_translation": "Medium vertaling",
                 "media_default_folder": "Standaard map",
                 "media_folder": "Map",
                 "media_folder_configuration": "Map-configuratie",
@@ -4654,11 +4797,11 @@
             "entities": {
                 "product": "Product",
                 "product_category": "Categorie",
-                "product_category_tree": "Categorie Boom",
+                "product_category_tree": "Categorie boom",
                 "product_configurator_setting": "Configurator-instelling",
-                "product_cross_selling": "Cross verkopen",
-                "product_cross_selling_translation": "Cross selling vertaling",
-                "product_cross_selling_assigned_products": "Cross selling toegewezen vertaling",
+                "product_cross_selling": "Cross Verkopen",
+                "product_cross_selling_translation": "Cross Selling vertaling",
+                "product_cross_selling_assigned_products": "Cross Selling toegewezen vertaling",
                 "product_export": "Product export",
                 "product_keyword_dictionary": "Trefwoord woordenboek",
                 "product_manufacturer": "Fabrikant",
@@ -4716,15 +4859,15 @@
                 "sales_channel_payment_method": "Betaalmethode",
                 "sales_channel_shipping_method": "Verzendmethode",
                 "sales_channel_translation": "Sales Channel vertaling",
-                "sales_channel_type": "Type",
-                "sales_channel_type_translation": "Type vertaling"
+                "sales_channel_type": "Type verkoopkanaal",
+                "sales_channel_type_translation": "Vertaling type verkoopkanaal"
             }
         },
         "settings": {
             "title": "Instellingen",
             "entities": {
                 "country": "Land",
-                "country_state": "Land staat",
+                "country_state": "Staat/provincie",
                 "currency": "Munt",
                 "delivery_time": "Levertijd",
                 "language": "Taal",
@@ -4748,7 +4891,7 @@
                 "tax": "Belasting",
                 "tax_rule": "Belastingregel",
                 "tax_rule_type": "Type fiscale regel",
-                "unit": "Eenheid",
+                "unit": "Schaal eenheid",
                 "version": "Versie"
             }
         },
@@ -4944,7 +5087,7 @@
             "placeholderSalesChannels": "Selecteer Verkoopkanalen...",
             "placeholderMailTemplate": "Selecteer een e-mailsjabloon...",
             "titleRecipientsCard": "E-mail ontvangers",
-            "textEmptyStateRecipients": "Er zijn nog geen extra ontvangers voor dit evenement. - E-mails van klanten worden ongeacht verzonden.",
+            "textEmptyStateRecipients": "Alternatieve ontvangers toevoegen - Indien ingesteld e-mails van klanten zullen worden vervolgd!",
             "columnRecipientName": "Naam",
             "columnRecipientMail": "E-mailadres",
             "addRecipientButton": "Ontvanger toevoegen",
@@ -4954,7 +5097,7 @@
     },
     "sw-settings-logging": {
         "general": {
-            "mainMenuItemGeneral": "Logging",
+            "mainMenuItemGeneral": "Logboeken voor gebeurtenissen",
             "placeholderSearchBar": "In logs zoeken..."
         },
         "list": {
@@ -5181,6 +5324,7 @@
             "buttonNextPayPalInfo": "Configureren",
             "buttonBack": "Terug",
             "buttonInstall": "Installeren",
+            "buttonActivate": "Activeren",
             "buttonFinish": "Gereed",
             "buttonConfigureLater": "Later instellen",
             "pluginInstalled": "Geïnstalleerd"
@@ -5189,16 +5333,16 @@
             "modalTitle": "Welkom",
             "headlineWelcome": "Welkom bij de Shopware 6 Administration",
             "messageWelcome": "Deze configuratieassistent begeleid door de belangrijkste instellingen en geeft waardevolle tips voor de configuratie.<br>Moet deze shop in een andere taal beschikbaar zijn en zo ook klanten in andere landen bereiken? Dan kan hier eenvoudig de gewenste taalpakketten worden geïnstalleerd.",
-            "headlineChangeLanguage": "Installeer extra taalpakketten",
+            "headlineChangeLanguage": "Extra talen installeren",
             "switchLanguageModalTitle": "Selecteer gebruikersinterface taal",
             "confirmLanguageSwitch": "Taal wijzigen",
             "cancelLanguageSwitch": "Annuleren",
             "switchLanguageMessage": "\"{pluginName}\" is succesvol geïnstalleerd. Moet de interfacetaal worden gewijzigd?",
-            "pluginsInstalled": "Taalplug-in{plural} geïnstalleerd",
-            "pluginsInstalledMessage": "Taal plug-in is geïnstalleerd: | Deze taal plug-ins zijn geïnstalleerd: ",
-            "pluginNotFoundMessage": "De taal plug-in voor {languageName} kan niet worden gevonden.",
-            "pluginInstallationFailedMessage": "Plug-in kon niet worden geïnstalleerd: ",
-            "pluginActivationFailedMessage": "Plug-in kon niet worden geactiveerd: ",
+            "pluginsInstalled": "Uitbreiding geïnstalleerd | Extensies geïnstalleerd",
+            "pluginsInstalledMessage": "Language extension is geïnstalleerd: | Deze taalextensies zijn geïnstalleerd: ",
+            "pluginNotFoundMessage": "De taalextensie {languageName} kon niet worden gevonden.",
+            "pluginInstallationFailedMessage": "Uitbreiding kon niet worden geïnstalleerd: ",
+            "pluginActivationFailedMessage": "Uitbreiding kon niet worden geactiveerd: ",
             "tryAgainLater": "Probeer het later opnieuw.",
             "noConnectionMessage": "Er lijken verbindingsproblemen te zijn, de taal kan niet worden geïnstalleerd."
         },
@@ -5210,7 +5354,7 @@
             "headlineMigration": "Eigen Shop migreren",
             "messageMigration": "De migratie-assistant helpt om connectie te leggen en data over te zetten van een vorig shop systeem rechtstreeks in de nieuwe Shopware 6 omgeving.",
             "buttonInstallMigration": "Migratie-assistent installeren",
-            "loadingMessage": "Installeert de plug-in<br/>Dit kan even duren…"
+            "loadingMessage": "Uitbreiding<br>installeren Dit kan even duren..."
         },
         "mailerSelection": {
             "headline": "Inrichting van de e-mailcommunicatie",
@@ -5247,7 +5391,7 @@
         },
         "recommendedPlugins": {
             "headline": "Onze aanbevelingen",
-            "modalTitle": "Plug-ins",
+            "modalTitle": "Extensies",
             "message": "Hier is een selectie van zinvolle uitbreidingen voor de shop. Selecteer eerst een regio die relevant is en blader daarna door verschillende categorieën.",
             "availableInRegion": "Beschikbaar in regio",
             "category": "Categorie",
@@ -5277,6 +5421,24 @@
             "labelCreateDomain": "Maak een nieuw shop-domain",
             "testEnvironment": "Testomgeving"
         },
+        "store": {
+            "modalTitle": "Winkelware Winkel",
+            "loadStatusCollect": "Verzamel gegevens over de winkel...",
+            "takeMinutes": "Dit kan een paar minuten duren.",
+            "alreadyActivated": "Store is al geactiveerd.",
+            "enablingStore": "De Shopware Store inschakelen... ",
+            "activationErrorTitle": "Fout bij activering",
+            "activationErrorDescription": "Vraag uw beheerder om hulp.",
+            "headingOne": "Ontdek en koop eenvoudig extensies -",
+            "headingTwo": "rechtstreeks vanuit uw eigen Shopware shop.",
+            "description": "Activeer de geheel nieuwe Shopware Store en krijg toegang tot tal van handige extensies en moderne thema's die naadloos in uw winkel kunnen worden geïntegreerd - zonder programmeervaardigheden."
+        },
+        "markets": {
+            "modalTitle": "Shopware Markten",
+            "heading": "Shopware Markten",
+            "description": "Met Shopware Markets kun je je winkel verbinden met de Amazon-marketplaces en eBay-marketplaces, terwijl je de overdracht van producten en bestellingen zo gemakkelijk mogelijk maakt.<br>Shopware Markets is ontworpen om uw bedrijf nog verder te laten groeien met behulp van Sales Channels*¹.",
+            "footnote": "*¹ Voor het gebruik van Shopware Markets toegevoegde verkoopkanalen is een betaald abonnement vereist."
+        },
         "finish": {
             "headlineAllDone": "Hartelijk gefeliciteerd!",
             "message": "Je Shopware 6 {edition} is nu geverifieerd.",
@@ -5288,14 +5450,17 @@
             "forumLabel": "Forum",
             "forumUrl": "https://forum.shopware.com/",
             "roadmapLabel": "Roadmap",
-            "roadmapUrl": "https://www.shopware.com/de/roadmap/"
+            "roadmapUrl": "https://www.shopware.com/de/roadmap/",
+            "modalTitle": "Gedaan"
         },
         "stepItemTitle": {
             "dataImport": "Gegevensimport",
             "mailer": "Mail-instellingen",
             "setupPaypal": "PayPal-instelling",
-            "plugins": "Plug-ins",
-            "shopware": "Shopware Account"
+            "plugins": "Extensies",
+            "shopware": "Shopware Account",
+            "store": "Winkelware Winkel",
+            "markets": "Shopware Markten"
         }
     },
     "sw-sales-channel": {
@@ -6043,7 +6208,7 @@
             "messageSaveError": "De klant kon niet worden opgeslagen.",
             "messageSaveSuccess": "De klant \"{name}\" is succesvol opgeslagen.",
             "notificationPasswordErrorMessage": "De ingevoerde wachtwoorden komen niet overeen.",
-            "notificationPasswordLengthErrorMessage": "Het opgegeven wachtwoord voldoet niet aan de minimale lengte-eis van 8."
+            "notificationPasswordLengthErrorMessage": "Het ingediende wachtwoord voldoet niet aan de minimale lengtevereiste van acht tekens."
         },
         "filter": {
             "salutation": {
@@ -6073,7 +6238,9 @@
             "tags": {
                 "label": "Labels",
                 "placeholder": "Tags selecteren..."
-            }
+            },
+            "messageEmptyTitle": "Niets gevonden",
+            "messageEmptySubline": "Bewerk uw filters om resultaten te vinden."
         }
     },
     "sw-settings-document": {
@@ -6725,13 +6892,14 @@
         },
         "roles": {
             "general": {
-                "labelCreateNewRole": "Nieuwe rol aanmaken",
+                "labelCreateNewRole": "Rol maken",
                 "cardLabel": "Rollen"
             },
             "role-grid": {
                 "labelName": "Naam",
                 "labelDescription": "Beschrijving",
                 "messageEmptyTitle": "Nog geen rollen",
+                "messageEmptySubline": "Maak rollen om gebruikersrechten te beheren.",
                 "contextMenuEdit": "Bewerken",
                 "contextMenuDelete": "Verwijderen",
                 "titleModalDelete": "Rol verwijderen",
@@ -6740,10 +6908,10 @@
                 "labelButtonDelete": "Verwijderen",
                 "notification": {
                     "deleteSuccess": {
-                        "message": "Rol \"{name}\" is verwijderd."
+                        "message": "Rol \"{name}\" verwijderd."
                     },
                     "deleteError": {
-                        "message": "Een fout is opgetreden tijdens het verwijderen van rol \"{name}\"."
+                        "message": "De rol \"{name}\" kon niet worden verwijderd."
                     }
                 }
             },
@@ -6766,7 +6934,7 @@
             },
             "view": {
                 "detailed": {
-                    "alertText": "In deze weergave kunnen privileges in detail worden geconfigureerd. Deze configuratie is alleen nodig in uitzonderlijke situaties. Als bijvoorbeeld extensies worden gebruikt in het systeem die nieuwe datasets toevoegen maar geen privileges hebben, kunnen deze hier worden geconfigureerd. Alle gedeactiveerde selectievakjes zijn machtigingen die al zijn toegewezen op het tabblad „Algemeen”."
+                    "alertText": "Configureer bevoegdheden in detail. Alle gedeactiveerde selectievakjes zijn machtigingen die al zijn toegewezen op het tabblad „Algemeen” en zijn niet configureerbaar. Deze configuratie is alleen nodig als er bijvoorbeeld extensies worden gebruikt die nieuwe datasets toevoegen maar geen privileges hebben, deze kunnen hier worden geconfigureerd."
                 }
             },
             "tabs": {
@@ -6797,10 +6965,10 @@
                 "labelButtonDelete": "Verwijderen",
                 "notification": {
                     "deleteSuccess": {
-                        "message": "Gebruiker \"{name}\" is verwijderd."
+                        "message": "Gebruiker \"{name}\" verwijderd."
                     },
                     "deleteError": {
-                        "message": "Er is een fout opgetreden tijdens het verwijderen van gebruiker {name}\"."
+                        "message": "De gebruiker \"{name}\" kon niet worden verwijderd."
                     },
                     "deleteUserLoggedInError": {
                         "message": "Gebruikers kunnen zichzelf niet verwijderen."
@@ -6812,7 +6980,7 @@
                 "labelIntegrationsCard": "Integraties",
                 "labelFirstName": "Voornaam",
                 "labelLastName": "Achternaam",
-                "labelEmail": "E-mail",
+                "labelEmail": "E-mailadres",
                 "errorEmailUsed": "Dit e-mailadres is al in gebruik.",
                 "errorUsernameUsed": "De gebruikersnaam is al in gebruik.",
                 "labelUsername": "Gebruikersnaam",
@@ -6827,17 +6995,19 @@
                 "labelNewPassword": "Nieuwe wachtwoord",
                 "labelNewUser": "Nieuwe gebruiker",
                 "placeholderNewPassword": " een nieuw wachtwoord in...",
-                "placeholderNewPasswordConfirm": "Herhaal je nieuwe wachtwoord...",
+                "placeholderNewPasswordConfirm": "Bevestig nieuw wachtwoord...",
                 "labelButtonCancel": "Annuleren",
                 "labelButtonChangePassword": "Wijzigen",
                 "labelButtonSave": "Opslaan",
+                "writeAccess": "Schrijven",
+                "readAccess": "Lees",
                 "contextMenuEdit": "Bewerken",
                 "contextMenuDelete": "Verwijderen",
                 "textChangePassword": "Als u op de knop „wijzigen” drukt, wordt het nieuwe wachtwoord onmiddellijk opgeslagen!",
-                "addAccessKey": "Nieuwe toegangssleutel",
+                "addAccessKey": "Toegangssleutel maken",
                 "labelAccessKey": "Toegangssleutel",
                 "labelPermissions": "Rechten",
-                "disabledRoleSelectWarning": "Rollen zijn alleen beschikbaar voor gebruikers die geen \"beheerder\" zijn.",
+                "disabledRoleSelectWarning": "Rollen zijn alleen beschikbaar voor gebruikers die geen beheerdersrechten hebben.",
                 "passwordConfirmation": {
                     "titleConfirmPasswordModal": "Voer uw huidige wachtwoord in om te bevestigen",
                     "labelConfirmPassword": "Password",
@@ -6859,18 +7029,18 @@
                     "hintCreateNewApiKeys": "Voor het genereren van nieuwe API-toegangsgegevens, is het bijwerken van alle bijbehorende scripts en toepassingen aanbevolen.",
                     "labelFieldLabel": "Naam",
                     "idFieldLabel": "Toegangs-ID",
-                    "secretFieldLabel": "Geheime toegangssleutel",
+                    "secretFieldLabel": "Beveiligde toegangssleutel",
                     "secretHelpText": "Kopieer nu je veiligheidssleutel. Om veiligheidsredenen wordt deze na het opslaan niet meer getoond.",
-                    "messageSaveSuccess": "Integratie is opgeslagen.",
+                    "messageSaveSuccess": "Integratie opgeslagen",
                     "messageSaveError": "De integratie kon niet worden opgeslagen.",
                     "messageCreateNewError": "De integratie kon niet worden opgeslagen."
                 },
                 "notification": {
                     "saveError": {
-                        "message": "Er is een fout opgetreden tijdens het opslaan van gebruiker {name}\"."
+                        "message": "De gebruiker \"{name}\" kon niet worden opgeslagen."
                     },
                     "saveSuccess": {
-                        "message": "Gebruiker \"{name}\" is opgeslagen."
+                        "message": "Gebruiker \"{name}\" opgeslagen."
                     },
                     "invalidEmailErrorMessage": " een geldig e-mailadres in.",
                     "duplicateEmailErrorMessage": "Dit e-mailadres is al eerder geregistreerd."
@@ -6908,143 +7078,6 @@
             "labelUseAsLogo": "Als logo gebruiken"
         }
     },
-    "sw-plugin": {
-        "general": {
-            "mainMenuItemGeneral": "Plug-ins",
-            "mainMenuPluginList": "Geïnstalleerd",
-            "mainMenuLicenseList": "Mijn licenties",
-            "descriptionTextModule": "Beheer van plug-ins",
-            "placeholderSearchBar": "Zoek in alle plug-ins",
-            "tabList": "Mijn plug-ins",
-            "tabLicenses": "Aankopen",
-            "tabUpdates": "Updates",
-            "version": "Versie",
-            "accountLink": "https://account.shopware.com/?lang=de",
-            "accountLabel": "Ga naar Shopware account",
-            "login": "Aanmelden",
-            "logout": "Afmelden",
-            "messageDownloadSuccess": "De plug-in is succesvol gedownload",
-            "downloadButton": "Laden",
-            "recommendationsLabel": "Aanbevelingen",
-            "storeLink": "https://store.shopware.com/",
-            "storeLabel": "Shopware Store",
-            "storeNotAvailable": "Er kon geen verbinding met de Shopware Store tot stand worden gebracht.",
-            "loggedIn": "Aangemeld als"
-        },
-        "errors": {
-            "messageToTheShopwareDocumentation": "<a href=\"{documentationLink}\" target=\"_blank\">Naar documentatie van Shopware</a>",
-            "messageGenericFailure": "Dat werkte niet.",
-            "messageUploadFailureNotAZipFile": "Het geüploade bestand is geen zip-bestand",
-            "messageUploadFailureUnzipFailed": "Het zip-bestand kon niet worden uitgepakt",
-            "messageUploadFailureNoPluginFoundInZipFile": "In het geüploade zip-bestand werd geen plug-in gevonden",
-            "messageLoginDataInvalid": "De inloggegevens werden niet volledig ingevoerd",
-            "messageStoreLicenseDomainMissing": "Om succesvol aan te kunnen melden, moet je de eerst in \"Instellingen/Shopware-account\" je licentiedomein aangeven.",
-            "messageStoreNotAvailable": "Shopware Store is niet bereikbaar.",
-            "messagePluginBaseClassNotFound": "Het startpunt van de plug-in kon niet worden geladen. Zorg ervoor dat de basisklasse correct geladen kan worden.",
-            "messagePluginInstallationFailed": "Plug-in kon vanwege de foutmelding \"{message}\" niet worden geïnstalleerd",
-            "messagePluginUninstallationFailed": "Plug-in kon vanwege de foutmelding \"{message}\" niet worden gedeïnstalleerd",
-            "messagePluginActivationFailed": "Plug-in kon vanwege de foutmelding \"{message}\" niet worden geactiveerd",
-            "messagePluginDeactivationFailed": "Plug-in kon vanwege de foutmelding \"{message}\" niet worden gedeactiveerd",
-            "messageDeactivationFailedDependencies": "De plug-in \"{dependency}\" kon niet worden gedeactiveerd, omdat daar andere plug-ins afhankelijk van zijn. Deactiveer de volgende plug-ins voor herstarten van de update: {dependantNames}",
-            "messagePluginUpdateFailed": "Plug-in kan niet worden bijgewerkt vanwege een foutmelding \"{message}\". {pluginDeactivatedHint}",
-            "pluginDeactivatedHint": "Plug-in is gedeactiveerd."
-        },
-        "fileUpload": {
-            "buttonFileUpload": "Plug-in uploaden",
-            "messageUploadSuccess": "De plug-in is succesvol geüpload",
-            "buttonRefreshPlugins": "Overzicht bijwerken"
-        },
-        "store-login": {
-            "headline": "Shopware Account - Inloggen",
-            "information": "De Shopware Account is uw belangrijkste hub voor interactie met alle Shopware diensten.",
-            "loginMessage": "Ingelogd in het Shopware account.",
-            "labelEmailAddress": "E-mailadres",
-            "placeholderEmailAddress": "Voer uw e-mailadres in...",
-            "labelPassword": "Wachtwoord",
-            "placeholderPassword": "Voer uw wachtwoord in...",
-            "buttonLogin": "Aanmelden",
-            "buttonCancel": "Annuleren",
-            "footerNoAccount": "Heb je nog geen Shopware Account?",
-            "footerRegisterAccount": "Maak nu uw Shopware Account aan!",
-            "forgotPassword": "Ben je je wachtwoord vergeten?",
-            "forgotPasswordUrl": "https://account.shopware.com/recovery?lang=de",
-            "registerAccountUrl": "https://account.shopware.com/register?lang=de"
-        },
-        "list": {
-            "textPluginManager": "Plug-ins",
-            "messageEmpty": "Nog geen extensies geïnstalleerd.",
-            "columnPluginName": "Plug-in",
-            "columnVersion": "Versie",
-            "columnInstalledAt": "Geïnstalleerd op",
-            "columnUpdatedAt": "Bijgewerkt op",
-            "columnLicense": "Licentie",
-            "columnActive": "Status",
-            "columnAuthor": "Fabrikant",
-            "columnPlugin": "Plug-in",
-            "columnChangelog": "Nieuwe functies",
-            "titleSidebarItemRefresh": "Bijwerken",
-            "contextInstall": "Installeren",
-            "contextUninstall": "De-installeren",
-            "contextActivate": "Activeren",
-            "contextDeactivate": "Deactiveren",
-            "contextUpdate": "Update op",
-            "contextDelete": "Verwijderen",
-            "pluginHeader": "Mijn plug-ins",
-            "sortUpgradedAtAsc": "Laatst bijgewerkt",
-            "sortPluginNameAsc": "Plug-innamen, oplopend",
-            "sortPluginNameDsc": "Plug-innamen, aflopend",
-            "sortLabel": "Sorteren op:",
-            "messageActivateSuccess": "Activering van de plug-in is geslaagd.",
-            "messageDeactivateSuccess": "Deactivering van de plug-in is geslaagd.",
-            "messageInstallSuccess": "De installatie van de plug-in is geslaagd.",
-            "messageUninstallSuccess": "Deïnstallatie van de plug-in is geslaagd.",
-            "messageDeleteSuccess": "Verwijdering van de plug-in is geslaagd.",
-            "messageUpdateSuccess": "Bijwerken van de plug-in is geslaagd.",
-            "messageDeleteConfirm": "Weet je zeker dat je deze plug-in wilt verwijderen?",
-            "titleUninstallConfirm": "Plug-in de-installeren",
-            "messageUninstallConfirm": "Zeker weten om {pluginName} te verwijderen?",
-            "labelRemovePluginData": "Verwijder alle plug-in gegevens permanent",
-            "helpTextRemovePluginData": "Waarschuwing: alle gegevens van de plug-in worden definitief verwijderd. Dit proces is onomkeerbaar.",
-            "labelUninstallButton": "Deïnstalleren",
-            "deactivated": "Gedeactiveerd",
-            "activated": "Geactiveerd",
-            "config": "Configuratie",
-            "description": "Beschrijving",
-            "tooltipActivationDisabled": "Je kunt alleen geïnstalleerde plug-ins activeren."
-        },
-        "license-list": {
-            "textMyPurchases": "Ingekochte licenties",
-            "columnName": "Plug-in",
-            "columnCreationDate": "Gekocht op",
-            "columnExpirationDate": "Geldig tot",
-            "columnType": "Variant",
-            "messageEmpty": "Er zijn geen licenties beschikbaar",
-            "messageNotLoggedIn": "Shopware account - login nodig!",
-            "labelAccountLogin": "Login bij mijn Shopware-account",
-            "labelType_buy": "Koop",
-            "labelType_rent": "Huur",
-            "labelType_test": "Test",
-            "labelType_free": "Gratis",
-            "labelType_support": "Support tegen betaling"
-        },
-        "updates": {
-            "messageEmpty": "Er zijn geen updates beschikbaar",
-            "updateError": "Fout bij het laden van de updates",
-            "updateButton": "Bijwerken",
-            "updateAllButton": "Alles bijwerken",
-            "updateHeader": "Updates",
-            "lastUpdatesHeader": "Laatst bijgewerkt",
-            "messageUpdateSuccess": "De plug-in is succesvol bijgewerkt",
-            "messageUpdatesSuccess": "De plug-ins zijn succesvol bijgewerkt",
-            "cancelUpdates": "Annuleren"
-        }
-    },
-    "sw-plugin-config": {
-        "messageSaveSuccess": "De configuratie is succesvol opgeslagen."
-    },
-    "sw-plugin-description": {
-        "buttonBack": "Terug"
-    },
     "sw-settings": {
         "general": {
             "mainMenuItemGeneral": "Instellingen"
@@ -7053,7 +7086,7 @@
             "title": "Instellingen",
             "tabShop": "Shop",
             "tabSystem": "Systeem",
-            "tabPlugins": "Plug-ins"
+            "tabPlugins": "Extensies"
         },
         "system-config": {
             "labelSalesChannelSelect": "Verkoopkanaal",
@@ -7140,9 +7173,9 @@
         }
     },
     "sw-property-search": {
-        "placeholderSearch": "Zoeken naar eigenschappen …",
-        "selected": "{count} optie geselecteerd | {count} opties geselecteerd",
-        "noPropertiesFound": "Geen eigenschappen gevonden",
+        "placeholderSearch": "Waarden zoeken...",
+        "selected": "{count} geselecteerde waarde | {count} geselecteerde waarden",
+        "noPropertiesFound": "Geen eigenschapswaarden gevonden",
         "noPropertiesFoundDescription": "Probeer een andere zoekterm."
     },
     "sw-property-assignment": {
@@ -7169,10 +7202,11 @@
         "reload": "Opnieuw laden",
         "alertText": "We hebben een licentieschending ontdekt voor ten minste één van uw extensies in deze installatie. Om de schending van de licentie op te lossen en juridische gevolgen te vermijden, boekt u een extensieabonnement of koopt u de extensie (volgens het type overtreding). U gebruikt de extensie niet meer? Verwijder het vervolgens via de Mijn extensies. Als geen van deze maatregelen wordt genomen, behoudt shopware AG zich het recht voor om boetes in rekening te brengen voor elke schending van de licentie.",
         "deletePlugin": "Extensie permanent verwijderen",
-        "messageDeleteConfirm": "Wilt u de extensie \"{pluginName} \" volledig verwijderen?",
+        "messageDeleteConfirm": "Wilt u de extensie \"{pluginName}\" volledig verwijderen?",
         "checkboxMessage": "Ik heb kennis genomen van dit bericht en draag uiteindelijk de gevolgen ervan.",
         "closeModal": "Waarschuwing sluiten",
         "ignorePlugin": "Altijd negeren",
+        "successfullyDeleted": "Uitbreiding is verwijderd",
         "table": {
             "plugin": "Extensie",
             "warning": "Waarschuwing"
@@ -7373,7 +7407,7 @@
         "hasCriteria": "Heeft {criteriaName}"
     },
     "sw-filter-panel": {
-        "titleSidebarItemFilter": "Filter"
+        "titleSidebarItemFilter": "Filters"
     },
     "sw-sidebar-filter-panel": {
         "resetButton": "Alles opnieuw instellen"

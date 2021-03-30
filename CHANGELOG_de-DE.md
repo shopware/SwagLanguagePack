@@ -1,3 +1,6 @@
+# 1.2.0
+- B2B-459 - Fügt SwagEnterpriseSearch, PluginPublisher and B2bSuite hinzu
+
 # 1.1.0
 - LAN-56 - Der Befehl sales-channel:create verwendet jetzt nur noch die aktivierten Sprachen und die Standardsprachen
 - LAN-57 - Sprach-Criteria angepasst, um auch Zusatzsprachen anzuzeigen, die nicht mit diesem Sprachpaket in Verbindung stehen

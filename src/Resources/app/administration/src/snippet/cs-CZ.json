@@ -280,7 +280,13 @@
             "labelDownloadPdf": "Stáhnout PDF",
             "labelCreateNew": "Nově vytvořit",
             "messageEmptyTitle": "Dosud žádné dokumenty",
-            "messageEmptySubline": "Správa dokumentů."
+            "messageEmptySubline": "Správa dokumentů.",
+            "error": {
+                "DOCUMENT__NUMBER_ALREADY_EXISTS": "Dokument číslo {number} již byl přidělen."
+            },
+            "info": {
+                "DOCUMENT__NUMBER_WAS_CHANGED": "Duplikovat číslo dokumentu. Z příslušného rozsahu čísel bylo automaticky vykresleno následující číslo."
+            }
         },
         "documentModal": {
             "modalTitle": "Založit dokument",
@@ -319,6 +325,63 @@
             "message": "Následující automatické reklamní akce budou deaktivovány:",
             "messageNoItems": "Žádné automatické reklamní akce nejsou aktivní.",
             "buttonDisable": "Deaktivovat"
+        },
+        "filters": {
+            "documentFilter": {
+                "label": "Dokumenty",
+                "placeholder": "Vyberte stav dokumentu...",
+                "textHasCriteria": "Alespoň jeden dokument přiřazený",
+                "textNoCriteria": "Nebyly přiděleny žádné dokumenty"
+            },
+            "orderDateFilter": {
+                "label": "Datum objednávky"
+            },
+            "statusFilter": {
+                "label": "Stav objednávky",
+                "placeholder": "Vyberte stav objednávky..."
+            },
+            "paymentStatusFilter": {
+                "label": "Stav platby",
+                "placeholder": "Zvolte stav platby..."
+            },
+            "deliveryStatusFilter": {
+                "label": "Stav dodání",
+                "placeholder": "Zvolte stav doručení..."
+            },
+            "paymentMethodFilter": {
+                "label": "Způsob platby",
+                "placeholder": "Vyberte způsob platby..."
+            },
+            "shippingMethodFilter": {
+                "label": "Způsob přepravy",
+                "placeholder": "Vyberte způsob odeslání..."
+            },
+            "salesChannelFilter": {
+                "label": "Prodejní kanály",
+                "placeholder": "Vyberte prodejní kanály..."
+            },
+            "billingCountryFilter": {
+                "label": "Země fakturace",
+                "placeholder": "Vyberte země fakturace..."
+            },
+            "shippingCountryFilter": {
+                "label": "Země přepravy",
+                "placeholder": "Vyberte země odesílání..."
+            },
+            "customerGroupFilter": {
+                "label": "Skupina zákazníků",
+                "placeholder": "Vyberte skupinu zákazníků..."
+            },
+            "tagFilter": {
+                "label": "Tagy",
+                "placeholder": "Vybrat tagy..."
+            },
+            "productFilter": {
+                "label": "Produkty",
+                "placeholder": "Vyberte produkty..."
+            },
+            "messageEmptyTitle": "Nic nenalezeno",
+            "messageEmptySubline": "Upravte filtry a najděte výsledky."
         }
     },
     "sw-privileges": {
@@ -378,7 +441,7 @@
                 "label": "Příjemci bulletinu"
             },
             "product_search_config": {
-                "label": "Vyhledávání produktů"
+                "label": "Vyhledávání"
             },
             "scale_unit": {
                 "label": "Jednotky měřítka"
@@ -443,7 +506,7 @@
         },
         "additional_permissions": {
             "orders": {
-                "create_discounts": "Vytvořit slevy",
+                "create_discounts": "Vytváření položek kreditu",
                 "label": "Objednávky"
             },
             "user": {
@@ -453,8 +516,9 @@
             "system": {
                 "core_update": "Spustit aktualizaci",
                 "plugin_maintain": "Udržovat rozšíření",
+                "extension_store": "Prodejna Shopware",
                 "clear_cache": "Vyprázdnit mezipaměť",
-                "logging": "Protokolování",
+                "logging": "Protokoly událostí",
                 "frw": "Průvodce prvním spuštěním",
                 "import_export": "Import/Export",
                 "label": "Nastavení",
@@ -466,7 +530,7 @@
             },
             "routes": {
                 "label": "Trasy",
-                "api_action_access-key_integration": "Vytvořit nový API klíč",
+                "api_action_access-key_integration": "Vytváření klíčů API",
                 "api_acl_privileges_get": "Číst všechna oprávnění ACL",
                 "api_acl_privileges_route_get": "Číst oprávnění tras ACL",
                 "api_action_cache_info": "Číst informace o mezipaměti",
@@ -558,7 +622,7 @@
     },
     "sw-cms": {
         "general": {
-            "placeholderSearchBar": "Prohledat rozvržení...",
+            "placeholderSearchBar": "Prohledávání rozvržení...",
             "mainMenuItemGeneral": "Svět zážitků",
             "moduleTitle": "Svět zážitků",
             "greeting": "Rozvržení",
@@ -1209,6 +1273,7 @@
                 "infoTextProductDetailPages": "Rozložení lze vidět ve vašem obchodě pouze tehdy, když jej přiřadíte k aktivnímu produktu.",
                 "labelCategories": "Kategorie",
                 "placeholderCategories": "Vyberte kategorie...",
+                "placeholderLandingPages": "Zvolte vstupní stránky...",
                 "labelSalesChannel": "Prodejní kanál",
                 "placeholderSalesChannel": "Vyberte prodejní kanál...",
                 "resetOptionSalesChannel": "Všechny prodejní kanály",
@@ -1219,6 +1284,8 @@
                 "confirmChangesRestorePrev": "Zlikvidujte",
                 "confirmChangesTextCategories": "Odebrali jste přiřazení rozvržení z kategorií. Pokud tyto změny potvrdíte, tyto kategorie již nebudou mít přiřazené rozvržení.",
                 "confirmChangesTextCategoriesAssignedLayouts": "Některé vybrané kategorie již mají přiřazené rozvržení. Pokud budete pokračovat, budou tato předchozí přiřazení nahrazena aktuálním rozvržením.",
+                "confirmChangesTextLandingPages": "Odebrali jste přiřazení rozvržení z vstupních stránek. Pokud tyto změny potvrdíte, tyto vstupní stránky již nebudou mít přiřazené rozvržení.",
+                "confirmChangesTextLandingPagesAssignedLayouts": "Některé vybrané vstupní stránky již mají přiřazené rozvržení. Pokud budete pokračovat, budou tato předchozí přiřazení nahrazena aktuálním rozvržením.",
                 "confirmChangesTextProducts": "Odebrali jste přiřazení rozvržení z produktů. Pokud tyto změny potvrdíte, tyto produkty již nebudou mít přiřazené rozvržení.",
                 "confirmChangesTextProductsAssignedLayouts": "Některé vybrané produkty již mají přiřazené rozvržení. Pokud budete pokračovat, budou předchozí přiřazení nahrazeny aktuálním rozvržením.",
                 "confirmChangesTextShopPages": "Odebrali jste přiřazení rozvržení ze stránek obchodu. Pokud tyto změny potvrdíte, tyto stránky obchodu již nebudou mít přiřazené rozvržení",
@@ -1228,6 +1295,7 @@
                 "shopPagesSaveError": "Nelze uložit stránky obchodu",
                 "tabCategories": "Kategorie",
                 "tabShopPages": "Stránky obchodu",
+                "tabLandingPages": "Přistávací stránky",
                 "shopPages": {
                     "tosPage": "Stránky TOS",
                     "revocationPage": "Oznámení o zrušení",
@@ -1536,7 +1604,7 @@
                 "keywords": "Klíčová slova",
                 "length": "Délka",
                 "linked": "Propojeno",
-                "manufacturer": "Výrobce",
+                "manufacturerId": "Výrobce",
                 "manufacturerNumber": "Číslo výrobce",
                 "markAsTopseller": "Označen jako top prodejce",
                 "maxDeliveryTime": "Maximální lhůta dodávky",
@@ -1549,7 +1617,7 @@
                 "option": "Volba",
                 "packUnit": "Jednotka balení",
                 "packUnitPlural": "Jednotka balení větší množství",
-                "price": "Cena",
+                "cheapestPrice": "Cena",
                 "product": "Výrobek",
                 "productNumber": "Číslo výrobku",
                 "purchasePrice": "Prodejní cena",
@@ -1704,7 +1772,9 @@
             "ascending": "Vzestupně",
             "descending": "Sestupně",
             "xTimesIn": "{n} krát v",
-            "close": "Zavřít"
+            "close": "Zavřít",
+            "from": "Od",
+            "to": "Na"
         },
         "notification": {
             "notificationSaveErrorMessage": "Při ukládání entity \"{entityName}\" došlo k chybě.",
@@ -2688,7 +2758,12 @@
     "sw-settings-number-range": {
         "general": {
             "mainMenuItemGeneral": "Číselné okruhy",
-            "placeholderSearchBar": "Prohledat číselné okruhy..."
+            "placeholderSearchBar": "Prohledat číselné okruhy...",
+            "infoGlobalType": "Může existovat pouze jeden rozsah čísel \"{typeName}“. Změny číselného rozsahu typu \"{typeName}\" musí být provedeny zde a globálně ovlivní všechny prodejní kanály.",
+            "infoGlobalTypeTitle": "Typ globálního číselného rozsahu \"{typeName}“",
+            "infoGlobal": "Typ globálního rozsahu čísel nelze změnit. Můžete však vytvořit další rozsahy čísel pro většinu typů a konkrétní prodejní kanály zpět v přehledu.",
+            "infoGlobalTitle": "Globální číselný rozsah \"{name}“",
+            "infoSalesChannelBound": "Chcete-li změnit typ rozsahu čísel, odeberte nejprve všechny přiřazení prodejního kanálu."
         },
         "list": {
             "textHeadline": "Číselné okruhy",
@@ -3006,9 +3081,11 @@
             "descriptionLabel": "Popis",
             "messageSaveSuccess": "Kategorie \"{name}\" byla úspěšně uložena.",
             "useAsLogo": "Použít jako zobrazení na obrazovce",
-            "treeHeadline": "Struktura kategorie",
+            "treeHeadline": "Kategorie",
             "treeHeadSelected": "Počet vybraných: {count}",
             "emptyStateHeadline": "Žádná kategorie nebyla vybrána",
+            "errorNavigationEntryPoint": "Tato kategorie je definována jako hlavní navigace alespoň jednoho prodejního kanálu, a proto ji nelze odstranit.",
+            "errorNavigationEntryPointMultiple": "Jedna nebo více kategorií je definováno jako hlavní navigace alespoň jednoho prodejního kanálu, a proto ji nelze odstranit.",
             "actions": {
                 "actionsDisabledInLanguage": "Kategorie lze vytvářet jen ve standardním jazyce.",
                 "createSub": "Nová subkategorie",
@@ -3022,58 +3099,54 @@
             "products": "Produkty",
             "seo": "SEO",
             "columnInfoHeader": "Prvek zápatí",
-            "columnInfo": "Tato kategorie nastaví určený sloupec v zápatí. Název kategorie se zobrazí jako nadpis sloupce bez kliknutí. Všechny níže uvedené kategorie jsou zobrazeny jako řádky s možností kliknutí pod nadpisem sloupce."
+            "columnInfo": "Tato kategorie nastaví určený sloupec v zápatí. Název kategorie se zobrazí jako nadpis sloupce. Všechny kategorie na první úrovni pod touto kategorií jsou zobrazeny jako řádky pod nadpisem sloupce."
         },
         "base": {
             "general": {
                 "categoryNameLabel": "Název",
                 "headlineInformationCard": "Všeobecně",
-                "isCategoryActiveLabel": "Kategorie je aktivní",
+                "isCategoryActiveLabel": "Aktivní",
                 "useAsLink": "Použít jako odkaz",
                 "labelCategoryTags": "Tagy",
                 "labelCategoryTagsPlaceholder": "Zadejte jednotlivé tagy...",
                 "types": {
                     "title": "Typ kategorie",
-                    "page": "Kategorie",
-                    "folder": "Vstupní bod",
-                    "link": "Uživatelem definovaný odkaz",
-                    "column": "Sloupec",
-                    "entrypoint": "Vstupní bod",
-                    "pageList": "Stránka/Seznam",
-                    "help": "Kategorii struktury nelze samotnou vyvolat, slouží jen k rozčlenění."
-                }
-            },
-            "entry-point": {
-                "title": "Vstupní bod",
-                "navigation": {
-                    "descriptionGeneral": "Tuto kategorii jste přiřadili v následujících prodejních kanálech jako vstupní bod pro hlavní navigaci:"
-                },
-                "serviceSales": {
-                    "descriptionGeneral": "Tuto kategorii jste přiřadili v následujících prodejních kanálech jako vstupní bod pro servisní navigaci:"
-                },
-                "footerSales": {
-                    "descriptionGeneral": "Tuto kategorii jste přiřadili v následujících prodejních kanálech jako vstupní bod pro navigaci v zápatí:"
+                    "page": "Stránka/Seznam",
+                    "folder": "Strukturovací prvek/Vstupní bod",
+                    "link": "Odkaz",
+                    "linkUnavailable": "Spojení (nelze vybrat, pokud je kategorie definována jako vstupní bod)",
+                    "help": "Kategorii struktury nelze samotnou vyvolat, slouží jen k rozčlenění.",
+                    "helpText": {
+                        "page": "Stránka/seznam má přidružené produkty a lze k ní přistupovat přímo s přiřazeným rozvržením.",
+                        "folder": "Prvek strukturování/vstupní bod se zobrazí pouze ve struktuře a není přímo přístupný, s výjimkou toho, že je přiřazen jako vstupní bod prodejního kanálu.",
+                        "link": "Odkaz umožňuje odkazovat na produkt, jinou kategorii, vstupní stránku nebo externí web."
+                    }
                 }
             },
             "entry-point-card": {
-                "cardTitle": "Vstupní bod",
+                "cardTitle": "Navigace",
                 "labelEntryPoint": "Vstupní bod",
                 "placeholderEntryPoint": "Vyberte vstupní bod...",
-                "labelSalesChannels": "Prodejní kanály",
-                "placeholderSalesChannels": "Vyberte prodejní kanál...",
-                "buttonConfigureHome": "Konfigurace domovské",
+                "existingNavigationDescription": "Tuto kategorii jste přiřadili jako vstupní bod pro hlavní navigaci v těchto prodejních kanálech:",
+                "labelSalesChannelsAdd": "Přiřazení prodejního kanálu",
+                "placeholderSalesChannels": "Přidat prodejní kanály...",
+                "buttonConfigureHome": "Konfigurovat domovskou stránku",
                 "types": {
                     "labelMainNavigation": "Hlavní navigace",
+                    "helpTextMainNavigation": "Vstupní bod hlavní navigace je povinné pole pro prodejní kanály. Pokud přiřadíte tuto kategorii jako vstupní bod pro hlavní navigaci k jednomu nebo více prodejním kanálům, můžete toto přiřazení změnit pouze na samotném prodejním kanálu.",
                     "labelFooterNavigation": "Navigace v zápatí",
-                    "labelServiceNavigation": "Servisní navigace"
+                    "helpTextFooterNavigation": "Pokud přiřadíte tuto kategorii jako vstupní bod pro navigaci v zápatí k jednomu nebo více prodejním kanálům, budou kategorie na další úrovni sloupce. To vám umožní rozdělit navigaci v zápatí do několika oblastí.",
+                    "labelServiceNavigation": "Servisní navigace",
+                    "helpTextServiceNavigation": "Pokud přiřadíte tuto kategorii jako vstupní bod navigace služby jednomu nebo více prodejním kanálům, kategorie na další úrovni se zobrazí jako druhá navigace v oblasti zápatí."
                 }
             },
             "entry-point-modal": {
-                "modalTitle": "Konfigurovat domovskou",
-                "salesChannelSelection": "Hlavní navigace vstupního bodu",
-                "showInMainNavigation": "Zobrazit jako Domů v hlavní navigaci",
-                "mainNavigationName": "Jméno v hlavní navigaci",
-                "mainNavigationNamePlaceholder": "Jméno v hlavní navigaci...",
+                "modalTitle": "Konfigurovat domovskou stránku",
+                "salesChannelSelection": "Prodejní kanál",
+                "showInMainNavigation": "Zobrazit v hlavní navigaci",
+                "mainNavigationName": "Zobrazovaný název",
+                "mainNavigationNamePlaceholder": "Zadejte alternativní název domovské stránky...",
+                "mainNavigationNameHelpText": "Ve výchozím nastavení je tato kategorie zobrazena jako „domov“. Pokud výchozí konfigurace neodpovídá aktuálnímu prodejnímu kanálu, zadejte alternativní zobrazovaný název.",
                 "layoutHeadline": "Rozvržení",
                 "seoSettingsHeadline": "SEO nastavení",
                 "metaTitleLabel": "Meta",
@@ -3154,6 +3227,10 @@
             "textDeleteConfirm": "Opravdu si přejete vymazat kategorii \"{name}\"?",
             "textDeleteChildrenConfirm": "Všechny podřízené kategorie budou rovněž smazány.",
             "textDeleteMultipleConfirm": "Opravdu si přejete vymazat tento počet vybraných kategorií: {count}?"
+        },
+        "entry-point-overwrite-modal": {
+            "textBefore": "Již jste přiřadili vstupní bod následujícímu prodejnímu kanálu: | Již jste přiřadili vstupní body následujícím prodejním kanálům:",
+            "textAfter": "Měl by být tento úkol přepsán? | Měly by být tyto úkoly přepsány?"
         }
     },
     "sw-landing-page": {
@@ -3165,13 +3242,16 @@
             "placeholderSearchBar": "Hledat vstupní stránky...",
             "treeHeadSelected": "{count} vybráno",
             "buttonCreate": "Přidat vstupní stránku",
-            "treeHeadline": "Přistávací stránky"
+            "treeHeadline": "Přistávací stránky",
+            "actions": {
+                "actionsDisabledInLanguage": "Vstupní stránky lze vytvořit pouze ve výchozím jazyce systému."
+            }
         },
         "base": {
             "general": {
                 "labelName": "Jméno",
                 "headlineInformationCard": "generál",
-                "isActiveLabel": "Úvodní stránka aktivní",
+                "isActiveLabel": "Aktivní",
                 "labelTags": "Tagy",
                 "labelTagsPlaceholder": "Zadejte popisky jednotlivě..."
             },
@@ -3182,11 +3262,11 @@
                 "labelMetaDescription": "Meta popis",
                 "labelKeywords": "SEO klíčová slova",
                 "labelUrl": "SEO URL",
-                "placeholderSalesChannel": "Vybral si prodejní kanál...",
+                "placeholderSalesChannel": "Vyberte prodejní kanál...",
                 "placeholderMetaTitle": "Zadejte titul meta...",
                 "placeholderMetaDescription": "Zadejte meta popis...",
                 "placeholderKeywords": "Zadejte jedno nebo více klíčových slov...",
-                "placeholderUrl": "Zadejte adresu URL..."
+                "placeholderUrl": "Zadejte URL..."
             },
             "cms": {
                 "title": "Přiřazení rozvržení",
@@ -3196,11 +3276,12 @@
                 "editInPagebuilderEmpty": "Vytvořit nové rozvržení",
                 "editContent": "Úprava obsahu",
                 "defaultTitle": "Výchozí rozvržení",
-                "defaultDesc": "Stránka kategorie"
+                "defaultDesc": "Stránka kategorie",
+                "cmsLayoutModalHeadline": "Úvodní stránka"
             }
         },
         "modal": {
-            "textDeleteConfirm": "Opravdu chcete odstranit úvodní stránku \"{name}„?",
+            "textDeleteConfirm": "Opravdu chcete smazat vstupní stránku \"{name}„?",
             "textDeleteMultipleConfirm": "Opravdu chcete smazat {count} vybraných vstupních stránek?"
         }
     },
@@ -3213,7 +3294,8 @@
             "columnLinkOnly": "Skryté",
             "linkAdvancedVisibility": "Konfigurovat rozšířenou viditelnost",
             "labelVisibility": "Viditelnost",
-            "closeModal": "Převzít"
+            "closeModal": "Převzít",
+            "bodyVisibility": "Přidat prodejní kanály, kde je produkt by měl být zobrazen. Můžete také dále definovat viditelnost produktu pro každý prodejní kanál Storefront prostřednictvím níže uvedeného odkazu."
         },
         "general": {
             "mainMenuItemGeneral": "Výrobky",
@@ -3223,10 +3305,13 @@
             "placeholderSearchBar": "Prohledat všechny výrobky...",
             "inheritanceModuleName": "Tento výrobek",
             "backToParent": "zpět k přehledu variant",
+            "backToGeneralOverview": "Zpět na obecný přehled",
             "copy": "Kopie",
             "cloneSuffix": "Varianty",
             "cloneNotice": "Varianty produktu se duplikují. Pokud by byl tento proces přerušen, může se stát, že by nebyly kompletně duplikovány všechny varianty. V takové případě lze varianty znovu vygenerovat v novém produktu.",
-            "cloneTitle": "Duplikovat varianty"
+            "cloneTitle": "Duplikovat varianty",
+            "tooltipModeSettings": "Nastavení režimu",
+            "textAdvancedMode": "Pokročilý režim"
         },
         "basicForm": {
             "labelTitle": "Titul",
@@ -3256,7 +3341,10 @@
             "textAddSearchKeyword": "Klikněte zde pro přidání vyhledávacího klíčového slova",
             "textEnterValidSearchKeyword": "Klíčová slova s možností vyhledávání",
             "helpTextSearchKeyword": "Produkt ve Storefront lze nalézt také pomocí těchto klíčových slov.",
-            "helpTextTags": "Štítky jsou určeny pouze pro vnitřní použití. Mohou vám pomoci spravovat skupiny produktů, aplikovat pravidla nebo sloužit jako vlastní vyhledávací výrazy."
+            "helpTextTags": "Štítky jsou určeny pouze pro vnitřní použití. Mohou vám pomoci spravovat skupiny produktů, aplikovat pravidla nebo sloužit jako vlastní vyhledávací výrazy.",
+            "categoriesTitle": "Kategorie a štítky",
+            "descriptionCategories": "Přidejte kategorie tak, aby byl produkt nalezen prostřednictvím hlavního menu Storefront nebo pomocí připojení API. Ujistěte se, že vyberete kategorie, které jsou dostupné a aktivní ve vybraném prodejním kanálu.",
+            "descriptionTags": "Značky vám pomohou najít produkty rychleji. Usnadňují seskupování produktů a mohou být využity k automatizaci úloh pomocí nástroje Rule Builder."
         },
         "priceForm": {
             "labelTaxRate": "Daňová sazba",
@@ -3306,7 +3394,7 @@
             "labelEan": "EAN",
             "labelManufacturerNumber": "Číslo výrobce",
             "labelStock": "Stav zásob skladem",
-            "labelActive": "Aktivní",
+            "labelActive": "Aktivní pro všechny vybrané prodejní kanály",
             "labelShippingFree": "Bez zasilatelských nákladů",
             "labelMarkAsTopseller": "Výrobek zvýraznit",
             "labelIsCloseout": "Výprodej",
@@ -3341,7 +3429,7 @@
         "detailBase": {
             "cardTitleDeliverabilityInfo": "Možnost dodání",
             "cardTitleProductInfo": "Informace",
-            "cardTitleAssignment": "Přiřazení",
+            "cardTitleAssignment": "Viditelnost a struktura",
             "cardTitlePrices": "Ceny",
             "cardTitleSettings": "Název",
             "cardTitlePackaging": "Opatření a balení",
@@ -3350,12 +3438,15 @@
             "cardTitleReviews": "Hodnocení",
             "cardTitleMedia": "Média",
             "labelContextMenuAddToProduct": "Přidat k výrobku",
-            "cardTitleSeo": "SEO"
+            "cardTitleSeo": "SEO",
+            "cardTitleVisibilityStructure": "Struktura viditelnosti"
         },
         "specifications": {
             "cardTitleMeasuresPackaging": "Opatření a balení",
             "cardTitleEssentialCharacteristics": "Základní vlastnosti",
-            "cardTitleCustomFields": "Vlastní pole"
+            "cardTitleCustomFields": "Vlastní pole",
+            "cardTitleProperties": "Vlastnosti",
+            "cardTitleCustomProduct": "Zakázkové produkty"
         },
         "seo": {
             "cardTitleSeo": "SEO"
@@ -3509,7 +3600,7 @@
             "generationNotificationCountDeletion": "1 varianta bude smazána | {count} variant bude smazáno",
             "generationNotificationButtonCancel": "Přerušit",
             "generationNotificationButtonContinue": "Vygenerovat",
-            "generatedFilterList": "Filtrovat seznam",
+            "generatedFilterList": "Seznam filtrů",
             "generatedListColumnVariation": "Varianta",
             "generatedListColumnPrice": "Cena (brutto / netto)",
             "generatedListColumnProductNumber": "Číslo výrobku",
@@ -3532,24 +3623,26 @@
             },
             "configuratorModal": {
                 "title": "Vygenerovat varianty",
-                "selectOptions": "Zvolit specifikace",
-                "selectOptionsExplanation": "Začněte volbou specifikací vlastností, ze kterých se mají vygenerovat varianty.",
-                "priceSurcharges": "Přirážky/slevy z ceny",
+                "selectOptions": "Výběr hodnoty",
+                "selectOptionsExplanation": "Vyberte hodnoty vlastností, ze kterých chcete generovat varianty.",
+                "selectRestrictionsExplanation": "Vyberte hodnoty vlastností, které chcete vyloučit z generování variant.",
+                "selectPricesExplanation": "Přidejte příplatky k hodnotám nebo měnám.",
+                "priceSurcharges": "Cenové příplatky",
                 "resetSurcharges": "Smazat přirážky/slevy",
-                "defineRestrictions": "Definovat výluky",
-                "priceOptions": "Specifikace",
-                "restrictedCombinations": "Vyloučené specifikace vlastností",
-                "searchRestrictions": "Prohledat vlastnosti...",
-                "addNewRestriction": "Přidat výluku",
-                "editRestriction": "Upravit výluku",
-                "deleteRestriction": "Smazat výluku",
+                "defineRestrictions": "Vyloučení hodnoty",
+                "priceOptions": "Hodnota",
+                "restrictedCombinations": "Hodnoty vyloučených vlastností",
+                "searchRestrictions": "Vyloučené hodnoty hledání...",
+                "addNewRestriction": "Vyloučit hodnoty",
+                "editRestriction": "Upravit",
+                "deleteRestriction": "Smazat",
                 "singleRestrictionSeperation": "A",
-                "deleteCombination": "Odstranit kombinace",
+                "deleteCombination": "Smazat",
                 "isOneFrom": "je jeden z",
                 "cancel": "Přerušit",
                 "save": "Uložit",
                 "searchPlaceholder": "Prohledat specifikace...",
-                "singleRestrictionAddTitle": "Přidat výluku",
+                "singleRestrictionAddTitle": "Vyloučit hodnoty",
                 "surchargeNotice": "Změny přirážek nemají žádný vliv na již generované varianty. K provedení změn ceny používejte stránku podrobností variant."
             },
             "deliveryModal": {
@@ -3573,7 +3666,7 @@
         "layout": {
             "title": "Přiřazení rozvržení",
             "subtitle": "Stránky detailů produktu můžete změnit přiřazením vlastních rozvržení. Pokud zde není přiřazeno žádné vlastní rozvržení, použije se výchozí rozvržení.",
-            "textNoConfig": "Aktuální vybrané rozvržení nemá žádné upravitelné prvky",
+            "textNoConfig": "Aktuálně vybrané rozvržení nemá žádné upravitelné prvky",
             "textContentInfo": "Výchozí bloky produktu jsou automaticky vyplněny daty produktu. Skutečný obsah zde tedy není uveden."
         },
         "crossselling": {
@@ -3618,7 +3711,7 @@
             "templateSelectFieldPlaceholder": "Vyberte jednu nebo několik šablon..."
         },
         "layoutAssignment": {
-            "title": "Výchozí záložní",
+            "title": "Výchozí hodnota",
             "subtitle": "Produktová stránka",
             "textAssignLayout": "Přiřadit rozvržení",
             "textChangeLayout": "Změna rozvržení",
@@ -3626,14 +3719,45 @@
             "textEditInDesigner": "Úpravy v návrháři"
         },
         "filters": {
+            "fromPlaceholder": "Zadejte počáteční hodnotu...",
+            "toPlaceholder": "Zadejte koncovou hodnotu...",
             "activeFilter": {
                 "label": "Aktivní",
                 "placeholder": "Vyberte stav..."
             },
             "imagesFilter": {
                 "label": "Obrázky",
-                "placeholder": "Vyberte stav obrázku..."
-            }
+                "placeholder": "Vyberte stav obrázku...",
+                "textHasCriteria": "Přinejmenším jeden obrázek produktu",
+                "textNoCriteria": "Nebyly přiřazeny žádné obrázky produktu"
+            },
+            "releaseDateFilter": {
+                "label": "Datum vydání"
+            },
+            "stockFilter": {
+                "label": "Sklad"
+            },
+            "priceFilter": {
+                "label": "Cena"
+            },
+            "manufacturerFilter": {
+                "label": "Výrobce",
+                "placeholder": "Vyberte výrobce..."
+            },
+            "salesChannelsFilter": {
+                "label": "Prodejní kanály",
+                "placeholder": "Vyberte prodejní kanály..."
+            },
+            "categoriesFilter": {
+                "label": "Kategorie",
+                "placeholder": "Vybrat kategorie..."
+            },
+            "tagsFilter": {
+                "label": "Tagy",
+                "placeholder": "Vybrat tagy..."
+            },
+            "messageEmptyTitle": "Nic nenalezeno",
+            "messageEmptySubline": "Upravte filtry, aby se zobrazily výsledky."
         },
         "notification": {
             "notificationSaveErrorProductNoAlreadyExists": "Produkt č. \"{productNo}\" je již přiřazen."
@@ -3873,6 +3997,7 @@
             "info": "Co je nového?",
             "requirements": "Systémové předpoklady",
             "plugins": "Kompatibilita doplňku",
+            "extensions": "Kompatibilita rozšíření",
             "updating": "Aktualizace"
         },
         "notifications": {
@@ -3916,6 +4041,7 @@
             },
             "actions": {
                 "openPluginManager": "Otevřít správce doplňků.",
+                "openMyExtensions": "Otevřít rozšíření",
                 "deactivateAll": "Deaktivovat všechny doplňky.",
                 "deactivateIncompatible": "Deaktivovat všechny nekompatibilní doplňky.",
                 "deactivateNone": "Jsem si vědom(a) potenciálních nebezpečí, a přesto chci provést aktualizaci, aniž by se příslušné doplňky nejdříve deaktivovaly. Je mi jasné, že společnost Shopware nemůže dát po nekompatibilní aktualizaci žádnou záruku funkčnosti mé instalace.",
@@ -3987,82 +4113,83 @@
         },
         "generalTab": {
             "labelSearchBehaviour": "Chování při hledání",
-            "textTitleSearchBehaviour": "Předdefinujte své chování při vyhledávání v úložišti.",
+            "textTitleSearchBehaviour": "Předdefinujte chování vyhledávání prodejních kanálů.",
             "labelSearchAndCondition": "„A“ Vyhledávání",
-            "textSearchAndConditionExplain": "Výsledky hledání odpovídají každému prvku zadaného hledaného výrazu.\nPříklad: „Jeans Summer“ najde produkty, které obsahují jak klíčová slova „džíny“, tak „léto“.",
+            "textSearchAndConditionExplain": "Výsledky hledání odpovídají každému prvku zadaného hledaného výrazu.\nPříklad: „Jeans summer“ najde výsledky hledání, které obsahují jak hledané výrazy „jeans“, tak „léto“.",
             "labelSearchOrCondition": "„OR“ Vyhledávání",
-            "textSearchOrConditionExplain": "Výsledky hledání odpovídají libovolnému prvku zadaného hledaného výrazu.\nPříklad: „Jeans Summer“ najde produkty, které obsahují buď klíčové slovo „džíny“ a „léto“.",
+            "textSearchOrConditionExplain": "Výsledky hledání odpovídají libovolnému prvku zadaného hledaného výrazu.\nPříklad: „Jeans summer“ najdete výsledky hledání, které obsahují hledaný výraz „jeans“ nebo hledaný výraz „summer“.",
             "labelMinimalSearchTerm": "Minimální délka hledaného termínu",
-            "labelExcludedSearchTerms": "Vyloučené vyhledávací",
+            "labelExcludedSearchTerms": "Vyloučené hledané",
             "textEmptyStateExcludedSearchTerms": "Zatím nejsou vyloučeny hledané výrazy",
-            "buttonAddExcludedSearch": "Přidat vyloučení",
-            "textPlaceholderTermsFilter": "Vyloučené termíny hledání...",
-            "buttonAddExcludedSearchTerms": "Přidat termín vyloučení",
+            "buttonAddExcludedSearch": "Vyloučit hledaný výraz",
+            "textPlaceholderTermsFilter": "Vyloučené hledané výrazy...",
+            "buttonAddExcludedSearchTerms": "Vyloučit hledaný výraz",
             "labelExcludedSearchTermsNoResults": "Nebyly nalezeny žádné výsledky.",
             "labelSearchableContent": "Prohledávatelný obsah",
-            "textDescriptionSearchableContent": "Veškerý prohledávatelný obsah je uveden v následující tabulce. Pokud chcete přizpůsobit výsledky hledání ve službě Storefront, pokračujte v tom a buď vyloučení obsahu z hledání vůbec, nebo upravte pořadí jednotlivých prvků podle vašich představ. Prvky s vyšším hodnocením mají zvýšenou „vyhledávací hodnotu“ a ve výsledcích vyhledávání se umístí vyšší.",
+            "textDescriptionSearchableContent": "Veškerý prohledávatelný obsah je uveden v následující tabulce. Pokud chcete přizpůsobit výsledky hledání v prodejních kanálech, pokračujte v tom a buď vyloučení obsahu z hledání vůbec, nebo upravte pořadí jednotlivých prvků podle vašich představ. Prvky s vyšším hodnocením mají zvýšenou „vyhledávací hodnotu“ a ve výsledcích vyhledávání se umístí vyšší.",
             "buttonResetDefault": "Obnovit výchozí",
             "linkExample": "Zobrazit příklad",
-            "buttonAddContent": "Přidání obsahu",
+            "buttonAddContent": "Přidání prohledávatelného obsahu",
             "labelGeneralTab": "generál",
             "labelCustomFieldsTab": "Vlastní pole",
             "textEmptyStateSearchableContent": "Zatím nebyl přidán žádný prohledávatelný obsah.",
             "titleExampleModal": "Příklad žebříčku hledání",
-            "textColumnSearchTerm": "Vyhledávací termíny",
+            "textColumnSearchTerm": "Vyloučené hledané",
             "modal": {
                 "textExplain": "Níže najdete tři fiktivní výsledky hledání výrazu „jeans“. Prohledávatelné jsou tituly produktů (skóre hodnocení 100), popis produktů (skóre hodnocení 50) a produktové značky (skóre hodnocení 20).",
                 "textTitle": "Titul",
-                "textSuperJeans": "super džíny",
+                "textSuperJeans": "Super džíny",
                 "textDescription": "Popis",
-                "textFancyJeans": "efektní džíny",
+                "textFancyJeans": "Efektní džíny",
                 "textTag": "Štítek",
                 "textJeans": "Džíny",
                 "textTotal": "Celkem",
                 "textProductRankedFirstScore": "Produkt, který byl zařazen jako první, má vyhledávací hit v každé entitě s možností vyhledávání, což vede k celkovému hodnocení 170.",
-                "textFancyPants": "maškarní kalhoty",
-                "textProductRankedSecondScore": "Druhý produkt má vyhledávací hity pro název produktu a produktové značky, což vede k celkovému hodnocení 120.",
+                "textFancyPants": "Nóbl kalhoty",
+                "textProductRankedSecondScore": "Druhý produkt má vyhledávací výsledky pro název produktu a značky produktů, což vede k celkovému hodnocení 120.",
                 "textSuperPants": "Super kalhoty",
                 "textProductRankedThirdScore": "Produkt zařazený na třetím místě má pouze jeden hit v produktových značkách, což vede k celkovému hodnocení 20."
             },
             "labelSearchIndex": "Index vyhledávání",
             "buttonRebuildSearchIndex": "Znovu sestavit index vyhledávání",
-            "textWarningOpenTab": "Prosím, nechte toto okno/záložku otevřené.",
-            "textRebuildSearchIndexDescription": "Obnovení indexu vyhledávání trvá trochu času. Během této doby je povinné ponechat toto okno/záložku otevřené, aby bylo možné úspěšně obnovit index vyhledávání. Budete upozorněni, jakmile bude proces dokončen.",
+            "textWarningOpenTab": "Prosím, mějte toto okno otevřené.",
+            "textRebuildSearchIndexDescription": "Obnovení indexu vyhledávání trvá nějakou dobu. Během této doby je povinné ponechat toto okno otevřené, aby bylo možné úspěšně obnovit index vyhledávání. Budete upozorněni, jakmile bude proces dokončen.",
             "textRebuildingSearchIndex": "Obnovení indexu vyhledávání",
             "textLastedBuild": "Nejnovější sestavení:",
+            "textSearchNotIndexedYet": "Hledání ještě není indexováno.",
             "list": {
                 "columnSearchable": "Prohledávatelné",
-                "columnRankingPoints": "Body žebříčku",
+                "columnRankingPoints": "Skóre žebříčku",
                 "columnContent": "Obsah",
-                "columnSplitKeywords": "Rozdělit klíčová slova",
+                "columnSplitKeywords": "Rozdělit vyhledávací výrazy",
                 "textResetRanking": "Resetovat pořadí",
                 "textRemove": "Odstranit"
             },
             "configFields": {
-                "name": "Jméno",
-                "description": "Popis",
+                "name": "Název produktu",
+                "description": "Popis produktu",
                 "productNumber": "Číslo produktu",
                 "manufacturerNumber": "Číslo výrobce",
-                "ean": "EAN",
-                "customSearchKeywords": "Vlastní vyhledávací klíčová slova",
+                "ean": "Produkt EAN",
+                "customSearchKeywords": "Vlastní vyhledávací výrazy",
                 "manufacturerName": "Název výrobce",
                 "manufacturerCustomFields": "Vlastní pole výrobce",
-                "categoriesName": "Název kategorií",
-                "categoriesCustomFields": "Vlastní pole kategorií",
-                "tagsName": "Název štítku",
-                "metaTitle": "Meta",
-                "metaDescription": "Meta popis",
+                "categoriesName": "Název kategorie",
+                "categoriesCustomFields": "Vlastní pole kategorie",
+                "tagsName": "Produktová značka",
+                "metaTitle": "Meta název produktu",
+                "metaDescription": "Popis meta produktu",
                 "propertiesName": "Název nemovitosti",
-                "variantValue": "Hodnota varianty"
+                "variantValue": "Hodnota nemovitosti"
             }
         },
         "notification": {
-            "saveSuccess": "Konfigurace byla uložena.",
-            "excludedTermRequired": "Vyloučený termín by neměl být prázdný.",
-            "excludedTermAlreadyExists": "Vyloučený termín již existuje.",
-            "updateExcludedTermSuccess": "Úspěch aktualizace vyloučených termínů.",
-            "createExcludedTermSuccess": "Vyloučený termín vytváří úspěch.",
-            "deleteExcludedTermSuccess": "Vyloučený termín odstranění úspěšnosti.",
+            "saveSuccess": "Konfigurace uložena.",
+            "excludedTermRequired": "Vyloučené hledané výrazy by neměly být prázdné.",
+            "excludedTermAlreadyExists": "Vyloučený hledaný výraz již existuje.",
+            "updateExcludedTermSuccess": "Vyloučený hledaný výraz aktualizován",
+            "createExcludedTermSuccess": "Vyloučený hledaný výraz vytvořen",
+            "deleteExcludedTermSuccess": "Vyloučený hledaný výraz smazán",
             "saveError": "Při ukládání konfigurace došlo k chybě.",
             "index": {
                 "started": "Vytváření indexů produktů.",
@@ -4071,14 +4198,14 @@
             "loadError": "Při načítání konfigurace došlo k chybě."
         },
         "liveSearchTab": {
-            "titleCard": "Živé vyhledávání v obchodě",
-            "textDescription": "Níže otestujte vlastní nastavení vyhledávání. Pokud jste právě provedli změny nastavení vyhledávání, nezapomeňte tato nastavení uložit před jejich testováním pomocí tohoto živého vyhledávání.",
+            "titleCard": "Živé vyhledávání prodejního kanálu",
+            "textDescription": "Níže otestujte vlastní nastavení vyhledávání.",
             "labelSalesChannelSelect": "Prodejní kanál",
-            "textPlaceholderSalesChannel": "Vyberte prodejní kanál pro testování živého vyhledávání",
+            "textPlaceholderSalesChannel": "Vyberte prodejní kanál...",
             "linkRebuildSearchIndex": "Znovu sestavit index vyhledávání",
-            "labelName": "Jméno",
-            "labelScore": "Skóre",
-            "textNoResult": "Žádné výsledky pro zadaná klíčová slova. Zkuste prosím jiné klíčové slovo"
+            "labelName": "Výsledek hledání",
+            "labelScore": "Skóre žebříčku",
+            "textNoResult": "Nebyly nalezeny žádné výsledky. Zkuste to znovu s jiným hledaným výrazem."
         }
     },
     "sw-settings-mailer": {
@@ -4115,8 +4242,6 @@
             "password-placeholder": "Zadejte heslo...",
             "encryption": "Metoda šifrování",
             "encryption-placeholder": "Vyberte metodu šifrování...",
-            "authentication": "Metoda ověřování",
-            "authentication-placeholder": "Vyberte metodu ověřování...",
             "sender-address": "Adresa odesilatele",
             "sender-address-placeholder": "Zadejte adresu e-mailu, ke kterému máte přístup...",
             "delivery-address": "Adresa příjemce",
@@ -4128,12 +4253,6 @@
             "no-encryption": "Žádné šifrování",
             "ssl": "SSL",
             "tls": "TLS"
-        },
-        "authentication": {
-            "no-authentication": "Žádné ověřování",
-            "plain": "Jednoduché",
-            "login": "Přihlásit",
-            "cram-md5": "Cram MD5"
         },
         "helpText": "Další informace naleznete v <a target=\"_blank\" href=\"https://docs.shopware.com/en/shopware-6-en\">dokumentaci</a>"
     },
@@ -4151,42 +4270,44 @@
         "my-extensions": {
             "listing": {
                 "initialSearchType": "Rozšíření",
-                "placeholderSearchBar": "Vyhledávání rozšíření…",
+                "placeholderSearchBar": "Prohledávání rozšíření...",
                 "controls": {
                     "labelActiveStateSwitch": "Skrýt neaktivní rozšíření",
                     "filterOptions": {
                         "last-updated": "Naposledy aktualizováno",
-                        "name-asc": "Název rozšíření, asc.",
-                        "name-desc": "Název přípony, desc."
+                        "name-asc": "Jméno A - Z.",
+                        "name-desc": "Název Z - A."
                     }
-                }
+                },
+                "version": "Verze",
+                "update": "Aktualizovat"
             },
             "account": {
                 "headline": "Shopware účet",
-                "isLoggedIn": "Účet úspěšně připojen. Přejděte na kartu „Aplikace“ nebo „Motivy“ a zkontrolujte, zda jsou uvedeny zakoupené rozšíření. Pokud tomu tak není, zkontrolujte hlavu na účet Showare a ujistěte se, že byla nastavena správná doména pro rozšíření.",
+                "isLoggedIn": "Shopware účet úspěšně připojen. Přejděte na kartu „Aplikace“ nebo „Motivy“ a zkontrolujte, zda jsou uvedeny zakoupené rozšíření. Pokud tomu tak není, zkontrolujte hlavu na účet Showare a ujistěte se, že byla nastavena správná doména pro rozšíření.",
                 "login": "Přihlásit se",
                 "logout": "Odhlášení",
-                "loginMessage": "Přihlaste se pomocí účtu Shopware pro přístup k rozšířením, které jste zakoupili na webu store.shopware.com",
-                "register": "Zaregistrujte se a staňte se součástí Shopware komunity!",
-                "registerNow": "Zaregistrujte se",
+                "loginMessage": "Přihlaste se pomocí účtu Shopware pro přístup k rozšířením zakoupeným na adrese store.shopware.com",
+                "register": "Zaregistrujte se nyní a staňte se součástí Shopware komunity!",
+                "registerNow": "Zaregistrujte se nyní",
                 "registerUrl": "https://account.shopware.com/register?lang=en",
                 "mailLabel": "E-mailová adresa",
-                "mailPlaceholder": "Zadejte svou e-mailovou adresu…",
+                "mailPlaceholder": "Zadejte svou e-mailovou adresu...",
                 "passwordLabel": "Heslo",
-                "passwordPlaceholder": "Zadejte své heslo…",
+                "passwordPlaceholder": "Zadejte své heslo...",
                 "recoveryUrl": "https://account.shopware.com/recovery?lang=en",
-                "passwordForgot": "Zapomněli jste heslo?",
+                "passwordForgot": "Zapomněl jsi heslo?",
                 "loginNotificationMessage": "Jste přihlášeni k účtu Shopware."
             },
             "tabs": {
                 "app": "Aplikace",
-                "theme": "Téma",
+                "theme": "Témata",
                 "recommendation": "Doporučení",
                 "shopwareAccount": "Shopware účet"
             },
             "fileUpload": {
-                "buttonFileUpload": "Nahrát plugin",
-                "messageUploadSuccess": "Zásuvný modul byl nahrán."
+                "buttonFileUpload": "Rozšíření pro nahrávání",
+                "messageUploadSuccess": "Rozšíření nahráno."
             }
         },
         "errors": {
@@ -4194,19 +4315,19 @@
             "messageGenericFailure": "To nefungovalo.",
             "messageUploadFailureNotAZipFile": "Nahraný soubor není soubor ZIP.",
             "messageUploadFailureUnzipFailed": "Nelze extrahovat soubor ZIP.",
-            "messageUploadFailureNoPluginFoundInZipFile": "V souboru ZIP nebyl nalezen žádný plugin.",
+            "messageUploadFailureNoPluginFoundInZipFile": "V souboru ZIP nebyla nalezena žádná přípona.",
             "messageLoginDataInvalid": "Přihlašovací údaje jsou neúplné.",
             "messageStoreLicenseDomainMissing": "Přihlášení selhalo. Poskytli jste správnou licenční doménu ze svého účtu Shopware v „Settings/Shopware Account“?",
             "messageStoreNotAvailable": "Shopware Store není k dispozici.",
-            "messagePluginBaseClassNotFound": "Nelze načíst základní třídu pluginu. Zkontrolujte plugin composer.json týkající se třídy autoloading",
-            "messagePluginInstallationFailed": "Plugin nemohl být nainstalován kvůli chybové zprávě \"{message}“",
-            "messagePluginUninstallationFailed": "Plugin nemohl být odinstalován kvůli chybové zprávě \"{message}“",
-            "messagePluginActivationFailed": "Plugin nemohl být aktivován kvůli chybové zprávě \"{message}“",
-            "messagePluginDeactivationFailed": "Plugin nemohl být deaktivován kvůli chybové zprávě \"{message}“",
-            "messageDeactivationFailedDependencies": "Zásuvný modul \"{dependency}\" nelze deaktivovat, protože v závislosti na něm existují další pluginy. Před restartováním aktualizace deaktivujte následující pluginy: {dependantNames}",
+            "messagePluginBaseClassNotFound": "Nelze načíst základní třídu rozšíření. Zkontrolujte plugin composer.json týkající se třídy autoloading.",
+            "messagePluginInstallationFailed": "Rozšíření nebylo možné nainstalovat: \"{message}“.",
+            "messagePluginUninstallationFailed": "Rozšíření nelze odinstalovat: \"{message}“.",
+            "messagePluginActivationFailed": "Rozšíření nebylo možné aktivovat: \"{message}“.",
+            "messagePluginDeactivationFailed": "Rozšíření nebylo možné deaktivovat: \"{message}“.",
+            "messageDeactivationFailedDependencies": "Rozšíření \"{dependency}\" nelze deaktivovat, protože na něm závisí další rozšíření. Před restartováním aktualizace deaktivujte následující rozšíření: {dependantNames}",
             "messageDeactivationFailedThemeAssignment": "Nelze deaktivovat nebo odinstalovat téma \"{themeName}“. Odstraňte prosím následující přiřazení témat: {assignments}.",
-            "messagePluginUpdateFailed": "Plugin nemohl být aktualizován kvůli chybové zprávě \"{message}“. {pluginDeactivatedHint}",
-            "pluginDeactivatedHint": "Plugin byl deaktivován."
+            "messagePluginUpdateFailed": "Rozšíření nelze aktualizovat: \"{message}“. {pluginDeactivatedHint}",
+            "pluginDeactivatedHint": "Rozšíření deaktivováno."
         },
         "mainMenu": {
             "mainMenuItemExtensionStore": "Rozšíření",
@@ -4216,6 +4337,20 @@
         }
     },
     "sw-extension-store": {
+        "landing-page": {
+            "enablingShopwareStore": "Aktivace obchodu Shopware...",
+            "takeMinutes": "Může to trvat několik minut.",
+            "activationErrorTitle": "Chyba během aktivace",
+            "activationErrorDescription": "Zkuste to prosím znovu. Pokud to nefunguje, požádejte správce o pomoc.",
+            "retryButton": "Opakovat",
+            "activationSuccessTitle": "Aktivováno úspěšně",
+            "activationSuccessDescription": "Bavte se při zkoumání Shopware Store.",
+            "label": "Nyní k dispozici",
+            "activationDescriptionTitleFirst": "Prozkoumejte a kupujte rozšíření snadno -",
+            "activationDescriptionTitleSecond": "přímo z vlastního obchodu Shopware.",
+            "activationDescriptionTitleDescription": "Aktivujte zcela nový obchod Shopware Store a získejte přístup k spoustě užitečných rozšíření a moderních motivů, které lze do Obchodu bez zdánlivě integrovat - bez jakýchkoli programovacích dovedností.",
+            "activate": "Aktivovat"
+        },
         "title": "Obchod",
         "descriptionTextModule": "Správa rozšíření",
         "general": {
@@ -4234,8 +4369,8 @@
                 "releaseDateDesc": "Datum vydání nejnovější - nejstarší",
                 "nameAsc": "Název A - Z",
                 "nameDesc": "Název Z - A",
-                "ratingAsc": "Nízké hodnocení - Vysoké",
-                "ratingDesc": "Hodnocení Vysoké - Nízké"
+                "ratingAsc": "Hodnocení nízké - vysoké",
+                "ratingDesc": "Hodnocení vysoké - nízké"
             }
         },
         "detail": {
@@ -4243,7 +4378,7 @@
             "labelButtonOpenExtension": "Otevřít rozšíření",
             "labelButtonInstallExtension": "Instalační rozšíření",
             "labelBy": "podle",
-            "numberOfRatings": "{count} Recenze | {count} Recenze",
+            "numberOfRatings": "{count} recenze | {count} recenze",
             "noRatings": "Zatím žádné hodnocení",
             "cardTitleInformation": "Informace",
             "labelButtonReadMore": "Přečtěte si více",
@@ -4254,7 +4389,7 @@
                 "labelUpdatedAt": "Naposledy aktualizováno",
                 "labelLanguages": "Jazyky",
                 "labelWebsite": "Webové stránky vývojáře",
-                "labelPrivacy": "Privacylink"
+                "labelPrivacy": "Zásady ochrany osobních údajů"
             },
             "cardTitleFAQ": "FAQ",
             "cardTitleChangelog": "Seznam změn",
@@ -4268,7 +4403,7 @@
             },
             "sw-extension-buy-modal": {
                 "title": "Přidat příponu",
-                "labelAcceptPermissions": "Jsem si vědom, že toto rozšíření potřebuje oprávnění",
+                "labelAcceptPermissions": "Jsem si vědom toho, že toto rozšíření vyžaduje další oprávnění",
                 "labelAcceptPrivacyExtensions": "Jsem si vědom toho, že musím rozšířit své zásady ochrany osobních údajů",
                 "buttonShowPrivacyExtensions": "Zobrazit podrobnosti",
                 "variantCard": {
@@ -4280,7 +4415,7 @@
                 "variantSummary": {
                     "labelVat": "plus DPH",
                     "labelPrice": "Cena",
-                    "renewal": "Obnovení {renewalDate}"
+                    "renewal": "Obnovení na {renewalDate}"
                 },
                 "purchaseButtonsLabels": {
                     "free": "Přidat rozšíření zdarma",
@@ -4293,18 +4428,18 @@
                     "labelButtonBack": "Zpět na podrobnosti"
                 },
                 "alertCanNotBuy": {
-                    "text": "Chcete-li to provést, musíte být přihlášeni ve Storu",
+                    "text": "Chcete-li to provést, musíte být přihlášeni do Storu",
                     "linkChoosePLan": "Vyberte si plán"
                 }
             },
             "sw-extension-adding-failed": {
-                "titleFailure": "Přidání rozšíření selhalo",
+                "titleFailure": "Přidání rozšíření se nezdařilo ",
                 "textProblem": "Při přidávání rozšíření došlo k problému.",
                 "installationFailed": {
                     "titleFailure": "Instalace selhala",
                     "textProblem": "Při instalaci rozšíření došlo k problému. Budeme informovat výrobce.",
-                    "notificationLicense": "Vezměte prosím na vědomí, že předplatné této aplikace nebo motivu zůstává aktivní.",
-                    "textSupport": "Máte-li jakékoli dotazy týkající se licence, obraťte se na Shopware Financial Services. K dispozici e-mailem na {0} nebo telefonicky na {1}.",
+                    "notificationLicense": "Vezměte prosím na vědomí, že předplatné tohoto rozšíření zůstává aktivní.",
+                    "textSupport": "Máte-li jakékoli dotazy týkající se licence, obraťte se na Shopware Financial Services. K dispozici prostřednictvím e-mailu na {0} nebo telefonicky na {1}.",
                     "supportEmail": "financial.services@shopware.com",
                     "supportPhone": "+49 (0) 2555/9288510"
                 }
@@ -4321,7 +4456,7 @@
                     "submitBtn": "Odeslat"
                 },
                 "sw-extension-ratings-summary": {
-                    "labelRating": "Žádné hodnocení | {numberOfRatings} Hodnocení | {numberOfRatings} Hodnocení"
+                    "labelRating": "Žádné hodnocení | {numberOfRatings} hodnocení | {numberOfRatings} hodnocení"
                 },
                 "sw-extension-review": {
                     "labelLastChangeDate": "Od {author} na {lastChangeDate}",
@@ -4334,6 +4469,7 @@
                     "labelNoReviews": "Toto rozšíření zatím neobdrželo žádné hodnocení nebo recenze."
                 },
                 "sw-extension-review-creation-inputs": {
+                    "title": "Rozšíření sazeb",
                     "labelHeadline": "Nadpis",
                     "placeholderHeadline": "Zadejte krátký titulek...",
                     "labelRating": "Hodnocení",
@@ -4346,8 +4482,8 @@
             "sw-extension-card-base": {
                 "subscriptionLabel": "Předplatné:",
                 "inactiveLabel": "(neaktivní)",
-                "purchasedLabel": "Zakoupeno: ",
-                "installedLabel": "Nainstalováno: ",
+                "purchasedLabel": "Zakoupeno na ",
+                "installedLabel": "Nainstalováno na ",
                 "openExtensionLabel": "Otevřít aplikaci",
                 "installExtensionLabel": "Instalovat aplikaci",
                 "labelAcceptAndInstall": "Přijmout a nainstalovat",
@@ -4368,18 +4504,18 @@
             "sw-extension-deactivation-modal": {
                 "deactivateExtensionLabel": "Deaktivovat \"{extensionName}“",
                 "description": "Rozšíření \"{extensionName}“ má měsíční poplatek za předplatné.<br>Deaktivace rozšíření <b>nebude</b> zrušit předplatné a poplatky budou i nadále vybírány!",
-                "descriptionCancel": "Pokud chcete odběr zrušit, můžete jej odebrat v kontextové nabídce pod \"{removeLabel}“.",
+                "descriptionCancel": "Chcete-li zrušit předplatné, můžete jej odstranit pomocí \"{removeLabel}\" v kontextové nabídce.",
                 "alertDeactivate": "Stále chcete rozšíření deaktivovat?",
                 "deactivateLabel": "Deaktivovat"
             },
             "sw-extension-permissions-modal": {
                 "title": "{extensionLabel} oprávnění",
-                "description": "{extensionLabel} získá přístup k následujícím komponentám. Kliknutím na odkaz vedle komponenty zobrazíte podrobnosti o entitě.",
+                "description": "{extensionLabel} bude mít přístup k následujícím komponentám. Kliknutím na odkaz vedle komponenty zobrazíte podrobnosti o entitě.",
                 "textEntities": "Zobrazit oprávnění"
             },
             "sw-extension-privacy-policy-extensions-modal": {
                 "title": "{extensionLabel}: rozšíření zásad ochrany osobních údajů",
-                "intro": "Tato aplikace zpracovává osobní údaje. Výrobce poskytuje následující rady k úpravám vašich zásad ochrany osobních údajů:"
+                "intro": "Tato aplikace zpracovává osobní údaje. Výrobce doporučuje úpravy vašich zásad ochrany osobních údajů:"
             },
             "sw-extension-permissions-details-modal": {
                 "operationRead": "Zobrazit",
@@ -4388,16 +4524,23 @@
                 "operationDelete": "Smazat"
             },
             "sw-extension-my-extensions-listing": {
-                "noActivePlugins": "Neexistují žádná aktivní rozšíření.",
-                "titleEmptyState": "Zatím nejsou nainstalovány žádné aplikace",
-                "textEmptyState": "Pokud nainstalujete aplikace, budou uvedeny zde.",
+                "apps": {
+                    "noActivePlugins": "Nebyla nalezena žádná aktivní rozšíření.",
+                    "titleEmptyState": "Zatím nejsou nainstalovány žádné aplikace",
+                    "textEmptyState": "Pokud nainstalujete aplikace, budou uvedeny zde."
+                },
+                "themes": {
+                    "noActivePlugins": "Nebyly nalezeny žádné aktivní motivy.",
+                    "titleEmptyState": "Zatím nejsou nainstalovány žádné motivy",
+                    "textEmptyState": "Pokud nainstalujete motivy, budou uvedeny zde."
+                },
                 "btnOpenStore": "Otevřít obchod"
             },
             "sw-extension-removal-modal": {
                 "titleCancel": "„{extensionName}\" zrušit a odstranit",
                 "titleRemove": "„{extensionName}\" odstranit",
                 "description": "Pokud rozšíření odstraníte, již jej nemůžete používat.",
-                "alertCancel": "Opravdu chcete rozšíření odstranit?",
+                "alertCancel": "Opravdu chcete rozšíření zrušit a odstranit?",
                 "alertRemove": "Opravdu chcete rozšíření odstranit?",
                 "labelCancel": "Zrušit a odstranit",
                 "labelRemove": "Odstranit"
@@ -4415,7 +4558,7 @@
                 "labelLicensed": "Zakoupeno"
             },
             "sw-extension-config": {
-                "messageSaveSuccess": "Konfigurace byla uložena."
+                "messageSaveSuccess": "Konfigurace uložena."
             }
         },
         "errors": {
@@ -4423,7 +4566,7 @@
                 "message": "Abyste mohli pokračovat, musíte přijmout naše obchodní podmínky."
             },
             "FRAMEWORK__EXTENSION_THEME_STILL_IN_USE": {
-                "message": "Téma se v současné době stále používá v jednom nebo více prodejních kanálech."
+                "message": "Téma je aktuálně používán jedním nebo více prodejními kanály."
             },
             "FRAMEWORK__INVALID_EXTENSION_ID": {
                 "message": "Identifikační číslo rozšíření je neplatné."
@@ -4465,39 +4608,39 @@
                 "message": "Zvolený cenový model není povolen pro rozšíření."
             },
             "SAAS_EXTENSION_ORDER__NO_DEFAULT_PAYMENT_MEAN": {
-                "message": "Neexistuje žádný výchozí platební prostředek k dispozici.",
-                "labelLink": "Nastavení výchozí platby"
+                "message": "Neexistuje žádný výchozí způsob platby k dispozici.",
+                "labelLink": "Nastavení výchozího způsobu platby"
             },
             "SAAS_EXTENSION_ORDER__INSUFFICIENT_BALANCE": {
-                "message": "Není k dispozici dostatečný zůstatek."
+                "message": "Nedostatečná rovnováha"
             },
             "SAAS_EXTENSION_REQUEST__INVALID_CONTENT": {
                 "message": "Požadovaná data požadavku chybí nebo jsou neplatná."
             },
             "SAAS_EXTENSION_INVALID_BASKET__MULTIPLE_LICENSES_OR_LICENSE_ALREADY_OWNED": {
-                "message": "Koš je neplatný, protože obsahuje více licencí nebo obsahuje již vlastněnou licenci."
+                "message": "Nákupní košík je neplatný, protože obsahuje více licencí nebo obsahuje již vlastněnou licenci."
             },
             "SAAS_EXTENSION_INVALID_BASKET__INVALID_ORDER_POSITION": {
-                "message": "Koš je neplatný z důvodu neplatné pozice objednávky."
+                "message": "Nákupní košík je neplatný z důvodu neplatné pozice objednávky."
             },
             "SAAS_EXTENSION_INVALID_BASKET__GENERAL": {
-                "message": "Koš je neplatný."
+                "message": "Nákupní košík je neplatný."
             },
             "SAAS_EXTENSION_INVALID_BASKET__INVALID_COMPANY": {
-                "message": "Koš je neplatný, protože vaše společnost nemá žádnou zemi přiřazenou."
+                "message": "Nákupní košík je neplatný, protože vaše společnost nemá žádnou zemi přidělenou."
             },
             "SAAS_EXTENSION_RATING__INVALID_EXTENSION": {
                 "message": "Vaše hodnocení nebylo možné uložit, protože související rozšíření je neplatné."
             },
             "SAAS_COMPANY__MISSING": {
-                "message": "Požadovaná společnost chybí.",
+                "message": "Požadované prohlášení společnosti chybí.",
                 "labelLink": "Přiřadit společnost"
             }
         }
     },
     "entityCategories": {
         "admin_user": {
-            "title": "Admin uživatel",
+            "title": "Uživatel administrace",
             "entities": {
                 "integration": "Integrace",
                 "user": "Uživatel",
@@ -4541,7 +4684,7 @@
                 "customer_address": "Adresa",
                 "customer_group": "Skupina zákazníků",
                 "customer_group_translation": "Překlad skupiny zákazníků",
-                "customer_group_registration_sales_channels": "Registrační prodejní kanál skupiny zákazníků",
+                "customer_group_registration_sales_channels": "Prodejní kanál pro registrace skupiny odběratelů",
                 "customer_recovery": "Zotavení",
                 "customer_tag": "Štítek"
             }
@@ -4599,8 +4742,8 @@
         "media": {
             "title": "Média",
             "entities": {
-                "media": "Média",
-                "media_translation": "Překlad médií",
+                "media": "Střední",
+                "media_translation": "Střední překlad",
                 "media_default_folder": "Výchozí složka",
                 "media_folder": "Složka",
                 "media_folder_configuration": "Konfigurace složky",
@@ -4716,15 +4859,15 @@
                 "sales_channel_payment_method": "Způsob platby",
                 "sales_channel_shipping_method": "Způsob přepravy",
                 "sales_channel_translation": "Překlad prodejního kanálu",
-                "sales_channel_type": "Typ",
-                "sales_channel_type_translation": "Překlad typu"
+                "sales_channel_type": "Typ prodejního kanálu",
+                "sales_channel_type_translation": "Překlad typu prodejního kanálu"
             }
         },
         "settings": {
             "title": "Nastavení",
             "entities": {
                 "country": "Země",
-                "country_state": "Stát státu",
+                "country_state": "Stát/provincie",
                 "currency": "Měna",
                 "delivery_time": "Dodací lhůta",
                 "language": "Jazyk",
@@ -4748,7 +4891,7 @@
                 "tax": "Daň",
                 "tax_rule": "Daňové pravidlo",
                 "tax_rule_type": "Typ daňového pravidla",
-                "unit": "Jednotka",
+                "unit": "Měřítko",
                 "version": "Verze"
             }
         },
@@ -4944,7 +5087,7 @@
             "placeholderSalesChannels": "Vyberte prodejní kanály...",
             "placeholderMailTemplate": "Vyberte šablonu e-mailu...",
             "titleRecipientsCard": "Příjemci e-mailů",
-            "textEmptyStateRecipients": "Pro tuto událost zatím nejsou žádní další příjemci. - Zákaznické e-maily budou odeslány bez ohledu na to.",
+            "textEmptyStateRecipients": "Přidat alternativní příjemce - Pokud je nastaveno e-mailové zprávy zákazníků budou nadhodnoceni!",
             "columnRecipientName": "Jméno",
             "columnRecipientMail": "E-mailová adresa",
             "addRecipientButton": "Přidat příjemce",
@@ -4954,7 +5097,7 @@
     },
     "sw-settings-logging": {
         "general": {
-            "mainMenuItemGeneral": "Protokolování",
+            "mainMenuItemGeneral": "Protokoly událostí",
             "placeholderSearchBar": "Prohledávání protokolů..."
         },
         "list": {
@@ -5181,6 +5324,7 @@
             "buttonNextPayPalInfo": "Konfigurovat",
             "buttonBack": "Zpět",
             "buttonInstall": "Instalovat",
+            "buttonActivate": "Aktivovat",
             "buttonFinish": "Hotovo",
             "buttonConfigureLater": "Nastavit později",
             "pluginInstalled": "Instalováno"
@@ -5189,16 +5333,16 @@
             "modalTitle": "Vítejte",
             "headlineWelcome": "Vítejte ve správě aplikace Shopware 6",
             "messageWelcome": "Tento průvodce instalací vás provede důležitými nastaveními a poskytne vám cenné tipy ke konfiguraci.<br/>Chcete svůj obchod provozovat také v jiném jazyce, a tím přilákat zákazníky z jiných zemí? Pak zde můžete jednoduše nainstalovat požadované jazykové balíčky.",
-            "headlineChangeLanguage": "Nainstalujte další jazykové balíčky",
+            "headlineChangeLanguage": "Instalace dalších jazyků",
             "switchLanguageModalTitle": "Vyberte jazyk uživatelského rozhraní",
             "confirmLanguageSwitch": "Změnit jazyk",
             "cancelLanguageSwitch": "Přerušit",
             "switchLanguageMessage": "Jazykový doplněk \"{pluginName}\" byl úspěšně nainstalován. Chcete změnit jazyk uživatelského rozhraní?",
-            "pluginsInstalled": "Instaluje se jazykový doplněk {plural}",
-            "pluginsInstalledMessage": "Instaluje se jazykový doplněk: | Byly nainstalovány jazykové doplňky pro následující jazyky: ",
-            "pluginNotFoundMessage": "Jazykový plugin {languageName} nebyl nalezen.",
-            "pluginInstallationFailedMessage": "Doplněk se nepodařilo nainstalovat: ",
-            "pluginActivationFailedMessage": "Doplněk se nepodařilo aktivovat: ",
+            "pluginsInstalled": "Nainstalováno rozšíření | Nainstalována rozšíření",
+            "pluginsInstalledMessage": "Jazykové rozšíření bylo nainstalováno: | Tato jazyková rozšíření byla nainstalována: ",
+            "pluginNotFoundMessage": "Rozšíření jazyka {languageName} nebylo nalezeno.",
+            "pluginInstallationFailedMessage": "Rozšíření nelze nainstalovat: ",
+            "pluginActivationFailedMessage": "Rozšíření nebylo možné aktivovat: ",
             "tryAgainLater": "Zkuste to později znovu.",
             "noConnectionMessage": "Problémy se spojením, požadovaný jazyk nelze v současnosti nainstalovat."
         },
@@ -5210,7 +5354,7 @@
             "headlineMigration": "Převést vlastní obchod",
             "messageMigration": "Asistent migrace vám pomůže spojit systém obchodu se softwarem Shopware 6 a přenést existující data.",
             "buttonInstallMigration": "Instalace asistenta migrace",
-            "loadingMessage": "Instalujte doplněk<br/>Může to chvíli trvat..."
+            "loadingMessage": "Instalace rozšíření<br>To může chvíli trvat..."
         },
         "mailerSelection": {
             "headline": "Zřízení e-mailové komunikace",
@@ -5247,7 +5391,7 @@
         },
         "recommendedPlugins": {
             "headline": "Naše doporučení",
-            "modalTitle": "Doplňky",
+            "modalTitle": "Rozšíření",
             "message": "Zde najdete výběr doporučených rozšíření pro váš obchod. Nejdříve vyberte rozšíření, které je pro vás nejvíce relevantní. Později můžete prohledat nejrůznější kategorie rozšíření.",
             "availableInRegion": "K dispozici v regionu",
             "category": "Kategorie",
@@ -5277,6 +5421,24 @@
             "labelCreateDomain": "Vytvořte novou doménu obchodu",
             "testEnvironment": "Testovací prostředí"
         },
+        "store": {
+            "modalTitle": "Prodejna Shopware",
+            "loadStatusCollect": "Shromažďovat informace o obchodu...",
+            "takeMinutes": "Může to trvat několik minut.",
+            "alreadyActivated": "Store je již úspěšně aktivován.",
+            "enablingStore": "Povolení obchodu Shopware... ",
+            "activationErrorTitle": "Chyba při aktivaci",
+            "activationErrorDescription": "Požádejte o pomoc správce.",
+            "headingOne": "Prozkoumejte a kupujte rozšíření snadno -",
+            "headingTwo": "přímo z vlastního obchodu Shopware.",
+            "description": "Aktivujte zcela nový obchod Shopware Store a získejte přístup k spoustě užitečných rozšíření a moderních motivů, které lze do Obchodu bez zdánlivě integrovat - bez jakýchkoli programovacích dovedností."
+        },
+        "markets": {
+            "modalTitle": "Shopware Markets",
+            "heading": "Shopware Markets",
+            "description": "Shopware Markets vám umožní propojit váš obchod s Amazon a eBay tržištěm - a zároveň zajistit co nejpohodlnější převod produktů a objednávek.<br>Shopware Markets byl navržen tak, aby ještě dále rozvíjel vaše podnikání s pomocí prodejních kanálů*¹.",
+            "footnote": "*¹ Pro použití prodejních kanálů Shopware Markets je vyžadováno placené předplatné."
+        },
         "finish": {
             "headlineAllDone": "Blahopřejeme!",
             "message": "Vaše aplikace Shopware 6 {edition} je nyní ověřená.",
@@ -5288,14 +5450,17 @@
             "forumLabel": "Fórum",
             "forumUrl": "https://forum.shopware.com/",
             "roadmapLabel": "Mapa postupu",
-            "roadmapUrl": "https://www.shopware.com/en/roadmap/"
+            "roadmapUrl": "https://www.shopware.com/en/roadmap/",
+            "modalTitle": "Hotovo"
         },
         "stepItemTitle": {
             "dataImport": "Import dat",
             "mailer": "Nastavení poštovního systému",
             "setupPaypal": "Nastavení služby PayPal",
-            "plugins": "Doplňky",
-            "shopware": "Shopware účet"
+            "plugins": "Rozšíření",
+            "shopware": "Shopware účet",
+            "store": "Prodejna Shopware",
+            "markets": "Shopware Markets"
         }
     },
     "sw-sales-channel": {
@@ -6043,7 +6208,7 @@
             "messageSaveError": "Zákazníka nelze uložit.",
             "messageSaveSuccess": "Zákazník \"{name}\" byl úspěšně uložen.",
             "notificationPasswordErrorMessage": "Zadaná hesla nesouhlasí.",
-            "notificationPasswordLengthErrorMessage": "Heslo nesplňuje požadavek minimální délky 8 znaků."
+            "notificationPasswordLengthErrorMessage": "Odeslané heslo nesplňuje požadavek na minimální délku osmi znaků."
         },
         "filter": {
             "salutation": {
@@ -6073,7 +6238,9 @@
             "tags": {
                 "label": "Tagy",
                 "placeholder": "Vybrat tagy..."
-            }
+            },
+            "messageEmptyTitle": "Nic nenalezeno",
+            "messageEmptySubline": "Upravte filtry a najděte výsledky."
         }
     },
     "sw-settings-document": {
@@ -6725,13 +6892,14 @@
         },
         "roles": {
             "general": {
-                "labelCreateNewRole": "Nové pravidlo",
+                "labelCreateNewRole": "Vytvořit roli",
                 "cardLabel": "Role"
             },
             "role-grid": {
                 "labelName": "Název",
                 "labelDescription": "Popis",
                 "messageEmptyTitle": "Dosud neexistují žádné role",
+                "messageEmptySubline": "Vytvořte role a začněte spravovat uživatelská práva.",
                 "contextMenuEdit": "Upravit",
                 "contextMenuDelete": "Smazat",
                 "titleModalDelete": "Smazat roli",
@@ -6740,10 +6908,10 @@
                 "labelButtonDelete": "Smazat",
                 "notification": {
                     "deleteSuccess": {
-                        "message": "Role \"{name}\" byla úspěšně smazána."
+                        "message": "Role \"{name}\" odstraněna."
                     },
                     "deleteError": {
-                        "message": "Při mazání role \"{name}\" došlo k chybě."
+                        "message": "Role \"{name}\" nelze odstranit."
                     }
                 }
             },
@@ -6766,7 +6934,7 @@
             },
             "view": {
                 "detailed": {
-                    "alertText": "V tomto zobrazení lze podrobně nakonfigurovat práva. Tato konfigurace je nutná pouze ve výjimečných situacích. Pokud se v systému používají např. rozšíření, které přidávají nové datové sady, ale nemají oprávnění, lze je zde nakonfigurovat. Všechna deaktivovaná zaškrtávací políčka jsou oprávnění, která již byla přiřazena na kartě Obecné."
+                    "alertText": "Podrobně nakonfigurujte oprávnění. Všechna deaktivovaná zaškrtávací políčka jsou oprávnění, která již byla přiřazena na kartě Obecné a nejsou konfigurovatelné. Tato konfigurace je nutná pouze tehdy, jsou-li použita např. rozšíření, která přidávají nové datové sady, ale nemají oprávnění, lze je zde nakonfigurovat."
                 }
             },
             "tabs": {
@@ -6783,7 +6951,7 @@
                 "cardLabel": "Uživatelé"
             },
             "user-grid": {
-                "labelUsername": "Jméno uživatele",
+                "labelUsername": "Uživatelské jméno",
                 "labelFirstName": "Jméno",
                 "labelLastName": "Příjmení",
                 "labelRoles": "Role",
@@ -6797,10 +6965,10 @@
                 "labelButtonDelete": "Smazat",
                 "notification": {
                     "deleteSuccess": {
-                        "message": "Uživatel \"{name}\" byl úspěšně smazán."
+                        "message": "Uživatel \"{name}\" smazán."
                     },
                     "deleteError": {
-                        "message": "Při mazání uživatele \"{name}\" došlo k chybě."
+                        "message": "Uživatel \"{name}\" nelze odstranit."
                     },
                     "deleteUserLoggedInError": {
                         "message": "Uživatelé se nemohou sami vymazat."
@@ -6815,7 +6983,7 @@
                 "labelEmail": "E-mailová adresa",
                 "errorEmailUsed": "Tato e-mailová adresa je již obsazená.",
                 "errorUsernameUsed": "Toto uživatelské jméno je již používáno.",
-                "labelUsername": "Jméno uživatele",
+                "labelUsername": "Uživatelské jméno",
                 "labelPassword": "Heslo",
                 "labelProfilePicture": "Profilový obrázek",
                 "labelLanguage": "Jazyk uživatelského rozhraní",
@@ -6827,17 +6995,19 @@
                 "labelNewPassword": "Nové heslo",
                 "labelNewUser": "Nový uživatel",
                 "placeholderNewPassword": "Zadejte nové heslo...",
-                "placeholderNewPasswordConfirm": "Znovu zadejte nové heslo...",
+                "placeholderNewPasswordConfirm": "Potvrdit nové heslo...",
                 "labelButtonCancel": "Přerušit",
                 "labelButtonChangePassword": "Změnit",
                 "labelButtonSave": "Uložit",
+                "writeAccess": "Napište",
+                "readAccess": "Číst",
                 "contextMenuEdit": "Upravit",
                 "contextMenuDelete": "Smazat",
                 "textChangePassword": "Stisknutím tlačítka „změnit“ okamžitě uložíte nové heslo!",
-                "addAccessKey": "Nový přístupový klíč",
+                "addAccessKey": "Vytvořit přístupový klíč",
                 "labelAccessKey": "Přístupový klíč",
                 "labelPermissions": "Oprávnění",
-                "disabledRoleSelectWarning": "Role jsou k dispozici pouze pro uživatele, kteří nejsou správcem.",
+                "disabledRoleSelectWarning": "Role jsou dostupné pouze pro uživatele, kteří nemají práva správce.",
                 "passwordConfirmation": {
                     "titleConfirmPasswordModal": "Zadejte své aktuální heslo pro potvrzení",
                     "labelConfirmPassword": "Heslo",
@@ -6859,18 +7029,18 @@
                     "hintCreateNewApiKeys": "Nové vygenerování přístupových dat API vyžaduje aktualizaci všech souvisejících skriptů nebo aplikací.",
                     "labelFieldLabel": "Název",
                     "idFieldLabel": "Přístupové ID",
-                    "secretFieldLabel": "Bezpečnostní klíč",
+                    "secretFieldLabel": "Bezpečný přístupový klíč",
                     "secretHelpText": "Zkopírujte nyní bezpečnostní klíč. Po uložení se tato informace z bezpečnostních důvodů již znovu nezobrazuje.",
-                    "messageSaveSuccess": "Integrace úspěšně uložena.",
+                    "messageSaveSuccess": "Integrace uložena.",
                     "messageSaveError": "Integraci nelze uložit.",
                     "messageCreateNewError": "Integraci nelze vytvořit."
                 },
                 "notification": {
                     "saveError": {
-                        "message": "Při ukládání uživatele \"{name}\" došlo k chybě."
+                        "message": "Uživatel \"{name}\" nemohl být uložen."
                     },
                     "saveSuccess": {
-                        "message": "Uživatel \"{name}\" byl úspěšně uložen."
+                        "message": "Uživatel \"{name}\" uložen."
                     },
                     "invalidEmailErrorMessage": "Zadejte platnou e-mailovou adresu.",
                     "duplicateEmailErrorMessage": "Vaše e-mailová adresa je již používána."
@@ -6908,143 +7078,6 @@
             "labelUseAsLogo": "Použít jako logo"
         }
     },
-    "sw-plugin": {
-        "general": {
-            "mainMenuItemGeneral": "Doplňky",
-            "mainMenuPluginList": "Instalováno",
-            "mainMenuLicenseList": "Moje licence",
-            "descriptionTextModule": "Správa doplňků",
-            "placeholderSearchBar": "Prohledat doplňky...",
-            "tabList": "Moje doplňky",
-            "tabLicenses": "Nákupy",
-            "tabUpdates": "Aktualizace",
-            "version": "Verze",
-            "accountLink": "https://account.shopware.com/?lang=en",
-            "accountLabel": "K účtu Shopware",
-            "login": "Přihlásit",
-            "logout": "Odhlásit",
-            "messageDownloadSuccess": "Doplněk byl stažen.",
-            "downloadButton": "Načíst",
-            "recommendationsLabel": "Doporučení",
-            "storeLink": "https://store.shopware.com/",
-            "storeLabel": "Obchod Shopware Store",
-            "storeNotAvailable": "Nepodařilo se navázat připojení s Shopware Store.",
-            "loggedIn": "Přihlášen jako"
-        },
-        "errors": {
-            "messageToTheShopwareDocumentation": "<a href=\"{documentationLink}\" target=\"_blank\">K dokumentaci Shopware</a>",
-            "messageGenericFailure": "To nezafungovalo.",
-            "messageUploadFailureNotAZipFile": "Odeslaný soubor není typu Zip.",
-            "messageUploadFailureUnzipFailed": "Soubor Zip se nezdařilo rozbalit.",
-            "messageUploadFailureNoPluginFoundInZipFile": "V odeslaném souboru Zip nebyl nalezen žádný doplněk.",
-            "messageLoginDataInvalid": "Data k přihlášení nebyla kompletně zadána.",
-            "messageStoreLicenseDomainMissing": "Abyste se mohli úspěšně přihlásit, musíte nejdříve uvést svou licenční doménu v části \"Nastavení/Účet Shopware\".",
-            "messageStoreNotAvailable": "Obchod Shopware Store není dosažitelný.",
-            "messagePluginBaseClassNotFound": "Vstupní bod doplňku nelze načíst. Ujistěte se, že lze správně načíst základní třídu.",
-            "messagePluginInstallationFailed": "Z důvodu chybového hlášení \"{message}\" nelze instalovat doplněk",
-            "messagePluginUninstallationFailed": "Z důvodu chybového hlášení \"{message}\" nelze odinstalovat doplněk",
-            "messagePluginActivationFailed": "Z důvodu chybového hlášení \"{message}\" nelze aktivovat doplněk",
-            "messagePluginDeactivationFailed": "Z důvodu chybového hlášení \"{message}\" nelze deaktivovat doplněk",
-            "messageDeactivationFailedDependencies": "Doplněk \"{dependency}\" nelze deaktivovat, protože ještě existují aktivní doplňky, které jsou na něm závislé. Než znovu spustíte aktualizaci, nejdříve deaktivujte následující doplňky: {dependantNames}",
-            "messagePluginUpdateFailed": "Z důvodu chybového hlášení \"{message}\" nelze doplněk aktualizovat. {pluginDeactivatedHint}",
-            "pluginDeactivatedHint": "Doplněk byl deaktivován."
-        },
-        "fileUpload": {
-            "buttonFileUpload": "Odeslat doplněk",
-            "messageUploadSuccess": "Doplněk byl odeslán.",
-            "buttonRefreshPlugins": "Aktualizovat přehled"
-        },
-        "store-login": {
-            "headline": "Shopware účet - Přihlášení",
-            "information": "Shopware účet je vaším hlavním centrem pro interakci se všemi službami Shopware.",
-            "loginMessage": "Jste přihlášeni k účtu Shopware.",
-            "labelEmailAddress": "E-mailová adresa",
-            "placeholderEmailAddress": "Zadejte svou e-mailovou adresu...",
-            "labelPassword": "Heslo",
-            "placeholderPassword": "Zadejte své heslo...",
-            "buttonLogin": "Přihlásit",
-            "buttonCancel": "Přerušit",
-            "footerNoAccount": "Ještě nemáte účet Shopware?",
-            "footerRegisterAccount": "Vytvořte si účet Shopware nyní!",
-            "forgotPassword": "Zapomněl jsi heslo?",
-            "forgotPasswordUrl": "https://account.shopware.com/recovery?lang=en",
-            "registerAccountUrl": "https://account.shopware.com/register?lang=en"
-        },
-        "list": {
-            "textPluginManager": "Doplňky",
-            "messageEmpty": "Ještě nebyly odeslány žádné doplňky.",
-            "columnPluginName": "Doplněk",
-            "columnVersion": "Verze",
-            "columnInstalledAt": "Instalováno dne",
-            "columnUpdatedAt": "Aktualizováno dne",
-            "columnLicense": "Licence",
-            "columnActive": "Stav",
-            "columnAuthor": "Výrobce",
-            "columnPlugin": "Doplněk",
-            "columnChangelog": "Nové funkce",
-            "titleSidebarItemRefresh": "Aktualizovat",
-            "contextInstall": "Instalovat",
-            "contextUninstall": "Odinstalovat",
-            "contextActivate": "Aktivovat",
-            "contextDeactivate": "Deaktivovat",
-            "contextUpdate": "Aktualizace na",
-            "contextDelete": "Smazat",
-            "pluginHeader": "Moje doplňky",
-            "sortUpgradedAtAsc": "Naposledy aktualizováno",
-            "sortPluginNameAsc": "Název doplňku, A-Z",
-            "sortPluginNameDsc": "Název doplňku, Z-A",
-            "sortLabel": "Seřadit dle:",
-            "messageActivateSuccess": "Doplněk byl úspěšně aktivován.",
-            "messageDeactivateSuccess": "Doplněk byl úspěšně deaktivován.",
-            "messageInstallSuccess": "Doplněk byl úspěšně instalován.",
-            "messageUninstallSuccess": "Doplněk byl úspěšně odinstalován.",
-            "messageDeleteSuccess": "Doplněk byl úspěšně smazán.",
-            "messageUpdateSuccess": "Doplněk byl úspěšně aktualizován.",
-            "messageDeleteConfirm": "Opravdu si přejete smazat tento doplněk?",
-            "titleUninstallConfirm": "Odinstalovat plugin",
-            "messageUninstallConfirm": "Opravdu chcete odinstalovat {pluginName}?",
-            "labelRemovePluginData": "trvale odstranit všechna data pluginu",
-            "helpTextRemovePluginData": "Upozornění: Všechna data pluginu budou trvale odstraněna. Tento proces je nevratný.",
-            "labelUninstallButton": "Odinstalovat",
-            "deactivated": "Deaktivováno",
-            "activated": "Aktivováno",
-            "config": "Konfigurace",
-            "description": "Popis",
-            "tooltipActivationDisabled": "Aktivovat lze jen instalované doplňky."
-        },
-        "license-list": {
-            "textMyPurchases": "Zakoupené licence",
-            "columnName": "Doplněk",
-            "columnCreationDate": "Koupeno dne",
-            "columnExpirationDate": "Platnost do",
-            "columnType": "Varianta",
-            "messageEmpty": "Nejsou k dispozici žádné licence.",
-            "messageNotLoggedIn": "Musíte být přihlášeni ke svému účtu Shopware.",
-            "labelAccountLogin": "Přihlášení k mému účtu Shopware",
-            "labelType_buy": "Koupě",
-            "labelType_rent": "Pronájem",
-            "labelType_test": "Test",
-            "labelType_free": "Zdarma",
-            "labelType_support": "Placená podpora"
-        },
-        "updates": {
-            "messageEmpty": "Nejsou k dispozici žádné aktualizace.",
-            "updateError": "Chyba při načítání aktualizací",
-            "updateButton": "Aktualizovat",
-            "updateAllButton": "Aktualizovat vše",
-            "updateHeader": "Aktualizace",
-            "lastUpdatesHeader": "Naposledy aktualizováno",
-            "messageUpdateSuccess": "Doplněk byl aktualizován. | Doplňky byly aktualizovány.",
-            "messageUpdatesSuccess": "Doplňky byly aktualizovány.",
-            "cancelUpdates": "Přerušit"
-        }
-    },
-    "sw-plugin-config": {
-        "messageSaveSuccess": "Konfigurace byla uložena."
-    },
-    "sw-plugin-description": {
-        "buttonBack": "Zpět"
-    },
     "sw-settings": {
         "general": {
             "mainMenuItemGeneral": "Nastavení"
@@ -7053,7 +7086,7 @@
             "title": "Nastavení",
             "tabShop": "Obchod",
             "tabSystem": "Systém",
-            "tabPlugins": "Doplňky"
+            "tabPlugins": "Rozšíření"
         },
         "system-config": {
             "labelSalesChannelSelect": "Prodejní kanál",
@@ -7140,10 +7173,10 @@
         }
     },
     "sw-property-search": {
-        "placeholderSearch": "Hledání vlastností...",
-        "selected": "Vybrána možnost {count} | Počet vybraných možností: {count}",
-        "noPropertiesFound": "Nenalezeny žádné vlastnosti",
-        "noPropertiesFoundDescription": "Zkuste jinou vyhledávací frázi."
+        "placeholderSearch": "Vyhledávací hodnoty...",
+        "selected": "{count} hodnota vybrána | Vybrané {count} hodnoty",
+        "noPropertiesFound": "Nebyly nalezeny žádné hodnoty nemovitosti",
+        "noPropertiesFoundDescription": "Vyzkoušejte jiný hledaný výraz."
     },
     "sw-property-assignment": {
         "columnGroup": "Vlastnost",
@@ -7173,6 +7206,7 @@
         "checkboxMessage": "Přečetl(a) jsem si varování a rozumím možným následkům.",
         "closeModal": "Zavřít varování",
         "ignorePlugin": "Trvale ignorovat",
+        "successfullyDeleted": "Rozšíření bylo smazáno",
         "table": {
             "plugin": "Prodloužení",
             "warning": "Varování"
@@ -7373,7 +7407,7 @@
         "hasCriteria": "Má {criteriaName}"
     },
     "sw-filter-panel": {
-        "titleSidebarItemFilter": "Filtr"
+        "titleSidebarItemFilter": "Filtry"
     },
     "sw-sidebar-filter-panel": {
         "resetButton": "Obnovit vše"

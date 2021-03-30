@@ -280,7 +280,13 @@
             "labelDownloadPdf": "Download PDF",
             "labelCreateNew": "Opret ny",
             "messageEmptyTitle": "Ingen dokumenter endnu",
-            "messageEmptySubline": "Håndtér dokumenterne her."
+            "messageEmptySubline": "Håndtér dokumenterne her.",
+            "error": {
+                "DOCUMENT__NUMBER_ALREADY_EXISTS": "Dokumentnummer {number} er allerede tildelt."
+            },
+            "info": {
+                "DOCUMENT__NUMBER_WAS_CHANGED": "Duplikere dokumentnummer. Et fortløbende tal er automatisk blevet trukket fra det respektive talinterval."
+            }
         },
         "documentModal": {
             "modalTitle": "Opret dokument",
@@ -319,6 +325,63 @@
             "message": "Følgende automatiske rabatter vil blive deaktiveret:",
             "messageNoItems": "Ingen automatiske kampagner er aktive.",
             "buttonDisable": "Deaktivér"
+        },
+        "filters": {
+            "documentFilter": {
+                "label": "Dokumenter",
+                "placeholder": "Vælg dokumentstatus...",
+                "textHasCriteria": "Mindst ét dokument tildelt",
+                "textNoCriteria": "Ingen dokumenter tildelt"
+            },
+            "orderDateFilter": {
+                "label": "Ordre dato"
+            },
+            "statusFilter": {
+                "label": "Status for ordre",
+                "placeholder": "Vælg ordrestatus..."
+            },
+            "paymentStatusFilter": {
+                "label": "Status for betaling",
+                "placeholder": "Vælg betalingsstatus..."
+            },
+            "deliveryStatusFilter": {
+                "label": "Leveringsstatus",
+                "placeholder": "Vælg leveringsstatus..."
+            },
+            "paymentMethodFilter": {
+                "label": "Betalingsmetode",
+                "placeholder": "Vælg betalingsmetode..."
+            },
+            "shippingMethodFilter": {
+                "label": "Forsendelsesmetode",
+                "placeholder": "Vælg forsendelsesmetode..."
+            },
+            "salesChannelFilter": {
+                "label": "Salg Kanaler",
+                "placeholder": "Vælg Salgskanaler..."
+            },
+            "billingCountryFilter": {
+                "label": "Faktureringsland",
+                "placeholder": "Vælg faktureringslande..."
+            },
+            "shippingCountryFilter": {
+                "label": "Forsendelsesland",
+                "placeholder": "Vælg forsendelseslande..."
+            },
+            "customerGroupFilter": {
+                "label": "Kundegruppe",
+                "placeholder": "Vælg debitorgruppe..."
+            },
+            "tagFilter": {
+                "label": "Tags",
+                "placeholder": "Vælg mærker..."
+            },
+            "productFilter": {
+                "label": "Produkter",
+                "placeholder": "Vælg produkter..."
+            },
+            "messageEmptyTitle": "Intet fundet",
+            "messageEmptySubline": "Rediger dine filtre for at finde resultater."
         }
     },
     "sw-privileges": {
@@ -378,7 +441,7 @@
                 "label": "Modtagere af nyhedsbrev"
             },
             "product_search_config": {
-                "label": "Søgning efter produkt"
+                "label": "Søg"
             },
             "scale_unit": {
                 "label": "Skaler enheder"
@@ -443,7 +506,7 @@
         },
         "additional_permissions": {
             "orders": {
-                "create_discounts": "Opret rabat",
+                "create_discounts": "Opret kreditelementer",
                 "label": "Ordrer"
             },
             "user": {
@@ -453,8 +516,9 @@
             "system": {
                 "core_update": "Kør opdatering",
                 "plugin_maintain": "Vedligehold udvidelser",
+                "extension_store": "Butik butik",
                 "clear_cache": "Ryd cache",
-                "logging": "Logføring",
+                "logging": "Logfiler",
                 "frw": "Guiden Første Kør",
                 "import_export": "Import/eksport",
                 "label": "Indstillinger",
@@ -466,7 +530,7 @@
             },
             "routes": {
                 "label": "Ruter",
-                "api_action_access-key_integration": "Opret ny API-nøgle",
+                "api_action_access-key_integration": "Opret API-nøgler",
                 "api_acl_privileges_get": "Læs alle ACL-rettigheder",
                 "api_acl_privileges_route_get": "Læse ACL-ruterettigheder",
                 "api_action_cache_info": "Læs cache- info",
@@ -558,7 +622,7 @@
     },
     "sw-cms": {
         "general": {
-            "placeholderSearchBar": "Søg efter et layout...",
+            "placeholderSearchBar": "Søg i layout...",
             "mainMenuItemGeneral": "CMS sider",
             "moduleTitle": "CMS sider",
             "greeting": "Layouts",
@@ -1209,6 +1273,7 @@
                 "infoTextProductDetailPages": "Layoutet kan kun ses i din butik, når du tildeler det til et aktivt produkt.",
                 "labelCategories": "kategorier",
                 "placeholderCategories": "Vælg kategorier...",
+                "placeholderLandingPages": "Vælg landingssider...",
                 "labelSalesChannel": "Salgskanal",
                 "placeholderSalesChannel": "Vælg en salgskanal...",
                 "resetOptionSalesChannel": "Alle salgskanaler",
@@ -1219,6 +1284,8 @@
                 "confirmChangesRestorePrev": "Kassér",
                 "confirmChangesTextCategories": "Du har fjernet layoutopgaver fra kategorier. Hvis du bekræfter disse ændringer, vil disse kategorier ikke længere have tildelt et layout.",
                 "confirmChangesTextCategoriesAssignedLayouts": "Nogle af de valgte kategorier har allerede fået tildelt et layout. Hvis du fortsætter, vil disse tidligere opgaver blive erstattet med det aktuelle layout.",
+                "confirmChangesTextLandingPages": "Du har fjernet layoutopgaver fra landingssider. Hvis du bekræfter disse ændringer, vil disse landingssider ikke længere have tildelt et layout.",
+                "confirmChangesTextLandingPagesAssignedLayouts": "Nogle af de valgte landingssider har allerede fået tildelt et layout. Hvis du fortsætter, vil disse tidligere opgaver blive erstattet med det aktuelle layout.",
                 "confirmChangesTextProducts": "Du har fjernet layoutopgaver fra produkter. Hvis du bekræfter disse ændringer, vil disse produkter ikke længere have tildelt et layout.",
                 "confirmChangesTextProductsAssignedLayouts": "Nogle af de valgte produkter har allerede fået tildelt et layout. Hvis du fortsætter, erstattes de tidligere opgaver med det aktuelle layout.",
                 "confirmChangesTextShopPages": "Du har fjernet layoutopgaver fra butikssiderne. Hvis du bekræfter disse ændringer, vil disse butikssider ikke længere have tildelt et layout",
@@ -1228,6 +1295,7 @@
                 "shopPagesSaveError": "Kan ikke gemme butikssider",
                 "tabCategories": "kategorier",
                 "tabShopPages": "Shop sider",
+                "tabLandingPages": "Landing sider",
                 "shopPages": {
                     "tosPage": "TOS sider",
                     "revocationPage": "Bekendtgørelser om tilbagekaldelse",
@@ -1536,7 +1604,7 @@
                 "keywords": "Søgeord",
                 "length": "Længde",
                 "linked": "Linked",
-                "manufacturer": "Leverandører",
+                "manufacturerId": "Producent",
                 "manufacturerNumber": "Leverandør nummer",
                 "markAsTopseller": "Markeret som bedst sælgende",
                 "maxDeliveryTime": "Max. leveringstid",
@@ -1549,7 +1617,7 @@
                 "option": "Mulighed",
                 "packUnit": "Emballageenhed",
                 "packUnitPlural": "Pakke enhed flertalsflertal",
-                "price": "Pris",
+                "cheapestPrice": "Pris",
                 "product": "Produkt",
                 "productNumber": "Varenummer",
                 "purchasePrice": "Indkøbspris",
@@ -1681,7 +1749,7 @@
             "c1051bb4-d103-4f74-8988-acbcafc7fdc3": "Dette felt må ikke være tomt.",
             "INVALID_MEDIA_URL": "Venligst indtast en gyldig URL for at uploade en fil.",
             "CONTENT__MISSING_RULE_TYPE_EXCEPTION": "Du skal vælge en type for reglen.",
-            "CONTENT__INVALID_CATEGORY_TYPE_AS_ENTRY_POINT": "Typen kan ikke tildeles, mens kategorien er indgangspunkt.",
+            "CONTENT__INVALID_CATEGORY_TYPE_AS_ENTRY_POINT": "Typen kan ikke tildeles, mens kategorien er et indgangspunkt.",
             "SHOPWARE_INVALID_IP": "Indtast en valid IP adresse.",
             "INVALID_URL": "Indtast en valid Url."
         },
@@ -1704,7 +1772,9 @@
             "ascending": "Stigende",
             "descending": "Faldende",
             "xTimesIn": "{n} gange i",
-            "close": "Luk"
+            "close": "Luk",
+            "from": "Fra",
+            "to": "Til"
         },
         "notification": {
             "notificationSaveErrorMessage": "Der opstod en fejl da enheden blev gemt: \"{entityName}\".",
@@ -2688,7 +2758,11 @@
     "sw-settings-number-range": {
         "general": {
             "mainMenuItemGeneral": "Nummerserier",
-            "placeholderSearchBar": "Søg i nummerserier..."
+            "placeholderSearchBar": "Søg i nummerserier...",
+            "infoGlobalTypeTitle": "Globalt nummerområde type \"{typeName}“",
+            "infoGlobal": "Du kan ikke ændre typen af et globalt nummerområde. Men du kan oprette flere nummerintervaller for de fleste typer og bestemte salgskanaler tilbage i oversigten.",
+            "infoGlobalTitle": "Globalt nummerområde \"{name}“",
+            "infoSalesChannelBound": "Hvis du vil ændre et nummerområdes type, skal du først fjerne alle salgskanaltildelinger."
         },
         "list": {
             "textHeadline": "Nummerserier",
@@ -3006,9 +3080,11 @@
             "descriptionLabel": "Beskrivelse",
             "messageSaveSuccess": "Kategori \"{name}\" er blevet gemt.",
             "useAsLogo": "Anvend som hovedbillede",
-            "treeHeadline": "Kategori struktur",
+            "treeHeadline": "kategorier",
             "treeHeadSelected": "{count} valgt",
             "emptyStateHeadline": "Ingen kategorier valgt",
+            "errorNavigationEntryPoint": "Denne kategori defineres som en hovednavigation i mindst én salgskanal og kan derfor ikke slettes.",
+            "errorNavigationEntryPointMultiple": "En eller flere kategorier defineres som en hovednavigation i mindst én salgskanal og kan derfor ikke slettes.",
             "actions": {
                 "actionsDisabledInLanguage": "Kategorier kan kun blive oprettet i standard sproget.",
                 "createSub": "Ny underkategori",
@@ -3022,58 +3098,54 @@
             "products": "Produkter",
             "seo": "SEO",
             "columnInfoHeader": "Element i sidefod",
-            "columnInfo": "Denne kategori opretter en angivet kolonne i sidefoden. Kategorinavnet vises som en overskrift, der ikke kan klikkes på, for kolonnen. Alle kategorier nedenfor vises som klikbare rækker under kolonneoverskriften."
+            "columnInfo": "Denne kategori opretter en angivet kolonne i sidefoden. Kategorinavnet vises som en overskrift for kolonnen. Alle kategorier på første niveau under denne kategori vises som rækker under kolonneoverskriften."
         },
         "base": {
             "general": {
                 "categoryNameLabel": "Navn",
                 "headlineInformationCard": "Generelt",
-                "isCategoryActiveLabel": "Kategori er aktiv",
+                "isCategoryActiveLabel": "Aktiv",
                 "useAsLink": "Brug som link",
                 "labelCategoryTags": "Tags",
                 "labelCategoryTagsPlaceholder": "Indtast tags individuelt...",
                 "types": {
                     "title": "Kategoritype",
-                    "page": "Kategori",
-                    "folder": "Indgangspunkt",
-                    "link": "Tilpassset link",
-                    "column": "Kolonne",
-                    "entrypoint": "Indgangspunkt",
-                    "pageList": "Side/Liste",
-                    "help": "En strukturkategori kan ikke kaldes af sig selv, men bruges kun til skitseringsformål."
-                }
-            },
-            "entry-point": {
-                "title": "Indgangspunkt",
-                "navigation": {
-                    "descriptionGeneral": "Du har tildelt denne kategori som startpunktet for den primære navigation i følgende salgskanaler:"
-                },
-                "serviceSales": {
-                    "descriptionGeneral": "Du har tildelt denne kategori som startpunkt for service navigationen i disse salgskanaler:"
-                },
-                "footerSales": {
-                    "descriptionGeneral": "Du har tildelt denne kategori som startpunkt for sidefods-navigationen i disse salgskanaler:"
+                    "page": "Side/Liste",
+                    "folder": "Strukturerende element/indgangspunkt",
+                    "link": "Link",
+                    "linkUnavailable": "Link (kan ikke vælges, hvis kategori defineres som indgangspunkt)",
+                    "help": "En strukturkategori kan ikke kaldes af sig selv, men bruges kun til skitseringsformål.",
+                    "helpText": {
+                        "page": "En side/liste har tilknyttede produkter og kan tilgås direkte med det tildelte layout.",
+                        "folder": "Et struktureringselement/indgangspunkt vil kun blive vist i strukturen og er ikke direkte tilgængeligt, bortset fra at det er tildelt som et indgangspunkt for en salgskanal.",
+                        "link": "Et link giver mulighed for henvisning til et produkt, en anden kategori, en landingsside eller et eksternt sted."
+                    }
                 }
             },
             "entry-point-card": {
-                "cardTitle": "Indgangspunkt",
+                "cardTitle": "Navigation",
                 "labelEntryPoint": "Indgangspunkt",
                 "placeholderEntryPoint": "Vælg indgangspunkt...",
-                "labelSalesChannels": "Salgskanaler",
-                "placeholderSalesChannels": "Vælg salgskanal...",
+                "existingNavigationDescription": "Du har tildelt denne kategori som et indgangspunkt for hovednavigationen i disse Salgskanaler:",
+                "labelSalesChannelsAdd": "Tildeling af salgskanal",
+                "placeholderSalesChannels": "Tilføj salgskanaler...",
                 "buttonConfigureHome": "Indstil startside",
                 "types": {
                     "labelMainNavigation": "Vigtigste navigation",
+                    "helpTextMainNavigation": "Indgangspunktet for hovednavigationen er et obligatorisk felt for Salgskanaler. Hvis du tildeler denne kategori som indgangspunkt for hovednavigationen til en eller flere salgskanaler, kan du kun ændre denne tildeling på selve salgskanalen.",
                     "labelFooterNavigation": "Navigation i sidefod",
-                    "labelServiceNavigation": "Service navigation"
+                    "helpTextFooterNavigation": "Hvis du tildeler denne kategori som indgangspunkt for navigationen i sidefod til en eller flere salgskanaler, vil kategorierne på næste niveau være kolonner. Dette giver dig mulighed for at opdele navigationen i sidefoden i flere områder.",
+                    "labelServiceNavigation": "Service navigation",
+                    "helpTextServiceNavigation": "Hvis du tildeler denne kategori som indgangspunkt for tjenestenavigationen til en eller flere salgskanaler, vises kategorierne på næste niveau som en anden navigation i sidefodområdet."
                 }
             },
             "entry-point-modal": {
                 "modalTitle": "Indstil startside",
-                "salesChannelSelection": "Indgangspunkt hovednavigation",
-                "showInMainNavigation": "Vis som startside i hovednavigation",
-                "mainNavigationName": "Navn i hovednavigationen",
-                "mainNavigationNamePlaceholder": "Navn i hovednavigationen...",
+                "salesChannelSelection": "Salgskanal",
+                "showInMainNavigation": "Vis i hovednavigation",
+                "mainNavigationName": "Vist navn",
+                "mainNavigationNamePlaceholder": "Indtast alternativt navn på startsiden...",
+                "mainNavigationNameHelpText": "Som standard vises denne kategori som „home“. Angiv et alternativt vist navn, hvis standardkonfigurationen ikke passer til den aktuelle salgskanal.",
                 "layoutHeadline": "layout",
                 "seoSettingsHeadline": "SEO-indstillinger",
                 "metaTitleLabel": "Meta titel",
@@ -3154,6 +3226,10 @@
             "textDeleteConfirm": "Er du sikker på at du vil slette denne kategori \"{name}\"?",
             "textDeleteChildrenConfirm": "Alle underkategorier vil også blive slettet.",
             "textDeleteMultipleConfirm": "Er du sikker på du vil slette de {count} valgte kategorier?"
+        },
+        "entry-point-overwrite-modal": {
+            "textBefore": "Du har allerede tildelt et indtastningspunkt til følgende salgskanal: | Du har allerede tildelt indtastningspunkter til følgende salgskanaler:",
+            "textAfter": "Skal denne opgave overskrives? | Skal disse opgaver overskrives?"
         }
     },
     "sw-landing-page": {
@@ -3165,13 +3241,16 @@
             "placeholderSearchBar": "Søg efter landingssider...",
             "treeHeadSelected": "{count} valgt",
             "buttonCreate": "Tilføj landingsside",
-            "treeHeadline": "Landing sider"
+            "treeHeadline": "Landing sider",
+            "actions": {
+                "actionsDisabledInLanguage": "Landingssider kan kun oprettes på systemets standardsprog."
+            }
         },
         "base": {
             "general": {
                 "labelName": "Navn",
                 "headlineInformationCard": "Generel",
-                "isActiveLabel": "Landingsside aktiv",
+                "isActiveLabel": "Aktiv",
                 "labelTags": "Tags",
                 "labelTagsPlaceholder": "Indtast mærker individuelt..."
             },
@@ -3186,7 +3265,7 @@
                 "placeholderMetaTitle": "Indtast meta- titel...",
                 "placeholderMetaDescription": "Indtast en metabeskrivelse...",
                 "placeholderKeywords": "Indtast et eller flere nøgleord...",
-                "placeholderUrl": "Indtast en URL..."
+                "placeholderUrl": "Indtast URL..."
             },
             "cms": {
                 "title": "Layout opgave",
@@ -3196,12 +3275,13 @@
                 "editInPagebuilderEmpty": "Opret nyt layout",
                 "editContent": "Redigér indhold",
                 "defaultTitle": "Standard layout",
-                "defaultDesc": "Kategori side"
+                "defaultDesc": "Kategori side",
+                "cmsLayoutModalHeadline": "Landing side"
             }
         },
         "modal": {
-            "textDeleteConfirm": "Er du sikker på, at du virkelig vil slette Landingssiden \"{name}„?",
-            "textDeleteMultipleConfirm": "Er du sikker på, at du vil slette de {count} valgte Landingssider?"
+            "textDeleteConfirm": "Er du sikker på, at du virkelig vil slette landingssiden \"{name}„?",
+            "textDeleteMultipleConfirm": "Er du sikker på, at du vil slette de {count} valgte landingssider?"
         }
     },
     "sw-product": {
@@ -3213,7 +3293,8 @@
             "columnLinkOnly": "Skjult",
             "linkAdvancedVisibility": "Avancerede tildelingsmuligheder",
             "labelVisibility": "Salgskanaler",
-            "closeModal": "Anvend"
+            "closeModal": "Anvend",
+            "bodyVisibility": "Tilføj Salgskanaler, hvor produktet skal vises. Du er også i stand til yderligere at definere synligheden af produktet for hver Storefront Sales Channel via de link nedenfor."
         },
         "general": {
             "mainMenuItemGeneral": "Produkter",
@@ -3223,10 +3304,13 @@
             "placeholderSearchBar": "Søg blandt produkter...",
             "inheritanceModuleName": "Dette produkt",
             "backToParent": "Gå tilbage til variantoversigt",
+            "backToGeneralOverview": "Gå tilbage til generel oversigt",
             "copy": "Kopier",
             "cloneSuffix": "varianter",
             "cloneNotice": "Produktvarianterne duplikeres. Hvis denne proces afbrydes, er det muligt, at ikke alle varianter duplikeres fuldstændigt. I dette tilfælde kan du generere varianterne i det nye produkt igen.",
-            "cloneTitle": "Duplikere varianter"
+            "cloneTitle": "Duplikere varianter",
+            "tooltipModeSettings": "Indstillinger for tilstand",
+            "textAdvancedMode": "Avanceret tilstand"
         },
         "basicForm": {
             "labelTitle": "Titel",
@@ -3256,7 +3340,10 @@
             "textAddSearchKeyword": "Klik her for at tilføje søgeord",
             "textEnterValidSearchKeyword": "Søgbare søgeord",
             "helpTextSearchKeyword": "Produktet i Storefront kan også findes ved hjælp af disse søgeord.",
-            "helpTextTags": "Mærker er kun beregnet til intern brug. De kan hjælpe dig med at administrere grupper af produkter, anvende regler eller fungere som brugerdefinerede søgeord."
+            "helpTextTags": "Mærker er kun beregnet til intern brug. De kan hjælpe dig med at administrere grupper af produkter, anvende regler eller fungere som brugerdefinerede søgeord.",
+            "categoriesTitle": "Kategorier og mærker",
+            "descriptionCategories": "Tilføj kategorier, så produktet kan findes via hovedmenuen i Store eller via API-forbindelser. Sørg for at vælge kategorier, der er tilgængelige og aktive i den valgte salgskanal.",
+            "descriptionTags": "Tags hjælper dig med at finde produkter hurtigere. De gør det nemmere at gruppere produkter og kan bruges til at automatisere opgaven med Rule Builder."
         },
         "priceForm": {
             "labelTaxRate": "Momssats",
@@ -3306,7 +3393,7 @@
             "labelEan": "EAN",
             "labelManufacturerNumber": "Leverandør produkt nummer",
             "labelStock": "Lager",
-            "labelActive": "Aktiv",
+            "labelActive": "Aktiv for alle valgte salgskanaler",
             "labelShippingFree": "Gratis levering",
             "labelMarkAsTopseller": "Produkt kampagne",
             "labelIsCloseout": "Ophørsudsalg",
@@ -3341,7 +3428,7 @@
         "detailBase": {
             "cardTitleDeliverabilityInfo": "Leveringsklar",
             "cardTitleProductInfo": "Generel information",
-            "cardTitleAssignment": "Tildeling",
+            "cardTitleAssignment": "Synlighed og struktur",
             "cardTitlePrices": "Priser",
             "cardTitleSettings": "Etiketter",
             "cardTitlePackaging": "Foranstaltninger og emballage",
@@ -3350,12 +3437,15 @@
             "cardTitleReviews": "Anmeldelser",
             "cardTitleMedia": "Medie",
             "labelContextMenuAddToProduct": "Tilføj til produktet",
-            "cardTitleSeo": "SEO"
+            "cardTitleSeo": "SEO",
+            "cardTitleVisibilityStructure": "Synlighed struktur"
         },
         "specifications": {
             "cardTitleMeasuresPackaging": "Foranstaltninger og emballage",
             "cardTitleEssentialCharacteristics": "Væsentlige egenskaber",
-            "cardTitleCustomFields": "Brugerdefinerede felter"
+            "cardTitleCustomFields": "Brugerdefinerede felter",
+            "cardTitleProperties": "Egenskaber",
+            "cardTitleCustomProduct": "Brugerdefinerede produkter"
         },
         "seo": {
             "cardTitleSeo": "SEO"
@@ -3509,7 +3599,7 @@
             "generationNotificationCountDeletion": "En variant vil blive slettet | {count} varianter vil blive slettet",
             "generationNotificationButtonCancel": "Annuller",
             "generationNotificationButtonContinue": "Generér",
-            "generatedFilterList": "Filter",
+            "generatedFilterList": "Filter liste",
             "generatedListColumnVariation": "Navn",
             "generatedListColumnPrice": "Pris (Brutto / netto)",
             "generatedListColumnProductNumber": "Varenummer",
@@ -3532,24 +3622,26 @@
             },
             "configuratorModal": {
                 "title": "Generer varianter",
-                "selectOptions": "Vælg værdier",
-                "selectOptionsExplanation": "Vælg egenskabsværdier for at kunne generere varianter.",
-                "priceSurcharges": "Tillæg til pris",
+                "selectOptions": "Valg af værdi",
+                "selectOptionsExplanation": "Vælg egenskabsværdier, der skal genereres fra.",
+                "selectRestrictionsExplanation": "Vælg egenskabsværdier, der skal udelukkes fra variantgenerering.",
+                "selectPricesExplanation": "Tilføj tillæg til værdier eller valutaer.",
+                "priceSurcharges": "Pristillæg",
                 "resetSurcharges": "Slet tillæg",
-                "defineRestrictions": "Definer begrænsning",
-                "priceOptions": "Værdier",
-                "restrictedCombinations": "Begrænsede egenskabsværdier",
-                "searchRestrictions": "Søg værdier...",
-                "addNewRestriction": "Tilføj begrænsning",
-                "editRestriction": "Rediger begrænsninger",
-                "deleteRestriction": "Slet begrænsning",
+                "defineRestrictions": "Udelukkelse",
+                "priceOptions": "Værdi",
+                "restrictedCombinations": "Værdier for udelukkede",
+                "searchRestrictions": "Søg udelukkede værdier...",
+                "addNewRestriction": "Udelad værdier",
+                "editRestriction": "Rediger",
+                "deleteRestriction": "Slet",
                 "singleRestrictionSeperation": "Og",
-                "deleteCombination": "Slet kombination",
+                "deleteCombination": "Slet",
                 "isOneFrom": "er en af",
                 "cancel": "Annuller",
                 "save": "Gem",
                 "searchPlaceholder": "Søg værdier...",
-                "singleRestrictionAddTitle": "Tilføj begrænsning",
+                "singleRestrictionAddTitle": "Udelad værdier",
                 "surchargeNotice": "Ændringer i tillæg har ingen indflydelse på allerede genererede varianter. Gå til variantens side for at ændre priser på allerede genererede varianter."
             },
             "deliveryModal": {
@@ -3573,7 +3665,7 @@
         "layout": {
             "title": "Layout opgave",
             "subtitle": "Du kan ændre sider med produktdetaljer ved at tildele brugerdefinerede layout. Hvis der ikke er tildelt noget brugerdefineret layout her, bruges standardlayoutet.",
-            "textNoConfig": "Det aktuelle valgte layout har ingen redigerbare elementer",
+            "textNoConfig": "Det aktuelt valgte layout har ingen redigerbare elementer",
             "textContentInfo": "Standardproduktblokke udfyldes automatisk med produktdata. Det faktiske indhold er således ikke angivet her."
         },
         "crossselling": {
@@ -3618,7 +3710,7 @@
             "templateSelectFieldPlaceholder": "Vælg en skabelon..."
         },
         "layoutAssignment": {
-            "title": "Standard fallback",
+            "title": "Standardværdi",
             "subtitle": "Produkt side",
             "textAssignLayout": "Tildel layout",
             "textChangeLayout": "Ændre layout",
@@ -3626,14 +3718,45 @@
             "textEditInDesigner": "Rediger i designer"
         },
         "filters": {
+            "fromPlaceholder": "Indtast startværdi...",
+            "toPlaceholder": "Indtast slutværdi...",
             "activeFilter": {
                 "label": "Aktiv",
                 "placeholder": "Vælg en status..."
             },
             "imagesFilter": {
                 "label": "Billeder",
-                "placeholder": "Vælg en billedstatus..."
-            }
+                "placeholder": "Vælg en billedstatus...",
+                "textHasCriteria": "Mindst ét produkt billede tildelt",
+                "textNoCriteria": "Ingen produktbilleder tildelt"
+            },
+            "releaseDateFilter": {
+                "label": "Udgivelsesdato"
+            },
+            "stockFilter": {
+                "label": "Stock"
+            },
+            "priceFilter": {
+                "label": "Pris"
+            },
+            "manufacturerFilter": {
+                "label": "Producent",
+                "placeholder": "Vælg producent..."
+            },
+            "salesChannelsFilter": {
+                "label": "Salg Kanaler",
+                "placeholder": "Vælg Salgskanaler..."
+            },
+            "categoriesFilter": {
+                "label": "kategorier",
+                "placeholder": "Vælg kategorier..."
+            },
+            "tagsFilter": {
+                "label": "Tags",
+                "placeholder": "Vælg mærker..."
+            },
+            "messageEmptyTitle": "Intet fundet",
+            "messageEmptySubline": "Rediger dine filtre for at se resultater."
         },
         "notification": {
             "notificationSaveErrorProductNoAlreadyExists": "Produktnr. \"{productNo}\" er allerede tildelt."
@@ -3873,6 +3996,7 @@
             "info": "Hvad er nyt?",
             "requirements": "Systemkrav",
             "plugins": "Plugin-kompatibilitet",
+            "extensions": "Foreneligheden",
             "updating": "Opdaterer..."
         },
         "notifications": {
@@ -3916,6 +4040,7 @@
             },
             "actions": {
                 "openPluginManager": "Åben plugin administrationen",
+                "openMyExtensions": "Åbn mine udvidelser",
                 "deactivateAll": "Deaktiver alle plugins.",
                 "deactivateIncompatible": "Deaktiver inkompatible plugins.",
                 "deactivateNone": "Jeg er opmærksom på de implicitte farer og vil stadig opdatere Shopware uden først at deaktivere inkompatible plugins. Jeg er klar over, at Shopware ikke kan garantere funktionaliteten af min installation efter en inkompatibel opdatering.",
@@ -3987,82 +4112,83 @@
         },
         "generalTab": {
             "labelSearchBehaviour": "Søgeadfærd",
-            "textTitleSearchBehaviour": "Foruddefiner din søgeadfærd i butiksfronten.",
+            "textTitleSearchBehaviour": "Foruddefiner dine salgskanalers søgeadfærd.",
             "labelSearchAndCondition": "„OG“ Søg",
-            "textSearchAndConditionExplain": "Søgeresultaterne stemmer overens med hvert enkelt element i det indtastede søgeord.\nEksempel: „Jeans sommer“ finder produkter, der indeholder både søgeord „jeans“ og „sommer“.",
+            "textSearchAndConditionExplain": "Søgeresultaterne stemmer overens med hvert enkelt element i det indtastede søgeord.\nEksempel: „Jeans summer“ finder søgeresultater, der indeholder både søgetermer „jeans“ og „sommer“.",
             "labelSearchOrCondition": "„ELLER“ Søg",
-            "textSearchOrConditionExplain": "Søgeresultaterne stemmer overens med ethvert element i det indtastede søgeord.\nEksempel: „Jeans sommer“ finder produkter, der indeholder enten søgeordet „jeans“ og „sommer“.",
+            "textSearchOrConditionExplain": "Søgeresultaterne stemmer overens med ethvert element i det indtastede søgeord.\nEksempel: „Jeans summer“ finder søgeresultater, der indeholder enten søgeudtrykket „jeans“ eller søgeordet „sommer“.",
             "labelMinimalSearchTerm": "Minimal søgeterm længde",
-            "labelExcludedSearchTerms": "Ekskluderede søge",
+            "labelExcludedSearchTerms": "Udelukkede søgeord",
             "textEmptyStateExcludedSearchTerms": "Ingen søgeord ekskluderet endnu",
-            "buttonAddExcludedSearch": "Tilføj udelukkelse",
-            "textPlaceholderTermsFilter": "Søg udelukkede termer...",
-            "buttonAddExcludedSearchTerms": "Tilføj udelukkelsesbetegnelse",
+            "buttonAddExcludedSearch": "Udelad søgeord",
+            "textPlaceholderTermsFilter": "Søg efter udelukkede søgeord...",
+            "buttonAddExcludedSearchTerms": "Udelad søgeord",
             "labelExcludedSearchTermsNoResults": "Ingen resultater fundet.",
             "labelSearchableContent": "Søgbart indhold",
-            "textDescriptionSearchableContent": "Alt søgbart indhold er angivet i tabellen nedenfor. Hvis du vil tilpasse søgeresultaterne i din Storefront, skal du fortsætte og enten udelukke indhold fra at være søgbart overhovedet eller justere rækkefølgen af hvert enkelt element efter din smag. Højere rangerende elementer har en øget „søgeværdi“ og vil placere højere i søgeresultaterne.",
+            "textDescriptionSearchableContent": "Alt søgbart indhold er angivet i tabellen nedenfor. Hvis du vil tilpasse søgeresultaterne i dine salgskanaler, skal du fortsætte og enten udelukke indhold fra at være søgbart overhovedet eller justere rækkefølgen af hvert enkelt element efter eget valg. Højere rangerende elementer har en øget „søgeværdi“ og vil placere højere i søgeresultaterne.",
             "buttonResetDefault": "Nulstil til standard",
             "linkExample": "Vis eksempel",
-            "buttonAddContent": "Tilføj indhold",
+            "buttonAddContent": "Tilføj søgbart indhold",
             "labelGeneralTab": "Generel",
             "labelCustomFieldsTab": "Brugerdefinerede felter",
             "textEmptyStateSearchableContent": "Intet søgbart indhold tilføjet endnu.",
             "titleExampleModal": "Eksempel på rangerende søgning",
-            "textColumnSearchTerm": "Søg i termer",
+            "textColumnSearchTerm": "Udelukkede søgeord",
             "modal": {
                 "textExplain": "Nedenfor finder du tre fiktive søgeresultater for søgeordet „jeans“. Søgbare er produkttitler (ranking score 100), produktbeskrivelser (ranking score 50) og produkttags (ranking score 20).",
                 "textTitle": "Titel",
                 "textSuperJeans": "Super jeans",
                 "textDescription": "Beskrivelse",
-                "textFancyJeans": "fancy jeans",
+                "textFancyJeans": "Fancy jeans",
                 "textTag": "Tag",
                 "textJeans": "Jeans",
                 "textTotal": "I alt",
                 "textProductRankedFirstScore": "Det første produkt har et søgehit i hvert søgbart objekt, hvilket resulterer i en samlet rangeringsscore på 170.",
-                "textFancyPants": "fancy bukser",
-                "textProductRankedSecondScore": "Det andet produkt har søgehits for produkttitel og produkttags, hvilket resulterer i en samlet rangeringsscore på 120.",
+                "textFancyPants": "Fancy bukser",
+                "textProductRankedSecondScore": "Det andet produkt har søgehits efter produktnavn og produktmærker, hvilket resulterer i en samlet rangeringsscore på 120.",
                 "textSuperPants": "Super bukser",
                 "textProductRankedThirdScore": "Produktet rangeret tredje har kun ét hit i produkttags, hvilket resulterer i en samlet ranking score på 20."
             },
             "labelSearchIndex": "Søg indeks",
             "buttonRebuildSearchIndex": "Genopbyg søgeindeks",
-            "textWarningOpenTab": "Hold venligst dette vindue/faneblad åbent.",
-            "textRebuildSearchIndexDescription": "Det tager lidt tid at genopbygge søgeindekset. I den periode er det obligatorisk at holde dette vindue/fane åbent for at kunne genopbygge søgeindekset. Du får besked, så snart processen er afsluttet.",
+            "textWarningOpenTab": "Hold venligst dette vindue åbent.",
+            "textRebuildSearchIndexDescription": "Det tager lidt tid at genopbygge søgeindekset. I løbet af den tid er det obligatorisk at holde dette vindue åbent for at kunne genopbygge søgeindekset. Du får besked, så snart processen er afsluttet.",
             "textRebuildingSearchIndex": "Genopbygning af søgeindeks",
             "textLastedBuild": "Seneste build:",
+            "textSearchNotIndexedYet": "Søgningen er ikke indekseret endnu.",
             "list": {
                 "columnSearchable": "Søgbare",
-                "columnRankingPoints": "Rangeringspunkter",
+                "columnRankingPoints": "Ranging-score",
                 "columnContent": "Indhold",
-                "columnSplitKeywords": "Opdel nøgleord",
+                "columnSplitKeywords": "Opdel søgetermer",
                 "textResetRanking": "Nulstil ranking",
                 "textRemove": "Fjern"
             },
             "configFields": {
-                "name": "Navn",
-                "description": "Beskrivelse",
+                "name": "Produktets navn",
+                "description": "Beskrivelse af produktet",
                 "productNumber": "Produkt nummer",
                 "manufacturerNumber": "Fabrikantens nummer",
-                "ean": "EAN",
-                "customSearchKeywords": "Brugerdefinerede søgeord",
+                "ean": "Produkt EAN",
+                "customSearchKeywords": "Brugerdefinerede søgetermer",
                 "manufacturerName": "Fabrikantens navn",
                 "manufacturerCustomFields": "Fabrikantens brugerdefinerede felter",
-                "categoriesName": "Kategorier navn",
-                "categoriesCustomFields": "Kategorier brugerdefinerede felter",
-                "tagsName": "Mærke navn",
-                "metaTitle": "Meta titel",
-                "metaDescription": "Meta beskrivelse",
+                "categoriesName": "Kategori navn",
+                "categoriesCustomFields": "Kategori brugerdefinerede felter",
+                "tagsName": "Produkt tag",
+                "metaTitle": "Produkt meta-titel",
+                "metaDescription": "Beskrivelse af produktmeta",
                 "propertiesName": "Ejendomsnavn",
-                "variantValue": "Variant værdi"
+                "variantValue": "Ejendomsværdi"
             }
         },
         "notification": {
-            "saveSuccess": "Konfigurationen er blevet gemt.",
-            "excludedTermRequired": "Udelukkede udtryk bør ikke være tomt.",
-            "excludedTermAlreadyExists": "Udelukkede udtryk eksisterer allerede.",
-            "updateExcludedTermSuccess": "Udelukkede sigt opdatering succes.",
-            "createExcludedTermSuccess": "Udelukkede udtryk skaber succes.",
-            "deleteExcludedTermSuccess": "Udelukkede udtryk sletning succes.",
+            "saveSuccess": "Konfigurationen gemt.",
+            "excludedTermRequired": "Ekskluderede søgeord bør ikke være tomme.",
+            "excludedTermAlreadyExists": "Ekskluderede søgeord findes allerede.",
+            "updateExcludedTermSuccess": "Udelukkede søgeord opdateret.",
+            "createExcludedTermSuccess": "Udelukkede søgeord oprettet.",
+            "deleteExcludedTermSuccess": "Udeltaget søgeord slettet.",
             "saveError": "Der opstod en fejl under lagring af din konfiguration.",
             "index": {
                 "started": "Indekser for byggeprodukter.",
@@ -4071,14 +4197,14 @@
             "loadError": "Der opstod en fejl under indlæsning af din konfiguration."
         },
         "liveSearchTab": {
-            "titleCard": "Burefront live søgning",
-            "textDescription": "Test dine brugerdefinerede søgeindstillinger nedenfor. Hvis du lige har foretaget ændringer i dine søgeindstillinger, skal du sørge for at gemme disse indstillinger, før du tester dem med denne live-søgning.",
+            "titleCard": "Sales Channel live søgning",
+            "textDescription": "Test dine brugerdefinerede søgeindstillinger nedenfor.",
             "labelSalesChannelSelect": "Salgskanal",
-            "textPlaceholderSalesChannel": "Vælg en salgskanal for at teste live-søgningen",
+            "textPlaceholderSalesChannel": "Vælg en salgskanal...",
             "linkRebuildSearchIndex": "Genopbyg søgeindeks",
-            "labelName": "Navn",
-            "labelScore": "Score",
-            "textNoResult": "Ingen resultater for det eller de nøgleord, du er indtastet. Prøv venligst et eller flere søgeord"
+            "labelName": "Søgeresultater",
+            "labelScore": "Ranging-score",
+            "textNoResult": "Ingen resultater fundet. Prøv igen med et andet søgeord."
         }
     },
     "sw-settings-mailer": {
@@ -4115,8 +4241,6 @@
             "password-placeholder": "Indtast et kodeord...",
             "encryption": "Kryptering",
             "encryption-placeholder": "Vælg krypteringsmetode...",
-            "authentication": "Godkendelsesmetode",
-            "authentication-placeholder": "Vælg en godkendelsesmetode...",
             "sender-address": "Afsenderadresse",
             "sender-address-placeholder": "Vælg en afsenderadresse du har adgang til...",
             "delivery-address": "Leveringsadresse",
@@ -4128,12 +4252,6 @@
             "no-encryption": "Ingen kryptering",
             "ssl": "SSL",
             "tls": "TLS"
-        },
-        "authentication": {
-            "no-authentication": "Ingen godkendelse",
-            "plain": "Simpel",
-            "login": "Login",
-            "cram-md5": "Cram MD5"
         },
         "helpText": "For mere information, besøg <a target=\"_blank\", href=\"https://docs.shopware.com/en/shopware-6-en\">Shopwares dokumentation.</a>"
     },
@@ -4151,42 +4269,44 @@
         "my-extensions": {
             "listing": {
                 "initialSearchType": "Udvidelser",
-                "placeholderSearchBar": "Søg udvidelser…",
+                "placeholderSearchBar": "Søg efter udvidelser...",
                 "controls": {
                     "labelActiveStateSwitch": "Skjul inaktive udvidelser",
                     "filterOptions": {
                         "last-updated": "Sidst opdateret",
-                        "name-asc": "Udvidelsesnavn, asc.",
-                        "name-desc": "Udvidelsesnavn, desc."
+                        "name-asc": "Navn A - Z.",
+                        "name-desc": "Navn Z - A."
                     }
-                }
+                },
+                "version": "Version",
+                "update": "Opdater"
             },
             "account": {
                 "headline": "Shopware-konto",
-                "isLoggedIn": "Konto med succes forbundet. Gå til fanen „App“ eller „Temaer“ og kontroller, om dine købte udvidelser er angivet. Hvis ikke, skal du tjekke hovedet over til din Showare-konto og sikre dig, at det korrekte domæne for udvidelser er angivet.",
+                "isLoggedIn": "Shopware-konto med succes forbundet. Gå til fanen „App“ eller „Temaer“ og kontroller, om dine købte udvidelser er angivet. Hvis ikke, skal du tjekke hovedet over til din Showare-konto og sikre dig, at det korrekte domæne for udvidelser er angivet.",
                 "login": "Log ind",
                 "logout": "Logout",
-                "loginMessage": "Log ind med din Shopware-konto for at få adgang til de udvidelser, du har købt på store.shopware.com",
-                "register": "Registrer og bliv en del af Shopware-fællesskabet!",
-                "registerNow": "Registrer dig nu",
+                "loginMessage": "Log ind med din Shopware-konto for at få adgang til udvidelser, du har købt på store.shopware.com",
+                "register": "Tilmeld dig nu og bliv en del af Shopware-fællesskabet!",
+                "registerNow": "Tilmeld dig nu",
                 "registerUrl": "https://account.shopware.com/register?lang=en",
                 "mailLabel": "E-mail-adresse",
-                "mailPlaceholder": "Indtast din Email adresse…",
+                "mailPlaceholder": "Indtast din e- mail- adresse...",
                 "passwordLabel": "Adgangskode",
-                "passwordPlaceholder": "Indtast din adgangskode…",
+                "passwordPlaceholder": "Indtast dit kodeord...",
                 "recoveryUrl": "https://account.shopware.com/recovery?lang=en",
                 "passwordForgot": "Har du glemt dit kodeord?",
                 "loginNotificationMessage": "Du er logget ind på Shopware-kontoen."
             },
             "tabs": {
-                "app": "App",
-                "theme": "Tema",
+                "app": "Apps",
+                "theme": "Temaer",
                 "recommendation": "Anbefalinger",
                 "shopwareAccount": "Shopware-konto"
             },
             "fileUpload": {
-                "buttonFileUpload": "Upload plugin",
-                "messageUploadSuccess": "Plugin'et er blevet uploadet."
+                "buttonFileUpload": "Upload udvidelse",
+                "messageUploadSuccess": "Udvidelsen er uploadet."
             }
         },
         "errors": {
@@ -4194,19 +4314,18 @@
             "messageGenericFailure": "Det virkede ikke.",
             "messageUploadFailureNotAZipFile": "Uploadet fil er ikke en ZIP-fil.",
             "messageUploadFailureUnzipFailed": "ZIP-filen kunne ikke udpakkes.",
-            "messageUploadFailureNoPluginFoundInZipFile": "Intet plugin fundet i ZIP-filen.",
+            "messageUploadFailureNoPluginFoundInZipFile": "Ingen udvidelse fundet i ZIP-filen.",
             "messageLoginDataInvalid": "Login data ufuldstændige.",
             "messageStoreLicenseDomainMissing": "Login mislykkedes. Har du angivet det korrekte licensdomæne fra din Shopware-konto i „Indstillinger/Shopware-konto“?",
             "messageStoreNotAvailable": "Butikware Store er ikke tilgængelig.",
-            "messagePluginBaseClassNotFound": "Plugin- basisklassen kunne ikke indlæses. Tjek dit plugin composer.json vedrørende klassen autoloading",
-            "messagePluginInstallationFailed": "Plugin kunne ikke installeres på grund af fejlmeddelelsen \"{message}“",
-            "messagePluginUninstallationFailed": "Plugin kunne ikke afinstalleres på grund af fejlmeddelelsen \"{message}“",
-            "messagePluginActivationFailed": "Plugin kunne ikke aktiveres på grund af fejlmeddelelsen \"{message}“",
-            "messagePluginDeactivationFailed": "Plugin kunne ikke deaktiveres på grund af fejlmeddelelsen \"{message}“",
-            "messageDeactivationFailedDependencies": "Plugin'et \"{dependency}\" kan ikke deaktiveres, fordi der er andre plugins afhængigt af det. Deaktiver følgende plugins, før du genstarter opdateringen: {dependantNames}",
+            "messagePluginBaseClassNotFound": "Udvidelsesbasisklassen kunne ikke indlæses. Tjek dit plugin composer.json vedrørende klassen autoloading.",
+            "messagePluginInstallationFailed": "Udvidelsen kunne ikke installeres: \"{message}“.",
+            "messagePluginUninstallationFailed": "Udvidelsen kunne ikke afinstalleres: \"{message}“.",
+            "messagePluginActivationFailed": "Udvidelsen kunne ikke aktiveres: \"{message}“.",
+            "messagePluginDeactivationFailed": "Udvidelsen kunne ikke deaktiveres: \"{message}“.",
+            "messageDeactivationFailedDependencies": "Udvidelsen \"{dependency}\" kan ikke deaktiveres, da der er andre udvidelser afhængigt af den. Deaktiver følgende udvidelser, før du genstarter opdateringen: {dependantNames}",
             "messageDeactivationFailedThemeAssignment": "Kunne ikke deaktivere eller afinstallere temaet \"{themeName}“. Fjern venligst følgende tema opgaver: {assignments}.",
-            "messagePluginUpdateFailed": "Plugin kunne ikke opdateres på grund af fejlmeddelelsen \"{message}“. {pluginDeactivatedHint}",
-            "pluginDeactivatedHint": "Plugin blev deaktiveret."
+            "pluginDeactivatedHint": "Udvidelse deaktiveret."
         },
         "mainMenu": {
             "mainMenuItemExtensionStore": "Udvidelser",
@@ -4216,6 +4335,20 @@
         }
     },
     "sw-extension-store": {
+        "landing-page": {
+            "enablingShopwareStore": "Aktivering af butiksindeks butik...",
+            "takeMinutes": "Det kan tage et par minutter.",
+            "activationErrorTitle": "Fejl under aktivering",
+            "activationErrorDescription": "Prøv venligst igen. Hvis det ikke virker, skal du bede administratoren om hjælp.",
+            "retryButton": "Prøv igen",
+            "activationSuccessTitle": "Aktiveret",
+            "activationSuccessDescription": "Hav det sjovt at udforske Shopware Store.",
+            "label": "Nu tilgængelig",
+            "activationDescriptionTitleFirst": "Udforsk og køb udvidelser nemt -",
+            "activationDescriptionTitleSecond": "direkte fra din egen butik.",
+            "activationDescriptionTitleDescription": "Aktivér den helt nye Shopware Store, og få adgang til masser af nyttige udvidelser og moderne temaer, der kan integreres i din Shop uden programmeringsevner.",
+            "activate": "Aktiver"
+        },
         "title": "Opbevar",
         "descriptionTextModule": "Administrer dine udvidelser",
         "general": {
@@ -4234,8 +4367,8 @@
                 "releaseDateDesc": "Udgivelsesdato nyeste - ældste",
                 "nameAsc": "Navn A - Z",
                 "nameDesc": "Navn Z - A",
-                "ratingAsc": "Bedømmelse Lav - Høj",
-                "ratingDesc": "Bedømmelse Høj - Lav"
+                "ratingAsc": "Bedømmelse lav - høj",
+                "ratingDesc": "Bedømmelse høj - lav"
             }
         },
         "detail": {
@@ -4243,7 +4376,7 @@
             "labelButtonOpenExtension": "Åbn udvidelse",
             "labelButtonInstallExtension": "Installer udvidelse",
             "labelBy": "af",
-            "numberOfRatings": "{count} Anmeldelse | {count} Anmeldelser",
+            "numberOfRatings": "{count} anmeldelse | {count} anmeldelser",
             "noRatings": "Ingen bedømmelser endnu",
             "cardTitleInformation": "Information",
             "labelButtonReadMore": "Læs mere",
@@ -4254,7 +4387,7 @@
                 "labelUpdatedAt": "Sidst opdateret",
                 "labelLanguages": "Sprog",
                 "labelWebsite": "Website for udviklere",
-                "labelPrivacy": "Privacylink"
+                "labelPrivacy": "Privatlivspolitik"
             },
             "cardTitleFAQ": "OFTE STILLEDE SPØRGSMÅL",
             "cardTitleChangelog": "Ændringslog",
@@ -4268,7 +4401,7 @@
             },
             "sw-extension-buy-modal": {
                 "title": "Tilføj udvidelse",
-                "labelAcceptPermissions": "Jeg er klar over, at denne udvidelse kræver tilladelser",
+                "labelAcceptPermissions": "Jeg er klar over, at denne udvidelse kræver yderligere tilladelser",
                 "labelAcceptPrivacyExtensions": "Jeg er klar over, at jeg har brug for at udvide min privatlivspolitik",
                 "buttonShowPrivacyExtensions": "Vis detaljer",
                 "variantCard": {
@@ -4280,7 +4413,7 @@
                 "variantSummary": {
                     "labelVat": "plus moms",
                     "labelPrice": "Pris",
-                    "renewal": "Fornyelse {renewalDate}"
+                    "renewal": "Fornyelse på {renewalDate}"
                 },
                 "purchaseButtonsLabels": {
                     "free": "Tilføj udvidelse gratis",
@@ -4288,7 +4421,7 @@
                     "buy": "Køb udvidelse nu"
                 },
                 "successNotification": {
-                    "titleSuccess": "Udvidelser er blevet tilføjet!",
+                    "titleSuccess": "Udvidelsen blev tilføjet!",
                     "subtitleSuccess": "Du kan nu prøve din nye udvidelse.",
                     "labelButtonBack": "Tilbage til detaljerne"
                 },
@@ -4298,12 +4431,12 @@
                 }
             },
             "sw-extension-adding-failed": {
-                "titleFailure": "Tilføje udvidelse mislykkedes",
-                "textProblem": "Der opstod et problem under tilføjelsen af din udvidelse.",
+                "titleFailure": "Det lykkedes ikke at tilføje udvidelsen ",
+                "textProblem": "Der opstod et problem under tilføjelsen af udvidelsen.",
                 "installationFailed": {
                     "titleFailure": "Installationen mislykkedes",
                     "textProblem": "Der opstod et problem under installationen af udvidelsen. Vi informerer producenten.",
-                    "notificationLicense": "Bemærk, at abonnementet på denne app eller dette tema forbliver aktivt.",
+                    "notificationLicense": "Bemærk venligst, at abonnementet på denne udvidelse forbliver aktivt.",
                     "textSupport": "Hvis du har spørgsmål til licensen, bedes du kontakte Shopware Financial Services. Tilgængelig via e-mail på {0} eller via telefon kl. {1}.",
                     "supportEmail": "financial.services@shopware.com",
                     "supportPhone": "+49 (0) 2555/9288510"
@@ -4321,7 +4454,7 @@
                     "submitBtn": "Indsend"
                 },
                 "sw-extension-ratings-summary": {
-                    "labelRating": "Ingen vurderinger | {numberOfRatings} Bedømmelse | {numberOfRatings} Bedømmelser"
+                    "labelRating": "Ingen vurderinger | {numberOfRatings} bedømmelse | {numberOfRatings} vurderinger"
                 },
                 "sw-extension-review": {
                     "labelLastChangeDate": "Ved {author} på {lastChangeDate}",
@@ -4334,6 +4467,7 @@
                     "labelNoReviews": "Denne extension har ikke modtaget nogen bedømmelser eller anmeldelser endnu."
                 },
                 "sw-extension-review-creation-inputs": {
+                    "title": "Udvidelse af priser",
                     "labelHeadline": "Overskriften",
                     "placeholderHeadline": "Indtast en kort overskrift...",
                     "labelRating": "Vurdering",
@@ -4346,8 +4480,8 @@
             "sw-extension-card-base": {
                 "subscriptionLabel": "Abonnement",
                 "inactiveLabel": "(inaktiv)",
-                "purchasedLabel": "Købt: ",
-                "installedLabel": "Installeret: ",
+                "purchasedLabel": "Købt på ",
+                "installedLabel": "Installeret på ",
                 "openExtensionLabel": "Åbn app",
                 "installExtensionLabel": "Installér app",
                 "labelAcceptAndInstall": "Accepter og installer",
@@ -4355,7 +4489,7 @@
                     "getHelpLabel": "Få hjælp",
                     "seeDetailsLabel": "Se detaljer",
                     "config": "Konfiguration",
-                    "privacyAndSafetyLabel": "Privatliv og sikkerhed",
+                    "privacyAndSafetyLabel": "Beskyttelse af personlige oplysninger og sikkerhed",
                     "removeLabel": "Fjern",
                     "cancelAndRemoveLabel": "Annuller og fjern",
                     "uninstallLabel": "Fjern",
@@ -4368,18 +4502,18 @@
             "sw-extension-deactivation-modal": {
                 "deactivateExtensionLabel": "Deaktiver \"{extensionName}“",
                 "description": "Udvidelsen \"{extensionName}\" har et månedligt abonnementsgebyr.<br>Deaktivering af udvidelsen <b>vil ikke</b> annullere abonnementet, og gebyrer vil fortsat blive opkrævet!",
-                "descriptionCancel": "Hvis du vil annullere abonnementet i stedet, kan du fjerne det i kontekstmenuen under \"{removeLabel}“.",
+                "descriptionCancel": "Hvis du vil annullere abonnementet, kan du fjerne det via \"{removeLabel}\" i kontekstmenuen.",
                 "alertDeactivate": "Vil du stadig deaktivere udvidelsen?",
                 "deactivateLabel": "Deaktiver"
             },
             "sw-extension-permissions-modal": {
                 "title": "{extensionLabel} tilladelser",
-                "description": "{extensionLabel} får adgang til følgende komponenter. Klik på linket ud for komponenten for at få vist objektdetaljerne.",
+                "description": "{extensionLabel} vil have adgang til følgende komponenter. Klik på linket ud for komponenten for at få vist objektdetaljerne.",
                 "textEntities": "Vis tilladelser"
             },
             "sw-extension-privacy-policy-extensions-modal": {
                 "title": "{extensionLabel}: Udvidelser af privatlivspolitik",
-                "intro": "Denne app behandler personlige oplysninger. Producenten giver følgende råd i forbindelse med tilpasningerne af din privatlivspolitik:"
+                "intro": "Denne app behandler personlige oplysninger. Producenten anbefaler justeringer af din privatlivspolitik:"
             },
             "sw-extension-permissions-details-modal": {
                 "operationRead": "Se",
@@ -4388,16 +4522,23 @@
                 "operationDelete": "Slet"
             },
             "sw-extension-my-extensions-listing": {
-                "noActivePlugins": "Der er ingen aktive udvidelser.",
-                "titleEmptyState": "Ingen apps installeret endnu",
-                "textEmptyState": "Hvis du installerer apps, vises de her.",
+                "apps": {
+                    "noActivePlugins": "Ingen aktive udvidelser fundet.",
+                    "titleEmptyState": "Ingen apps installeret endnu",
+                    "textEmptyState": "Hvis du installerer apps, vises de her."
+                },
+                "themes": {
+                    "noActivePlugins": "Der blev ikke fundet nogen aktive temaer.",
+                    "titleEmptyState": "Ingen temaer installeret endnu",
+                    "textEmptyState": "Hvis du installerer temaer, vil de blive vist her."
+                },
                 "btnOpenStore": "Åben butik"
             },
             "sw-extension-removal-modal": {
                 "titleCancel": "„{extensionName}\" annullere og fjern",
                 "titleRemove": "„{extensionName}\" fjern",
                 "description": "Hvis du fjerner udvidelsen, kan du ikke længere bruge den.",
-                "alertCancel": "Er du sikker på, at du vil fjerne udvidelsen?",
+                "alertCancel": "Er du sikker på, at du vil annullere og fjerne udvidelsen?",
                 "alertRemove": "Er du sikker på, at du vil fjerne udvidelsen?",
                 "labelCancel": "Annuller og fjern",
                 "labelRemove": "Fjern"
@@ -4415,7 +4556,7 @@
                 "labelLicensed": "Købt"
             },
             "sw-extension-config": {
-                "messageSaveSuccess": "Konfigurationen er blevet gemt."
+                "messageSaveSuccess": "Konfigurationen gemt."
             }
         },
         "errors": {
@@ -4423,7 +4564,7 @@
                 "message": "Du er nødt til at acceptere vores vilkår og betingelser for at fortsætte."
             },
             "FRAMEWORK__EXTENSION_THEME_STILL_IN_USE": {
-                "message": "Temaet bruges i øjeblikket stadig i en eller flere salgskanaler."
+                "message": "Temaet er i øjeblikket i brug af en eller flere salgskanaler."
             },
             "FRAMEWORK__INVALID_EXTENSION_ID": {
                 "message": "Identifikationsnummeret for udvidelsen er ugyldigt."
@@ -4450,7 +4591,7 @@
                 "message": "Udvidelsen kan ikke annulleres."
             },
             "SAAS_EXTENSION_CANCELLATION__STILL_IN_USE": {
-                "message": "Udvidelsen kan ikke annulleres, fordi den stadig er i brug."
+                "message": "Udvidelsen kan ikke annulleres, da den stadig er i brug."
             },
             "SAAS_EXTENSION_RATING__ALREADY_RATED": {
                 "message": "Udvidelsen er allerede blevet bedømt."
@@ -4465,39 +4606,39 @@
                 "message": "Den valgte prismodel er ikke tilladt for udvidelsen."
             },
             "SAAS_EXTENSION_ORDER__NO_DEFAULT_PAYMENT_MEAN": {
-                "message": "Der er ingen standard betalingsmiddel tilgængelig.",
-                "labelLink": "Konfigurere standardbetaling"
+                "message": "Der er ingen standard betalingsmetode tilgængelig.",
+                "labelLink": "Konfigurere standardbetalingsmetode"
             },
             "SAAS_EXTENSION_ORDER__INSUFFICIENT_BALANCE": {
-                "message": "Der er utilstrækkelig balance til rådighed."
+                "message": "Utilstrækkelig balance."
             },
             "SAAS_EXTENSION_REQUEST__INVALID_CONTENT": {
                 "message": "Påkrævede anmodningsdata mangler eller er ugyldige."
             },
             "SAAS_EXTENSION_INVALID_BASKET__MULTIPLE_LICENSES_OR_LICENSE_ALREADY_OWNED": {
-                "message": "Kurven er ugyldig, fordi den indeholder flere licenser, eller den indeholder en allerede ejet licens."
+                "message": "Indkøbskurven er ugyldig, fordi den indeholder flere licenser, eller den indeholder en allerede ejet licens."
             },
             "SAAS_EXTENSION_INVALID_BASKET__INVALID_ORDER_POSITION": {
-                "message": "Kurven er ugyldig på grund af en ugyldig ordreposition."
+                "message": "Indkøbskurven er ugyldig på grund af en ugyldig ordreposition."
             },
             "SAAS_EXTENSION_INVALID_BASKET__GENERAL": {
-                "message": "Kurven er ugyldig."
+                "message": "Indkøbskurven er ugyldig."
             },
             "SAAS_EXTENSION_INVALID_BASKET__INVALID_COMPANY": {
-                "message": "Kurven er ugyldig, fordi din virksomhed ikke har noget land tildelt."
+                "message": "Indkøbskurven er ugyldig, fordi din virksomhed ikke har noget land tildelt."
             },
             "SAAS_EXTENSION_RATING__INVALID_EXTENSION": {
                 "message": "Din vurdering kunne ikke gemmes, fordi den relaterede udvidelse er ugyldig."
             },
             "SAAS_COMPANY__MISSING": {
-                "message": "Krævet firma mangler.",
+                "message": "Påkrævet firmaerklæring mangler.",
                 "labelLink": "Tildel virksomhed"
             }
         }
     },
     "entityCategories": {
         "admin_user": {
-            "title": "Admin bruger",
+            "title": "Bruger til administration",
             "entities": {
                 "integration": "integrering",
                 "user": "Bruger",
@@ -4541,7 +4682,7 @@
                 "customer_address": "Adresse",
                 "customer_group": "Kundegruppe",
                 "customer_group_translation": "Oversættelse af kundegrupper",
-                "customer_group_registration_sales_channels": "Salgskanal for kundegruppe",
+                "customer_group_registration_sales_channels": "Salgskanal for registreringer af kundegrupper",
                 "customer_recovery": "Recovery",
                 "customer_tag": "Tag"
             }
@@ -4558,8 +4699,8 @@
             "title": "Dokumenter",
             "entities": {
                 "document": "Dokument",
-                "document_base_config": "Basis-konfiguration",
-                "document_base_config_sales_channel": "Basiskonfiguration for salgskanaler",
+                "document_base_config": "Grundlæggende konfiguration",
+                "document_base_config_sales_channel": "Grundlæggende konfiguration for salgskanaler",
                 "document_type": "Type",
                 "document_type_translation": "Skriv oversættelse"
             }
@@ -4599,8 +4740,8 @@
         "media": {
             "title": "Medier",
             "entities": {
-                "media": "Medier",
-                "media_translation": "Oversættelse af medier",
+                "media": "Medium",
+                "media_translation": "Mellemstor oversættelse",
                 "media_default_folder": "Standardmappe",
                 "media_folder": "Mappen",
                 "media_folder_configuration": "Mappekonfiguration",
@@ -4656,9 +4797,9 @@
                 "product_category": "kategori",
                 "product_category_tree": "Kategori træ",
                 "product_configurator_setting": "Indstilling af konfigurator",
-                "product_cross_selling": "Cross salg",
-                "product_cross_selling_translation": "Oversættelse af cross selling",
-                "product_cross_selling_assigned_products": "Tildelt oversættelse på tværs af salg",
+                "product_cross_selling": "Cross Selling",
+                "product_cross_selling_translation": "Cross Selling oversættelse",
+                "product_cross_selling_assigned_products": "Cross Selling tildelt oversættelse",
                 "product_export": "Eksport af produkter",
                 "product_keyword_dictionary": "Søgeordbog",
                 "product_manufacturer": "Producent",
@@ -4716,15 +4857,15 @@
                 "sales_channel_payment_method": "Betalingsmetode",
                 "sales_channel_shipping_method": "Forsendelsesmetode",
                 "sales_channel_translation": "Oversættelse af salgskanaler",
-                "sales_channel_type": "Type",
-                "sales_channel_type_translation": "Skriv oversættelse"
+                "sales_channel_type": "Type salgskanal",
+                "sales_channel_type_translation": "Oversættelse af salgskanal"
             }
         },
         "settings": {
             "title": "Indstillinger",
             "entities": {
                 "country": "Land",
-                "country_state": "Land stat",
+                "country_state": "Stat/provins",
                 "currency": "Valutaen",
                 "delivery_time": "Leveringstid",
                 "language": "Sprog",
@@ -4748,7 +4889,7 @@
                 "tax": "Skat",
                 "tax_rule": "Skattemæssig regel",
                 "tax_rule_type": "Type af skatteregel",
-                "unit": "Enhed",
+                "unit": "Vægtenhed",
                 "version": "Version"
             }
         },
@@ -4944,7 +5085,7 @@
             "placeholderSalesChannels": "Vælg Salgskanaler...",
             "placeholderMailTemplate": "Vælg en e- mail- skabelon...",
             "titleRecipientsCard": "Modtagere af e-mail",
-            "textEmptyStateRecipients": "Der er ingen yderligere modtagere til denne begivenhed endnu. - Kundens e-mails vil blive sendt uanset.",
+            "textEmptyStateRecipients": "Tilføj alternative modtagere - Hvis indstillet kunde e-mails vil blive formodet!",
             "columnRecipientName": "Navn",
             "columnRecipientMail": "E-mail-adresse",
             "addRecipientButton": "Tilføj modtager",
@@ -4954,7 +5095,7 @@
     },
     "sw-settings-logging": {
         "general": {
-            "mainMenuItemGeneral": "Logning",
+            "mainMenuItemGeneral": "Logfiler",
             "placeholderSearchBar": "Søg logfiler..."
         },
         "list": {
@@ -5181,6 +5322,7 @@
             "buttonNextPayPalInfo": "Konfigurer",
             "buttonBack": "Tilbage",
             "buttonInstall": "Installér",
+            "buttonActivate": "Aktiver",
             "buttonFinish": "Færdig",
             "buttonConfigureLater": "Konfigurer senere",
             "pluginInstalled": "Installeret"
@@ -5189,16 +5331,16 @@
             "modalTitle": "Velkommen",
             "headlineWelcome": "Velkommen til Shopware 6s administration",
             "messageWelcome": "Denne guide guider dig gennem opsætningen og prøver at være behjælpelig med de vigtigste indstillinger.<br>Vil du bruge din butik på et andet sprog og nå ud til kunder i andre lande? Installer derefter de ønskede sprogpakker her.",
-            "headlineChangeLanguage": "Installer flere sprogpakker",
+            "headlineChangeLanguage": "Installere flere sprog",
             "switchLanguageModalTitle": "Vælg grænsefladesproget",
             "confirmLanguageSwitch": "Skift sprog",
             "cancelLanguageSwitch": "Annuller",
             "switchLanguageMessage": "\"{pluginName}\" er blevet succesfuldt installeret. Ønsker du at ændre dit standard sprog?",
-            "pluginsInstalled": "Modul installeret | Moduler installeret",
-            "pluginsInstalledMessage": "Sprogpakken er blevet installeret: | Disse sprogpakker er blevet installeret: ",
-            "pluginNotFoundMessage": "Sprogpakken {languageName} blev ikke fundet.",
-            "pluginInstallationFailedMessage": "Modulet kunnne ikke installeres: ",
-            "pluginActivationFailedMessage": "Modulet kunne ikke aktiveres: ",
+            "pluginsInstalled": "Udvidelse installeret | Udvidelser installeret",
+            "pluginsInstalledMessage": "Sprogudvidelse er blevet installeret: | Disse sprogudvidelser er blevet installeret: ",
+            "pluginNotFoundMessage": "Sprogudvidelsen {languageName} kunne ikke findes.",
+            "pluginInstallationFailedMessage": "Udvidelsen kunne ikke installeres: ",
+            "pluginActivationFailedMessage": "Udvidelsen kunne ikke aktiveres: ",
             "tryAgainLater": "Prøv igen senere.",
             "noConnectionMessage": "Der ser ud til at være forbindelsesproblemer, sproget kunne ikke installeres."
         },
@@ -5210,7 +5352,7 @@
             "headlineMigration": "Migrer fra din tidligere shop",
             "messageMigration": "Migrationsassistenten hjælper dig med at oprette forbindelse til og overføre data fra et tidligere webshop system direkte til dit nye Shopware 6-miljø.",
             "buttonInstallMigration": "Installér migreringsassistenten",
-            "loadingMessage": "Installere dit modul<br>Dette kan tage en smule tid..."
+            "loadingMessage": "Installation af udvidelse<br>Dette kan tage et stykke tid..."
         },
         "mailerSelection": {
             "headline": "Etablere email kommunikation",
@@ -5247,7 +5389,7 @@
         },
         "recommendedPlugins": {
             "headline": "Vores anbefalinger",
-            "modalTitle": "Plugins",
+            "modalTitle": "Udvidelser",
             "message": "Her er et udvalg af nyttige udvidelser til din butik. Vælg først en region, der er relevant for dig. Derefter kan du gennemse forskellige kategorier.",
             "availableInRegion": "Vælg blandt følgende lande",
             "category": "Kategori",
@@ -5277,6 +5419,24 @@
             "labelCreateDomain": "Opret et nyt shopdomæne",
             "testEnvironment": "Testmiljø"
         },
+        "store": {
+            "modalTitle": "Butik butik",
+            "loadStatusCollect": "Indsaml oplysninger om butik...",
+            "takeMinutes": "Det kan tage et par minutter.",
+            "alreadyActivated": "Butikken er allerede aktiveret.",
+            "enablingStore": "Aktivering af butiksindeks butik... ",
+            "activationErrorTitle": "Fejl ved aktivering",
+            "activationErrorDescription": "Bed din administrator om hjælp.",
+            "headingOne": "Udforsk og køb udvidelser nemt -",
+            "headingTwo": "direkte fra din egen butik.",
+            "description": "Aktivér den helt nye Shopware Store, og få adgang til masser af nyttige udvidelser og moderne temaer, der kan integreres i din Shop uden programmeringsevner."
+        },
+        "markets": {
+            "modalTitle": "Markeder for butikker",
+            "heading": "Markeder for butikker",
+            "description": "Shopware Markets giver dig mulighed for at forbinde din butik til Amazon og eBay markedspladser - samtidig med at overførslen af produkter og ordrer så bekvemt som muligt.<br>Shopware Markets er designet til at udvide din virksomhed yderligere ved hjælp af salgskanaler*¹.",
+            "footnote": "*¹ Der kræves et betalt abonnement for at bruge Shopware Markets tilføjede salgskanaler."
+        },
         "finish": {
             "headlineAllDone": "Fuldført!",
             "message": "Din Shopware 6{edition} er nu verificeret.",
@@ -5288,14 +5448,17 @@
             "forumLabel": "Forum",
             "forumUrl": "https://forum.shopware.com/",
             "roadmapLabel": "Roadmap",
-            "roadmapUrl": "https://www.shopware.com/en/roadmap/"
+            "roadmapUrl": "https://www.shopware.com/en/roadmap/",
+            "modalTitle": "Udført"
         },
         "stepItemTitle": {
             "dataImport": "Data import",
             "mailer": "Mailer konfiguration",
             "setupPaypal": "PayPal opsætning",
-            "plugins": "Plugins",
-            "shopware": "Shopware-konto"
+            "plugins": "Udvidelser",
+            "shopware": "Shopware-konto",
+            "store": "Butik butik",
+            "markets": "Markeder for butikker"
         }
     },
     "sw-sales-channel": {
@@ -6043,7 +6206,7 @@
             "messageSaveError": "Kunder kunne ikke blive gemt.",
             "messageSaveSuccess": "Kunde {name} er blevet gemt.",
             "notificationPasswordErrorMessage": "Dine kodeord matcher ikke.",
-            "notificationPasswordLengthErrorMessage": "Den indtastede adgangskode opfylder ikke minimumslængdekravet på 8."
+            "notificationPasswordLengthErrorMessage": "Den indsendte adgangskode opfylder ikke kravet om minimumslængde på otte tegn."
         },
         "filter": {
             "salutation": {
@@ -6073,7 +6236,9 @@
             "tags": {
                 "label": "Tags",
                 "placeholder": "Vælg mærker..."
-            }
+            },
+            "messageEmptyTitle": "Intet fundet",
+            "messageEmptySubline": "Rediger dine filtre for at finde resultater."
         }
     },
     "sw-settings-document": {
@@ -6725,13 +6890,14 @@
         },
         "roles": {
             "general": {
-                "labelCreateNewRole": "Opret ny rolle",
+                "labelCreateNewRole": "Opret rolle",
                 "cardLabel": "Roller"
             },
             "role-grid": {
                 "labelName": "Navn",
                 "labelDescription": "Beskrivelse",
                 "messageEmptyTitle": "Ingen roller endnu",
+                "messageEmptySubline": "Opret roller for at begynde at administrere brugerrettigheder.",
                 "contextMenuEdit": "Rediger",
                 "contextMenuDelete": "Slet",
                 "titleModalDelete": "Slet rolle",
@@ -6740,10 +6906,10 @@
                 "labelButtonDelete": "Slet",
                 "notification": {
                     "deleteSuccess": {
-                        "message": "Rollen \"{name}\" er blevet slettet."
+                        "message": "Rolle \"{name}\" slettet."
                     },
                     "deleteError": {
-                        "message": "En fejl opstod da du slettede rollen: \"{name}\"."
+                        "message": "Rollen \"{name}\" kunne ikke slettes."
                     }
                 }
             },
@@ -6766,7 +6932,7 @@
             },
             "view": {
                 "detailed": {
-                    "alertText": "I denne visning kan privilegier konfigureres i detaljer. Denne konfiguration er kun nødvendig i ekstraordinære situationer. Hvis f.eks. udvidelser bruges i systemet, der tilføjer nye datasæt, men ikke har rettigheder, kan de konfigureres her. Alle deaktiverede afkrydsningsfelter er tilladelser, der allerede er tildelt på fanen „Generelt“."
+                    "alertText": "Konfigurer rettigheder i detaljer. Alle deaktiverede afkrydsningsfelter er tilladelser, der allerede er tildelt på fanen „Generelt“ og ikke kan konfigureres. Denne konfiguration er kun nødvendig, hvis f.eks. udvidelser bruges, der tilføjer nye datasæt, men ikke har rettigheder, disse kan konfigureres her."
                 }
             },
             "tabs": {
@@ -6797,10 +6963,10 @@
                 "labelButtonDelete": "Slet",
                 "notification": {
                     "deleteSuccess": {
-                        "message": "Bruger \"{name}\" er blevet slettet."
+                        "message": "Bruger \"{name}\" slettet."
                     },
                     "deleteError": {
-                        "message": "En fejl opstod da du slettede bruger: \"{name}\"."
+                        "message": "Brugeren \"{name}\" kunne ikke slettes."
                     },
                     "deleteUserLoggedInError": {
                         "message": "Brugere kan ikke slette sig selv."
@@ -6812,7 +6978,7 @@
                 "labelIntegrationsCard": "Integrationer",
                 "labelFirstName": "Fornavn",
                 "labelLastName": "Efternavn",
-                "labelEmail": "Email",
+                "labelEmail": "E-mail-adresse",
                 "errorEmailUsed": "Denne email adresse er allerede i brug.",
                 "errorUsernameUsed": "Dette brugernavn er allerede i brug.",
                 "labelUsername": "Brugernavn",
@@ -6827,17 +6993,19 @@
                 "labelNewPassword": "Ny adgangskode",
                 "labelNewUser": "Ny bruger",
                 "placeholderNewPassword": "Indtast ny adgangskode...",
-                "placeholderNewPasswordConfirm": "Gen-indtast dit nye adgangskode...",
+                "placeholderNewPasswordConfirm": "Bekræft nyt kodeord...",
                 "labelButtonCancel": "Annuller",
                 "labelButtonChangePassword": "Ret",
                 "labelButtonSave": "Gem",
+                "writeAccess": "Skriv",
+                "readAccess": "Læs",
                 "contextMenuEdit": "Rediger",
                 "contextMenuDelete": "Slet",
                 "textChangePassword": "Ved at trykke på „Change“ -knappen gemmes det nye kodeord straks!",
-                "addAccessKey": "Ny adgangsnøgle",
+                "addAccessKey": "Opret adgangsnøgle",
                 "labelAccessKey": "Adgangsnøgle",
                 "labelPermissions": "Rettigheder",
-                "disabledRoleSelectWarning": "Roller er kun tilgængelige for brugere, der ikke er \"administratorer\".",
+                "disabledRoleSelectWarning": "Roller er kun tilgængelige for brugere, der ikke har administratorrettigheder.",
                 "passwordConfirmation": {
                     "titleConfirmPasswordModal": "Indtast din nuværende adgangskode for at bekræfte",
                     "labelConfirmPassword": "Adgangskode",
@@ -6859,18 +7027,18 @@
                     "hintCreateNewApiKeys": "Det anbefales at opdatere alle relaterede scripts og applikationer når du generer en ny API adgangsnøgle.",
                     "labelFieldLabel": "Navn",
                     "idFieldLabel": "Adgangsnøgle ID",
-                    "secretFieldLabel": "Hemmelig adgangsnøgle",
+                    "secretFieldLabel": "Sikker adgangsnøgle",
                     "secretHelpText": "Kopier venligst den adgangnøgle nu. Af sikkerhedshensyn vil den ikke være synlig efter du har gemt.",
-                    "messageSaveSuccess": "Integrationen er blevet gemt.",
+                    "messageSaveSuccess": "Integration gemt.",
                     "messageSaveError": "Integrationen kunne ikke gemmes.",
                     "messageCreateNewError": "Integrationen kunne ikke gemmes."
                 },
                 "notification": {
                     "saveError": {
-                        "message": "En fejl opstod da du gemte bruger \"{name}\"."
+                        "message": "Brugeren \"{name}\" kunne ikke gemmes."
                     },
                     "saveSuccess": {
-                        "message": "Bruger \"{name}\" er blevet gemt."
+                        "message": "Bruger \"{name}\" gemt."
                     },
                     "invalidEmailErrorMessage": "Indtast venligst en gyldig e-mailadresse.",
                     "duplicateEmailErrorMessage": "Denne e-mail-adresse er allerede registreret."
@@ -6908,143 +7076,6 @@
             "labelUseAsLogo": "Brug som logo"
         }
     },
-    "sw-plugin": {
-        "general": {
-            "mainMenuItemGeneral": "Plugins",
-            "mainMenuPluginList": "Installeret",
-            "mainMenuLicenseList": "Mine licenser",
-            "descriptionTextModule": "Rediger plugins her",
-            "placeholderSearchBar": "Søg i plugins...",
-            "tabList": "Mine plugins",
-            "tabLicenses": "Licenser",
-            "tabUpdates": "Opdateringer",
-            "version": "Version",
-            "accountLink": "https://account.shopware.com/?lang=en",
-            "accountLabel": "Gå til din Shopware-konto",
-            "login": "Login",
-            "logout": "Log af",
-            "messageDownloadSuccess": "Plugin er blevet downloaded.",
-            "downloadButton": "Download",
-            "recommendationsLabel": "Anbefalinger",
-            "storeLink": "https://store.shopware.com/en",
-            "storeLabel": "Shopware markedsplads",
-            "storeNotAvailable": "Kunne ikke forbinde til Shopwares markedsplads.",
-            "loggedIn": "Logget på som"
-        },
-        "errors": {
-            "messageToTheShopwareDocumentation": "<a href=\"{documentationLink}\" target=\"_blank\">Åben Shopwares dokumentation</a>",
-            "messageGenericFailure": "Det virkede ikke.",
-            "messageUploadFailureNotAZipFile": "Den uploadede fil er ikke en ZIP fil.",
-            "messageUploadFailureUnzipFailed": "Kunne ikke udpakke ZIP-filen.",
-            "messageUploadFailureNoPluginFoundInZipFile": "Der blev ikke fundet noget plugin i zip filen.",
-            "messageLoginDataInvalid": "Login data er ikke færdig.",
-            "messageStoreLicenseDomainMissing": "Login fejlede. Er du sikker på den rette licens er opsat under Indstillinger/Shopware konto?",
-            "messageStoreNotAvailable": "Shopware markedsplads er ikke tilgængelig.",
-            "messagePluginBaseClassNotFound": "Plugin basen kunne ikke indlæses. Kontroller din plugin composer.json angående class autoloading",
-            "messagePluginInstallationFailed": "Plugin kunne ikke installeres på grund af følgende fejl: \"{message}\"",
-            "messagePluginUninstallationFailed": "Plugin kunne ikke afinstalleres på grund af følgende fejl: \"{message}\"",
-            "messagePluginActivationFailed": "Plugin kunne ikke aktiveres på grund af følgende fejl: \"{message}\"",
-            "messagePluginDeactivationFailed": "Plugin kunne ikke deaktiveres på grund af følgende fejl: \"{message}\"",
-            "messageDeactivationFailedDependencies": "Plugin \"{dependency}\" kan ikke deaktiveres, fordi der er andre plugins afhængigt af det. Deaktiver venligst følgende plugins, inden du genstarter opdateringen: {dependantNames}",
-            "messagePluginUpdateFailed": "Plugin kunne ikke opdateres på grund af følgende fejl: \"{message}\" . {pluginDeactivatedHint}",
-            "pluginDeactivatedHint": "Plugin blev deaktiveret."
-        },
-        "fileUpload": {
-            "buttonFileUpload": "Upload plugin",
-            "messageUploadSuccess": "Plugin er blevet uploaded.",
-            "buttonRefreshPlugins": "Opdatér oversigt"
-        },
-        "store-login": {
-            "headline": "Shopware-konto - Log ind",
-            "information": "Shopware-kontoen er din primære hub for interaktion med alle Shopware-tjenester.",
-            "loginMessage": "Du er logget ind på Shopware-kontoen.",
-            "labelEmailAddress": "E-mail-adresse",
-            "placeholderEmailAddress": "Indtast din e- mail- adresse...",
-            "labelPassword": "Adgangskode",
-            "placeholderPassword": "Indtast dit kodeord...",
-            "buttonLogin": "Login",
-            "buttonCancel": "Annuller",
-            "footerNoAccount": "Har du ikke en Shopware-konto endnu?",
-            "footerRegisterAccount": "Opret din Shopware-konto nu!",
-            "forgotPassword": "Har du glemt dit kodeord?",
-            "forgotPasswordUrl": "https://account.shopware.com/recovery?lang=en",
-            "registerAccountUrl": "https://account.shopware.com/register?lang=en"
-        },
-        "list": {
-            "textPluginManager": "Plugins",
-            "messageEmpty": "Ingen plugins er indlæst endnu.",
-            "columnPluginName": "Plugin",
-            "columnVersion": "Version",
-            "columnInstalledAt": "Installeret d",
-            "columnUpdatedAt": "Opdateret den",
-            "columnLicense": "Licens",
-            "columnActive": "Aktiv",
-            "columnAuthor": "Leverandører",
-            "columnPlugin": "Plugin",
-            "columnChangelog": "Nye funktioner",
-            "titleSidebarItemRefresh": "Opdater",
-            "contextInstall": "Installer",
-            "contextUninstall": "Afinstaller",
-            "contextActivate": "Aktiver",
-            "contextDeactivate": "Deaktiver",
-            "contextUpdate": "Opdater til",
-            "contextDelete": "Slet",
-            "pluginHeader": "Mine plugins",
-            "sortUpgradedAtAsc": "Sidst opdateret",
-            "sortPluginNameAsc": "Plugin navne, asc.",
-            "sortPluginNameDsc": "Plugin navne, desc.",
-            "sortLabel": "Sorter efter:",
-            "messageActivateSuccess": "Plugin er blevet aktiveret.",
-            "messageDeactivateSuccess": "Plugin er blevet deaktiveret.",
-            "messageInstallSuccess": "Plugin er blevet installeret.",
-            "messageUninstallSuccess": "Plugin er blevet afinstalleret.",
-            "messageDeleteSuccess": "Plugin er blevet slettet.",
-            "messageUpdateSuccess": "Plugin er blevet opdateret.",
-            "messageDeleteConfirm": "Er du sikker på du vil slette dette plugin?",
-            "titleUninstallConfirm": "Afinstaller plugin",
-            "messageUninstallConfirm": "Er du sikker på, at du vil afinstallere {pluginName}?",
-            "labelRemovePluginData": "Fjern alle plugin- data permanent",
-            "helpTextRemovePluginData": "Advarsel: Alle data fra plugin'et fjernes permanent. Denne proces er irreversibel.",
-            "labelUninstallButton": "Afinstaller",
-            "deactivated": "Deaktiveret",
-            "activated": "Aktiveret",
-            "config": "Konfig",
-            "description": "Beskrivelse",
-            "tooltipActivationDisabled": "Du kan kun aktivere installerede plugins."
-        },
-        "license-list": {
-            "textMyPurchases": "Købte licenser",
-            "columnName": "Plugin",
-            "columnCreationDate": "Købt d",
-            "columnExpirationDate": "Gyldig indtil",
-            "columnType": "Variant",
-            "messageEmpty": "Ingen eksisterende licenser.",
-            "messageNotLoggedIn": "Shopware konto - Login er påkrævet!",
-            "labelAccountLogin": "Log på med din Shopware konto oplysninger",
-            "labelType_buy": "Køb",
-            "labelType_rent": "Leje",
-            "labelType_test": "Test",
-            "labelType_free": "Gratis",
-            "labelType_support": "Betalt support"
-        },
-        "updates": {
-            "messageEmpty": "Der er ingen tilgængelige opdateringer.",
-            "updateError": "Fejl ved indlæsning af opdateringer",
-            "updateButton": "Opdater",
-            "updateAllButton": "Opdater alle",
-            "updateHeader": "Opdateringer",
-            "lastUpdatesHeader": "Sidste opdateringer",
-            "messageUpdateSuccess": "Plugin er blevet opdateret.",
-            "messageUpdatesSuccess": "Plugins er blevet opdateret.",
-            "cancelUpdates": "Annuller"
-        }
-    },
-    "sw-plugin-config": {
-        "messageSaveSuccess": "Konfiguration er blevet gemt."
-    },
-    "sw-plugin-description": {
-        "buttonBack": "Tilbage"
-    },
     "sw-settings": {
         "general": {
             "mainMenuItemGeneral": "Indstillinger"
@@ -7053,7 +7084,7 @@
             "title": "Indstillinger",
             "tabShop": "Shop",
             "tabSystem": "System",
-            "tabPlugins": "Plugins"
+            "tabPlugins": "Udvidelser"
         },
         "system-config": {
             "labelSalesChannelSelect": "Salgskanal",
@@ -7140,10 +7171,10 @@
         }
     },
     "sw-property-search": {
-        "placeholderSearch": "Søgeegenskaber...",
-        "selected": "{count} er valgt | {count} er valgt",
-        "noPropertiesFound": "Ingen ejendomme fundet",
-        "noPropertiesFoundDescription": "Prøv en anden søgesætning."
+        "placeholderSearch": "Søg efter værdier...",
+        "selected": "{count} valgt værdi | {count} valgte værdier",
+        "noPropertiesFound": "Ingen egenskabsværdier fundet",
+        "noPropertiesFoundDescription": "Prøv et andet søgeord."
     },
     "sw-property-assignment": {
         "columnGroup": "Egenskab",
@@ -7169,10 +7200,11 @@
         "reload": "Genindlæs",
         "alertText": "Vi har registreret en licensovertrædelse for mindst én af dine udvidelser i denne installation. For at rette licensovertrædelsen og undgå juridiske konsekvenser skal du booke et abonnement eller købe/leje udvidelsen (i henhold til påført overtrædelsestype). Du bruger ikke udvidelsen længere? Slet det derefter via My Extensions. Hvis ingen af disse foranstaltninger træffes, forbeholder shopware AG sig ret til at opkræve bøder for enhver overtrædelse af licensen.",
         "deletePlugin": "Slet udvidelse permanent",
-        "messageDeleteConfirm": "Vil du slette udvidelsen \"{pluginName} \" helt?",
+        "messageDeleteConfirm": "Vil du slette udvidelsen \"{pluginName}\" helt?",
         "checkboxMessage": "Jeg har noteret denne besked og de potentielle konsekvenser.",
         "closeModal": "Luk Besked",
         "ignorePlugin": "Ignorer permanent",
+        "successfullyDeleted": "Udvidelsen er blevet slettet",
         "table": {
             "plugin": "Udvidelse",
             "warning": "Advarsel"
@@ -7373,7 +7405,7 @@
         "hasCriteria": "Har {criteriaName}"
     },
     "sw-filter-panel": {
-        "titleSidebarItemFilter": "Filter"
+        "titleSidebarItemFilter": "Filtre"
     },
     "sw-sidebar-filter-panel": {
         "resetButton": "Nulstil alle"

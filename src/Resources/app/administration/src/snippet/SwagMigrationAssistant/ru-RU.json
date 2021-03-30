@@ -6,7 +6,9 @@
             "information": "Во-первых, вам нужно соединить вашу существующую магазинную систему - помощник по миграции вам поможет.",
             "button": "Открыть помощник по миграции",
             "shopInfoCard": {
-                "button": "Открыть"
+                "header": "Помощник миграции",
+                "button": "Открыть",
+                "resetButton": "Отделка"
             }
         },
         "general": {
@@ -62,19 +64,561 @@
                     "gatewayPlaceholder": "Выберите сетевой шлюз",
                     "connectionLabel": "Название соединения",
                     "connectionPlaceholder": "Введите название",
-                    "connectionTooltip": "Введите уникальное название соединения."
+                    "connectionTooltip": "Введите уникальное название соединения.",
+                    "gateways": {
+                        "shopwareApi": "API",
+                        "shopwareLocal": "локальная база данных"
+                    },
+                    "hint": {
+                        "local": "Примечание. Системы магазина должны находиться на одном сервере. Вам нужны данные доступа к базе данных."
+                    }
+                },
+                "profileInformation": {
+                    "title": "Миграция - Подготовка подключения",
+                    "shopware55Api": {
+                        "contentTitle": "Требуется плагин",
+                        "contentInformation": "Необходимый плагин «Migration Connector» является бесплатным и может быть найден в вашем бэкенде Shopware 5 в разделе Plugin Manager > Расширения > Инструменты миграции. Пожалуйста, установите и активируйте плагин, чтобы продолжить.",
+                        "pluginLink": "Более подробная информация о плагине"
+                    }
+                },
+                "credentials": {
+                    "title": "Миграция — установка соединения",
+                    "emptyState": "К сожалению, форма для выбранного профиля не найдена.",
+                    "shopware55": {
+                        "api": {
+                            "contentInformation": "Для установления соединения между Shopware 5 и Shopware 6 необходимы действительные учетные данные API. Ваши учетные данные API можно найти в бэкенде Shopware 5 в разделе «Администрирование пользователей». Доступ к API должен быть активирован там и подтвержден сохранением.",
+                            "apiKeyLabel": "Ключ API",
+                            "apiKeyTooltip": "Ключ API используется для безопасности и идентификации.",
+                            "apiKeyPlaceholder": "Введите ключ",
+                            "apiUserLabel": "Имя пользователя (пользователь API)",
+                            "apiUserTooltip": "Имя пользователя вашего бэкэнда Shopware 5.",
+                            "apiUserPlaceholder": "Введите имя пользователя",
+                            "endpointLabel": "Домен магазина",
+                            "endpointPlaceholder": "www.demoshop.com",
+                            "endpointSSLLabel": "Мой магазин использует безопасное соединение (SSL)"
+                        },
+                        "local": {
+                            "contentInformation": "Нам все еще нужны данные доступа для подключения к вашей базе данных Shopware 5.",
+                            "dbHostLabel": "Хост",
+                            "dbHostPlaceholder": "Введите хост",
+                            "dbPortLabel": "Порт",
+                            "dbNameLabel": "Имя базы данных",
+                            "dbNamePlaceholder": "Введите имя",
+                            "dbUserLabel": "Пользователь",
+                            "dbUserPlaceholder": "Введите имя пользователя",
+                            "dbPasswordLabel": "Пароль",
+                            "dbPasswordPlaceholder": "Введите пароль",
+                            "installationRoot": "Папка установки магазина",
+                            "installationRootPlaceholder": "Введите корень установки"
+                        }
+                    },
+                    "statusTitle": "Проверка подключения",
+                    "success": {
+                        "contentTitle": "Подключение выполнено успешно",
+                        "contentInformation": "Вы можете начать миграцию.",
+                        "undefinedErrorMsg": "Произошла неизвестная ошибка при проверке SSL-сертификата из указанного домена магазина.",
+                        "SWAG_MIGRATION__REQUEST_CERTIFICATE_INVALID": "Мы определили, что SSL-сертификат указанного домена магазина не является безопасным. Проверьте сертификат на наличие собственной безопасности."
+                    },
+                    "error": {
+                        "contentTitle": "Нет подключения",
+                        "alertErrorTitle": "Внимание",
+                        "undefinedErrorMsg": "Внутренняя ошибка сервера. Пожалуйста, повторите попытку.",
+                        "SWAG_MIGRATION__GATEWAY_READ": "Не удалось подключиться к серверу. Пожалуйста, проверьте данный домен магазина.",
+                        "SWAG_MIGRATION__CONNECTION_AUTHENTICATION_INVALID": "Ваши учетные данные неверны. Проверьте их и повторите попытку.",
+                        "SWAG_MIGRATION__PLUGIN_NOT_INSTALLED": "Необходимый плагин «Migration Connector» не установлен в Shopware 5. Пожалуйста, установите бесплатный плагин и повторите попытку.",
+                        "SWAG_MIGRATION__DATABASE_CONNECTION_ERROR": "Не удалось установить подключение к базе данных.",
+                        "SWAG_MIGRATION__IS_RUNNING": "В настоящее время выполняется миграция. Таким образом нельзя изменить учетные данные, пока миграция не будет завершена.",
+                        "SWAG_MIGRATION__SSL_REQUIRED": "Мы определили, что данный домен магазина требует SSL-соединения."
+                    }
                 }
             }
         },
+        "emptyScreen": {
+            "title": "Нет подключения",
+            "description": "Убедитесь, что между системами установлено соединение. Это необходимо для миграции. Вы можете найти более подробную информацию здесь:{linebreak}{link}",
+            "link": "Документация: Миграция на Shopware 6",
+            "connectButton": "Создать подключение"
+        },
         "index": {
+            "title": "Генеральной",
+            "migrateButton": "Начать миграцию",
+            "startButton": "Продолжить",
+            "savePremapping": {
+                "saveButton": "Сохранить предварительное сопоставление",
+                "message": "Предварительное сопоставление сохранено."
+            },
+            "pauseButton": "Пауза",
+            "continueButton": "Продолжить",
+            "abortButton": "Отменить",
+            "finishButton": "Отделка",
+            "backButton": "Обзор",
+            "migrationAlreadyRunning": "Миграция уже началась.",
+            "pluginVersionText": "Мы заметили, что обновление плагина доступно в вашей исходной системе {sourceSystem}. Пожалуйста, обновите плагин «{pluginName}» перед началом миграции.",
             "shopInfoCard": {
+                "cardTitle": "Система магазина",
+                "buttonEditSettings": "Редактировать подключение",
+                "buttonCreateConnection": "Создать новое подключение",
+                "buttonSelectConnection": "Изменение подключения",
+                "buttonRemoveCredentials": "Удаление данных доступа",
+                "buttonProfileInstallation": "Установить другой профиль",
+                "buttonResetChecksums": "Сброс контрольных сумм",
+                "buttonResetMigration": "Полная миграция",
+                "connected": "Подключено",
+                "notConnected": "Не подключен",
+                "profile": "Системный профиль:",
                 "gateway": "Сетевой шлюз:",
+                "connectionCheck": "Проверка подключения:",
+                "lastMigration": "Последняя миграция:",
                 "displayDateTime": "{time} - {date}",
-                "noMigrationDoneYet": "-"
+                "noMigrationDoneYet": "-",
+                "removeCredentialsConfirmDialog": {
+                    "title": "Удаление данных доступа",
+                    "content": "После этого активного соединения не будет. Введите данные доступа еще раз, чтобы восстановить подключение.",
+                    "contentHint": "Удалить текущие данные доступа?",
+                    "abortButtonText": "Отменить",
+                    "confirmButtonText": "Да, удалить"
+                },
+                "resetChecksumsConfirmDialog": {
+                    "title": "Сброс контрольных сумм",
+                    "content": "При сбросе контрольных сумм все данные из исходной системы будут распознаны при следующей миграции. К ним относятся уже перенесенные или неизмененные наборы данных. <br><br><strong>Важно:</strong> Изменения в записях данных, внесенных в Shopware 6 с момента последней миграции, будут перезаписаны. Исходные системные данные имеют приоритет.",
+                    "contentHint": "Вы хотите сбросить контрольные суммы?",
+                    "abortButtonText": "Отменить",
+                    "confirmButtonText": "Да, сброс"
+                },
+                "resetMigrationConfirmDialog": {
+                    "title": "Завершение миграции",
+                    "header": "Вы закончили перенос данных вашего магазина?",
+                    "content": "Отлично! Теперь давайте завершим миграцию и очистим временные файлы и неиспользуемые данные. <strong>Обратите внимание:</strong> Завершение миграции является терминальным. Вы больше не сможете перенести данные через текущее соединение.",
+                    "contentHint": "Вы хотите завершить миграцию сейчас?",
+                    "abortButtonText": "Отменить",
+                    "confirmButtonText": "Завершить сейчас",
+                    "errorNotification": {
+                        "title": "Произошла ошибка при завершение миграции",
+                        "message": "В настоящее время выполняется миграция."
+                    }
+                }
             },
             "assistantCard": {
-                "finish": "Готово!"
+                "title": "Информация",
+                "headline": "Как работает миграция",
+                "finish": "Готово!",
+                "connection": {
+                    "title": "Настройка подключения",
+                    "content": "Помощник по миграции поможет установить соединение между вашей системой магазина и Shopware 6 для передачи и переноса ваших данных.",
+                    "link": "Справка и документация"
+                },
+                "dataSelection": {
+                    "title": "Укажите данные для переноса",
+                    "content": "Выберите данные, которые требуется перенести. Можно также включить данные плагина, если плагин уже доступен для Shopware 6. Проверьте наличие плагина в вашей учетной записи Shopware."
+                },
+                "migrationOverview": {
+                    "title": "Этапы миграции",
+                    "content": "1. Автоматический процесс проверяет выбранные данные на наличие отсутствующих назначений. Подготовьтесь к завершению автоматического процесса, добавив назначения вручную.{linebreak}2. Данные вашего магазина считываются и назначаются.{linebreak}3. Все выбранные и правильно назначенные данные передаются в Shopware 6.{linebreak}4. Элементы мультимедиа загружаются."
+                }
+            },
+            "selectDataCard": {
+                "cardTitle": "Выбор данных",
+                "dataHeader": "Данные",
+                "dataTypes": {
+                    "basicData": "Данные магазина",
+                    "pluginData": "Данные плагина"
+                },
+                "headers": {
+                    "name": "Имя",
+                    "dataType": "Тип",
+                    "total": "Наборы данных"
+                },
+                "dataSelection": {
+                    "customersOrders": "Клиенты и заказы",
+                    "products": "Продукты",
+                    "media": "Медиа",
+                    "processMediaFiles": "Медиа",
+                    "basicSettings": "Основные данные",
+                    "newsletterRecipient": "Получатель рассылки",
+                    "productReviews": "Отзывы о товарах",
+                    "seoUrls": "Seo URL-адреса",
+                    "promotions": "Акции"
+                },
+                "entities": {
+                    "category": "Категории:",
+                    "product": "Продукты:",
+                    "customer": "Клиенты:",
+                    "order": "Заказы:",
+                    "media": "Медиа:",
+                    "translation": "Переводы:",
+                    "customer_group": "Группы клиентов:",
+                    "product_option_relation": "Варианты продукта:",
+                    "product_property_relation": "Свойства продукта:",
+                    "property_group_option": "Свойства:",
+                    "number_range": "Диапазоны номеров:",
+                    "order_document": "Заказать документы:",
+                    "shipping_method": "Способы доставки:",
+                    "currency": "Валюты:",
+                    "sales_channel": "Каналы продаж:",
+                    "product_review": "Отзывы:",
+                    "seo_url": "Seo URL-адреса:",
+                    "product_cross_selling": "Кросс-продажа:",
+                    "main_variant_relation": "Основные варианты отношений:",
+                    "promotion": "Акции:"
+                },
+                "noData": "Ничего не найдено для миграции."
+            },
+            "confirmWarningCard": {
+                "currencyMismatch": {
+                    "title": "Миграция признала другую валюту",
+                    "text": "Валюта переносимых данных не соответствует стандартной валюте [{targetSystemCurrency}]. Данные с [{sourceSystemCurrency}] все еще могут быть перенесены, но они не будут автоматически преобразованы. После этого вы можете скорректировать цены вручную.",
+                    "question": "Вы уверены, что данные должны быть перенесены в стандартную валюту [{targetSystemCurrency}]?",
+                    "checkboxLabel": "Да, я хотел бы продолжить"
+                },
+                "languageMismatch": {
+                    "title": "Миграция признала другой язык",
+                    "text": "Язык переносимых данных не соответствует стандартному языку [{targetSystemLanguage}]. Данные с [{sourceSystemLanguage}] все еще могут быть перенесены, но они не будут автоматически преобразованы. После этого вы можете настроить переводы вручную.",
+                    "question": "Вы уверены, что данные должны быть перенесены на стандартном языке [{targetSystemLanguage}]?",
+                    "checkboxLabel": "Да, я хотел бы продолжить"
+                }
+            },
+            "premappingCard": {
+                "validTitle": "Проверка данных завершена",
+                "validCaption": "Данные готовы к продолжению",
+                "loadingTitle": "Выполняется проверка данных",
+                "loadingCaption": "Существующие данные были проверены.",
+                "unfilledTitle": "Проверка данных завершена",
+                "unfilledCaption": "Продолжить можно только после завершения назначения вручную.",
+                "unfilledAlert": "Мы обнаружили, что есть данные, которые требуют ручного назначения.",
+                "previousTitle": "Предыдущий",
+                "newAssignmentTitle": "Новые задания",
+                "placeholder": "Пожалуйста, выберите",
+                "filledCardTitle": "Обработанные назначения",
+                "expandTitle": "Скрыть обработанные назначения",
+                "collapseTitle": "Показать обработанные назначения",
+                "unfilledCardTitle": "Назначения вручную",
+                "group": {
+                    "order_state": "Состояния заказа",
+                    "order_delivery_state": "Состояния доставки заказа",
+                    "transaction_state": "Состояния транзакций",
+                    "payment_method": "Способы оплаты",
+                    "manufacturer": "Производители",
+                    "salutation": "Приветствие",
+                    "delivery_time": "Время доставки",
+                    "salesChannel": "Рассылка по продажам",
+                    "newsletter_status": "Статус новостной рассылки"
+                }
+            },
+            "loadingScreenCard": {
+                "flowChart": {
+                    "premapping": "Проверка",
+                    "fetchData": "Чтение",
+                    "writeData": "Написание",
+                    "processMedia": "Загрузка",
+                    "finish": "Готово"
+                },
+                "status": {
+                    "FETCH_DATA": {
+                        "long": "Данные будут прочитаны из вашей системы",
+                        "caption": "Новые назначения обрабатываются.",
+                        "short": "Чтение",
+                        "hint": "Совет. Миграция продолжается шаг за шагом в фоновом режиме, изучите Shopware 6."
+                    },
+                    "WRITE_DATA": {
+                        "long": "Данные записываются в Shopware 6",
+                        "caption": "В зависимости от размера магазина это может занять несколько минут.",
+                        "short": "Написание",
+                        "hint": "Совет. Процесс миграции можно приостановить и возобновить в любое время."
+                    },
+                    "PROCESS_MEDIA_FILES": {
+                        "long": "Носитель загружается",
+                        "caption": "Обработка больших данных изображения может занять некоторое время.",
+                        "short": "Загрузка",
+                        "hint": "Совет. Если соединение плохое, приостановите загрузку и продолжите позже."
+                    },
+                    "finish": "Готово"
+                },
+                "result": {
+                    "title": "Помощник по миграции выполнен",
+                    "caption": "Загрузка мультимедиа продолжается в фоновом режиме. Большие файлы могут занять некоторое время.",
+                    "historyLink": "Просмотр сведений о переносе",
+                    "survey": {
+                        "title": "Ваши мысли важны",
+                        "caption": "Пожалуйста, помогите нам улучшить процесс миграции, предоставив обратную связь о вашем опыте.",
+                        "buttonText": "Оставить отзыв сейчас",
+                        "link": "https://www.surveymonkey.de/r/RF7J3LV"
+                    },
+                    "notification": {
+                        "title": "История миграции",
+                        "message": "Просмотр или загрузка файла журнала",
+                        "actionLabel": "Открытая история"
+                    },
+                    "indexingNotification": {
+                        "running": {
+                            "title": "Незавершенная индексирование",
+                            "message": "В настоящее время индексирование в фоновом режиме."
+                        },
+                        "finished": {
+                            "title": "Индексирование завершено",
+                            "message": "Индексация завершена."
+                        }
+                    }
+                },
+                "pauseScreen": {
+                    "title": "Миграция приостановлена",
+                    "message": "Ты не сделал паузу? Если подключение к Интернету отсутствует, миграция автоматически переключается в режим паузы, чтобы предотвратить потерю данных."
+                },
+                "takeoverScreen": {
+                    "buttonCheck": "Проверить статус",
+                    "buttonRedirect": "Генеральной",
+                    "running": {
+                        "title": "Миграция уже начата",
+                        "message": "Перенос уже выполняется в другом браузере или вкладке браузера. Теперь вы можете либо взять на себя текущую миграцию, либо отменить ее."
+                    },
+                    "interrupted": {
+                        "title": "Миграция была взята на себя",
+                        "message": "Процесс миграции был переведен из другого браузера или вкладки браузера. Вы можете отменить или взять на себя процесс, в зависимости от текущего состояния миграции."
+                    },
+                    "aborted": {
+                        "title": "Миграция отменена",
+                        "message": "Другой пользователь отменил процесс миграции в отдельном браузере или вкладке браузера. Начните новую миграцию."
+                    },
+                    "forbidden": {
+                        "title": "Миграция уже начата",
+                        "message": "Перенос уже начат в другом браузере или вкладке браузера. Перейдите на эту вкладку, чтобы просмотреть процесс миграции."
+                    },
+                    "takeoverModal": {
+                        "title": "Возьмите на себя миграцию",
+                        "message": "Можно взять на себя активную миграцию. Если вы хотите, вы можете продолжить миграцию в этом окне браузера.",
+                        "hint": "Хотели бы вы взять на себя миграцию?",
+                        "cancel": "Отменить",
+                        "confirm": "Возьмите на себя миграцию"
+                    },
+                    "abortModal": {
+                        "title": "Отменить миграцию",
+                        "message": "На данный момент невозможно взять на себя активную миграцию. Если вы хотите, теперь вы можете отменить активную миграцию и начать новую непосредственно после этого.",
+                        "hint": "Вы хотите отменить миграцию?",
+                        "cancel": "Отменить",
+                        "confirm": "Отменить миграцию"
+                    },
+                    "redirectModal": {
+                        "title": "Миграция завершена",
+                        "message": "Перенос уже завершен в другом браузере или вкладке браузера.",
+                        "confirm": "Генеральной"
+                    }
+                },
+                "connectionLostScreen": {
+                    "title": "Соединение было потеряно",
+                    "message": "Миграция завершила процесс, чтобы избежать потери данных. Проверьте подключение к Интернету и начните новую миграцию.",
+                    "buttonNavigateToMain": "Генеральной"
+                },
+                "mediaProcessScreen": {
+                    "title": "Запуск загрузки мультимедиа",
+                    "message": "Процесс работает в фоновом режиме"
+                }
+            },
+            "confirmAbortDialog": {
+                "title": "Остановить миграцию",
+                "content": "Миграция не полностью завершена. Уже перенесенные данные могут быть непригодны для использования. Если вы выйдете сейчас, вам придется полностью перезапустить процесс миграции.",
+                "hint": "Вы хотите остановить миграцию?",
+                "cancelRunning": "Продолжить",
+                "cancelPause": "Пауза",
+                "confirm": "Остановить миграцию"
+            },
+            "errorTypes": {
+                "error": "Ошибка",
+                "warning": "Предупреждение",
+                "info": "Информация"
+            },
+            "error": {
+                "authorizationError": {
+                    "information": "Ошибка авторизации. Ваши данные доступа неверны. Проверьте его и повторите попытку."
+                },
+                "canNotConnectToServer": "Нет подключения к серверу. Пожалуйста, проверьте подключение на наличие проблем.",
+                "customerExists": {
+                    "information": "Клиент с электронной почтой «{mail}» уже существует. Вы не можете добавить этого пользователя с этим письмом в свою базу данных."
+                },
+                "gatewayNotFound": {
+                    "information": "Шлюз «{notFoundGateway}» не найден."
+                },
+                "gatewayRead": {
+                    "information": "Не удалось прочитать шлюз «{unreadableGateway}»."
+                },
+                "localeNotFound": {
+                    "information": "Код записи локали «{notFoundCode}» не найден."
+                },
+                "migrationContextPropertyMissing": {
+                    "information": "Обязательное свойство «{notFoundProperty}» для контекста миграции не найдено."
+                },
+                "migrationsWorkloadPropertyMissing": {
+                    "information": "Обязательное свойство «{notFoundProperty}» для рабочей нагрузки миграции не найдено."
+                },
+                "noFileSystemPermissions": {
+                    "information": "Отсутствуют разрешения файловой системы на создание или запись файлов или каталогов. Проверьте свои разрешения."
+                },
+                "profileNotFound": {
+                    "information": "Профиль миграции «{notFoundProfile}» не найден."
+                },
+                "undefinedIndex": {
+                    "title": "Неопознанный индекс",
+                    "detail": "Не удалось найти неопознанный индекс.",
+                    "information": "Не удалось найти индекс «{unidentifiedIndex}». Пожалуйста, проверьте свои данные."
+                },
+                "unknownError": "Неизвестная ошибка. Вы можете проверить таблицу ведения журнала вашей базы данных для получения дополнительной информации.",
+                "mediaProcessConnectionError": "Произошла ошибка подключения при копировании данных носителя. Пожалуйста, проверьте подключение.",
+                "SWAG_MIGRATION__WRITER_NOT_FOUND": {
+                    "title": "Устройство записи файлов не найдено"
+                },
+                "SWAG_MIGRATION__SHOPWARE_CANNOT_DOWNLOAD_DATA": {
+                    "title": "Не удается загрузить носитель",
+                    "description": "Не удается загрузить носитель. Затронутый файл: {uri}"
+                },
+                "SWAG_MIGRATION__SHOPWARE_PARENT_ENTITY_NOT_FOUND": {
+                    "title": "Родительская сущность не найдена",
+                    "description": "Родительский объект для дочернего элемента «{entity}» не найден."
+                },
+                "SWAG_MIGRATION__SHOPWARE_ASSOCIATION_REQUIRED_MISSING": {
+                    "title": "Связанные {entity} не найдены",
+                    "description": "{missingEntity} с идентификатором источника «{sourceId}» не может быть найден, но требуется для {requiredFor}."
+                },
+                "SWAG_MIGRATION__SHOPWARE_EMPTY_NECESSARY_DATA_FIELDS": {
+                    "title": "Сущность {entity} имеет пустое необходимое поле",
+                    "description": "Сущность {entity} с идентификатором источника «{sourceId}» не имеет необходимых данных для поля «{emptyField}»"
+                },
+                "SWAG_MIGRATION__SHOPWARE_UNSUPPORTED_OBJECT_TYPE": {
+                    "title": "Неподдерживаемый тип объекта",
+                    "description": "{entity} типа объекта «{objectType}«с идентификатором источника «{sourceId}«не может быть преобразовано."
+                },
+                "SWAG_MIGRATION__SHOPWARE_INVALID_UNSERIALIZED_DATA": {
+                    "title": "Недопустимые несриализованные данные",
+                    "description": "Сущность {entity} с идентификатором источника «{sourceId}» не может быть преобразована из-за недопустимых несериализованных объектных данных для сущности «{unserializedEntity}» и необработанных данных: {serializedData}"
+                },
+                "SWAG_MIGRATION__SHOPWARE_CANNOT_COPY_DATA": {
+                    "title": "Исходный файл не найден",
+                    "description": "Исходный файл не может быть скопирован. Файл: {path}"
+                },
+                "SWAG_MIGRATION_CANNOT_CONVERT_CHILD_ENTITY": {
+                    "description": "Не удалось преобразовать дочернюю сущность {entity} из родительской сущности {parentEntity} с идентификатором «{parentSourceId}»."
+                },
+                "SWAG_MIGRATION_CANNOT_CONVERT_ENTITY": {
+                    "title": "Сущность {entity} не может быть преобразована",
+                    "description": "Не удалось преобразовать сущность {entity} с идентификатором источника «{sourceId}»."
+                },
+                "SWAG_MIGRATION_CANNOT_GET_FILE": {
+                    "title": "Файл {entity} не может быть загружен/скопирован",
+                    "description": "Файл {entity} с uri «{uri}» и идентификатором носителя «{sourceId}» не может быть загружен/скопирован."
+                },
+                "SWAG_MIGRATION__COULD_NOT_READ_ENTITY_COUNT": {
+                    "title": "Не удалось прочитать счетчик сущностей",
+                    "description": "Не удалось прочитать общее число для сущности {entity} . Убедитесь, что таблица «{table}» существует в исходной системе и необязательное условие «{condition}» является допустимым. Сообщение об исключении: {exceptionMessage}"
+                },
+                "SWAG_MIGRATION__DATASET_NOT_FOUND": {
+                    "title": "Набор данных не найден",
+                    "description": "Набор данных для профиля «{profileName}» и сущности «{entity}» не найден. Сущность с идентификатором «{sourceId}» не может быть обработана."
+                },
+                "SWAG_MIGRATION_ENTITY_ALREADY_EXISTS": {
+                    "title": "Сущность {entity} уже существует",
+                    "description": "Сущность {entity} с идентификатором источника «{sourceId}» уже существует и не может быть записана."
+                },
+                "SWAG_MIGRATION_ENTITY_FIELD_REASSIGNED": {
+                    "title": "Сущность {entity} имеет поле, которое было переназначено",
+                    "description": "Сущность {entity} с идентификатором источника «{sourceId}» получила поле «{emptyField}» заменено на «{replacementField}»."
+                },
+                "SWAG_MIGRATION__PROCESSOR_NOT_FOUND": {
+                    "title": "Процессор не найден",
+                    "description": "Процессор для профиля «{profileName}«, шлюза «{gatewayName}» и сущности «{entity}» не найден."
+                },
+                "SWAG_MIGRATION_ENTITY_UNKNOWN": {
+                    "title": "Не удается найти {entity}",
+                    "description": "Сущность {requiredForEntity} с идентификатором источника «{requiredForSourceId}» не может найти зависимую сущность {entity} с идентификатором источника «{sourceId}»."
+                },
+                "SWAG_MIGRATION__INVALID_EMAIL_ADDRESS": {
+                    "title": "Недопустимый адрес электронной почты",
+                    "description": "Недопустимый адрес электронной почты сущности {entity}  с идентификатором источника «{sourceId}»: {email}"
+                },
+                "SWAG_MIGRATION__SHOPWARE_UNSUPPORTED_NUMBER_RANGE_TYPE": {
+                    "title": "Неподдерживаемый тип диапазона номеров",
+                    "description": "NumberRange-сущность с идентификатором источника «{sourceId}» не может быть преобразована из-за неподдерживаемого типа: {type}."
+                },
+                "SWAG_MIGRATION__SHOPWARE_UNSUPPORTED_SHIPPING_PRICE": {
+                    "title": "Расчет цены неподдерживаемого коэффициента доставки",
+                    "description": "Сущность цены доставки с идентификатором источника «{sourceId}» метода доставки «{shippingMethodId}» не может быть преобразована из-за неподдерживаемого расчета факторной цены."
+                },
+                "SWAG_MIGRATION__SHOPWARE_UNSUPPORTED_SHIPPING_CALCULATION_TYPE": {
+                    "title": "Неподдерживаемый тип расчета отгрузки",
+                    "description": "Сущность метода доставки с идентификатором источника «{sourceId}» не может быть преобразована из-за неподдерживаемого типа расчета: {type}."
+                },
+                "SWAG_MIGRATION__THEME_COMPILING_ERROR": {
+                    "title": "Ошибка компиляции темы",
+                    "description": "Не удалось скомпилировать тему с идентификатором «{sourceId}»."
+                },
+                "SWAG_MIGRATION_RUN_EXCEPTION": {
+                    "title": "Произошло исключение",
+                    "description": "{description}"
+                },
+                "SWAG_MIGRATION__DEBUG": {
+                    "title": "Отладка-выход",
+                    "description": "{logData}"
+                },
+                "SWAG_MIGRATION__DOCUMENT_TYPE_NOT_SUPPORTED": {
+                    "title": "Тип документа не поддерживается",
+                    "description": "Не удалось преобразовать документ с идентификатором источника «{sourceId}», так как тип документа «{type}» не поддерживается."
+                },
+                "SWAG_MIGRATION__WRITE_EXCEPTION_OCCURRED": {
+                    "title": "Произошло исключение записи",
+                    "description": "{description}"
+                }
             }
+        },
+        "history": {
+            "connectionName": "Имя подключения",
+            "profileAndGateway": "Профиль и шлюз",
+            "status": "Статус",
+            "importDateTime": "Время начала",
+            "shopDomain": "Домен магазина",
+            "shopSystem": "Система магазина",
+            "selectedData": "Данные",
+            "contextMenu": {
+                "details": "Показать подробности",
+                "downloadLogs": "Загрузить журнал",
+                "clearLogs": "Удаление данных миграции"
+            },
+            "clearRunDialog": {
+                "title": "Удаление данных миграции",
+                "content": "Удаление данных миграции приведет к удалению записей журнала, записей файлов мультимедиа, временных записей данных миграции и выполнения миграции, которые затем больше не будут доступны в истории миграции.",
+                "contentHint": "Вы действительно хотите удалить данные?"
+            },
+            "noData": "Миграция не найдена.",
+            "detailPage": {
+                "title": "Сведения о миграции",
+                "timestamp": "Время:",
+                "runStatus": "Статус миграции:",
+                "status": {
+                    "finished": "Закончено",
+                    "aborted": "Прервано",
+                    "running": "Бег"
+                },
+                "data": "Данные",
+                "errors": "Подробности",
+                "logDescription": "Для получения более подробной информации {link}",
+                "logDownload": "загрузите файл журнала.",
+                "errorCode": "Сообщение об ошибке",
+                "errorCount": "Граф",
+                "noErrorsOccurred": "Ошибок не произошло.",
+                "dataName": "Имя",
+                "dataCount": "Наборы данных",
+                "close": "Закрыть"
+            }
+        },
+        "worker-listener": {
+            "mediaProcessing": {
+                "title": "Носитель загружается",
+                "message": "Файлы не осталось. | Остался один файл. | Осталось {n} файлов.",
+                "titleSuccess": "Загрузка мультимедиа завершена",
+                "messageSuccess": "Загрузка носителя завершена."
+            }
+        }
+    },
+    "global": {
+        "error-codes": {
+            "SWAG_MIGRATION_CONNECTION_NAME_ALREADY_EXISTS": "Имя подключения уже существует.",
+            "SWAG_MIGRATION_CONNECTION_NAME_TO_SHORT": "Имя подключения должно содержать не менее 6 символов.",
+            "SWAG_MIGRATION_INVALID_API_KEY": "Ключ API не имеет правильной длины ({length}/40 символов)."
         }
     }
 }

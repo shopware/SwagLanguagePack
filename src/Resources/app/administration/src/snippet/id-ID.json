@@ -280,7 +280,13 @@
             "labelDownloadPdf": "Unduh PDF",
             "labelCreateNew": "Buat baru",
             "messageEmptyTitle": "Belum ada dokumen",
-            "messageEmptySubline": "Kelola dokumen di sini."
+            "messageEmptySubline": "Kelola dokumen di sini.",
+            "error": {
+                "DOCUMENT__NUMBER_ALREADY_EXISTS": "Nomor dokumen {number} telah dialokasikan."
+            },
+            "info": {
+                "DOCUMENT__NUMBER_WAS_CHANGED": "Duplikat nomor dokumen. Sejumlah berturut-turut secara otomatis telah diambil dari kisaran nomor masing-masing."
+            }
         },
         "documentModal": {
             "modalTitle": "Buat dokumen",
@@ -319,6 +325,63 @@
             "message": "Promosi otomatis berikut akan dinonaktifkan:",
             "messageNoItems": "Tidak ada promosi otomatis yang aktif.",
             "buttonDisable": "Nonaktifkan"
+        },
+        "filters": {
+            "documentFilter": {
+                "label": "Dokumen",
+                "placeholder": "Pilih status dokumen...",
+                "textHasCriteria": "Setidaknya satu dokumen ditugaskan",
+                "textNoCriteria": "Tidak ada dokumen yang ditugaskan"
+            },
+            "orderDateFilter": {
+                "label": "Tanggal Pesanan"
+            },
+            "statusFilter": {
+                "label": "Status Pesanan",
+                "placeholder": "Pilih status pesanan..."
+            },
+            "paymentStatusFilter": {
+                "label": "Status pembayaran",
+                "placeholder": "Pilih status pembayaran..."
+            },
+            "deliveryStatusFilter": {
+                "label": "Status pengiriman",
+                "placeholder": "Pilih status pengiriman..."
+            },
+            "paymentMethodFilter": {
+                "label": "Metode pembayaran",
+                "placeholder": "Pilih metode pembayaran..."
+            },
+            "shippingMethodFilter": {
+                "label": "Metode pengiriman",
+                "placeholder": "Pilih metode pengiriman..."
+            },
+            "salesChannelFilter": {
+                "label": "Saluran Penjualan",
+                "placeholder": "Pilih Saluran Penjualan..."
+            },
+            "billingCountryFilter": {
+                "label": "Negara penagihan",
+                "placeholder": "Pilih negara penagihan..."
+            },
+            "shippingCountryFilter": {
+                "label": "Negara pengiriman",
+                "placeholder": "Pilih negara pengiriman..."
+            },
+            "customerGroupFilter": {
+                "label": "Kelompok pelanggan",
+                "placeholder": "Pilih grup pelanggan..."
+            },
+            "tagFilter": {
+                "label": "Tags",
+                "placeholder": "Pilih tag..."
+            },
+            "productFilter": {
+                "label": "Produk",
+                "placeholder": "Pilih produk..."
+            },
+            "messageEmptyTitle": "Tidak ditemukan",
+            "messageEmptySubline": "Edit filter Anda untuk menemukan hasil."
         }
     },
     "sw-privileges": {
@@ -378,7 +441,7 @@
                 "label": "Penerima Newsletter"
             },
             "product_search_config": {
-                "label": "Pencarian Produk"
+                "label": "Cari"
             },
             "scale_unit": {
                 "label": "Skala unit"
@@ -443,7 +506,7 @@
         },
         "additional_permissions": {
             "orders": {
-                "create_discounts": "Buat diskon",
+                "create_discounts": "Buat item kredit",
                 "label": "Pesanan"
             },
             "user": {
@@ -453,8 +516,9 @@
             "system": {
                 "core_update": "Jalankan pembaruan",
                 "plugin_maintain": "Pertahankan ekstensi",
+                "extension_store": "Toko Shopware",
                 "clear_cache": "Hapus cache",
-                "logging": "Penebangan",
+                "logging": "Log peristiwa",
                 "frw": "Wizard Jalankan Pertama",
                 "import_export": "Impor/Ekspor",
                 "label": "Pengaturan",
@@ -466,7 +530,7 @@
             },
             "routes": {
                 "label": "Rute",
-                "api_action_access-key_integration": "Buat kunci API baru",
+                "api_action_access-key_integration": "Buat kunci API",
                 "api_acl_privileges_get": "Baca semua hak ACL",
                 "api_acl_privileges_route_get": "Baca hak istimewa rute ACL",
                 "api_action_cache_info": "Baca info cache",
@@ -558,7 +622,7 @@
     },
     "sw-cms": {
         "general": {
-            "placeholderSearchBar": "Mencari layout...",
+            "placeholderSearchBar": "Cari layout...",
             "mainMenuItemGeneral": "Pengalaman berbelanja",
             "moduleTitle": "Pengalaman berbelanja",
             "greeting": "Tata letak",
@@ -1209,6 +1273,7 @@
                 "infoTextProductDetailPages": "Tata letak hanya dapat dilihat di toko Anda ketika Anda menetapkan ke produk aktif.",
                 "labelCategories": "Kategori",
                 "placeholderCategories": "Pilih kategori...",
+                "placeholderLandingPages": "Pilih halaman arahan...",
                 "labelSalesChannel": "Sales Channel",
                 "placeholderSalesChannel": "Pilih Saluran Penjualan...",
                 "resetOptionSalesChannel": "Semua Sales Channel",
@@ -1219,6 +1284,8 @@
                 "confirmChangesRestorePrev": "Buang",
                 "confirmChangesTextCategories": "Anda telah menghapus tata letak tugas dari kategori. Jika Anda mengkonfirmasi perubahan ini, kategori tersebut tidak akan lagi memiliki tata letak yang ditetapkan.",
                 "confirmChangesTextCategoriesAssignedLayouts": "Beberapa kategori yang dipilih sudah memiliki tata letak yang ditetapkan. Jika Anda melanjutkan tugas-tugas sebelumnya akan diganti dengan tata letak saat ini.",
+                "confirmChangesTextLandingPages": "Anda telah menghapus tata letak tugas dari halaman arahan. Jika Anda mengkonfirmasi perubahan ini, halaman landing tersebut tidak akan lagi memiliki tata letak yang ditetapkan.",
+                "confirmChangesTextLandingPagesAssignedLayouts": "Beberapa halaman landing yang dipilih sudah memiliki tata letak yang ditetapkan. Jika Anda melanjutkan tugas-tugas sebelumnya akan diganti dengan tata letak saat ini.",
                 "confirmChangesTextProducts": "Anda telah menghapus tata letak tugas dari produk. Jika Anda mengkonfirmasi perubahan ini, produk tersebut tidak akan lagi memiliki tata letak yang ditetapkan.",
                 "confirmChangesTextProductsAssignedLayouts": "Beberapa produk yang dipilih sudah memiliki tata letak yang ditetapkan. Jika Anda melanjutkan tugas sebelumnya akan diganti dengan tata letak saat ini.",
                 "confirmChangesTextShopPages": "Anda telah menghapus tata letak tugas dari halaman toko. Jika Anda mengkonfirmasi perubahan ini, halaman toko tersebut tidak akan lagi memiliki tata letak yang ditetapkan",
@@ -1228,6 +1295,7 @@
                 "shopPagesSaveError": "Tak dapat menyimpan halaman toko",
                 "tabCategories": "Kategori",
                 "tabShopPages": "Halaman toko",
+                "tabLandingPages": "Halaman arahan",
                 "shopPages": {
                     "tosPage": "Halaman TOS",
                     "revocationPage": "Pemberitahuan pencabutan",
@@ -1536,7 +1604,7 @@
                 "keywords": "Kata kunci",
                 "length": "Panjang",
                 "linked": "Ditautkan",
-                "manufacturer": "Manufaktur",
+                "manufacturerId": "Pabrikan",
                 "manufacturerNumber": "Nomor manufaktur",
                 "markAsTopseller": "Tandai sebagai penjual terbaik",
                 "maxDeliveryTime": "Maks. waktu pengiriman",
@@ -1549,7 +1617,7 @@
                 "option": "Opsi",
                 "packUnit": "Satuan kemasan",
                 "packUnitPlural": "Paket unit jamak",
-                "price": "Harga",
+                "cheapestPrice": "Harga",
                 "product": "Produk",
                 "productNumber": "Nomor produk",
                 "purchasePrice": "Harga pembelian",
@@ -1704,7 +1772,9 @@
             "ascending": "Urut Atas",
             "descending": "Urut Turun",
             "xTimesIn": "{n} kali dalam",
-            "close": "Tutup"
+            "close": "Tutup",
+            "from": "Dari",
+            "to": "Untuk"
         },
         "notification": {
             "notificationSaveErrorMessage": "Kesalahan terjadi ketika menyimpan entitas \"{entityName}\".",
@@ -2688,7 +2758,12 @@
     "sw-settings-number-range": {
         "general": {
             "mainMenuItemGeneral": "Kisaran angka",
-            "placeholderSearchBar": "Rentang nomor pencarian..."
+            "placeholderSearchBar": "Rentang nomor pencarian...",
+            "infoGlobalType": "Hanya ada satu \"{typeName}\" rentang angka. Perubahan pada rentang jumlah tipe \"{typeName}\" harus dilakukan di sini dan secara global akan mempengaruhi semua Saluran Penjualan.",
+            "infoGlobalTypeTitle": "Jenis rentang angka global \"{typeName}”",
+            "infoGlobal": "Anda tidak dapat mengubah jenis kisaran nomor global. Tapi Anda dapat membuat rentang nomor tambahan untuk sebagian besar jenis dan Saluran Penjualan tertentu kembali dalam ikhtisar.",
+            "infoGlobalTitle": "Kisaran angka global \"{name}”",
+            "infoSalesChannelBound": "Untuk mengubah jenis rentang nomor, Hapus semua penjualan saluran tugas pertama."
         },
         "list": {
             "textHeadline": "Kisaran angka",
@@ -3006,9 +3081,11 @@
             "descriptionLabel": "Deskripsi",
             "messageSaveSuccess": "Kategori\"{name}\"telah di simpan.",
             "useAsLogo": "Gunakan sebagai gambar tampilan",
-            "treeHeadline": "Struktur kategori",
+            "treeHeadline": "Kategori",
             "treeHeadSelected": "{count} dipilh",
             "emptyStateHeadline": "Tidak ada kategori dipilih",
+            "errorNavigationEntryPoint": "Kategori ini didefinisikan sebagai navigasi utama setidaknya satu Sales Channel dan karena itu tidak dapat dihapus.",
+            "errorNavigationEntryPointMultiple": "Satu atau lebih kategori didefinisikan sebagai navigasi utama setidaknya satu Sales Channel dan karena itu tidak dapat dihapus.",
             "actions": {
                 "actionsDisabledInLanguage": "Kategori hanya bisa dibuat di bahasa default.",
                 "createSub": "Sub kategori baru",
@@ -3022,58 +3099,54 @@
             "products": "Produk",
             "seo": "SEO",
             "columnInfoHeader": "Elemen footer",
-            "columnInfo": "Kategori ini mengatur kolom yang ditunjuk di footer. Nama kategori akan ditampilkan sebagai judul yang tidak dapat diklik untuk kolom. Semua kategori di bawah ini ditampilkan sebagai baris yang dapat diklik di bawah judul kolom."
+            "columnInfo": "Kategori ini mengatur kolom yang ditunjuk di footer. Nama kategori akan ditampilkan sebagai judul untuk kolom. Semua kategori pada tingkat pertama di bawah kategori ini ditampilkan sebagai baris di bawah judul kolom."
         },
         "base": {
             "general": {
                 "categoryNameLabel": "Nama",
                 "headlineInformationCard": "Secara umum",
-                "isCategoryActiveLabel": "Kategori aktif",
+                "isCategoryActiveLabel": "Aktif",
                 "useAsLink": "Gunakan sebagai tautan",
                 "labelCategoryTags": "Tag",
                 "labelCategoryTagsPlaceholder": "Masukkan tag secara individual...",
                 "types": {
                     "title": "Jenis kategori",
-                    "page": "Kategori",
-                    "folder": "Titik masuk",
-                    "link": "Tautan yang dapat disesuaikan",
-                    "column": "Kolom",
-                    "entrypoint": "Titik masuk",
-                    "pageList": "Halaman/Daftar",
-                    "help": "Kategori struktur tidak bisa dihubungi dengan dirinya sendiri tetapi hanya digunakan untuk tujuan menguraikan."
-                }
-            },
-            "entry-point": {
-                "title": "Titik masuk",
-                "navigation": {
-                    "descriptionGeneral": "Anda telah menetapkan kategori ini sebagai titik masuk untuk navigasi utama di Sales Channels ini:"
-                },
-                "serviceSales": {
-                    "descriptionGeneral": "Anda telah menetapkan kategori ini sebagai titik masuk untuk navigasi layanan di Sales Sales ini:"
-                },
-                "footerSales": {
-                    "descriptionGeneral": "Anda telah menetapkan kategori ini sebagai titik masuk untuk navigasi footer di Sales Sales ini:"
+                    "page": "Halaman/Daftar",
+                    "folder": "Elemen penataan/Titik masuk",
+                    "link": "Tautan",
+                    "linkUnavailable": "Tautan (tidak dapat dipilih jika kategori didefinisikan sebagai titik masuk)",
+                    "help": "Kategori struktur tidak bisa dihubungi dengan dirinya sendiri tetapi hanya digunakan untuk tujuan menguraikan.",
+                    "helpText": {
+                        "page": "Sebuah halaman/daftar telah terkait produk dan dapat diakses langsung dengan tata letak ditugaskan.",
+                        "folder": "Sebuah elemen penataan/titik masuk hanya akan ditampilkan dalam struktur dan tidak dapat diakses secara langsung kecuali ditugaskan sebagai titik masuk dari Sales Channel.",
+                        "link": "Tautan memungkinkan referensi ke produk, kategori lain, halaman arahan atau situs eksternal."
+                    }
                 }
             },
             "entry-point-card": {
-                "cardTitle": "Titik masuk",
+                "cardTitle": "Navigasi",
                 "labelEntryPoint": "Titik masuk",
                 "placeholderEntryPoint": "Pilih titik masuk...",
-                "labelSalesChannels": "Saluran penjualan",
-                "placeholderSalesChannels": "Pilih saluran penjualan...",
-                "buttonConfigureHome": "Konfigurasikan rumah",
+                "existingNavigationDescription": "Anda telah menetapkan kategori ini sebagai titik masuk untuk navigasi utama di Sales Channels ini:",
+                "labelSalesChannelsAdd": "Penugasan Sales Channel",
+                "placeholderSalesChannels": "Tambahkan Saluran Penjualan...",
+                "buttonConfigureHome": "Mengkonfigurasi beranda",
                 "types": {
                     "labelMainNavigation": "Navigasi utama",
+                    "helpTextMainNavigation": "Titik masuk untuk navigasi utama adalah bidang wajib untuk Saluran Penjualan. Jika Anda menetapkan kategori ini sebagai titik masuk untuk navigasi utama ke satu atau beberapa Saluran Penjualan, Anda hanya dapat mengubah tugas ini pada saluran penjualan itu sendiri.",
                     "labelFooterNavigation": "Navigasi footer",
-                    "labelServiceNavigation": "Navigasi layanan"
+                    "helpTextFooterNavigation": "Jika Anda menetapkan kategori ini sebagai titik masuk untuk navigasi Footer ke satu atau lebih Sales Saluran, kategori pada tingkat berikutnya akan kolom. Hal ini memungkinkan Anda untuk membagi navigasi footer Anda menjadi beberapa area.",
+                    "labelServiceNavigation": "Navigasi layanan",
+                    "helpTextServiceNavigation": "Jika Anda menetapkan kategori ini sebagai titik masuk untuk navigasi Layanan ke satu atau lebih Saluran Penjualan, kategori pada tingkat berikutnya akan ditampilkan sebagai navigasi kedua di area footer."
                 }
             },
             "entry-point-modal": {
-                "modalTitle": "Konfigurasikan Beranda",
-                "salesChannelSelection": "Navigasi utama titik masuk",
-                "showInMainNavigation": "Tampilkan sebagai Rumah di navigasi utama",
-                "mainNavigationName": "Nama dalam navigasi utama",
-                "mainNavigationNamePlaceholder": "Nama dalam navigasi utama...",
+                "modalTitle": "Mengkonfigurasi beranda",
+                "salesChannelSelection": "Sales Channel",
+                "showInMainNavigation": "Tampilkan di navigasi utama",
+                "mainNavigationName": "Nama tampilan",
+                "mainNavigationNamePlaceholder": "Masukkan nama halaman beranda alternatif...",
+                "mainNavigationNameHelpText": "Secara default kategori ini ditampilkan sebagai “rumah”. Masukkan nama tampilan alternatif jika konfigurasi default tidak sesuai dengan Sales Channel saat ini.",
                 "layoutHeadline": "Tata Letak",
                 "seoSettingsHeadline": "Pengaturan SEO",
                 "metaTitleLabel": "Judul meta",
@@ -3154,6 +3227,10 @@
             "textDeleteConfirm": "Anda yakin ingin menghapus kategori\"{name}\"?",
             "textDeleteChildrenConfirm": "Semua sub kategori akan dihapus juga.",
             "textDeleteMultipleConfirm": "Anda yakin ingin menghapus{count} kategori yang dipilih?"
+        },
+        "entry-point-overwrite-modal": {
+            "textBefore": "Anda sudah menetapkan titik masuk ke Sales Channel berikut: | Anda sudah ditetapkan entri poin untuk Sales Sales berikut Saluran:",
+            "textAfter": "Haruskah tugas ini ditimpa? | Haruskah tugas ini ditimpa?"
         }
     },
     "sw-landing-page": {
@@ -3162,16 +3239,19 @@
             "cms": "Tata Letak"
         },
         "general": {
-            "placeholderSearchBar": "Cari Halaman arahan...",
+            "placeholderSearchBar": "Cari halaman arahan...",
             "treeHeadSelected": "{count} dipilih",
             "buttonCreate": "Tambahkan halaman arahan",
-            "treeHeadline": "Halaman arahan"
+            "treeHeadline": "Halaman arahan",
+            "actions": {
+                "actionsDisabledInLanguage": "Halaman arahan hanya dapat dibuat dalam bahasa default sistem."
+            }
         },
         "base": {
             "general": {
                 "labelName": "Nama",
                 "headlineInformationCard": "Umum",
-                "isActiveLabel": "Halaman arahan aktif",
+                "isActiveLabel": "Aktif",
                 "labelTags": "Tags",
                 "labelTagsPlaceholder": "Masukkan tag secara individual..."
             },
@@ -3182,7 +3262,7 @@
                 "labelMetaDescription": "Deskripsi Meta",
                 "labelKeywords": "kata kunci SEO",
                 "labelUrl": "URL SEO",
-                "placeholderSalesChannel": "Memilih saluran penjualan...",
+                "placeholderSalesChannel": "Pilih Saluran Penjualan...",
                 "placeholderMetaTitle": "Masukkan judul meta...",
                 "placeholderMetaDescription": "Masukkan deskripsi meta...",
                 "placeholderKeywords": "Masukkan satu atau lebih kata kunci...",
@@ -3196,12 +3276,13 @@
                 "editInPagebuilderEmpty": "Buat tata letak baru",
                 "editContent": "Edit konten",
                 "defaultTitle": "Tata letak default",
-                "defaultDesc": "Halaman kategori"
+                "defaultDesc": "Halaman kategori",
+                "cmsLayoutModalHeadline": "Halaman arahan"
             }
         },
         "modal": {
             "textDeleteConfirm": "Anda yakin ingin menghapus halaman arahan \"{name}“?",
-            "textDeleteMultipleConfirm": "Anda yakin ingin menghapus {count} Halaman arahan yang dipilih?"
+            "textDeleteMultipleConfirm": "Anda yakin ingin menghapus {count} halaman landing yang dipilih?"
         }
     },
     "sw-product": {
@@ -3213,7 +3294,8 @@
             "columnLinkOnly": "Tersembunyi",
             "linkAdvancedVisibility": "Opsi penetapan lanjutan",
             "labelVisibility": "Jalur penjualan",
-            "closeModal": "Terapkan"
+            "closeModal": "Terapkan",
+            "bodyVisibility": "Tambahkan saluran Penjualan di mana produk harus ditampilkan. Anda juga dapat menentukan lebih jauh visibilitas produk untuk setiap Saluran Penjualan Storefront melalui de link di bawah ini."
         },
         "general": {
             "mainMenuItemGeneral": "Produk",
@@ -3223,10 +3305,13 @@
             "placeholderSearchBar": "Mencari produk...",
             "inheritanceModuleName": "Produk ini",
             "backToParent": "Kembali ke varian ikhtisar",
+            "backToGeneralOverview": "Kembali ke ikhtisar umum",
             "copy": "Salin",
             "cloneSuffix": "variasi",
             "cloneNotice": "Variasi produk ini ganda. Jika proses ini diinterupsi, ada kemungkinan tidak seluruh variasi ini terduplikasi dengan benar. Dalam hal ini, anda dapat membuat variasi lagi di produk baru.",
-            "cloneTitle": "Variasi yang ganda"
+            "cloneTitle": "Variasi yang ganda",
+            "tooltipModeSettings": "Pengaturan mode",
+            "textAdvancedMode": "Mode lanjutan"
         },
         "basicForm": {
             "labelTitle": "Judul",
@@ -3256,7 +3341,10 @@
             "textAddSearchKeyword": "Klik di sini untuk menambahkan kata kunci pencarian",
             "textEnterValidSearchKeyword": "Kata kunci yang dapat dicari",
             "helpTextSearchKeyword": "Produk di Storefront juga dapat ditemukan menggunakan kata kunci ini.",
-            "helpTextTags": "Tag dimaksudkan untuk penggunaan internal saja. Mereka dapat membantu Anda mengelola grup produk, menerapkan aturan, atau melayani sebagai istilah penelusuran khusus."
+            "helpTextTags": "Tag dimaksudkan untuk penggunaan internal saja. Mereka dapat membantu Anda mengelola grup produk, menerapkan aturan, atau melayani sebagai istilah penelusuran khusus.",
+            "categoriesTitle": "Kategori dan tag",
+            "descriptionCategories": "Tambahkan kategori sehingga produk dapat ditemukan melalui menu utama Storefront atau dengan koneksi API. Pastikan Anda memilih kategori yang tersedia dan aktif di Sales Channel yang dipilih.",
+            "descriptionTags": "Tag membantu Anda menemukan produk lebih cepat. Mereka membuatnya lebih mudah untuk produk kelompok dan dapat dimanfaatkan untuk mengotomatisasi tugas dengan Rule Builder."
         },
         "priceForm": {
             "labelTaxRate": "Tarif pajak",
@@ -3306,7 +3394,7 @@
             "labelEan": "EAN",
             "labelManufacturerNumber": "Nomor produk manufaktur",
             "labelStock": "Persediaan",
-            "labelActive": "Aktif",
+            "labelActive": "Aktif untuk semua Saluran Penjualan yang dipilih",
             "labelShippingFree": "Pengiriman gratis",
             "labelMarkAsTopseller": "Promosi produk",
             "labelIsCloseout": "Cuci gudang",
@@ -3341,7 +3429,7 @@
         "detailBase": {
             "cardTitleDeliverabilityInfo": "Pengiriman",
             "cardTitleProductInfo": "Informasi umum",
-            "cardTitleAssignment": "Penetapan",
+            "cardTitleAssignment": "Visibilitas & struktur",
             "cardTitlePrices": "Harga",
             "cardTitleSettings": "Pelabelan",
             "cardTitlePackaging": "Pengukuran & kemasan",
@@ -3350,12 +3438,15 @@
             "cardTitleReviews": "Ulasan",
             "cardTitleMedia": "Media",
             "labelContextMenuAddToProduct": "Tambah ke produk",
-            "cardTitleSeo": "SEO"
+            "cardTitleSeo": "SEO",
+            "cardTitleVisibilityStructure": "Struktur Visibilitas"
         },
         "specifications": {
             "cardTitleMeasuresPackaging": "Pengukuran & kemasan",
             "cardTitleEssentialCharacteristics": "Karakteristik Penting",
-            "cardTitleCustomFields": "Bidang kustom"
+            "cardTitleCustomFields": "Bidang kustom",
+            "cardTitleProperties": "Properties",
+            "cardTitleCustomProduct": "Produk Kustom"
         },
         "seo": {
             "cardTitleSeo": "SEO"
@@ -3509,7 +3600,7 @@
             "generationNotificationCountDeletion": "Satu varian akan dihapus | {count} varian akan dihapus",
             "generationNotificationButtonCancel": "Batal",
             "generationNotificationButtonContinue": "Menghasilkan",
-            "generatedFilterList": "Saring",
+            "generatedFilterList": "Daftar filter",
             "generatedListColumnVariation": "Nama",
             "generatedListColumnPrice": "Harga (kotor/ bersih)",
             "generatedListColumnProductNumber": "Nomor produk",
@@ -3532,24 +3623,26 @@
             },
             "configuratorModal": {
                 "title": "Menghasilkan varian",
-                "selectOptions": "Pilih nilai",
-                "selectOptionsExplanation": "Pilih nilai properti untuk menghasilkan varian.",
+                "selectOptions": "Pemilihan nilai",
+                "selectOptionsExplanation": "Pilih nilai properti untuk menghasilkan varian dari.",
+                "selectRestrictionsExplanation": "Pilih nilai properti untuk mengecualikan dari generasi varian.",
+                "selectPricesExplanation": "Tambahkan biaya tambahan ke nilai atau mata uang.",
                 "priceSurcharges": "Biaya tambahan harga",
                 "resetSurcharges": "Hapus biaya tambahan",
-                "defineRestrictions": "Mendefinisikan batasan",
+                "defineRestrictions": "Pengecualian nilai",
                 "priceOptions": "Nilai",
-                "restrictedCombinations": "Nilai properti terbatas",
-                "searchRestrictions": "Cari properti...",
-                "addNewRestriction": "Tambah batasan",
-                "editRestriction": "Edit batasan",
-                "deleteRestriction": "Hapus batasan",
+                "restrictedCombinations": "Nilai properti dikecualikan",
+                "searchRestrictions": "Cari nilai yang dikecualikan...",
+                "addNewRestriction": "Kecualikan nilai",
+                "editRestriction": "Edit",
+                "deleteRestriction": "Hapus",
                 "singleRestrictionSeperation": "Dan",
-                "deleteCombination": "Hapus kombinasi",
+                "deleteCombination": "Hapus",
                 "isOneFrom": "adalah salah satu dari",
                 "cancel": "Batal",
                 "save": "Simpan",
                 "searchPlaceholder": "Cari nilai...",
-                "singleRestrictionAddTitle": "Tambah batasan",
+                "singleRestrictionAddTitle": "Kecualikan nilai",
                 "surchargeNotice": "Perubahan biaya tambahan tidak akan berpengaruh pada varian yang sudah dibuat. Silakan pergi ke halaman detail varian dan mengubah harga varian yang sudah dihasilkan di sana."
             },
             "deliveryModal": {
@@ -3573,7 +3666,7 @@
         "layout": {
             "title": "Penugasan tata letak",
             "subtitle": "Anda dapat mengubah halaman detail produk dengan menetapkan tata letak kustom. Jika tidak ada tata letak kustom ditugaskan di sini, tata letak default akan digunakan.",
-            "textNoConfig": "Tata letak yang dipilih saat ini tidak memiliki elemen yang dapat diedit",
+            "textNoConfig": "Tata letak yang saat ini dipilih tidak memiliki elemen yang dapat diedit",
             "textContentInfo": "Blok produk default diisi dengan data produk secara otomatis. Isi sebenarnya dengan demikian tidak tercantum di sini."
         },
         "crossselling": {
@@ -3618,7 +3711,7 @@
             "templateSelectFieldPlaceholder": "Pilih template..."
         },
         "layoutAssignment": {
-            "title": "Default fallback",
+            "title": "Nilai default",
             "subtitle": "Halaman produk",
             "textAssignLayout": "Tetapkan tata letak",
             "textChangeLayout": "Ubah tata letak",
@@ -3626,14 +3719,45 @@
             "textEditInDesigner": "Edit di desainer"
         },
         "filters": {
+            "fromPlaceholder": "Masukkan nilai awal...",
+            "toPlaceholder": "Masukkan nilai akhir...",
             "activeFilter": {
                 "label": "Aktif",
                 "placeholder": "Pilih status..."
             },
             "imagesFilter": {
                 "label": "Gambar",
-                "placeholder": "Pilih status gambar..."
-            }
+                "placeholder": "Pilih status gambar...",
+                "textHasCriteria": "Setidaknya satu gambar produk ditugaskan",
+                "textNoCriteria": "Tidak ada gambar produk yang ditugaskan"
+            },
+            "releaseDateFilter": {
+                "label": "Tanggal rilis"
+            },
+            "stockFilter": {
+                "label": "Stok"
+            },
+            "priceFilter": {
+                "label": "Harga"
+            },
+            "manufacturerFilter": {
+                "label": "Pabrikan",
+                "placeholder": "Pilih produsen..."
+            },
+            "salesChannelsFilter": {
+                "label": "Saluran Penjualan",
+                "placeholder": "Pilih Saluran Penjualan..."
+            },
+            "categoriesFilter": {
+                "label": "Kategori",
+                "placeholder": "Pilih kategori..."
+            },
+            "tagsFilter": {
+                "label": "Tags",
+                "placeholder": "Pilih tag..."
+            },
+            "messageEmptyTitle": "Tidak ditemukan",
+            "messageEmptySubline": "Edit filter untuk melihat hasil."
         },
         "notification": {
             "notificationSaveErrorProductNoAlreadyExists": "No. Produk \"{productNo}\" sudah ditetapkan."
@@ -3873,6 +3997,7 @@
             "info": "Ada yang baru?",
             "requirements": "Persyaratan sistem",
             "plugins": "Kompatibel plugin",
+            "extensions": "Kompatibilitas ekstensi",
             "updating": "Memperbarui..."
         },
         "notifications": {
@@ -3916,6 +4041,7 @@
             },
             "actions": {
                 "openPluginManager": "Buka plugin manager",
+                "openMyExtensions": "Buka ekstensi saya",
                 "deactivateAll": "Nonaktifkan semua plugin.",
                 "deactivateIncompatible": "Nonaktifkan plugin yang tidak cocok.",
                 "deactivateNone": "Saya mengetahui bahaya tidak langsung dan tetap ingin memperbarui Shopware tanpa menonaktifkan plugin yang tidak cocok terlebih dahulu. Saya sadar bahwa Shopware tidak dapat menanggung kegunaan instalasi saya setelah pembaruan yang tidak cocok.",
@@ -3987,82 +4113,83 @@
         },
         "generalTab": {
             "labelSearchBehaviour": "Perilaku pencarian",
-            "textTitleSearchBehaviour": "Tentukan sebelumnya perilaku pencarian etalase Anda.",
+            "textTitleSearchBehaviour": "Tentukan sebelumnya perilaku pencarian Sales Channel Anda.",
             "labelSearchAndCondition": "“DAN” Cari",
-            "textSearchAndConditionExplain": "Hasil pencarian cocok dengan setiap elemen dari istilah pencarian yang dimasukkan.\nContoh: “Jeans summer” akan menemukan produk yang mengandung kata kunci “jeans” dan “musim panas”.",
+            "textSearchAndConditionExplain": "Hasil pencarian cocok dengan setiap elemen dari istilah pencarian yang dimasukkan.\nContoh: “Jeans summer” akan menemukan hasil pencarian yang berisi istilah pencarian “jeans” dan “summer”.",
             "labelSearchOrCondition": "“ATAU” Cari",
-            "textSearchOrConditionExplain": "Hasil pencarian cocok dengan elemen apa pun dari istilah pencarian yang dimasukkan.\nContoh: “Jeans summer” akan menemukan produk yang mengandung kata kunci “jeans” dan “musim panas”.",
+            "textSearchOrConditionExplain": "Hasil pencarian cocok dengan elemen apa pun dari istilah pencarian yang dimasukkan.\nContoh: “Jeans summer” akan menemukan hasil pencarian yang berisi istilah pencarian “jeans” atau istilah pencarian “musim panas”.",
             "labelMinimalSearchTerm": "Panjang istilah pencarian minimal",
-            "labelExcludedSearchTerms": "Ketentuan Pencarian Dikecualikan",
+            "labelExcludedSearchTerms": "Istilah pencarian dikecualikan",
             "textEmptyStateExcludedSearchTerms": "Belum ada istilah penelusuran",
-            "buttonAddExcludedSearch": "Tambah pengecualian",
-            "textPlaceholderTermsFilter": "Cari istilah yang dikecualikan...",
-            "buttonAddExcludedSearchTerms": "Tambah istilah pengecualian",
+            "buttonAddExcludedSearch": "Mengecualikan istilah penelusuran",
+            "textPlaceholderTermsFilter": "Pencarian istilah pencarian dikecualikan...",
+            "buttonAddExcludedSearchTerms": "Mengecualikan istilah penelusuran",
             "labelExcludedSearchTermsNoResults": "Tidak ada hasil yang ditemukan.",
             "labelSearchableContent": "Konten yang dapat dicari",
-            "textDescriptionSearchableContent": "Semua konten yang dapat dicari tercantum dalam tabel di bawah ini. Untuk menyesuaikan hasil penelusuran di Storefront Anda, lanjutkan dan mengecualikan konten agar tidak dapat dicari sama sekali atau mengubah peringkat masing-masing elemen sesuai dengan keinginan Anda. Elemen peringkat yang lebih tinggi memiliki “nilai pencarian” yang meningkat dan akan menempatkan lebih tinggi dalam hasil pencarian.",
+            "textDescriptionSearchableContent": "Semua konten yang dapat dicari tercantum dalam tabel di bawah ini. Untuk menyesuaikan hasil penelusuran di Sales Channels, lanjutkan dan tidak termasuk konten yang dapat dicari sama sekali atau mengubah peringkat masing-masing elemen sesuai dengan keinginan Anda. Elemen peringkat yang lebih tinggi memiliki “nilai pencarian” yang meningkat dan akan menempatkan lebih tinggi dalam hasil pencarian.",
             "buttonResetDefault": "Atur ulang ke default",
             "linkExample": "Tampilkan contoh",
-            "buttonAddContent": "Tambahkan konten",
+            "buttonAddContent": "Menambahkan konten yang dapat dicari",
             "labelGeneralTab": "Umum",
             "labelCustomFieldsTab": "Bidang kustom",
             "textEmptyStateSearchableContent": "Belum ada konten yang dapat dicari ditambahkan.",
             "titleExampleModal": "Contoh peringkat penelusuran",
-            "textColumnSearchTerm": "Istilah Pencarian",
+            "textColumnSearchTerm": "Istilah pencarian dikecualikan",
             "modal": {
                 "textExplain": "Di bawah ini Anda akan menemukan tiga hasil pencarian fiksi untuk istilah pencarian “jeans”. Dapat dicari adalah judul produk (skor peringkat 100), deskripsi produk (skor peringkat 50) dan tag produk (skor peringkat 20).",
                 "textTitle": "Judul",
-                "textSuperJeans": "jins super",
+                "textSuperJeans": "Super jeans",
                 "textDescription": "Deskripsi",
-                "textFancyJeans": "jeans mewah",
+                "textFancyJeans": "Jins mewah",
                 "textTag": "Tag",
                 "textJeans": "Jeans",
                 "textTotal": "Total",
                 "textProductRankedFirstScore": "Produk peringkat pertama memiliki hit pencarian di setiap entitas yang dapat dicari, menghasilkan skor peringkat total 170.",
-                "textFancyPants": "celana mewah",
-                "textProductRankedSecondScore": "Produk peringkat kedua memiliki hit pencarian untuk judul produk dan tag produk, menghasilkan skor peringkat total 120.",
+                "textFancyPants": "Celana mewah",
+                "textProductRankedSecondScore": "Produk peringkat kedua memiliki hit pencarian untuk nama produk dan tag produk, menghasilkan skor peringkat total 120.",
                 "textSuperPants": "Celana super",
                 "textProductRankedThirdScore": "Produk peringkat ketiga hanya memiliki satu hit dalam tag produk, menghasilkan skor total peringkat 20."
             },
             "labelSearchIndex": "Indeks pencarian",
             "buttonRebuildSearchIndex": "Membangun kembali indeks pencarian",
-            "textWarningOpenTab": "Harap tetap buka jendela/tab ini.",
-            "textRebuildSearchIndexDescription": "Membangun kembali indeks pencarian membutuhkan sedikit waktu. Selama waktu itu wajib untuk menjaga jendela/tab ini terbuka agar berhasil membangun kembali indeks pencarian. Anda akan diberitahu segera setelah proses selesai.",
+            "textWarningOpenTab": "Tolong buka jendela ini.",
+            "textRebuildSearchIndexDescription": "Membangun kembali indeks pencarian membutuhkan beberapa waktu. Selama waktu itu, adalah wajib untuk menjaga jendela ini terbuka agar berhasil membangun kembali indeks pencarian. Anda akan diberitahu segera setelah proses selesai.",
             "textRebuildingSearchIndex": "Membangun kembali indeks pencarian",
             "textLastedBuild": "Bangun terbaru:",
+            "textSearchNotIndexedYet": "Pencarian belum diindeks.",
             "list": {
                 "columnSearchable": "Dapat dicari",
-                "columnRankingPoints": "Poin peringkat",
+                "columnRankingPoints": "Skor peringkat",
                 "columnContent": "Konten",
-                "columnSplitKeywords": "Membagi kata kunci",
+                "columnSplitKeywords": "Istilah pencarian terpisah",
                 "textResetRanking": "Reset peringkat",
                 "textRemove": "Hapus"
             },
             "configFields": {
-                "name": "Nama",
-                "description": "Deskripsi",
+                "name": "Nama produk",
+                "description": "Deskripsi produk",
                 "productNumber": "Nomor produk",
                 "manufacturerNumber": "Nomor produsen",
-                "ean": "EAN",
-                "customSearchKeywords": "Kata kunci pencarian kustom",
+                "ean": "Produk EAN",
+                "customSearchKeywords": "Istilah pencarian khusus",
                 "manufacturerName": "Nama produsen",
                 "manufacturerCustomFields": "Bidang kustom produsen",
                 "categoriesName": "Nama kategori",
-                "categoriesCustomFields": "Kolom kustom Kategori",
-                "tagsName": "Nama tag",
-                "metaTitle": "Judul meta",
-                "metaDescription": "Deskripsi Meta",
+                "categoriesCustomFields": "Kolom kustom kategori",
+                "tagsName": "Tag produk",
+                "metaTitle": "Judul meta produk",
+                "metaDescription": "Deskripsi meta produk",
                 "propertiesName": "Nama properti",
-                "variantValue": "Nilai varian"
+                "variantValue": "Nilai properti"
             }
         },
         "notification": {
-            "saveSuccess": "Konfigurasi telah disimpan.",
-            "excludedTermRequired": "Istilah yang dikecualikan seharusnya tidak kosong.",
-            "excludedTermAlreadyExists": "Istilah dikecualikan sudah ada.",
-            "updateExcludedTermSuccess": "Dikecualikan keberhasilan pembaruan istilah.",
-            "createExcludedTermSuccess": "Istilah dikecualikan menciptakan kesuksesan.",
-            "deleteExcludedTermSuccess": "Istilah dikecualikan menghapus sukses.",
+            "saveSuccess": "Konfigurasi disimpan.",
+            "excludedTermRequired": "Istilah pencarian yang dikecualikan tidak boleh kosong.",
+            "excludedTermAlreadyExists": "Istilah pencarian dikecualikan sudah ada.",
+            "updateExcludedTermSuccess": "Istilah pencarian dikecualikan diperbarui.",
+            "createExcludedTermSuccess": "Istilah pencarian dikecualikan dibuat.",
+            "deleteExcludedTermSuccess": "Istilah pencarian dikecualikan dihapus.",
             "saveError": "Terjadi galat saat menyimpan konfigurasi Anda.",
             "index": {
                 "started": "Membangun indeks produk.",
@@ -4071,14 +4198,14 @@
             "loadError": "Terjadi galat saat memuat konfigurasi Anda."
         },
         "liveSearchTab": {
-            "titleCard": "Pencarian langsung etalase",
-            "textDescription": "Uji setelan pencarian kustom Anda di bawah ini. Jika Anda baru saja membuat perubahan pada setelan pencarian, pastikan untuk menyimpan setelan tersebut sebelum mengujinya dengan penelusuran langsung ini.",
+            "titleCard": "Pencarian langsung Saluran Penjualan",
+            "textDescription": "Uji setelan pencarian kustom Anda di bawah ini.",
             "labelSalesChannelSelect": "Sales Channel",
-            "textPlaceholderSalesChannel": "Silakan pilih saluran penjualan untuk menguji penelusuran langsung",
+            "textPlaceholderSalesChannel": "Pilih Sales Channel...",
             "linkRebuildSearchIndex": "Membangun kembali indeks pencarian",
-            "labelName": "Nama",
-            "labelScore": "Skor",
-            "textNoResult": "Tidak ada hasil untuk kata kunci yang Anda masukkan. Silakan coba kata kunci lain"
+            "labelName": "Hasil pencarian",
+            "labelScore": "Skor peringkat",
+            "textNoResult": "Tidak ada hasil yang ditemukan. Silakan coba lagi dengan istilah pencarian lain."
         }
     },
     "sw-settings-mailer": {
@@ -4115,8 +4242,6 @@
             "password-placeholder": "Masukkan kata sandi...",
             "encryption": "Enkripsi",
             "encryption-placeholder": "Pilih metode enkripsi...",
-            "authentication": "Metode otentifikasi",
-            "authentication-placeholder": "Pilih metode otentifikasi...",
             "sender-address": "Alamat pengirim",
             "sender-address-placeholder": "Isi pada alamat email yang harus anda akses...",
             "delivery-address": "Alamat pengiriman",
@@ -4128,12 +4253,6 @@
             "no-encryption": "Tidak ada enkripsi",
             "ssl": "SSL",
             "tls": "TLS"
-        },
-        "authentication": {
-            "no-authentication": "Tidak ada otentifikasi",
-            "plain": "Sederhana",
-            "login": "Login",
-            "cram-md5": "Cram MD5"
         },
         "helpText": "Untuk informasi lebih lanjut silakan lihat dokumentasi <a target=\"_blank\", href=\"https://docs.shopware.com/en/shopware-6-en\">.</a>"
     },
@@ -4151,42 +4270,44 @@
         "my-extensions": {
             "listing": {
                 "initialSearchType": "Ekstensi",
-                "placeholderSearchBar": "Cari ekstensi…",
+                "placeholderSearchBar": "Cari ekstensi...",
                 "controls": {
                     "labelActiveStateSwitch": "Sembunyikan ekstensi tidak aktif",
                     "filterOptions": {
                         "last-updated": "Terakhir diperbarui",
-                        "name-asc": "Nama ekstensi, asc.",
-                        "name-desc": "Nama ekstensi, desc."
+                        "name-asc": "Nama A - Z.",
+                        "name-desc": "Nama Z - A."
                     }
-                }
+                },
+                "version": "Versi",
+                "update": "Perbarui"
             },
             "account": {
                 "headline": "Akun Shopware",
-                "isLoggedIn": "Akun berhasil terhubung. Buka tab “Aplikasi” atau “Tema” dan periksa apakah ekstensi yang Anda beli dicantumkan. Jika tidak, periksa kepala ke Akun Showare Anda dan pastikan domain yang benar untuk ekstensi telah ditetapkan.",
+                "isLoggedIn": "Akun Shopware berhasil terhubung. Buka tab “Aplikasi” atau “Tema” dan periksa apakah ekstensi yang Anda beli dicantumkan. Jika tidak, periksa kepala ke Akun Shopware Anda dan pastikan domain yang benar untuk ekstensi telah ditetapkan.",
                 "login": "Login",
                 "logout": "Logout",
                 "loginMessage": "Login dengan Akun Shopware Anda untuk mengakses ekstensi yang Anda beli di store.shopware.com",
-                "register": "Mendaftar dan menjadi bagian dari komunitas Shopware!",
+                "register": "Daftar sekarang dan jadilah bagian dari komunitas Shopware!",
                 "registerNow": "Daftar sekarang",
                 "registerUrl": "https://account.shopware.com/register?lang=en",
                 "mailLabel": "Alamat email",
-                "mailPlaceholder": "Masukkan alamat Email Anda…",
+                "mailPlaceholder": "Masukkan alamat email Anda...",
                 "passwordLabel": "Kata Sandi",
-                "passwordPlaceholder": "Masukkan kata sandi…",
+                "passwordPlaceholder": "Masukkan kata sandi Anda...",
                 "recoveryUrl": "https://account.shopware.com/recovery?lang=en",
                 "passwordForgot": "Apakah Anda lupa password Anda?",
                 "loginNotificationMessage": "Anda masuk ke Akun Shopware."
             },
             "tabs": {
-                "app": "Aplikasi",
+                "app": "Apps",
                 "theme": "Tema",
                 "recommendation": "Rekomendasi",
                 "shopwareAccount": "Akun Shopware"
             },
             "fileUpload": {
-                "buttonFileUpload": "Unggah plugin",
-                "messageUploadSuccess": "Plugin telah diunggah."
+                "buttonFileUpload": "Unggah ekstensi",
+                "messageUploadSuccess": "Ekstensi diunggah."
             }
         },
         "errors": {
@@ -4194,19 +4315,19 @@
             "messageGenericFailure": "Itu tidak berhasil.",
             "messageUploadFailureNotAZipFile": "Berkas yang diunggah bukan berkas ZIP.",
             "messageUploadFailureUnzipFailed": "Tak dapat mengekstrak berkas ZIP.",
-            "messageUploadFailureNoPluginFoundInZipFile": "Tak ada plugin yang ditemukan dalam berkas ZIP.",
+            "messageUploadFailureNoPluginFoundInZipFile": "Tidak ada ekstensi yang ditemukan dalam file ZIP.",
             "messageLoginDataInvalid": "Data login tidak lengkap.",
             "messageStoreLicenseDomainMissing": "Login gagal. Apakah Anda menyediakan domain lisensi yang benar dari Akun Shopware Anda di “Pengaturan/Akun Shopware”?",
             "messageStoreNotAvailable": "Toko Shopware tidak tersedia.",
-            "messagePluginBaseClassNotFound": "Kelas dasar plugin tidak dapat dimuat. Periksa komposer.json plugin Anda mengenai autoloading kelas",
-            "messagePluginInstallationFailed": "Plugin tidak dapat diinstal karena pesan kesalahan \"{message}”",
-            "messagePluginUninstallationFailed": "Plugin tidak dapat dihapus karena pesan kesalahan \"{message}”",
-            "messagePluginActivationFailed": "Plugin tidak dapat diaktifkan karena pesan kesalahan \"{message}”",
-            "messagePluginDeactivationFailed": "Plugin tidak dapat dinonaktifkan karena pesan kesalahan \"{message}”",
-            "messageDeactivationFailedDependencies": "Plugin \"{dependency}\" tidak dapat dinonaktifkan, karena ada plugin lain tergantung padanya. Harap nonaktifkan plugin berikut sebelum memulai ulang pembaruan: {dependantNames}",
+            "messagePluginBaseClassNotFound": "Kelas dasar ekstensi tidak dapat dimuat. Periksa komposer.json plugin Anda mengenai autoloading kelas.",
+            "messagePluginInstallationFailed": "Ekstensi tidak dapat diinstal: \"{message}”.",
+            "messagePluginUninstallationFailed": "Ekstensi tidak dapat dihapus: \"{message}”.",
+            "messagePluginActivationFailed": "Ekstensi tidak dapat diaktifkan: \"{message}”.",
+            "messagePluginDeactivationFailed": "Ekstensi tidak dapat dinonaktifkan: \"{message}”.",
+            "messageDeactivationFailedDependencies": "Ekstensi \"{dependency}\" tidak dapat dinonaktifkan, karena ada ekstensi lain tergantung padanya. Harap nonaktifkan ekstensi berikut sebelum memulai ulang pembaruan: {dependantNames}",
             "messageDeactivationFailedThemeAssignment": "Tak dapat menonaktifkan atau mencopot pemasangan tema \"{themeName}”. Hapus tugas tema berikut: {assignments}.",
-            "messagePluginUpdateFailed": "Plugin tidak dapat diperbarui karena pesan kesalahan \"{message}”. {pluginDeactivatedHint}",
-            "pluginDeactivatedHint": "Plugin dinonaktifkan."
+            "messagePluginUpdateFailed": "Ekstensi tidak dapat diperbarui: \"{message}”. {pluginDeactivatedHint}",
+            "pluginDeactivatedHint": "Ekstensi dinonaktifkan."
         },
         "mainMenu": {
             "mainMenuItemExtensionStore": "Ekstensi",
@@ -4216,6 +4337,20 @@
         }
     },
     "sw-extension-store": {
+        "landing-page": {
+            "enablingShopwareStore": "Mengaktifkan Toko Shopware...",
+            "takeMinutes": "Ini mungkin memakan waktu beberapa menit.",
+            "activationErrorTitle": "Galat selama aktivasi",
+            "activationErrorDescription": "Silakan coba lagi. Jika itu tidak berhasil, mintalah bantuan administrator Anda.",
+            "retryButton": "Coba lagi",
+            "activationSuccessTitle": "Aktifkan berhasil",
+            "activationSuccessDescription": "Bersenang-senang menjelajahi Toko Shopware.",
+            "label": "Sekarang tersedia",
+            "activationDescriptionTitleFirst": "Jelajahi dan beli ekstensi dengan mudah -",
+            "activationDescriptionTitleSecond": "langsung dari dalam toko Shopware Anda sendiri.",
+            "activationDescriptionTitleDescription": "Aktifkan semua Toko Shopware baru dan dapatkan akses ke banyak Ekstensi yang bermanfaat dan Tema modern yang dapat diintegrasikan ke dalam Toko Anda tanpa keterampilan pemrograman.",
+            "activate": "Aktifkan"
+        },
         "title": "Toko",
         "descriptionTextModule": "Mengelola ekstensi",
         "general": {
@@ -4234,8 +4369,8 @@
                 "releaseDateDesc": "Tanggal rilis terbaru - tertua",
                 "nameAsc": "Nama A - Z",
                 "nameDesc": "Nama Z - A",
-                "ratingAsc": "Peringkat Rendah - Tinggi",
-                "ratingDesc": "Peringkat Tinggi - Rendah"
+                "ratingAsc": "Rating rendah - tinggi",
+                "ratingDesc": "Rating tinggi - rendah"
             }
         },
         "detail": {
@@ -4243,7 +4378,7 @@
             "labelButtonOpenExtension": "Buka ekstensi",
             "labelButtonInstallExtension": "Instal ekstensi",
             "labelBy": "oleh",
-            "numberOfRatings": "{count} Ulasan | {count} Ulasan",
+            "numberOfRatings": "{count} Ulasan | {count} ulasan",
             "noRatings": "Belum ada peringkat",
             "cardTitleInformation": "Informasi",
             "labelButtonReadMore": "Baca lebih lanjut",
@@ -4254,7 +4389,7 @@
                 "labelUpdatedAt": "Terakhir diperbarui",
                 "labelLanguages": "Bahasa",
                 "labelWebsite": "Situs web pengembang",
-                "labelPrivacy": "Privacylink"
+                "labelPrivacy": "Kebijakan Privasi"
             },
             "cardTitleFAQ": "FAQ",
             "cardTitleChangelog": "Changelog",
@@ -4268,7 +4403,7 @@
             },
             "sw-extension-buy-modal": {
                 "title": "Tambah ekstensi",
-                "labelAcceptPermissions": "Saya sadar ekstensi ini membutuhkan izin",
+                "labelAcceptPermissions": "Saya sadar bahwa ekstensi ini membutuhkan izin tambahan",
                 "labelAcceptPrivacyExtensions": "Saya sadar bahwa saya perlu memperluas kebijakan privasi saya",
                 "buttonShowPrivacyExtensions": "Tampilkan rincian",
                 "variantCard": {
@@ -4280,7 +4415,7 @@
                 "variantSummary": {
                     "labelVat": "ditambah PPN",
                     "labelPrice": "Harga",
-                    "renewal": "Pembaharuan {renewalDate}"
+                    "renewal": "Pembaharuan pada {renewalDate}"
                 },
                 "purchaseButtonsLabels": {
                     "free": "Tambahkan ekstensi secara gratis",
@@ -4293,17 +4428,17 @@
                     "labelButtonBack": "Kembali ke detail"
                 },
                 "alertCanNotBuy": {
-                    "text": "Anda harus log-in di Store untuk melakukan hal ini",
+                    "text": "Anda harus masuk ke Bursa untuk melakukan hal ini",
                     "linkChoosePLan": "Pilih paket"
                 }
             },
             "sw-extension-adding-failed": {
-                "titleFailure": "Menambahkan ekstensi gagal",
-                "textProblem": "Terjadi masalah saat menambahkan ekstensi Anda.",
+                "titleFailure": "Gagal menambahkan ekstensi ",
+                "textProblem": "Masalah terjadi saat menambahkan ekstensi.",
                 "installationFailed": {
                     "titleFailure": "Instalasi gagal",
                     "textProblem": "Terjadi masalah saat menginstal ekstensi Anda. Kami akan menginformasikan pabrikan.",
-                    "notificationLicense": "Harap dicatat bahwa langganan aplikasi atau tema ini tetap aktif.",
+                    "notificationLicense": "Harap dicatat bahwa langganan ekstensi ini tetap aktif.",
                     "textSupport": "Jika Anda memiliki pertanyaan tentang lisensi, silakan hubungi Shopware Financial Services. Tersedia melalui email di {0} atau melalui telepon di {1}.",
                     "supportEmail": "financial.services@shopware.com",
                     "supportPhone": "+49 (0) 2555/9288510"
@@ -4321,7 +4456,7 @@
                     "submitBtn": "Kirim"
                 },
                 "sw-extension-ratings-summary": {
-                    "labelRating": "Tidak ada peringkat | {numberOfRatings} Penilaian | {numberOfRatings} Penilaian"
+                    "labelRating": "Tidak ada penilaian | {numberOfRatings} rating | {numberOfRatings} penilaian"
                 },
                 "sw-extension-review": {
                     "labelLastChangeDate": "Oleh {author} pada {lastChangeDate}",
@@ -4334,6 +4469,7 @@
                     "labelNoReviews": "Ekstensi ini belum menerima peringkat atau ulasan apa pun."
                 },
                 "sw-extension-review-creation-inputs": {
+                    "title": "Perpanjangan tingkat",
                     "labelHeadline": "Headline",
                     "placeholderHeadline": "Masukkan judul pendek...",
                     "labelRating": "Rating",
@@ -4346,8 +4482,8 @@
             "sw-extension-card-base": {
                 "subscriptionLabel": "Berlangganan:",
                 "inactiveLabel": "(tidak aktif)",
-                "purchasedLabel": "Dibeli: ",
-                "installedLabel": "Dipasang: ",
+                "purchasedLabel": "Dibeli di ",
+                "installedLabel": "Dipasang pada ",
                 "openExtensionLabel": "Buka aplikasi",
                 "installExtensionLabel": "Instal aplikasi",
                 "labelAcceptAndInstall": "Terima dan pasang",
@@ -4355,7 +4491,7 @@
                     "getHelpLabel": "Dapatkan bantuan",
                     "seeDetailsLabel": "Lihat rincian",
                     "config": "Konfigurasi",
-                    "privacyAndSafetyLabel": "Privasi & keamanan",
+                    "privacyAndSafetyLabel": "Privasi & keamanan data",
                     "removeLabel": "Hapus",
                     "cancelAndRemoveLabel": "Batalkan dan hapus",
                     "uninstallLabel": "Uninstall",
@@ -4368,18 +4504,18 @@
             "sw-extension-deactivation-modal": {
                 "deactivateExtensionLabel": "Nonaktifkan \"{extensionName}”",
                 "description": "Ekstensi \"{extensionName}\" memiliki biaya berlangganan bulanan.<br>Menonaktifkan ekstensi <b>tidak akan</b> membatalkan langganan dan biaya akan terus dikumpulkan!",
-                "descriptionCancel": "Jika Anda ingin membatalkan langganan sebagai gantinya, Anda dapat menghapusnya di menu konteks di bawah \"{removeLabel}”.",
+                "descriptionCancel": "Jika Anda ingin membatalkan langganan, Anda bisa menghapusnya melalui \"{removeLabel}\" di menu konteks.",
                 "alertDeactivate": "Apakah Anda masih ingin menonaktifkan ekstensi?",
                 "deactivateLabel": "Nonaktifkan"
             },
             "sw-extension-permissions-modal": {
                 "title": "{extensionLabel} izin",
-                "description": "{extensionLabel} akan mendapatkan akses ke komponen-komponen berikut. Klik tautan di samping komponen untuk menampilkan rincian entitas.",
+                "description": "{extensionLabel} akan memiliki akses ke komponen berikut. Klik tautan di samping komponen untuk menampilkan rincian entitas.",
                 "textEntities": "Tampilkan izin"
             },
             "sw-extension-privacy-policy-extensions-modal": {
                 "title": "{extensionLabel}: ekstensi kebijakan privasi",
-                "intro": "Aplikasi ini memproses informasi pribadi. Pabrikan memberikan saran berikut untuk penyesuaian kebijakan privasi Anda:"
+                "intro": "Aplikasi ini memproses informasi pribadi. Pabrikan merekomendasikan penyesuaian kebijakan privasi Anda:"
             },
             "sw-extension-permissions-details-modal": {
                 "operationRead": "Lihat",
@@ -4388,16 +4524,23 @@
                 "operationDelete": "Hapus"
             },
             "sw-extension-my-extensions-listing": {
-                "noActivePlugins": "Tidak ada ekstensi aktif.",
-                "titleEmptyState": "Belum ada aplikasi yang terpasang",
-                "textEmptyState": "Jika Anda menginstal aplikasi, mereka akan tercantum di sini.",
+                "apps": {
+                    "noActivePlugins": "Tidak ditemukan ekstensi aktif.",
+                    "titleEmptyState": "Belum ada aplikasi yang terpasang",
+                    "textEmptyState": "Jika Anda menginstal aplikasi, mereka akan tercantum di sini."
+                },
+                "themes": {
+                    "noActivePlugins": "Tidak ditemukan tema aktif.",
+                    "titleEmptyState": "Belum ada tema terpasang",
+                    "textEmptyState": "Jika Anda menginstal tema, mereka akan tercantum di sini."
+                },
                 "btnOpenStore": "Toko terbuka"
             },
             "sw-extension-removal-modal": {
                 "titleCancel": "“{extensionName}\" membatalkan dan menghapus",
                 "titleRemove": "“{extensionName}\" hapus",
                 "description": "Jika Anda menghapus ekstensi, Anda tidak bisa lagi menggunakannya.",
-                "alertCancel": "Apakah Anda yakin ingin menghapus ekstensi?",
+                "alertCancel": "Apakah Anda yakin ingin membatalkan dan menghapus ekstensi?",
                 "alertRemove": "Apakah Anda yakin ingin menghapus ekstensi?",
                 "labelCancel": "Batalkan dan hapus",
                 "labelRemove": "Hapus"
@@ -4415,7 +4558,7 @@
                 "labelLicensed": "Dibeli"
             },
             "sw-extension-config": {
-                "messageSaveSuccess": "Konfigurasi telah disimpan."
+                "messageSaveSuccess": "Konfigurasi disimpan."
             }
         },
         "errors": {
@@ -4423,7 +4566,7 @@
                 "message": "Anda harus menerima syarat dan ketentuan kami untuk melanjutkan."
             },
             "FRAMEWORK__EXTENSION_THEME_STILL_IN_USE": {
-                "message": "Tema saat ini masih digunakan dalam satu atau lebih saluran penjualan."
+                "message": "Tema saat ini digunakan oleh satu atau lebih Sales Channels."
             },
             "FRAMEWORK__INVALID_EXTENSION_ID": {
                 "message": "Nomor identifikasi ekstensi tidak valid."
@@ -4450,7 +4593,7 @@
                 "message": "Ekstensi tidak dapat dibatalkan."
             },
             "SAAS_EXTENSION_CANCELLATION__STILL_IN_USE": {
-                "message": "Ekstensi tidak dapat dibatalkan karena masih digunakan."
+                "message": "Ekstensi tidak dapat dibatalkan, karena masih digunakan."
             },
             "SAAS_EXTENSION_RATING__ALREADY_RATED": {
                 "message": "Ekstensi telah dinilai."
@@ -4465,39 +4608,39 @@
                 "message": "Model harga yang dipilih tidak dibenarkan untuk pelanjutan."
             },
             "SAAS_EXTENSION_ORDER__NO_DEFAULT_PAYMENT_MEAN": {
-                "message": "Tidak ada berarti pembayaran default yang tersedia.",
-                "labelLink": "Menyiapkan pembayaran default"
+                "message": "Tidak ada metode pembayaran default yang tersedia.",
+                "labelLink": "Menyiapkan metode pembayaran default"
             },
             "SAAS_EXTENSION_ORDER__INSUFFICIENT_BALANCE": {
-                "message": "Saldo tidak cukup tersedia."
+                "message": "Keseimbangan tidak mencukupi."
             },
             "SAAS_EXTENSION_REQUEST__INVALID_CONTENT": {
                 "message": "Data permintaan yang diperlukan hilang atau tidak valid."
             },
             "SAAS_EXTENSION_INVALID_BASKET__MULTIPLE_LICENSES_OR_LICENSE_ALREADY_OWNED": {
-                "message": "Keranjang tidak valid karena berisi beberapa lisensi atau berisi lisensi yang sudah dimiliki."
+                "message": "Keranjang belanja tidak valid, karena berisi beberapa lisensi atau berisi lisensi yang sudah dimiliki."
             },
             "SAAS_EXTENSION_INVALID_BASKET__INVALID_ORDER_POSITION": {
-                "message": "Keranjang tidak valid karena posisi pesanan tidak valid."
+                "message": "Keranjang belanja tidak valid, karena posisi pesanan tidak valid."
             },
             "SAAS_EXTENSION_INVALID_BASKET__GENERAL": {
-                "message": "Keranjang tidak valid."
+                "message": "Keranjang belanja tidak valid."
             },
             "SAAS_EXTENSION_INVALID_BASKET__INVALID_COMPANY": {
-                "message": "Keranjang tidak valid karena perusahaan Anda tidak memiliki negara yang ditugaskan."
+                "message": "Keranjang belanja tidak valid, karena perusahaan Anda tidak memiliki negara yang ditugaskan."
             },
             "SAAS_EXTENSION_RATING__INVALID_EXTENSION": {
-                "message": "Peringkat Anda tidak dapat disimpan karena ekstensi terkait tidak valid."
+                "message": "Peringkat Anda tidak dapat disimpan, karena ekstensi terkait tidak valid."
             },
             "SAAS_COMPANY__MISSING": {
-                "message": "Perusahaan yang dibutuhkan hilang.",
+                "message": "Pernyataan perusahaan yang diperlukan hilang.",
                 "labelLink": "Tetapkan perusahaan"
             }
         }
     },
     "entityCategories": {
         "admin_user": {
-            "title": "Pengguna admin",
+            "title": "Pengguna administrasi",
             "entities": {
                 "integration": "Integrasi",
                 "user": "Pengguna",
@@ -4541,7 +4684,7 @@
                 "customer_address": "Alamat",
                 "customer_group": "Kelompok pelanggan",
                 "customer_group_translation": "Penerjemahan grup pelanggan",
-                "customer_group_registration_sales_channels": "Saluran penjualan pendaftaran grup pelanggan",
+                "customer_group_registration_sales_channels": "Sales Channel untuk registrasi grup pelanggan",
                 "customer_recovery": "Pemulihan",
                 "customer_tag": "Tag"
             }
@@ -4559,7 +4702,7 @@
             "entities": {
                 "document": "Dokumen",
                 "document_base_config": "Konfigurasi dasar",
-                "document_base_config_sales_channel": "Konfigurasi dasar untuk saluran penjualan",
+                "document_base_config_sales_channel": "Config dasar untuk Sales Saluran",
                 "document_type": "Jenis",
                 "document_type_translation": "Jenis terjemahan"
             }
@@ -4599,8 +4742,8 @@
         "media": {
             "title": "Media",
             "entities": {
-                "media": "Media",
-                "media_translation": "Terjemahan media",
+                "media": "Medium",
+                "media_translation": "Terjemahan menengah",
                 "media_default_folder": "Folder default",
                 "media_folder": "Folder",
                 "media_folder_configuration": "Konfigurasi folder",
@@ -4654,11 +4797,11 @@
             "entities": {
                 "product": "Produk",
                 "product_category": "Kategori",
-                "product_category_tree": "Pohon Kategori",
+                "product_category_tree": "Kategori pohon",
                 "product_configurator_setting": "Pengaturan konfigurator",
-                "product_cross_selling": "Salib menjual",
-                "product_cross_selling_translation": "Terjemahan jual silang",
-                "product_cross_selling_assigned_products": "Menjual lintas terjemahan ditugaskan",
+                "product_cross_selling": "Salib Jual",
+                "product_cross_selling_translation": "Terjemahan Cross Selling",
+                "product_cross_selling_assigned_products": "Terjemahan Cross Selling ditugaskan",
                 "product_export": "Ekspor produk",
                 "product_keyword_dictionary": "Kamus kata kunci",
                 "product_manufacturer": "Pabrikan",
@@ -4692,7 +4835,7 @@
                 "promotion_order_rule": "Aturan pesanan",
                 "promotion_persona_customer": "Pelanggan Persona",
                 "promotion_persona_rule": "Aturan Persona",
-                "promotion_sales_channel": "Saluran penjualan",
+                "promotion_sales_channel": "Sales Channel",
                 "promotion_setgroup": "Grup set promosi",
                 "promotion_setgroup_rule": "Aturan grup yang ditetapkan promosi"
             }
@@ -4716,15 +4859,15 @@
                 "sales_channel_payment_method": "Metode pembayaran",
                 "sales_channel_shipping_method": "Metode pengiriman",
                 "sales_channel_translation": "Terjemahan Sales Channel",
-                "sales_channel_type": "Jenis",
-                "sales_channel_type_translation": "Jenis terjemahan"
+                "sales_channel_type": "Jenis Saluran Penjualan",
+                "sales_channel_type_translation": "Terjemahan jenis Sales Channel"
             }
         },
         "settings": {
             "title": "Pengaturan",
             "entities": {
                 "country": "Negara",
-                "country_state": "Negara negara",
+                "country_state": "Negara bagian/provinsi",
                 "currency": "Mata Uang",
                 "delivery_time": "Waktu pengiriman",
                 "language": "Bahasa",
@@ -4748,7 +4891,7 @@
                 "tax": "Pajak",
                 "tax_rule": "Aturan pajak",
                 "tax_rule_type": "Jenis aturan pajak",
-                "unit": "Unit",
+                "unit": "Skala unit",
                 "version": "Versi"
             }
         },
@@ -4944,7 +5087,7 @@
             "placeholderSalesChannels": "Pilih Saluran Penjualan...",
             "placeholderMailTemplate": "Pilih template email...",
             "titleRecipientsCard": "Penerima email",
-            "textEmptyStateRecipients": "Belum ada penerima tambahan untuk acara ini. - Email pelanggan akan dikirimkan apa pun.",
+            "textEmptyStateRecipients": "Tambahkan penerima alternatif - Jika mengatur email pelanggan akan dimuat!",
             "columnRecipientName": "Nama",
             "columnRecipientMail": "Alamat email",
             "addRecipientButton": "Tambah penerima",
@@ -4954,7 +5097,7 @@
     },
     "sw-settings-logging": {
         "general": {
-            "mainMenuItemGeneral": "Pencatatan",
+            "mainMenuItemGeneral": "Log peristiwa",
             "placeholderSearchBar": "Cari log..."
         },
         "list": {
@@ -5181,6 +5324,7 @@
             "buttonNextPayPalInfo": "Konfigurasi",
             "buttonBack": "Kembali",
             "buttonInstall": "Pasang",
+            "buttonActivate": "Aktifkan",
             "buttonFinish": "Selesai",
             "buttonConfigureLater": "Konfigurasi nanti",
             "pluginInstalled": "Terpasang"
@@ -5189,16 +5333,16 @@
             "modalTitle": "Selamat datang",
             "headlineWelcome": "Selamat datang di Shopware 6 Administration",
             "messageWelcome": "Wizard ini memandu Anda melalui pengaturan dan mencoba untuk membantu dengan pengaturan yang paling penting.<br>Apakah Anda ingin menggunakan toko Anda dalam bahasa yang berbeda dan menjangkau pelanggan di negara lain? Kemudian cukup instal paket bahasa yang diinginkan di sini.",
-            "headlineChangeLanguage": "Pasang plugin bahasa tambahan",
+            "headlineChangeLanguage": "Instal bahasa tambahan",
             "switchLanguageModalTitle": "Pilih bahasa antarmuka",
             "confirmLanguageSwitch": "Ganti bahasa",
             "cancelLanguageSwitch": "Batal",
             "switchLanguageMessage": "\"{pluginName}\" telah berhasil diinstal. Apakah anda ingin mengubah bahasa antarmuka anda?",
-            "pluginsInstalled": "Plugin telah terinstal | Plugin telah terinstal",
-            "pluginsInstalledMessage": "Bahasa plugin yang telah terinstal: | Bahasa plugin telah terinstal: ",
-            "pluginNotFoundMessage": "Bahasa plugin {languageName} tidak dapat ditemukan.",
-            "pluginInstallationFailedMessage": "Plugin tidak dapat diinstal: ",
-            "pluginActivationFailedMessage": "Plugin tidak dapat diaktifkan: ",
+            "pluginsInstalled": "Ekstensi diinstal | Ekstensi diinstal",
+            "pluginsInstalledMessage": "Ekstensi bahasa telah diinstal: | Ekstensi bahasa ini telah diinstal: ",
+            "pluginNotFoundMessage": "Ekstensi bahasa {languageName} tidak dapat ditemukan.",
+            "pluginInstallationFailedMessage": "Ekstensi tidak dapat diinstal: ",
+            "pluginActivationFailedMessage": "Ekstensi tidak dapat diaktifkan: ",
             "tryAgainLater": "Sila coba lagi nanti.",
             "noConnectionMessage": "Sepertinya terdapat masalah koneksi, bahasa ini tidak dapat diinstal."
         },
@@ -5210,7 +5354,7 @@
             "headlineMigration": "Migrasikan data toko anda",
             "messageMigration": "Migration Assistant membantu anda untuk menghubungkan dan mengirim data dari sistem belanja sebelumnya langsung ke tampilan Shopware 6 baru anda.",
             "buttonInstallMigration": "Instal Migration Assistant",
-            "loadingMessage": "Pasang plugin<br>ini mungkin memerlukan waktu..."
+            "loadingMessage": "Menginstal ekstensi<br>Ini mungkin memakan waktu beberapa saat..."
         },
         "mailerSelection": {
             "headline": "Membangun komunikasi email",
@@ -5247,7 +5391,7 @@
         },
         "recommendedPlugins": {
             "headline": "Rekomendasi kami",
-            "modalTitle": "Plugin",
+            "modalTitle": "Ekstensi",
             "message": "Ini adalah pilihan dari sambungan yang berguna untuk toko anda. Pertama, pilih bagian yang relevan untuk anda. Lalu anda dapat menelusuri berbagai kategori yang berbeda.",
             "availableInRegion": "Tersedia di wilayah",
             "category": "Kategori",
@@ -5277,6 +5421,24 @@
             "labelCreateDomain": "Buat sebuah domain toko baru",
             "testEnvironment": "Uji lingkungan"
         },
+        "store": {
+            "modalTitle": "Toko Shopware",
+            "loadStatusCollect": "Kumpulkan informasi toko...",
+            "takeMinutes": "Ini mungkin memakan waktu beberapa menit.",
+            "alreadyActivated": "Toko sudah berhasil diaktifkan.",
+            "enablingStore": "Mengaktifkan Toko Shopware... ",
+            "activationErrorTitle": "Galat saat aktivasi",
+            "activationErrorDescription": "Silakan meminta bantuan administrator Anda.",
+            "headingOne": "Jelajahi dan beli ekstensi dengan mudah -",
+            "headingTwo": "langsung dari dalam toko Shopware Anda sendiri.",
+            "description": "Aktifkan semua Toko Shopware baru dan dapatkan akses ke banyak Ekstensi yang bermanfaat dan Tema modern yang dapat diintegrasikan ke dalam Toko Anda tanpa keterampilan pemrograman."
+        },
+        "markets": {
+            "modalTitle": "Pasar Shopware",
+            "heading": "Pasar Shopware",
+            "description": "Pasar Shopware memungkinkan Anda menghubungkan Toko Anda ke pasar Amazon dan eBay - sambil membuat transfer produk dan pesanan senyaman mungkin.<br>Pasar Shopware dirancang untuk mengembangkan bisnis Anda lebih jauh dengan bantuan Sales Channel*¹.",
+            "footnote": "*¹ Langganan berbayar diperlukan untuk menggunakan Shopware Markets menambahkan Sales Channels."
+        },
         "finish": {
             "headlineAllDone": "Semua selesai!",
             "message": "Shopware 6 anda {edition} sekarang terverifikasi.",
@@ -5288,14 +5450,17 @@
             "forumLabel": "Forum",
             "forumUrl": "https://forum.shopware.com/",
             "roadmapLabel": "Peta jalan",
-            "roadmapUrl": "https://www.shopware.com/en/roadmap/"
+            "roadmapUrl": "https://www.shopware.com/en/roadmap/",
+            "modalTitle": "Selesai"
         },
         "stepItemTitle": {
             "dataImport": "Impor data",
             "mailer": "Konfigurasi mailer",
             "setupPaypal": "Pengaturan PayPal",
-            "plugins": "Plugin",
-            "shopware": "Akun Shopware"
+            "plugins": "Ekstensi",
+            "shopware": "Akun Shopware",
+            "store": "Toko Shopware",
+            "markets": "Pasar Shopware"
         }
     },
     "sw-sales-channel": {
@@ -6043,7 +6208,7 @@
             "messageSaveError": "Pelanggan tidak dapat dihapus.",
             "messageSaveSuccess": "Pelanggan \"{name}\" sudah dihapus.",
             "notificationPasswordErrorMessage": "Kata sandi yang dikirimkan tidak cocok.",
-            "notificationPasswordLengthErrorMessage": "Kata sandi yang dikirimkan tidak memenuhi persyaratan panjang minimum 8."
+            "notificationPasswordLengthErrorMessage": "Kata sandi yang dikirimkan tidak memenuhi persyaratan panjang minimum delapan karakter."
         },
         "filter": {
             "salutation": {
@@ -6073,7 +6238,9 @@
             "tags": {
                 "label": "Tags",
                 "placeholder": "Pilih tag..."
-            }
+            },
+            "messageEmptyTitle": "Tidak ditemukan",
+            "messageEmptySubline": "Edit filter Anda untuk menemukan hasil."
         }
     },
     "sw-settings-document": {
@@ -6725,13 +6892,14 @@
         },
         "roles": {
             "general": {
-                "labelCreateNewRole": "Buat peran baru",
+                "labelCreateNewRole": "Buat peran",
                 "cardLabel": "Peran"
             },
             "role-grid": {
                 "labelName": "Nama",
                 "labelDescription": "Deskripsi",
                 "messageEmptyTitle": "Belum ada peran",
+                "messageEmptySubline": "Buat peran untuk mulai mengelola hak pengguna.",
                 "contextMenuEdit": "Sunting",
                 "contextMenuDelete": "Hapus",
                 "titleModalDelete": "Hapus peran",
@@ -6740,10 +6908,10 @@
                 "labelButtonDelete": "Hapus",
                 "notification": {
                     "deleteSuccess": {
-                        "message": "Peran \"{name}\" telah dihapus."
+                        "message": "Peran \"{name}\" dihapus."
                     },
                     "deleteError": {
-                        "message": "Terjadi eror ketika menghapus peran \"{name}\"."
+                        "message": "Peran \"{name}\" tidak dapat dihapus."
                     }
                 }
             },
@@ -6766,7 +6934,7 @@
             },
             "view": {
                 "detailed": {
-                    "alertText": "Dalam pandangan ini hak istimewa dapat dikonfigurasi secara rinci. Konfigurasi ini hanya diperlukan dalam situasi yang luar biasa. Jika misalnya ekstensi digunakan dalam sistem yang menambahkan dataset baru tetapi tidak memiliki hak istimewa, mereka dapat dikonfigurasi di sini. Semua kotak centang yang dinonaktifkan adalah izin yang telah ditetapkan di tab “Umum”."
+                    "alertText": "Konfigurasikan keistimewaan secara terperinci. Semua kotak centang yang dinonaktifkan adalah izin yang telah ditetapkan di tab “Umum” dan tidak dapat dikonfigurasi. Konfigurasi ini hanya diperlukan jika misalnya ekstensi digunakan yang menambahkan dataset baru tetapi tidak memiliki hak istimewa, ini dapat dikonfigurasi di sini."
                 }
             },
             "tabs": {
@@ -6797,10 +6965,10 @@
                 "labelButtonDelete": "Hapus",
                 "notification": {
                     "deleteSuccess": {
-                        "message": "Pengguna \"{name}\" telah dihapus."
+                        "message": "Pengguna \"{name}\" dihapus."
                     },
                     "deleteError": {
-                        "message": "Terjadi eror ketika menghapus pengguna \"{name}\"."
+                        "message": "Pengguna \"{name}\" tidak dapat dihapus."
                     },
                     "deleteUserLoggedInError": {
                         "message": "Pengguna tidak dapat menghapus dirinya sendiri."
@@ -6812,7 +6980,7 @@
                 "labelIntegrationsCard": "Integrasi",
                 "labelFirstName": "Nama depan",
                 "labelLastName": "Nama belakang",
-                "labelEmail": "Surel",
+                "labelEmail": "Alamat email",
                 "errorEmailUsed": "Surel ini telah digunakan.",
                 "errorUsernameUsed": "Nama pengguna ini telah digunakan.",
                 "labelUsername": "Nama pengguna",
@@ -6827,17 +6995,19 @@
                 "labelNewPassword": "Kata sandi baru",
                 "labelNewUser": "Pengguna baru",
                 "placeholderNewPassword": "Masukkan kata sandi baru...",
-                "placeholderNewPasswordConfirm": "Masukkan kata kembali sandi baru...",
+                "placeholderNewPasswordConfirm": "Konfirmasi kata sandi baru...",
                 "labelButtonCancel": "Batalkan",
                 "labelButtonChangePassword": "Ganti",
                 "labelButtonSave": "Simpan",
+                "writeAccess": "Menulis",
+                "readAccess": "Baca",
                 "contextMenuEdit": "Sunting",
                 "contextMenuDelete": "Hapus",
                 "textChangePassword": "Menekan tombol “change” akan segera menyimpan kata sandi baru!",
-                "addAccessKey": "Kunci akses baru",
+                "addAccessKey": "Buat kunci akses",
                 "labelAccessKey": "Kunci akses",
                 "labelPermissions": "Izin",
-                "disabledRoleSelectWarning": "Peran hanya tersedia untuk pengguna yang bukan \"administrator\".",
+                "disabledRoleSelectWarning": "Peran hanya tersedia untuk pengguna yang tidak memiliki hak administrator.",
                 "passwordConfirmation": {
                     "titleConfirmPasswordModal": "Masukkan kata sandi Anda saat ini untuk mengonfirmasi",
                     "labelConfirmPassword": "Kata Sandi",
@@ -6859,18 +7029,18 @@
                     "hintCreateNewApiKeys": "Untuk menghasilkan kunci akses API baru, memperbarui semua skrip terkait dan aplikasi dianjurkan.",
                     "labelFieldLabel": "Nama",
                     "idFieldLabel": "ID kunci akses",
-                    "secretFieldLabel": "Kunci akses rahasia",
+                    "secretFieldLabel": "Kunci akses aman",
                     "secretHelpText": "Silahkan salin kunci akses Anda sekarang. Untuk alasan keamanan itu tidak akan lagi terlihat setelah menabung.",
-                    "messageSaveSuccess": "Inegrasi telah tersimpan.",
+                    "messageSaveSuccess": "Integrasi disimpan.",
                     "messageSaveError": "Integrasi tidak dapat tersimpan.",
                     "messageCreateNewError": "Integrasi tidak dapat tersimpan."
                 },
                 "notification": {
                     "saveError": {
-                        "message": "Terjadi eror ketika menyimpan pengguna \"{name}\"."
+                        "message": "Pengguna \"{name}\" tidak dapat disimpan."
                     },
                     "saveSuccess": {
-                        "message": "Pengguna \"{name}\" telah tersimpan."
+                        "message": "Pengguna \"{name}\" disimpan."
                     },
                     "invalidEmailErrorMessage": "Mohon masukan surel yang valid.",
                     "duplicateEmailErrorMessage": "Surel ini telah terdaftar."
@@ -6908,143 +7078,6 @@
             "labelUseAsLogo": "Gunakan sebagai logo"
         }
     },
-    "sw-plugin": {
-        "general": {
-            "mainMenuItemGeneral": "Plugin",
-            "mainMenuPluginList": "Dipasang",
-            "mainMenuLicenseList": "Lisensi saya",
-            "descriptionTextModule": "Mengelola plugin di sini",
-            "placeholderSearchBar": "Mencari plugin...",
-            "tabList": "Plugin saya",
-            "tabLicenses": "Lisensi",
-            "tabUpdates": "Pembaharuan",
-            "version": "Versi",
-            "accountLink": "https://account.shopware.com/?lang=en",
-            "accountLabel": "Ke Akun Shopware",
-            "login": "Login",
-            "logout": "Logout",
-            "messageDownloadSuccess": "Plugin telah di unduh.",
-            "downloadButton": "Unduh",
-            "recommendationsLabel": "Rekomendasi",
-            "storeLink": "https://store.shopware.com/en",
-            "storeLabel": "Toko Shopware",
-            "storeNotAvailable": "Tidak dapat menghubungkan ke toko Shopware.",
-            "loggedIn": "Telah masuk sebagai"
-        },
-        "errors": {
-            "messageToTheShopwareDocumentation": "<a href=\"{documentationLink}\" target=\"_blank\">buka dokumen Shopware</a>",
-            "messageGenericFailure": "Tidak dapat dilakukan.",
-            "messageUploadFailureNotAZipFile": "Unggahan berkas bukan berkas ZIP.",
-            "messageUploadFailureUnzipFailed": "Tidak bisa mengekstrak berkas ZIP.",
-            "messageUploadFailureNoPluginFoundInZipFile": "Tidak ditemukan plugin di berkas ZIP.",
-            "messageLoginDataInvalid": "Data login tidak lengkap.",
-            "messageStoreLicenseDomainMissing": "Gagal login. Apakah anda memberikan domain lisensi yang benar dari akun Shopware di \"pengaturan/akun Shopware\"?",
-            "messageStoreNotAvailable": "Shopware Store tidak tersedia.",
-            "messagePluginBaseClassNotFound": "Kelas dasar login tidak bisa dimuat. Periksa komposer.json plugin anda sehubungan dengan kelas loading otomatis",
-            "messagePluginInstallationFailed": "Plugin tidak bisa dipasang disebabkan oleh kesalahan pesan \"{message}\"",
-            "messagePluginUninstallationFailed": "Plugin tidak bisa dipasang disebabkan oleh kesalahan pesan \"{message}\"",
-            "messagePluginActivationFailed": "Plugin tidak bisa di aktivasi disebabkan oleh kesalahan pesan \"{message}\"",
-            "messagePluginDeactivationFailed": "Plugin tidak bisa di deaktivasi disebabkan oleh kesalahan pesan \"{message}\"",
-            "messageDeactivationFailedDependencies": "Plugin \"{dependency}\" tidak dapat dinonaktifkan, karena ada plugin lain tergantung padanya. Harap nonaktifkan plugin berikut sebelum memulai ulang pembaruan: {dependantNames}",
-            "messagePluginUpdateFailed": "Plugin tidak dapat diperbarui karena pesan eror \"{message}\". {pluginDeactivatedHint}",
-            "pluginDeactivatedHint": "Plugin dinonaktifkan."
-        },
-        "fileUpload": {
-            "buttonFileUpload": "Unggah plugin",
-            "messageUploadSuccess": "Plugin telah di unggah.",
-            "buttonRefreshPlugins": "Segarkan ihktisar"
-        },
-        "store-login": {
-            "headline": "Akun Shopware - Login",
-            "information": "Akun Shopware adalah hub utama Anda untuk interaksi dengan semua layanan Shopware.",
-            "loginMessage": "Anda telah masuk ke Akun Shopware.",
-            "labelEmailAddress": "Alamat email",
-            "placeholderEmailAddress": "Masukkan alamat email Anda...",
-            "labelPassword": "Kata sandi",
-            "placeholderPassword": "Masukkan kata sandi Anda...",
-            "buttonLogin": "Login",
-            "buttonCancel": "Batal",
-            "footerNoAccount": "Anda belum memiliki Akun Shopware?",
-            "footerRegisterAccount": "Buat Akun Shopware Anda sekarang!",
-            "forgotPassword": "Apakah Anda lupa password Anda?",
-            "forgotPasswordUrl": "htpps://account.shopware.com/recovery?lang=en",
-            "registerAccountUrl": "https://account.shopware.com/register?lang=en"
-        },
-        "list": {
-            "textPluginManager": "Plugin",
-            "messageEmpty": "Belum ada plugin yang diunggah.",
-            "columnPluginName": "Plugin",
-            "columnVersion": "Versi",
-            "columnInstalledAt": "Dipasang pada",
-            "columnUpdatedAt": "Pembaruan pada",
-            "columnLicense": "Lisensi",
-            "columnActive": "Aktif",
-            "columnAuthor": "Manufaktur",
-            "columnPlugin": "Plugin",
-            "columnChangelog": "Fitur baru",
-            "titleSidebarItemRefresh": "Segarkan",
-            "contextInstall": "Pasang",
-            "contextUninstall": "Mencopot",
-            "contextActivate": "Akrivasi",
-            "contextDeactivate": "Deaktivasi",
-            "contextUpdate": "Pembaruan ke",
-            "contextDelete": "Hapus",
-            "pluginHeader": "Plugin saya",
-            "sortUpgradedAtAsc": "Pembaruan terakhir",
-            "sortPluginNameAsc": "Nama plugin, asc.",
-            "sortPluginNameDsc": "Nama plugin, desc.",
-            "sortLabel": "Pilah dengan:",
-            "messageActivateSuccess": "Plugin telah di aktivasi.",
-            "messageDeactivateSuccess": "Plugin telah di deaktivasi.",
-            "messageInstallSuccess": "Plugin telah terpasang.",
-            "messageUninstallSuccess": "Plugin telah di copot.",
-            "messageDeleteSuccess": "Plugin telah dihapus.",
-            "messageUpdateSuccess": "Plugin telah di perbarui.",
-            "messageDeleteConfirm": "Anda yakin ingin menghapus plugin ini?",
-            "titleUninstallConfirm": "Uninstal plugin",
-            "messageUninstallConfirm": "Apakah anda yakin ingin menguninstal {pluginName}?",
-            "labelRemovePluginData": "Hapus seluruh data plugin secara permanen",
-            "helpTextRemovePluginData": "Peringatan: Seluruh data plugin akan dihapus secara permanan. Proses ini tidak dapat dibatalkan.",
-            "labelUninstallButton": "Uninstal",
-            "deactivated": "Deaktivasi",
-            "activated": "Aktivasi",
-            "config": "Konfig",
-            "description": "Deskripsi",
-            "tooltipActivationDisabled": "Anda hanya bisa mengaktivasi plugin yang terpasang."
-        },
-        "license-list": {
-            "textMyPurchases": "Pembelian lisensi",
-            "columnName": "Plugin",
-            "columnCreationDate": "Dibeli pada",
-            "columnExpirationDate": "Valid sampai",
-            "columnType": "Varian",
-            "messageEmpty": "Tidak ada lisensi.",
-            "messageNotLoggedIn": "Akun Shopware - login diperlukan!",
-            "labelAccountLogin": "Masuk dengan kredensial akun anda",
-            "labelType_buy": "Beli",
-            "labelType_rent": "Sewa",
-            "labelType_test": "Uji",
-            "labelType_free": "Gratis",
-            "labelType_support": "Dukungan berbayar"
-        },
-        "updates": {
-            "messageEmpty": "Tidak ada pembaruan tersedia.",
-            "updateError": "Kesalahan memuat pembaruan",
-            "updateButton": "Perbaharui",
-            "updateAllButton": "Perbaharui semua",
-            "updateHeader": "Pembaruan",
-            "lastUpdatesHeader": "Pembaruan terakhir",
-            "messageUpdateSuccess": "Plugin telah diperbaharui.",
-            "messageUpdatesSuccess": "Plugin telah diperbaharui.",
-            "cancelUpdates": "Batal"
-        }
-    },
-    "sw-plugin-config": {
-        "messageSaveSuccess": "Konfigurasi telah disimpan."
-    },
-    "sw-plugin-description": {
-        "buttonBack": "Kembali"
-    },
     "sw-settings": {
         "general": {
             "mainMenuItemGeneral": "Pengaturan"
@@ -7053,7 +7086,7 @@
             "title": "Pengaturan",
             "tabShop": "Toko",
             "tabSystem": "Sistem",
-            "tabPlugins": "Plugin"
+            "tabPlugins": "Ekstensi"
         },
         "system-config": {
             "labelSalesChannelSelect": "Jalur penjualan",
@@ -7140,10 +7173,10 @@
         }
     },
     "sw-property-search": {
-        "placeholderSearch": "Mencari properti...",
-        "selected": "{count} opsi dipilih |{count} opsi dipilih",
-        "noPropertiesFound": "Tidak ada properti yang ditemukan",
-        "noPropertiesFoundDescription": "Coba frasa pencarian lain."
+        "placeholderSearch": "Nilai pencarian...",
+        "selected": "{count} nilai yang dipilih | {count} nilai yang dipilih",
+        "noPropertiesFound": "Tidak ditemukan nilai properti",
+        "noPropertiesFoundDescription": "Coba istilah pencarian yang berbeda."
     },
     "sw-property-assignment": {
         "columnGroup": "Properti",
@@ -7169,10 +7202,11 @@
         "reload": "Muat ulang",
         "alertText": "Kami telah mendeteksi pelanggaran lisensi untuk setidaknya satu ekstensi Anda dalam instalasi ini. Untuk memperbaiki pelanggaran lisensi dan menghindari konsekuensi hukum, pesan langganan ekstensi atau membeli/menyewa ekstensi (sesuai dengan jenis pelanggaran yang ditimbulkan). Anda tidak menggunakan ekstensi lagi? Kemudian padamkannya melalui Sambungan Saya. Jika tidak ada tindakan ini yang diambil, shopware AG berhak untuk membebankan biaya penalti atas pelanggaran lisensi.",
         "deletePlugin": "Hapus ekstensi secara permanen",
-        "messageDeleteConfirm": "Apakah Anda ingin menghapus ekstensi \"{pluginName} \" sepenuhnya?",
+        "messageDeleteConfirm": "Apakah Anda ingin menghapus ekstensi \"{pluginName}\" sepenuhnya?",
         "checkboxMessage": "Saya telah melihat pesan ini dan sadar akan adanya konsekuensi.",
         "closeModal": "Tutup notifikasi",
         "ignorePlugin": "Abaikan secara permanen",
+        "successfullyDeleted": "Ekstensi telah dihapus",
         "table": {
             "plugin": "Ekstensi",
             "warning": "Peringatan"

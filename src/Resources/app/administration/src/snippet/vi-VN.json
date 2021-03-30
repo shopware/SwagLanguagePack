@@ -4,7 +4,7 @@
             "mainMenuItemGeneral": "Đơn đặt hàng",
             "mainMenuItemList": "Tổng quan",
             "descriptionTextModule": "Quản lý các đơn đặt hàng đã nhận tại đây.",
-            "placeholderSearchBar": "Tìm kiếm tất cả các đơn hàng..."
+            "placeholderSearchBar": "Tìm kiếm tất cả đơn hàng..."
         },
         "list": {
             "columnCustomerName": "Tên khách hàng",
@@ -13,14 +13,14 @@
             "columnState": "Trạng thái đơn hàng",
             "columnTransactionState": "Trạng thái thanh toán",
             "columnDeliveryState": "Trạng thái giao hàng",
-            "columnOrderNumber": "Số đơn hàng",
+            "columnOrderNumber": "Mã số đơn hàng",
             "columnSalesChannel": "Kênh bán hàng",
             "columnAffiliateCode": "Mã liên kết",
             "columnCampaignCode": "Mã chiến dịch",
             "orderDate": "Ngày đặt hàng",
             "buttonAddOrder": "Thêm đơn hàng",
             "textOrders": "Đơn đặt hàng",
-            "textOrdersTotal": "Không đơn đặt hàng | Một đơn đặt hàng | {count} đơn đặt hàng",
+            "textOrdersTotal": "Không có đơn hàng | Một đơn hàng | {count} đơn hàng",
             "contextMenuView": "Xem",
             "contextMenuDelete": "Xoá",
             "contextMenuConfirmPayment": "Xác nhận thanh toán",
@@ -31,7 +31,7 @@
             "titleSidebarItemFilterCampaignCode": "Mã chiến dịch",
             "buttonDelete": "Xoá",
             "buttonCancel": "Hủy",
-            "textDeleteConfirm": "Bạn có thực sự muốn xóa đơn đặt hàng này ({orderNumber})?",
+            "textDeleteConfirm": "Bạn muốn xóa đơn đặt hàng ({orderNumber})?",
             "labelManualOrder": "Đặt hàng thủ công"
         },
         "detail": {
@@ -40,19 +40,19 @@
             "buttonEdit": "Chỉnh sửa",
             "tabOrderDetails": "Chi tiết đơn hàng",
             "tabDeliveries": "Giao hàng",
-            "textHeadline": "Đặt hàng",
+            "textHeadline": "Đơn hàng",
             "textHeadlineNew": "Đơn đặt hàng mới",
             "tabGeneral": "Chung",
             "messageRecalculationError": "Đã xảy ra lỗi trong khi tính giá: <br>",
             "messageSaveError": "Đã xảy ra lỗi trong quá trình lưu",
-            "messageShippingNotAvailable": "Giao hàng đến các quốc gia được lựa chọn không thể.",
+            "messageShippingNotAvailable": "Không thể giao hàng đến quốc gia được lựa chọn",
             "labelManualOrder": "Đặt hàng thủ công"
         },
         "create": {
             "textNewOrder": "Đơn đặt hàng mới",
             "buttonSaveOrder": "Lưu đơn hàng",
             "buttonCancelOrder": "Hủy",
-            "messageSaveError": "Đơn đặt hàng không thể được lưu.",
+            "messageSaveError": "Không thể lưu được đơn hàng.",
             "messageSwitchCustomerError": "Lỗi xảy ra trong quá trình chuyển đổi khách hàng",
             "messageFetchCustomerAddressesError": "Lỗi xảy ra trong khi lấy địa chỉ khách hàng"
         },
@@ -86,9 +86,9 @@
                 "placeholderOrderLanguage": "Chọn ngôn ngữ đơn hàng...",
                 "placeholderCurrency": "Chọn loại tiền tệ..."
             },
-            "cardTitleLineItems": "Các mục",
+            "cardTitleLineItems": "Sản phẩm",
             "placeholderSearchBarItem": "Tìm kiếm mục...",
-            "columnProductName": "Mục",
+            "columnProductName": "Tên",
             "columnQuantity": "Số lượng",
             "columnPriceNet": "Giá (ròng)",
             "columnPriceGross": "Giá (tổng)",
@@ -101,9 +101,9 @@
             "textCreditTax": "tự động",
             "taxDetail": "{taxRate}%: {tax}",
             "contextMenuShowProduct": "Hiển thị sản phẩm",
-            "messageEmptyItem": "Chưa có mục nào được thêm",
+            "messageEmptyItem": "Chưa có sản phẩm nào",
             "buttonAddProduct": "Thêm sản phẩm",
-            "buttonAddBlankProduct": "Thêm mục tùy chỉnh",
+            "buttonAddBlankProduct": "Thêm sản phẩm tùy chỉnh",
             "buttonAddCredit": "Thêm tín dụng",
             "summaryLabelAmount": "Tổng",
             "summaryLabelAmountGrandTotal": "Tổng số lớn",
@@ -280,7 +280,13 @@
             "labelDownloadPdf": "Tải về PDF",
             "labelCreateNew": "Tạo mới",
             "messageEmptyTitle": "Chưa có tài liệu nào",
-            "messageEmptySubline": "Quản lý tài liệu tại đây."
+            "messageEmptySubline": "Quản lý tài liệu tại đây.",
+            "error": {
+                "DOCUMENT__NUMBER_ALREADY_EXISTS": "Tài liệu số {number} đã được phân bổ."
+            },
+            "info": {
+                "DOCUMENT__NUMBER_WAS_CHANGED": "Số tài liệu trùng lặp. Một số liên tiếp đã tự động được rút ra từ phạm vi số tương ứng."
+            }
         },
         "documentModal": {
             "modalTitle": "Tạo tài liệu",
@@ -319,6 +325,63 @@
             "message": "Các chương trình khuyến mãi tự động sau đây sẽ bị vô hiệu hóa:",
             "messageNoItems": "Không có chương trình khuyến mãi tự động hoạt động.",
             "buttonDisable": "Tắt"
+        },
+        "filters": {
+            "documentFilter": {
+                "label": "Tài liệu",
+                "placeholder": "Chọn trạng thái tài liệu...",
+                "textHasCriteria": "Ít nhất một tài liệu được chỉ định",
+                "textNoCriteria": "Không có tài liệu được chỉ định"
+            },
+            "orderDateFilter": {
+                "label": "Ngày đặt hàng"
+            },
+            "statusFilter": {
+                "label": "Trạng thái đơn hàng",
+                "placeholder": "Chọn trạng thái đơn hàng..."
+            },
+            "paymentStatusFilter": {
+                "label": "Trạng thái thanh toán",
+                "placeholder": "Chọn trạng thái thanh toán..."
+            },
+            "deliveryStatusFilter": {
+                "label": "Trạng thái giao hàng",
+                "placeholder": "Chọn trạng thái giao hàng..."
+            },
+            "paymentMethodFilter": {
+                "label": "Phương thức thanh toán",
+                "placeholder": "Chọn phương thức thanh toán..."
+            },
+            "shippingMethodFilter": {
+                "label": "Phương thức vận chuyển",
+                "placeholder": "Chọn phương thức vận chuyển..."
+            },
+            "salesChannelFilter": {
+                "label": "Kênh bán hàng",
+                "placeholder": "Chọn kênh bán hàng..."
+            },
+            "billingCountryFilter": {
+                "label": "Quốc gia thanh toán",
+                "placeholder": "Chọn quốc gia thanh toán..."
+            },
+            "shippingCountryFilter": {
+                "label": "Quốc gia vận chuyển",
+                "placeholder": "Chọn quốc gia vận chuyển..."
+            },
+            "customerGroupFilter": {
+                "label": "Nhóm khách hàng",
+                "placeholder": "Chọn nhóm khách hàng..."
+            },
+            "tagFilter": {
+                "label": "Thẻ",
+                "placeholder": "Chọn thẻ..."
+            },
+            "productFilter": {
+                "label": "Sản Phẩm",
+                "placeholder": "Chọn sản phẩm..."
+            },
+            "messageEmptyTitle": "Không tìm thấy gì",
+            "messageEmptySubline": "Chỉnh sửa bộ lọc của bạn để tìm kết quả."
         }
     },
     "sw-privileges": {
@@ -378,7 +441,7 @@
                 "label": "Người nhận bản tin"
             },
             "product_search_config": {
-                "label": "Tìm kiếm sản phẩm"
+                "label": "Tìm kiếm"
             },
             "scale_unit": {
                 "label": "Các đơn vị thang đo"
@@ -443,7 +506,7 @@
         },
         "additional_permissions": {
             "orders": {
-                "create_discounts": "Tạo giảm giá",
+                "create_discounts": "Tạo mục tín dụng",
                 "label": "Đơn đặt hàng"
             },
             "user": {
@@ -453,8 +516,9 @@
             "system": {
                 "core_update": "Chạy bản cập nhật",
                 "plugin_maintain": "Duy trì phần mở rộng",
+                "extension_store": "Cửa hàng sản phẩm",
                 "clear_cache": "Xóa bộ nhớ cache",
-                "logging": "Ghi nhật ký",
+                "logging": "Nhật ký sự kiện",
                 "frw": "Thuật sĩ chạy đầu tiên",
                 "import_export": "Nhập/Xuất",
                 "label": "Thiết đặt",
@@ -466,7 +530,7 @@
             },
             "routes": {
                 "label": "Tuyến đường",
-                "api_action_access-key_integration": "Tạo khóa API mới",
+                "api_action_access-key_integration": "Tạo khóa API",
                 "api_acl_privileges_get": "Đọc tất cả các đặc quyền ACL",
                 "api_acl_privileges_route_get": "Đọc đặc quyền tuyến đường ACL",
                 "api_action_cache_info": "Đọc thông tin bộ nhớ cache",
@@ -602,7 +666,7 @@
             "contentMenu": {
                 "moveUp": "Di chuyển lên",
                 "moveDown": "Di chuyển xuống",
-                "generalSettings": "Chung",
+                "generalSettings": "Khái quát",
                 "settings": "Thiết đặt",
                 "layoutSettings": "Bố cục",
                 "duplicate": "Lặp lại"
@@ -1209,6 +1273,7 @@
                 "infoTextProductDetailPages": "Bố cục chỉ có thể được nhìn thấy trong cửa hàng của bạn khi bạn gán nó cho một sản phẩm đang hoạt động.",
                 "labelCategories": "Danh mục",
                 "placeholderCategories": "Chọn danh mục...",
+                "placeholderLandingPages": "Chọn trang đích...",
                 "labelSalesChannel": "Kênh bán hàng",
                 "placeholderSalesChannel": "Chọn một kênh bán hàng...",
                 "resetOptionSalesChannel": "Tất cả các kênh bán hàng",
@@ -1219,6 +1284,8 @@
                 "confirmChangesRestorePrev": "Hủy bỏ",
                 "confirmChangesTextCategories": "Bạn đã loại bỏ các gán bố trí khỏi thể loại. Nếu bạn xác nhận những thay đổi này, các thể loại đó sẽ không còn có một bố trí được gán.",
                 "confirmChangesTextCategoriesAssignedLayouts": "Một số thể loại đã chọn đã có một bố trí được gán. Nếu bạn tiến hành các bài tập trước đó sẽ được thay thế bằng bố trí hiện tại.",
+                "confirmChangesTextLandingPages": "Bạn đã loại bỏ các bài tập bố trí khỏi trang đích. Nếu bạn xác nhận những thay đổi này, các trang đích đó sẽ không còn bố cục được gán nữa.",
+                "confirmChangesTextLandingPagesAssignedLayouts": "Một số trang đích đã chọn đã có bố cục được gán. Nếu bạn tiến hành các bài tập trước đó sẽ được thay thế bằng bố trí hiện tại.",
                 "confirmChangesTextProducts": "Bạn đã loại bỏ các gán bố trí khỏi sản phẩm. Nếu bạn xác nhận những thay đổi này, những sản phẩm đó sẽ không còn có một bố trí được gán.",
                 "confirmChangesTextProductsAssignedLayouts": "Một số sản phẩm được chọn đã có bố cục được gán. Nếu bạn tiến hành các bài tập trước đó sẽ được thay thế bằng bố trí hiện tại.",
                 "confirmChangesTextShopPages": "Bạn đã loại bỏ các bài tập bố trí khỏi các trang cửa hàng. Nếu bạn xác nhận những thay đổi này, các trang cửa hàng đó sẽ không còn bố cục được gán",
@@ -1228,6 +1295,7 @@
                 "shopPagesSaveError": "Không thể lưu trang cửa hàng",
                 "tabCategories": "Danh mục",
                 "tabShopPages": "Trang mua hàng",
+                "tabLandingPages": "Trang đích",
                 "shopPages": {
                     "tosPage": "Trang TOS",
                     "revocationPage": "Thông báo hủy bỏ",
@@ -1459,7 +1527,7 @@
             "labelNewPasswordConfirm": "Xác nhận mật khẩu",
             "placeholderNewPasswordConfirm": "Nhập lại mật khẩu mới...",
             "notificationPasswordErrorMessage": "Mật khẩu đã gửi không khớp.",
-            "notificationOldPasswordErrorMessage": "Vui lòng gửi mật khẩu hiện tại của bạn một cách chính xác.",
+            "notificationOldPasswordErrorMessage": "Vui lòng gửi chính xác mật khẩu hiện tại của bạn.",
             "notificationNewPasswordIsSameAsOldErrorMessage": "Mật khẩu mới giống với mật khẩu cũ của bạn. Vui lòng chọn một mật khẩu mới.",
             "notificationInvalidEmailErrorMessage": "Vui lòng nhập địa chỉ email hợp lệ.",
             "notificationSaveSuccessMessage": "Thông tin hồ sơ đã được lưu.",
@@ -1505,10 +1573,10 @@
                 "equals": "Bằng",
                 "equalsAny": "Là tương đương với bất kỳ",
                 "contains": "Chứa",
-                "greaterThan": "Là lớn hơn",
-                "lessThan": "Là nhỏ hơn",
-                "greaterThanEquals": "Là lớn hơn/bằng",
-                "lessThanEquals": "Ít hơn/bằng",
+                "greaterThan": "lớn hơn",
+                "lessThan": "nhỏ hơn",
+                "greaterThanEquals": "lớn hơn hoặc bằng",
+                "lessThanEquals": "Ít hơn hoặc bằng",
                 "notEquals": "Không bằng",
                 "notEqualsAny": "Không bằng bất kỳ",
                 "notContains": "Không chứa",
@@ -1516,7 +1584,7 @@
             },
             "values": {
                 "active": "Đang hoạt động",
-                "availableStock": "Cổ phiếu có sẵn",
+                "availableStock": "Số lượng có sẵn",
                 "ratingAverage": "Đánh giá trung bình",
                 "additionalText": "Văn bản bổ sung",
                 "allowNotification": "Cho phép thông báo",
@@ -1536,20 +1604,20 @@
                 "keywords": "Từ khóa",
                 "length": "Chiều dài",
                 "linked": "Liên kết",
-                "manufacturer": "Nhà sản xuất",
-                "manufacturerNumber": "Số nhà sản xuất",
-                "markAsTopseller": "Được đánh dấu là người bán hàng đầu",
-                "maxDeliveryTime": "Tối đa thời gian giao hàng",
-                "maxPurchase": "Tối đa số lượng đặt hàng",
+                "manufacturerId": "Nhà sản xuất",
+                "manufacturerNumber": "Mã nhà sản xuất",
+                "markAsTopseller": "Đánh dấu làm sản phẩm bán chạy nhất",
+                "maxDeliveryTime": "Thời gian giao hàng tối đa",
+                "maxPurchase": "Số lượng đặt hàng tối đa",
                 "minDeliveryTime": "Thời gian giao hàng tối thiểu",
                 "minPurchase": "Số lượng đặt hàng tối thiểu",
-                "minStock": "Cổ phiếu tối thiểu",
+                "minStock": "Số lượng tối thiểu",
                 "name": "Tên",
                 "net": "Lưới",
                 "option": "Tùy chọn",
                 "packUnit": "Đơn vị gói",
                 "packUnitPlural": "Gói đơn vị số nhiều",
-                "price": "Giá",
+                "cheapestPrice": "Giá",
                 "product": "Sản Phẩm",
                 "productNumber": "Số sản phẩm",
                 "purchasePrice": "Giá mua",
@@ -1559,8 +1627,8 @@
                 "restockTime": "Thời gian phục hồi",
                 "sales": "Bán hàng",
                 "salesChannel": "Kênh bán hàng",
-                "shippingFree": "Vận chuyển miễn phí",
-                "stock": "Cổ phiếu",
+                "shippingFree": "Miễn phí vận chuyển",
+                "stock": "Số lượng",
                 "tags": "Thẻ",
                 "tax": "Thuế",
                 "taxRate": "Thuế suất",
@@ -1681,7 +1749,7 @@
             "c1051bb4-d103-4f74-8988-acbcafc7fdc3": "Trường này không được trống.",
             "INVALID_MEDIA_URL": "Vui lòng nhập một URL hợp lệ để tải lên một tập tin.",
             "CONTENT__MISSING_RULE_TYPE_EXCEPTION": "Bạn phải chọn một loại cho quy tắc này.",
-            "CONTENT__INVALID_CATEGORY_TYPE_AS_ENTRY_POINT": "Loại không thể được gán trong khi thể loại là điểm nhập.",
+            "CONTENT__INVALID_CATEGORY_TYPE_AS_ENTRY_POINT": "Không thể gán loại trong khi thể loại là một điểm nhập.",
             "SHOPWARE_INVALID_IP": "Vui lòng nhập địa chỉ IP hợp lệ.",
             "INVALID_URL": "Vui lòng nhập một url hợp lệ."
         },
@@ -1704,7 +1772,9 @@
             "ascending": "Tăng dần",
             "descending": "Giảm dần",
             "xTimesIn": "{n} lần trong",
-            "close": "Đóng"
+            "close": "Đóng",
+            "from": "Từ",
+            "to": "Đến"
         },
         "notification": {
             "notificationSaveErrorMessage": "Lỗi xảy ra trong khi lưu thực thể \"{entityName}”.",
@@ -1728,6 +1798,7 @@
                     "messageSuccess": "Hình thu nhỏ đã được tạo ra."
                 },
                 "esIndexing": {
+                    "message": "Elasticsearch đã được đánh chỉ mục. | Còn một vài thông tin cần được đánh chỉ mục. | Còn {n} thông tin cần được đánh chỉ mục. ",
                     "messageSuccess": "Elasticsearch đã được lập chỉ mục."
                 },
                 "dalIndexing": {
@@ -1755,6 +1826,7 @@
                 },
                 "salesChannel": {
                     "title": "Lập chỉ mục kênh bán hàng",
+                    "message": "Các kênh bán hàng đã được lập chỉ mục. | Còn một kênh bán hàng cần được lập chỉ mục. | Còn {n} kênh bán hàng cần được lập chỉ mục.",
                     "messageSuccess": "Kênh bán hàng đã được lập chỉ mục."
                 },
                 "rule": {
@@ -1769,6 +1841,7 @@
                 },
                 "promotion": {
                     "title": "Chương trình khuyến mãi lập chỉ mục",
+                    "message": "Chương trình khuyến mại được lập chỉ mục. | Còn một chương trình khuyến mại còn lại để chờ đánh chỉ mục. | Còn {n} chương trình khuyến mại cần đánh chỉ mục.",
                     "messageSuccess": "Các chương trình khuyến mãi đã được lập chỉ mục."
                 }
             },
@@ -2685,7 +2758,12 @@
     "sw-settings-number-range": {
         "general": {
             "mainMenuItemGeneral": "Phạm vi số",
-            "placeholderSearchBar": "Tìm kiếm phạm vi số..."
+            "placeholderSearchBar": "Tìm kiếm phạm vi số...",
+            "infoGlobalType": "Chỉ có thể có một phạm vi số \"{typeName}\". Thay đổi đối với phạm vi số loại \"{typeName}\" phải được thực hiện ở đây và sẽ ảnh hưởng đến toàn cầu tất cả các kênh bán hàng.",
+            "infoGlobalTypeTitle": "Loại phạm vi số toàn cầu \"{typeName}”",
+            "infoGlobal": "Bạn không thể thay đổi kiểu phạm vi số chung. Nhưng bạn có thể tạo phạm vi số bổ sung cho hầu hết các loại và Kênh bán hàng cụ thể trở lại trong tổng quan.",
+            "infoGlobalTitle": "Phạm vi số toàn cục \"{name}”",
+            "infoSalesChannelBound": "Để thay đổi loại phạm vi số, trước tiên hãy loại bỏ tất cả các bài tập kênh bán hàng."
         },
         "list": {
             "textHeadline": "Phạm vi số",
@@ -3003,9 +3081,11 @@
             "descriptionLabel": "Mô tả",
             "messageSaveSuccess": "Thể loại \"{name}\" đã được lưu.",
             "useAsLogo": "Sử dụng làm hình ảnh hiển thị",
-            "treeHeadline": "Cấu trúc thể loại",
+            "treeHeadline": "Danh mục",
             "treeHeadSelected": "{count} đã chọn",
             "emptyStateHeadline": "Không có danh mục nào được chọn",
+            "errorNavigationEntryPoint": "Danh mục này được định nghĩa là một dẫn hướng chính của ít nhất một Kênh bán hàng và do đó không thể bị xóa.",
+            "errorNavigationEntryPointMultiple": "Một hoặc nhiều danh mục được định nghĩa là một dẫn hướng chính của ít nhất một Kênh bán hàng và do đó không thể bị xóa.",
             "actions": {
                 "actionsDisabledInLanguage": "Danh mục chỉ có thể được tạo bằng ngôn ngữ mặc định.",
                 "createSub": "Thể loại con mới",
@@ -3019,58 +3099,54 @@
             "products": "Sản Phẩm",
             "seo": "SEO",
             "columnInfoHeader": "Phần tử chân trang",
-            "columnInfo": "Thể loại này thiết lập một cột được chỉ định ở chân trang. Tên thể loại sẽ được hiển thị dưới dạng tiêu đề không thể nhấp chuột cho cột. Tất cả các thể loại dưới đây được hiển thị dưới dạng hàng có thể nhấp vào bên dưới tiêu đề cột."
+            "columnInfo": "Thể loại này thiết lập một cột được chỉ định ở chân trang. Tên thể loại sẽ được hiển thị dưới dạng tiêu đề cho cột. Tất cả các thể loại ở cấp độ đầu tiên bên dưới thể loại này được hiển thị dưới dạng hàng bên dưới tiêu đề cột."
         },
         "base": {
             "general": {
                 "categoryNameLabel": "Tên",
                 "headlineInformationCard": "Chung",
-                "isCategoryActiveLabel": "Thể loại hoạt động",
+                "isCategoryActiveLabel": "Đang hoạt động",
                 "useAsLink": "Dùng làm liên kết",
                 "labelCategoryTags": "Thẻ",
                 "labelCategoryTagsPlaceholder": "Nhập từng thẻ...",
                 "types": {
                     "title": "Loại",
-                    "page": "Thể loại",
-                    "folder": "Điểm vào",
-                    "link": "Liên kết có thể tùy chỉnh",
-                    "column": "Cột",
-                    "entrypoint": "Điểm vào",
-                    "pageList": "Trang/Danh sách",
-                    "help": "Một thể loại cấu trúc không được gọi bởi chính nó, nhưng chỉ được sử dụng cho các mục đích vạch ra."
-                }
-            },
-            "entry-point": {
-                "title": "Điểm vào",
-                "navigation": {
-                    "descriptionGeneral": "Bạn đã gán thể loại này làm điểm nhập cho điều hướng chính trong các kênh bán hàng sau:"
-                },
-                "serviceSales": {
-                    "descriptionGeneral": "Bạn đã gán thể loại này làm điểm nhập cho dẫn hướng dịch vụ trong các kênh bán hàng này:"
-                },
-                "footerSales": {
-                    "descriptionGeneral": "Bạn đã gán thể loại này làm điểm nhập cho điều hướng chân trang trong các kênh bán hàng sau:"
+                    "page": "Trang/Danh sách",
+                    "folder": "Phần tử cấu trúc/Điểm nhập",
+                    "link": "Liên kết",
+                    "linkUnavailable": "Liên kết (không thể chọn nếu thể loại được định nghĩa là điểm nhập)",
+                    "help": "Một thể loại cấu trúc không được gọi bởi chính nó, nhưng chỉ được sử dụng cho các mục đích vạch ra.",
+                    "helpText": {
+                        "page": "Một trang/danh sách có các sản phẩm liên quan và có thể được truy cập trực tiếp với bố cục được gán.",
+                        "folder": "Một yếu tố cấu trúc/điểm nhập sẽ chỉ được hiển thị trong cấu trúc và không thể truy cập trực tiếp ngoại trừ nó được gán như là một điểm nhập của một kênh bán hàng.",
+                        "link": "Một liên kết cho phép tham chiếu đến một sản phẩm, một danh mục khác, một trang đích hoặc một trang web bên ngoài."
+                    }
                 }
             },
             "entry-point-card": {
-                "cardTitle": "Điểm vào",
+                "cardTitle": "Điều hướng",
                 "labelEntryPoint": "Điểm vào",
                 "placeholderEntryPoint": "Chọn điểm vào...",
-                "labelSalesChannels": "Kênh bán hàng",
-                "placeholderSalesChannels": "Chọn kênh bán hàng...",
-                "buttonConfigureHome": "Cấu hình nhà",
+                "existingNavigationDescription": "Bạn đã gán thể loại này làm điểm nhập cho điều hướng chính trong các kênh bán hàng sau:",
+                "labelSalesChannelsAdd": "Phân công kênh bán hàng",
+                "placeholderSalesChannels": "Thêm kênh bán hàng...",
+                "buttonConfigureHome": "Cấu hình trang chủ",
                 "types": {
                     "labelMainNavigation": "Điều hướng chính",
+                    "helpTextMainNavigation": "Điểm nhập cho điều hướng chính là trường bắt buộc đối với Kênh bán hàng. Nếu bạn gán thể loại này làm điểm nhập cho dẫn hướng chính cho một hoặc nhiều kênh bán hàng, bạn chỉ có thể thay đổi gán này trên chính kênh bán hàng.",
                     "labelFooterNavigation": "Điều hướng chân trang",
-                    "labelServiceNavigation": "Điều hướng dịch vụ"
+                    "helpTextFooterNavigation": "Nếu bạn gán thể loại này làm điểm nhập cho dẫn hướng chân trang đến một hoặc nhiều kênh bán hàng, các thể loại ở cấp độ tiếp theo sẽ là cột. Điều này cho phép bạn chia điều hướng chân trang của bạn thành nhiều khu vực.",
+                    "labelServiceNavigation": "Điều hướng dịch vụ",
+                    "helpTextServiceNavigation": "Nếu bạn gán thể loại này làm điểm nhập cho dẫn hướng dịch vụ cho một hoặc nhiều kênh bán hàng, các thể loại ở cấp độ tiếp theo sẽ được hiển thị dưới dạng dẫn hướng thứ hai trong khu vực chân trang."
                 }
             },
             "entry-point-modal": {
-                "modalTitle": "Cấu hình Trang chủ",
-                "salesChannelSelection": "Điều hướng chính điểm vào",
-                "showInMainNavigation": "Hiển thị dưới dạng Trang chủ trong điều hướng chính",
-                "mainNavigationName": "Tên trong điều hướng chính",
-                "mainNavigationNamePlaceholder": "Tên trong điều hướng chính...",
+                "modalTitle": "Cấu hình trang chủ",
+                "salesChannelSelection": "Kênh bán hàng",
+                "showInMainNavigation": "Hiển thị trong điều hướng chính",
+                "mainNavigationName": "Tên hiển thị",
+                "mainNavigationNamePlaceholder": "Nhập tên trang chủ thay thế...",
+                "mainNavigationNameHelpText": "Theo mặc định, danh mục này được hiển thị dưới dạng “nhà”. Nhập tên hiển thị thay thế nếu cấu hình mặc định không phù hợp với Kênh bán hàng hiện tại.",
                 "layoutHeadline": "Bố cục",
                 "seoSettingsHeadline": "Cài đặt SEO",
                 "metaTitleLabel": "Meta title",
@@ -3151,6 +3227,10 @@
             "textDeleteConfirm": "Bạn có chắc là bạn thực sự muốn xóa danh mục \"{name}“?",
             "textDeleteChildrenConfirm": "Tất cả các thể loại con cũng sẽ bị xóa.",
             "textDeleteMultipleConfirm": "Bạn có chắc muốn xóa {count} danh mục đã chọn?"
+        },
+        "entry-point-overwrite-modal": {
+            "textBefore": "Bạn đã gán một điểm nhập vào Kênh bán hàng sau đây: | Bạn đã gán điểm nhập vào Kênh bán hàng sau đây:",
+            "textAfter": "Nhiệm vụ này có nên được ghi đè không? | Những bài tập có nên được ghi đè?"
         }
     },
     "sw-landing-page": {
@@ -3162,13 +3242,16 @@
             "placeholderSearchBar": "Tìm kiếm trang đích...",
             "treeHeadSelected": "{count} đã chọn",
             "buttonCreate": "Thêm trang đích",
-            "treeHeadline": "Trang đích"
+            "treeHeadline": "Trang đích",
+            "actions": {
+                "actionsDisabledInLanguage": "Trang đích chỉ có thể được tạo bằng ngôn ngữ mặc định của hệ thống."
+            }
         },
         "base": {
             "general": {
                 "labelName": "Tên",
                 "headlineInformationCard": "Chung",
-                "isActiveLabel": "Trang đích đang hoạt động",
+                "isActiveLabel": "Đang hoạt động",
                 "labelTags": "Thẻ",
                 "labelTagsPlaceholder": "Nhập từng thẻ..."
             },
@@ -3193,12 +3276,13 @@
                 "editInPagebuilderEmpty": "Tạo bố trí mới",
                 "editContent": "Chỉnh sửa nội dung",
                 "defaultTitle": "Bố trí mặc định",
-                "defaultDesc": "Trang thể loại"
+                "defaultDesc": "Trang thể loại",
+                "cmsLayoutModalHeadline": "Trang đích"
             }
         },
         "modal": {
             "textDeleteConfirm": "Bạn có chắc là bạn thực sự muốn xóa trang đích \"{name}“?",
-            "textDeleteMultipleConfirm": "Bạn có chắc muốn xóa {count} trang đích đã chọn?"
+            "textDeleteMultipleConfirm": "Bạn có chắc chắn muốn xóa {count} trang đích đã chọn?"
         }
     },
     "sw-product": {
@@ -3210,7 +3294,8 @@
             "columnLinkOnly": "Ẩn",
             "linkAdvancedVisibility": "Tùy chọn gán nâng cao",
             "labelVisibility": "Kênh bán hàng",
-            "closeModal": "Nộp đơn"
+            "closeModal": "Nộp đơn",
+            "bodyVisibility": "Thêm kênh bán hàng nơi là sản phẩm sẽ được hiển thị. Bạn cũng có thể xác định thêm khả năng hiển thị của sản phẩm cho mỗi kênh bán hàng cửa hàng thông qua liên kết bên dưới."
         },
         "general": {
             "mainMenuItemGeneral": "Sản Phẩm",
@@ -3220,10 +3305,13 @@
             "placeholderSearchBar": "Tìm sản phẩm...",
             "inheritanceModuleName": "Sản phẩm này",
             "backToParent": "Quay lại tổng quan về biến thể",
+            "backToGeneralOverview": "Quay lại tổng quan chung",
             "copy": "Sao chép",
             "cloneSuffix": "biến thể",
             "cloneNotice": "Các biến thể sản phẩm được nhân đôi. Nếu quá trình này bị gián đoạn, có thể không phải tất cả các biến thể đều được nhân đôi hoàn toàn. Trong trường hợp này, bạn có thể tạo lại các biến thể trong sản phẩm mới.",
-            "cloneTitle": "Các biến thể trùng lặp"
+            "cloneTitle": "Các biến thể trùng lặp",
+            "tooltipModeSettings": "Cài đặt chế độ",
+            "textAdvancedMode": "Chế độ nâng cao"
         },
         "basicForm": {
             "labelTitle": "Tiêu đề",
@@ -3253,7 +3341,10 @@
             "textAddSearchKeyword": "Nhấn vào đây để thêm từ khóa tìm kiếm",
             "textEnterValidSearchKeyword": "Từ khóa có thể tìm kiếm",
             "helpTextSearchKeyword": "Các sản phẩm trong Storefront cũng có thể được tìm thấy bằng cách sử dụng các từ khóa này.",
-            "helpTextTags": "Thẻ chỉ dành cho mục đích sử dụng nội bộ. Chúng có thể giúp bạn quản lý các nhóm sản phẩm, áp dụng quy tắc hoặc phục vụ như các cụm từ tìm kiếm tùy chỉnh."
+            "helpTextTags": "Thẻ chỉ dành cho mục đích sử dụng nội bộ. Chúng có thể giúp bạn quản lý các nhóm sản phẩm, áp dụng quy tắc hoặc phục vụ như các cụm từ tìm kiếm tùy chỉnh.",
+            "categoriesTitle": "Danh mục và thẻ",
+            "descriptionCategories": "Thêm danh mục để sản phẩm có thể được tìm thấy thông qua menu chính Storefront hoặc bằng các kết nối API. Đảm bảo rằng bạn chọn danh mục có sẵn và hoạt động trong Kênh bán hàng đã chọn.",
+            "descriptionTags": "Thẻ giúp bạn tìm sản phẩm nhanh hơn. Chúng giúp nhóm sản phẩm dễ dàng hơn và có thể được sử dụng để tự động hóa tác vụ với Bộ dựng Quy tắc."
         },
         "priceForm": {
             "labelTaxRate": "Thuế suất",
@@ -3303,7 +3394,7 @@
             "labelEan": "EAN",
             "labelManufacturerNumber": "Số sản phẩm nhà sản xuất",
             "labelStock": "Cổ phiếu",
-            "labelActive": "Đang hoạt động",
+            "labelActive": "Hiện hoạt cho tất cả các kênh bán hàng đã chọn",
             "labelShippingFree": "Vận chuyển miễn phí",
             "labelMarkAsTopseller": "Khuyến mãi sản phẩm",
             "labelIsCloseout": "Bán giải phóng mặt bằng",
@@ -3338,7 +3429,7 @@
         "detailBase": {
             "cardTitleDeliverabilityInfo": "Khả năng giao hàng",
             "cardTitleProductInfo": "Thông tin chung",
-            "cardTitleAssignment": "Phân công",
+            "cardTitleAssignment": "Khả năng hiển thị & cấu trúc",
             "cardTitlePrices": "Giá",
             "cardTitleSettings": "Nhãn",
             "cardTitlePackaging": "Biện pháp & đóng gói",
@@ -3347,12 +3438,15 @@
             "cardTitleReviews": "Đánh giá",
             "cardTitleMedia": "Phương tiện truyền thông",
             "labelContextMenuAddToProduct": "Thêm vào sản phẩm",
-            "cardTitleSeo": "SEO"
+            "cardTitleSeo": "SEO",
+            "cardTitleVisibilityStructure": "Cấu trúc tầm nhìn"
         },
         "specifications": {
             "cardTitleMeasuresPackaging": "Biện pháp & đóng gói",
             "cardTitleEssentialCharacteristics": "Đặc điểm thiết yếu",
-            "cardTitleCustomFields": "Trường tùy chỉnh"
+            "cardTitleCustomFields": "Trường tùy chỉnh",
+            "cardTitleProperties": "Thuộc tính",
+            "cardTitleCustomProduct": "Sản phẩm tùy chỉnh"
         },
         "seo": {
             "cardTitleSeo": "SEO"
@@ -3506,7 +3600,7 @@
             "generationNotificationCountDeletion": "Một biến thể sẽ bị xóa | {count} biến thể sẽ bị xóa",
             "generationNotificationButtonCancel": "Hủy",
             "generationNotificationButtonContinue": "Tạo",
-            "generatedFilterList": "Lọc",
+            "generatedFilterList": "Danh sách bộ lọc",
             "generatedListColumnVariation": "Tên",
             "generatedListColumnPrice": "Giá (gộp/ròng)",
             "generatedListColumnProductNumber": "Số sản phẩm",
@@ -3529,24 +3623,26 @@
             },
             "configuratorModal": {
                 "title": "Tạo biến thể",
-                "selectOptions": "Chọn giá trị",
-                "selectOptionsExplanation": "Chọn giá trị thuộc tính để tạo ra các biến thể.",
+                "selectOptions": "Lựa chọn giá trị",
+                "selectOptionsExplanation": "Chọn giá trị thuộc tính để tạo ra các biến thể từ.",
+                "selectRestrictionsExplanation": "Chọn giá trị thuộc tính để loại trừ khỏi thế hệ biến thể.",
+                "selectPricesExplanation": "Thêm phụ phí vào giá trị hoặc đơn vị tiền tệ.",
                 "priceSurcharges": "Phụ thu giá",
                 "resetSurcharges": "Xóa phụ phí",
-                "defineRestrictions": "Xác định giới hạn",
+                "defineRestrictions": "Loại trừ giá trị",
                 "priceOptions": "Giá trị",
-                "restrictedCombinations": "Giá trị thuộc tính bị hạn chế",
-                "searchRestrictions": "Tìm kiếm thuộc tính...",
-                "addNewRestriction": "Thêm hạn chế",
-                "editRestriction": "Chỉnh sửa hạn chế",
-                "deleteRestriction": "Xóa hạn chế",
+                "restrictedCombinations": "Giá trị thuộc tính bị loại trừ",
+                "searchRestrictions": "Tìm kiếm các giá trị bị loại trừ...",
+                "addNewRestriction": "Loại trừ các giá trị",
+                "editRestriction": "Chỉnh sửa",
+                "deleteRestriction": "Xoá",
                 "singleRestrictionSeperation": "Và",
-                "deleteCombination": "Xóa tổ hợp",
+                "deleteCombination": "Xoá",
                 "isOneFrom": "là một trong",
                 "cancel": "Hủy",
                 "save": "Lưu",
                 "searchPlaceholder": "Tìm kiếm giá trị...",
-                "singleRestrictionAddTitle": "Thêm hạn chế",
+                "singleRestrictionAddTitle": "Loại trừ các giá trị",
                 "surchargeNotice": "Thay đổi phụ phí sẽ không ảnh hưởng đến các biến thể đã được tạo ra. Vui lòng truy cập trang chi tiết của biến thể và thay đổi giá của các biến thể đã được tạo ra ở đó."
             },
             "deliveryModal": {
@@ -3570,7 +3666,7 @@
         "layout": {
             "title": "Gán bố trí",
             "subtitle": "Bạn có thể thay đổi trang chi tiết sản phẩm bằng cách gán bố cục tùy chỉnh. Nếu không có bố trí tùy chỉnh nào được gán ở đây, bố trí mặc định sẽ được sử dụng.",
-            "textNoConfig": "Bố trí đã chọn hiện hành không có bất kỳ phần tử có thể sửa được",
+            "textNoConfig": "Bố trí được chọn hiện không có bất kỳ phần tử có thể chỉnh sửa",
             "textContentInfo": "Các khối sản phẩm mặc định được điền vào dữ liệu sản phẩm tự động. Nội dung thực tế như vậy không được liệt kê ở đây."
         },
         "crossselling": {
@@ -3615,7 +3711,7 @@
             "templateSelectFieldPlaceholder": "Chọn một mẫu..."
         },
         "layoutAssignment": {
-            "title": "Dự phòng mặc định",
+            "title": "Giá trị mặc định",
             "subtitle": "Trang sản phẩm",
             "textAssignLayout": "Gán bố trí",
             "textChangeLayout": "Thay đổi bố trí",
@@ -3623,14 +3719,45 @@
             "textEditInDesigner": "Chỉnh sửa trong thiết kế"
         },
         "filters": {
+            "fromPlaceholder": "Nhập giá trị bắt đầu...",
+            "toPlaceholder": "Nhập giá trị cuối...",
             "activeFilter": {
                 "label": "Đang hoạt động",
                 "placeholder": "Chọn một trạng thái..."
             },
             "imagesFilter": {
                 "label": "Hình ảnh",
-                "placeholder": "Chọn một trạng thái hình ảnh..."
-            }
+                "placeholder": "Chọn một trạng thái hình ảnh...",
+                "textHasCriteria": "Ít nhất một hình ảnh sản phẩm được gán",
+                "textNoCriteria": "Không được gán ảnh sản phẩm"
+            },
+            "releaseDateFilter": {
+                "label": "Ngày phát hành"
+            },
+            "stockFilter": {
+                "label": "Cổ phiếu"
+            },
+            "priceFilter": {
+                "label": "Giá"
+            },
+            "manufacturerFilter": {
+                "label": "Nhà sản xuất",
+                "placeholder": "Chọn nhà sản xuất..."
+            },
+            "salesChannelsFilter": {
+                "label": "Kênh bán hàng",
+                "placeholder": "Chọn kênh bán hàng..."
+            },
+            "categoriesFilter": {
+                "label": "Danh mục",
+                "placeholder": "Chọn danh mục..."
+            },
+            "tagsFilter": {
+                "label": "Thẻ",
+                "placeholder": "Chọn thẻ..."
+            },
+            "messageEmptyTitle": "Không tìm thấy gì",
+            "messageEmptySubline": "Chỉnh sửa bộ lọc của bạn để xem kết quả."
         },
         "notification": {
             "notificationSaveErrorProductNoAlreadyExists": "Sản phẩm số \"{productNo}\" đã được gán."
@@ -3870,6 +3997,7 @@
             "info": "Có gì mới?",
             "requirements": "Yêu cầu hệ thống",
             "plugins": "Khả năng tương thích plugin",
+            "extensions": "Khả năng tương thích mở rộng",
             "updating": "Đang cập nhật..."
         },
         "notifications": {
@@ -3913,6 +4041,7 @@
             },
             "actions": {
                 "openPluginManager": "Mở trình quản lý plugin",
+                "openMyExtensions": "Mở tiện ích của tôi",
                 "deactivateAll": "Hủy kích hoạt tất cả các plugin.",
                 "deactivateIncompatible": "Hủy kích hoạt các plugin không tương thích.",
                 "deactivateNone": "Tôi nhận thức được những nguy hiểm tiềm ẩn và vẫn muốn cập nhật Shopware mà không cần tắt các plugin không tương thích trước. Tôi có ý thức, rằng Shopware không thể đảm bảo chức năng cài đặt của tôi sau khi cập nhật không tương thích.",
@@ -3984,82 +4113,83 @@
         },
         "generalTab": {
             "labelSearchBehaviour": "Hành vi tìm kiếm",
-            "textTitleSearchBehaviour": "Xác định trước hành vi tìm kiếm trên cửa hàng của bạn.",
+            "textTitleSearchBehaviour": "Xác định trước hành vi tìm kiếm của kênh bán hàng của bạn.",
             "labelSearchAndCondition": "Tìm kiếm “VÀ”",
-            "textSearchAndConditionExplain": "Kết quả tìm kiếm khớp với từng phần tử của cụm từ tìm kiếm đã nhập.\nVí dụ: “Jeans summer” sẽ tìm thấy các sản phẩm có chứa cả từ khóa “jeans” và “summer”.",
+            "textSearchAndConditionExplain": "Kết quả tìm kiếm khớp với từng phần tử của cụm từ tìm kiếm đã nhập.\nVí dụ: “Jeans summer” sẽ tìm thấy kết quả tìm kiếm có chứa cả hai cụm từ tìm kiếm “jeans” và “summer”.",
             "labelSearchOrCondition": "Tìm kiếm “OR”",
-            "textSearchOrConditionExplain": "Kết quả tìm kiếm khớp với bất kỳ thành phần nào của cụm từ tìm kiếm đã nhập.\nVí dụ: “Jeans summer” sẽ tìm thấy các sản phẩm có chứa từ khóa “jeans” và “summer”.",
+            "textSearchOrConditionExplain": "Kết quả tìm kiếm khớp với bất kỳ thành phần nào của cụm từ tìm kiếm đã nhập.\nVí dụ: “Jeans summer” sẽ tìm kết quả tìm kiếm có chứa cụm từ tìm kiếm “jeans” hoặc cụm từ tìm kiếm “summer”.",
             "labelMinimalSearchTerm": "Độ dài từ tìm kiếm tối thiểu",
-            "labelExcludedSearchTerms": "Điều khoản tìm kiếm bị loại trừ",
+            "labelExcludedSearchTerms": "Các cụm từ tìm kiếm bị loại trừ",
             "textEmptyStateExcludedSearchTerms": "Chưa loại trừ thuật ngữ tìm kiếm",
-            "buttonAddExcludedSearch": "Thêm loại trừ",
-            "textPlaceholderTermsFilter": "Tìm kiếm các cụm từ bị loại trừ...",
-            "buttonAddExcludedSearchTerms": "Thêm thuật ngữ loại trừ",
+            "buttonAddExcludedSearch": "Loại trừ thuật ngữ tìm kiếm",
+            "textPlaceholderTermsFilter": "Tìm kiếm từ khóa tìm kiếm bị loại trừ...",
+            "buttonAddExcludedSearchTerms": "Loại trừ thuật ngữ tìm kiếm",
             "labelExcludedSearchTermsNoResults": "Không tìm thấy kết quả.",
             "labelSearchableContent": "Nội dung có thể tìm kiếm",
-            "textDescriptionSearchableContent": "Tất cả nội dung có thể tìm kiếm được liệt kê trong bảng dưới đây. Để tùy chỉnh kết quả tìm kiếm trong Storefront của bạn, hãy tiếp tục và loại trừ nội dung khỏi khả năng tìm kiếm ở tất cả hoặc tinh chỉnh thứ hạng của từng yếu tố riêng lẻ theo ý thích của bạn. Các yếu tố xếp hạng cao hơn có “giá trị tìm kiếm” tăng lên và sẽ đặt cao hơn trong kết quả tìm kiếm.",
+            "textDescriptionSearchableContent": "Tất cả nội dung có thể tìm kiếm được liệt kê trong bảng dưới đây. Để tùy chỉnh kết quả tìm kiếm trong Kênh bán hàng của bạn, hãy tiếp tục và loại trừ nội dung khỏi khả năng tìm kiếm ở tất cả hoặc tinh chỉnh thứ hạng của từng thành phần riêng lẻ theo ý thích của bạn. Các yếu tố xếp hạng cao hơn có “giá trị tìm kiếm” tăng lên và sẽ đặt cao hơn trong kết quả tìm kiếm.",
             "buttonResetDefault": "Đặt lại về mặc định",
             "linkExample": "Hiển thị ví dụ",
-            "buttonAddContent": "Thêm nội dung",
+            "buttonAddContent": "Thêm nội dung có thể tìm kiếm",
             "labelGeneralTab": "Chung",
             "labelCustomFieldsTab": "Trường tùy chỉnh",
             "textEmptyStateSearchableContent": "Chưa có nội dung có thể tìm kiếm được thêm vào.",
             "titleExampleModal": "Tìm kiếm ví dụ xếp hạng",
-            "textColumnSearchTerm": "Điều khoản tìm kiếm",
+            "textColumnSearchTerm": "Các cụm từ tìm kiếm bị loại trừ",
             "modal": {
                 "textExplain": "Dưới đây bạn sẽ tìm thấy ba kết quả tìm kiếm hư cấu cho cụm từ tìm kiếm “jeans”. Có thể tìm kiếm là tiêu đề sản phẩm (điểm xếp hạng 100), mô tả sản phẩm (điểm xếp hạng 50) và thẻ sản phẩm (điểm xếp hạng 20).",
                 "textTitle": "Tiêu đề",
-                "textSuperJeans": "quần jean siêu",
+                "textSuperJeans": "Quần jean siêu",
                 "textDescription": "Mô tả",
-                "textFancyJeans": "quần jean ưa thích",
+                "textFancyJeans": "Quần jean ưa thích",
                 "textTag": "Thẻ",
                 "textJeans": "Quần jean",
                 "textTotal": "Tổng",
                 "textProductRankedFirstScore": "Sản phẩm được xếp hạng đầu tiên có một hit tìm kiếm trong mọi thực thể có thể tìm kiếm, kết quả là tổng điểm xếp hạng là 170.",
-                "textFancyPants": "quần ưa thích",
-                "textProductRankedSecondScore": "Sản phẩm xếp thứ hai có lượt truy cập tìm kiếm cho tiêu đề sản phẩm và thẻ sản phẩm, dẫn đến tổng điểm xếp hạng là 120.",
+                "textFancyPants": "Quần ưa thích",
+                "textProductRankedSecondScore": "Sản phẩm xếp thứ hai có các lượt truy cập tìm kiếm cho tên sản phẩm và thẻ sản phẩm, dẫn đến tổng điểm xếp hạng là 120.",
                 "textSuperPants": "Quần siêu",
                 "textProductRankedThirdScore": "Sản phẩm xếp thứ ba chỉ có một hit trong thẻ sản phẩm, dẫn đến tổng điểm xếp hạng là 20."
             },
             "labelSearchIndex": "Chỉ mục tìm kiếm",
             "buttonRebuildSearchIndex": "Xây dựng lại chỉ mục tìm kiếm",
-            "textWarningOpenTab": "Vui lòng giữ cửa sổ/tab này mở.",
-            "textRebuildSearchIndexDescription": "Việc xây dựng lại chỉ mục tìm kiếm mất một ít thời gian. Trong thời gian đó, bắt buộc phải giữ cửa sổ/tab này mở để xây dựng lại thành công chỉ mục tìm kiếm. Bạn sẽ được thông báo ngay khi quá trình hoàn tất.",
+            "textWarningOpenTab": "Xin vui lòng giữ cửa sổ này mở ra.",
+            "textRebuildSearchIndexDescription": "Xây dựng lại chỉ mục tìm kiếm mất một thời gian. Trong thời gian đó, bắt buộc phải giữ cửa sổ này mở để xây dựng lại thành công chỉ mục tìm kiếm. Bạn sẽ được thông báo ngay khi quá trình hoàn tất.",
             "textRebuildingSearchIndex": "Xây dựng lại chỉ mục tìm kiếm",
             "textLastedBuild": "Bản dựng mới nhất:",
+            "textSearchNotIndexedYet": "Tìm kiếm chưa được lập chỉ mục.",
             "list": {
                 "columnSearchable": "Có thể tìm kiếm",
                 "columnRankingPoints": "Điểm xếp hạng",
                 "columnContent": "Nội dung",
-                "columnSplitKeywords": "Tách từ khóa",
+                "columnSplitKeywords": "Tách cụm từ tìm kiếm",
                 "textResetRanking": "Đặt lại xếp hạng",
                 "textRemove": "Loại bỏ"
             },
             "configFields": {
-                "name": "Tên",
-                "description": "Mô tả",
+                "name": "Tên sản phẩm",
+                "description": "Mô tả sản phẩm",
                 "productNumber": "Số sản phẩm",
                 "manufacturerNumber": "Số nhà sản xuất",
-                "ean": "EAN",
-                "customSearchKeywords": "Từ khóa tìm kiếm tùy chỉnh",
+                "ean": "Sản phẩm EAN",
+                "customSearchKeywords": "Thuật ngữ tìm kiếm tùy chỉnh",
                 "manufacturerName": "Tên nhà sản xuất",
                 "manufacturerCustomFields": "Các trường tùy chỉnh của nhà sản xuất",
                 "categoriesName": "Tên thể loại",
                 "categoriesCustomFields": "Thể loại trường tùy chỉnh",
-                "tagsName": "Tên thẻ",
-                "metaTitle": "Meta title",
-                "metaDescription": "Meta description",
+                "tagsName": "Thẻ sản phẩm",
+                "metaTitle": "Tiêu đề meta sản phẩm",
+                "metaDescription": "Mô tả meta sản phẩm",
                 "propertiesName": "Tên chỗ nghỉ",
-                "variantValue": "Giá trị biến thể"
+                "variantValue": "Giá trị thuộc tính"
             }
         },
         "notification": {
-            "saveSuccess": "Cấu hình đã được lưu.",
-            "excludedTermRequired": "Thuật ngữ bị loại trừ không nên trống rỗng.",
-            "excludedTermAlreadyExists": "Thuật ngữ bị loại trừ đã tồn tại.",
-            "updateExcludedTermSuccess": "Bị loại trừ thành công cập nhật thuật ngữ.",
-            "createExcludedTermSuccess": "Thuật ngữ bị loại trừ tạo thành công.",
-            "deleteExcludedTermSuccess": "Loại trừ thuật ngữ xóa thành công.",
+            "saveSuccess": "Cấu hình đã lưu.",
+            "excludedTermRequired": "Các cụm từ tìm kiếm bị loại trừ không được để trống.",
+            "excludedTermAlreadyExists": "Từ tìm kiếm bị loại trừ đã tồn tại.",
+            "updateExcludedTermSuccess": "Đã cập nhật thuật ngữ tìm kiếm bị loại trừ.",
+            "createExcludedTermSuccess": "Đã tạo thuật ngữ tìm kiếm bị loại trừ.",
+            "deleteExcludedTermSuccess": "Đã xóa cụm từ tìm kiếm bị loại trừ.",
             "saveError": "Đã xảy ra lỗi trong khi lưu cấu hình của bạn.",
             "index": {
                 "started": "Xây dựng chỉ số sản phẩm.",
@@ -4068,14 +4198,14 @@
             "loadError": "Đã xảy ra lỗi khi tải cấu hình của bạn."
         },
         "liveSearchTab": {
-            "titleCard": "Tìm kiếm trực tiếp trên cửa hàng",
-            "textDescription": "Kiểm tra cài đặt tìm kiếm tùy chỉnh của bạn bên dưới. Nếu bạn vừa thực hiện thay đổi cài đặt tìm kiếm của mình, hãy đảm bảo lưu các cài đặt đó trước khi thử nghiệm chúng với tìm kiếm trực tiếp này.",
+            "titleCard": "Tìm kiếm trực tiếp của kênh bán hàng",
+            "textDescription": "Kiểm tra cài đặt tìm kiếm tùy chỉnh của bạn bên dưới.",
             "labelSalesChannelSelect": "Kênh bán hàng",
-            "textPlaceholderSalesChannel": "Vui lòng chọn một kênh bán hàng để kiểm tra tìm kiếm trực tiếp",
+            "textPlaceholderSalesChannel": "Chọn một kênh bán hàng...",
             "linkRebuildSearchIndex": "Xây dựng lại chỉ mục tìm kiếm",
-            "labelName": "Tên",
-            "labelScore": "Ghi bàn",
-            "textNoResult": "Không có kết quả cho (các) từ khóa bạn được nhập. Vui lòng thử (các) từ khóa khác"
+            "labelName": "Kết quả tìm kiếm",
+            "labelScore": "Điểm xếp hạng",
+            "textNoResult": "Không tìm thấy kết quả. Vui lòng thử lại với một cụm từ tìm kiếm khác."
         }
     },
     "sw-settings-mailer": {
@@ -4112,8 +4242,6 @@
             "password-placeholder": "Nhập mật khẩu...",
             "encryption": "Mã hóa",
             "encryption-placeholder": "Chọn phương thức mã hóa...",
-            "authentication": "Phương pháp xác thực",
-            "authentication-placeholder": "Chọn phương thức xác thực...",
             "sender-address": "Địa chỉ người gửi",
             "sender-address-placeholder": "Điền vào một địa chỉ email mà bạn có quyền truy cập vào...",
             "delivery-address": "Địa chỉ giao hàng",
@@ -4125,12 +4253,6 @@
             "no-encryption": "Không có mã hóa",
             "ssl": "SSL",
             "tls": "TLS"
-        },
-        "authentication": {
-            "no-authentication": "Không xác thực",
-            "plain": "Đồng bằng",
-            "login": "Đăng nhập",
-            "cram-md5": "Đem MD5"
         },
         "helpText": "Để biết thêm thông tin xin vui lòng kiểm tra tài liệu <a target=\"_blank\", href=\"https://docs.shopware.com/en/shopware-6-en\">.</a>"
     },
@@ -4148,29 +4270,31 @@
         "my-extensions": {
             "listing": {
                 "initialSearchType": "Phần mở rộng",
-                "placeholderSearchBar": "Tìm kiếm tiện ích…",
+                "placeholderSearchBar": "Tìm kiếm tiện ích...",
                 "controls": {
                     "labelActiveStateSwitch": "Ẩn tiện ích mở rộng không hoạt động",
                     "filterOptions": {
                         "last-updated": "Cập nhật lần cuối",
-                        "name-asc": "Tên phần mở rộng, asc.",
-                        "name-desc": "Tên phần mở rộng, desc."
+                        "name-asc": "Tên A - Z.",
+                        "name-desc": "Tên Z - A."
                     }
-                }
+                },
+                "version": "Phiên bản",
+                "update": "Cập nhật"
             },
             "account": {
                 "headline": "Tài khoản cửa hàng",
-                "isLoggedIn": "Tài khoản được kết nối thành công. Chuyển đến tab “Ứng dụng” hoặc “Chủ đề” và kiểm tra xem tiện ích đã mua của bạn có được liệt kê hay không. Nếu không, hãy kiểm tra tài khoản Showare của bạn và đảm bảo rằng miền chính xác cho các tiện ích mở rộng đã được thiết lập.",
+                "isLoggedIn": "Tài khoản Shopware kết nối thành công. Chuyển đến tab “Ứng dụng” hoặc “Chủ đề” và kiểm tra xem tiện ích đã mua của bạn có được liệt kê hay không. Nếu không, hãy kiểm tra tài khoản Showare của bạn và đảm bảo rằng miền chính xác cho các tiện ích mở rộng đã được thiết lập.",
                 "login": "Đăng nhập",
                 "logout": "Đăng xuất",
                 "loginMessage": "Đăng nhập với bạn Tài khoản Shopware để truy cập các tiện ích mở rộng bạn đã mua trên store.shopware.com",
-                "register": "Đăng ký và trở thành một phần của cộng đồng Shopware!",
+                "register": "Đăng ký ngay bây giờ và trở thành một phần của cộng đồng Shopware!",
                 "registerNow": "Đăng ký ngay",
                 "registerUrl": "https://account.shopware.com/register?lang=en",
                 "mailLabel": "Địa chỉ email",
-                "mailPlaceholder": "Nhập địa chỉ Email của bạn…",
+                "mailPlaceholder": "Nhập địa chỉ email của bạn...",
                 "passwordLabel": "Mật khẩu",
-                "passwordPlaceholder": "Nhập mật khẩu của bạn…",
+                "passwordPlaceholder": "Nhập mật khẩu của bạn...",
                 "recoveryUrl": "https://account.shopware.com/recovery?lang=en",
                 "passwordForgot": "Bạn đã quên mật khẩu của mình?",
                 "loginNotificationMessage": "Bạn đã đăng nhập vào Tài khoản Shopware."
@@ -4182,8 +4306,8 @@
                 "shopwareAccount": "Tài khoản cửa hàng"
             },
             "fileUpload": {
-                "buttonFileUpload": "Plugin tải lên",
-                "messageUploadSuccess": "Plugin đã được tải lên."
+                "buttonFileUpload": "Phần mở rộng tải lên",
+                "messageUploadSuccess": "Tiện ích mở rộng đã tải lên."
             }
         },
         "errors": {
@@ -4191,19 +4315,19 @@
             "messageGenericFailure": "Điều đó không hiệu quả.",
             "messageUploadFailureNotAZipFile": "Tệp tải lên không phải là tệp ZIP.",
             "messageUploadFailureUnzipFailed": "Không thể giải nén tệp ZIP.",
-            "messageUploadFailureNoPluginFoundInZipFile": "Không có plugin nào được tìm thấy trong tệp ZIP.",
+            "messageUploadFailureNoPluginFoundInZipFile": "Không tìm thấy phần mở rộng trong tệp ZIP.",
             "messageLoginDataInvalid": "Dữ liệu đăng nhập không đầy đủ.",
             "messageStoreLicenseDomainMissing": "Đăng nhập không thành công. Bạn có cung cấp tên miền giấy phép chính xác từ Tài khoản Cửa hàng của bạn trong “Tài khoản Cài đặt/Cửa hàng” không?",
-            "messageStoreNotAvailable": "Cửa hàng sản phẩm cửa hàng không có sẵn.",
-            "messagePluginBaseClassNotFound": "Không thể nạp lớp cơ sở plugin. Kiểm tra plugin composer.json của bạn liên quan đến việc tự động tải lớp",
-            "messagePluginInstallationFailed": "Plugin không thể được cài đặt do thông báo lỗi \"{message}”",
-            "messagePluginUninstallationFailed": "Không thể gỡ cài đặt plugin do thông báo lỗi \"{message}”",
-            "messagePluginActivationFailed": "Plugin không thể được kích hoạt do thông báo lỗi \"{message}”",
-            "messagePluginDeactivationFailed": "Plugin không thể bị hủy kích hoạt do thông báo lỗi \"{message}”",
-            "messageDeactivationFailedDependencies": "Plugin \"{dependency}\" không thể bị hủy kích hoạt, bởi vì có các plugin khác tùy thuộc vào nó. Vui lòng tắt các plugin sau đây trước khi khởi động lại bản cập nhật: {dependantNames}",
+            "messageStoreNotAvailable": "Cửa hàng Shopware không có sẵn.",
+            "messagePluginBaseClassNotFound": "Không thể nạp lớp cơ sở mở rộng. Kiểm tra plugin composer.json của bạn liên quan đến việc tự động tải lớp.",
+            "messagePluginInstallationFailed": "Phần mở rộng không thể được cài đặt: \"{message}”.",
+            "messagePluginUninstallationFailed": "Phần mở rộng không thể được gỡ cài đặt: \"{message}”.",
+            "messagePluginActivationFailed": "Phần mở rộng không thể được kích hoạt: \"{message}”.",
+            "messagePluginDeactivationFailed": "Phần mở rộng không thể bị hủy kích hoạt: \"{message}”.",
+            "messageDeactivationFailedDependencies": "Phần mở rộng \"{dependency}\" không thể bị hủy kích hoạt, bởi vì có các phần mở rộng khác tùy thuộc vào nó. Vui lòng hủy kích hoạt các phần mở rộng sau đây trước khi khởi động lại bản Cập Nhật: {dependantNames}",
             "messageDeactivationFailedThemeAssignment": "Không thể tắt hoặc gỡ cài đặt chủ đề \"{themeName}”. Vui lòng loại bỏ các bài tập chủ đề sau: {assignments}.",
-            "messagePluginUpdateFailed": "Plugin không thể được cập nhật do thông báo lỗi \"{message}”. {pluginDeactivatedHint}",
-            "pluginDeactivatedHint": "Plugin đã bị hủy kích hoạt."
+            "messagePluginUpdateFailed": "Phần mở rộng không thể được cập nhật: \"{message}”. {pluginDeactivatedHint}",
+            "pluginDeactivatedHint": "Tiện ích mở rộng đã ngừng hoạt động."
         },
         "mainMenu": {
             "mainMenuItemExtensionStore": "Phần mở rộng",
@@ -4213,6 +4337,20 @@
         }
     },
     "sw-extension-store": {
+        "landing-page": {
+            "enablingShopwareStore": "Kích hoạt Cửa hàng Shopware...",
+            "takeMinutes": "Quá trình này có thể mất vài phút.",
+            "activationErrorTitle": "Lỗi trong quá trình kích hoạt",
+            "activationErrorDescription": "Vui lòng thử lại. Nếu điều đó không hiệu quả, hãy yêu cầu quản trị viên của bạn để được trợ giúp.",
+            "retryButton": "Thử lại",
+            "activationSuccessTitle": "Kích hoạt thành công",
+            "activationSuccessDescription": "Vui chơi khám phá Cửa hàng Shopware.",
+            "label": "Hiện đã có",
+            "activationDescriptionTitleFirst": "Khám phá và mua tiện ích mở rộng một cách dễ dàng -",
+            "activationDescriptionTitleSecond": "ngay từ bên trong cửa hàng của riêng bạn.",
+            "activationDescriptionTitleDescription": "Kích hoạt tất cả cửa hàng Shopware mới và nhận được quyền truy cập vào hàng loạt các tiện ích mở rộng hữu ích và chủ đề hiện đại có thể được tích hợp vào Cửa hàng của bạn dường như không có bất kỳ kỹ năng lập trình nào.",
+            "activate": "Kích hoạt"
+        },
         "title": "Cửa hàng",
         "descriptionTextModule": "Quản lý tiện ích của bạn",
         "general": {
@@ -4231,8 +4369,8 @@
                 "releaseDateDesc": "Ngày phát hành mới nhất - cũ nhất",
                 "nameAsc": "Tên A - Z",
                 "nameDesc": "Tên Z - A",
-                "ratingAsc": "Đánh giá thấp - Cao",
-                "ratingDesc": "Đánh giá cao - Thấp"
+                "ratingAsc": "Đánh giá thấp - cao",
+                "ratingDesc": "Đánh giá cao - thấp"
             }
         },
         "detail": {
@@ -4251,7 +4389,7 @@
                 "labelUpdatedAt": "Cập nhật lần cuối",
                 "labelLanguages": "Ngôn ngữ",
                 "labelWebsite": "Trang web nhà phát triển",
-                "labelPrivacy": "Privacylink"
+                "labelPrivacy": "Chính sách bảo mật"
             },
             "cardTitleFAQ": "CÂU HỎI THƯỜNG GẶP",
             "cardTitleChangelog": "Changelog",
@@ -4265,7 +4403,7 @@
             },
             "sw-extension-buy-modal": {
                 "title": "Thêm phần mở rộng",
-                "labelAcceptPermissions": "Tôi biết tiện ích mở rộng này cần quyền",
+                "labelAcceptPermissions": "Tôi biết rằng tiện ích mở rộng này cần quyền bổ sung",
                 "labelAcceptPrivacyExtensions": "Tôi biết rằng tôi cần mở rộng chính sách bảo mật của mình",
                 "buttonShowPrivacyExtensions": "Hiển thị chi tiết",
                 "variantCard": {
@@ -4277,7 +4415,7 @@
                 "variantSummary": {
                     "labelVat": "cộng với thuế GTGT",
                     "labelPrice": "Giá",
-                    "renewal": "Gia hạn {renewalDate}"
+                    "renewal": "Gia hạn trên {renewalDate}"
                 },
                 "purchaseButtonsLabels": {
                     "free": "Thêm phần mở rộng miễn phí",
@@ -4285,7 +4423,7 @@
                     "buy": "Mua gia hạn ngay"
                 },
                 "successNotification": {
-                    "titleSuccess": "Tiện ích mở rộng đã được thêm thành công!",
+                    "titleSuccess": "Đã thêm phần mở rộng thành công!",
                     "subtitleSuccess": "Bây giờ bạn có thể thử phần mở rộng mới của mình.",
                     "labelButtonBack": "Quay lại chi tiết"
                 },
@@ -4295,12 +4433,12 @@
                 }
             },
             "sw-extension-adding-failed": {
-                "titleFailure": "Thêm phần mở rộng không thành công",
-                "textProblem": "Sự cố xảy ra trong khi thêm tiện ích của bạn.",
+                "titleFailure": "Không thể thêm phần mở rộng ",
+                "textProblem": "Một vấn đề xảy ra trong khi thêm phần mở rộng.",
                 "installationFailed": {
                     "titleFailure": "Cài đặt không thành công",
                     "textProblem": "Sự cố xảy ra trong khi cài đặt tiện ích mở rộng của bạn. Chúng tôi sẽ thông báo cho nhà sản xuất.",
-                    "notificationLicense": "Xin lưu ý rằng đăng ký ứng dụng hoặc chủ đề này vẫn hoạt động.",
+                    "notificationLicense": "Xin lưu ý rằng đăng ký cho tiện ích mở rộng này vẫn hoạt động.",
                     "textSupport": "Nếu bạn có bất kỳ câu hỏi nào về giấy phép, vui lòng liên hệ với Dịch vụ Tài chính Shopware. Có sẵn qua email tại {0} hoặc qua điện thoại tại {1}.",
                     "supportEmail": "financial.services@shopware.com",
                     "supportPhone": "+49 (0) 2555/9288510"
@@ -4318,7 +4456,7 @@
                     "submitBtn": "Gửi"
                 },
                 "sw-extension-ratings-summary": {
-                    "labelRating": "Không xếp hạng | {numberOfRatings} Rating | {numberOfRatings} Xếp hạng"
+                    "labelRating": "Không xếp hạng | {numberOfRatings} đánh giá | {numberOfRatings} xếp hạng"
                 },
                 "sw-extension-review": {
                     "labelLastChangeDate": "Bởi {author} trên {lastChangeDate}",
@@ -4331,6 +4469,7 @@
                     "labelNoReviews": "Tiện ích mở rộng này chưa nhận được bất kỳ xếp hạng hoặc đánh giá nào."
                 },
                 "sw-extension-review-creation-inputs": {
+                    "title": "Gia hạn tỷ lệ",
                     "labelHeadline": "Tiêu đề",
                     "placeholderHeadline": "Nhập một tiêu đề ngắn...",
                     "labelRating": "Xếp hạng",
@@ -4343,8 +4482,8 @@
             "sw-extension-card-base": {
                 "subscriptionLabel": "Đăng ký:",
                 "inactiveLabel": "(không hoạt động)",
-                "purchasedLabel": "Đã mua: ",
-                "installedLabel": "Đã cài đặt: ",
+                "purchasedLabel": "Mua trên ",
+                "installedLabel": "Đã cài đặt trên ",
                 "openExtensionLabel": "Mở ứng dụng",
                 "installExtensionLabel": "Cài đặt ứng dụng",
                 "labelAcceptAndInstall": "Chấp nhận và cài đặt",
@@ -4352,7 +4491,7 @@
                     "getHelpLabel": "Nhận trợ giúp",
                     "seeDetailsLabel": "Xem chi tiết",
                     "config": "Cấu hình",
-                    "privacyAndSafetyLabel": "Quyền riêng tư & an toàn",
+                    "privacyAndSafetyLabel": "Bảo mật và an toàn dữ liệu",
                     "removeLabel": "Loại bỏ",
                     "cancelAndRemoveLabel": "Hủy bỏ và xóa",
                     "uninstallLabel": "Gỡ cài đặt",
@@ -4365,18 +4504,18 @@
             "sw-extension-deactivation-modal": {
                 "deactivateExtensionLabel": "Hủy kích hoạt \"{extensionName}”",
                 "description": "Phần mở rộng \"{extensionName}\" có phí đăng ký hàng tháng.<br>Hủy kích hoạt phần mở rộng <b>sẽ không</b> hủy đăng ký và lệ phí sẽ tiếp tục được thu thập!",
-                "descriptionCancel": "Nếu bạn muốn hủy đăng ký thay vào đó, bạn có thể xóa nó trong menu ngữ cảnh dưới \"{removeLabel}”.",
+                "descriptionCancel": "Nếu bạn muốn hủy đăng ký, bạn có thể xóa nó thông qua \"{removeLabel}\" trong trình đơn ngữ cảnh.",
                 "alertDeactivate": "Bạn vẫn muốn hủy kích hoạt tiện ích không?",
                 "deactivateLabel": "Hủy kích hoạt"
             },
             "sw-extension-permissions-modal": {
                 "title": "{extensionLabel} quyền",
-                "description": "{extensionLabel} sẽ nhận được quyền truy cập vào các thành phần sau. Bấm vào liên kết bên cạnh thành phần để hiển thị chi tiết thực thể.",
+                "description": "{extensionLabel} sẽ có quyền truy cập vào các thành phần sau. Bấm vào liên kết bên cạnh thành phần để hiển thị chi tiết thực thể.",
                 "textEntities": "Hiển thị quyền"
             },
             "sw-extension-privacy-policy-extensions-modal": {
                 "title": "{extensionLabel}: phần mở rộng chính sách bảo mật",
-                "intro": "Ứng dụng này xử lý thông tin cá nhân. Nhà sản xuất đưa ra lời khuyên sau đây cho việc điều chỉnh chính sách bảo mật của bạn:"
+                "intro": "Ứng dụng này xử lý thông tin cá nhân. Nhà sản xuất khuyến cáo các điều chỉnh chính sách bảo mật của bạn:"
             },
             "sw-extension-permissions-details-modal": {
                 "operationRead": "Xem",
@@ -4385,16 +4524,23 @@
                 "operationDelete": "Xoá"
             },
             "sw-extension-my-extensions-listing": {
-                "noActivePlugins": "Không có phần mở rộng hoạt động.",
-                "titleEmptyState": "Chưa có ứng dụng nào được cài đặt",
-                "textEmptyState": "Nếu bạn cài đặt ứng dụng, chúng sẽ được liệt kê ở đây.",
+                "apps": {
+                    "noActivePlugins": "Không tìm thấy tiện ích mở rộng hiện hoạt.",
+                    "titleEmptyState": "Chưa có ứng dụng nào được cài đặt",
+                    "textEmptyState": "Nếu bạn cài đặt ứng dụng, chúng sẽ được liệt kê ở đây."
+                },
+                "themes": {
+                    "noActivePlugins": "Không tìm thấy chủ đề đang hoạt động.",
+                    "titleEmptyState": "Chưa có chủ đề nào được cài đặt",
+                    "textEmptyState": "Nếu bạn cài đặt chủ đề, chúng sẽ được liệt kê ở đây."
+                },
                 "btnOpenStore": "Mở cửa hàng"
             },
             "sw-extension-removal-modal": {
                 "titleCancel": "“{extensionName}\" hủy bỏ và xóa",
                 "titleRemove": "“{extensionName}\" xóa",
                 "description": "Nếu bạn xóa phần mở rộng, bạn không còn có thể sử dụng nó nữa.",
-                "alertCancel": "Bạn có chắc chắn muốn loại bỏ phần mở rộng không?",
+                "alertCancel": "Bạn có chắc chắn muốn hủy bỏ và loại bỏ tiện ích?",
                 "alertRemove": "Bạn có chắc chắn muốn loại bỏ phần mở rộng không?",
                 "labelCancel": "Hủy bỏ và xóa",
                 "labelRemove": "Loại bỏ"
@@ -4412,7 +4558,7 @@
                 "labelLicensed": "Đã mua"
             },
             "sw-extension-config": {
-                "messageSaveSuccess": "Cấu hình đã được lưu."
+                "messageSaveSuccess": "Cấu hình đã lưu."
             }
         },
         "errors": {
@@ -4420,7 +4566,7 @@
                 "message": "Bạn phải chấp nhận các điều khoản và điều kiện của chúng tôi để tiếp tục."
             },
             "FRAMEWORK__EXTENSION_THEME_STILL_IN_USE": {
-                "message": "Chủ đề hiện vẫn được sử dụng trong một hoặc nhiều kênh bán hàng."
+                "message": "Chủ đề hiện đang được sử dụng bởi một hoặc nhiều Kênh bán hàng."
             },
             "FRAMEWORK__INVALID_EXTENSION_ID": {
                 "message": "Số nhận dạng phần mở rộng không hợp lệ."
@@ -4447,7 +4593,7 @@
                 "message": "Phần mở rộng không thể bị hủy bỏ."
             },
             "SAAS_EXTENSION_CANCELLATION__STILL_IN_USE": {
-                "message": "Phần mở rộng không thể bị hủy bỏ vì nó vẫn đang được sử dụng."
+                "message": "Phần mở rộng không thể bị hủy bỏ, vì nó vẫn đang được sử dụng."
             },
             "SAAS_EXTENSION_RATING__ALREADY_RATED": {
                 "message": "Bản mở rộng đã được đánh giá."
@@ -4462,32 +4608,32 @@
                 "message": "Mô hình giá đã chọn không được phép cho phần mở rộng."
             },
             "SAAS_EXTENSION_ORDER__NO_DEFAULT_PAYMENT_MEAN": {
-                "message": "Không có nghĩa là thanh toán mặc định có sẵn.",
-                "labelLink": "Thiết lập thanh toán mặc định"
+                "message": "Không có phương thức thanh toán mặc định nào có sẵn.",
+                "labelLink": "Thiết lập phương thức thanh toán mặc định"
             },
             "SAAS_EXTENSION_ORDER__INSUFFICIENT_BALANCE": {
-                "message": "Không có đủ số dư có sẵn."
+                "message": "Không đủ cân bằng."
             },
             "SAAS_EXTENSION_REQUEST__INVALID_CONTENT": {
                 "message": "Dữ liệu yêu cầu yêu cầu bị thiếu hoặc không hợp lệ."
             },
             "SAAS_EXTENSION_INVALID_BASKET__MULTIPLE_LICENSES_OR_LICENSE_ALREADY_OWNED": {
-                "message": "Giỏ hàng không hợp lệ vì chứa nhiều giấy phép hoặc chứa giấy phép đã sở hữu."
+                "message": "Giỏ hàng không hợp lệ, bởi vì nó chứa nhiều giấy phép hoặc nó chứa một giấy phép đã sở hữu."
             },
             "SAAS_EXTENSION_INVALID_BASKET__INVALID_ORDER_POSITION": {
-                "message": "Giỏ hàng không hợp lệ vì một vị trí đặt hàng không hợp lệ."
+                "message": "Giỏ hàng là không hợp lệ, vì một vị trí đặt hàng không hợp lệ."
             },
             "SAAS_EXTENSION_INVALID_BASKET__GENERAL": {
                 "message": "Giỏ hàng không hợp lệ."
             },
             "SAAS_EXTENSION_INVALID_BASKET__INVALID_COMPANY": {
-                "message": "Giỏ hàng không hợp lệ vì công ty của bạn không có quốc gia được chỉ định."
+                "message": "Giỏ hàng không hợp lệ, bởi vì công ty của bạn không có quốc gia được chỉ định."
             },
             "SAAS_EXTENSION_RATING__INVALID_EXTENSION": {
                 "message": "Không thể lưu xếp hạng của bạn vì phần mở rộng liên quan không hợp lệ."
             },
             "SAAS_COMPANY__MISSING": {
-                "message": "Công ty bắt buộc bị thiếu.",
+                "message": "Yêu cầu tuyên bố công ty bị thiếu.",
                 "labelLink": "Gán công ty"
             }
         }
@@ -4538,7 +4684,7 @@
                 "customer_address": "Địa chỉ",
                 "customer_group": "Nhóm khách hàng",
                 "customer_group_translation": "Dịch nhóm khách hàng",
-                "customer_group_registration_sales_channels": "Kênh bán hàng đăng ký nhóm khách hàng",
+                "customer_group_registration_sales_channels": "Kênh bán hàng cho đăng ký nhóm khách hàng",
                 "customer_recovery": "Phục hồi",
                 "customer_tag": "Thẻ"
             }
@@ -4555,8 +4701,8 @@
             "title": "Tài liệu",
             "entities": {
                 "document": "Tài liệu",
-                "document_base_config": "Cấu hình cơ sở",
-                "document_base_config_sales_channel": "Cấu hình cơ sở cho kênh bán hàng",
+                "document_base_config": "Cấu hình cơ bản",
+                "document_base_config_sales_channel": "Cấu hình cơ bản cho kênh bán hàng",
                 "document_type": "Loại",
                 "document_type_translation": "Loại dịch"
             }
@@ -4596,8 +4742,8 @@
         "media": {
             "title": "Phương tiện truyền thông",
             "entities": {
-                "media": "Phương tiện truyền thông",
-                "media_translation": "Bản dịch truyền thông",
+                "media": "Trung bình",
+                "media_translation": "Dịch trung bình",
                 "media_default_folder": "Thư mục mặc định",
                 "media_folder": "Thư mục",
                 "media_folder_configuration": "Cấu hình thư mục",
@@ -4651,11 +4797,11 @@
             "entities": {
                 "product": "Sản Phẩm",
                 "product_category": "Thể loại",
-                "product_category_tree": "Category cây",
+                "product_category_tree": "Category tree",
                 "product_configurator_setting": "Cài đặt bộ cấu hình",
                 "product_cross_selling": "Bán chéo",
-                "product_cross_selling_translation": "Bản dịch bán chéo",
-                "product_cross_selling_assigned_products": "Bản dịch được giao bán chéo",
+                "product_cross_selling_translation": "Bản dịch Cross Selling",
+                "product_cross_selling_assigned_products": "Dịch chéo bán hàng được giao",
                 "product_export": "Xuất khẩu sản phẩm",
                 "product_keyword_dictionary": "Từ khóa dictionary",
                 "product_manufacturer": "Nhà sản xuất",
@@ -4713,15 +4859,15 @@
                 "sales_channel_payment_method": "Phương thức thanh toán",
                 "sales_channel_shipping_method": "Phương thức vận chuyển",
                 "sales_channel_translation": "Bản dịch kênh bán hàng",
-                "sales_channel_type": "Loại",
-                "sales_channel_type_translation": "Loại dịch"
+                "sales_channel_type": "Loại kênh bán hàng",
+                "sales_channel_type_translation": "Bản dịch loại kênh bán hàng"
             }
         },
         "settings": {
             "title": "Thiết đặt",
             "entities": {
                 "country": "Quốc gia",
-                "country_state": "Nhà nước quốc gia",
+                "country_state": "Tiểu bang/tỉnh",
                 "currency": "Tiền tệ",
                 "delivery_time": "Thời gian giao hàng",
                 "language": "Ngôn ngữ",
@@ -4745,7 +4891,7 @@
                 "tax": "Thuế",
                 "tax_rule": "Quy tắc thuế",
                 "tax_rule_type": "Loại quy tắc thuế",
-                "unit": "Đơn vị",
+                "unit": "Đơn vị quy mô",
                 "version": "Phiên bản"
             }
         },
@@ -4941,7 +5087,7 @@
             "placeholderSalesChannels": "Chọn kênh bán hàng...",
             "placeholderMailTemplate": "Chọn một mẫu email...",
             "titleRecipientsCard": "Người nhận email",
-            "textEmptyStateRecipients": "Không có người nhận bổ sung cho sự kiện này được nêu ra. - Email của khách hàng sẽ được gửi bất kể.",
+            "textEmptyStateRecipients": "Thêm người nhận thay thế - Nếu thiết lập email khách hàng sẽ bị supended!",
             "columnRecipientName": "Tên",
             "columnRecipientMail": "Địa chỉ email",
             "addRecipientButton": "Thêm người nhận",
@@ -4951,7 +5097,7 @@
     },
     "sw-settings-logging": {
         "general": {
-            "mainMenuItemGeneral": "Logging",
+            "mainMenuItemGeneral": "Nhật ký sự kiện",
             "placeholderSearchBar": "Tìm kiếm logs..."
         },
         "list": {
@@ -5178,6 +5324,7 @@
             "buttonNextPayPalInfo": "Cấu hình",
             "buttonBack": "Quay lại",
             "buttonInstall": "Cài đặt",
+            "buttonActivate": "Kích hoạt",
             "buttonFinish": "Kết thúc",
             "buttonConfigureLater": "Cấu hình sau",
             "pluginInstalled": "Đã cài đặt"
@@ -5186,16 +5333,16 @@
             "modalTitle": "Chào mừng",
             "headlineWelcome": "Chào mừng bạn đến với Shopware 6 Administration",
             "messageWelcome": "Trình hướng dẫn này hướng dẫn bạn qua quá trình thiết lập và cố gắng hữu ích với các cài đặt quan trọng nhất.<br>Bạn có muốn sử dụng cửa hàng của bạn bằng một ngôn ngữ khác và tiếp cận khách hàng ở các nước khác? Sau đó, chỉ cần cài đặt các gói ngôn ngữ mong muốn ở đây.",
-            "headlineChangeLanguage": "Cài đặt bổ sung ngôn ngữ",
+            "headlineChangeLanguage": "Cài đặt các ngôn ngữ bổ sung",
             "switchLanguageModalTitle": "Chọn ngôn ngữ giao diện",
             "confirmLanguageSwitch": "Thay đổi ngôn ngữ",
             "cancelLanguageSwitch": "Hủy",
             "switchLanguageMessage": "“{pluginName}\" đã được cài đặt thành công. Bạn có muốn thay đổi ngôn ngữ giao diện của mình không?",
-            "pluginsInstalled": "Plugin đã cài đặt | Plugin đã cài đặt",
-            "pluginsInstalledMessage": "Plugin ngôn ngữ đã được cài đặt: | Các plugin ngôn ngữ này đã được cài đặt: ",
-            "pluginNotFoundMessage": "Không tìm thấy plugin ngôn ngữ {languageName} .",
-            "pluginInstallationFailedMessage": "Plugin không thể được cài đặt: ",
-            "pluginActivationFailedMessage": "Plugin không thể được kích hoạt: ",
+            "pluginsInstalled": "Tiện ích đã cài đặt | Tiện ích đã cài đặt",
+            "pluginsInstalledMessage": "Phần mở rộng ngôn ngữ đã được cài đặt: | Các phần mở rộng ngôn ngữ này đã được cài đặt: ",
+            "pluginNotFoundMessage": "Không tìm thấy phần mở rộng ngôn ngữ {languageName} .",
+            "pluginInstallationFailedMessage": "Không thể cài đặt phần mở rộng: ",
+            "pluginActivationFailedMessage": "Không thể kích hoạt phần mở rộng: ",
             "tryAgainLater": "Vui lòng thử lại sau.",
             "noConnectionMessage": "Có vẻ như có vấn đề kết nối, ngôn ngữ không thể được cài đặt."
         },
@@ -5207,7 +5354,7 @@
             "headlineMigration": "Di chuyển dữ liệu cửa hàng của bạn",
             "messageMigration": "Trợ lý di chuyển giúp bạn kết nối và chuyển dữ liệu từ một hệ thống cửa hàng trước đó ngay vào môi trường Cửa hàng 6 mới của bạn.",
             "buttonInstallMigration": "Cài đặt Migration Assistant",
-            "loadingMessage": "Cài đặt plugin<br>Điều này có thể mất một thời gian..."
+            "loadingMessage": "Cài đặt phần mở rộng<br>Điều này có thể mất một thời gian..."
         },
         "mailerSelection": {
             "headline": "Thiết lập liên lạc email",
@@ -5244,7 +5391,7 @@
         },
         "recommendedPlugins": {
             "headline": "Khuyến nghị của chúng tôi",
-            "modalTitle": "Plugin",
+            "modalTitle": "Phần mở rộng",
             "message": "Dưới đây là một lựa chọn các phần mở rộng hữu ích cho cửa hàng của bạn. Trước tiên, hãy chọn một khu vực phù hợp với bạn. Sau đó, bạn có thể duyệt qua các danh mục khác nhau.",
             "availableInRegion": "Có sẵn trong khu vực",
             "category": "Thể loại",
@@ -5274,6 +5421,24 @@
             "labelCreateDomain": "Tạo miền cửa hàng mới",
             "testEnvironment": "Môi trường thử"
         },
+        "store": {
+            "modalTitle": "Cửa hàng sản phẩm",
+            "loadStatusCollect": "Thu thập thông tin cửa hàng...",
+            "takeMinutes": "Quá trình này có thể mất vài phút.",
+            "alreadyActivated": "Cửa hàng đã được kích hoạt thành công.",
+            "enablingStore": "Bật Cửa hàng Shopware... ",
+            "activationErrorTitle": "Lỗi khi kích hoạt",
+            "activationErrorDescription": "Vui lòng yêu cầu quản trị viên của bạn để được trợ giúp.",
+            "headingOne": "Khám phá và mua tiện ích mở rộng một cách dễ dàng -",
+            "headingTwo": "ngay từ bên trong cửa hàng của riêng bạn.",
+            "description": "Kích hoạt tất cả cửa hàng Shopware mới và nhận được quyền truy cập vào hàng loạt các tiện ích mở rộng hữu ích và chủ đề hiện đại có thể được tích hợp vào Cửa hàng của bạn dường như không có bất kỳ kỹ năng lập trình nào."
+        },
+        "markets": {
+            "modalTitle": "Thị trường sản phẩm",
+            "heading": "Thị trường sản phẩm",
+            "description": "Shopware Markets cho phép bạn kết nối Cửa hàng của bạn với các chợ Amazon và eBay - đồng thời làm cho việc chuyển giao sản phẩm và đơn đặt hàng trở nên thuận tiện nhất có thể.<br>Shopware Markets được thiết kế để phát triển hơn nữa doanh nghiệp của bạn với sự trợ giúp của các kênh bán hàng*¹.",
+            "footnote": "*¹ Yêu cầu đăng ký trả phí để sử dụng Kênh bán hàng bổ sung của Shopware Markets."
+        },
         "finish": {
             "headlineAllDone": "Xong hết rồi!",
             "message": "Cửa hàng của bạn 6 {edition} bây giờ đã được xác minh.",
@@ -5285,14 +5450,17 @@
             "forumLabel": "Diễn đàn",
             "forumUrl": "https://forum.shopware.com/",
             "roadmapLabel": "Lộ trình",
-            "roadmapUrl": "https://www.shopware.com/en/roadmap/"
+            "roadmapUrl": "https://www.shopware.com/en/roadmap/",
+            "modalTitle": "Xong"
         },
         "stepItemTitle": {
             "dataImport": "Nhập dữ liệu",
             "mailer": "Cấu hình Mailer",
             "setupPaypal": "Thiết lập PayPal",
-            "plugins": "Plugin",
-            "shopware": "Tài khoản cửa hàng"
+            "plugins": "Phần mở rộng",
+            "shopware": "Tài khoản cửa hàng",
+            "store": "Cửa hàng sản phẩm",
+            "markets": "Thị trường sản phẩm"
         }
     },
     "sw-sales-channel": {
@@ -6040,7 +6208,7 @@
             "messageSaveError": "Khách hàng không thể được lưu.",
             "messageSaveSuccess": "Khách hàng \"{name}\" đã được lưu.",
             "notificationPasswordErrorMessage": "Mật khẩu đã gửi không khớp.",
-            "notificationPasswordLengthErrorMessage": "Mật khẩu đã gửi không đáp ứng yêu cầu độ dài tối thiểu là 8."
+            "notificationPasswordLengthErrorMessage": "Mật khẩu đã gửi không đáp ứng yêu cầu độ dài tối thiểu là tám ký tự."
         },
         "filter": {
             "salutation": {
@@ -6070,7 +6238,9 @@
             "tags": {
                 "label": "Thẻ",
                 "placeholder": "Chọn thẻ..."
-            }
+            },
+            "messageEmptyTitle": "Không tìm thấy gì",
+            "messageEmptySubline": "Chỉnh sửa bộ lọc của bạn để tìm kết quả."
         }
     },
     "sw-settings-document": {
@@ -6722,13 +6892,14 @@
         },
         "roles": {
             "general": {
-                "labelCreateNewRole": "Tạo vai trò mới",
+                "labelCreateNewRole": "Tạo vai trò",
                 "cardLabel": "Vai trò"
             },
             "role-grid": {
                 "labelName": "Tên",
                 "labelDescription": "Mô tả",
                 "messageEmptyTitle": "Chưa có vai trò nào",
+                "messageEmptySubline": "Tạo vai trò để bắt đầu quản lý quyền người dùng.",
                 "contextMenuEdit": "Chỉnh sửa",
                 "contextMenuDelete": "Xoá",
                 "titleModalDelete": "Xóa vai trò",
@@ -6737,10 +6908,10 @@
                 "labelButtonDelete": "Xoá",
                 "notification": {
                     "deleteSuccess": {
-                        "message": "Vai trò \"{name}\" đã bị xóa."
+                        "message": "Vai trò \"{name}\" đã xóa."
                     },
                     "deleteError": {
-                        "message": "Đã xảy ra lỗi trong khi xóa vai trò \"{name}”."
+                        "message": "Vai trò \"{name}\" không thể bị xóa."
                     }
                 }
             },
@@ -6763,7 +6934,7 @@
             },
             "view": {
                 "detailed": {
-                    "alertText": "Trong chế độ xem này đặc quyền có thể được cấu hình chi tiết. Cấu hình này chỉ cần thiết trong các tình huống đặc biệt. Nếu ví dụ như các phần mở rộng được sử dụng trong hệ thống thêm các tập dữ liệu mới nhưng không có đặc quyền, chúng có thể được cấu hình ở đây. Tất cả các hộp kiểm đã hủy kích hoạt là các quyền đã được gán trong tab “Chung”."
+                    "alertText": "Cấu hình đặc quyền một cách chi tiết. Tất cả các hộp kiểm đã hủy kích hoạt là các quyền đã được gán trong tab “Chung” và không được cấu hình. Cấu hình này chỉ cần thiết nếu ví dụ như các phần mở rộng được sử dụng để thêm các tập dữ liệu mới nhưng không có đặc quyền, chúng có thể được cấu hình ở đây."
                 }
             },
             "tabs": {
@@ -6780,7 +6951,7 @@
                 "cardLabel": "Người dùng"
             },
             "user-grid": {
-                "labelUsername": "Tên đăng nhập",
+                "labelUsername": "Tên người dùng",
                 "labelFirstName": "Tên",
                 "labelLastName": "Họ",
                 "labelRoles": "Vai trò",
@@ -6794,10 +6965,10 @@
                 "labelButtonDelete": "Xoá",
                 "notification": {
                     "deleteSuccess": {
-                        "message": "Người dùng \"{name}\" đã bị xóa."
+                        "message": "Người dùng \"{name}\" đã xóa."
                     },
                     "deleteError": {
-                        "message": "Đã xảy ra lỗi trong khi xóa người dùng \"{name}”."
+                        "message": "Người dùng \"{name}\" không thể bị xóa."
                     },
                     "deleteUserLoggedInError": {
                         "message": "Người dùng không thể tự xóa."
@@ -6809,10 +6980,10 @@
                 "labelIntegrationsCard": "Tích hợp",
                 "labelFirstName": "Tên",
                 "labelLastName": "Họ",
-                "labelEmail": "Email",
+                "labelEmail": "Địa chỉ email",
                 "errorEmailUsed": "Địa chỉ email này đã được sử dụng.",
                 "errorUsernameUsed": "Tên người dùng này đã được sử dụng.",
-                "labelUsername": "Tên đăng nhập",
+                "labelUsername": "Tên người dùng",
                 "labelPassword": "Mật khẩu",
                 "labelProfilePicture": "Ảnh hồ sơ",
                 "labelLanguage": "Ngôn ngữ giao diện người dùng",
@@ -6824,17 +6995,19 @@
                 "labelNewPassword": "Mật khẩu mới",
                 "labelNewUser": "Người dùng mới",
                 "placeholderNewPassword": "Nhập mật khẩu mới...",
-                "placeholderNewPasswordConfirm": "Nhập lại mật khẩu mới...",
+                "placeholderNewPasswordConfirm": "Xác nhận mật khẩu mới...",
                 "labelButtonCancel": "Hủy",
                 "labelButtonChangePassword": "Thay đổi",
                 "labelButtonSave": "Lưu",
+                "writeAccess": "Viết",
+                "readAccess": "Đọc",
                 "contextMenuEdit": "Chỉnh sửa",
                 "contextMenuDelete": "Xoá",
                 "textChangePassword": "Nhấn nút “thay đổi” sẽ ngay lập tức lưu mật khẩu mới!",
-                "addAccessKey": "Khóa truy cập mới",
+                "addAccessKey": "Tạo khóa truy cập",
                 "labelAccessKey": "Khóa truy cập",
                 "labelPermissions": "Quyền",
-                "disabledRoleSelectWarning": "Vai trò chỉ khả dụng cho người dùng không phải là “quản trị viên”.",
+                "disabledRoleSelectWarning": "Vai trò chỉ khả dụng cho người dùng không có quyền quản trị viên.",
                 "passwordConfirmation": {
                     "titleConfirmPasswordModal": "Nhập mật khẩu hiện tại của bạn để xác nhận",
                     "labelConfirmPassword": "Mật khẩu",
@@ -6856,18 +7029,18 @@
                     "hintCreateNewApiKeys": "Để tạo khóa truy cập API mới, bạn nên cập nhật tất cả các tập lệnh và ứng dụng liên quan.",
                     "labelFieldLabel": "Tên",
                     "idFieldLabel": "ID khóa truy cập",
-                    "secretFieldLabel": "Khóa truy cập bí mật",
+                    "secretFieldLabel": "Khóa truy cập an toàn",
                     "secretHelpText": "Vui lòng sao chép khóa truy cập của bạn ngay bây giờ. Vì lý do an toàn, nó sẽ không còn hiển thị sau khi lưu.",
-                    "messageSaveSuccess": "Tích hợp đã được lưu lại.",
+                    "messageSaveSuccess": "Tích hợp đã lưu.",
                     "messageSaveError": "Tích hợp không thể được lưu.",
                     "messageCreateNewError": "Tích hợp không thể được lưu."
                 },
                 "notification": {
                     "saveError": {
-                        "message": "Đã xảy ra lỗi trong khi lưu người dùng \"{name}”."
+                        "message": "Người dùng \"{name}\" không thể được lưu."
                     },
                     "saveSuccess": {
-                        "message": "Người dùng \"{name}\" đã được lưu."
+                        "message": "Người dùng \"{name}\" đã lưu."
                     },
                     "invalidEmailErrorMessage": "Vui lòng nhập địa chỉ email hợp lệ.",
                     "duplicateEmailErrorMessage": "Địa chỉ email này đã được đăng ký."
@@ -6905,143 +7078,6 @@
             "labelUseAsLogo": "Sử dụng làm Logo"
         }
     },
-    "sw-plugin": {
-        "general": {
-            "mainMenuItemGeneral": "Plugin",
-            "mainMenuPluginList": "Đã cài đặt",
-            "mainMenuLicenseList": "Giấy phép của tôi",
-            "descriptionTextModule": "Quản lý plugin tại đây",
-            "placeholderSearchBar": "Tìm kiếm plugin...",
-            "tabList": "Plugin của tôi",
-            "tabLicenses": "Giấy phép",
-            "tabUpdates": "Bản cập nhật",
-            "version": "Phiên bản",
-            "accountLink": "https://account.shopware.com/?lang=en",
-            "accountLabel": "Chuyển đến Tài khoản Shopware",
-            "login": "Đăng nhập",
-            "logout": "Đăng xuất",
-            "messageDownloadSuccess": "Plugin đã được tải xuống.",
-            "downloadButton": "Tải xuống",
-            "recommendationsLabel": "Khuyến nghị",
-            "storeLink": "https://store.shopware.com/en",
-            "storeLabel": "Cửa hàng đồ dùng",
-            "storeNotAvailable": "Không thể kết nối với cửa hàng Shopware.",
-            "loggedIn": "Đăng nhập dưới dạng"
-        },
-        "errors": {
-            "messageToTheShopwareDocumentation": "<a href=\"{documentationLink}\" target=\"_blank\">Tài liệu mở cửa hàng</a>",
-            "messageGenericFailure": "Điều đó không hiệu quả.",
-            "messageUploadFailureNotAZipFile": "Tệp tải lên không phải là tệp ZIP.",
-            "messageUploadFailureUnzipFailed": "Không thể giải nén tệp ZIP.",
-            "messageUploadFailureNoPluginFoundInZipFile": "Không có plugin nào được tìm thấy trong tệp ZIP.",
-            "messageLoginDataInvalid": "Dữ liệu đăng nhập không đầy đủ.",
-            "messageStoreLicenseDomainMissing": "Đăng nhập không thành công. Bạn có cung cấp tên miền giấy phép chính xác từ Tài khoản Cửa hàng của bạn trong “Tài khoản Cài đặt/Cửa hàng” không?",
-            "messageStoreNotAvailable": "Cửa hàng sản phẩm cửa hàng không có sẵn.",
-            "messagePluginBaseClassNotFound": "Không thể nạp lớp cơ sở plugin. Kiểm tra plugin composer.json của bạn liên quan đến việc tự động tải lớp",
-            "messagePluginInstallationFailed": "Plugin không thể được cài đặt do thông báo lỗi \"{message}”",
-            "messagePluginUninstallationFailed": "Không thể gỡ cài đặt plugin do thông báo lỗi \"{message}”",
-            "messagePluginActivationFailed": "Plugin không thể được kích hoạt do thông báo lỗi \"{message}”",
-            "messagePluginDeactivationFailed": "Plugin không thể bị hủy kích hoạt do thông báo lỗi \"{message}”",
-            "messageDeactivationFailedDependencies": "Plugin \"{dependency}\" không thể bị hủy kích hoạt, bởi vì có các plugin khác tùy thuộc vào nó. Vui lòng tắt các plugin sau đây trước khi khởi động lại bản cập nhật: {dependantNames}",
-            "messagePluginUpdateFailed": "Plugin không thể được cập nhật do thông báo lỗi \"{message}”. {pluginDeactivatedHint}",
-            "pluginDeactivatedHint": "Plugin đã bị hủy kích hoạt."
-        },
-        "fileUpload": {
-            "buttonFileUpload": "Plugin tải lên",
-            "messageUploadSuccess": "Plugin đã được tải lên.",
-            "buttonRefreshPlugins": "Làm mới tổng quan"
-        },
-        "store-login": {
-            "headline": "Tài khoản Shopware - Đăng nhập",
-            "information": "Tài khoản Shopware là trung tâm chính của bạn để tương tác với tất cả các dịch vụ Shopware.",
-            "loginMessage": "Bạn đã đăng nhập vào Tài khoản Shopware.",
-            "labelEmailAddress": "Địa chỉ email",
-            "placeholderEmailAddress": "Nhập địa chỉ email của bạn...",
-            "labelPassword": "Mật khẩu",
-            "placeholderPassword": "Nhập mật khẩu của bạn...",
-            "buttonLogin": "Đăng nhập",
-            "buttonCancel": "Huỷ",
-            "footerNoAccount": "Bạn chưa có tài khoản Shopware?",
-            "footerRegisterAccount": "Tạo tài khoản Shopware của bạn ngay bây giờ!",
-            "forgotPassword": "Bạn đã quên mật khẩu của mình?",
-            "forgotPasswordUrl": "https://account.shopware.com/recovery?lang=en",
-            "registerAccountUrl": "https://account.shopware.com/register?lang=en"
-        },
-        "list": {
-            "textPluginManager": "Plugin",
-            "messageEmpty": "Chưa có plugin nào được tải lên.",
-            "columnPluginName": "Plugin",
-            "columnVersion": "Phiên bản",
-            "columnInstalledAt": "Đã cài đặt trên",
-            "columnUpdatedAt": "Cập nhật trên",
-            "columnLicense": "Giấy phép",
-            "columnActive": "Đang hoạt động",
-            "columnAuthor": "Nhà sản xuất",
-            "columnPlugin": "Plugin",
-            "columnChangelog": "Các tính năng mới",
-            "titleSidebarItemRefresh": "Làm mới",
-            "contextInstall": "Cài đặt",
-            "contextUninstall": "Gỡ cài đặt",
-            "contextActivate": "Kích hoạt",
-            "contextDeactivate": "Hủy kích hoạt",
-            "contextUpdate": "Cập nhật lên",
-            "contextDelete": "Xoá",
-            "pluginHeader": "Plugin của tôi",
-            "sortUpgradedAtAsc": "Cập nhật lần cuối",
-            "sortPluginNameAsc": "Tên plugin, asc.",
-            "sortPluginNameDsc": "Tên plugin, desc.",
-            "sortLabel": "Sắp xếp theo:",
-            "messageActivateSuccess": "Plugin đã được kích hoạt.",
-            "messageDeactivateSuccess": "Plugin đã bị hủy kích hoạt.",
-            "messageInstallSuccess": "Plugin đã được cài đặt.",
-            "messageUninstallSuccess": "Plugin đã được gỡ cài đặt.",
-            "messageDeleteSuccess": "Plugin đã bị xóa.",
-            "messageUpdateSuccess": "Plugin đã được cập nhật.",
-            "messageDeleteConfirm": "Bạn có chắc là bạn thực sự muốn xóa plugin này?",
-            "titleUninstallConfirm": "Gỡ cài đặt plugin",
-            "messageUninstallConfirm": "Bạn có chắc chắn muốn gỡ cài đặt {pluginName}?",
-            "labelRemovePluginData": "Xóa tất cả dữ liệu plugin vĩnh viễn",
-            "helpTextRemovePluginData": "Cảnh báo: Tất cả dữ liệu của plugin sẽ bị xóa vĩnh viễn. Quá trình này là không thể đảo ngược.",
-            "labelUninstallButton": "Gỡ cài đặt",
-            "deactivated": "Đã hủy kích hoạt",
-            "activated": "Kích hoạt",
-            "config": "Cấu hình",
-            "description": "Mô tả",
-            "tooltipActivationDisabled": "Bạn chỉ có thể kích hoạt các plugin đã cài đặt."
-        },
-        "license-list": {
-            "textMyPurchases": "Giấy phép đã mua",
-            "columnName": "Plugin",
-            "columnCreationDate": "Mua trên",
-            "columnExpirationDate": "Có giá trị đến",
-            "columnType": "Biến thể",
-            "messageEmpty": "Không có giấy phép hiện có.",
-            "messageNotLoggedIn": "Tài khoản Shopware - yêu cầu đăng nhập!",
-            "labelAccountLogin": "Đăng nhập bằng thông tin đăng nhập Tài khoản Shopware của bạn",
-            "labelType_buy": "Mua",
-            "labelType_rent": "Thuê",
-            "labelType_test": "Kiểm tra",
-            "labelType_free": "Miễn phí",
-            "labelType_support": "Hỗ trợ trả tiền"
-        },
-        "updates": {
-            "messageEmpty": "Không có bản cập nhật nào có sẵn.",
-            "updateError": "Lỗi khi tải bản cập nhật",
-            "updateButton": "Cập nhật",
-            "updateAllButton": "Cập nhật tất cả",
-            "updateHeader": "Bản cập nhật",
-            "lastUpdatesHeader": "Cập nhật mới nhất",
-            "messageUpdateSuccess": "Plugin đã được cập nhật.",
-            "messageUpdatesSuccess": "Plugin đã được cập nhật.",
-            "cancelUpdates": "Hủy"
-        }
-    },
-    "sw-plugin-config": {
-        "messageSaveSuccess": "Cấu hình đã được lưu."
-    },
-    "sw-plugin-description": {
-        "buttonBack": "Quay lại"
-    },
     "sw-settings": {
         "general": {
             "mainMenuItemGeneral": "Thiết đặt"
@@ -7050,7 +7086,7 @@
             "title": "Thiết đặt",
             "tabShop": "Cửa hàng",
             "tabSystem": "Hệ thống",
-            "tabPlugins": "Plugin"
+            "tabPlugins": "Phần mở rộng"
         },
         "system-config": {
             "labelSalesChannelSelect": "Kênh bán hàng",
@@ -7137,10 +7173,10 @@
         }
     },
     "sw-property-search": {
-        "placeholderSearch": "Tìm kiếm thuộc tính...",
-        "selected": "{count} tùy chọn được chọn | {count} tùy chọn được chọn",
-        "noPropertiesFound": "Không tìm thấy chỗ nghỉ",
-        "noPropertiesFoundDescription": "Thử cụm từ tìm kiếm khác."
+        "placeholderSearch": "Tìm kiếm giá trị...",
+        "selected": "{count} giá trị được chọn | {count} giá trị được chọn",
+        "noPropertiesFound": "Không tìm thấy giá trị thuộc tính",
+        "noPropertiesFoundDescription": "Hãy thử một cụm từ tìm kiếm khác."
     },
     "sw-property-assignment": {
         "columnGroup": "Thuộc tính",
@@ -7166,10 +7202,11 @@
         "reload": "Nạp lại",
         "alertText": "Chúng tôi đã phát hiện vi phạm giấy phép cho ít nhất một trong các phần mở rộng của bạn trong cài đặt này. Để khắc phục sự vi phạm giấy phép và tránh hậu quả pháp lý, hãy đăng ký gia hạn hoặc mua/thuê gia hạn (theo loại vi phạm gây ra). Bạn không sử dụng phần mở rộng nữa? Sau đó xóa nó qua phần mở rộng của tôi. Nếu không có biện pháp nào trong số các biện pháp này được thực hiện, cửa hàng AG có quyền tính phí phạt đối với bất kỳ vi phạm giấy phép nào.",
         "deletePlugin": "Xóa phần mở rộng vĩnh viễn",
-        "messageDeleteConfirm": "Bạn có muốn xóa phần mở rộng \"{pluginName} \" hoàn toàn không?",
+        "messageDeleteConfirm": "Bạn có muốn xóa phần mở rộng \"{pluginName}\" hoàn toàn không?",
         "checkboxMessage": "Tôi đã nhận thấy thông điệp này và cuối cùng tích lũy hậu quả.",
         "closeModal": "Đóng thông báo",
         "ignorePlugin": "Bỏ qua vĩnh viễn",
+        "successfullyDeleted": "Tiện ích đã bị xóa",
         "table": {
             "plugin": "Phần mở rộng",
             "warning": "Cảnh báo"
@@ -7183,6 +7220,7 @@
         "labelDefaultOption": "Tất cả các kênh bán hàng"
     },
     "sw-config-form-renderer": {
+        "placeholder": "Vui lòng điền vào {name}...",
         "option": "Không có nhãn đặt cho miền địa phương \"{locale}“...",
         "configLoadErrorMessage": "Gặp lỗi trong khi tải cấu hình: | Đã có lỗi khi tải cấu hình:"
     },
@@ -7369,7 +7407,7 @@
         "hasCriteria": "Có {criteriaName}"
     },
     "sw-filter-panel": {
-        "titleSidebarItemFilter": "Lọc"
+        "titleSidebarItemFilter": "Bộ lọc"
     },
     "sw-sidebar-filter-panel": {
         "resetButton": "Đặt lại tất cả"

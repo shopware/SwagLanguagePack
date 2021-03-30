@@ -280,7 +280,13 @@
             "labelDownloadPdf": "Загрузить PDF",
             "labelCreateNew": "Создать новый",
             "messageEmptyTitle": "Документов пока нет",
-            "messageEmptySubline": "Управление документами здесь."
+            "messageEmptySubline": "Управление документами здесь.",
+            "error": {
+                "DOCUMENT__NUMBER_ALREADY_EXISTS": "Документ номер {number} уже выделен."
+            },
+            "info": {
+                "DOCUMENT__NUMBER_WAS_CHANGED": "Повторяющийся номер документа. Последовательный номер автоматически отрисовывается из соответствующего диапазона номеров."
+            }
         },
         "documentModal": {
             "modalTitle": "Создать документ",
@@ -319,6 +325,63 @@
             "message": "Следующие автоматические акции будут отключены:",
             "messageNoItems": "Нет активных автоматических акций.",
             "buttonDisable": "Отключить"
+        },
+        "filters": {
+            "documentFilter": {
+                "label": "Документы",
+                "placeholder": "Выберите статус документа...",
+                "textHasCriteria": "По крайней мере один назначенный документ",
+                "textNoCriteria": "Документы не назначены"
+            },
+            "orderDateFilter": {
+                "label": "Дата заказа"
+            },
+            "statusFilter": {
+                "label": "Статус заказа",
+                "placeholder": "Выберите статус заказа..."
+            },
+            "paymentStatusFilter": {
+                "label": "Статус платежа",
+                "placeholder": "Выберите статус платежа..."
+            },
+            "deliveryStatusFilter": {
+                "label": "Статус доставки",
+                "placeholder": "Выберите статус доставки..."
+            },
+            "paymentMethodFilter": {
+                "label": "Способ оплаты",
+                "placeholder": "Выберите способ оплаты..."
+            },
+            "shippingMethodFilter": {
+                "label": "Способ доставки",
+                "placeholder": "Выберите способ доставки..."
+            },
+            "salesChannelFilter": {
+                "label": "Каналы продаж",
+                "placeholder": "Выберите каналы продаж..."
+            },
+            "billingCountryFilter": {
+                "label": "Страна выставления счетов",
+                "placeholder": "Выберите страны выставления счетов..."
+            },
+            "shippingCountryFilter": {
+                "label": "Страна доставки",
+                "placeholder": "Выберите страны доставки..."
+            },
+            "customerGroupFilter": {
+                "label": "Группа клиентов",
+                "placeholder": "Выберите группу клиентов..."
+            },
+            "tagFilter": {
+                "label": "Теги",
+                "placeholder": "Выбрать теги..."
+            },
+            "productFilter": {
+                "label": "Продукты",
+                "placeholder": "Выберите продукты..."
+            },
+            "messageEmptyTitle": "Ничего не найдено",
+            "messageEmptySubline": "Отредактируйте фильтры, чтобы найти результаты."
         }
     },
     "sw-privileges": {
@@ -378,7 +441,7 @@
                 "label": "Получатели рассылки"
             },
             "product_search_config": {
-                "label": "Поиск продукта"
+                "label": "Поиск"
             },
             "scale_unit": {
                 "label": "Единицы масштаба"
@@ -443,7 +506,7 @@
         },
         "additional_permissions": {
             "orders": {
-                "create_discounts": "Создание скидки",
+                "create_discounts": "Создание кредитных номенклатур",
                 "label": "Заказы"
             },
             "user": {
@@ -453,8 +516,9 @@
             "system": {
                 "core_update": "Запуск обновления",
                 "plugin_maintain": "Поддерживать расширения",
+                "extension_store": "Магазин Shopware",
                 "clear_cache": "Очистить кэш",
-                "logging": "Ведение журнала",
+                "logging": "Журналы событий",
                 "frw": "Мастер первого запуска",
                 "import_export": "Импорт/экспорт",
                 "label": "Настройки",
@@ -466,7 +530,7 @@
             },
             "routes": {
                 "label": "Маршруты",
-                "api_action_access-key_integration": "Создать новый ключ API",
+                "api_action_access-key_integration": "Создание ключей API",
                 "api_acl_privileges_get": "Чтение всех привилегий ACL",
                 "api_acl_privileges_route_get": "Чтение привилегий маршрута ACL",
                 "api_action_cache_info": "Чтение информации о кэше",
@@ -1209,6 +1273,7 @@
                 "infoTextProductDetailPages": "Макет можно увидеть только в вашем магазине, когда вы назначаете его активному продукту.",
                 "labelCategories": "Категории",
                 "placeholderCategories": "Выберите категории...",
+                "placeholderLandingPages": "Выберите целевые страницы...",
                 "labelSalesChannel": "Канал продаж",
                 "placeholderSalesChannel": "Выберите канал продаж...",
                 "resetOptionSalesChannel": "Все каналы продаж",
@@ -1219,6 +1284,8 @@
                 "confirmChangesRestorePrev": "Сбросить",
                 "confirmChangesTextCategories": "Вы удалили назначения макетов из категорий. Если вы подтвердите эти изменения, этим категориям больше не будет назначена компоновка.",
                 "confirmChangesTextCategoriesAssignedLayouts": "Некоторые из выбранных категорий уже имеют назначенный макет. Если вы продолжите, эти предыдущие назначения будут заменены текущей компоновкой.",
+                "confirmChangesTextLandingPages": "Вы удалили назначения макетов с целевых страниц. Если вы подтвердите эти изменения, этим целевым страницам больше не будет назначен макет.",
+                "confirmChangesTextLandingPagesAssignedLayouts": "Некоторые из выбранных целевых страниц уже имеют назначенный макет. Если вы продолжите, эти предыдущие назначения будут заменены текущей компоновкой.",
                 "confirmChangesTextProducts": "Вы удалили назначения макетов из продуктов. Если вы подтвердите эти изменения, этим продуктам больше не будет назначена компоновка.",
                 "confirmChangesTextProductsAssignedLayouts": "Некоторые из выбранных продуктов уже имеют назначенный макет. При продолжении предыдущие назначения будут заменены текущей компоновкой.",
                 "confirmChangesTextShopPages": "Вы удалили назначения макетов со страниц магазина. Если вы подтвердите эти изменения, на этих страницах магазина больше не будет назначен макет",
@@ -1228,6 +1295,7 @@
                 "shopPagesSaveError": "Не удается сохранить страницы магазина",
                 "tabCategories": "Категории",
                 "tabShopPages": "Страницы магазина",
+                "tabLandingPages": "Целевые страницы",
                 "shopPages": {
                     "tosPage": "Страницы TOS",
                     "revocationPage": "Уведомления об отзыве",
@@ -1535,7 +1603,7 @@
                 "keywords": "Ключевые слова",
                 "length": "Длина",
                 "linked": "Связанные",
-                "manufacturer": "Производитель",
+                "manufacturerId": "Производитель",
                 "manufacturerNumber": "Номер производителя",
                 "markAsTopseller": "Отмечено как топ-продавец",
                 "maxDeliveryTime": "Макс. срок поставки",
@@ -1548,7 +1616,7 @@
                 "option": "Опция",
                 "packUnit": "Единица упаковки",
                 "packUnitPlural": "Единица упаковки",
-                "price": "Цена",
+                "cheapestPrice": "Цена",
                 "product": "Товар",
                 "productNumber": "Номер товара",
                 "purchasePrice": "Цена покупки",
@@ -1703,7 +1771,9 @@
             "ascending": "По возрастанию",
             "descending": "По убыванию",
             "xTimesIn": "{n} раз в",
-            "close": "Закрыть"
+            "close": "Закрыть",
+            "from": "От",
+            "to": "К"
         },
         "notification": {
             "notificationSaveErrorMessage": "Произошла ошибка при сохранении сущности \"{entityName}\".",
@@ -2687,7 +2757,12 @@
     "sw-settings-number-range": {
         "general": {
             "mainMenuItemGeneral": "Диапазоны номеров",
-            "placeholderSearchBar": "Поиск диапазонов номеров..."
+            "placeholderSearchBar": "Поиск диапазонов номеров...",
+            "infoGlobalType": "Может быть только один диапазон чисел «{typeName}». Изменения в диапазоне номеров типа «{typeName}» должны быть сделаны здесь и будут глобально влиять на все каналы продаж.",
+            "infoGlobalTypeTitle": "Глобальный диапазон номеров типа «{typeName}»",
+            "infoGlobal": "Вы не можете изменить тип глобального диапазона номеров. Но вы можете создать дополнительные диапазоны номеров для большинства типов и конкретных каналов продаж еще в обзоре.",
+            "infoGlobalTitle": "Глобальный диапазон номеров «{name}»",
+            "infoSalesChannelBound": "Чтобы изменить тип диапазона номеров, сначала удалите все назначения канала продаж."
         },
         "list": {
             "textHeadline": "Диапазон чисел",
@@ -3005,9 +3080,11 @@
             "descriptionLabel": "Описание",
             "messageSaveSuccess": "Категория \"{name}\" была сохранена.",
             "useAsLogo": "Использовать как изображение для отображения",
-            "treeHeadline": "Структура категорий",
+            "treeHeadline": "Категории",
             "treeHeadSelected": "Выбрано {count}",
             "emptyStateHeadline": "Не выбрана категория",
+            "errorNavigationEntryPoint": "Эта категория определяется как основная навигация по крайней мере одного канала продаж и поэтому не может быть удалена.",
+            "errorNavigationEntryPointMultiple": "Одна или несколько категорий определяются как основная навигация по крайней мере одного канала продаж и поэтому не могут быть удалены.",
             "actions": {
                 "actionsDisabledInLanguage": "Категории могут быть созданы только на языке по умолчанию.",
                 "createSub": "Новая подкатегория",
@@ -3021,58 +3098,54 @@
             "products": "Продукты",
             "seo": "СЕО",
             "columnInfoHeader": "Элемент нижнего колонтитула",
-            "columnInfo": "Эта категория настраивает назначенный столбец в нижнем колонтитуле. Имя категории будет отображаться в виде неинтерактивного заголовка для столбца. Все категории ниже отображаются в виде интерактивных строк под заголовком столбца."
+            "columnInfo": "Эта категория настраивает назначенный столбец в нижнем колонтитуле. Имя категории будет отображаться в виде заголовка столбца. Все категории на первом уровне под этой категорией отображаются в виде строк под заголовком столбца."
         },
         "base": {
             "general": {
                 "categoryNameLabel": "Название",
                 "headlineInformationCard": "Главная",
-                "isCategoryActiveLabel": "Категория активна",
+                "isCategoryActiveLabel": "Активный",
                 "useAsLink": "Использовать как ссылку",
                 "labelCategoryTags": "Теги",
                 "labelCategoryTagsPlaceholder": "Введите теги индивидуально...",
                 "types": {
                     "title": "Тип категории",
-                    "page": "Категория",
-                    "folder": "Точка входа",
-                    "link": "Настраиваемая ссылка",
-                    "column": "Столбец",
-                    "entrypoint": "Точка входа",
-                    "pageList": "Страница/ Список",
-                    "help": "Структурная категория не вызывается сама по себе, но используется только для обозначения целей."
-                }
-            },
-            "entry-point": {
-                "title": "Точка входа",
-                "navigation": {
-                    "descriptionGeneral": "Вы назначили эту категорию в качестве точки входа для основной навигации в следующих каналах продаж:"
-                },
-                "serviceSales": {
-                    "descriptionGeneral": "Вы назначили эту категорию в качестве точки входа для сервисной навигации по следующим каналам продаж:"
-                },
-                "footerSales": {
-                    "descriptionGeneral": "Вы назначили эту категорию в качестве точки входа для нижнего колонтитула в следующих каналах продаж:"
+                    "page": "Страница/ Список",
+                    "folder": "Структурирующий элемент/Точка входа",
+                    "link": "Ссылка",
+                    "linkUnavailable": "Связь (не выбирается, если категория определена как точка входа)",
+                    "help": "Структурная категория не вызывается сама по себе, но используется только для обозначения целей.",
+                    "helpText": {
+                        "page": "Страница/список имеет связанные продукты и может быть доступен непосредственно с назначенным макетом.",
+                        "folder": "Структурирующий элемент/точка входа будет отображаться только в структуре и не доступна напрямую, за исключением того, что она назначена в качестве точки входа канала продаж.",
+                        "link": "Ссылка позволяет ссылаться на продукт, другую категорию, целевую страницу или внешний сайт."
+                    }
                 }
             },
             "entry-point-card": {
-                "cardTitle": "Точка входа",
+                "cardTitle": "Навигация",
                 "labelEntryPoint": "Точка входа",
                 "placeholderEntryPoint": "Выберите точку входа...",
-                "labelSalesChannels": "Каналы продаж",
-                "placeholderSalesChannels": "Выберите канал продаж...",
-                "buttonConfigureHome": "Настроить домашнюю",
+                "existingNavigationDescription": "Вы назначили эту категорию в качестве точки входа для основной навигации в следующих каналах продаж:",
+                "labelSalesChannelsAdd": "Назначение канала продаж",
+                "placeholderSalesChannels": "Добавить каналы продаж...",
+                "buttonConfigureHome": "Настройка домашней страницы",
                 "types": {
                     "labelMainNavigation": "Основная навигация",
+                    "helpTextMainNavigation": "Точка входа для основной навигации является обязательным полем для каналов продаж. Если назначить эту категорию в качестве точки входа для основной навигации одному или нескольким каналам продаж, это назначение можно изменить только в самом канале продаж.",
                     "labelFooterNavigation": "Навигация по нижнему",
-                    "labelServiceNavigation": "Сервисная навигация"
+                    "helpTextFooterNavigation": "Если назначить эту категорию в качестве точки входа для навигации нижнего колонтитула одному или нескольким каналам продаж, категории на следующем уровне будут столбцами. Это позволяет разделить навигацию по нижнему колонтитулу на несколько областей.",
+                    "labelServiceNavigation": "Сервисная навигация",
+                    "helpTextServiceNavigation": "Если назначить эту категорию в качестве точки входа для навигации по службе одному или нескольким каналам продаж, категории на следующем уровне будут отображаться как вторая навигация в области нижнего колонтитула."
                 }
             },
             "entry-point-modal": {
-                "modalTitle": "Настройка домашней",
-                "salesChannelSelection": "Главная навигация по точке входа",
-                "showInMainNavigation": "Показывать как домашнюю страницу в основной навигации",
-                "mainNavigationName": "Имя в основной навигации",
-                "mainNavigationNamePlaceholder": "Имя в основной навигации...",
+                "modalTitle": "Настройка домашней страницы",
+                "salesChannelSelection": "Канал продаж",
+                "showInMainNavigation": "Показать в основной навигации",
+                "mainNavigationName": "Отображаемое имя",
+                "mainNavigationNamePlaceholder": "Введите альтернативное имя домашней страницы...",
+                "mainNavigationNameHelpText": "По умолчанию эта категория отображается как «домашняя». Введите альтернативное отображаемое имя, если конфигурация по умолчанию не соответствует текущему каналу продаж.",
                 "layoutHeadline": "Макет",
                 "seoSettingsHeadline": "Настройки SEO",
                 "metaTitleLabel": "Мета название",
@@ -3153,6 +3226,10 @@
             "textDeleteConfirm": "Вы уверены, что вы действительно хотите удалить категорию \"{name}\"?",
             "textDeleteChildrenConfirm": "Все подкатегории также будут удалены.",
             "textDeleteMultipleConfirm": "Вы уверены, что хотите удалить {count} выбранных категорий?"
+        },
+        "entry-point-overwrite-modal": {
+            "textBefore": "Точка входа уже назначена следующему каналу продаж: | Вы уже назначили точки входа следующим каналам продаж:",
+            "textAfter": "Должно ли это назначение быть перезаписано? | Должны ли эти назначения быть перезаписаны?"
         }
     },
     "sw-landing-page": {
@@ -3164,13 +3241,16 @@
             "placeholderSearchBar": "Поиск целевых страниц...",
             "treeHeadSelected": "Выбрано{count}",
             "buttonCreate": "Добавить целевую страницу",
-            "treeHeadline": "Целевые страницы"
+            "treeHeadline": "Целевые страницы",
+            "actions": {
+                "actionsDisabledInLanguage": "Целевые страницы могут быть созданы только на системном языке по умолчанию."
+            }
         },
         "base": {
             "general": {
                 "labelName": "Имя",
                 "headlineInformationCard": "Генеральной",
-                "isActiveLabel": "Целевая страница активна",
+                "isActiveLabel": "Активный",
                 "labelTags": "Теги",
                 "labelTagsPlaceholder": "Введите теги по отдельности..."
             },
@@ -3181,7 +3261,7 @@
                 "labelMetaDescription": "Мета-описание",
                 "labelKeywords": "SEO ключевые слова",
                 "labelUrl": "SEO URL",
-                "placeholderSalesChannel": "Выбрал канал продаж...",
+                "placeholderSalesChannel": "Выберите канал продаж...",
                 "placeholderMetaTitle": "Введите метазаголовок...",
                 "placeholderMetaDescription": "Введите метаописание...",
                 "placeholderKeywords": "Введите одно или несколько ключевых слов...",
@@ -3195,7 +3275,8 @@
                 "editInPagebuilderEmpty": "Создать новую компоновку",
                 "editContent": "Редактировать содержимое",
                 "defaultTitle": "Макет по умолчанию",
-                "defaultDesc": "Страница категории"
+                "defaultDesc": "Страница категории",
+                "cmsLayoutModalHeadline": "Целевая страница"
             }
         },
         "modal": {
@@ -3212,7 +3293,8 @@
             "columnLinkOnly": "Скрытый",
             "linkAdvancedVisibility": "Расширенные настройки назначения",
             "labelVisibility": "Каналы продаж",
-            "closeModal": "Применить"
+            "closeModal": "Применить",
+            "bodyVisibility": "Добавьте каналы продаж, где должен отображаться продукт. Вы также можете дополнительно определить видимость продукта для каждого канала продаж Storefront по ссылке ниже."
         },
         "general": {
             "mainMenuItemGeneral": "Товары",
@@ -3222,10 +3304,13 @@
             "placeholderSearchBar": "Поиск товаров...",
             "inheritanceModuleName": "Этот товар",
             "backToParent": "Вернуться к обзору вариантов",
+            "backToGeneralOverview": "Вернуться к общему обзору",
             "copy": "Копировать",
             "cloneSuffix": "варианты",
             "cloneNotice": "Варианты товара дублируются. Если этот процесс прерван, возможно, не все варианты дублируются полностью. В этом случае вы можете снова создать варианты в новом продукте.",
-            "cloneTitle": "Повторяющиеся варианты"
+            "cloneTitle": "Повторяющиеся варианты",
+            "tooltipModeSettings": "Настройки режима",
+            "textAdvancedMode": "Расширенный режим"
         },
         "basicForm": {
             "labelTitle": "Название",
@@ -3255,7 +3340,10 @@
             "textAddSearchKeyword": "Нажмите здесь, чтобы добавить ключевое слово поиска",
             "textEnterValidSearchKeyword": "Ключевые слова с возможностью поиска",
             "helpTextSearchKeyword": "Продукт в Storefront также можно найти с помощью этих ключевых слов.",
-            "helpTextTags": "Теги предназначены только для внутреннего использования. Они могут помочь вам управлять группами продуктов, применять правила или служить пользовательскими поисковыми запросами."
+            "helpTextTags": "Теги предназначены только для внутреннего использования. Они могут помочь вам управлять группами продуктов, применять правила или служить пользовательскими поисковыми запросами.",
+            "categoriesTitle": "Категории и теги",
+            "descriptionCategories": "Добавьте категории, чтобы продукт можно было найти через главное меню Storefront или по подключениям API. Убедитесь, что выбраны категории, доступные и активные в выбранном канале продаж.",
+            "descriptionTags": "Теги помогут вам быстрее находить продукты. Они упрощают группировку продуктов и могут использоваться для автоматизации задач с помощью Rule Builder."
         },
         "priceForm": {
             "labelTaxRate": "Ставка налога",
@@ -3305,7 +3393,7 @@
             "labelEan": "EAN",
             "labelManufacturerNumber": "Номер продукта производителя",
             "labelStock": "В наличии",
-            "labelActive": "Активный",
+            "labelActive": "Активный для всех выбранных каналов продаж",
             "labelShippingFree": "Бесплатная доставка",
             "labelMarkAsTopseller": "Продвижение продукта",
             "labelIsCloseout": "Распродажа",
@@ -3340,7 +3428,7 @@
         "detailBase": {
             "cardTitleDeliverabilityInfo": "Исполнимости",
             "cardTitleProductInfo": "Общая информация",
-            "cardTitleAssignment": "Задание",
+            "cardTitleAssignment": "Видимость и структура",
             "cardTitlePrices": "Цены",
             "cardTitleSettings": "Маркировка",
             "cardTitlePackaging": "Меры и упаковка",
@@ -3349,12 +3437,15 @@
             "cardTitleReviews": "Отзывы",
             "cardTitleMedia": "Медиа",
             "labelContextMenuAddToProduct": "Добавить к товару",
-            "cardTitleSeo": "SEO"
+            "cardTitleSeo": "SEO",
+            "cardTitleVisibilityStructure": "Структура видимости"
         },
         "specifications": {
             "cardTitleMeasuresPackaging": "Меры и упаковка",
             "cardTitleEssentialCharacteristics": "Основные характеристики",
-            "cardTitleCustomFields": "Настраиваемые поля"
+            "cardTitleCustomFields": "Настраиваемые поля",
+            "cardTitleProperties": "Свойства",
+            "cardTitleCustomProduct": "Пользовательские продукты"
         },
         "seo": {
             "cardTitleSeo": "СЕО"
@@ -3508,7 +3599,7 @@
             "generationNotificationCountDeletion": "Один вариант будет удален | {count} вариантов будут удалены",
             "generationNotificationButtonCancel": "Отменить",
             "generationNotificationButtonContinue": "Генерировать",
-            "generatedFilterList": "Фильтр",
+            "generatedFilterList": "Список фильтров",
             "generatedListColumnVariation": "Название",
             "generatedListColumnPrice": "Цена (брутто / нетто)",
             "generatedListColumnProductNumber": "Номер продукта",
@@ -3531,24 +3622,26 @@
             },
             "configuratorModal": {
                 "title": "Генерировать варианты",
-                "selectOptions": "Выберите значения",
-                "selectOptionsExplanation": "Выберите значения свойств для генерации вариантов.",
-                "priceSurcharges": "Доплата за цену",
+                "selectOptions": "Выбор значения",
+                "selectOptionsExplanation": "Выберите значения свойств для создания вариантов.",
+                "selectRestrictionsExplanation": "Выберите значения свойств для исключения из создания вариантов.",
+                "selectPricesExplanation": "Добавьте надбавки к значениям или валютам.",
+                "priceSurcharges": "Ценовые доплаты",
                 "resetSurcharges": "Удалить доплату",
-                "defineRestrictions": "Определить ограничение",
-                "priceOptions": "Значения",
-                "restrictedCombinations": "Ограниченные значения свойств",
-                "searchRestrictions": "Поиск свойств...",
-                "addNewRestriction": "Добавить ограничение",
-                "editRestriction": "Изменить ограничение",
-                "deleteRestriction": "Удалить ограничение",
+                "defineRestrictions": "Исключение значения",
+                "priceOptions": "Значение",
+                "restrictedCombinations": "Исключенные значения свойств",
+                "searchRestrictions": "Поиск исключенных значений...",
+                "addNewRestriction": "Исключить значения",
+                "editRestriction": "Редактировать",
+                "deleteRestriction": "Удалить",
                 "singleRestrictionSeperation": "И",
-                "deleteCombination": "Удалить комбинацию",
+                "deleteCombination": "Удалить",
                 "isOneFrom": "один из",
                 "cancel": "Отменить",
                 "save": "Сохранить",
                 "searchPlaceholder": "Поиск значений...",
-                "singleRestrictionAddTitle": "Добавить ограничение",
+                "singleRestrictionAddTitle": "Исключить значения",
                 "surchargeNotice": "Изменения в надбавках не будут влиять на уже созданные варианты. Перейдите на страницу сведений о варианте и измените там цены уже сгенерированных вариантов."
             },
             "deliveryModal": {
@@ -3572,7 +3665,7 @@
         "layout": {
             "title": "Назначение макета",
             "subtitle": "Вы можете изменить страницы сведений о продукте, назначив пользовательские макеты. Если здесь не назначен пользовательский макет, будет использоваться макет по умолчанию.",
-            "textNoConfig": "Текущая выбранная компоновка не имеет редактируемых элементов",
+            "textNoConfig": "Выбранный в данный момент компоновка не имеет редактируемых элементов",
             "textContentInfo": "Блоки продуктов по умолчанию заполняются данными о продукте автоматически. Таким образом, фактическое содержание не перечислены здесь."
         },
         "crossselling": {
@@ -3617,7 +3710,7 @@
             "templateSelectFieldPlaceholder": "Выберите шаблон..."
         },
         "layoutAssignment": {
-            "title": "Резервный возврат по умолчанию",
+            "title": "Значение по умолчанию",
             "subtitle": "Страница продукта",
             "textAssignLayout": "Назначить компоновку",
             "textChangeLayout": "Изменить макет",
@@ -3625,14 +3718,45 @@
             "textEditInDesigner": "Редактировать в конструкторе"
         },
         "filters": {
+            "fromPlaceholder": "Введите начальное значение...",
+            "toPlaceholder": "Введите конечное значение...",
             "activeFilter": {
                 "label": "Активный",
                 "placeholder": "Выберите статус..."
             },
             "imagesFilter": {
                 "label": "Изображения",
-                "placeholder": "Выберите статус изображения..."
-            }
+                "placeholder": "Выберите статус изображения...",
+                "textHasCriteria": "Назначено хотя бы одно изображение продукта",
+                "textNoCriteria": "Изображения продуктов не назначены"
+            },
+            "releaseDateFilter": {
+                "label": "Дата выхода"
+            },
+            "stockFilter": {
+                "label": "Склад"
+            },
+            "priceFilter": {
+                "label": "Цена"
+            },
+            "manufacturerFilter": {
+                "label": "Производитель",
+                "placeholder": "Выберите производителя..."
+            },
+            "salesChannelsFilter": {
+                "label": "Каналы продаж",
+                "placeholder": "Выберите каналы продаж..."
+            },
+            "categoriesFilter": {
+                "label": "Категории",
+                "placeholder": "Выбрать категории..."
+            },
+            "tagsFilter": {
+                "label": "Теги",
+                "placeholder": "Выбрать теги..."
+            },
+            "messageEmptyTitle": "Ничего не найдено",
+            "messageEmptySubline": "Отредактируйте фильтры, чтобы увидеть результаты."
         },
         "notification": {
             "notificationSaveErrorProductNoAlreadyExists": "Номер продукта «{productNo}» уже назначен."
@@ -3871,6 +3995,7 @@
             "info": "﻿Что нового?",
             "requirements": "Системные требования",
             "plugins": "Совместимость плагинов",
+            "extensions": "Совместимость с расширениями",
             "updating": "Обновление..."
         },
         "notifications": {
@@ -3914,6 +4039,7 @@
             },
             "actions": {
                 "openPluginManager": "Открыть менеджер плагинов",
+                "openMyExtensions": "Открыть мои расширения",
                 "deactivateAll": "Отключить все плагины.",
                 "deactivateIncompatible": "Отключить все несовместимые плагины.",
                 "deactivateNone": "Я знаю об опасностях и хочу обновиться без деактивации несовместимых плагинов. Я сознаю, что Shopware не может гарантировать функциональность моей установки после несовместимого обновления.",
@@ -3985,82 +4111,83 @@
         },
         "generalTab": {
             "labelSearchBehaviour": "Поведение в поиске",
-            "textTitleSearchBehaviour": "Предварительно определите поведение поиска в магазине.",
+            "textTitleSearchBehaviour": "Предварительно определите поисковое поведение каналов продаж.",
             "labelSearchAndCondition": "Поиск «И»",
-            "textSearchAndConditionExplain": "Результаты поиска совпадают с каждым элементом введенного поискового запроса.\nПример: «Джинсы лето» найдет продукты, которые содержат как ключевые слова «джинсы», так и «лето».",
+            "textSearchAndConditionExplain": "Результаты поиска совпадают с каждым элементом введенного поискового запроса.\nПример: «Jeans summer» найдет результаты поиска, содержащие как поисковые термины «джинсы», так и «лето».",
             "labelSearchOrCondition": "Поиск «ИЛИ»",
-            "textSearchOrConditionExplain": "Результаты поиска совпадают с любым элементом введенного поискового запроса.\nПример: «Джинсы лето» найдет продукты, которые содержат либо ключевое слово «джинсы», так и «лето».",
+            "textSearchOrConditionExplain": "Результаты поиска совпадают с любым элементом введенного поискового запроса.\nПример: «Jeans summer» найдет результаты поиска, содержащие либо поисковый запрос «jeans», либо поисковый запрос «summer».",
             "labelMinimalSearchTerm": "Минимальная длина поискового запроса",
-            "labelExcludedSearchTerms": "Исключенные поисковые термины",
+            "labelExcludedSearchTerms": "Исключенные условия поиска",
             "textEmptyStateExcludedSearchTerms": "Поисковые термины еще не исключены",
-            "buttonAddExcludedSearch": "Добавить исключение",
-            "textPlaceholderTermsFilter": "Поиск исключенных терминов...",
-            "buttonAddExcludedSearchTerms": "Добавить термин исключения",
+            "buttonAddExcludedSearch": "Исключить поисковый запрос",
+            "textPlaceholderTermsFilter": "Поиск исключенных поисковых терминов...",
+            "buttonAddExcludedSearchTerms": "Исключить поисковый запрос",
             "labelExcludedSearchTermsNoResults": "Результаты не найдены.",
             "labelSearchableContent": "Содержимое с возможностью поиска",
-            "textDescriptionSearchableContent": "Все содержимое с возможностью поиска приведено в таблице ниже. Чтобы настроить результаты поиска в вашем Storefront, продолжайте и либо исключите контент из возможности поиска вообще, либо настройте ранжирование каждого отдельного элемента по своему вкусу. Элементы более высокого ранга имеют повышенное «значение поиска» и будут размещать выше в результатах поиска.",
+            "textDescriptionSearchableContent": "Все содержимое с возможностью поиска приведено в таблице ниже. Чтобы настроить результаты поиска в ваших каналах продаж, продолжайте и либо исключите контент из возможности поиска вообще, либо настройте ранжирование каждого отдельного элемента по своему вкусу. Элементы более высокого ранга имеют повышенное «значение поиска» и будут размещать выше в результатах поиска.",
             "buttonResetDefault": "Сброс к умолчанию",
             "linkExample": "Показать пример",
-            "buttonAddContent": "Добавить содержимое",
+            "buttonAddContent": "Добавление содержимого с возможностью поиска",
             "labelGeneralTab": "Генеральной",
             "labelCustomFieldsTab": "Настраиваемые поля",
             "textEmptyStateSearchableContent": "Содержимое с возможностью поиска еще не добавлено.",
             "titleExampleModal": "Пример ранжирования поиска",
-            "textColumnSearchTerm": "Термины поиска",
+            "textColumnSearchTerm": "Исключенные условия поиска",
             "modal": {
                 "textExplain": "Ниже вы найдете три вымышленных результата поиска по поисковому запросу «jeans». С возможностью поиска - это названия продуктов (рейтинг 100), описания продуктов (рейтинг 50) и теги продуктов (рейтинг 20).",
                 "textTitle": "Название",
-                "textSuperJeans": "супер джинсы",
+                "textSuperJeans": "Супер джинсы",
                 "textDescription": "Описание",
-                "textFancyJeans": "причудливые джинсы",
+                "textFancyJeans": "Необычные джинсы",
                 "textTag": "Тег",
                 "textJeans": "Джинсы",
                 "textTotal": "Итого",
                 "textProductRankedFirstScore": "Продукт, занявший первое место, имеет поисковый хит в каждой сущности с возможностью поиска, в результате чего общий рейтинг составляет 170.",
-                "textFancyPants": "модные брюки",
+                "textFancyPants": "Причудливые брюки",
                 "textProductRankedSecondScore": "Продукт, занявший второе место, имеет поисковые хиты по названию продукта и тегам продукта, в результате чего общий рейтинг составляет 120.",
                 "textSuperPants": "Супер брюки",
                 "textProductRankedThirdScore": "Продукт, занявший третье место, имеет только один хит в тегах продуктов, в результате чего общий рейтинг раВЕН 20."
             },
             "labelSearchIndex": "Поисковый индекс",
             "buttonRebuildSearchIndex": "Перестроить поисковый индекс",
-            "textWarningOpenTab": "Пожалуйста, держите это окно/вкладку открытой.",
-            "textRebuildSearchIndexDescription": "Перестроение индекса поиска занимает немного времени. В течение этого времени необходимо держать это окно/вкладку открытой, чтобы успешно перестроить поисковый индекс. Вы будете уведомлены, как только процесс будет завершен.",
+            "textWarningOpenTab": "Пожалуйста, держите это окно открытым.",
+            "textRebuildSearchIndexDescription": "Перестроение индекса поиска занимает некоторое время. В течение этого времени необходимо держать это окно открытым, чтобы успешно перестроить поисковый индекс. Вы будете уведомлены, как только процесс будет завершен.",
             "textRebuildingSearchIndex": "Перестроение индекса поиска",
             "textLastedBuild": "Последняя сборка:",
+            "textSearchNotIndexedYet": "Поиск еще не проиндексирован.",
             "list": {
                 "columnSearchable": "Возможность поиска",
-                "columnRankingPoints": "Рейтинговые очки",
+                "columnRankingPoints": "Рейтинг балла",
                 "columnContent": "Содержимое",
-                "columnSplitKeywords": "Разделить ключевые слова",
+                "columnSplitKeywords": "Разделить поисковые термины",
                 "textResetRanking": "Сброс рейтинга",
                 "textRemove": "Удалить"
             },
             "configFields": {
-                "name": "Имя",
-                "description": "Описание",
+                "name": "Наименование продукта",
+                "description": "Описание продукта",
                 "productNumber": "Номер продукта",
                 "manufacturerNumber": "Номер изготовителя",
-                "ean": "EAN",
-                "customSearchKeywords": "Пользовательские ключевые слова поиска",
+                "ean": "Продукт EAN",
+                "customSearchKeywords": "Пользовательские поисковые термины",
                 "manufacturerName": "Название изготовителя",
                 "manufacturerCustomFields": "Настраиваемые поля производителя",
-                "categoriesName": "Название категорий",
-                "categoriesCustomFields": "Категории настраиваемые поля",
-                "tagsName": "Имя тега",
-                "metaTitle": "Мета название",
-                "metaDescription": "Мета-описание",
+                "categoriesName": "Название категории",
+                "categoriesCustomFields": "Настраиваемые поля категорий",
+                "tagsName": "Тег продукта",
+                "metaTitle": "Мета-название продукта",
+                "metaDescription": "Мета-описание продукта",
                 "propertiesName": "Имя свойства",
-                "variantValue": "Значение варианта"
+                "variantValue": "Значение свойства"
             }
         },
         "notification": {
             "saveSuccess": "Конфигурация сохранена.",
-            "excludedTermRequired": "Исключенный термин не должен быть пустым.",
-            "excludedTermAlreadyExists": "Исключенный термин уже существует.",
-            "updateExcludedTermSuccess": "Исключено успешное обновление термина.",
-            "createExcludedTermSuccess": "Исключенный термин создает успех.",
-            "deleteExcludedTermSuccess": "Исключенный термин удаление успешно.",
+            "excludedTermRequired": "Исключенные условия поиска не должны быть пустыми.",
+            "excludedTermAlreadyExists": "Исключенный поисковый запрос уже существует.",
+            "updateExcludedTermSuccess": "Исключенный поисковый запрос обновлен.",
+            "createExcludedTermSuccess": "Создан исключенный поисковый запрос.",
+            "deleteExcludedTermSuccess": "Исключенный поисковый запрос удален.",
             "saveError": "Произошла ошибка при сохранении конфигурации.",
             "index": {
                 "started": "Построение индексов продукции.",
@@ -4069,14 +4196,14 @@
             "loadError": "Произошла ошибка при загрузке конфигурации."
         },
         "liveSearchTab": {
-            "titleCard": "Поиск в реальном времени в магазине",
-            "textDescription": "Проверьте свои пользовательские настройки поиска ниже. Если вы только что внесли изменения в настройки поиска, обязательно сохраните эти настройки перед тестированием с помощью этого поиска в реальном времени.",
+            "titleCard": "Поиск канала продаж в реальном времени",
+            "textDescription": "Проверьте свои пользовательские настройки поиска ниже.",
             "labelSalesChannelSelect": "Канал продаж",
-            "textPlaceholderSalesChannel": "Пожалуйста, выберите канал продаж для тестирования поиска в реальном времени",
+            "textPlaceholderSalesChannel": "Выберите канал продаж...",
             "linkRebuildSearchIndex": "Перестроить поисковый индекс",
-            "labelName": "Имя",
-            "labelScore": "Счет",
-            "textNoResult": "Нет результатов для введенных ключевых слов. Пожалуйста, попробуйте другое ключевое слово (ы)"
+            "labelName": "Результат поиска",
+            "labelScore": "Рейтинг балла",
+            "textNoResult": "Результаты не найдены. Повторите попытку с другим поисковым запросом."
         }
     },
     "sw-settings-mailer": {
@@ -4113,8 +4240,6 @@
             "password-placeholder": "Введите пароль...",
             "encryption": "Шифрование",
             "encryption-placeholder": "Выберите метод шифрования...",
-            "authentication": "Метод аутентификации",
-            "authentication-placeholder": "Выберите способ аутентификации...",
             "sender-address": "Адрес отправителя",
             "sender-address-placeholder": "Введите адрес электронной почты, к которому у вас есть доступ...",
             "delivery-address": "Адрес доставки",
@@ -4126,12 +4251,6 @@
             "no-encryption": "Без шифрования",
             "ssl": "SSL",
             "tls": "TLS"
-        },
-        "authentication": {
-            "no-authentication": "Нет аутентификации",
-            "plain": "Обычное",
-            "login": "Логин",
-            "cram-md5": "Cram MD5"
         },
         "helpText": "Для получения дополнительной информации смотрите <a href='https://docs.shopware.com/en/shopware-6-en'>документация</a>"
     },
@@ -4149,42 +4268,44 @@
         "my-extensions": {
             "listing": {
                 "initialSearchType": "Расширения",
-                "placeholderSearchBar": "Расширения поиска…",
+                "placeholderSearchBar": "Расширения поиска...",
                 "controls": {
                     "labelActiveStateSwitch": "Скрыть неактивные расширения",
                     "filterOptions": {
                         "last-updated": "Последнее обновление",
-                        "name-asc": "Имя расширения, asc.",
-                        "name-desc": "Имя расширения, desc."
+                        "name-asc": "Имя А - Я.",
+                        "name-desc": "Имя Z - A."
                     }
-                }
+                },
+                "version": "Версия",
+                "update": "Обновить"
             },
             "account": {
                 "headline": "Учетная запись магазина",
-                "isLoggedIn": "Учетная запись успешно подключена. Перейдите на вкладку «Приложение» или «Темы» и проверьте, есть ли в списке приобретенные расширения. Если нет, перейдите в свою учетную запись Showare и убедитесь, что установлен правильный домен для расширений.",
+                "isLoggedIn": "Учетная запись Shopware успешно подключена. Перейдите на вкладку «Приложение» или «Темы» и проверьте, есть ли в списке приобретенные расширения. Если нет, перейдите в свою учетную запись Showare и убедитесь, что установлен правильный домен для расширений.",
                 "login": "Войти",
                 "logout": "Выход из системы",
-                "loginMessage": "Войдите в свою учетную запись Shopware, чтобы получить доступ к расширениям, которые вы купили на store.shopware.com",
-                "register": "Зарегистрируйтесь и станьте частью сообщества Shopware!",
-                "registerNow": "Зарегистрироваться сейчас",
+                "loginMessage": "Войдите в свою учетную запись Shopware, чтобы получить доступ к расширениям, приобретенным на store.shopware.com",
+                "register": "Зарегистрируйтесь сейчас и станьте частью сообщества Shopware!",
+                "registerNow": "Зарегистрируйтесь сейчас",
                 "registerUrl": "https://account.shopware.com/register?lang=en",
                 "mailLabel": "Адрес электронной почты",
-                "mailPlaceholder": "Введите свой адрес электронной почты…",
+                "mailPlaceholder": "Введите свой адрес электронной почты...",
                 "passwordLabel": "Пароль",
-                "passwordPlaceholder": "Введите пароль…",
+                "passwordPlaceholder": "Введите пароль...",
                 "recoveryUrl": "https://account.shopware.com/recovery?lang=en",
                 "passwordForgot": "Вы забыли свой пароль?",
                 "loginNotificationMessage": "Вы вошли в учетную запись Shopware."
             },
             "tabs": {
-                "app": "Приложение",
-                "theme": "Тема",
+                "app": "Приложения",
+                "theme": "Темы",
                 "recommendation": "Рекомендации",
                 "shopwareAccount": "Учетная запись магазина"
             },
             "fileUpload": {
-                "buttonFileUpload": "Загрузить плагин",
-                "messageUploadSuccess": "Плагин был загружен."
+                "buttonFileUpload": "Загрузить расширение",
+                "messageUploadSuccess": "Расширение загружено."
             }
         },
         "errors": {
@@ -4192,19 +4313,19 @@
             "messageGenericFailure": "Это не сработало.",
             "messageUploadFailureNotAZipFile": "Загруженный файл не является ZIP-файлом.",
             "messageUploadFailureUnzipFailed": "Не удается извлечь ZIP-файл.",
-            "messageUploadFailureNoPluginFoundInZipFile": "Плагин не найден в ZIP-файле.",
+            "messageUploadFailureNoPluginFoundInZipFile": "Расширение в ZIP-файле не найдено.",
             "messageLoginDataInvalid": "Данные для входа неполны.",
             "messageStoreLicenseDomainMissing": "Не удалось войти в систему. Вы предоставили правильный домен лицензии из своей учетной записи Shopware в разделе «Настройки/Аккаунт Shopware»?",
             "messageStoreNotAvailable": "Магазин Shopware недоступен.",
-            "messagePluginBaseClassNotFound": "Не удалось загрузить базовый класс плагина. Проверьте свой плагин composer.json относительно автозагрузки класса",
-            "messagePluginInstallationFailed": "Не удалось установить плагин из-за сообщения об ошибке «{message}»",
-            "messagePluginUninstallationFailed": "Плагин не может быть удален из-за сообщения об ошибке «{message}»",
-            "messagePluginActivationFailed": "Плагин не может быть активирован из-за сообщения об ошибке «{message}»",
-            "messagePluginDeactivationFailed": "Плагин не может быть деактивирован из-за сообщения об ошибке «{message}»",
-            "messageDeactivationFailedDependencies": "Плагин «{dependency}» не может быть деактивирован, потому что в зависимости от него есть и другие плагины. Пожалуйста, деактивируйте следующие плагины перед перезапуском обновления: {dependantNames}",
+            "messagePluginBaseClassNotFound": "Не удалось загрузить базовый класс расширения. Проверьте свой плагин composer.json относительно автозагрузки класса.",
+            "messagePluginInstallationFailed": "Не удалось установить расширение: «{message}».",
+            "messagePluginUninstallationFailed": "Не удалось удалить расширение: «{message}».",
+            "messagePluginActivationFailed": "Не удалось активировать расширение: «{message}».",
+            "messagePluginDeactivationFailed": "Расширение не может быть деактивировано: «{message}».",
+            "messageDeactivationFailedDependencies": "Расширение «{dependency}» не может быть деактивировано, так как в зависимости от него есть и другие расширения. Перед перезапуском обновления отключите следующие расширения: {dependantNames}",
             "messageDeactivationFailedThemeAssignment": "Не удается деактивировать или удалить тему «{themeName}». Пожалуйста, удалите следующие назначения темы: {assignments}.",
-            "messagePluginUpdateFailed": "Плагин не может быть обновлен из-за сообщения об ошибке «{message}». {pluginDeactivatedHint}",
-            "pluginDeactivatedHint": "Плагин был деактивирован."
+            "messagePluginUpdateFailed": "Не удалось обновить расширение: «{message}». {pluginDeactivatedHint}",
+            "pluginDeactivatedHint": "Расширение деактивировано."
         },
         "mainMenu": {
             "mainMenuItemExtensionStore": "Расширения",
@@ -4214,6 +4335,20 @@
         }
     },
     "sw-extension-store": {
+        "landing-page": {
+            "enablingShopwareStore": "Активация магазина Shopware...",
+            "takeMinutes": "Это может занять несколько минут.",
+            "activationErrorTitle": "Ошибка при активации",
+            "activationErrorDescription": "Пожалуйста, повторите попытку. Если это не сработает, обратитесь за помощью к администратору.",
+            "retryButton": "Повторить",
+            "activationSuccessTitle": "Активировано успешно",
+            "activationSuccessDescription": "Получайте удовольствие от изучения магазина Shopware Store.",
+            "label": "Теперь доступно",
+            "activationDescriptionTitleFirst": "Изучайте и покупайте расширения легко -",
+            "activationDescriptionTitleSecond": "прямо из вашего собственного магазина Shopware.",
+            "activationDescriptionTitleDescription": "Активируйте новый Shopware Store и получите доступ к множеству полезных расширений и современных тем, которые могут быть интегрированы в ваш магазин без каких-либо навыков программирования.",
+            "activate": "Активировать"
+        },
         "title": "Магазин",
         "descriptionTextModule": "Управление расширениями",
         "listing": {
@@ -4228,7 +4363,7 @@
                 "releaseDateDesc": "Дата выхода новейшая - самая старая",
                 "nameAsc": "Имя А - Я",
                 "nameDesc": "Имя Z - A",
-                "ratingAsc": "Низкий рейтинг - высокий",
+                "ratingAsc": "Рейтинг низкий - высокий",
                 "ratingDesc": "Рейтинг высокий - низкий"
             }
         },
@@ -4237,7 +4372,7 @@
             "labelButtonOpenExtension": "Открыть расширение",
             "labelButtonInstallExtension": "Установить расширение",
             "labelBy": "от",
-            "numberOfRatings": "{count} Отзыв | {count} Отзывы",
+            "numberOfRatings": "{count} отзыв | {count} отзывы",
             "noRatings": "Пока нет оценок",
             "cardTitleInformation": "Информация",
             "labelButtonReadMore": "Подробнее",
@@ -4248,7 +4383,7 @@
                 "labelUpdatedAt": "Последнее обновление",
                 "labelLanguages": "Языки",
                 "labelWebsite": "Сайт разработчика",
-                "labelPrivacy": "Конфиденциальная ссылка"
+                "labelPrivacy": "Политика конфиденциальности"
             },
             "cardTitleFAQ": "ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ",
             "cardTitleChangelog": "Журнал изменений",
@@ -4262,7 +4397,7 @@
             },
             "sw-extension-buy-modal": {
                 "title": "Добавить расширение",
-                "labelAcceptPermissions": "Я знаю, что это расширение нуждается в разрешениях",
+                "labelAcceptPermissions": "Я знаю, что это расширение нуждается в дополнительных разрешениях",
                 "labelAcceptPrivacyExtensions": "Я знаю, что мне нужно расширить свою политику конфиденциальности",
                 "buttonShowPrivacyExtensions": "Показать подробности",
                 "variantCard": {
@@ -4274,7 +4409,7 @@
                 "variantSummary": {
                     "labelVat": "плюс НДС",
                     "labelPrice": "Цена",
-                    "renewal": "Продление {renewalDate}"
+                    "renewal": "Продление на {renewalDate}"
                 },
                 "purchaseButtonsLabels": {
                     "free": "Добавить расширение бесплатно",
@@ -4282,23 +4417,23 @@
                     "buy": "Купить расширение сейчас"
                 },
                 "successNotification": {
-                    "titleSuccess": "Расширения успешно добавлены!",
+                    "titleSuccess": "Расширение успешно добавлено!",
                     "subtitleSuccess": "Теперь вы можете попробовать новое расширение.",
                     "labelButtonBack": "Вернуться к деталям"
                 },
                 "alertCanNotBuy": {
-                    "text": "Вы должны войти в систему в Магазине, чтобы сделать это",
+                    "text": "Вы должны войти в Магазин, чтобы сделать это",
                     "linkChoosePLan": "Выберите план"
                 }
             },
             "sw-extension-adding-failed": {
-                "titleFailure": "Не удалось добавить расширение",
+                "titleFailure": "Не удалось добавить расширение ",
                 "textProblem": "Возникла проблема при добавлении расширения.",
                 "installationFailed": {
                     "titleFailure": "Не удалось установить",
                     "textProblem": "Возникла проблема при установке расширения. Мы сообщим об этом производителю.",
-                    "notificationLicense": "Обратите внимание, что подписка на это приложение или тему остается активной.",
-                    "textSupport": "Если у вас есть какие-либо вопросы о лицензии, пожалуйста, свяжитесь с Shopware Financial Services. Доступно по электронной почте {0} или по телефону {1}.",
+                    "notificationLicense": "Обратите внимание, что подписка на это расширение остается активной.",
+                    "textSupport": "Если у вас есть какие-либо вопросы о лицензии, пожалуйста, свяжитесь с Shopware Financial Services. Доступно по электронной почте по телефону {0} или по телефону {1}.",
                     "supportEmail": "financial.services@shopware.com",
                     "supportPhone": "+49 (0) 2555/ 9288510"
                 }
@@ -4315,7 +4450,7 @@
                     "submitBtn": "Отправить"
                 },
                 "sw-extension-ratings-summary": {
-                    "labelRating": "Нет оценок | {numberOfRatings} Рейтинг | {numberOfRatings} Рейтинги"
+                    "labelRating": "Нет оценок | {numberOfRatings} рейтинг | {numberOfRatings} рейтинги"
                 },
                 "sw-extension-review": {
                     "labelLastChangeDate": "По {author} на {lastChangeDate}",
@@ -4328,6 +4463,7 @@
                     "labelNoReviews": "Это расширение еще не получило никаких оценок или отзывов."
                 },
                 "sw-extension-review-creation-inputs": {
+                    "title": "Продление ставки",
                     "labelHeadline": "Заголовок",
                     "placeholderHeadline": "Введите короткий заголовок...",
                     "labelRating": "Рейтинг",
@@ -4340,8 +4476,8 @@
             "sw-extension-card-base": {
                 "subscriptionLabel": "Подписка:",
                 "inactiveLabel": "(неактивный)",
-                "purchasedLabel": "Приобретено: ",
-                "installedLabel": "Установлено: ",
+                "purchasedLabel": "Приобретено на ",
+                "installedLabel": "Устанавливается на ",
                 "openExtensionLabel": "Открыть приложение",
                 "installExtensionLabel": "Установить приложение",
                 "labelAcceptAndInstall": "Принять и установить",
@@ -4349,7 +4485,7 @@
                     "getHelpLabel": "Получить помощь",
                     "seeDetailsLabel": "См. подробности",
                     "config": "Конфигурация",
-                    "privacyAndSafetyLabel": "Конфиденциальность и безопасность",
+                    "privacyAndSafetyLabel": "Конфиденциальность и безопасность данных",
                     "removeLabel": "Удалить",
                     "cancelAndRemoveLabel": "Отмена и удаление",
                     "uninstallLabel": "Удалить",
@@ -4362,18 +4498,18 @@
             "sw-extension-deactivation-modal": {
                 "deactivateExtensionLabel": "Деактивировать «{extensionName}»",
                 "description": "Расширение «{extensionName}» имеет ежемесячную абонентскую плату.<br>Деактивация расширения <b>не приведет к</b> отмене подписки и сборы будут продолжать взиматься!",
-                "descriptionCancel": "Если вы хотите отменить подписку вместо этого, вы можете удалить ее в контекстном меню в разделе «{removeLabel}».",
+                "descriptionCancel": "Если вы хотите отменить подписку, вы можете удалить ее через «{removeLabel}» в контекстном меню.",
                 "alertDeactivate": "Вы все еще хотите деактивировать расширение?",
                 "deactivateLabel": "Деактивировать"
             },
             "sw-extension-permissions-modal": {
                 "title": "{extensionLabel} разрешений",
-                "description": "{extensionLabel} получит доступ к следующим компонентам. Щелкните ссылку рядом с компонентом, чтобы отобразить сведения об объекте.",
+                "description": "{extensionLabel} будет иметь доступ к следующим компонентам. Щелкните ссылку рядом с компонентом, чтобы отобразить сведения об объекте.",
                 "textEntities": "Показать разрешения"
             },
             "sw-extension-privacy-policy-extensions-modal": {
                 "title": "{extensionLabel}: расширения политики конфиденциальности",
-                "intro": "Это приложение обрабатывает личную информацию. Производитель дает следующие советы для внесения изменений в вашу политику конфиденциальности:"
+                "intro": "Это приложение обрабатывает личную информацию. Производитель рекомендует внести изменения в вашу политику конфиденциальности:"
             },
             "sw-extension-permissions-details-modal": {
                 "operationRead": "Посмотреть",
@@ -4382,16 +4518,23 @@
                 "operationDelete": "Удалить"
             },
             "sw-extension-my-extensions-listing": {
-                "noActivePlugins": "Активных расширений нет.",
-                "titleEmptyState": "Приложения еще не установлены",
-                "textEmptyState": "Если вы устанавливаете приложения, они будут перечислены здесь.",
+                "apps": {
+                    "noActivePlugins": "Активные расширения не найдены.",
+                    "titleEmptyState": "Приложения еще не установлены",
+                    "textEmptyState": "Если вы устанавливаете приложения, они будут перечислены здесь."
+                },
+                "themes": {
+                    "noActivePlugins": "Активные темы не найдены.",
+                    "titleEmptyState": "Темы еще не установлены",
+                    "textEmptyState": "Если вы установите темы, они будут перечислены здесь."
+                },
                 "btnOpenStore": "Открыть магазин"
             },
             "sw-extension-removal-modal": {
                 "titleCancel": "«{extensionName}» отменить и удалить",
                 "titleRemove": "«{extensionName}» удалить",
                 "description": "Если вы удалите расширение, вы больше не сможете использовать его.",
-                "alertCancel": "Вы действительно хотите удалить расширение?",
+                "alertCancel": "Вы действительно хотите отменить и удалить расширение?",
                 "alertRemove": "Вы действительно хотите удалить расширение?",
                 "labelCancel": "Отмена и удаление",
                 "labelRemove": "Удалить"
@@ -4417,7 +4560,7 @@
                 "message": "Вы должны принять наши условия, чтобы продолжить."
             },
             "FRAMEWORK__EXTENSION_THEME_STILL_IN_USE": {
-                "message": "Тема в настоящее время по-прежнему используется в одном или нескольких каналах продаж."
+                "message": "Тема в настоящее время используется одним или несколькими каналами продаж."
             },
             "FRAMEWORK__INVALID_EXTENSION_ID": {
                 "message": "Недопустимый идентификационный номер добавочных номеров."
@@ -4459,39 +4602,39 @@
                 "message": "Выбранная ценовая модель не разрешена для расширения."
             },
             "SAAS_EXTENSION_ORDER__NO_DEFAULT_PAYMENT_MEAN": {
-                "message": "Средние платежные значения по умолчанию отсутствуют.",
-                "labelLink": "Настройка оплаты по умолчанию"
+                "message": "Способ оплаты по умолчанию недоступен.",
+                "labelLink": "Настройка способа оплаты по умолчанию"
             },
             "SAAS_EXTENSION_ORDER__INSUFFICIENT_BALANCE": {
-                "message": "Отсутствуют достаточные балансы."
+                "message": "Недостаточный баланс."
             },
             "SAAS_EXTENSION_REQUEST__INVALID_CONTENT": {
                 "message": "Необходимые данные запроса отсутствуют или недопустимы."
             },
             "SAAS_EXTENSION_INVALID_BASKET__MULTIPLE_LICENSES_OR_LICENSE_ALREADY_OWNED": {
-                "message": "Корзина недопустима, поскольку она содержит несколько лицензий или содержит уже принадлежащую лицензию."
+                "message": "Корзина недопустима, так как она содержит несколько лицензий или содержит уже принадлежащую лицензию."
             },
             "SAAS_EXTENSION_INVALID_BASKET__INVALID_ORDER_POSITION": {
-                "message": "Корзина недопустима из-за недопустимой позиции ордера."
+                "message": "Корзина недопустима из-за недопустимой позиции заказа."
             },
             "SAAS_EXTENSION_INVALID_BASKET__GENERAL": {
                 "message": "Недопустимая корзина."
             },
             "SAAS_EXTENSION_INVALID_BASKET__INVALID_COMPANY": {
-                "message": "Корзина недействительна, так как вашей компании не назначена страна."
+                "message": "Корзина недопустима, так как вашей компании не назначена страна."
             },
             "SAAS_EXTENSION_RATING__INVALID_EXTENSION": {
                 "message": "Ваш рейтинг не может быть сохранен, так как соответствующее расширение недопустимо."
             },
             "SAAS_COMPANY__MISSING": {
-                "message": "Отсутствует требуемая компания.",
+                "message": "Отсутствует обязательная выписка компании.",
                 "labelLink": "Назначить компанию"
             }
         }
     },
     "entityCategories": {
         "admin_user": {
-            "title": "Пользователь администратора",
+            "title": "Пользователь администрирования",
             "entities": {
                 "integration": "Интеграция",
                 "user": "Пользователь",
@@ -4535,7 +4678,7 @@
                 "customer_address": "Адрес",
                 "customer_group": "Группа клиентов",
                 "customer_group_translation": "Перевод группы клиентов",
-                "customer_group_registration_sales_channels": "Канал продаж регистрации группы клиентов",
+                "customer_group_registration_sales_channels": "Канал продаж для регистрации групп клиентов",
                 "customer_recovery": "Восстановление",
                 "customer_tag": "Тег"
             }
@@ -4593,8 +4736,8 @@
         "media": {
             "title": "Медиа",
             "entities": {
-                "media": "Медиа",
-                "media_translation": "Перевод средств массовой информации",
+                "media": "Средний",
+                "media_translation": "Средний перевод",
                 "media_default_folder": "Папка по умолчанию",
                 "media_folder": "Папка",
                 "media_folder_configuration": "Конфигурация папки",
@@ -4650,9 +4793,9 @@
                 "product_category": "Категория",
                 "product_category_tree": "Дерево категорий",
                 "product_configurator_setting": "Настройка конфигуратора",
-                "product_cross_selling": "Кросс-продажа",
-                "product_cross_selling_translation": "Перекрестные продажи перевода",
-                "product_cross_selling_assigned_products": "Перекрестная продажа назначенного перевода",
+                "product_cross_selling": "Кросс-продажи",
+                "product_cross_selling_translation": "Перекрестные продажи перевод",
+                "product_cross_selling_assigned_products": "Перекрестные продажи назначенный перевод",
                 "product_export": "Экспорт продукции",
                 "product_keyword_dictionary": "Словарь ключевых слов",
                 "product_manufacturer": "Производитель",
@@ -4710,15 +4853,15 @@
                 "sales_channel_payment_method": "Способ оплаты",
                 "sales_channel_shipping_method": "Способ доставки",
                 "sales_channel_translation": "Перевод канала продаж",
-                "sales_channel_type": "Тип",
-                "sales_channel_type_translation": "Тип перевода"
+                "sales_channel_type": "Тип канала продаж",
+                "sales_channel_type_translation": "Перевод типа канала продаж"
             }
         },
         "settings": {
             "title": "Настройки",
             "entities": {
                 "country": "Страна",
-                "country_state": "Штат страны",
+                "country_state": "Штат/провинция",
                 "currency": "Валюта",
                 "delivery_time": "Время доставки",
                 "language": "Язык",
@@ -4742,7 +4885,7 @@
                 "tax": "Налог",
                 "tax_rule": "Налоговое правило",
                 "tax_rule_type": "Тип налогового правила",
-                "unit": "Единица",
+                "unit": "Единицы масштабирования",
                 "version": "Версия"
             }
         },
@@ -4938,7 +5081,7 @@
             "placeholderSalesChannels": "Выберите каналы продаж...",
             "placeholderMailTemplate": "Выберите шаблон электронной почты...",
             "titleRecipientsCard": "ПОЛУЧАТЕЛИ электронной почты",
-            "textEmptyStateRecipients": "Дополнительных получателей для этого события пока нет. - Сообщения электронной почты клиентов будут отправляться независимо.",
+            "textEmptyStateRecipients": "Добавить альтернативных получателей - Если установлен набор клиентов письма будут поданы!",
             "columnRecipientName": "Имя",
             "columnRecipientMail": "Адрес электронной почты",
             "addRecipientButton": "Добавить получателя",
@@ -4948,7 +5091,7 @@
     },
     "sw-settings-logging": {
         "general": {
-            "mainMenuItemGeneral": "Вход",
+            "mainMenuItemGeneral": "Журналы событий",
             "placeholderSearchBar": "Поиск логов..."
         },
         "list": {
@@ -5175,6 +5318,7 @@
             "buttonNextPayPalInfo": "Настроить",
             "buttonBack": "Назад",
             "buttonInstall": "Установить",
+            "buttonActivate": "Активировать",
             "buttonFinish": "Завершить",
             "buttonConfigureLater": "Настроить позже",
             "pluginInstalled": "Установлено"
@@ -5183,16 +5327,16 @@
             "modalTitle": "Добро пожаловать",
             "headlineWelcome": "Добро пожаловать в администрирование Shopware 6",
             "messageWelcome": "Этот мастер проведет вас через настройку и попытается помочь с наиболее важными настройками.<br>Вы хотите использовать свой магазин на другом языке и привлекать клиентов в других странах? Затем просто установите здесь нужные языковые пакеты.",
-            "headlineChangeLanguage": "Установить дополнительные языковые плагины",
+            "headlineChangeLanguage": "Установка дополнительных языков",
             "switchLanguageModalTitle": "Выберите язык интерфейса",
             "confirmLanguageSwitch": "Изменить язык",
             "cancelLanguageSwitch": "Отменить",
             "switchLanguageMessage": "\"{pluginName}\" успешно установлен. Хотите изменить язык интерфейса?",
-            "pluginsInstalled": "Плагин установлен | Установленные плагины",
-            "pluginsInstalledMessage": "Языковой плагин был установлен: | Эти языковые плагины были установлены: ",
-            "pluginNotFoundMessage": "Плагин языка для {languageName} не найден.",
-            "pluginInstallationFailedMessage": "Плагин не может быть установлен: ",
-            "pluginActivationFailedMessage": "Плагин не может быть активирован: ",
+            "pluginsInstalled": "Установлено расширение | Установлены расширения",
+            "pluginsInstalledMessage": "Установлено расширение языка: | Установлены следующие языковые расширения: ",
+            "pluginNotFoundMessage": "Не удалось найти расширение языка {languageName}.",
+            "pluginInstallationFailedMessage": "Не удалось установить расширение: ",
+            "pluginActivationFailedMessage": "Расширение не может быть активировано: ",
             "tryAgainLater": "Пожалуйста повторите попытку позже.",
             "noConnectionMessage": "Кажется, есть проблемы с подключением, не удалось установить язык."
         },
@@ -5204,7 +5348,7 @@
             "headlineMigration": "Перенос данных магазина",
             "messageMigration": "Помощник по миграции поможет вам подключиться к предыдущей торговой системе и перенести данные из нее прямо в новую среду Shopware 6.",
             "buttonInstallMigration": "Установить помощника по миграции",
-            "loadingMessage": "Установка плагина<br>Это может занять некоторое время..."
+            "loadingMessage": "Установка расширения<br>Это может занять некоторое время..."
         },
         "mailerSelection": {
             "headline": "Установление электронной почты",
@@ -5241,7 +5385,7 @@
         },
         "recommendedPlugins": {
             "headline": "Наши рекомендации",
-            "modalTitle": "Плагины",
+            "modalTitle": "Расширения",
             "message": "Вот подборка полезных расширений для вашего магазина. Для начала выберите актуальный для вас регион. Затем вы можете просматривать разные категории.",
             "availableInRegion": "Доступно в регионе",
             "category": "Категория",
@@ -5271,6 +5415,24 @@
             "labelCreateDomain": "Создать новый домен магазина",
             "testEnvironment": "Тестовое окружение"
         },
+        "store": {
+            "modalTitle": "Магазин Shopware",
+            "loadStatusCollect": "Сбор информации о магазине...",
+            "takeMinutes": "Это может занять несколько минут.",
+            "alreadyActivated": "Хранилище уже успешно активировано.",
+            "enablingStore": "Включение магазина Shopware... ",
+            "activationErrorTitle": "Ошибка при активации",
+            "activationErrorDescription": "Обратитесь за помощью к администратору.",
+            "headingOne": "Изучайте и покупайте расширения легко -",
+            "headingTwo": "прямо из вашего собственного магазина Shopware.",
+            "description": "Активируйте новый Shopware Store и получите доступ к множеству полезных расширений и современных тем, которые могут быть интегрированы в ваш магазин без каких-либо навыков программирования."
+        },
+        "markets": {
+            "modalTitle": "Рынки магазинов",
+            "heading": "Рынки магазинов",
+            "description": "Shopware Markets позволяет подключить ваш магазин к торговым площадкам Amazon и eBay - при этом делая передачу продуктов и заказов максимально удобной.<br>Shopware Markets был разработан для дальнейшего развития вашего бизнеса с помощью каналов продажа*¹.",
+            "footnote": "*¹ Для использования добавленных каналов продаж Shopware Markets требуется платная подписка."
+        },
         "finish": {
             "headlineAllDone": "Готово!",
             "message": "Ваша Shopware 6 {edition} проверена.",
@@ -5282,14 +5444,17 @@
             "forumLabel": "Форум",
             "forumUrl": "https://forum.shopware.com/",
             "roadmapLabel": "Дорожная карта",
-            "roadmapUrl": "https://www.shopware.com/en/roadmap/"
+            "roadmapUrl": "https://www.shopware.com/en/roadmap/",
+            "modalTitle": "Готово"
         },
         "stepItemTitle": {
             "dataImport": "Импорт данных",
             "mailer": "Конфигурация Почты",
             "setupPaypal": "Настройка PayPal",
-            "plugins": "Плагины",
-            "shopware": "Учетная запись магазина"
+            "plugins": "Расширения",
+            "shopware": "Учетная запись магазина",
+            "store": "Магазин Shopware",
+            "markets": "Рынки магазинов"
         }
     },
     "sw-sales-channel": {
@@ -6037,7 +6202,7 @@
             "messageSaveError": "Клиент не может быть сохранен.",
             "messageSaveSuccess": "Клиент \"{name}\" был сохранен.",
             "notificationPasswordErrorMessage": "Отправленные пароли не совпадают.",
-            "notificationPasswordLengthErrorMessage": "Представленный пароль не соответствует минимальной длине 8."
+            "notificationPasswordLengthErrorMessage": "Представленный пароль не соответствует минимальной длине в восемь символов."
         },
         "filter": {
             "salutation": {
@@ -6067,7 +6232,9 @@
             "tags": {
                 "label": "Теги",
                 "placeholder": "Выбрать теги..."
-            }
+            },
+            "messageEmptyTitle": "Ничего не найдено",
+            "messageEmptySubline": "Отредактируйте фильтры, чтобы найти результаты."
         }
     },
     "sw-settings-document": {
@@ -6719,27 +6886,20 @@
         },
         "roles": {
             "general": {
-                "labelCreateNewRole": "Создать новую роль",
+                "labelCreateNewRole": "Создать роль",
                 "cardLabel": "Роли"
             },
             "role-grid": {
                 "labelName": "Название",
                 "labelDescription": "Описание",
                 "messageEmptyTitle": "Пока нет ролей",
+                "messageEmptySubline": "Создайте роли, чтобы начать управление правами пользователей.",
                 "contextMenuEdit": "Редактировать",
                 "contextMenuDelete": "Удалить",
                 "titleModalDelete": "Удалить роль",
                 "textModalDelete": "Вы действительно хотите удалить правило \"{name}\"?",
                 "labelButtonCancel": "Отменить",
-                "labelButtonDelete": "Удалить",
-                "notification": {
-                    "deleteSuccess": {
-                        "message": "Роль \"{name}\" была удалена."
-                    },
-                    "deleteError": {
-                        "message": "Ошибка при удалении роли \"{name}\"."
-                    }
-                }
+                "labelButtonDelete": "Удалить"
             },
             "detail": {
                 "role": "Роль",
@@ -6760,7 +6920,7 @@
             },
             "view": {
                 "detailed": {
-                    "alertText": "В этом представлении привилегии могут быть настроены подробно. Такая конфигурация необходима только в исключительных ситуациях. Если, например, в системе используются расширения, которые добавляют новые наборы данных, но не имеют привилегий, они могут быть настроены здесь. Все деактивированные флажки являются разрешениями, которые уже были назначены на вкладке «Общие»."
+                    "alertText": "Подробно настройте привилегии. Все деактивированные флажки являются разрешениями, которые уже назначены на вкладке «Общие» и не настраиваются. Эта конфигурация необходима только в том случае, если, например, используются расширения, которые добавляют новые наборы данных, но не имеют привилегий, они могут быть настроены здесь."
                 }
             },
             "tabs": {
@@ -6791,10 +6951,7 @@
                 "labelButtonDelete": "Удалить",
                 "notification": {
                     "deleteSuccess": {
-                        "message": "Пользователь \"{name}\" был удален."
-                    },
-                    "deleteError": {
-                        "message": "Произошла ошибка при удалении пользователя \"{name}\"."
+                        "message": "Пользователь «{name}» удален."
                     },
                     "deleteUserLoggedInError": {
                         "message": "Пользователи не могут удалить себя."
@@ -6806,7 +6963,7 @@
                 "labelIntegrationsCard": "Интеграции",
                 "labelFirstName": "Имя",
                 "labelLastName": "Фамилия",
-                "labelEmail": "Эл. почта",
+                "labelEmail": "Адрес электронной почты",
                 "errorEmailUsed": "Этот адрес электронной почты уже используется.",
                 "errorUsernameUsed": "Это имя пользователя уже используется.",
                 "labelUsername": "Имя пользователя",
@@ -6821,17 +6978,19 @@
                 "labelNewPassword": "Новый пароль",
                 "labelNewUser": "Новый пользователь",
                 "placeholderNewPassword": "Введите новый пароль...",
-                "placeholderNewPasswordConfirm": "Повторно введите новый пароль...",
+                "placeholderNewPasswordConfirm": "Подтвердить новый пароль...",
                 "labelButtonCancel": "Отменить",
                 "labelButtonChangePassword": "Изменить",
                 "labelButtonSave": "Сохранить",
+                "writeAccess": "Написать",
+                "readAccess": "Читать",
                 "contextMenuEdit": "Редактировать",
                 "contextMenuDelete": "Удалить",
                 "textChangePassword": "Нажатие кнопки «изменить» сразу же сохранит новый пароль!",
-                "addAccessKey": "Новый ключ доступа",
+                "addAccessKey": "Создать ключ доступа",
                 "labelAccessKey": "Ключ доступа",
                 "labelPermissions": "Права",
-                "disabledRoleSelectWarning": "Роли доступны только для пользователей, не являющихся «администраторами».",
+                "disabledRoleSelectWarning": "Роли доступны только для пользователей, не имеющих прав администратора.",
                 "passwordConfirmation": {
                     "titleConfirmPasswordModal": "Введите текущий пароль для подтверждения",
                     "labelConfirmPassword": "Пароль",
@@ -6853,18 +7012,18 @@
                     "hintCreateNewApiKeys": "Для создания новых ключей доступа к API рекомендуется обновить все связанные скрипты и приложения.",
                     "labelFieldLabel": "Название",
                     "idFieldLabel": "ID ключа доступа",
-                    "secretFieldLabel": "Секретный ключ доступа",
+                    "secretFieldLabel": "Ключ безопасного доступа",
                     "secretHelpText": "Пожалуйста, скопируйте ключ доступа сейчас. По соображениям безопасности он больше не будет отображаться после сохранения.",
-                    "messageSaveSuccess": "Интеграция была сохранена.",
+                    "messageSaveSuccess": "Интеграция сохранена.",
                     "messageSaveError": "Невозможно сохранить интеграцию.",
                     "messageCreateNewError": "Невозможно сохранить интеграцию."
                 },
                 "notification": {
                     "saveError": {
-                        "message": "Произошла ошибка при сохранении пользователя \"{name}\"."
+                        "message": "Не удалось сохранить пользователя «{name}»."
                     },
                     "saveSuccess": {
-                        "message": "Пользователь \"{name}\" был сохранен."
+                        "message": "Пользователь «{name}» сохранен."
                     },
                     "invalidEmailErrorMessage": "Пожалуйста введите действительный адрес электронной почты.",
                     "duplicateEmailErrorMessage": "Этот электронный адрес уже был использован."
@@ -6902,143 +7061,6 @@
             "labelUseAsLogo": "Использовать как логотип"
         }
     },
-    "sw-plugin": {
-        "general": {
-            "mainMenuItemGeneral": "Плагины",
-            "mainMenuPluginList": "Установлено",
-            "mainMenuLicenseList": "Мои лицензии",
-            "descriptionTextModule": "Управление плагинами здесь",
-            "placeholderSearchBar": "Поиск плагинов...",
-            "tabList": "Мои плагины",
-            "tabLicenses": "Лицензии",
-            "tabUpdates": "Обновления",
-            "version": "Версии",
-            "accountLink": "https://account.shopware.com/?lang=en",
-            "accountLabel": "Перейти в аккаунт Shopware",
-            "login": "Войти",
-            "logout": "Выйти",
-            "messageDownloadSuccess": "Плагин загружен.",
-            "downloadButton": "Скачать",
-            "recommendationsLabel": "Рекомендации",
-            "storeLink": "https://store.shopware.com/en",
-            "storeLabel": "Магазин Shopware",
-            "storeNotAvailable": "Не удалось подключиться к магазину Shopware.",
-            "loggedIn": "Вы вошли как"
-        },
-        "errors": {
-            "messageToTheShopwareDocumentation": "<a href=\"{documentationLink}\" target=\"_blank\">Открыть документацию Shopware</a>",
-            "messageGenericFailure": "Это не работает.",
-            "messageUploadFailureNotAZipFile": "Загруженный файл не является ZIP файлом.",
-            "messageUploadFailureUnzipFailed": "Не удалось извлечь ZIP файл.",
-            "messageUploadFailureNoPluginFoundInZipFile": "Плагин не найден в ZIP файле.",
-            "messageLoginDataInvalid": "Данные входа неполные.",
-            "messageStoreLicenseDomainMissing": "Не удалось войти. Вы указали корректный домен лицензии из учетной записи Shopware в разделе \"Настройки/Shopware\"?",
-            "messageStoreNotAvailable": "Магазин Shopware не доступен.",
-            "messagePluginBaseClassNotFound": "Класс базы плагинов не может быть загружен. Проверьте ваш composer.json относительно класса автозагрузки",
-            "messagePluginInstallationFailed": "Плагин не может быть установлен из-за сообщения об ошибке \"{message}\"",
-            "messagePluginUninstallationFailed": "Плагин не может быть удален из-за сообщения об ошибке \"{message}\"",
-            "messagePluginActivationFailed": "Плагин не может быть активирован из-за сообщения об ошибке \"{message}\"",
-            "messagePluginDeactivationFailed": "Плагин не может быть деактивирован из-за сообщения об ошибке \"{message}\"",
-            "messageDeactivationFailedDependencies": "Плагин \"{dependency}\" не может быть деактивирован, потому что есть другие плагины в зависимости от него. Пожалуйста, деактивируйте следующие плагины перед перезапуском обновления: {dependantNames}",
-            "messagePluginUpdateFailed": "Плагин не может быть обновлен из-за сообщения об ошибке \"{message}\". {pluginDeactivatedHint}",
-            "pluginDeactivatedHint": "Плагин был деактивирован."
-        },
-        "fileUpload": {
-            "buttonFileUpload": "Загрузить плагин",
-            "messageUploadSuccess": "Плагин был загружен.",
-            "buttonRefreshPlugins": "Обновить обзор"
-        },
-        "store-login": {
-            "headline": "Учетная запись Shopware - Вход",
-            "information": "Учетная запись Shopware является вашим основным центром взаимодействия со всеми сервисами Shopware.",
-            "loginMessage": "Вы вошли в аккаунт Shopware.",
-            "labelEmailAddress": "Адрес электронной почты",
-            "placeholderEmailAddress": "Введите свой адрес электронной почты...",
-            "labelPassword": "Пароль",
-            "placeholderPassword": "Введите пароль...",
-            "buttonLogin": "Войти",
-            "buttonCancel": "Отменить",
-            "footerNoAccount": "У вас еще нет учетной записи Shopware?",
-            "footerRegisterAccount": "Создайте свою учетную запись Shopware прямо сейчас!",
-            "forgotPassword": "Вы забыли свой пароль?",
-            "forgotPasswordUrl": "https://account.shopware.com/recovery?lang=en",
-            "registerAccountUrl": "https://account.shopware.com/register?lang=en"
-        },
-        "list": {
-            "textPluginManager": "Плагины",
-            "messageEmpty": "Плагин еще не загружен.",
-            "columnPluginName": "Плагин",
-            "columnVersion": "Версия",
-            "columnInstalledAt": "Установлен на",
-            "columnUpdatedAt": "Обновлено в",
-            "columnLicense": "Лицензия",
-            "columnActive": "Активный",
-            "columnAuthor": "Производитель",
-            "columnPlugin": "Плагин",
-            "columnChangelog": "Новые возможности",
-            "titleSidebarItemRefresh": "Обновить",
-            "contextInstall": "Установить",
-            "contextUninstall": "Удалить",
-            "contextActivate": "Активный",
-            "contextDeactivate": "Дезактивировать",
-            "contextUpdate": "Обновить до",
-            "contextDelete": "Удалить",
-            "pluginHeader": "Мои плагины",
-            "sortUpgradedAtAsc": "Последнее обновление",
-            "sortPluginNameAsc": "Имена плагинов по возрастанию.",
-            "sortPluginNameDsc": "Имена плагинов по по убыванию.",
-            "sortLabel": "Сортировать по:",
-            "messageActivateSuccess": "Плагин активирован.",
-            "messageDeactivateSuccess": "Плагин был деактивирован.",
-            "messageInstallSuccess": "Плагин установлен.",
-            "messageUninstallSuccess": "Плагин удалён.",
-            "messageDeleteSuccess": "Плагин удален.",
-            "messageUpdateSuccess": "Плагин был обновлен.",
-            "messageDeleteConfirm": "Вы уверены, что вы действительно хотите удалить этот плагин?",
-            "titleUninstallConfirm": "Удалить плагин",
-            "messageUninstallConfirm": "Вы действительно хотите удалить {pluginName}?",
-            "labelRemovePluginData": "Удалить все данные плагина навсегда",
-            "helpTextRemovePluginData": "Предупреждение: все данные плагина будут удалены без возможности восстановления. Этот процесс необратим.",
-            "labelUninstallButton": "Удалить",
-            "deactivated": "Отключено",
-            "activated": "Активирован",
-            "config": "Настройка",
-            "description": "Описание",
-            "tooltipActivationDisabled": "Вы можете активировать только установленные плагины."
-        },
-        "license-list": {
-            "textMyPurchases": "Приобретенные лицензии",
-            "columnName": "Плагин",
-            "columnCreationDate": "Куплено в",
-            "columnExpirationDate": "Действителен до",
-            "columnType": "Вариант",
-            "messageEmpty": "Нет существующих лицензий.",
-            "messageNotLoggedIn": "Shopware аккаунт - необходим логин!",
-            "labelAccountLogin": "Войти с помощью учетной записи Shopware",
-            "labelType_buy": "Купить",
-            "labelType_rent": "Аренда",
-            "labelType_test": "Тест",
-            "labelType_free": "Бесплатно",
-            "labelType_support": "Платная поддержка"
-        },
-        "updates": {
-            "messageEmpty": "Нет доступных обновлений.",
-            "updateError": "Ошибка загрузки обновлений",
-            "updateButton": "Обновить",
-            "updateAllButton": "Обновить все",
-            "updateHeader": "Обновления",
-            "lastUpdatesHeader": "Последние обновления",
-            "messageUpdateSuccess": "Плагин был обновлен.",
-            "messageUpdatesSuccess": "Плагины обновлены.",
-            "cancelUpdates": "Отменить"
-        }
-    },
-    "sw-plugin-config": {
-        "messageSaveSuccess": "Конфигурация сохранена."
-    },
-    "sw-plugin-description": {
-        "buttonBack": "Назад"
-    },
     "sw-settings": {
         "general": {
             "mainMenuItemGeneral": "Настройки"
@@ -7047,7 +7069,7 @@
             "title": "Настройки",
             "tabShop": "Магазин",
             "tabSystem": "Система",
-            "tabPlugins": "Плагины"
+            "tabPlugins": "Расширения"
         },
         "system-config": {
             "labelSalesChannelSelect": "Канал продаж",
@@ -7134,10 +7156,10 @@
         }
     },
     "sw-property-search": {
-        "placeholderSearch": "Поиск свойств...",
-        "selected": "Выбрана опция {count} | выбрано {count} опций",
-        "noPropertiesFound": "Свойства не найдены",
-        "noPropertiesFoundDescription": "Попробуйте другую поисковую фразу."
+        "placeholderSearch": "Значения поиска...",
+        "selected": "Выбрано значение{count} | выбрано {count} значение",
+        "noPropertiesFound": "Значения свойств не найдены",
+        "noPropertiesFoundDescription": "Попробуйте другой поисковый запрос."
     },
     "sw-property-assignment": {
         "columnGroup": "Свойства",
@@ -7167,6 +7189,7 @@
         "checkboxMessage": "Я обратил внимание на это сообщение и на его последствия.",
         "closeModal": "Закрыть уведомление",
         "ignorePlugin": "Игнорировать навсегда",
+        "successfullyDeleted": "Расширение было удалено",
         "table": {
             "plugin": "Расширение",
             "warning": "Предупреждение"
@@ -7364,7 +7387,7 @@
         "hasCriteria": "Имеет {criteriaName}"
     },
     "sw-filter-panel": {
-        "titleSidebarItemFilter": "Фильтр"
+        "titleSidebarItemFilter": "Фильтры"
     },
     "sw-sidebar-filter-panel": {
         "resetButton": "Сбросить все"

@@ -42,7 +42,7 @@
             "tabDeliveries": "Toimitukset",
             "textHeadline": "Tilaa",
             "textHeadlineNew": "Uusi tilaus",
-            "tabGeneral": "Kenraali",
+            "tabGeneral": "Yleinen",
             "messageRecalculationError": "Hinta laskettaessa tapahtui virhe: <br>",
             "messageSaveError": "Tallennuksen aikana tapahtui virhe",
             "messageShippingNotAvailable": "Toimitus valittuun maahan ei ole mahdollista.",
@@ -280,7 +280,13 @@
             "labelDownloadPdf": "Lataa PDF",
             "labelCreateNew": "Luo uusi",
             "messageEmptyTitle": "Ei vielä asiakirjoja",
-            "messageEmptySubline": "Hallitse asiakirjoja täällä."
+            "messageEmptySubline": "Hallitse asiakirjoja täällä.",
+            "error": {
+                "DOCUMENT__NUMBER_ALREADY_EXISTS": "Asiakirjan numero {number} on jo varattu."
+            },
+            "info": {
+                "DOCUMENT__NUMBER_WAS_CHANGED": "Kopioi asiakirjan numero. Vastaavasta lukualueesta on automaattisesti piirretty peräkkäinen numero."
+            }
         },
         "documentModal": {
             "modalTitle": "Luo asiakirja",
@@ -319,6 +325,63 @@
             "message": "Seuraavat automaattiset kampanjat poistetaan käytöstä:",
             "messageNoItems": "Ei automaattisia kampanjoita aktiivisena.",
             "buttonDisable": "Poista käytöstä"
+        },
+        "filters": {
+            "documentFilter": {
+                "label": "asiakirjat",
+                "placeholder": "Valitse asiakirjan tila...",
+                "textHasCriteria": "Vähintään yksi annettu asiakirja",
+                "textNoCriteria": "Ei annettuja asiakirjoja"
+            },
+            "orderDateFilter": {
+                "label": "Tilauksen päivämäärä"
+            },
+            "statusFilter": {
+                "label": "Tilauksen tila",
+                "placeholder": "Valitse tilauksen tila..."
+            },
+            "paymentStatusFilter": {
+                "label": "Maksun tila",
+                "placeholder": "Valitse maksun tila..."
+            },
+            "deliveryStatusFilter": {
+                "label": "Toimituksen tila",
+                "placeholder": "Valitse toimituksen tila..."
+            },
+            "paymentMethodFilter": {
+                "label": "Maksutapa",
+                "placeholder": "Valitse maksutapa..."
+            },
+            "shippingMethodFilter": {
+                "label": "Toimitusmenetelmä",
+                "placeholder": "Valitse lähetystapa..."
+            },
+            "salesChannelFilter": {
+                "label": "Myyntikanavat",
+                "placeholder": "Valitse Myyntikanavat..."
+            },
+            "billingCountryFilter": {
+                "label": "Laskutusmaa",
+                "placeholder": "Valitse laskutusmaat..."
+            },
+            "shippingCountryFilter": {
+                "label": "Lähetysmaa",
+                "placeholder": "Valitse lähetysmaat..."
+            },
+            "customerGroupFilter": {
+                "label": "Asiakasryhmä",
+                "placeholder": "Valitse asiakasryhmä..."
+            },
+            "tagFilter": {
+                "label": "tunnisteita",
+                "placeholder": "Valitse tunnisteita..."
+            },
+            "productFilter": {
+                "label": "Tuotteet",
+                "placeholder": "Valitse tuotteet..."
+            },
+            "messageEmptyTitle": "Mitään ei löytynyt",
+            "messageEmptySubline": "Muokkaa suodattimia löytääksesi tuloksia."
         }
     },
     "sw-privileges": {
@@ -378,7 +441,7 @@
                 "label": "Uutiskirjeen vastaanottajat"
             },
             "product_search_config": {
-                "label": "Tuotehaku"
+                "label": "Haku"
             },
             "scale_unit": {
                 "label": "Skaalayksiköt"
@@ -443,7 +506,7 @@
         },
         "additional_permissions": {
             "orders": {
-                "create_discounts": "Alennusten luominen",
+                "create_discounts": "Luoda luotto-kohteita",
                 "label": "Tilaukset"
             },
             "user": {
@@ -453,8 +516,9 @@
             "system": {
                 "core_update": "Suorita päivitykset",
                 "plugin_maintain": "Laajennusten ylläpito",
+                "extension_store": "Shopware Store",
                 "clear_cache": "Poista välimuisti",
-                "logging": "Kirjaaminen",
+                "logging": "Tapahtumalokit",
                 "frw": "Ensimmäinen ohjattu toiminto",
                 "import_export": "Tuonti/vientiä",
                 "label": "Asetukset",
@@ -466,7 +530,7 @@
             },
             "routes": {
                 "label": "Reittejä",
-                "api_action_access-key_integration": "Luo uusi API-avain",
+                "api_action_access-key_integration": "Luo API-näppäimiä",
                 "api_acl_privileges_get": "Lue kaikki ACL-oikeudet",
                 "api_acl_privileges_route_get": "Lue ACL-reittioikeudet",
                 "api_action_cache_info": "Lue välimuistin tiedot",
@@ -1207,6 +1271,7 @@
                 "infoTextProductDetailPages": "Asettelu näkyy myymälässäsi vain, kun määrität sen aktiiviselle tuotteelle.",
                 "labelCategories": "Luokat",
                 "placeholderCategories": "Valitse luokat...",
+                "placeholderLandingPages": "Valitse aloitussivut...",
                 "labelSalesChannel": "Myyntikanava",
                 "placeholderSalesChannel": "Valitse Myyntikanava...",
                 "resetOptionSalesChannel": "Kaikki myyntikanavat",
@@ -1217,6 +1282,8 @@
                 "confirmChangesRestorePrev": "Hävitä",
                 "confirmChangesTextCategories": "Olet poistanut asettelun määritykset luokista. Jos vahvistat nämä muutokset, näihin luokkiin ei enää ole määritetty asettelua.",
                 "confirmChangesTextCategoriesAssignedLayouts": "Joillakin valituilla kategorioilla on jo asettelu. Jos jatkat, aiemmat tehtävät korvataan nykyisellä asettelulla.",
+                "confirmChangesTextLandingPages": "Olet poistanut asettelun määritykset aloitussivuilta. Jos vahvistat nämä muutokset, kyseisille aloitussivuille ei enää ole määritetty asettelua.",
+                "confirmChangesTextLandingPagesAssignedLayouts": "Joillakin valituista aloitussivuista on jo määritetty asettelu. Jos jatkat, aiemmat tehtävät korvataan nykyisellä asettelulla.",
                 "confirmChangesTextProducts": "Olet poistanut asettelumääritykset tuotteista. Jos vahvistat nämä muutokset, kyseisille tuotteille ei enää ole määritetty asettelua.",
                 "confirmChangesTextProductsAssignedLayouts": "Joillakin valituilla tuotteilla on jo asettelu. Jos jatkat, aiemmat tehtävät korvataan nykyisellä asettelulla.",
                 "confirmChangesTextShopPages": "Olet poistanut asettelutehtävät kauppojen sivuilta. Jos vahvistat nämä muutokset, kyseisille kauppasivuille ei enää ole määritetty asettelua",
@@ -1226,6 +1293,7 @@
                 "shopPagesSaveError": "Kauppasivuja ei voi tallentaa",
                 "tabCategories": "Luokat",
                 "tabShopPages": "Kaupan sivut",
+                "tabLandingPages": "Aloitussivut",
                 "shopPages": {
                     "tosPage": "TOS-sivut",
                     "revocationPage": "Peruutusilmoitukset",
@@ -1534,7 +1602,7 @@
                 "keywords": "Avainsanat",
                 "length": "Pituus",
                 "linked": "Linkattu",
-                "manufacturer": "Valmistaja",
+                "manufacturerId": "Valmistaja",
                 "manufacturerNumber": "Valmistajan numero",
                 "markAsTopseller": "Merkitty topselliksi",
                 "maxDeliveryTime": "Maks. toimitusaika",
@@ -1547,7 +1615,7 @@
                 "option": "Vaihtoehto",
                 "packUnit": "Pakkausyksikkö",
                 "packUnitPlural": "Pack unit monikko",
-                "price": "Hinta",
+                "cheapestPrice": "Hinta",
                 "product": "Tuote",
                 "productNumber": "Tuotenumero",
                 "purchasePrice": "Kauppahinta",
@@ -1702,7 +1770,9 @@
             "ascending": "Nouseva",
             "descending": "Laskeva",
             "xTimesIn": "{n} kertaa sisään",
-            "close": "Sulje"
+            "close": "Sulje",
+            "from": "alkaen",
+            "to": "Voit"
         },
         "notification": {
             "notificationSaveErrorMessage": "Entiteettiä \"{entityName}”tallennettaessa tapahtui virhe.",
@@ -2686,7 +2756,12 @@
     "sw-settings-number-range": {
         "general": {
             "mainMenuItemGeneral": "Lukuvälit",
-            "placeholderSearchBar": "Haku numeroalueet..."
+            "placeholderSearchBar": "Haku numeroalueet...",
+            "infoGlobalType": "Numeroita voi olla vain yksi \"{typeName}\". Tässä on tehtävä muutoksia tyypin ”{typeName}” numeroalueeseen, ja ne vaikuttavat maailmanlaajuisesti kaikkiin myyntikanaviin.",
+            "infoGlobalTypeTitle": "Maailmanlaajuinen lukualueen tyyppi \"{typeName}”",
+            "infoGlobal": "Yleisen numeroalueen tyyppiä ei voi muuttaa. Voit kuitenkin luoda lisänumeroalueita useimmille tyypeille ja tietyille Myyntikanaville takaisin yleiskatsauksessa.",
+            "infoGlobalTitle": "Maailmanlaajuinen lukualue \"{name}”",
+            "infoSalesChannelBound": "Jos haluat muuttaa numeroalueen tyyppiä, poista kaikki Myyntikanavan määritykset ensin."
         },
         "list": {
             "textHeadline": "Lukuvälit",
@@ -3004,9 +3079,11 @@
             "descriptionLabel": "Kuvaus",
             "messageSaveSuccess": "Luokka \"{name}\" on tallennettu.",
             "useAsLogo": "Käytä näyttökuvana",
-            "treeHeadline": "Luokan rakenne",
+            "treeHeadline": "Luokat",
             "treeHeadSelected": "{count} valittu",
             "emptyStateHeadline": "Luokkaa ei valittu",
+            "errorNavigationEntryPoint": "Tämä luokka määritellään vähintään yhden myyntikanavan pääasialliseksi navigointiksi, joten sitä ei voi poistaa.",
+            "errorNavigationEntryPointMultiple": "Yksi tai useampi luokka määritellään vähintään yhden myyntikanavan päänavigointiksi, joten niitä ei voi poistaa.",
             "actions": {
                 "actionsDisabledInLanguage": "Luokat voidaan luoda vain oletuskielellä.",
                 "createSub": "Uusi alaluokka",
@@ -3020,58 +3097,54 @@
             "products": "Tuotteet",
             "seo": "SEO",
             "columnInfoHeader": "Alatunnisteen elementti",
-            "columnInfo": "Tämä luokka määrittää määritetyn sarakkeen alatunnisteeseen. Luokan nimi näkyy sarakkeen ei-napsautettavana otsikkona. Kaikki alla olevat luokat näkyvät napsautettavina riveinä sarakkeen otsikon alapuolella."
+            "columnInfo": "Tämä luokka määrittää määritetyn sarakkeen alatunnisteeseen. Luokan nimi näkyy sarakkeen otsikkona. Kaikki tämän luokan alapuolella olevan ensimmäisen tason luokat näkyvät sarakkeen otsikon alapuolella olevina riveinä."
         },
         "base": {
             "general": {
                 "categoryNameLabel": "Nimi",
                 "headlineInformationCard": "Kenraali",
-                "isCategoryActiveLabel": "Luokka aktiivinen",
+                "isCategoryActiveLabel": "Aktiivinen",
                 "useAsLink": "Käytä linkkinä",
                 "labelCategoryTags": "tunnisteita",
                 "labelCategoryTagsPlaceholder": "Anna tunnisteita erikseen...",
                 "types": {
                     "title": "Luokan tyyppi",
-                    "page": "Luokka",
-                    "folder": "Maahantulopiste",
-                    "link": "Mukautettava linkki",
-                    "column": "Sarake",
-                    "entrypoint": "Maahantulopiste",
-                    "pageList": "Sivu/Luettelo",
-                    "help": "Rakenneluokkaa ei voi soittaa itsestään, vaan sitä käytetään vain hahmotelmiin."
-                }
-            },
-            "entry-point": {
-                "title": "Maahantulopiste",
-                "navigation": {
-                    "descriptionGeneral": "Olet määrittänyt tämän luokan pääsiirtymisen aloituspisteeksi näissä Myyntikanavissa:"
-                },
-                "serviceSales": {
-                    "descriptionGeneral": "Olet määrittänyt tämän luokan palvelunavigoinnin aloituspisteeksi näissä Myyntikanavissa:"
-                },
-                "footerSales": {
-                    "descriptionGeneral": "Olet määrittänyt tämän luokan alatunnisteen siirtymisen aloituspisteeksi näissä myyntikanavissa:"
+                    "page": "Sivu/Luettelo",
+                    "folder": "Strukturointielementti/Tulopiste",
+                    "link": "Linkki",
+                    "linkUnavailable": "Linkki (ei valittavissa, jos luokka määritellään syöttöpisteeksi)",
+                    "help": "Rakenneluokkaa ei voi soittaa itsestään, vaan sitä käytetään vain hahmotelmiin.",
+                    "helpText": {
+                        "page": "Sivulla/luettelossa on mukana tuotteita, ja niitä voi käyttää suoraan määritetyn asettelun kanssa.",
+                        "folder": "Strukturointielementti/sisääntulopiste näkyy vain rakenteessa, eikä se ole suoraan käytettävissä, paitsi että se on määritetty myyntikanavan sisääntulopisteeksi.",
+                        "link": "Linkki mahdollistaa viittauksen tuotteeseen, toiseen luokkaan, aloitussivulle tai ulkoiseen sivustoon."
+                    }
                 }
             },
             "entry-point-card": {
-                "cardTitle": "Maahantulopiste",
+                "cardTitle": "Suunnistus",
                 "labelEntryPoint": "Maahantulopiste",
                 "placeholderEntryPoint": "Valitse syöttöpiste...",
-                "labelSalesChannels": "Myyntikanavat",
-                "placeholderSalesChannels": "Valitse myyntikanava...",
-                "buttonConfigureHome": "Määritä koti",
+                "existingNavigationDescription": "Olet määrittänyt tämän luokan pääsiirtymisen aloituspisteeksi näissä Myyntikanavissa:",
+                "labelSalesChannelsAdd": "Myyntikanavan toimeksianto",
+                "placeholderSalesChannels": "Lisää myyntikanavat...",
+                "buttonConfigureHome": "Määritä kotisivu",
                 "types": {
                     "labelMainNavigation": "Päänavigointi",
+                    "helpTextMainNavigation": "Päänavigoinnin sisääntulopiste on myyntikanavien pakollinen kenttä. Jos määrität tämän luokan Pääsiirtymisen aloituspisteeksi yhdelle tai useammalle myyntikanavalle, voit muuttaa tätä määritystä vain myyntikanavalla.",
                     "labelFooterNavigation": "Footer navigointi",
-                    "labelServiceNavigation": "Navigointi"
+                    "helpTextFooterNavigation": "Jos määrität tämän luokan Alatunniste-siirtymisen aloituspisteeksi yhdelle tai useammalle Myyntikanavalle, seuraavan tason luokat ovat sarakkeita. Näin voit jakaa alatunnisteen navigoinnin useille alueille.",
+                    "labelServiceNavigation": "Navigointi",
+                    "helpTextServiceNavigation": "Jos määrität tämän luokan Palvelunavigoinnin aloituspisteeksi yhdelle tai useammalle Myyntikanavalle, seuraavan tason luokat näytetään toisena siirtymisenä alatunnistealueella."
                 }
             },
             "entry-point-modal": {
-                "modalTitle": "Määritä aloitussivu",
-                "salesChannelSelection": "Päänavigointi",
-                "showInMainNavigation": "Näytä aloitusnäytteenä päänavigoinnissa",
-                "mainNavigationName": "Nimi päänavigoinnissa",
-                "mainNavigationNamePlaceholder": "Nimi päänavigoinnissa...",
+                "modalTitle": "Määritä kotisivu",
+                "salesChannelSelection": "Myyntikanava",
+                "showInMainNavigation": "Näytä päänavigoinnissa",
+                "mainNavigationName": "Näytön nimi",
+                "mainNavigationNamePlaceholder": "Kirjoita vaihtoehtoinen kotisivun nimi...",
+                "mainNavigationNameHelpText": "Oletusarvoisesti tämä luokka näkyy nimellä ”koti”. Kirjoita vaihtoehtoinen näyttönimi, jos oletusmääritys ei sovi nykyiseen Myyntikanavaan.",
                 "layoutHeadline": "Ulkoasu",
                 "seoSettingsHeadline": "SEO-asetukset",
                 "metaTitleLabel": "Meta otsikko",
@@ -3151,6 +3224,10 @@
             "textDeleteConfirm": "Oletko varma, että haluat todella poistaa luokan \"{name}”?",
             "textDeleteChildrenConfirm": "Myös kaikki alaluokat poistetaan.",
             "textDeleteMultipleConfirm": "Oletko varma, että haluat poistaa {count} valittua luokkaa?"
+        },
+        "entry-point-overwrite-modal": {
+            "textBefore": "Olet jo määrittänyt lähtöpisteen seuraavalle Myyntikanavalle: | Olet jo määrittänyt syöttöpisteitä seuraaviin Myyntikanaviin:",
+            "textAfter": "Pitäisikö tämä tehtävä korvata? | Pitäisikö nämä tehtävät korvata?"
         }
     },
     "sw-landing-page": {
@@ -3159,16 +3236,19 @@
             "cms": "Ulkoasu"
         },
         "general": {
-            "placeholderSearchBar": "Etsi Aloitussivuja...",
+            "placeholderSearchBar": "Etsi aloitussivuja...",
             "treeHeadSelected": "{count} valittu",
             "buttonCreate": "Lisää aloitussivu",
-            "treeHeadline": "Aloitussivut"
+            "treeHeadline": "Aloitussivut",
+            "actions": {
+                "actionsDisabledInLanguage": "Aloitussivut voidaan luoda vain järjestelmän oletuskielellä."
+            }
         },
         "base": {
             "general": {
                 "labelName": "Nimi",
                 "headlineInformationCard": "Kenraali",
-                "isActiveLabel": "Aloitussivu aktiivisena",
+                "isActiveLabel": "Aktiivinen",
                 "labelTags": "tunnisteita",
                 "labelTagsPlaceholder": "Anna tunnisteita erikseen..."
             },
@@ -3179,7 +3259,7 @@
                 "labelMetaDescription": "Meta kuvaus",
                 "labelKeywords": "SEO-avainsanat",
                 "labelUrl": "SEO URL",
-                "placeholderSalesChannel": "Valitsi myyntikanavan...",
+                "placeholderSalesChannel": "Valitse Myyntikanava...",
                 "placeholderMetaTitle": "Kirjoita meta title...",
                 "placeholderMetaDescription": "Kirjoita metakuvaus...",
                 "placeholderKeywords": "Kirjoita yksi tai useampi avainsana...",
@@ -3193,12 +3273,13 @@
                 "editInPagebuilderEmpty": "Luo uusi asettelu",
                 "editContent": "Muokkaa sisältöä",
                 "defaultTitle": "Oletusasettelu",
-                "defaultDesc": "Luokka sivu"
+                "defaultDesc": "Luokka sivu",
+                "cmsLayoutModalHeadline": "Aloitussivu"
             }
         },
         "modal": {
-            "textDeleteConfirm": "Oletko varma, että haluat todella poistaa Aloitussivun \"{name}”?",
-            "textDeleteMultipleConfirm": "Oletko varma, että haluat poistaa {count} valittua Aloitussivua?"
+            "textDeleteConfirm": "Oletko varma, että haluat todella poistaa aloitussivun \"{name}”?",
+            "textDeleteMultipleConfirm": "Oletko varma, että haluat poistaa {count} valittua aloitussivua?"
         }
     },
     "sw-product": {
@@ -3210,7 +3291,8 @@
             "columnLinkOnly": "piilotettu",
             "linkAdvancedVisibility": "Määrityksen lisäasetukset",
             "labelVisibility": "Myyntikanavat",
-            "closeModal": "Käytä"
+            "closeModal": "Käytä",
+            "bodyVisibility": "Lisää myyntikanavia, joissa on tuote, tulee näyttää. Voit myös määrittää tuotteen näkyvyyden kullekin Storefrontin myyntikanavalle alla olevan linkin kautta."
         },
         "general": {
             "mainMenuItemGeneral": "Tuotteet",
@@ -3220,10 +3302,13 @@
             "placeholderSearchBar": "Hae tuotteita...",
             "inheritanceModuleName": "Tämä tuote",
             "backToParent": "Palaa version yleiskatsaukseen",
+            "backToGeneralOverview": "Palaa yleiskatsaukseen",
             "copy": "Kopio",
             "cloneSuffix": "variantit",
             "cloneNotice": "Tuotevariantit on kopioitu. Jos tämä prosessi keskeytyy, on mahdollista, että kaikki vaihtoehdot eivät ole päällekkäisiä kokonaan. Tässä tapauksessa voit luoda uuden tuotteen variantit uudelleen.",
-            "cloneTitle": "Kaksoisvariantit"
+            "cloneTitle": "Kaksoisvariantit",
+            "tooltipModeSettings": "Tila-asetukset",
+            "textAdvancedMode": "Edistynyt tila"
         },
         "basicForm": {
             "labelTitle": "Nimike",
@@ -3253,7 +3338,10 @@
             "textAddSearchKeyword": "Klikkaa tästä lisätäksesi hakusanan",
             "textEnterValidSearchKeyword": "Haettavat avainsanat",
             "helpTextSearchKeyword": "Kaupassa oleva tuote löytyy myös näiden avainsanojen avulla.",
-            "helpTextTags": "Tunnisteita on tarkoitettu vain sisäiseen käyttöön. Niiden avulla voit hallita tuoteryhmiä, soveltaa sääntöjä tai toimia mukautetuina hakusanoina."
+            "helpTextTags": "Tunnisteita on tarkoitettu vain sisäiseen käyttöön. Niiden avulla voit hallita tuoteryhmiä, soveltaa sääntöjä tai toimia mukautetuina hakusanoina.",
+            "categoriesTitle": "Luokat ja tunnisteita",
+            "descriptionCategories": "Lisää luokkia niin, että tuote löytyy Storefront-päävalikosta tai API-yhteyksien kautta. Varmista, että valitset valitussa Myyntikanavassa käytettävissä olevat ja aktiiviset luokat.",
+            "descriptionTags": "Tunnisteiden avulla voit löytää tuotteita nopeammin. Ne helpottavat tuotteiden ryhmittymistä, ja niitä voidaan käyttää tehtävän automatisoimiseksi säännön rakentajan avulla."
         },
         "priceForm": {
             "labelTaxRate": "Veroaste",
@@ -3302,7 +3390,7 @@
             "labelEan": "EAN",
             "labelManufacturerNumber": "Valmistajan tuotenumero",
             "labelStock": "Varasto",
-            "labelActive": "Aktiivinen",
+            "labelActive": "Aktiivinen kaikille valittujen myyntikanavien osalta",
             "labelShippingFree": "Ilmainen toimitus",
             "labelMarkAsTopseller": "Tuotteen edistäminen",
             "labelIsCloseout": "Puhdistus myynti",
@@ -3337,7 +3425,7 @@
         "detailBase": {
             "cardTitleDeliverabilityInfo": "Toimitettavuus",
             "cardTitleProductInfo": "Yleistä tietoa",
-            "cardTitleAssignment": "Tehtävä",
+            "cardTitleAssignment": "Näkyvyys ja rakenne",
             "cardTitlePrices": "Hinnat",
             "cardTitleSettings": "Merkinnät",
             "cardTitlePackaging": "Toimenpiteitä & pakkaus",
@@ -3346,12 +3434,15 @@
             "cardTitleReviews": "Arviot",
             "cardTitleMedia": "Media",
             "labelContextMenuAddToProduct": "Lisää tuotteeseen",
-            "cardTitleSeo": "SEO"
+            "cardTitleSeo": "SEO",
+            "cardTitleVisibilityStructure": "Näkyvyysrakenne"
         },
         "specifications": {
             "cardTitleMeasuresPackaging": "Toimenpiteitä & pakkaus",
             "cardTitleEssentialCharacteristics": "Olennaiset ominaisuudet",
-            "cardTitleCustomFields": "Omat kentät"
+            "cardTitleCustomFields": "Omat kentät",
+            "cardTitleProperties": "Ominaisuudet",
+            "cardTitleCustomProduct": "Mukautetut tuotteet"
         },
         "seo": {
             "cardTitleSeo": "SEO"
@@ -3504,7 +3595,7 @@
             "generationNotificationCountDeletion": "Yksi variantti poistetaan | {count} varianttia poistetaan",
             "generationNotificationButtonCancel": "Peruuta",
             "generationNotificationButtonContinue": "Luo",
-            "generatedFilterList": "suodatin",
+            "generatedFilterList": "Suodatinluettelo",
             "generatedListColumnVariation": "Nimi",
             "generatedListColumnPrice": "Hinta (brutto/netto)",
             "generatedListColumnProductNumber": "Tuotenumero",
@@ -3527,24 +3618,26 @@
             },
             "configuratorModal": {
                 "title": "Luo variantteja",
-                "selectOptions": "Valitse arvot",
-                "selectOptionsExplanation": "Valitse ominaisuusarvot, jotta voit luoda variantteja.",
-                "priceSurcharges": "Hinta-lisämaksu",
+                "selectOptions": "Arvon valinta",
+                "selectOptionsExplanation": "Valitse ominaisuusarvot, joista voit luoda variantteja.",
+                "selectRestrictionsExplanation": "Valitse ominaisuusarvot, jotka jätetään pois variantin luonnista",
+                "selectPricesExplanation": "Lisää lisämaksuja arvoihin tai valuuttoihin.",
+                "priceSurcharges": "Hinta-lisämaksut",
                 "resetSurcharges": "Poista lisämaksu",
-                "defineRestrictions": "Määritä rajoitus",
-                "priceOptions": "Arvot",
-                "restrictedCombinations": "Rajoitetut ominaisuuksien arvot",
-                "searchRestrictions": "Etsi ominaisuuksia...",
-                "addNewRestriction": "Lisää rajoitus",
-                "editRestriction": "Muokkaa rajoituksia",
-                "deleteRestriction": "Poista rajoitus",
+                "defineRestrictions": "Arvon syrjäytyminen",
+                "priceOptions": "Arvo",
+                "restrictedCombinations": "Kiinteistön ulkopuolelle jäävät arvot",
+                "searchRestrictions": "Etsi poissuljettuja arvoja...",
+                "addNewRestriction": "Jätä pois arvot",
+                "editRestriction": "Edit",
+                "deleteRestriction": "Poista",
                 "singleRestrictionSeperation": "Ja",
-                "deleteCombination": "Poista yhdistelmä",
+                "deleteCombination": "Poista",
                 "isOneFrom": "on yksi",
                 "cancel": "Peruuta",
                 "save": "Tallenna",
                 "searchPlaceholder": "Hae arvoja...",
-                "singleRestrictionAddTitle": "Lisää rajoitus",
+                "singleRestrictionAddTitle": "Jätä pois arvot",
                 "surchargeNotice": "Lisämaksujen muutoksilla ei ole vaikutusta jo luotaviin muunnelmiin. Siirry variantin tietosivulle ja muuta jo luotujen muunnelmien hintoja siellä."
             },
             "deliveryModal": {
@@ -3568,7 +3661,7 @@
         "layout": {
             "title": "Asettelun määritys",
             "subtitle": "Voit muuttaa tuotetietosivuja määrittämällä mukautettuja asetteluja. Jos tässä ei ole määritetty mukautettua asettelua, käytetään oletusasettelua.",
-            "textNoConfig": "Nykyisessä valitussa asettelussa ei ole muokattavia elementtejä",
+            "textNoConfig": "Valitulla asettelulla ei ole muokattavia elementtejä",
             "textContentInfo": "Oletustuotelohkot täytetään tuotetiedoilla automaattisesti. Varsinaista sisältöä ei siis ole lueteltu tässä."
         },
         "crossselling": {
@@ -3613,7 +3706,7 @@
             "templateSelectFieldPlaceholder": "Valitse malli..."
         },
         "layoutAssignment": {
-            "title": "Oletusvara",
+            "title": "Oletusarvo",
             "subtitle": "Tuotteen sivu",
             "textAssignLayout": "Määritä asettelu",
             "textChangeLayout": "Muuta asettelua",
@@ -3621,14 +3714,45 @@
             "textEditInDesigner": "Muokkaa suunnittelijassa"
         },
         "filters": {
+            "fromPlaceholder": "Kirjoita aloitusarvo...",
+            "toPlaceholder": "Kirjoita loppuarvo...",
             "activeFilter": {
                 "label": "Aktiivinen",
                 "placeholder": "Valitse tila..."
             },
             "imagesFilter": {
                 "label": "Kuvat",
-                "placeholder": "Valitse kuvan tila..."
-            }
+                "placeholder": "Valitse kuvan tila...",
+                "textHasCriteria": "Vähintään yksi tuotekuva määritetty",
+                "textNoCriteria": "Tuotekuvia ei ole määritetty"
+            },
+            "releaseDateFilter": {
+                "label": "Julkaisupäivä"
+            },
+            "stockFilter": {
+                "label": "Varasto"
+            },
+            "priceFilter": {
+                "label": "Hinta"
+            },
+            "manufacturerFilter": {
+                "label": "Valmistaja",
+                "placeholder": "Valitse valmistaja..."
+            },
+            "salesChannelsFilter": {
+                "label": "Myyntikanavat",
+                "placeholder": "Valitse Myyntikanavat..."
+            },
+            "categoriesFilter": {
+                "label": "Luokat",
+                "placeholder": "Valitse luokat..."
+            },
+            "tagsFilter": {
+                "label": "tunnisteita",
+                "placeholder": "Valitse tunnisteita..."
+            },
+            "messageEmptyTitle": "Mitään ei löytynyt",
+            "messageEmptySubline": "Muokkaa suodattimia nähdäksesi tulokset."
         },
         "notification": {
             "notificationSaveErrorProductNoAlreadyExists": "Tuotenro \"{productNo}\" on jo määritetty."
@@ -3868,6 +3992,7 @@
             "info": "Mitä uutta?",
             "requirements": "Järjestelmävaatimukset",
             "plugins": "Liitännäisen yhteensopivuus",
+            "extensions": "Laajennuksen yhteensopivuus",
             "updating": "Päivitys..."
         },
         "notifications": {
@@ -3911,6 +4036,7 @@
             },
             "actions": {
                 "openPluginManager": "Avaa plugin manager",
+                "openMyExtensions": "Avaa laajennukset",
                 "deactivateAll": "Poista kaikki liitännäiset käytöstä.",
                 "deactivateIncompatible": "Poista yhteensopimattomien liitännäisten aktivointi.",
                 "deactivateNone": "Olen tietoinen implisiittisistä vaaroista ja haluan silti päivittää Shopwaren poistamatta yhteensopimattomia liitännäisiä ensin. Olen tietoinen, että Shopware ei voi taata asennuksen toimivuutta yhteensopimattoman päivityksen jälkeen.",
@@ -3981,82 +4107,83 @@
         },
         "generalTab": {
             "labelSearchBehaviour": "Hakukäyttäytyminen",
-            "textTitleSearchBehaviour": "Määritä myymälän hakukäyttäytyminen etukäteen.",
+            "textTitleSearchBehaviour": "Määritä myyntikanavien hakukäyttäytyminen etukäteen.",
             "labelSearchAndCondition": "”JA” Haku",
-            "textSearchAndConditionExplain": "Hakutulokset sopivat yhteen syötetyn hakusanan jokaisen elementin kanssa.\nEsimerkki: ”Farkut kesä” löytää tuotteita, jotka sisältävät sekä avainsanoja ”farkut” että ”kesä”.",
+            "textSearchAndConditionExplain": "Hakutulokset sopivat yhteen syötetyn hakusanan jokaisen elementin kanssa.\nEsimerkki: ”Farkkukesä” löytää hakutuloksia, jotka sisältävät sekä hakusanat ”farkut” että ”kesä”.",
             "labelSearchOrCondition": "”OR” haku",
-            "textSearchOrConditionExplain": "Hakutulokset sopivat yhteen minkä tahansa syötetyn hakusanan elementin kanssa.\nEsimerkki: ”Farkut kesä” löytää tuotteita, jotka sisältävät joko avainsanan ”farkut” ja ”kesä”.",
+            "textSearchOrConditionExplain": "Hakutulokset sopivat yhteen minkä tahansa syötetyn hakusanan elementin kanssa.\nEsimerkki: ”Farkkukesä” löytää hakutuloksia, jotka sisältävät joko hakusanan ”farkut” tai hakusanan ”kesä”.",
             "labelMinimalSearchTerm": "Haun vähimmäispituus",
-            "labelExcludedSearchTerms": "Poissuljetut hakuehdot",
+            "labelExcludedSearchTerms": "Poissuljetut hakus",
             "textEmptyStateExcludedSearchTerms": "Hakutermejä ei vielä poissuljettu",
-            "buttonAddExcludedSearch": "Lisää poissulkeminen",
-            "textPlaceholderTermsFilter": "Hae poistetut termit...",
-            "buttonAddExcludedSearchTerms": "Lisää poissulkemisaika",
+            "buttonAddExcludedSearch": "Sulje hakutermi",
+            "textPlaceholderTermsFilter": "Hae poissuljetut hakusanat",
+            "buttonAddExcludedSearchTerms": "Sulje hakutermi",
             "labelExcludedSearchTermsNoResults": "Tuloksia ei löytynyt.",
             "labelSearchableContent": "Haettavissa oleva sisältö",
-            "textDescriptionSearchableContent": "Kaikki haettavissa oleva sisältö on lueteltu alla olevassa taulukossa. Jos haluat mukauttaa hakutuloksia Storefrontissa, jatka eteenpäin ja sulje sisältö kokonaan pois haettavissa olevasta sisällöstä tai muokkaa kunkin yksittäisen elementin sijoitusta mieleisesi mukaan. Korkeamman sijoituksen elementeillä on lisääntynyt ”hakuarvo”, ja ne sijoittuvat korkeammalle hakutuloksissa.",
+            "textDescriptionSearchableContent": "Kaikki haettavissa oleva sisältö on lueteltu alla olevassa taulukossa. Jos haluat mukauttaa hakutuloksia myyntikanavissa, jatka eteenpäin ja sulje sisältö kokonaan pois haettavasta tai muokkaa kunkin yksittäisen elementin sijoitusta mieleisesi mukaan. Korkeamman sijoituksen elementeillä on lisääntynyt ”hakuarvo”, ja ne sijoittuvat korkeammalle hakutuloksissa.",
             "buttonResetDefault": "Palauta oletusarvoiseksi",
             "linkExample": "Näytä esimerkki",
-            "buttonAddContent": "Lisää sisältöä",
+            "buttonAddContent": "Lisää haettavaa sisältöä",
             "labelGeneralTab": "Kenraali",
             "labelCustomFieldsTab": "Omat kentät",
             "textEmptyStateSearchableContent": "Haettavissa olevaa sisältöä ei ole vielä lisätty.",
             "titleExampleModal": "Etsi sijoitusta esimerkki",
-            "textColumnSearchTerm": "Haun termit",
+            "textColumnSearchTerm": "Poissuljetut hakus",
             "modal": {
                 "textExplain": "Alla on kolme fiktiivistä hakutulosta hakusanalle ”farkut”. Haettavissa ovat tuotteiden nimikkeet (rankingpisteet 100), tuotekuvaukset (rankingpisteet 50) ja tuotetunnisteita (ranking-pisteet 20).",
                 "textTitle": "Nimike",
-                "textSuperJeans": "super farkut",
+                "textSuperJeans": "Super farkut",
                 "textDescription": "Kuvaus",
-                "textFancyJeans": "fancy farkut",
+                "textFancyJeans": "Fancy farkut",
                 "textTag": "Tunniste",
                 "textJeans": "Farkut",
                 "textTotal": "Yhteensä",
                 "textProductRankedFirstScore": "Ensimmäiseksi sijoittuneella tuotteella on hakuhitti jokaisessa haettavissa olevassa kokonaisuudessa, jolloin ranking-tulos on 170.",
-                "textFancyPants": "fancy housut",
-                "textProductRankedSecondScore": "Toiseksi sijoittuneella tuotteella on hakusanat tuotenimikettä ja tuotetunnisteita, joiden kokonaisranking-tulos on 120.",
+                "textFancyPants": "Fancy housut",
+                "textProductRankedSecondScore": "Toiseksi sijoittuneella tuotteella on hakusanat tuotenimelle ja tuotetunnisteille, jolloin ranking-pisteet ovat yhteensä 120.",
                 "textSuperPants": "Super housut",
                 "textProductRankedThirdScore": "Kolmanneksi sijoittuneella tuotteella on tuotetunnisteissa vain yksi hitti, jolloin kokonaisranking-tulos on 20."
             },
             "labelSearchIndex": "Haku hakemisto",
             "buttonRebuildSearchIndex": "Rakenna hakuhakemisto uudelleen",
-            "textWarningOpenTab": "Pidä tämä ikkuna/välilehti auki.",
-            "textRebuildSearchIndexDescription": "Hakuindeksin uudelleenrakentaminen vie vähän aikaa. Tänä aikana on pakollista pitää tämä ikkuna/välilehti auki, jotta hakuindeksi voidaan rakentaa uudelleen. Sinulle ilmoitetaan heti, kun prosessi on valmis.",
+            "textWarningOpenTab": "Pitäkää tämä ikkuna auki.",
+            "textRebuildSearchIndexDescription": "Hakuindeksin uudelleenrakentaminen kestää jonkin aikaa. Tänä aikana on pakko pitää tämä ikkuna auki, jotta hakuindeksi voidaan onnistuneesti rakentaa uudelleen. Sinulle ilmoitetaan heti, kun prosessi on valmis.",
             "textRebuildingSearchIndex": "Hakun hakemiston uudelleenrakentaminen",
             "textLastedBuild": "Viimeisin koonti:",
+            "textSearchNotIndexedYet": "Haku ei ole vielä indeksoitu.",
             "list": {
                 "columnSearchable": "Haettavissa",
                 "columnRankingPoints": "Ranking-pisteet",
                 "columnContent": "Sisältö",
-                "columnSplitKeywords": "Jaa avainsanoja",
+                "columnSplitKeywords": "Jaa hakutermit",
                 "textResetRanking": "Palauta sijoitus",
                 "textRemove": "Poista"
             },
             "configFields": {
-                "name": "Nimi",
-                "description": "Kuvaus",
+                "name": "Tuotteen nimi",
+                "description": "Tuotteen kuvaus",
                 "productNumber": "Tuotenumero",
                 "manufacturerNumber": "Valmistajan numero",
-                "ean": "EAN",
-                "customSearchKeywords": "Mukautetut hakuavainsanat",
+                "ean": "Tuote EAN",
+                "customSearchKeywords": "Mukautetut haun",
                 "manufacturerName": "Valmistajan nimi",
                 "manufacturerCustomFields": "Valmistajan mukautetut kentät",
-                "categoriesName": "Luokkien nimi",
+                "categoriesName": "Luokan nimi",
                 "categoriesCustomFields": "Mukautetut kentät",
-                "tagsName": "Tunnisteen nimi",
-                "metaTitle": "Meta otsikko",
-                "metaDescription": "Meta kuvaus",
+                "tagsName": "Tuotteen tunniste",
+                "metaTitle": "Tuotteen meta otsikko",
+                "metaDescription": "Tuotteen meta kuvaus",
                 "propertiesName": "Kiinteistön nimi",
-                "variantValue": "Vaihtoehtoinen arvo"
+                "variantValue": "Kiinteistön arvo"
             }
         },
         "notification": {
-            "saveSuccess": "Kokoonpano on tallennettu.",
-            "excludedTermRequired": "Poissuljettu termi ei saa olla tyhjä.",
-            "excludedTermAlreadyExists": "Poissuljettu termi on jo olemassa.",
-            "updateExcludedTermSuccess": "Poissuljettu termi päivityksen onnistuminen.",
-            "createExcludedTermSuccess": "Poissuljettu termi luo menestystä.",
-            "deleteExcludedTermSuccess": "Poissuljettu termi poistaa onnistumisen.",
+            "saveSuccess": "Määritykset tallennettu",
+            "excludedTermRequired": "Poissuljetut hakusanat eivät saa olla tyhjiä",
+            "excludedTermAlreadyExists": "Poissuljettu hakusana on jo olemassa.",
+            "updateExcludedTermSuccess": "Poissuljettu hakusana päivitetty.",
+            "createExcludedTermSuccess": "Poissuljettu hakusana luotu.",
+            "deleteExcludedTermSuccess": "Poissuljettu hakusana poistettu.",
             "saveError": "Määrityksiä tallennettaessa tapahtui virhe.",
             "index": {
                 "started": "Rakennuksen tuoteindeksit.",
@@ -4065,14 +4192,14 @@
             "loadError": "Määrityksiä ladattaessa tapahtui virhe."
         },
         "liveSearchTab": {
-            "titleCard": "Storefront live haku",
-            "textDescription": "Testaa mukautetut hakuasetukset alla. Jos olet juuri tehnyt muutoksia hakuasetuksiin, muista tallentaa nämä asetukset ennen kuin testaat niitä tällä live-haulla.",
+            "titleCard": "Myyntikanavan live-haku",
+            "textDescription": "Testaa mukautetut hakuasetukset alla.",
             "labelSalesChannelSelect": "Myyntikanava",
-            "textPlaceholderSalesChannel": "Valitse myyntikanava, jotta voit testata live-hakua",
+            "textPlaceholderSalesChannel": "Valitse myyntikanava...",
             "linkRebuildSearchIndex": "Rakenna hakuhakemisto uudelleen",
-            "labelName": "Nimi",
-            "labelScore": "Pisteet",
-            "textNoResult": "Ei tuloksia avainsanalle (t) olet syöttänyt. Kokeile toista avainsanaa"
+            "labelName": "Haun tulos",
+            "labelScore": "Ranking-pisteet",
+            "textNoResult": "Tuloksia ei löytynyt. Yritä uudelleen toisella hakusanalla."
         }
     },
     "sw-settings-mailer": {
@@ -4109,8 +4236,6 @@
             "password-placeholder": "Anna salasana...",
             "encryption": "Salaus",
             "encryption-placeholder": "Valitse salausmenetelmä...",
-            "authentication": "Todennusmenetelmä",
-            "authentication-placeholder": "Valitse todennusmenetelmä...",
             "sender-address": "Lähettäjän osoite",
             "sender-address-placeholder": "Täytä sähköpostiosoite, johon sinulla on pääsy...",
             "delivery-address": "Toimitusosoite",
@@ -4122,12 +4247,6 @@
             "no-encryption": "Ei salausta",
             "ssl": "SSL",
             "tls": "TLS"
-        },
-        "authentication": {
-            "no-authentication": "Ei todennusta",
-            "plain": "Tavallinen",
-            "login": "Kirjaudu sisään",
-            "cram-md5": "Cram MD5"
         }
     },
     "sw-extension": {
@@ -4144,42 +4263,44 @@
         "my-extensions": {
             "listing": {
                 "initialSearchType": "Laajennukset",
-                "placeholderSearchBar": "Hae laajennuksia…",
+                "placeholderSearchBar": "Hae laajennuksia...",
                 "controls": {
                     "labelActiveStateSwitch": "Piilota passiiviset laajennukset",
                     "filterOptions": {
                         "last-updated": "Viimeksi päivitetty",
-                        "name-asc": "Laajennuksen nimi, asc.",
-                        "name-desc": "Laajennuksen nimi, desc."
+                        "name-asc": "Nimi A - Z.",
+                        "name-desc": "Nimi Z - A."
                     }
-                }
+                },
+                "version": "Versio",
+                "update": "Päivitä"
             },
             "account": {
                 "headline": "Shopware-tili",
-                "isLoggedIn": "Tili onnistuneesti yhdistetty. Siirry ”Sovellus” tai ”Teemat” -välilehteen ja tarkista, onko ostetut laajennukset luettelossa. Jos näin ei ole, tarkista pää Showare-tiliisi ja varmista, että laajennuksille on määritetty oikea toimialue.",
+                "isLoggedIn": "Shopware-tili onnistuneesti yhdistetty. Siirry ”Sovellus” tai ”Teemat” -välilehteen ja tarkista, onko ostetut laajennukset luettelossa. Jos näin ei ole, tarkista pää Showare-tiliisi ja varmista, että laajennuksille on määritetty oikea toimialue.",
                 "login": "Kirjaudu sisään",
                 "logout": "Kirjaudu ulos",
-                "loginMessage": "Kirjaudu kanssasi Shopware-tiliin päästäksesi Store.shopware.com ostamiisi laajennuksiin",
-                "register": "Rekisteröidy ja tule osaksi Shopware-yhteisöä!",
+                "loginMessage": "Kirjaudu sisään Shopware-tilillesi, jotta voit käyttää Store.shopware.com -sivustosta ostamiasi laajennuksia",
+                "register": "Rekisteröidy nyt ja tule osaksi Shopware-yhteisöä!",
                 "registerNow": "Rekisteröidy nyt",
                 "registerUrl": "https://account.shopware.com/register?lang=en",
                 "mailLabel": "Sähköpostiosoite",
-                "mailPlaceholder": "Anna sähköpostiosoitteesi…",
+                "mailPlaceholder": "Anna sähköpostiosoitteesi...",
                 "passwordLabel": "salasana",
-                "passwordPlaceholder": "Anna salasanasi…",
+                "passwordPlaceholder": "Anna salasanasi...",
                 "recoveryUrl": "https://account.shopware.com/recovery?lang=en",
                 "passwordForgot": "Unohditko salasanasi?",
                 "loginNotificationMessage": "Olet kirjautunut sisään Shopware-tilille."
             },
             "tabs": {
-                "app": "Sovellus",
-                "theme": "Teema",
+                "app": "Sovellukset",
+                "theme": "teemat",
                 "recommendation": "Suositukset",
                 "shopwareAccount": "Shopware-tili"
             },
             "fileUpload": {
-                "buttonFileUpload": "Lataa liitännäinen",
-                "messageUploadSuccess": "Liitännäinen on ladattu."
+                "buttonFileUpload": "Lataa laajennus",
+                "messageUploadSuccess": "Laajennus ladattu."
             }
         },
         "errors": {
@@ -4187,19 +4308,19 @@
             "messageGenericFailure": "Se ei toiminut.",
             "messageUploadFailureNotAZipFile": "Ladattu tiedosto ei ole ZIP-tiedosto.",
             "messageUploadFailureUnzipFailed": "ZIP-tiedostoa ei voi purkaa.",
-            "messageUploadFailureNoPluginFoundInZipFile": "ZIP-tiedostosta ei löydy liitännäistä.",
+            "messageUploadFailureNoPluginFoundInZipFile": "ZIP-tiedostosta ei löydy laajennusta.",
             "messageLoginDataInvalid": "Kirjautumistiedot ovat puutteellisia.",
             "messageStoreLicenseDomainMissing": "Kirjautuminen epäonnistui. Antoitko oikean käyttöoikeustoimialueen Shopware-tililtäsi kohtaan ”Asetukset/Shopware-tili”?",
             "messageStoreNotAvailable": "Shopware Store ei ole saatavilla.",
-            "messagePluginBaseClassNotFound": "Plugin perusluokkaa ei voitu ladata. Tarkista plugin composer.json koskien luokan autoloading",
-            "messagePluginInstallationFailed": "Liitännäistä ei voitu asentaa virheilmoituksen \"{message}” vuoksi",
-            "messagePluginUninstallationFailed": "Liitännäistä ei voitu poistaa virheilmoituksen \"{message}” vuoksi",
-            "messagePluginActivationFailed": "Liitännäistä ei voitu aktivoida virheilmoituksen \"{message}” vuoksi",
-            "messagePluginDeactivationFailed": "Liitännäistä ei voitu poistaa käytöstä virheilmoituksen \"{message}” vuoksi",
-            "messageDeactivationFailedDependencies": "Liitännäistä \"{dependency}\" ei voi poistaa käytöstä, koska siitä riippuen on olemassa muita liitännäisiä. Poista seuraavien liitännäisten aktivointi ennen päivityksen uudelleenkäynnistämistä: {dependantNames}",
+            "messagePluginBaseClassNotFound": "Laajennuksen perusluokkaa ei voitu ladata. Tarkista plugin composer.json koskien luokan autoloading.",
+            "messagePluginInstallationFailed": "Laajennusta ei voitu asentaa: \"{message}”.",
+            "messagePluginUninstallationFailed": "Laajennusta ei voitu poistaa: \"{message}”.",
+            "messagePluginActivationFailed": "Laajennusta ei voitu aktivoida: \"{message}”.",
+            "messagePluginDeactivationFailed": "Laajennusta ei voitu poistaa käytöstä: \"{message}”.",
+            "messageDeactivationFailedDependencies": "Laajennusta \"{dependency}\" ei voi poistaa käytöstä, koska siitä riippuen on olemassa muita laajennuksia. Poista seuraavien laajennusten aktivointi ennen päivityksen uudelleenkäynnistämistä: {dependantNames}",
             "messageDeactivationFailedThemeAssignment": "Teemaa \"{themeName}”ei voi poistaa käytöstä tai poistaa sen käytöstä. Poista seuraavat teematehtävät: {assignments}.",
-            "messagePluginUpdateFailed": "Laajennusta ei voitu päivittää virheilmoituksen \"{message}”vuoksi. {pluginDeactivatedHint}",
-            "pluginDeactivatedHint": "Plugin oli deaktivoitu."
+            "messagePluginUpdateFailed": "Laajennusta ei voitu päivittää: \"{message}”. {pluginDeactivatedHint}",
+            "pluginDeactivatedHint": "Laajennus pois päältä."
         },
         "mainMenu": {
             "mainMenuItemExtensionStore": "Laajennukset",
@@ -4209,6 +4330,20 @@
         }
     },
     "sw-extension-store": {
+        "landing-page": {
+            "enablingShopwareStore": "Aktivoi Shopware Store...",
+            "takeMinutes": "Tämä voi kestää muutaman minuutin.",
+            "activationErrorTitle": "Virhe aktivoinnin aikana",
+            "activationErrorDescription": "Yritä uudelleen. Jos tämä ei toimi, pyydä apua järjestelmänvalvojalta.",
+            "retryButton": "Yritä uudelleen",
+            "activationSuccessTitle": "Aktivoitu onnistuneesti",
+            "activationSuccessDescription": "Pidä hauskaa tutustumalla Shopware Storeen.",
+            "label": "Nyt saatavilla",
+            "activationDescriptionTitleFirst": "Tutki ja osta laajennuksia helposti -",
+            "activationDescriptionTitleSecond": "suoraan oman Shopware-myymälän sisältä.",
+            "activationDescriptionTitleDescription": "Aktivoi uusi Shopware Store ja saat käyttöösi paljon hyödyllisiä laajennuksia ja moderneja teemoja, jotka voidaan integroida Kauppaan näennäisesti - ilman ohjelmointitaitoja.",
+            "activate": "Aktivoi"
+        },
         "title": "Kauppa",
         "descriptionTextModule": "Laajennusten hallinta",
         "general": {
@@ -4227,8 +4362,8 @@
                 "releaseDateDesc": "Julkaisupäivä uusin - vanhin",
                 "nameAsc": "Nimi A - Z",
                 "nameDesc": "Nimi Z - A",
-                "ratingAsc": "Rating Low - korkea",
-                "ratingDesc": "Arvosana Korkea - matala"
+                "ratingAsc": "Arvostelu alhainen - korkea",
+                "ratingDesc": "Arvosana korkea - matala"
             }
         },
         "detail": {
@@ -4236,7 +4371,7 @@
             "labelButtonOpenExtension": "Avaa laajennus",
             "labelButtonInstallExtension": "Asenna laajennus",
             "labelBy": "mennessä",
-            "numberOfRatings": "{count} Arvostelu | {count} arvostelut",
+            "numberOfRatings": "{count} arvostelu | {count} arvostelut",
             "noRatings": "Ei vielä arvosanoja",
             "cardTitleInformation": "Tiedot",
             "labelButtonReadMore": "Lue lisää",
@@ -4247,7 +4382,7 @@
                 "labelUpdatedAt": "Viimeksi päivitetty",
                 "labelLanguages": "Kielet",
                 "labelWebsite": "Kehittäjän sivusto",
-                "labelPrivacy": "Privacylinkki"
+                "labelPrivacy": "Tietosuojakäytäntö"
             },
             "cardTitleFAQ": "USEIN KYSYTTYÄ",
             "cardTitleChangelog": "Muutoselogi",
@@ -4261,7 +4396,7 @@
             },
             "sw-extension-buy-modal": {
                 "title": "Lisää laajennus",
-                "labelAcceptPermissions": "Tiedän, että tämä laajennus tarvitsee käyttöoikeuksia",
+                "labelAcceptPermissions": "Olen tietoinen siitä, että tämä laajennus tarvitsee lisälupia",
                 "labelAcceptPrivacyExtensions": "Olen tietoinen siitä, että minun on laajennettava tietosuojakäytäntöäni",
                 "buttonShowPrivacyExtensions": "Näytä tiedot",
                 "variantCard": {
@@ -4273,7 +4408,7 @@
                 "variantSummary": {
                     "labelVat": "plus ALV",
                     "labelPrice": "Hinta",
-                    "renewal": "Uusiminen {renewalDate}"
+                    "renewal": "Uudistaminen {renewalDate}"
                 },
                 "purchaseButtonsLabels": {
                     "free": "Lisää laajennus maksutta",
@@ -4281,7 +4416,7 @@
                     "buy": "Osta laajennus nyt"
                 },
                 "successNotification": {
-                    "titleSuccess": "Laajennukset onnistuneesti lisätty!",
+                    "titleSuccess": "Laajennus onnistuneesti lisätty!",
                     "subtitleSuccess": "Voit nyt kokeilla uutta laajennustasi.",
                     "labelButtonBack": "Palaa takaisin tietoihin"
                 },
@@ -4291,12 +4426,12 @@
                 }
             },
             "sw-extension-adding-failed": {
-                "titleFailure": "Laajennuksen lisääminen epäonnistui",
+                "titleFailure": "Laajennuksen lisääminen epäonnistui ",
                 "textProblem": "Laajennusta lisättäessä ilmeni ongelma.",
                 "installationFailed": {
                     "titleFailure": "Asennus epäonnistui",
                     "textProblem": "Laajennusta asennettaessa ilmeni ongelma. Ilmoitamme valmistajalle.",
-                    "notificationLicense": "Huomaa, että tämän sovelluksen tai teeman tilaus pysyy aktiivisena.",
+                    "notificationLicense": "Huomaa, että tämän laajennuksen tilaus pysyy aktiivisena.",
                     "textSupport": "Jos sinulla on kysyttävää lisenssistä, ota yhteyttä Shopware Financial Services -palveluun. Saatavilla sähköpostitse osoitteesta {0} tai puhelimitse {1}.",
                     "supportEmail": "financial.services@shopware.com",
                     "supportPhone": "+49 (0) 2555/9288510"
@@ -4314,7 +4449,7 @@
                     "submitBtn": "Lähetä"
                 },
                 "sw-extension-ratings-summary": {
-                    "labelRating": "Ei arvosteluja | {numberOfRatings} Arvostelu | {numberOfRatings} Arviot"
+                    "labelRating": "Ei arvosteluja | {numberOfRatings} luokitus | {numberOfRatings} luokitus"
                 },
                 "sw-extension-review": {
                     "labelLastChangeDate": "By {author} päälle {lastChangeDate}",
@@ -4327,6 +4462,7 @@
                     "labelNoReviews": "Tämä laajennus ei ole vielä saanut arvosteluja tai arvosteluja."
                 },
                 "sw-extension-review-creation-inputs": {
+                    "title": "Luokitus pidennys",
                     "labelHeadline": "Otsikko",
                     "placeholderHeadline": "Kirjoita lyhyt otsikko...",
                     "labelRating": "Arvosana",
@@ -4339,8 +4475,8 @@
             "sw-extension-card-base": {
                 "subscriptionLabel": "Tilaus:",
                 "inactiveLabel": "(passiivinen)",
-                "purchasedLabel": "Ostettu: ",
-                "installedLabel": "Asennettu: ",
+                "purchasedLabel": "Ostettu ",
+                "installedLabel": "Asennettu ",
                 "openExtensionLabel": "Avaa sovellus",
                 "installExtensionLabel": "Asenna sovellus",
                 "labelAcceptAndInstall": "Hyväksy ja asenna",
@@ -4352,6 +4488,7 @@
                     "removeLabel": "Poista",
                     "cancelAndRemoveLabel": "Peruuta ja poista",
                     "uninstallLabel": "Poista asennus",
+                    "updateLabel": "Päivitetty versioon {version}",
                     "rateLabel": "Korko",
                     "policyExtensions": "Tietosuojakäytännön laajennukset",
                     "permissions": "Käyttöoikeudet"
@@ -4359,7 +4496,7 @@
             },
             "sw-extension-deactivation-modal": {
                 "deactivateExtensionLabel": "Poista aktivointi \"{extensionName}”",
-                "descriptionCancel": "Jos haluat sen sijaan peruuttaa tilauksen, voit poistaa sen pikavalikosta kohdassa \"{removeLabel}”.",
+                "descriptionCancel": "Jos haluat peruuttaa tilauksen, voit poistaa sen pikavalikosta ”{removeLabel}”.",
                 "alertDeactivate": "Haluatko edelleen poistaa laajennuksen käytöstä?",
                 "deactivateLabel": "Poista aktivointi"
             },
@@ -4370,7 +4507,7 @@
             },
             "sw-extension-privacy-policy-extensions-modal": {
                 "title": "{extensionLabel}: tietosuojakäytännön laajennukset",
-                "intro": "Tämä sovellus käsittelee henkilökohtaisia tietoja. Valmistaja antaa seuraavat ohjeet tietosuojakäytäntösi mukauttamiseen:"
+                "intro": "Tämä sovellus käsittelee henkilökohtaisia tietoja. Valmistaja suosittelee tietosuojakäytäntösi muutoksia:"
             },
             "sw-extension-permissions-details-modal": {
                 "operationRead": "Näytä",
@@ -4379,16 +4516,23 @@
                 "operationDelete": "Poista"
             },
             "sw-extension-my-extensions-listing": {
-                "noActivePlugins": "Aktiivisia laajennuksia ei ole.",
-                "titleEmptyState": "Sovelluksia ei ole vielä asennettu",
-                "textEmptyState": "Jos asennat sovelluksia, ne näkyvät tässä luettelossa.",
+                "apps": {
+                    "noActivePlugins": "Aktiivisia laajennuksia ei löytynyt.",
+                    "titleEmptyState": "Sovelluksia ei ole vielä asennettu",
+                    "textEmptyState": "Jos asennat sovelluksia, ne näkyvät tässä luettelossa."
+                },
+                "themes": {
+                    "noActivePlugins": "Aktiivisia teemoja ei löytynyt.",
+                    "titleEmptyState": "Vielä ei ole asennettu teemoja",
+                    "textEmptyState": "Jos asennat teemoja, ne luetellaan tässä."
+                },
                 "btnOpenStore": "Avoin myymälä"
             },
             "sw-extension-removal-modal": {
                 "titleCancel": "”{extensionName}\" peruuttaa ja poistaa",
                 "titleRemove": "”{extensionName}\" poista",
                 "description": "Jos poistat laajennuksen, et voi enää käyttää sitä.",
-                "alertCancel": "Oletko varma, että haluat poistaa laajennuksen?",
+                "alertCancel": "Oletko varma, että haluat peruuttaa ja poistaa laajennuksen?",
                 "alertRemove": "Oletko varma, että haluat poistaa laajennuksen?",
                 "labelCancel": "Peruuta ja poista",
                 "labelRemove": "Poista"
@@ -4406,7 +4550,7 @@
                 "labelLicensed": "Ostettu"
             },
             "sw-extension-config": {
-                "messageSaveSuccess": "Kokoonpano on tallennettu."
+                "messageSaveSuccess": "Määritykset tallennettu"
             }
         },
         "errors": {
@@ -4414,7 +4558,7 @@
                 "message": "Sinun on hyväksyttävä sopimuksemme, jotta voit edetä."
             },
             "FRAMEWORK__EXTENSION_THEME_STILL_IN_USE": {
-                "message": "Teemaa käytetään tällä hetkellä edelleen yhdessä tai useammassa myyntikanavassa."
+                "message": "Teema on tällä hetkellä käytössä yhdellä tai useammalla Myyntikanavalla."
             },
             "FRAMEWORK__INVALID_EXTENSION_ID": {
                 "message": "Laajennuksen tunnistenumero ei kelpaa."
@@ -4456,39 +4600,39 @@
                 "message": "Valittu hintamalli ei ole sallittu laajennukselle."
             },
             "SAAS_EXTENSION_ORDER__NO_DEFAULT_PAYMENT_MEAN": {
-                "message": "Oletusmaksukeskiarvoa ei ole käytettävissä.",
-                "labelLink": "Määritä oletusmaksu"
+                "message": "Oletusmaksutapaa ei ole käytettävissä.",
+                "labelLink": "Määritä oletusmaksutapa"
             },
             "SAAS_EXTENSION_ORDER__INSUFFICIENT_BALANCE": {
-                "message": "Saatavilla ei ole riittävästi tasapainoa."
+                "message": "Riittämätön tasapaino."
             },
             "SAAS_EXTENSION_REQUEST__INVALID_CONTENT": {
                 "message": "Vaaditut pyyntötiedot puuttuvat tai eivät kelpaa."
             },
             "SAAS_EXTENSION_INVALID_BASKET__MULTIPLE_LICENSES_OR_LICENSE_ALREADY_OWNED": {
-                "message": "Kori ei kelpaa, koska se sisältää useita lisenssejä tai sisältää jo omistaman lisenssin."
+                "message": "Ostoskori ei kelpaa, koska se sisältää useita lisenssejä tai se sisältää jo omistaman lisenssin."
             },
             "SAAS_EXTENSION_INVALID_BASKET__INVALID_ORDER_POSITION": {
-                "message": "Kori ei kelpaa tilauksen virheellisen sijainnin vuoksi."
+                "message": "Ostoskori ei kelpaa, koska tilausasema ei kelpaa."
             },
             "SAAS_EXTENSION_INVALID_BASKET__GENERAL": {
-                "message": "Kori ei kelpaa."
+                "message": "Ostoskori ei kelpaa."
             },
             "SAAS_EXTENSION_INVALID_BASKET__INVALID_COMPANY": {
-                "message": "Kori ei kelpaa, koska yrityksellesi ei ole määritetty maata."
+                "message": "Ostoskori ei kelpaa, koska yrityksellesi ei ole määritetty maata."
             },
             "SAAS_EXTENSION_RATING__INVALID_EXTENSION": {
                 "message": "Arvosteluasi ei voitu tallentaa, koska siihen liittyvä laajennus ei kelpaa."
             },
             "SAAS_COMPANY__MISSING": {
-                "message": "Vaadittu yritys puuttuu.",
+                "message": "Vaadittu yrityksen lausunto puuttuu.",
                 "labelLink": "Määritä yritys"
             }
         }
     },
     "entityCategories": {
         "admin_user": {
-            "title": "Järjestelmänvalvojan käyttäjä",
+            "title": "Hallinnon käyttäjä",
             "entities": {
                 "integration": "integraatio",
                 "user": "Käyttäjä",
@@ -4532,7 +4676,7 @@
                 "customer_address": "osoite",
                 "customer_group": "Asiakasryhmä",
                 "customer_group_translation": "Asiakasryhmän käännös",
-                "customer_group_registration_sales_channels": "Asiakasryhmän rekisteröinnin myyntikanava",
+                "customer_group_registration_sales_channels": "Myyntikanava asiakasryhmän rekisteröinteihin",
                 "customer_recovery": "Takais",
                 "customer_tag": "Tunniste"
             }
@@ -4549,8 +4693,8 @@
             "title": "asiakirjat",
             "entities": {
                 "document": "dokumentti",
-                "document_base_config": "Perusasetusasetuma",
-                "document_base_config_sales_channel": "Myyntikanavien perusasetus",
+                "document_base_config": "Perusconfig",
+                "document_base_config_sales_channel": "Myyntikanavien perusasetukset",
                 "document_type": "Tyyppi",
                 "document_type_translation": "Tyyppi käännös"
             }
@@ -4590,8 +4734,8 @@
         "media": {
             "title": "Media",
             "entities": {
-                "media": "Media",
-                "media_translation": "Median kääntäminen",
+                "media": "Keskipitkä",
+                "media_translation": "Keskikäännös",
                 "media_default_folder": "Oletuskansio",
                 "media_folder": "Kansio",
                 "media_folder_configuration": "Kansion kokoonpano",
@@ -4645,7 +4789,7 @@
             "entities": {
                 "product": "Tuote",
                 "product_category": "Luokka",
-                "product_category_tree": "Luokka Puu",
+                "product_category_tree": "Luokka puu",
                 "product_configurator_setting": "Configuratorin asetus",
                 "product_cross_selling": "Ristiinmyynti",
                 "product_cross_selling_translation": "Ristimyynti käännös",
@@ -4707,15 +4851,15 @@
                 "sales_channel_payment_method": "Maksutapa",
                 "sales_channel_shipping_method": "Toimitusmenetelmä",
                 "sales_channel_translation": "Myyntikanavan käännös",
-                "sales_channel_type": "Tyyppi",
-                "sales_channel_type_translation": "Tyyppi käännös"
+                "sales_channel_type": "Myyntikanavan tyyppi",
+                "sales_channel_type_translation": "Myyntikanavan tyypin käännös"
             }
         },
         "settings": {
             "title": "Asetukset",
             "entities": {
                 "country": "Maa",
-                "country_state": "Maavaltio",
+                "country_state": "Osavaltio/maakunta",
                 "currency": "valuutta",
                 "delivery_time": "Toimitusaika",
                 "language": "Kieli",
@@ -4739,7 +4883,7 @@
                 "tax": "Vero",
                 "tax_rule": "Verosääntö",
                 "tax_rule_type": "Verosäännön tyyppi",
-                "unit": "yksikkö",
+                "unit": "Skaalayksikkö",
                 "version": "Versio"
             }
         },
@@ -4935,7 +5079,7 @@
             "placeholderSalesChannels": "Valitse Myyntikanavat...",
             "placeholderMailTemplate": "Valitse sähköpostimalli...",
             "titleRecipientsCard": "Sähköpostin vastaanottajat",
-            "textEmptyStateRecipients": "Tälle tapahtumalle ei ole vielä muita vastaanottajia. - Asiakkaan sähköpostit lähetetään joka tapauksessa.",
+            "textEmptyStateRecipients": "Lisää vaihtoehtoisia vastaanottajia - Jos asettaa asiakkaan sähköpostit on supended!",
             "columnRecipientName": "Nimi",
             "columnRecipientMail": "Sähköpostiosoite",
             "addRecipientButton": "Lisää vastaanottaja",
@@ -4945,7 +5089,7 @@
     },
     "sw-settings-logging": {
         "general": {
-            "mainMenuItemGeneral": "Kirjaaminen",
+            "mainMenuItemGeneral": "Tapahtumalokit",
             "placeholderSearchBar": "Etsi lokeja..."
         },
         "list": {
@@ -5172,6 +5316,7 @@
             "buttonNextPayPalInfo": "Määritä",
             "buttonBack": "Takaisin",
             "buttonInstall": "Asenna",
+            "buttonActivate": "Aktivoi",
             "buttonFinish": "Viimeistele",
             "buttonConfigureLater": "Määritä myöhemmin",
             "pluginInstalled": "Asennettu"
@@ -5180,16 +5325,16 @@
             "modalTitle": "Tervetuloa",
             "headlineWelcome": "Tervetuloa Shopware 6 -hallintoon",
             "messageWelcome": "Tämä ohjattu toiminto opastaa sinua määrityksen läpi ja yrittää olla avuksi tärkeimpien asetusten kanssa.<br>Haluatko käyttää kauppaasi eri kielellä ja tavoittaa asiakkaita muissa maissa? Asenna sitten haluamasi kielipaketit tänne.",
-            "headlineChangeLanguage": "Asenna lisää kielen liitännäisiä",
+            "headlineChangeLanguage": "Asenna muita kieliä",
             "switchLanguageModalTitle": "Valitse käyttöliittymän kieli",
             "confirmLanguageSwitch": "Vaihda kieltä",
             "cancelLanguageSwitch": "Peruuta",
             "switchLanguageMessage": "”{pluginName}\" on asennettu onnistuneesti. Haluatko vaihtaa käyttöliittymän kieltä?",
-            "pluginsInstalled": "Asennettu liitännäinen | Liitännäiset asennettuna",
-            "pluginsInstalledMessage": "Language plugin on asennettu: | Nämä kielen liitännäiset on asennettu: ",
-            "pluginNotFoundMessage": "Kielen liitännäistä {languageName} ei löytynyt.",
+            "pluginsInstalled": "Laajennus asennettu | Laajennukset asennettuna",
+            "pluginsInstalledMessage": "Kielilajennus on asennettu: | Nämä kielilajennukset on asennettu: ",
+            "pluginNotFoundMessage": "Kielen laajennusta {languageName} ei löytynyt.",
             "pluginInstallationFailedMessage": "Laajennusta ei voitu asentaa: ",
-            "pluginActivationFailedMessage": "Liitännäistä ei voitu aktivoida: ",
+            "pluginActivationFailedMessage": "Laajennusta ei voitu aktivoida: ",
             "tryAgainLater": "Yritä myöhemmin uudelleen.",
             "noConnectionMessage": "Yhteysongelmia näyttää olevan, kieltä ei voitu asentaa."
         },
@@ -5201,7 +5346,7 @@
             "headlineMigration": "Kaupan tietojen siirtäminen",
             "messageMigration": "Migration Assistant auttaa sinua yhdistämään aiempaan myymäläjärjestelmään ja siirtämään tietoja suoraan uuteen Shopware 6 -ympäristöön.",
             "buttonInstallMigration": "Asenna siirtolaisuus",
-            "loadingMessage": "Asentaminen plugin<br>Tämä voi kestää jonkin aikaa..."
+            "loadingMessage": "Laajennuksen asentaminen<br>Tämä voi kestää jonkin aikaa..."
         },
         "mailerSelection": {
             "headline": "Sähköpostiviestinnän luominen",
@@ -5235,7 +5380,7 @@
         },
         "recommendedPlugins": {
             "headline": "Suosituksemme",
-            "modalTitle": "Liitännäiset",
+            "modalTitle": "Laajennukset",
             "message": "Tässä on valikoima hyödyllisiä laajennuksia myymäläsi. Valitse ensin alue, joka on sinulle tärkeä. Sitten voit selata eri kategorioita.",
             "availableInRegion": "Saatavilla alueella",
             "category": "Luokka",
@@ -5265,6 +5410,24 @@
             "labelCreateDomain": "Luo uusi verkkotunnus",
             "testEnvironment": "Testausympäristö"
         },
+        "store": {
+            "modalTitle": "Shopware Store",
+            "loadStatusCollect": "Kerää tallentaa tietoja...",
+            "takeMinutes": "Tämä voi kestää muutaman minuutin.",
+            "alreadyActivated": "Store on jo aktivoitu.",
+            "enablingStore": "Otetaan käyttöön Shopware Store... ",
+            "activationErrorTitle": "Virhe aktivoinnissa",
+            "activationErrorDescription": "Pyydä apua järjestelmänvalvojalta.",
+            "headingOne": "Tutki ja osta laajennuksia helposti -",
+            "headingTwo": "suoraan oman Shopware-myymälän sisältä.",
+            "description": "Aktivoi uusi Shopware Store ja saat käyttöösi paljon hyödyllisiä laajennuksia ja moderneja teemoja, jotka voidaan integroida Kauppaan näennäisesti - ilman ohjelmointitaitoja."
+        },
+        "markets": {
+            "modalTitle": "Shopware-markkinat",
+            "heading": "Shopware-markkinat",
+            "description": "Shopware Marketsin avulla voit yhdistää Shopin Amazonin ja eBayn markkinapaikkoihin — samalla kun tuotteiden ja tilausten siirto on mahdollisimman kätevää.<br>Shopware Markets on suunniteltu kasvattamaan liiketoimintaasi entisestään Sales Channels*¹ -toiminnolla.",
+            "footnote": "*¹ Maksullinen tilaus vaaditaan Shopware Marketsin lisättyjen myyntikanavien käyttämiseen."
+        },
         "finish": {
             "headlineAllDone": "Kaikki tehty!",
             "message": "Shopware 6 {edition} on nyt vahvistettu.",
@@ -5276,14 +5439,17 @@
             "forumLabel": "Foorumi",
             "forumUrl": "https://forum.shopware.com/",
             "roadmapLabel": "Etenemissuunnitelma",
-            "roadmapUrl": "https://www.shopware.com/en/roadmap/"
+            "roadmapUrl": "https://www.shopware.com/en/roadmap/",
+            "modalTitle": "Tehty"
         },
         "stepItemTitle": {
             "dataImport": "Tietojen tuonti",
             "mailer": "Mailerin kokoonpano",
             "setupPaypal": "PayPal-asetukset",
-            "plugins": "Liitännäiset",
-            "shopware": "Shopware-tili"
+            "plugins": "Laajennukset",
+            "shopware": "Shopware-tili",
+            "store": "Shopware Store",
+            "markets": "Shopware-markkinat"
         }
     },
     "sw-sales-channel": {
@@ -6031,7 +6197,7 @@
             "messageSaveError": "Asiakasta ei voitu tallentaa.",
             "messageSaveSuccess": "Asiakas \"{name}\" on tallennettu.",
             "notificationPasswordErrorMessage": "Lähetetyt salasanat eivät täsmää.",
-            "notificationPasswordLengthErrorMessage": "Lähetetty salasana ei täytä vähimmäispituusvaatimusta 8."
+            "notificationPasswordLengthErrorMessage": "Lähetetty salasana ei täytä kahdeksan merkin vähimmäispituusvaatimusta."
         },
         "filter": {
             "salutation": {
@@ -6061,7 +6227,9 @@
             "tags": {
                 "label": "tunnisteita",
                 "placeholder": "Valitse tunnisteita..."
-            }
+            },
+            "messageEmptyTitle": "Mitään ei löytynyt",
+            "messageEmptySubline": "Muokkaa suodattimia löytääksesi tuloksia."
         }
     },
     "sw-settings-document": {
@@ -6713,13 +6881,14 @@
         },
         "roles": {
             "general": {
-                "labelCreateNewRole": "Luo uusi rooli",
+                "labelCreateNewRole": "Luo rooli",
                 "cardLabel": "Roolit"
             },
             "role-grid": {
                 "labelName": "Nimi",
                 "labelDescription": "Kuvaus",
                 "messageEmptyTitle": "Ei vielä rooleja",
+                "messageEmptySubline": "Luo rooleja aloittaaksesi käyttöoikeuksien hallinnan.",
                 "contextMenuEdit": "Edit",
                 "contextMenuDelete": "Poista",
                 "titleModalDelete": "Poista rooli",
@@ -6728,10 +6897,10 @@
                 "labelButtonDelete": "Poista",
                 "notification": {
                     "deleteSuccess": {
-                        "message": "Rooli \"{name}\" on poistettu."
+                        "message": "Rooli \"{name}\" poistettu."
                     },
                     "deleteError": {
-                        "message": "Roolin \"{name}”poistamisen aikana tapahtui virhe."
+                        "message": "Roolia \"{name}\" ei voitu poistaa."
                     }
                 }
             },
@@ -6754,7 +6923,7 @@
             },
             "view": {
                 "detailed": {
-                    "alertText": "Tässä näkymässä oikeudet voidaan määrittää yksityiskohtaisesti. Tämä kokoonpano on tarpeen vain poikkeustilanteissa. Jos järjestelmässä käytetään esimerkiksi laajennuksia, jotka lisäävät uusia tietoaineistoja mutta joilla ei ole oikeuksia, ne voidaan määrittää tässä. Kaikki pois käytöstä -valintaruudut ovat käyttöoikeuksia, jotka on jo määritetty Yleiset-välilehdessä."
+                    "alertText": "Määritä käyttöoikeudet yksityiskohtaisesti. Kaikki deaktivoidut valintaruudut ovat käyttöoikeuksia, jotka on jo määritetty Yleiset-välilehdessä ja joita ei voi määrittää. Tämä määritys on tarpeen vain, jos käytetään esimerkiksi laajennuksia, jotka lisäävät uusia tietoaineistoja mutta joilla ei ole oikeuksia. Ne voidaan määrittää tässä."
                 }
             },
             "tabs": {
@@ -6771,7 +6940,7 @@
                 "cardLabel": "Käyttäjät"
             },
             "user-grid": {
-                "labelUsername": "käyttäjätunnus",
+                "labelUsername": "Käyttäjänimi",
                 "labelFirstName": "Etunimi",
                 "labelLastName": "Sukunimi",
                 "labelRoles": "Roolit",
@@ -6785,10 +6954,10 @@
                 "labelButtonDelete": "Poista",
                 "notification": {
                     "deleteSuccess": {
-                        "message": "Käyttäjä \"{name}\" on poistettu."
+                        "message": "Käyttäjä \"{name}\" poistettu."
                     },
                     "deleteError": {
-                        "message": "Virhe poistettaessa käyttäjää \"{name}”."
+                        "message": "Käyttäjää \"{name}\" ei voitu poistaa."
                     },
                     "deleteUserLoggedInError": {
                         "message": "Käyttäjät eivät voi poistaa itseään."
@@ -6800,10 +6969,10 @@
                 "labelIntegrationsCard": "Integraatiot",
                 "labelFirstName": "Etunimi",
                 "labelLastName": "Sukunimi",
-                "labelEmail": "Sähköposti",
+                "labelEmail": "Sähköpostiosoite",
                 "errorEmailUsed": "Tämä sähköpostiosoite on jo käytössä.",
                 "errorUsernameUsed": "Tämä käyttäjätunnus on jo käytössä.",
-                "labelUsername": "käyttäjätunnus",
+                "labelUsername": "Käyttäjänimi",
                 "labelPassword": "salasana",
                 "labelProfilePicture": "Profiilikuva",
                 "labelLanguage": "Käyttöliittymän kieli",
@@ -6815,17 +6984,19 @@
                 "labelNewPassword": "Uusi salasana",
                 "labelNewUser": "Uusi käyttäjä",
                 "placeholderNewPassword": "Anna uusi salasana...",
-                "placeholderNewPasswordConfirm": "Anna uusi salasana uudelleen...",
+                "placeholderNewPasswordConfirm": "Vahvista uusi salasana...",
                 "labelButtonCancel": "Peruuta",
                 "labelButtonChangePassword": "Muutos",
                 "labelButtonSave": "Tallenna",
+                "writeAccess": "Kirjoita",
+                "readAccess": "Lue",
                 "contextMenuEdit": "Edit",
                 "contextMenuDelete": "Poista",
                 "textChangePassword": "Painamalla ”Change” -painiketta tallentaa uuden salasanan välittömästi!",
-                "addAccessKey": "Uusi käyttöavain",
+                "addAccessKey": "Luo käyttöavain",
                 "labelAccessKey": "Access Avain",
                 "labelPermissions": "Käyttöoikeudet",
-                "disabledRoleSelectWarning": "Roolit ovat käytettävissä vain käyttäjille, jotka eivät ole ”järjestelmänvalvoja”.",
+                "disabledRoleSelectWarning": "Roolit ovat käytettävissä vain käyttäjille, joilla ei ole järjestelmänvalvojan oikeuksia.",
                 "passwordConfirmation": {
                     "titleConfirmPasswordModal": "Vahvista kirjoittamalla nykyinen salasanasi",
                     "labelConfirmPassword": "salasana",
@@ -6847,18 +7018,18 @@
                     "hintCreateNewApiKeys": "Uusien API-käyttöavainten luomiseen suositellaan kaikkien niihin liittyvien komentosarjojen ja sovellusten päivittämistä.",
                     "labelFieldLabel": "Nimi",
                     "idFieldLabel": "Pääsyavaimen tunnus",
-                    "secretFieldLabel": "Salainen käyttöavain",
+                    "secretFieldLabel": "Turvallinen käyttöavain",
                     "secretHelpText": "Kopioi avaimesi nyt. Turvallisuussyistä se ei enää näy säästämisen jälkeen.",
-                    "messageSaveSuccess": "Integraatio on pelastettu.",
+                    "messageSaveSuccess": "Integraatio säästetty",
                     "messageSaveError": "Kotouttamista ei voitu pelastaa.",
                     "messageCreateNewError": "Kotouttamista ei voitu pelastaa."
                 },
                 "notification": {
                     "saveError": {
-                        "message": "Käyttäjän tallentamisen aikana tapahtui virhe \"{name}”."
+                        "message": "Käyttäjää \"{name}\" ei voitu tallentaa."
                     },
                     "saveSuccess": {
-                        "message": "Käyttäjä \"{name}\" on tallennettu."
+                        "message": "Käyttäjä \"{name}\" tallennettu."
                     },
                     "invalidEmailErrorMessage": "Anna kelvollinen sähköpostiosoite.",
                     "duplicateEmailErrorMessage": "Tämä sähköpostiosoite on jo rekisteröity."
@@ -6896,143 +7067,6 @@
             "labelUseAsLogo": "Käytä logoa"
         }
     },
-    "sw-plugin": {
-        "general": {
-            "mainMenuItemGeneral": "Liitännäiset",
-            "mainMenuPluginList": "Asennettu",
-            "mainMenuLicenseList": "Omat lisenssit",
-            "descriptionTextModule": "Hallitse laajennuksia täällä",
-            "placeholderSearchBar": "Etsi liitännäisiä...",
-            "tabList": "Omat liitännäiset",
-            "tabLicenses": "Lisenssit",
-            "tabUpdates": "Päivitystä",
-            "version": "Versio",
-            "accountLink": "https://account.shopware.com/?lang=en",
-            "accountLabel": "Siirry Shopware-tilille",
-            "login": "Kirjaudu sisään",
-            "logout": "Kirjaudu ulos",
-            "messageDownloadSuccess": "Plugin on ladattu.",
-            "downloadButton": "Lataa",
-            "recommendationsLabel": "Suositukset",
-            "storeLink": "https://store.shopware.com/en",
-            "storeLabel": "Shopware-kauppa",
-            "storeNotAvailable": "Yhteyden muodostaminen Shopware-kauppaan ei onnistu.",
-            "loggedIn": "Kirjautunut sisään nimellä"
-        },
-        "errors": {
-            "messageToTheShopwareDocumentation": "<a href=\"{documentationLink}\" target=\"_blank\">Open Shopware-dokumentaatio</a>",
-            "messageGenericFailure": "Se ei toiminut.",
-            "messageUploadFailureNotAZipFile": "Ladattu tiedosto ei ole ZIP-tiedosto.",
-            "messageUploadFailureUnzipFailed": "ZIP-tiedostoa ei voi purkaa.",
-            "messageUploadFailureNoPluginFoundInZipFile": "ZIP-tiedostosta ei löydy liitännäistä.",
-            "messageLoginDataInvalid": "Kirjautumistiedot ovat puutteellisia.",
-            "messageStoreLicenseDomainMissing": "Kirjautuminen epäonnistui. Antoitko oikean käyttöoikeustoimialueen Shopware-tililtäsi kohtaan ”Asetukset/Shopware-tili”?",
-            "messageStoreNotAvailable": "Shopware Store ei ole saatavilla.",
-            "messagePluginBaseClassNotFound": "Plugin perusluokkaa ei voitu ladata. Tarkista plugin composer.json koskien luokan autoloading",
-            "messagePluginInstallationFailed": "Liitännäistä ei voitu asentaa virheilmoituksen \"{message}” vuoksi",
-            "messagePluginUninstallationFailed": "Liitännäistä ei voitu poistaa virheilmoituksen \"{message}” vuoksi",
-            "messagePluginActivationFailed": "Liitännäistä ei voitu aktivoida virheilmoituksen \"{message}” vuoksi",
-            "messagePluginDeactivationFailed": "Liitännäistä ei voitu poistaa käytöstä virheilmoituksen \"{message}” vuoksi",
-            "messageDeactivationFailedDependencies": "Liitännäistä \"{dependency}\" ei voi poistaa käytöstä, koska siitä riippuen on olemassa muita liitännäisiä. Poista seuraavien liitännäisten aktivointi ennen päivityksen uudelleenkäynnistämistä: {dependantNames}",
-            "messagePluginUpdateFailed": "Laajennusta ei voitu päivittää virheilmoituksen \"{message}”vuoksi. {pluginDeactivatedHint}",
-            "pluginDeactivatedHint": "Plugin oli deaktivoitu."
-        },
-        "fileUpload": {
-            "buttonFileUpload": "Lataa liitännäinen",
-            "messageUploadSuccess": "Liitännäinen on ladattu.",
-            "buttonRefreshPlugins": "Päivitä yleiskatsaus"
-        },
-        "store-login": {
-            "headline": "Shopware-tili - Kirjaudu sisään",
-            "information": "Shopware-tili on tärkein keskitin vuorovaikutukseen kaikkien Shopware-palveluiden kanssa.",
-            "loginMessage": "Olet kirjautunut sisään Shopware-tilille.",
-            "labelEmailAddress": "Sähköpostiosoite",
-            "placeholderEmailAddress": "Anna sähköpostiosoitteesi...",
-            "labelPassword": "salasana",
-            "placeholderPassword": "Anna salasanasi...",
-            "buttonLogin": "Kirjaudu sisään",
-            "buttonCancel": "Peruuta",
-            "footerNoAccount": "Eikö sinulla ole vielä Shopware-tiliä?",
-            "footerRegisterAccount": "Luo Shopware-tili nyt!",
-            "forgotPassword": "Unohditko salasanasi?",
-            "forgotPasswordUrl": "https://account.shopware.com/recovery?lang=en",
-            "registerAccountUrl": "https://account.shopware.com/register?lang=en"
-        },
-        "list": {
-            "textPluginManager": "Liitännäiset",
-            "messageEmpty": "Lisäosia ei ole ladattu vielä.",
-            "columnPluginName": "Liitännäinen",
-            "columnVersion": "Versio",
-            "columnInstalledAt": "Asennettu",
-            "columnUpdatedAt": "Päivitetty",
-            "columnLicense": "Käyttöoikeus",
-            "columnActive": "Aktiivinen",
-            "columnAuthor": "Valmistaja",
-            "columnPlugin": "Liitännäinen",
-            "columnChangelog": "Uudet ominaisuudet",
-            "titleSidebarItemRefresh": "Päivitä",
-            "contextInstall": "Asenna",
-            "contextUninstall": "Poista asennus",
-            "contextActivate": "Aktivoi",
-            "contextDeactivate": "Poista aktivointi",
-            "contextUpdate": "Päivitä",
-            "contextDelete": "Poista",
-            "pluginHeader": "Omat liitännäiset",
-            "sortUpgradedAtAsc": "Viimeksi päivitetty",
-            "sortPluginNameAsc": "Liitännäisen nimet, asc.",
-            "sortPluginNameDsc": "Plugin nimet, desc.",
-            "sortLabel": "Lajittele:",
-            "messageActivateSuccess": "Liitännäinen on aktivoitu.",
-            "messageDeactivateSuccess": "Plugin on poistettu käytöstä.",
-            "messageInstallSuccess": "Plugin on asennettu.",
-            "messageUninstallSuccess": "Plugin on poistettu.",
-            "messageDeleteSuccess": "Liitännäinen on poistettu.",
-            "messageUpdateSuccess": "Plugin on päivitetty.",
-            "messageDeleteConfirm": "Oletko varma, että haluat todella poistaa tämän plugin?",
-            "titleUninstallConfirm": "Poista plugin",
-            "messageUninstallConfirm": "Oletko varma, että haluat poistaa {pluginName}: n asennuksen?",
-            "labelRemovePluginData": "Poista kaikki liitännäistiedot pysyvästi",
-            "helpTextRemovePluginData": "Varoitus: Kaikki liitännäisen tiedot poistetaan pysyvästi. Tämä prosessi on peruuttamaton.",
-            "labelUninstallButton": "Poista asennus",
-            "deactivated": "Deaktivoitu",
-            "activated": "Aktivoitu",
-            "config": "Config",
-            "description": "Kuvaus",
-            "tooltipActivationDisabled": "Voit aktivoida vain asennetut liitännäiset."
-        },
-        "license-list": {
-            "textMyPurchases": "Ostetut lisenssit",
-            "columnName": "Liitännäinen",
-            "columnCreationDate": "Ostettu",
-            "columnExpirationDate": "Voimassa kunnes",
-            "columnType": "Vaihtoehto",
-            "messageEmpty": "Ei olemassa olevia lisenssejä.",
-            "messageNotLoggedIn": "Shopware-tili - sisäänkirjautuminen vaaditaan!",
-            "labelAccountLogin": "Kirjaudu sisään Shopware-tilin tunnistetiedoilla",
-            "labelType_buy": "Osta",
-            "labelType_rent": "Vuokra",
-            "labelType_test": "Testi",
-            "labelType_free": "Ilmainen",
-            "labelType_support": "Maksettu tuki"
-        },
-        "updates": {
-            "messageEmpty": "Päivityksiä ei ole saatavilla.",
-            "updateError": "Virhe ladattaessa päivityksiä",
-            "updateButton": "Päivitä",
-            "updateAllButton": "Päivitä kaikki",
-            "updateHeader": "Päivitystä",
-            "lastUpdatesHeader": "Uusimmat päivitykset",
-            "messageUpdateSuccess": "Liitännäinen on päivitetty.",
-            "messageUpdatesSuccess": "Liitännäiset on päivitetty.",
-            "cancelUpdates": "Peruuta"
-        }
-    },
-    "sw-plugin-config": {
-        "messageSaveSuccess": "Kokoonpano on tallennettu."
-    },
-    "sw-plugin-description": {
-        "buttonBack": "Takaisin"
-    },
     "sw-settings": {
         "general": {
             "mainMenuItemGeneral": "Asetukset"
@@ -7041,7 +7075,7 @@
             "title": "Asetukset",
             "tabShop": "Kauppa",
             "tabSystem": "Järjestelmä",
-            "tabPlugins": "Liitännäiset"
+            "tabPlugins": "Laajennukset"
         },
         "system-config": {
             "labelSalesChannelSelect": "Myyntikanava",
@@ -7128,10 +7162,10 @@
         }
     },
     "sw-property-search": {
-        "placeholderSearch": "Etsi ominaisuuksia...",
-        "selected": "{count} -vaihtoehto valittuna | {count} vaihtoehtoa valittuna",
-        "noPropertiesFound": "Ominaisuuksia ei löytynyt",
-        "noPropertiesFoundDescription": "Kokeile toista hakulausetta."
+        "placeholderSearch": "Hae arvoja...",
+        "selected": "{count} arvo valittu | {count} arvo valittu",
+        "noPropertiesFound": "Ominaisuuden arvoja ei löytynyt",
+        "noPropertiesFoundDescription": "Kokeile eri hakusanaa."
     },
     "sw-property-assignment": {
         "columnGroup": "Kiinteistö",
@@ -7157,10 +7191,11 @@
         "reload": "Lataa uudelleen",
         "alertText": "Olemme havainneet käyttöoikeusrikkomuksen ainakin yhden laajennuksesi osalta tässä asennuksessa. Voit korjata lisenssirikkomuksen ja välttää oikeudelliset seuraukset varaamalla laajennustilauksen tai ostaa/vuokraamalla laajennuksen (aiheutetun rikkomustyypin mukaan). Etkö käytä laajennusta enää? Poista se sitten Omat laajennukset -toiminnon kautta. Jos mitään näistä toimenpiteistä ei toteuteta, shopware AG pidättää itsellään oikeuden periä rangaistusmaksuja lisenssirikkomuksista.",
         "deletePlugin": "Poista laajennus pysyvästi",
-        "messageDeleteConfirm": "Haluatko poistaa laajennuksen \"{pluginName} \" kokonaan?",
+        "messageDeleteConfirm": "Haluatko poistaa laajennuksen \"{pluginName}\" kokonaan?",
         "checkboxMessage": "Olen ottanut huomioon tämän viestin ja lopulta kertynyt seurauksia.",
         "closeModal": "Sulje ilmoitus",
         "ignorePlugin": "Ohita pysyvästi",
+        "successfullyDeleted": "Laajennus on poistettu",
         "table": {
             "plugin": "Laajennus",
             "warning": "Varoitus"
@@ -7361,7 +7396,7 @@
         "hasCriteria": "On {criteriaName}"
     },
     "sw-filter-panel": {
-        "titleSidebarItemFilter": "suodatin"
+        "titleSidebarItemFilter": "suodattimet"
     },
     "sw-sidebar-filter-panel": {
         "resetButton": "Nollaa kaikki"

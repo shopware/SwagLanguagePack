@@ -280,7 +280,13 @@
             "labelDownloadPdf": "Lejupielādēt PDF",
             "labelCreateNew": "Izveidot jaunu",
             "messageEmptyTitle": "Pagaidām nav dokumentu",
-            "messageEmptySubline": "Šeit var pārvaldīt dokumentus."
+            "messageEmptySubline": "Šeit var pārvaldīt dokumentus.",
+            "error": {
+                "DOCUMENT__NUMBER_ALREADY_EXISTS": "Dokumenta numurs {number} jau ir piešķirts."
+            },
+            "info": {
+                "DOCUMENT__NUMBER_WAS_CHANGED": "Dokumenta dublikāta numurs. No attiecīgā numuru diapazona automātiski ir sastādīts secīgs numurs."
+            }
         },
         "documentModal": {
             "modalTitle": "Izveidot dokumentu",
@@ -319,6 +325,63 @@
             "message": "Sekojošas automātiskās akcijas tiks izslēgtas:",
             "messageNoItems": "Automātiskās akcijas nav aktivas.",
             "buttonDisable": "Izslēgts"
+        },
+        "filters": {
+            "documentFilter": {
+                "label": "Dokumenti",
+                "placeholder": "Izvēlieties dokumenta statusu...",
+                "textHasCriteria": "Vismaz viens piešķirtais dokuments",
+                "textNoCriteria": "Dokumenti nav piešķirti"
+            },
+            "orderDateFilter": {
+                "label": "Pasūtījuma datums"
+            },
+            "statusFilter": {
+                "label": "Pasūtījuma statuss",
+                "placeholder": "Izvēlēties pasūtījuma statusu..."
+            },
+            "paymentStatusFilter": {
+                "label": "Maksājuma statuss",
+                "placeholder": "Izvēlēties maksājuma statusu..."
+            },
+            "deliveryStatusFilter": {
+                "label": "Piegādes statuss",
+                "placeholder": "Izvēlēties piegādes statusu..."
+            },
+            "paymentMethodFilter": {
+                "label": "Maksājuma veids",
+                "placeholder": "Izvēlieties maksājuma veidu..."
+            },
+            "shippingMethodFilter": {
+                "label": "Piegādes metode",
+                "placeholder": "Izvēlieties nosūtīšanas metodi..."
+            },
+            "salesChannelFilter": {
+                "label": "Pārdošanas kanāli",
+                "placeholder": "Izvēlēties pārdošanas kanālus..."
+            },
+            "billingCountryFilter": {
+                "label": "Norēķinu izrakstīšanas valsts",
+                "placeholder": "Izvēlieties norēķinu valstis..."
+            },
+            "shippingCountryFilter": {
+                "label": "Nosūtīšanas valsts",
+                "placeholder": "Izvēlēties kuģošanas valstis..."
+            },
+            "customerGroupFilter": {
+                "label": "Klientu grupa",
+                "placeholder": "Izvēlēties klientu grupu..."
+            },
+            "tagFilter": {
+                "label": "Tagi",
+                "placeholder": "Izvēlēties tagus..."
+            },
+            "productFilter": {
+                "label": "Produkti",
+                "placeholder": "Izvēlēties produktus..."
+            },
+            "messageEmptyTitle": "Nekas nav atrasts",
+            "messageEmptySubline": "Rediģējiet filtrus, lai atrastu rezultātus."
         }
     },
     "sw-privileges": {
@@ -378,7 +441,7 @@
                 "label": "Biļetena adresāti"
             },
             "product_search_config": {
-                "label": "Produktu meklēšana"
+                "label": "Meklēt"
             },
             "scale_unit": {
                 "label": "Mēroga vienības"
@@ -443,7 +506,7 @@
         },
         "additional_permissions": {
             "orders": {
-                "create_discounts": "Izveidot atlaides",
+                "create_discounts": "Izveidot kredīta vienumus",
                 "label": "Pasūtījumi"
             },
             "user": {
@@ -453,8 +516,9 @@
             "system": {
                 "core_update": "Sākt atjaunināšanu",
                 "plugin_maintain": "Uzturēt paplašinājumus",
+                "extension_store": "Shopware veikals",
                 "clear_cache": "Notīrīt kešatmiņu",
-                "logging": "Mežizstrāde",
+                "logging": "Notikumu žurnāli",
                 "frw": "Pirmā palaišanas vednis",
                 "import_export": "Imports/eksports",
                 "label": "Iestatījumi",
@@ -466,7 +530,7 @@
             },
             "routes": {
                 "label": "Maršruti",
-                "api_action_access-key_integration": "Izveidot jaunu API atslēgu",
+                "api_action_access-key_integration": "API atslēgu izveide",
                 "api_acl_privileges_get": "Lasīt visas ACL privilēģijas",
                 "api_acl_privileges_route_get": "Lasīt ACL maršruta privilēģijas",
                 "api_action_cache_info": "Lasīt kešatmiņas informāciju",
@@ -558,7 +622,7 @@
     },
     "sw-cms": {
         "general": {
-            "placeholderSearchBar": "Meklēt veidnes...",
+            "placeholderSearchBar": "Meklēt izkārtojumus...",
             "mainMenuItemGeneral": "Pirkumu pieredze",
             "moduleTitle": "Pirkumu pieredze",
             "greeting": "Maketi",
@@ -1209,6 +1273,7 @@
                 "infoTextProductDetailPages": "Izkārtojumu var redzēt tikai jūsu veikalā, kad to piešķirat aktīvam produktam.",
                 "labelCategories": "Kategorijas",
                 "placeholderCategories": "Izvēlēties kategorijas...",
+                "placeholderLandingPages": "Izvēlēties galvenos lappuses...",
                 "labelSalesChannel": "Pārdošanas kanāls",
                 "placeholderSalesChannel": "Izvēlēties pārdošanas kanālu...",
                 "resetOptionSalesChannel": "Visi pārdošanas kanāli",
@@ -1219,6 +1284,8 @@
                 "confirmChangesRestorePrev": "Izmest",
                 "confirmChangesTextCategories": "Jūs esat noņēmis izkārtojuma uzdevumus no kategorijām. Ja apstiprināsit šīs izmaiņas, šīm kategorijām vairs nebūs piešķirts izkārtojums.",
                 "confirmChangesTextCategoriesAssignedLayouts": "Dažām atlasītajām kategorijām jau ir piešķirts izkārtojums. Ja jūs turpināt šos iepriekšējos uzdevumus tiks aizstāts ar pašreizējo izkārtojumu.",
+                "confirmChangesTextLandingPages": "Jūs esat noņēmis izkārtojuma uzdevumus no galvenajām lapām. Ja apstiprināsit šīs izmaiņas, šīm galvenajām lapām vairs nebūs piešķirts izkārtojums.",
+                "confirmChangesTextLandingPagesAssignedLayouts": "Dažām atlasītajām galvenajām lapām jau ir piešķirts izkārtojums. Ja jūs turpināt šos iepriekšējos uzdevumus tiks aizstāts ar pašreizējo izkārtojumu.",
                 "confirmChangesTextProducts": "Jūs esat noņēmis izkārtojuma uzdevumus no produktiem. Ja apstiprināsit šīs izmaiņas, šiem produktiem vairs nebūs piešķirts izkārtojums.",
                 "confirmChangesTextProductsAssignedLayouts": "Dažiem atlasītajiem produktiem jau ir piešķirts izkārtojums. Ja jūs turpināt iepriekšējos uzdevumus, tiks aizstāts ar pašreizējo izkārtojumu.",
                 "confirmChangesTextShopPages": "Jūs esat noņēmis izkārtojuma uzdevumus no veikala lapām. Ja apstiprināsit šīs izmaiņas, šīm veikala lapām vairs nebūs piešķirts izkārtojums",
@@ -1228,6 +1295,7 @@
                 "shopPagesSaveError": "Nespēj saglabāt veikala lapas",
                 "tabCategories": "Kategorijas",
                 "tabShopPages": "Veikalu lapas",
+                "tabLandingPages": "Izvietojamās lapas",
                 "shopPages": {
                     "tosPage": "TOS lapas",
                     "revocationPage": "Paziņojumi par atsaukšanu",
@@ -1536,7 +1604,7 @@
                 "keywords": "Atslēgvārdi",
                 "length": "Garums",
                 "linked": "Saistītie",
-                "manufacturer": "Ražotājs",
+                "manufacturerId": "Ražotājs",
                 "manufacturerNumber": "Ražotāja numurs",
                 "markAsTopseller": "Atzīmēts kā populārākais",
                 "maxDeliveryTime": "Maks. piegādes termiņš",
@@ -1549,7 +1617,7 @@
                 "option": "Opcija",
                 "packUnit": "Iepakojuma vienība",
                 "packUnitPlural": "Iepakojuma vienība",
-                "price": "Cena",
+                "cheapestPrice": "Cena",
                 "product": "Produkts",
                 "productNumber": "Produkta numurs",
                 "purchasePrice": "Iepirkuma cena",
@@ -1704,7 +1772,9 @@
             "ascending": "Augoši",
             "descending": "Dilstoši",
             "xTimesIn": "{n} reizes",
-            "close": "Aizvērt"
+            "close": "Aizvērt",
+            "from": "No",
+            "to": "Lai"
         },
         "notification": {
             "notificationSaveErrorMessage": "Saglabājot vienību \"{entityName}\", radās kļūda.",
@@ -2688,7 +2758,12 @@
     "sw-settings-number-range": {
         "general": {
             "mainMenuItemGeneral": "Skaitliskais apgabals",
-            "placeholderSearchBar": "Meklēt numuru diapazonus..."
+            "placeholderSearchBar": "Meklēt numuru diapazonus...",
+            "infoGlobalType": "Var būt tikai viens \"{typeName}\" numuru diapazons. Šeit jāveic izmaiņas “{typeName}” tipa numuru diapazonā un globāli ietekmēs visus pārdošanas kanālus.",
+            "infoGlobalTypeTitle": "Globālā skaitļu diapazona tips \"{typeName}”",
+            "infoGlobal": "Globālā skaitļu diapazona tipu nevar mainīt. Taču pārskatā varat izveidot papildu numuru diapazonus lielākajai daļai tipu un konkrētiem pārdošanas kanāliem.",
+            "infoGlobalTitle": "Globālais numuru diapazons \"{name}”",
+            "infoSalesChannelBound": "Lai mainītu skaitļu diapazona tipu, vispirms noņemiet visus pārdošanas kanāla uzdevumus."
         },
         "list": {
             "textHeadline": "Skaitliskais apgabals",
@@ -3006,9 +3081,11 @@
             "descriptionLabel": "Apraksts",
             "messageSaveSuccess": "Kategorija \"{name}\" ir saglabāta.",
             "useAsLogo": "Izmantot kā ekrāna attēlu",
-            "treeHeadline": "Kategorijas struktūra",
+            "treeHeadline": "Kategorijas",
             "treeHeadSelected": "{count} izvēlēts",
             "emptyStateHeadline": "Nav izvēlēta kategorija",
+            "errorNavigationEntryPoint": "Šī kategorija ir definēta kā vismaz viena pārdošanas kanāla galvenā navigācija, tāpēc to nevar izdzēst.",
+            "errorNavigationEntryPointMultiple": "Viena vai vairākas kategorijas ir definētas kā galvenā navigācija vismaz vienam pārdošanas kanālam, un tādēļ tās nevar izdzēst.",
             "actions": {
                 "actionsDisabledInLanguage": "Kategorijas var izveidot tikai sistēmas noklusējuma valodā.",
                 "createSub": "Jauna apakškategorija",
@@ -3022,58 +3099,54 @@
             "products": "Produkti",
             "seo": "SEO",
             "columnInfoHeader": "Kājenes elements",
-            "columnInfo": "Šajā kategorijā kājenē tiek iestatīta norādītā kolonna. Kategorijas nosaukums tiks parādīts kā kolonnas virsraksts, kas nav klikšķināms. Visas tālāk norādītās kategorijas tiek parādītas kā klikšķināmas rindas zem kolonnas virsraksta."
+            "columnInfo": "Šajā kategorijā kājenē tiek iestatīta norādītā kolonna. Kategorijas nosaukums tiks parādīts kā kolonnas virsraksts. Visas kategorijas pirmajā līmenī zem šīs kategorijas tiek parādītas kā rindas zem kolonnas virsraksta."
         },
         "base": {
             "general": {
                 "categoryNameLabel": "Nosaukums",
                 "headlineInformationCard": "Galvenais",
-                "isCategoryActiveLabel": "Kategorija ir aktīva",
+                "isCategoryActiveLabel": "Aktīvs",
                 "useAsLink": "Lietot kā saiti",
                 "labelCategoryTags": "Tagi",
                 "labelCategoryTagsPlaceholder": "Ievadiet tagus atsevišķi...",
                 "types": {
                     "title": "Kategorijas tips",
-                    "page": "Kategorija",
-                    "folder": "Ieejas punkts",
-                    "link": "Pielāgojama saite",
-                    "column": "Kolonna",
-                    "entrypoint": "Ieejas punkts",
-                    "pageList": "Lapa/ Saraksts",
-                    "help": "Struktūras kategorija pati par sevi nav izsaucama, bet tiek izmantota tikai mērķa norādei."
-                }
-            },
-            "entry-point": {
-                "title": "Ieejas punkts",
-                "navigation": {
-                    "descriptionGeneral": "Jūs esat piešķīris šo kategoriju kā ieejas punktu galvenajai navigācijai šajos tirdzniecības kanālos:"
-                },
-                "serviceSales": {
-                    "descriptionGeneral": "Jūs esat piešķīris šo kategoriju kā piekļuves punktu pakalpojumu navigācijai šajos tirdzniecības kanālos:"
-                },
-                "footerSales": {
-                    "descriptionGeneral": "Jūs esat piešķīris šo kategoriju kā ieejas punktu kājenes navigācijai šajos tirdzniecības kanālos:"
+                    "page": "Lapa/ Saraksts",
+                    "folder": "Strukturēšanas elements/Ieejas punkts",
+                    "link": "Saite",
+                    "linkUnavailable": "Saite (nav atlasāma, ja kategorija ir definēta kā ieejas punkts)",
+                    "help": "Struktūras kategorija pati par sevi nav izsaucama, bet tiek izmantota tikai mērķa norādei.",
+                    "helpText": {
+                        "page": "Lapa/ sarakstam ir saistīti produkti, un to var piekļūt tieši ar piešķirto izkārtojumu.",
+                        "folder": "Strukturējošais elements/ieejas punkts tiks parādīts tikai struktūrā un nav tieši pieejams, izņemot to, ka tas tiek piešķirts kā pārdošanas kanāla ievades punkts.",
+                        "link": "Saite ļauj atsaukties uz produktu, citu kategoriju, galveno lapu vai ārēju vietni."
+                    }
                 }
             },
             "entry-point-card": {
-                "cardTitle": "Ieejas punkts",
+                "cardTitle": "Navigācija",
                 "labelEntryPoint": "Ieejas punkts",
                 "placeholderEntryPoint": "Izvēlēties ieejas punktu...",
-                "labelSalesChannels": "Pārdošanas kanāli",
-                "placeholderSalesChannels": "Izvēlēties pārdošanas kanālu...",
-                "buttonConfigureHome": "Konfigurēt mājas",
+                "existingNavigationDescription": "Jūs esat piešķīris šo kategoriju kā ievades punktu galvenajai navigācijai šajos pārdošanas kanālos:",
+                "labelSalesChannelsAdd": "Pārdošanas kanāla piešķiršana",
+                "placeholderSalesChannels": "Pievienot pārdošanas kanālus...",
+                "buttonConfigureHome": "Konfigurēt sākumlapu",
                 "types": {
                     "labelMainNavigation": "Galvenā navigācija",
+                    "helpTextMainNavigation": "Galvenās navigācijas ievades punkts ir obligāts tirdzniecības kanālu lauks. Ja piešķirat šo kategoriju kā galvenās navigācijas sākuma punktu vienam vai vairākiem pārdošanas kanāliem, šo uzdevumu var mainīt tikai pašā pārdošanas kanālā.",
                     "labelFooterNavigation": "Kājenes navigācija",
-                    "labelServiceNavigation": "Pakalpojumu navigācija"
+                    "helpTextFooterNavigation": "Ja šo kategoriju piešķirat kā kājenes navigācijas ievades punktu vienam vai vairākiem pārdošanas kanāliem, nākamā līmeņa kategorijas būs kolonnas. Tas ļauj sadalīt kājenes navigāciju vairākās zonās.",
+                    "labelServiceNavigation": "Pakalpojumu navigācija",
+                    "helpTextServiceNavigation": "Ja piešķirat šo kategoriju kā pakalpojuma navigācijas ievades punktu vienam vai vairākiem pārdošanas kanāliem, nākamajā līmenī esošās kategorijas tiks rādītas kā otrā navigācija kājenes apgabalā."
                 }
             },
             "entry-point-modal": {
-                "modalTitle": "Konfigurēt mājas",
-                "salesChannelSelection": "Ieejas punkta galvenā navigācija",
-                "showInMainNavigation": "Rādīt kā mājas galvenajā navigācijā",
-                "mainNavigationName": "Nosaukums galvenajā navigācijā",
-                "mainNavigationNamePlaceholder": "Nosaukums galvenajā navigācijā...",
+                "modalTitle": "Konfigurēt sākumlapu",
+                "salesChannelSelection": "Pārdošanas kanāls",
+                "showInMainNavigation": "Rādīt galvenajā navigācijā",
+                "mainNavigationName": "Parādāmais vārds",
+                "mainNavigationNamePlaceholder": "Ievadiet alternatīvo sākumlapas nosaukumu...",
+                "mainNavigationNameHelpText": "Pēc noklusējuma šī kategorija tiek parādīta kā “mājas”. Ievadiet alternatīvu parādāmo nosaukumu, ja noklusējuma konfigurācija neatbilst pašreizējam pārdošanas kanālam.",
                 "layoutHeadline": "Izkārtojums",
                 "seoSettingsHeadline": "SEO iestatījumi",
                 "metaTitleLabel": "Meta nosaukums",
@@ -3154,6 +3227,10 @@
             "textDeleteConfirm": "Vai tiešām vēlaties izdzēst kategoriju \"{name}\"?",
             "textDeleteChildrenConfirm": "Tiks izdzēstas arī visas apakškategorijas.",
             "textDeleteMultipleConfirm": "Vai tiešām vēlaties dzēst atlasītās kategorijas {count}?"
+        },
+        "entry-point-overwrite-modal": {
+            "textBefore": "Jūs jau esat piešķīris ievades punktu šādam pārdošanas kanālam: | Jūs jau esat piešķīris ievades punktus šādiem pārdošanas kanāliem:",
+            "textAfter": "Vai šis uzdevums ir jāpārraksta? | Vai šie uzdevumi ir jāpārraksta?"
         }
     },
     "sw-landing-page": {
@@ -3165,13 +3242,16 @@
             "placeholderSearchBar": "Meklēt galvenajās lapās...",
             "treeHeadSelected": "{count} atlasīts",
             "buttonCreate": "Pievienot galveno lapu",
-            "treeHeadline": "Izvietojamās lapas"
+            "treeHeadline": "Izvietojamās lapas",
+            "actions": {
+                "actionsDisabledInLanguage": "Mērķa lapas var izveidot tikai sistēmas noklusējuma valodā."
+            }
         },
         "base": {
             "general": {
                 "labelName": "Nosaukums",
                 "headlineInformationCard": "Vispārīgi",
-                "isActiveLabel": "Aktivizēta mērķa lapa",
+                "isActiveLabel": "Aktīvs",
                 "labelTags": "Tagi",
                 "labelTagsPlaceholder": "Ievadiet tagus atsevišķi..."
             },
@@ -3182,11 +3262,11 @@
                 "labelMetaDescription": "Meta apraksts",
                 "labelKeywords": "SEO atslēgvārdi",
                 "labelUrl": "SEO URL",
-                "placeholderSalesChannel": "Izvēlējās pārdošanas kanālu...",
+                "placeholderSalesChannel": "Izvēlēties pārdošanas kanālu...",
                 "placeholderMetaTitle": "Ievadiet meta nosaukumu...",
                 "placeholderMetaDescription": "Ievadiet meta aprakstu...",
                 "placeholderKeywords": "Ievadiet vienu vai vairākus atslēgvārdus...",
-                "placeholderUrl": "Ievadiet vietrādi URL..."
+                "placeholderUrl": "Ievadiet URL..."
             },
             "cms": {
                 "title": "Izkārtojuma piešķiršana",
@@ -3196,7 +3276,8 @@
                 "editInPagebuilderEmpty": "Izveidot jaunu izkārtojumu",
                 "editContent": "Rediģēt saturu",
                 "defaultTitle": "Noklusētais izkārtojums",
-                "defaultDesc": "Kategorijas lapa"
+                "defaultDesc": "Kategorijas lapa",
+                "cmsLayoutModalHeadline": "Mērķa lapa"
             }
         },
         "modal": {
@@ -3213,7 +3294,8 @@
             "columnLinkOnly": "Paslēpts",
             "linkAdvancedVisibility": "Papildu piešķiršanas iespējas",
             "labelVisibility": "Pārdošanas kanāli",
-            "closeModal": "Pielietot"
+            "closeModal": "Pielietot",
+            "bodyVisibility": "Pievienot pārdošanas kanālus, kur produkts ir jāparāda. Jūs varat arī sīkāk definēt produkta redzamību katram veikala pārdošanas kanālam, izmantojot tālāk norādīto saiti."
         },
         "general": {
             "mainMenuItemGeneral": "Produkti",
@@ -3223,10 +3305,13 @@
             "placeholderSearchBar": "Meklēt produktus...",
             "inheritanceModuleName": "Šis produkts",
             "backToParent": "Atgriezties pie variantu pārskata",
+            "backToGeneralOverview": "Atgriezties pie vispārīga pārskata",
             "copy": "Kopēt",
             "cloneSuffix": "varianti",
             "cloneNotice": "Produktu varianti ir dublēti. Ja šis process tiek pārtraukts, iespējams, ka ne visi varianti tiek pilnībā dublēti. Šajā gadījumā jūs varat atkal ģenerēt jaunā produkta variantus.",
-            "cloneTitle": "Dublēt variantus"
+            "cloneTitle": "Dublēt variantus",
+            "tooltipModeSettings": "Režīma iestatījumi",
+            "textAdvancedMode": "Uzlabotais režīms"
         },
         "basicForm": {
             "labelTitle": "Virsraksts",
@@ -3256,7 +3341,10 @@
             "textAddSearchKeyword": "Noklikšķiniet šeit, lai pievienotu meklēšanas atslēgvārdu",
             "textEnterValidSearchKeyword": "Meklējamie atslēgvārdi",
             "helpTextSearchKeyword": "Produktu veikalā var atrast arī, izmantojot šos atslēgvārdus.",
-            "helpTextTags": "Tagi ir domāti tikai iekšējai lietošanai. Tās var palīdzēt pārvaldīt produktu grupas, lietot kārtulas vai kalpot kā pielāgotus meklēšanas vārdus."
+            "helpTextTags": "Tagi ir domāti tikai iekšējai lietošanai. Tās var palīdzēt pārvaldīt produktu grupas, lietot kārtulas vai kalpot kā pielāgotus meklēšanas vārdus.",
+            "categoriesTitle": "Kategorijas un tagi",
+            "descriptionCategories": "Pievienojiet kategorijas, lai produktu varētu atrast, izmantojot veikalu galveno izvēlni vai API savienojumus. Pārliecinieties, vai atlasāt kategorijas, kas ir pieejamas un aktīvas atlasītajā pārdošanas kanālā.",
+            "descriptionTags": "Tagi palīdz ātrāk atrast produktus. Tie atvieglo produktu grupēšanu, un tos var izmantot, lai automatizētu uzdevumu ar Kārtulu veidotāju."
         },
         "priceForm": {
             "labelTaxRate": "PVN likme",
@@ -3306,7 +3394,7 @@
             "labelEan": "EAN",
             "labelManufacturerNumber": "Ražotāja produkta numurs",
             "labelStock": "Krājums",
-            "labelActive": "Aktīvs",
+            "labelActive": "Aktīvs visiem atlasītajiem pārdošanas kanāliem",
             "labelShippingFree": "Bezmaksas piegāde",
             "labelMarkAsTopseller": "Produkta reklamēšana",
             "labelIsCloseout": "Izpārdošana",
@@ -3341,7 +3429,7 @@
         "detailBase": {
             "cardTitleDeliverabilityInfo": "Piegāde",
             "cardTitleProductInfo": "Pamatinformācija",
-            "cardTitleAssignment": "Uzdevums",
+            "cardTitleAssignment": "Redzamība un struktūra",
             "cardTitlePrices": "Cenas",
             "cardTitleSettings": "Marķējumi",
             "cardTitlePackaging": "Pasākumi un iepakojums",
@@ -3350,12 +3438,15 @@
             "cardTitleReviews": "Atsauksmes",
             "cardTitleMedia": "Mēdiji",
             "labelContextMenuAddToProduct": "Pievienot produktu",
-            "cardTitleSeo": "SEO"
+            "cardTitleSeo": "SEO",
+            "cardTitleVisibilityStructure": "Redzamības struktūra"
         },
         "specifications": {
             "cardTitleMeasuresPackaging": "Pasākumi un iepakojums",
             "cardTitleEssentialCharacteristics": "Būtiskie raksturlielumi",
-            "cardTitleCustomFields": "Pielāgoti"
+            "cardTitleCustomFields": "Pielāgoti",
+            "cardTitleProperties": "Rekvizīti",
+            "cardTitleCustomProduct": "Pielāgots"
         },
         "seo": {
             "cardTitleSeo": "SEO"
@@ -3509,7 +3600,7 @@
             "generationNotificationCountDeletion": "Tiks dzēsts viens variants | Tiks dzēsti {count} varianti",
             "generationNotificationButtonCancel": "Atcelt",
             "generationNotificationButtonContinue": "Ģenerēt",
-            "generatedFilterList": "Filtrs",
+            "generatedFilterList": "Filtru saraksts",
             "generatedListColumnVariation": "Nosaukums",
             "generatedListColumnPrice": "Cena (bruto / neto)",
             "generatedListColumnProductNumber": "Produkta numurs",
@@ -3532,24 +3623,26 @@
             },
             "configuratorModal": {
                 "title": "Ģenerēt variantus",
-                "selectOptions": "Izvēlieties vērtības",
-                "selectOptionsExplanation": "Atlasiet opcijas, kas jāizmanto, ģenerējot variantus.",
-                "priceSurcharges": "Cenas piemaksa",
+                "selectOptions": "Vērtības izvēle",
+                "selectOptionsExplanation": "Atlasiet rekvizītu vērtības, lai ģenerētu variantus.",
+                "selectRestrictionsExplanation": "Izvēlieties rekvizītu vērtības, kuras jāizslēdz no varianta ģenerēšanas.",
+                "selectPricesExplanation": "Pievienojiet piemaksas vērtībām vai valūtām.",
+                "priceSurcharges": "Cenu piemaksas",
                 "resetSurcharges": "Svītrot piemaksu",
-                "defineRestrictions": "Svītrot piemaksu",
-                "priceOptions": "Vērtības",
-                "restrictedCombinations": "Ierobežotas īpašuma vērtības",
-                "searchRestrictions": "Meklēt īpašumus...",
-                "addNewRestriction": "Pievienojiet ierobežojumu",
-                "editRestriction": "Mainīt ierobežojumu",
-                "deleteRestriction": "Dzēst ierobežojumu",
+                "defineRestrictions": "Vērtības izslēgšana",
+                "priceOptions": "Vērtība",
+                "restrictedCombinations": "Izslēgtās īpašuma vērtības",
+                "searchRestrictions": "Meklēt neiekļautās vērtības...",
+                "addNewRestriction": "Izslēgt vērtības",
+                "editRestriction": "Rediģēt",
+                "deleteRestriction": "Dzēst",
                 "singleRestrictionSeperation": "Un",
-                "deleteCombination": "Dzēst kombināciju",
+                "deleteCombination": "Dzēst",
                 "isOneFrom": "ir viens no",
                 "cancel": "Atcelt",
                 "save": "Saglabāt",
                 "searchPlaceholder": "Meklēt vērtības...",
-                "singleRestrictionAddTitle": "Pievienojiet ierobežojumu",
+                "singleRestrictionAddTitle": "Izslēgt vērtības",
                 "surchargeNotice": "Piemaksu izmaiņas neietekmēs jau ģenerētus variantus. Lūdzu, dodieties uz varianta detalizācijas lapu un mainiet tur jau ģenerēto variantu cenas."
             },
             "deliveryModal": {
@@ -3573,7 +3666,7 @@
         "layout": {
             "title": "Izkārtojuma piešķiršana",
             "subtitle": "Varat mainīt produkta detalizētās lapas, piešķirot pielāgotus izkārtojumus. Ja šeit nav piešķirts pielāgots izkārtojums, tiks izmantots noklusējuma izkārtojums.",
-            "textNoConfig": "Pašreizējam atlasītajam izkārtojumam nav rediģējamu elementu",
+            "textNoConfig": "Pašlaik atlasītajam izkārtojumam nav rediģējamu elementu",
             "textContentInfo": "Noklusējuma produktu bloki tiek automātiski aizpildīti ar produkta datiem. Tādējādi faktiskais saturs šeit nav uzskaitīts."
         },
         "crossselling": {
@@ -3618,7 +3711,7 @@
             "templateSelectFieldPlaceholder": "Izvēlieties veidni..."
         },
         "layoutAssignment": {
-            "title": "Noklusētā atkāpšanās",
+            "title": "Noklusējuma vērtība",
             "subtitle": "Produkta lapa",
             "textAssignLayout": "Izkārtojuma piešķir",
             "textChangeLayout": "Izkārtojuma maiņa",
@@ -3626,14 +3719,45 @@
             "textEditInDesigner": "Rediģēt dizainerā"
         },
         "filters": {
+            "fromPlaceholder": "Ievadiet sākuma vērtību...",
+            "toPlaceholder": "Ievadiet beigu vērtību...",
             "activeFilter": {
                 "label": "Aktīvs",
                 "placeholder": "Izvēlēties statusu..."
             },
             "imagesFilter": {
                 "label": "Attēli",
-                "placeholder": "Atlasiet attēla statusu..."
-            }
+                "placeholder": "Atlasiet attēla statusu...",
+                "textHasCriteria": "Vismaz vienam piešķirtajam produkta attēlam",
+                "textNoCriteria": "Produktu attēli nav piešķirti"
+            },
+            "releaseDateFilter": {
+                "label": "Izlaides datums"
+            },
+            "stockFilter": {
+                "label": "Noliktavā"
+            },
+            "priceFilter": {
+                "label": "Cena"
+            },
+            "manufacturerFilter": {
+                "label": "Ražotājs",
+                "placeholder": "Izvēlēties ražotāju..."
+            },
+            "salesChannelsFilter": {
+                "label": "Pārdošanas kanāli",
+                "placeholder": "Izvēlēties pārdošanas kanālus..."
+            },
+            "categoriesFilter": {
+                "label": "Kategorijas",
+                "placeholder": "Izvēlēties kategorijas..."
+            },
+            "tagsFilter": {
+                "label": "Tagi",
+                "placeholder": "Izvēlēties tagus..."
+            },
+            "messageEmptyTitle": "Nekas nav atrasts",
+            "messageEmptySubline": "Rediģējiet filtrus, lai skatītu rezultātus."
         },
         "notification": {
             "notificationSaveErrorProductNoAlreadyExists": "Produkta Nr. \"{productNo}\" jau ir piešķirts."
@@ -3873,6 +3997,7 @@
             "info": "Kas jauns?",
             "requirements": "Sistēmas prasības",
             "plugins": "Spraudņu savienojamība",
+            "extensions": "Paplašinājuma saderība",
             "updating": "Atjaunojas..."
         },
         "notifications": {
@@ -3916,6 +4041,7 @@
             },
             "actions": {
                 "openPluginManager": "Atveriet spraudņu pārvaldnieku",
+                "openMyExtensions": "Atvērt manus paplašinājumus",
                 "deactivateAll": "Deaktivizējiet visus spraudņus.",
                 "deactivateIncompatible": "Deaktivizējiet nesaderīgus spraudņus.",
                 "deactivateNone": "Es apzinos riskus un vēlos atjaunināt Shopware, vispirms nedeaktivizējot nesaderīgus spraudņus. Es apzinos, ka Shopware nevar garantēt manas instalācijas funkcionalitāti pēc nesaderīga atjauninājuma.",
@@ -3987,82 +4113,83 @@
         },
         "generalTab": {
             "labelSearchBehaviour": "Meklēšanas uzvedība",
-            "textTitleSearchBehaviour": "Iepriekš definējiet savu veikala meklēšanas uzvedību.",
+            "textTitleSearchBehaviour": "Iepriekš definējiet savu pārdošanas kanālu meklēšanas uzvedību.",
             "labelSearchAndCondition": "“UN” Meklēt",
-            "textSearchAndConditionExplain": "Meklēšanas rezultāti sakrīt ar katru ievadītā meklējamā vārda elementu.\nPiemērs: “Džinsu vasara” atradīs produktus, kas satur gan atslēgvārdus “džinsi”, gan “vasara”.",
+            "textSearchAndConditionExplain": "Meklēšanas rezultāti sakrīt ar katru ievadītā meklējamā vārda elementu.\nPiemērs: “Džinsu vasara” atradīs meklēšanas rezultātus, kas satur gan meklēšanas vārdus “džinsi”, gan “vasara”.",
             "labelSearchOrCondition": "“VAR” Meklēt",
-            "textSearchOrConditionExplain": "Meklēšanas rezultāti sakrīt ar jebkuru ievadītā meklējamā termina elementu.\nPiemērs: “Džinsu vasara” atradīs produktus, kas satur vai nu atslēgvārdu “džinsi” un “vasara”.",
+            "textSearchOrConditionExplain": "Meklēšanas rezultāti sakrīt ar jebkuru ievadītā meklējamā termina elementu.\nPiemērs: “Džinsu vasara” atradīs meklēšanas rezultātus, kas satur vai nu meklēšanas terminu “džinsi”, vai meklējamo terminu “vasara”.",
             "labelMinimalSearchTerm": "Minimālais meklējamo terminu garums",
-            "labelExcludedSearchTerms": "Izslēgtie meklēšanas termini",
+            "labelExcludedSearchTerms": "Izslēgti meklēšanas termini",
             "textEmptyStateExcludedSearchTerms": "Vēl nav izslēgti meklēšanas termini",
-            "buttonAddExcludedSearch": "Pievienot izslēgšanu",
-            "textPlaceholderTermsFilter": "Meklēt izslēgtos terminus...",
-            "buttonAddExcludedSearchTerms": "Pievienot izslēgšanas terminu",
+            "buttonAddExcludedSearch": "Izslēgt meklēšanas terminu",
+            "textPlaceholderTermsFilter": "Meklējiet izslēgtos meklējamos vārdus...",
+            "buttonAddExcludedSearchTerms": "Izslēgt meklēšanas terminu",
             "labelExcludedSearchTermsNoResults": "Rezultāti netika atrasti.",
             "labelSearchableContent": "Meklējamais saturs",
-            "textDescriptionSearchableContent": "Viss meklējamais saturs ir norādīts zemāk esošajā tabulā. Lai pielāgotu meklēšanas rezultātus savā veikalā, dodieties uz priekšu un vai nu izslēdziet saturu no meklēšanas iespējas vispār, vai arī kniebiet katra atsevišķā elementa rangu atbilstoši jūsu vēlmēm. Augstāka ranga elementiem ir palielināta “meklēšanas vērtība” un meklēšanas rezultātos tie būs augstāki.",
+            "textDescriptionSearchableContent": "Viss meklējamais saturs ir norādīts zemāk esošajā tabulā. Lai pielāgotu meklēšanas rezultātus savos pārdošanas kanālos, dodieties uz priekšu un vai nu izslēdziet saturu no meklēšanas vispār, vai arī kniebiet katra atsevišķā elementa rangu atbilstoši jūsu vēlmēm. Augstāka ranga elementiem ir palielināta “meklēšanas vērtība” un meklēšanas rezultātos tie būs augstāki.",
             "buttonResetDefault": "Atiestatīt uz noklusējuma",
             "linkExample": "Rādīt piemēru",
-            "buttonAddContent": "Pievienot saturu",
+            "buttonAddContent": "Pievienot meklējamu saturu",
             "labelGeneralTab": "Vispārīgi",
             "labelCustomFieldsTab": "Pielāgoti",
             "textEmptyStateSearchableContent": "Vēl nav pievienots meklējamais saturs.",
             "titleExampleModal": "Meklēšanas rangu piemērs",
-            "textColumnSearchTerm": "Meklēšanas termini",
+            "textColumnSearchTerm": "Izslēgti meklēšanas termini",
             "modal": {
                 "textExplain": "Zemāk jūs atradīsiet trīs izdomātus meklēšanas rezultātus meklējamajam terminam “džinsi”. Meklējami ir produktu nosaukumi (rangu rezultāts 100), produktu apraksti (rangu rezultāts 50) un produktu birkas (rangu rezultāts 20).",
                 "textTitle": "Nosaukums",
-                "textSuperJeans": "super džinsi",
+                "textSuperJeans": "Super džinsi",
                 "textDescription": "Apraksts",
-                "textFancyJeans": "fancy džinsi",
+                "textFancyJeans": "Fancy džinsi",
                 "textTag": "Tags",
                 "textJeans": "Džinsi",
                 "textTotal": "Kopā",
                 "textProductRankedFirstScore": "Pirmajā vietā ierindotajam produktam ir meklēšanas rezultāts katrā meklējamā entītijā, kā rezultātā kopējais vērtējums ir 170.",
-                "textFancyPants": "fancy bikses",
+                "textFancyPants": "Fancy bikses",
                 "textProductRankedSecondScore": "Produktam, kas ierindots otrajā vietā, ir meklēšanas hits par produkta nosaukumu un produktu tagiem, kā rezultātā kopējais rangu rezultāts ir 120.",
                 "textSuperPants": "Super bikses",
                 "textProductRankedThirdScore": "Produktam, kas ierindots trešajā vietā, ir tikai viens trāpījums produktu tagos, kā rezultātā kopējais rangu rezultāts ir 20."
             },
             "labelSearchIndex": "Meklēšanas indekss",
             "buttonRebuildSearchIndex": "Atjaunot meklēšanas indeksu",
-            "textWarningOpenTab": "Lūdzu, paturiet šo logu/cilni atvērtu.",
-            "textRebuildSearchIndexDescription": "Meklēšanas indeksa atjaunošana aizņem maz laika. Šajā laikā ir obligāti jāsaglabā šis logs/cilne, lai veiksmīgi atjaunotu meklēšanas indeksu. Tiklīdz process būs pabeigts, jums tiks paziņots.",
+            "textWarningOpenTab": "Lūdzu, paturiet šo logu atvērtu.",
+            "textRebuildSearchIndexDescription": "Meklēšanas indeksa atjaunošana prasa zināmu laiku. Šajā laikā ir obligāti jāsaglabā šis logs, lai veiksmīgi atjaunotu meklēšanas indeksu. Tiklīdz process būs pabeigts, jums tiks paziņots.",
             "textRebuildingSearchIndex": "Meklēšanas indeksa atjaunošana",
             "textLastedBuild": "Jaunākais būvējums:",
+            "textSearchNotIndexedYet": "Meklēšana vēl nav indeksēta.",
             "list": {
                 "columnSearchable": "Meklējami",
-                "columnRankingPoints": "Ranking punkti",
+                "columnRankingPoints": "Ranking score",
                 "columnContent": "Saturs",
-                "columnSplitKeywords": "Sadalīt atslēgvārdus",
+                "columnSplitKeywords": "Sadalīt meklēšanas terminus",
                 "textResetRanking": "Atiestatīt rangu",
                 "textRemove": "Noņemt"
             },
             "configFields": {
-                "name": "Nosaukums",
-                "description": "Apraksts",
+                "name": "Produkta nosaukums",
+                "description": "Produkta apraksts",
                 "productNumber": "Produkta numurs",
                 "manufacturerNumber": "Ražotāja numurs",
-                "ean": "EAN",
+                "ean": "Produkts EAN",
                 "customSearchKeywords": "Pielāgoti meklēšanas",
                 "manufacturerName": "Ražotāja nosaukums",
                 "manufacturerCustomFields": "Ražotāja pielāgoti lauki",
-                "categoriesName": "Kategoriju nosaukums",
+                "categoriesName": "Kategorijas nosaukums",
                 "categoriesCustomFields": "Kategorijas pielāgoti lauki",
-                "tagsName": "Taga nosaukums",
-                "metaTitle": "Meta nosaukums",
-                "metaDescription": "Meta apraksts",
+                "tagsName": "Produktu birka",
+                "metaTitle": "Produkta meta nosaukums",
+                "metaDescription": "Produkta meta apraksts",
                 "propertiesName": "Īpašuma nosaukums",
-                "variantValue": "Varianta vērtība"
+                "variantValue": "Īpašuma vērtība"
             }
         },
         "notification": {
-            "saveSuccess": "Konfigurācija ir saglabāta.",
-            "excludedTermRequired": "Izslēgts termins nedrīkst būt tukšs.",
-            "excludedTermAlreadyExists": "Izslēgts termins jau pastāv.",
-            "updateExcludedTermSuccess": "Izslēgts terminu atjaunināšanas panākumi",
-            "createExcludedTermSuccess": "Izslēgts termins rada panākumus.",
-            "deleteExcludedTermSuccess": "Izslēgts termins dzēst panākumus.",
+            "saveSuccess": "Konfigurācija saglabāta.",
+            "excludedTermRequired": "Izslēgtie meklēšanas termini nedrīkst būt tukši.",
+            "excludedTermAlreadyExists": "Izslēgts meklētais termins jau pastāv.",
+            "updateExcludedTermSuccess": "Atjaunināts meklējamais termins.",
+            "createExcludedTermSuccess": "Izslēgts meklējamais termins.",
+            "deleteExcludedTermSuccess": "Izslēgts meklējamais termins.",
             "saveError": "Saglabājot konfigurāciju, radās kļūda.",
             "index": {
                 "started": "Būvizstrādājumu indeksi.",
@@ -4071,14 +4198,14 @@
             "loadError": "Ielādējot konfigurāciju, radās kļūda."
         },
         "liveSearchTab": {
-            "titleCard": "Dzīves meklēšana veikalā",
-            "textDescription": "Pārbaudiet savus pielāgotos meklēšanas iestatījumus zemāk. Ja esat tikko veicis izmaiņas meklēšanas iestatījumos, noteikti saglabājiet šos iestatījumus, pirms tos testējat, izmantojot šo meklēšanu tiešraidē.",
+            "titleCard": "Pārdošanas kanāla tiešraidē meklēšana",
+            "textDescription": "Pārbaudiet savus pielāgotos meklēšanas iestatījumus zemāk.",
             "labelSalesChannelSelect": "Pārdošanas kanāls",
-            "textPlaceholderSalesChannel": "Lūdzu, izvēlieties pārdošanas kanālu, lai pārbaudītu tiešraides meklēšanu",
+            "textPlaceholderSalesChannel": "Izvēlieties pārdošanas kanālu...",
             "linkRebuildSearchIndex": "Atjaunot meklēšanas indeksu",
-            "labelName": "Nosaukums",
-            "labelScore": "Rezultāts",
-            "textNoResult": "Nav rezultātu ievadītajam atslēgvārdam (-iem). Lūdzu, izmēģiniet citu atslēgvārdu (-us)"
+            "labelName": "Meklēšanas rezultāts",
+            "labelScore": "Ranking score",
+            "textNoResult": "Rezultāti netika atrasti. Lūdzu, mēģiniet vēlreiz ar citu meklējamo terminu."
         }
     },
     "sw-settings-mailer": {
@@ -4115,8 +4242,6 @@
             "password-placeholder": "Ievadiet paroli...",
             "encryption": "Šifrēšana",
             "encryption-placeholder": "Izvēlēties šifrēšanas metodi...",
-            "authentication": "Autentifikācijas metode",
-            "authentication-placeholder": "Izvēlēties autentifikācijas metodi...",
             "sender-address": "Sūtītāja adrese",
             "sender-address-placeholder": "Ievadiet e-pasta adresi, kurai varat piekļūt...",
             "delivery-address": "Piegādes adrese",
@@ -4128,12 +4253,6 @@
             "no-encryption": "Bez šifrēšanas",
             "ssl": "SSL",
             "tls": "TLS"
-        },
-        "authentication": {
-            "no-authentication": "Nav autentifikācijas",
-            "plain": "Vienkāršs",
-            "login": "Ienākt",
-            "cram-md5": "Cram MD5"
         },
         "helpText": "Lai iegūtu vairāk informācijas, lūdzu, apskatiet <a target=\"_blank\", href=\"https://docs.shopware.com/en/shopware-6-en\">documentation.</a>"
     },
@@ -4151,42 +4270,44 @@
         "my-extensions": {
             "listing": {
                 "initialSearchType": "Paplašinājumi",
-                "placeholderSearchBar": "Meklēt paplašinājumus…",
+                "placeholderSearchBar": "Meklēt paplašinājumus...",
                 "controls": {
                     "labelActiveStateSwitch": "Paslēpt neaktīvus paplašinājumus",
                     "filterOptions": {
                         "last-updated": "Pēdējo reizi atjaunināts",
-                        "name-asc": "Paplašinājuma nosaukums, asc.",
-                        "name-desc": "Paplašinājuma nosaukums, desc."
+                        "name-asc": "Nosaukums A - Z.",
+                        "name-desc": "Nosaukums Z - A."
                     }
-                }
+                },
+                "version": "Versija",
+                "update": "Atjaunināt"
             },
             "account": {
                 "headline": "Shopware konts",
-                "isLoggedIn": "Konts veiksmīgi savienots. Atveriet cilni “Lietotne” vai “Tēmas” un pārbaudiet, vai jūsu iegādātie paplašinājumi ir uzskaitīti. Ja tā nav, pārbaudiet galvu uz savu Showare kontu un pārliecinieties, vai ir iestatīts pareizais paplašinājumu domēns.",
+                "isLoggedIn": "Shopware konts veiksmīgi savienots. Atveriet cilni “Lietotne” vai “Tēmas” un pārbaudiet, vai jūsu iegādātie paplašinājumi ir uzskaitīti. Ja tā nav, pārbaudiet galvu uz savu Shopware kontu un pārliecinieties, vai ir iestatīts pareizais paplašinājumu domēns.",
                 "login": "Pieteikšanās",
                 "logout": "Izteikties",
                 "loginMessage": "Piesakieties ar jums Shopware kontu, lai piekļūtu paplašinājumiem, kurus iegādājāties veikalā store.shopware.com",
-                "register": "Reģistrējieties un kļūstiet par Shopware kopienas daļu!",
-                "registerNow": "Reģistrēties tūlīt",
+                "register": "Reģistrējieties tagad un kļūt par daļu no Shopware kopienas!",
+                "registerNow": "Pierakstīties tagad",
                 "registerUrl": "https://account.shopware.com/register?lang=en",
                 "mailLabel": "E-pasta adrese",
-                "mailPlaceholder": "Ievadiet savu e-pasta adresi…",
+                "mailPlaceholder": "Ievadiet savu e-pasta adresi...",
                 "passwordLabel": "Parole",
-                "passwordPlaceholder": "Ievadiet savu paroli…",
+                "passwordPlaceholder": "Ievadiet savu paroli...",
                 "recoveryUrl": "https://account.shopware.com/recovery?lang=en",
-                "passwordForgot": "Vai esat aizmirsis savu paroli?",
+                "passwordForgot": "Vai aizmirsāt savu paroli?",
                 "loginNotificationMessage": "Jūs esat pieteicies Shopware kontā."
             },
             "tabs": {
-                "app": "Lietotne",
-                "theme": "Tēma",
+                "app": "Lietotnes",
+                "theme": "Tēmas",
                 "recommendation": "Ieteikumi",
                 "shopwareAccount": "Shopware konts"
             },
             "fileUpload": {
-                "buttonFileUpload": "Augšupielādēt spraud",
-                "messageUploadSuccess": "Spraudnis ir augšupielādēts."
+                "buttonFileUpload": "Augšupielādes paplašinājums",
+                "messageUploadSuccess": "Paplašinājums augšupielādēts."
             }
         },
         "errors": {
@@ -4194,19 +4315,19 @@
             "messageGenericFailure": "Tas nedarbojās.",
             "messageUploadFailureNotAZipFile": "Augšupielādētais fails nav ZIP fails.",
             "messageUploadFailureUnzipFailed": "Nespēj iegūt ZIP failu.",
-            "messageUploadFailureNoPluginFoundInZipFile": "ZIP failā nav atrasts neviens spraudnis.",
+            "messageUploadFailureNoPluginFoundInZipFile": "ZIP failā nav atrasts paplašinājums.",
             "messageLoginDataInvalid": "Pieteikšanās dati ir nepilnīgi.",
             "messageStoreLicenseDomainMissing": "Pieteikšanās neizdevās. Vai jūs sniedzāt pareizo licences domēnu no sava Shopware konta sadaļā “Iestatījumi/Shopware Account”?",
-            "messageStoreNotAvailable": "Shopware Store nav pieejams.",
-            "messagePluginBaseClassNotFound": "Spraudņa bāzes klasi nevarēja ielādēt. Pārbaudiet savu spraudni composer.json par klases autoloading",
-            "messagePluginInstallationFailed": "Spraudni nevarēja instalēt kļūdas ziņojuma dēļ \"{message}”",
-            "messagePluginUninstallationFailed": "Spraudni nevarēja atinstalēt kļūdas ziņojuma dēļ \"{message}”",
-            "messagePluginActivationFailed": "Spraudni nevarēja aktivizēt kļūdas ziņojuma dēļ \"{message}”",
-            "messagePluginDeactivationFailed": "Spraudni nevar deaktivizēt kļūdas ziņojuma \"{message}” dēļ",
-            "messageDeactivationFailedDependencies": "Spraudni \"{dependency}\" nevar deaktivizēt, jo atkarībā no tā ir arī citi spraudņi. Lūdzu, deaktivizējiet šādus spraudņus pirms atjauninājuma restartēšanas: {dependantNames}",
+            "messageStoreNotAvailable": "Shopware Store nav pieejama.",
+            "messagePluginBaseClassNotFound": "Paplašinājuma bāzes klasi nevarēja ielādēt. Pārbaudiet savu spraudni composer.json par klases autoloading.",
+            "messagePluginInstallationFailed": "Paplašinājumu nevarēja uzstādīt: \"{message}”.",
+            "messagePluginUninstallationFailed": "Paplašinājumu nevarēja atinstalēt: \"{message}”.",
+            "messagePluginActivationFailed": "Paplašinājumu nevarēja aktivizēt: \"{message}”.",
+            "messagePluginDeactivationFailed": "Paplašinājumu nevarēja deaktivizēt: \"{message}”.",
+            "messageDeactivationFailedDependencies": "Paplašinājumu \"{dependency}\" nevar deaktivizēt, jo atkarībā no tā ir citi paplašinājumi. Lūdzu, deaktivizējiet šādus paplašinājumus pirms atjauninājuma restartēšanas: {dependantNames}",
             "messageDeactivationFailedThemeAssignment": "Nespēj deaktivizēt vai atinstalēt tēmu \"{themeName}”. Lūdzu, noņemiet šādus tēmu uzdevumus: {assignments}.",
-            "messagePluginUpdateFailed": "Spraudni nevarēja atjaunināt kļūdas ziņojuma \"{message}” dēļ. {pluginDeactivatedHint}",
-            "pluginDeactivatedHint": "Spraudnis tika deaktivizēts."
+            "messagePluginUpdateFailed": "Paplašinājumu nevarēja atjaunināt: \"{message}”. {pluginDeactivatedHint}",
+            "pluginDeactivatedHint": "Paplašinājums deaktivizēts."
         },
         "mainMenu": {
             "mainMenuItemExtensionStore": "Paplašinājumi",
@@ -4216,6 +4337,20 @@
         }
     },
     "sw-extension-store": {
+        "landing-page": {
+            "enablingShopwareStore": "Shopware veikala aktivizēšana...",
+            "takeMinutes": "Tas var ilgt dažas minūtes.",
+            "activationErrorTitle": "Kļūda aktivizēšanas laikā",
+            "activationErrorDescription": "Lūdzu, mēģiniet vēlreiz. Ja tas nedarbojas, lūdziet palīdzību administratoram.",
+            "retryButton": "Mēģiniet vēlreiz",
+            "activationSuccessTitle": "Veiksmīgi aktivizēts",
+            "activationSuccessDescription": "Have fun izpētīt Shopware Store.",
+            "label": "Tagad ir pieejams",
+            "activationDescriptionTitleFirst": "Izpētiet un iegādājieties paplašinājumus viegli -",
+            "activationDescriptionTitleSecond": "tieši no savas Shopware veikalā.",
+            "activationDescriptionTitleDescription": "Aktivizējiet visu jauno Shopware Store un iegūstiet piekļuvi noderīgu paplašinājumu un modernu tēmu slodzēm, kuras var integrēt jūsu veikalā šķietami - bez programmēšanas iemaņām.",
+            "activate": "Aktivizēt"
+        },
         "title": "Veikals",
         "descriptionTextModule": "Paplašinājumu pārvaldība",
         "general": {
@@ -4235,7 +4370,7 @@
                 "nameAsc": "Nosaukums A - Z",
                 "nameDesc": "Nosaukums Z - A",
                 "ratingAsc": "Reitings zems - augsts",
-                "ratingDesc": "Reitings Augsts - Zems"
+                "ratingDesc": "Reitings augsts - zems"
             }
         },
         "detail": {
@@ -4243,7 +4378,7 @@
             "labelButtonOpenExtension": "Atvērt paplašinājumu",
             "labelButtonInstallExtension": "Instalēt paplašinājumu",
             "labelBy": "līdzās",
-            "numberOfRatings": "{count} Review | {count} Atsauksmes",
+            "numberOfRatings": "{count} pārskats | {count} atsauksmes",
             "noRatings": "Vēl nav vērtējumu",
             "cardTitleInformation": "Informācija",
             "labelButtonReadMore": "Lasīt vairāk",
@@ -4254,7 +4389,7 @@
                 "labelUpdatedAt": "Pēdējo reizi atjaunināts",
                 "labelLanguages": "Valodas",
                 "labelWebsite": "Izstrādātāja vietne",
-                "labelPrivacy": "Privacylink"
+                "labelPrivacy": "Privātuma politika"
             },
             "cardTitleFAQ": "BIEŽI UZDOTIE JAUTĀJUMI",
             "cardTitleChangelog": "Changelog",
@@ -4268,7 +4403,7 @@
             },
             "sw-extension-buy-modal": {
                 "title": "Pievienot paplašinājumu",
-                "labelAcceptPermissions": "Es esmu informēts, ka šim paplašinājumam ir nepieciešamas atļaujas",
+                "labelAcceptPermissions": "Es apzinos, ka šim paplašinājumam ir nepieciešamas papildu atļaujas",
                 "labelAcceptPrivacyExtensions": "Es apzinos, ka man ir jāpaplašina mana konfidencialitātes politika",
                 "buttonShowPrivacyExtensions": "Rādīt detalizētu informāciju",
                 "variantCard": {
@@ -4288,7 +4423,7 @@
                     "buy": "Iegādāties paplašinājumu tūlīt"
                 },
                 "successNotification": {
-                    "titleSuccess": "Paplašinājumi veiksmīgi pievienoti!",
+                    "titleSuccess": "Paplašinājums veiksmīgi pievienots!",
                     "subtitleSuccess": "Tagad varat izmēģināt savu jauno paplašinājumu.",
                     "labelButtonBack": "Atpakaļ uz detaļām"
                 },
@@ -4298,12 +4433,12 @@
                 }
             },
             "sw-extension-adding-failed": {
-                "titleFailure": "Neizdevās pievienot paplašinājumu",
+                "titleFailure": "Neizdevās pievienot paplašinājumu ",
                 "textProblem": "Pievienojot paplašinājumu, radās problēma.",
                 "installationFailed": {
                     "titleFailure": "Instalēšana neizdevās",
                     "textProblem": "Instalējot paplašinājumu, radās problēma. Mēs informēsim ražotāju.",
-                    "notificationLicense": "Lūdzu, ņemiet vērā, ka šīs programmas vai dizaina abonements joprojām ir aktīvs.",
+                    "notificationLicense": "Lūdzu, ņemiet vērā, ka šī paplašinājuma abonements paliek aktīvs.",
                     "textSupport": "Ja jums ir kādi jautājumi par licenci, lūdzu, sazinieties ar Shopware Financial Services. Pieejams pa e-pastu {0} vai pa tālruni {1}.",
                     "supportEmail": "financial.services@shopware.com",
                     "supportPhone": "+49 (0) 2555/9288510"
@@ -4321,7 +4456,7 @@
                     "submitBtn": "Iesniegt"
                 },
                 "sw-extension-ratings-summary": {
-                    "labelRating": "Nav vērtējumu | {numberOfRatings} Reitings | {numberOfRatings} vērtējumi"
+                    "labelRating": "Nav vērtējumu | {numberOfRatings} vērtējums | {numberOfRatings} vērtējumi"
                 },
                 "sw-extension-review": {
                     "labelLastChangeDate": "Līdz {author} uz {lastChangeDate}",
@@ -4334,6 +4469,7 @@
                     "labelNoReviews": "Šis paplašinājums vēl nav saņēmis nekādus vērtējumus vai atsauksmes."
                 },
                 "sw-extension-review-creation-inputs": {
+                    "title": "Likmju pagarinājums",
                     "labelHeadline": "Virsraksts",
                     "placeholderHeadline": "Ievadiet īsu virsrakstu...",
                     "labelRating": "Reitings",
@@ -4346,8 +4482,8 @@
             "sw-extension-card-base": {
                 "subscriptionLabel": "Abonements:",
                 "inactiveLabel": "(neaktīvs)",
-                "purchasedLabel": "Iegādāts: ",
-                "installedLabel": "Uzstādīts: ",
+                "purchasedLabel": "Iegādāts ",
+                "installedLabel": "Instalēta ",
                 "openExtensionLabel": "Atvērt lietotni",
                 "installExtensionLabel": "Instalēt programmu",
                 "labelAcceptAndInstall": "Akceptēt un instalēt",
@@ -4355,7 +4491,7 @@
                     "getHelpLabel": "Saņemiet palīdzību",
                     "seeDetailsLabel": "Skatīt sīkāku informāciju",
                     "config": "Konfigurācija",
-                    "privacyAndSafetyLabel": "Privātums un drošība",
+                    "privacyAndSafetyLabel": "Datu privātums un drošība",
                     "removeLabel": "Noņemt",
                     "cancelAndRemoveLabel": "Atcelt un noņemt",
                     "uninstallLabel": "Atinstalēt",
@@ -4367,18 +4503,18 @@
             },
             "sw-extension-deactivation-modal": {
                 "deactivateExtensionLabel": "Deaktivizēt \"{extensionName}”",
-                "descriptionCancel": "Ja vēlaties atcelt abonementu, varat to noņemt konteksta izvēlnē sadaļā \"{removeLabel}”.",
+                "descriptionCancel": "Ja vēlaties atcelt abonementu, to var noņemt konteksta izvēlnē, izmantojot \"{removeLabel}\".",
                 "alertDeactivate": "Vai jūs joprojām vēlaties deaktivizēt paplašinājumu?",
                 "deactivateLabel": "Deaktivizēt"
             },
             "sw-extension-permissions-modal": {
                 "title": "{extensionLabel} atļaujas",
-                "description": "{extensionLabel} saņems piekļuvi šādiem komponentiem. Noklikšķiniet uz saites blakus komponentam, lai parādītu informāciju par entītiju.",
+                "description": "{extensionLabel} būs piekļuve šādiem komponentiem. Noklikšķiniet uz saites blakus komponentam, lai parādītu informāciju par entītiju.",
                 "textEntities": "Rādīt atļaujas"
             },
             "sw-extension-privacy-policy-extensions-modal": {
                 "title": "{extensionLabel}: privātuma politikas paplašinājumi",
-                "intro": "Šī lietotne apstrādā personisko informāciju. Ražotājs sniedz šādu padomu par jūsu konfidencialitātes politikas korekcijām:"
+                "intro": "Šī lietotne apstrādā personisko informāciju. Ražotājs iesaka pielāgot jūsu konfidencialitātes politiku:"
             },
             "sw-extension-permissions-details-modal": {
                 "operationRead": "Skatīt",
@@ -4387,16 +4523,23 @@
                 "operationDelete": "Dzēst"
             },
             "sw-extension-my-extensions-listing": {
-                "noActivePlugins": "Nav aktīvo paplašinājumu.",
-                "titleEmptyState": "Vēl nav instalētas programmas",
-                "textEmptyState": "Ja instalējat programmas, tās tiks uzskaitītas šeit.",
+                "apps": {
+                    "noActivePlugins": "Aktīvie paplašinājumi nav atrasti.",
+                    "titleEmptyState": "Vēl nav instalētas programmas",
+                    "textEmptyState": "Ja instalējat programmas, tās tiks uzskaitītas šeit."
+                },
+                "themes": {
+                    "noActivePlugins": "Aktīvie motīvi nav atrasti.",
+                    "titleEmptyState": "Vēl nav instalēti motīvi",
+                    "textEmptyState": "Ja instalējat motīvus, tie tiks uzskaitīti šeit."
+                },
                 "btnOpenStore": "Atvērt veikalu"
             },
             "sw-extension-removal-modal": {
                 "titleCancel": "“{extensionName}\" atcelt un noņemt",
                 "titleRemove": "“{extensionName}\" noņemt",
                 "description": "Ja noņemat paplašinājumu, to vairs nevar izmantot.",
-                "alertCancel": "Vai tiešām vēlaties noņemt paplašinājumu?",
+                "alertCancel": "Vai tiešām vēlaties atcelt un noņemt paplašinājumu?",
                 "alertRemove": "Vai tiešām vēlaties noņemt paplašinājumu?",
                 "labelCancel": "Atcelt un noņemt",
                 "labelRemove": "Noņemt"
@@ -4414,7 +4557,7 @@
                 "labelLicensed": "Iegādāts"
             },
             "sw-extension-config": {
-                "messageSaveSuccess": "Konfigurācija ir saglabāta."
+                "messageSaveSuccess": "Konfigurācija saglabāta."
             }
         },
         "errors": {
@@ -4422,7 +4565,7 @@
                 "message": "Jums ir jāpiekrīt mūsu noteikumiem un nosacījumiem, lai turpinātu."
             },
             "FRAMEWORK__EXTENSION_THEME_STILL_IN_USE": {
-                "message": "Tēma pašlaik joprojām tiek izmantota vienā vai vairākos pārdošanas kanālos."
+                "message": "Tēmu pašlaik izmanto viens vai vairāki pārdošanas kanāli."
             },
             "FRAMEWORK__INVALID_EXTENSION_ID": {
                 "message": "Paplašinājuma identifikācijas numurs nav derīgs."
@@ -4464,39 +4607,39 @@
                 "message": "Izvēlētais cenu modelis pagarinājumam nav atļauts."
             },
             "SAAS_EXTENSION_ORDER__NO_DEFAULT_PAYMENT_MEAN": {
-                "message": "Nav pieejams noklusējuma maksājums.",
-                "labelLink": "Noklusējuma maksājuma iestatīšana"
+                "message": "Nav pieejama noklusējuma maksājuma metode.",
+                "labelLink": "Noklusējuma maksājuma metodes iestatīšana"
             },
             "SAAS_EXTENSION_ORDER__INSUFFICIENT_BALANCE": {
-                "message": "Pieejams nepietiekams līdzsvars."
+                "message": "Nepietiekams līdzsvars."
             },
             "SAAS_EXTENSION_REQUEST__INVALID_CONTENT": {
                 "message": "Nepieciešamie pieprasījuma dati ir pazuduši vai nederīgi."
             },
             "SAAS_EXTENSION_INVALID_BASKET__MULTIPLE_LICENSES_OR_LICENSE_ALREADY_OWNED": {
-                "message": "Grozs ir nederīgs, jo tajā ir vairākas licences vai tajā ir jau piederoša licence."
+                "message": "Iepirkumu grozs ir nederīgs, jo tajā ir vairākas licences vai tajā ir jau piederoša licence."
             },
             "SAAS_EXTENSION_INVALID_BASKET__INVALID_ORDER_POSITION": {
-                "message": "Grozs ir nederīgs nederīgas pasūtījuma pozīcijas dēļ."
+                "message": "Iepirkumu grozs ir nederīgs, jo pasūtījuma pozīcija ir nederīga."
             },
             "SAAS_EXTENSION_INVALID_BASKET__GENERAL": {
-                "message": "Grozs nav derīgs."
+                "message": "Iepirkumu grozs nav derīgs."
             },
             "SAAS_EXTENSION_INVALID_BASKET__INVALID_COMPANY": {
-                "message": "Grozs ir nederīgs, jo jūsu uzņēmumam nav piešķirta valsts."
+                "message": "Iepirkumu grozs ir nederīgs, jo jūsu uzņēmumam nav piešķirtas valsts."
             },
             "SAAS_EXTENSION_RATING__INVALID_EXTENSION": {
                 "message": "Jūsu vērtējumu nevarēja saglabāt, jo saistītais paplašinājums nav derīgs."
             },
             "SAAS_COMPANY__MISSING": {
-                "message": "Trūkst nepieciešamā uzņēmuma.",
+                "message": "Trūkst nepieciešamā uzņēmuma paziņojuma.",
                 "labelLink": "Piešķirt uzņēmumu"
             }
         }
     },
     "entityCategories": {
         "admin_user": {
-            "title": "Administratora lietotājs",
+            "title": "Administrēšanas lietotājs",
             "entities": {
                 "integration": "Integrācija",
                 "user": "Lietotājs",
@@ -4540,7 +4683,7 @@
                 "customer_address": "Adrese",
                 "customer_group": "Klientu grupa",
                 "customer_group_translation": "Klientu grupas tulkošana",
-                "customer_group_registration_sales_channels": "Klientu grupas reģistrācijas pārdošanas kanāls",
+                "customer_group_registration_sales_channels": "Klientu grupu reģistrāciju pārdošanas kanāls",
                 "customer_recovery": "Atgūšana",
                 "customer_tag": "Tags"
             }
@@ -4557,8 +4700,8 @@
             "title": "Dokumenti",
             "entities": {
                 "document": "Dokumentu",
-                "document_base_config": "Bāzes konfigurācija",
-                "document_base_config_sales_channel": "Bāzes konfigurācija pārdošanas kanāliem",
+                "document_base_config": "Pamata konfigurācija",
+                "document_base_config_sales_channel": "Pamata konfigurācija pārdošanas kanāliem",
                 "document_type": "Tips",
                 "document_type_translation": "Tipa tulkošana"
             }
@@ -4598,8 +4741,8 @@
         "media": {
             "title": "Mediji",
             "entities": {
-                "media": "Mediji",
-                "media_translation": "Mediju tulkošana",
+                "media": "Vidēja",
+                "media_translation": "Vidēja tulkošana",
                 "media_default_folder": "Noklusējuma mape",
                 "media_folder": "Mape",
                 "media_folder_configuration": "Mapes konfigurācija",
@@ -4653,10 +4796,10 @@
             "entities": {
                 "product": "Produkts",
                 "product_category": "Kategorija",
-                "product_category_tree": "Kategorija Koks",
+                "product_category_tree": "Kategorija koks",
                 "product_configurator_setting": "Konfiguratora iestatījums",
-                "product_cross_selling": "Krusttirdzniecība",
-                "product_cross_selling_translation": "Pārdošanas tulkojums",
+                "product_cross_selling": "Cross Spārdošana",
+                "product_cross_selling_translation": "Pārdošanas tulkošana",
                 "product_cross_selling_assigned_products": "Pārdošanas piešķirtais tulkojums",
                 "product_export": "Produktu eksports",
                 "product_keyword_dictionary": "Atslēgvārdu vārdnīca",
@@ -4715,15 +4858,15 @@
                 "sales_channel_payment_method": "Maksājuma veids",
                 "sales_channel_shipping_method": "Piegādes metode",
                 "sales_channel_translation": "Pārdošanas kanāla tulkošana",
-                "sales_channel_type": "Tips",
-                "sales_channel_type_translation": "Tipa tulkošana"
+                "sales_channel_type": "Pārdošanas kanāla tips",
+                "sales_channel_type_translation": "Pārdošanas kanāla tipa tulkošana"
             }
         },
         "settings": {
             "title": "Iestatījumi",
             "entities": {
                 "country": "Valsts",
-                "country_state": "Valsts",
+                "country_state": "Valsts/province",
                 "currency": "Valūta",
                 "delivery_time": "Piegādes laiks",
                 "language": "Valoda",
@@ -4747,7 +4890,7 @@
                 "tax": "Nodokļu",
                 "tax_rule": "Nodokļu noteikums",
                 "tax_rule_type": "Nodokļu noteikumu veids",
-                "unit": "Vienība",
+                "unit": "Mēroga vienība",
                 "version": "Versija"
             }
         },
@@ -4943,7 +5086,7 @@
             "placeholderSalesChannels": "Izvēlēties pārdošanas kanālus...",
             "placeholderMailTemplate": "Izvēlieties e-pasta veidni...",
             "titleRecipientsCard": "E-pasta adresāti",
-            "textEmptyStateRecipients": "Šim pasākumam vēl nav papildu adresātu. - Klientu e-pasta ziņojumi tiks nosūtīti neatkarīgi no tā.",
+            "textEmptyStateRecipients": "Pievienot alternatīvus adresātus - ja iestatīts klientu e-pasti tiks apmierināti!",
             "columnRecipientName": "Nosaukums",
             "columnRecipientMail": "E-pasta adrese",
             "addRecipientButton": "Pievienot adresātu",
@@ -4953,7 +5096,7 @@
     },
     "sw-settings-logging": {
         "general": {
-            "mainMenuItemGeneral": "Ienākt",
+            "mainMenuItemGeneral": "Notikumu žurnāli",
             "placeholderSearchBar": "Meklēt logus..."
         },
         "list": {
@@ -5180,6 +5323,7 @@
             "buttonNextPayPalInfo": "Konfigurēt",
             "buttonBack": "Atpakaļ",
             "buttonInstall": "Instalēt",
+            "buttonActivate": "Aktivizēt",
             "buttonFinish": "Pabeigt",
             "buttonConfigureLater": "Konfigurēt vēlāk",
             "pluginInstalled": "Instalēts"
@@ -5188,16 +5332,16 @@
             "modalTitle": "Sveicināti",
             "headlineWelcome": "Laipni lūgti Shopware 6 administrācijas panelī",
             "messageWelcome": "Instalācijas palīgs dod norādījumus par vissvarīgākajiem iestatījumiem un sniedz vērtīgus padomus konfigurēšanai. <br>Vai vēlaties savu veikalu izmantot citā valodā un sasniegt klientus citās valstīs? Šeit var viegli instalēt vēlamās valodas pakotnes.",
-            "headlineChangeLanguage": "Instalēt papildus valodas spraudņus",
+            "headlineChangeLanguage": "Instalēt papildu valodas",
             "switchLanguageModalTitle": "Izvēlieties vadības paneļa valodu",
             "confirmLanguageSwitch": "Mainīt valodu",
             "cancelLanguageSwitch": "Atcelt",
             "switchLanguageMessage": "\"{pluginName}\" tika veiksmīgi instalēts. Vai vēlaties mainīt interfeisa valodu?",
-            "pluginsInstalled": "Spradnis instalēts | Spradņi instalēti",
-            "pluginsInstalledMessage": "Instalēts valodas spraudnis: | Instalēti šie valodas spraudņi: ",
-            "pluginNotFoundMessage": "Valodas spraudnis {languageName} netika atrasts.",
-            "pluginInstallationFailedMessage": "Spraudni nevarēja instalēt: ",
-            "pluginActivationFailedMessage": "Spraudni nevarēja aktivizēt: ",
+            "pluginsInstalled": "Uzstādīts paplašinājums | Uzstādīti paplašinājumi",
+            "pluginsInstalledMessage": "Valodas paplašinājums ir instalēts: | Šie valodu paplašinājumi ir instalēti: ",
+            "pluginNotFoundMessage": "Valodas paplašinājumu {languageName} nevarēja atrast.",
+            "pluginInstallationFailedMessage": "Paplašinājumu nevarēja uzstādīt: ",
+            "pluginActivationFailedMessage": "Paplašinājumu nevarēja aktivizēt: ",
             "tryAgainLater": "Lūdzu mēģini vēlāk.",
             "noConnectionMessage": "Savienojuma problēma, valodu pašlaik nevarēja instalēt."
         },
@@ -5209,7 +5353,7 @@
             "headlineMigration": "Pārnest sava veikala datus",
             "messageMigration": "Migration Assistant palīdzēs savienot un pārsūtīt datus no iepriekšējās veikala sistēmas uz jauno Shopware 6.",
             "buttonInstallMigration": "Instalēt Migration Assistant",
-            "loadingMessage": "Spraudņa instalēšana<br>Tas var aizņemt kādu laiku..."
+            "loadingMessage": "Paplašinājuma instalēšana<br>Tas var aizņemt kādu laiku..."
         },
         "mailerSelection": {
             "headline": "E-pasta komunikācijas izveidošana",
@@ -5246,7 +5390,7 @@
         },
         "recommendedPlugins": {
             "headline": "Mūsu ieteikumi",
-            "modalTitle": "Spraudņi",
+            "modalTitle": "Paplašinājumi",
             "message": "Šeit atradīsit savam veikalam noderīgus paplašinājumus. Atlasiet vipirms jums atbilstošu reģionu. Tad jūs varat pārlūkot dažādas kategorijas.",
             "availableInRegion": "Pieejams reģionā",
             "category": "Kategorija",
@@ -5276,6 +5420,24 @@
             "labelCreateDomain": "Izveidojiet jaunu veikala domēnu",
             "testEnvironment": "Testa vide"
         },
+        "store": {
+            "modalTitle": "Shopware veikals",
+            "loadStatusCollect": "Savākt veikala informāciju...",
+            "takeMinutes": "Tas var ilgt dažas minūtes.",
+            "alreadyActivated": "Veikals jau ir veiksmīgi aktivizēts.",
+            "enablingStore": "Iespējojot Shopware Store... ",
+            "activationErrorTitle": "Kļūda aktivizēšanas laikā",
+            "activationErrorDescription": "Lūdzu, jautājiet savam administratoram palīdzību.",
+            "headingOne": "Izpētiet un iegādājieties paplašinājumus viegli -",
+            "headingTwo": "tieši no savas Shopware veikalā.",
+            "description": "Aktivizējiet visu jauno Shopware Store un iegūstiet piekļuvi noderīgu paplašinājumu un modernu tēmu slodzēm, kuras var integrēt jūsu veikalā šķietami - bez programmēšanas iemaņām."
+        },
+        "markets": {
+            "modalTitle": "Shopware Markets",
+            "heading": "Shopware Markets",
+            "description": "Shopware Markets ļauj savienot savu Veikalu ar Amazon un eBay tirgiem - vienlaikus padarot preču un pasūtījumu nodošanu pēc iespējas ērtāku.<br>Shopware Markets tika izstrādāts, lai vēl vairāk attīstītu jūsu biznesu, izmantojot pārdošanas kanālus*¹.",
+            "footnote": "*¹ Lai izmantotu Shopware Markets pievienotos pārdošanas kanālus, ir nepieciešams maksas abonements."
+        },
         "finish": {
             "headlineAllDone": "Viss padarīts!",
             "message": "Jūsu Shopware 6 {edition} ir pārbaudīts.",
@@ -5287,14 +5449,17 @@
             "forumLabel": "Forums",
             "forumUrl": "https://forum.shopware.com/",
             "roadmapLabel": "Ceļvedis",
-            "roadmapUrl": "https://www.shopware.com/en/roadmap/"
+            "roadmapUrl": "https://www.shopware.com/en/roadmap/",
+            "modalTitle": "Gatavs"
         },
         "stepItemTitle": {
             "dataImport": "Datu imports",
             "mailer": "Pasta sūtītāja konfigurācija",
             "setupPaypal": "PayPal iestatīšana",
-            "plugins": "Spraudņi",
-            "shopware": "Shopware konts"
+            "plugins": "Paplašinājumi",
+            "shopware": "Shopware konts",
+            "store": "Shopware veikals",
+            "markets": "Shopware Markets"
         }
     },
     "sw-sales-channel": {
@@ -6042,7 +6207,7 @@
             "messageSaveError": "Klientu nevarēja saglabāt.",
             "messageSaveSuccess": "Klients \"{name}\" ir saglabāts.",
             "notificationPasswordErrorMessage": "Ievadītās paroles nesakrīt.",
-            "notificationPasswordLengthErrorMessage": "Iesniegtā parole neatbilst minimālā garuma prasībai 8."
+            "notificationPasswordLengthErrorMessage": "Iesniegtā parole neatbilst minimālā garuma prasībai astoņas rakstzīmes."
         },
         "filter": {
             "salutation": {
@@ -6072,7 +6237,9 @@
             "tags": {
                 "label": "Tagi",
                 "placeholder": "Izvēlēties tagus..."
-            }
+            },
+            "messageEmptyTitle": "Nekas nav atrasts",
+            "messageEmptySubline": "Rediģējiet filtrus, lai atrastu rezultātus."
         }
     },
     "sw-settings-document": {
@@ -6724,13 +6891,14 @@
         },
         "roles": {
             "general": {
-                "labelCreateNewRole": "Izveidot jaunu lomu",
+                "labelCreateNewRole": "Lomas izveide",
                 "cardLabel": "Lomas"
             },
             "role-grid": {
                 "labelName": "Nosaukums",
                 "labelDescription": "Apraksts",
                 "messageEmptyTitle": "Pagaidām nav lomu",
+                "messageEmptySubline": "Izveidojiet lomas, lai sāktu pārvaldīt lietotāju tiesības.",
                 "contextMenuEdit": "Labot",
                 "contextMenuDelete": "Dzēst",
                 "titleModalDelete": "Dzēst lomu",
@@ -6739,10 +6907,10 @@
                 "labelButtonDelete": "Dzēst",
                 "notification": {
                     "deleteSuccess": {
-                        "message": "Loma \"{name}\" ir izdzēsts."
+                        "message": "Loma \"{name}\" svītrota."
                     },
                     "deleteError": {
-                        "message": "Dzēšot lomu \"{name}\" radās kļūda."
+                        "message": "Lomu \"{name}\" nevarēja izdzēst."
                     }
                 }
             },
@@ -6765,7 +6933,7 @@
             },
             "view": {
                 "detailed": {
-                    "alertText": "Šajā skatā privilēģijas var konfigurēt detalizēti. Šī konfigurācija ir nepieciešama tikai izņēmuma situācijās. Ja, piemēram, sistēmā tiek izmantoti paplašinājumi, kas pievieno jaunas datu kopas, bet tiem nav privilēģiju, tos var konfigurēt šeit. Visas deaktivizētās izvēles rūtiņas ir atļaujas, kas jau ir piešķirtas cilnē “Vispārīgi”."
+                    "alertText": "Detalizēti konfigurēt privilēģijas. Visas deaktivizētās izvēles rūtiņas ir atļaujas, kas jau ir piešķirtas cilnē “Vispārīgi” un nav konfigurējamas. Šī konfigurācija ir nepieciešama tikai tad, ja, piemēram, tiek izmantoti paplašinājumi, kas pievieno jaunas datu kopas, bet tiem nav privilēģiju, tos var konfigurēt šeit."
                 }
             },
             "tabs": {
@@ -6796,10 +6964,10 @@
                 "labelButtonDelete": "Dzēst",
                 "notification": {
                     "deleteSuccess": {
-                        "message": "Lietotājs \"{name}\" ir izdzēsts."
+                        "message": "Lietotājs \"{name}\" dzēsts."
                     },
                     "deleteError": {
-                        "message": "Dzēšot lietotāju \"{name}\" radās kļūda."
+                        "message": "Lietotāju \"{name}\" nevarēja izdzēst."
                     },
                     "deleteUserLoggedInError": {
                         "message": "Lietotāji nevar izdzēst paši sevi."
@@ -6811,7 +6979,7 @@
                 "labelIntegrationsCard": "Integrācijas",
                 "labelFirstName": "Vārds",
                 "labelLastName": "Uzvārds",
-                "labelEmail": "E-pasts",
+                "labelEmail": "E-pasta adrese",
                 "errorEmailUsed": "Šī e-pasta adrese jau tiek lietota.",
                 "errorUsernameUsed": "Lietotājvārds tiek jau lietots.",
                 "labelUsername": "Lietotājvārds",
@@ -6826,17 +6994,19 @@
                 "labelNewPassword": "Jaunā parole",
                 "labelNewUser": "Jauns lietotājs",
                 "placeholderNewPassword": "Ievadiet jauno paroli...",
-                "placeholderNewPasswordConfirm": "Ievadiet jauno paroli atkārtoti...",
+                "placeholderNewPasswordConfirm": "Apstiprināt jaunu paroli...",
                 "labelButtonCancel": "Atcelt",
                 "labelButtonChangePassword": "Mainīt",
                 "labelButtonSave": "Saglabāt",
+                "writeAccess": "Rakstīt",
+                "readAccess": "Lasīt",
                 "contextMenuEdit": "Labot",
                 "contextMenuDelete": "Dzēst",
                 "textChangePassword": "Nospiežot pogu “Mainīt”, tiks nekavējoties saglabāta jaunā parole!",
-                "addAccessKey": "Jauna pieejas atslēga",
+                "addAccessKey": "Izveidojiet piekļuves atslēgu",
                 "labelAccessKey": "Piekļuves atslēga",
                 "labelPermissions": "Atļaujas",
-                "disabledRoleSelectWarning": "Lomas ir pieejamas tikai lietotājiem, kuri nav “administratori”.",
+                "disabledRoleSelectWarning": "Lomas ir pieejamas tikai tiem lietotājiem, kuriem nav administratora tiesību.",
                 "passwordConfirmation": {
                     "titleConfirmPasswordModal": "Ievadiet savu pašreizējo paroli, lai apstiprinātu",
                     "labelConfirmPassword": "Parole",
@@ -6858,18 +7028,18 @@
                     "hintCreateNewApiKeys": "Jaunu API piekļuves atslēgu ģenerēšanai ieteicams atjaunināt visus saistītos skriptus un lietojumprogrammas.",
                     "labelFieldLabel": "Nosaukums",
                     "idFieldLabel": "Pieejas atslēgas ID",
-                    "secretFieldLabel": "Slepenā pieejas atslēga",
+                    "secretFieldLabel": "Drošas piekļuves atslēga",
                     "secretHelpText": "Lūdzu tūlīt kopējiet piekļuves atslēgu. Drošības apsvērumu dēļ pēc saglabāšanas tas vairs nebūs redzams.",
-                    "messageSaveSuccess": "Integrācija tika saglabāta.",
+                    "messageSaveSuccess": "Saglabāta integrācija.",
                     "messageSaveError": "Neizdevās saglabāt integrāciju.",
                     "messageCreateNewError": "Neizdevās saglabāt integrāciju."
                 },
                 "notification": {
                     "saveError": {
-                        "message": "Radās kļūda saglabājot lietotāju \"{name}\"."
+                        "message": "Lietotāju \"{name}\" nevarēja saglabāt."
                     },
                     "saveSuccess": {
-                        "message": "Lietotājs \"{name}\" ir saglabāts."
+                        "message": "Lietotājs \"{name}\" saglabāts."
                     },
                     "invalidEmailErrorMessage": "Lūdzu ievadiet derīgu e-pasta adresi.",
                     "duplicateEmailErrorMessage": "E-pasta adrese jau ir reģistrēta."
@@ -6907,143 +7077,6 @@
             "labelUseAsLogo": "Lietot kā logo"
         }
     },
-    "sw-plugin": {
-        "general": {
-            "mainMenuItemGeneral": "Spraudņi",
-            "mainMenuPluginList": "Instalēts",
-            "mainMenuLicenseList": "Manas licences",
-            "descriptionTextModule": "Šeit var pārvaldīt spraudņus",
-            "placeholderSearchBar": "Meklēt spraudņus...",
-            "tabList": "Mani spraudņi",
-            "tabLicenses": "Licences",
-            "tabUpdates": "Atjaunojumi",
-            "version": "Versija",
-            "accountLink": "https://account.shopware.com/?lang=en",
-            "accountLabel": "Iet uz Shopware kontu",
-            "login": "Ienākt",
-            "logout": "Iziet",
-            "messageDownloadSuccess": "Spraudnis ir ielādēts.",
-            "downloadButton": "Lejupielādēt",
-            "recommendationsLabel": "Rekomendācijas",
-            "storeLink": "https://docs.shopware.com/en",
-            "storeLabel": "Shopware veikals",
-            "storeNotAvailable": "Nevar izveidot savienojumu ar Shopware veikalu.",
-            "loggedIn": "Pieslēdzies kā"
-        },
-        "errors": {
-            "messageToTheShopwareDocumentation": "<a href=\"{documentationLink}\" target=\"_blank\">Atvērt Shopware dokumentāciju</a>",
-            "messageGenericFailure": "Tas nedarbojās.",
-            "messageUploadFailureNotAZipFile": "Augšupielādētais fails nav ZIP fails.",
-            "messageUploadFailureUnzipFailed": "Nevar atarhivēt ZIP failu.",
-            "messageUploadFailureNoPluginFoundInZipFile": "Nav atrasts spraudnis ZIP failā.",
-            "messageLoginDataInvalid": "Ieejas dati nepilnīgi.",
-            "messageStoreLicenseDomainMissing": "Ieiešana neizdevās. Vai savā Shopware kontā norādījāt pareizu licences domēnu sadaļā \"Iestatījumi/Shopware konts\"?",
-            "messageStoreNotAvailable": "Shopware veikals nav pieejams.",
-            "messagePluginBaseClassNotFound": "Spraudņa bāzes klasi nevarēja ielādēt. Pārbaudiet spraudni composer.json par klases automātisko ielādi",
-            "messagePluginInstallationFailed": "Spraudni nevarēja instalēt kļūdas ziņojuma \"{message}\" dēļ",
-            "messagePluginUninstallationFailed": "Spraudni nevarēja atinstalēt kļūdas ziņojuma \"{message}\" dēļ",
-            "messagePluginActivationFailed": "Spraudni nevarēja aktivizēt kļūdas ziņojuma \"{message}\" dēļ",
-            "messagePluginDeactivationFailed": "Spraudni nevarēja aktivizēt kļūdas ziņojuma \"{message}\" dēļ",
-            "messageDeactivationFailedDependencies": "Spraudni \"{dependency}\" nevar deaktivizēt, jo atkarībā no tā ir arī citi spraudņi. Pirms atjaunināšanas atsākšanas deaktivizējiet šādus spraudņus: {dependantNames}",
-            "messagePluginUpdateFailed": "Spraudni nevarēja atjaunināt kļūdas ziņojuma \"{message}\". {pluginDeactivatedHint}",
-            "pluginDeactivatedHint": "Spraudnis ir deaktivizēts."
-        },
-        "fileUpload": {
-            "buttonFileUpload": "Augšupielādēt spraudni",
-            "messageUploadSuccess": "Spraudnis ir augšupielādēts.",
-            "buttonRefreshPlugins": "Atsvaidzināt pārskatu"
-        },
-        "store-login": {
-            "headline": "Shopware konts - Pieteikšanās",
-            "information": "Shopware konts ir jūsu galvenais centrmezgls mijiedarbībai ar visiem Shopware pakalpojumiem.",
-            "loginMessage": "Jūs esat Shopware kontā.",
-            "labelEmailAddress": "E-pasta adrese",
-            "placeholderEmailAddress": "Ievadiet savu e-pasta adresi...",
-            "labelPassword": "Parole",
-            "placeholderPassword": "Ievadiet savu paroli...",
-            "buttonLogin": "Pieslēgties",
-            "buttonCancel": "Atcelt",
-            "footerNoAccount": "Jums vēl nav Shopware konta?",
-            "footerRegisterAccount": "Izveidojiet savu Shopware kontu tagad!",
-            "forgotPassword": "Vai aizmirsāt savu paroli?",
-            "forgotPasswordUrl": "https://account.shopware.com/recovery?lang=en",
-            "registerAccountUrl": "https://account.shopware.com/register?lang=en"
-        },
-        "list": {
-            "textPluginManager": "Spraudņi",
-            "messageEmpty": "Pagaidām nav augšupielādēts neviens spraudnis.",
-            "columnPluginName": "Spraudnis",
-            "columnVersion": "Versija",
-            "columnInstalledAt": "Instalēts",
-            "columnUpdatedAt": "Atjaunināts",
-            "columnLicense": "Licence",
-            "columnActive": "Aktīvs",
-            "columnAuthor": "Ražotājs",
-            "columnPlugin": "Spraudnis",
-            "columnChangelog": "Jaunas iespējas",
-            "titleSidebarItemRefresh": "Atjaunot",
-            "contextInstall": "Instalēt",
-            "contextUninstall": "Atinstalēt",
-            "contextActivate": "Aktivizēt",
-            "contextDeactivate": "Deaktivizēt",
-            "contextUpdate": "Atjaunināt uz",
-            "contextDelete": "Dzēst",
-            "pluginHeader": "Mani spraudņi",
-            "sortUpgradedAtAsc": "Pēdējais atjaunojums",
-            "sortPluginNameAsc": "Spraudņa nosaukums, augoši",
-            "sortPluginNameDsc": "Spraudņa nosaukums, dilstoši",
-            "sortLabel": "Kārtot pēc:",
-            "messageActivateSuccess": "Spraudnis ir aktivizēts.",
-            "messageDeactivateSuccess": "Spraudnis ir deaktivizēts.",
-            "messageInstallSuccess": "Spradnis ir instalēts.",
-            "messageUninstallSuccess": "Spraudnis ir atinstalēts.",
-            "messageDeleteSuccess": "Spraudnis izdzēsts.",
-            "messageUpdateSuccess": "Spraudnis ir atjaunots.",
-            "messageDeleteConfirm": "Vai tiešām vēlaties dzēst šo spraudni?",
-            "titleUninstallConfirm": "Atinstalēt spraudni",
-            "messageUninstallConfirm": "Vai tiešām vēlaties atinstalēt {pluginName}?",
-            "labelRemovePluginData": "Visu laiku noņemiet visus spraudņa datus",
-            "helpTextRemovePluginData": "Brīdinājums: visi spraudņa dati tiks neatgriezeniski noņemti. Šis process ir neatgriezenisks.",
-            "labelUninstallButton": "Atinstalēt",
-            "deactivated": "Deaktivizēts",
-            "activated": "Aktivizēts",
-            "config": "Konfigurēt",
-            "description": "Apraksts",
-            "tooltipActivationDisabled": "Jūs variet aktivizēt tikai instalētos spraudņus."
-        },
-        "license-list": {
-            "textMyPurchases": "iegādātās licences",
-            "columnName": "Spraudnis",
-            "columnCreationDate": "Nopirkts",
-            "columnExpirationDate": "Derīgs līdz",
-            "columnType": "Variants",
-            "messageEmpty": "Nav esošu licenžu.",
-            "messageNotLoggedIn": "Shopware konts - nepieciešama autorizācija!",
-            "labelAccountLogin": "Ieiet ar jūsu Shopware konta datiem",
-            "labelType_buy": "Pirkt",
-            "labelType_rent": "Noma",
-            "labelType_test": "Tests",
-            "labelType_free": "Bezmaksas",
-            "labelType_support": "Maksas atbalsts"
-        },
-        "updates": {
-            "messageEmpty": "Nav pieejami atjaunojumi.",
-            "updateError": "Radās kļūda ielādējot atjaunojumus",
-            "updateButton": "Atjaunot",
-            "updateAllButton": "Atjaunot visu",
-            "updateHeader": "Atjaunojumi",
-            "lastUpdatesHeader": "Pēdējie atjaunojumi",
-            "messageUpdateSuccess": "Spraudnis ir atjaunots.",
-            "messageUpdatesSuccess": "Spraudnis ir atjaunots.",
-            "cancelUpdates": "Atcelt"
-        }
-    },
-    "sw-plugin-config": {
-        "messageSaveSuccess": "Konfiguracija tika saglabāta."
-    },
-    "sw-plugin-description": {
-        "buttonBack": "Atpakaļ"
-    },
     "sw-settings": {
         "general": {
             "mainMenuItemGeneral": "Iestatījumi"
@@ -7052,7 +7085,7 @@
             "title": "Iestatījumi",
             "tabShop": "Veikals",
             "tabSystem": "Sistēma",
-            "tabPlugins": "Spraudņi"
+            "tabPlugins": "Paplašinājumi"
         },
         "system-config": {
             "labelSalesChannelSelect": "Pārdošanas kanāls",
@@ -7139,10 +7172,10 @@
         }
     },
     "sw-property-search": {
-        "placeholderSearch": "Meklēt iestatījumus...",
-        "selected": "Atlasīta {count} īpašība | Atlasītas {count} īpašības",
-        "noPropertiesFound": "Nekas nav atrastas",
-        "noPropertiesFoundDescription": "Izmēģiniet citu meklēšanas frāzi."
+        "placeholderSearch": "Meklēšanas vērtības...",
+        "selected": "Izvēlēta{count} vērtība | atlasītas {count} vērtības",
+        "noPropertiesFound": "Rekvizītu vērtības nav atrastas",
+        "noPropertiesFoundDescription": "Izmēģiniet citu meklējamo terminu."
     },
     "sw-property-assignment": {
         "columnGroup": "Īpašības",
@@ -7172,6 +7205,7 @@
         "checkboxMessage": "Es esmu ievērojis šo vēstījumu, un galu galā tam ir sekas.",
         "closeModal": "Aizvērt paziņojumu",
         "ignorePlugin": "Neatgriezeniski ignorēt",
+        "successfullyDeleted": "Paplašinājums ir dzēsts",
         "table": {
             "plugin": "Paplašinājums",
             "warning": "Brīdinājums"
@@ -7372,7 +7406,7 @@
         "hasCriteria": "Ir {criteriaName}"
     },
     "sw-filter-panel": {
-        "titleSidebarItemFilter": "Filtrēt"
+        "titleSidebarItemFilter": "Filtri"
     },
     "sw-sidebar-filter-panel": {
         "resetButton": "Atiestatīt visu"

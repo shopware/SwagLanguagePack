@@ -3,8 +3,8 @@ variables:
     DOCKER_HOST: 'tcp://docker:2375'
     MYSQL_ROOT_PASSWORD: app
     WEB_DOCUMENT_ROOT: $CI_PROJECT_DIR/development/public
-    DEVELOPMENT_BRANCH: 'master'
-    PLATFORM_BRANCH: 'master'
+    DEVELOPMENT_BRANCH: '6.3.5.2'
+    PLATFORM_BRANCH: '6.3.5.2'
     RUN_IN_MR: 'true'
 
 stages:
@@ -72,11 +72,12 @@ Static analyze:
         -   if: '$RUN_IN_MR == "true" && $CI_PIPELINE_SOURCE == "merge_request_event"'
     parallel:
         matrix:
-# ToDo LAN-45 reactivate job matrix
-#            -   PLATFORM_BRANCH: '6.3.5.0'
-#                DEVELOPMENT_BRANCH: '6.3.5.0'
-            -   PLATFORM_BRANCH: 'master'
-                DEVELOPMENT_BRANCH: 'master'
+            -   PLATFORM_BRANCH: 'v6.3.5.0'
+                DEVELOPMENT_BRANCH: 'v6.3.5.0'
+            -   PLATFORM_BRANCH: 'v6.3.5.1'
+                DEVELOPMENT_BRANCH: 'v6.3.5.1'
+            -   PLATFORM_BRANCH: '6.3.5.2'
+                DEVELOPMENT_BRANCH: '6.3.5.2'
 
 ToDos resolved:
     only:
@@ -133,8 +134,9 @@ PHPUnit:
         -   if: '$RUN_IN_MR == "true" && $CI_PIPELINE_SOURCE == "merge_request_event"'
     parallel:
         matrix:
-# ToDo LAN-45 reactivate job matrix
-#            -   PLATFORM_BRANCH: '6.3.5.0'
-#                DEVELOPMENT_BRANCH: 'master'
-            -   PLATFORM_BRANCH: 'master'
-                DEVELOPMENT_BRANCH: 'master'
+            -   PLATFORM_BRANCH: 'v6.3.5.0'
+                DEVELOPMENT_BRANCH: 'v6.3.5.0'
+            -   PLATFORM_BRANCH: 'v6.3.5.1'
+                DEVELOPMENT_BRANCH: 'v6.3.5.1'
+            -   PLATFORM_BRANCH: '6.3.5.2'
+                DEVELOPMENT_BRANCH: '6.3.5.2'

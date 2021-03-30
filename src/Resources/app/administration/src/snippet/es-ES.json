@@ -280,7 +280,13 @@
             "labelDownloadPdf": "Descargar PDF",
             "labelCreateNew": "Crear nuevo",
             "messageEmptyTitle": "Aún no existen documentos",
-            "messageEmptySubline": "Administración de documentos."
+            "messageEmptySubline": "Administración de documentos.",
+            "error": {
+                "DOCUMENT__NUMBER_ALREADY_EXISTS": "El número de documento {number} ya se ha asignado."
+            },
+            "info": {
+                "DOCUMENT__NUMBER_WAS_CHANGED": "Número de documento duplicado. Se ha extraído automáticamente un número consecutivo del rango numérico respectivo."
+            }
         },
         "documentModal": {
             "modalTitle": "Crear documento",
@@ -319,6 +325,63 @@
             "message": "Se desactivan las siguientes promociones publicitarias automáticas:",
             "messageNoItems": "No hay promociones publicitarias automáticas activas.",
             "buttonDisable": "Desactivar"
+        },
+        "filters": {
+            "documentFilter": {
+                "label": "Documentos",
+                "placeholder": "Seleccionar el estado del documento...",
+                "textHasCriteria": "Al menos un documento asignado",
+                "textNoCriteria": "No se han asignado documentos"
+            },
+            "orderDateFilter": {
+                "label": "Fecha del pedido"
+            },
+            "statusFilter": {
+                "label": "Estado del pedido",
+                "placeholder": "Seleccionar estado del pedido..."
+            },
+            "paymentStatusFilter": {
+                "label": "Estado de pago",
+                "placeholder": "Seleccionar estado de pago..."
+            },
+            "deliveryStatusFilter": {
+                "label": "Estado de entrega",
+                "placeholder": "Seleccionar estado de entrega..."
+            },
+            "paymentMethodFilter": {
+                "label": "Método de pago",
+                "placeholder": "Selecciona el método de pago..."
+            },
+            "shippingMethodFilter": {
+                "label": "Método de envío",
+                "placeholder": "Selecciona el método de envío..."
+            },
+            "salesChannelFilter": {
+                "label": "Canales de venta",
+                "placeholder": "Seleccionar canales de venta..."
+            },
+            "billingCountryFilter": {
+                "label": "País de facturación",
+                "placeholder": "Seleccionar países de facturación..."
+            },
+            "shippingCountryFilter": {
+                "label": "País de envío",
+                "placeholder": "Seleccionar países de envío..."
+            },
+            "customerGroupFilter": {
+                "label": "Grupo de clientes",
+                "placeholder": "Seleccionar grupo de clientes..."
+            },
+            "tagFilter": {
+                "label": "Etiquetas",
+                "placeholder": "Seleccionar etiquetas..."
+            },
+            "productFilter": {
+                "label": "Productos",
+                "placeholder": "Seleccionar productos..."
+            },
+            "messageEmptyTitle": "No se encontró nada",
+            "messageEmptySubline": "Edite los filtros para encontrar resultados."
         }
     },
     "sw-privileges": {
@@ -378,7 +441,7 @@
                 "label": "Recipientes del boletín"
             },
             "product_search_config": {
-                "label": "Búsqueda de productos"
+                "label": "Buscar"
             },
             "scale_unit": {
                 "label": "Unidades de escala"
@@ -443,7 +506,7 @@
         },
         "additional_permissions": {
             "orders": {
-                "create_discounts": "Crear descuentos",
+                "create_discounts": "Crear artículos de crédito",
                 "label": "Pedidos"
             },
             "user": {
@@ -453,8 +516,9 @@
             "system": {
                 "core_update": "Iniciar actualización",
                 "plugin_maintain": "Mantener extensiones",
+                "extension_store": "Tienda Shopware",
                 "clear_cache": "Vaciar memoria caché",
-                "logging": "Registro",
+                "logging": "Registros de eventos",
                 "frw": "Asistente para la primera ejecución",
                 "import_export": "Importación/Exportación",
                 "label": "Configuración",
@@ -466,7 +530,7 @@
             },
             "routes": {
                 "label": "Rutas",
-                "api_action_access-key_integration": "Crear una nueva clave API",
+                "api_action_access-key_integration": "Crear claves API",
                 "api_acl_privileges_get": "Leer todos los privilegios ACL",
                 "api_acl_privileges_route_get": "Leer privilegios de ruta ACL",
                 "api_action_cache_info": "Leer información de caché",
@@ -558,7 +622,7 @@
     },
     "sw-cms": {
         "general": {
-            "placeholderSearchBar": "Examinar layouts...",
+            "placeholderSearchBar": "Buscar diseños...",
             "mainMenuItemGeneral": "Mundos de experiencias",
             "moduleTitle": "Mundos de experiencias",
             "greeting": "Layouts",
@@ -1209,6 +1273,7 @@
                 "infoTextProductDetailPages": "El diseño solo se puede ver en tu tienda cuando lo asignes a un producto activo.",
                 "labelCategories": "Categorías",
                 "placeholderCategories": "Elegir categorías...",
+                "placeholderLandingPages": "Elegir páginas de destino...",
                 "labelSalesChannel": "Canal de ventas",
                 "placeholderSalesChannel": "Elija un canal de ventas...",
                 "resetOptionSalesChannel": "Todos los canales de venta",
@@ -1219,6 +1284,8 @@
                 "confirmChangesRestorePrev": "Descartar",
                 "confirmChangesTextCategories": "Ha eliminado las asignaciones de diseño de las categorías. Si confirma estos cambios, esas categorías dejarán de tener asignadas un diseño.",
                 "confirmChangesTextCategoriesAssignedLayouts": "Algunas de las categorías seleccionadas ya tienen un diseño asignado. Si continúa, esas asignaciones anteriores se reemplazarán con el diseño actual.",
+                "confirmChangesTextLandingPages": "Ha eliminado las asignaciones de diseño de las páginas de destino. Si confirma estos cambios, esas páginas de destino ya no tendrán un diseño asignado.",
+                "confirmChangesTextLandingPagesAssignedLayouts": "Algunas de las páginas de destino seleccionadas ya tienen un diseño asignado. Si continúa, esas asignaciones anteriores se reemplazarán con el diseño actual.",
                 "confirmChangesTextProducts": "Ha eliminado las asignaciones de diseño de los productos. Si confirma estos cambios, esos productos dejarán de tener un diseño asignado.",
                 "confirmChangesTextProductsAssignedLayouts": "Algunos de los productos seleccionados ya tienen un diseño asignado. Si continúa, las asignaciones anteriores se reemplazarán con el diseño actual.",
                 "confirmChangesTextShopPages": "Ha eliminado las asignaciones de diseño de las páginas de la tienda. Si confirmas estos cambios, las páginas de la tienda ya no tendrán asignada un diseño",
@@ -1228,6 +1295,7 @@
                 "shopPagesSaveError": "No se pueden guardar las páginas de la tienda",
                 "tabCategories": "Categorías",
                 "tabShopPages": "Páginas de tienda",
+                "tabLandingPages": "Páginas de destino",
                 "shopPages": {
                     "tosPage": "Páginas TOS",
                     "revocationPage": "Avisos de revocación",
@@ -1536,7 +1604,7 @@
                 "keywords": "Palabras clave",
                 "length": "Longitud",
                 "linked": "Enlazado",
-                "manufacturer": "Fabricante",
+                "manufacturerId": "Fabricante",
                 "manufacturerNumber": "Número de fabricación",
                 "markAsTopseller": "Marcado como superventas",
                 "maxDeliveryTime": "Plazo de entrega máximo",
@@ -1549,7 +1617,7 @@
                 "option": "Opción",
                 "packUnit": "Unidad de embalaje",
                 "packUnitPlural": "Unidad de embalaje plural",
-                "price": "Precio",
+                "cheapestPrice": "Precio",
                 "product": "Producto",
                 "productNumber": "Número de producto",
                 "purchasePrice": "Precio de venta",
@@ -1681,7 +1749,7 @@
             "c1051bb4-d103-4f74-8988-acbcafc7fdc3": "Este campo no debe estar vacío.",
             "INVALID_MEDIA_URL": "Introduce una URL válida para cargar un archivo.",
             "CONTENT__MISSING_RULE_TYPE_EXCEPTION": "Necesitas seleccionar un tipo para esta regla.",
-            "CONTENT__INVALID_CATEGORY_TYPE_AS_ENTRY_POINT": "El tipo no se puede asignar mientras categoría es punto de entrada.",
+            "CONTENT__INVALID_CATEGORY_TYPE_AS_ENTRY_POINT": "El tipo no se puede asignar mientras que la categoría es un punto de entrada.",
             "SHOPWARE_INVALID_IP": "Introduce una dirección IP válida.",
             "INVALID_URL": "Introduce una URL válida."
         },
@@ -1704,7 +1772,9 @@
             "ascending": "Ascendente",
             "descending": "Descendente",
             "xTimesIn": "{n} veces en",
-            "close": "Cerrar"
+            "close": "Cerrar",
+            "from": "Desde",
+            "to": "A"
         },
         "notification": {
             "notificationSaveErrorMessage": "Se ha producido un error al guardar la entidad \"{entityName}\".",
@@ -2688,7 +2758,12 @@
     "sw-settings-number-range": {
         "general": {
             "mainMenuItemGeneral": "Rangos de números",
-            "placeholderSearchBar": "Examinar rangos de números..."
+            "placeholderSearchBar": "Examinar rangos de números...",
+            "infoGlobalType": "Sólo puede haber un rango numérico \"{typeName}». Los cambios en el rango numérico del tipo \"{typeName}\" deben realizarse aquí y afectarán globalmente a todos los canales de venta.",
+            "infoGlobalTypeTitle": "Tipo de rango numérico global \"{typeName}»",
+            "infoGlobal": "No se puede cambiar el tipo de un rango de números globales. Sin embargo, puede crear rangos de números adicionales para la mayoría de los tipos y canales de ventas particulares en la descripción general.",
+            "infoGlobalTitle": "Rango numérico global \"{name}»",
+            "infoSalesChannelBound": "Para cambiar el tipo de rango de números, quite primero todas las asignaciones de Canal de ventas."
         },
         "list": {
             "textHeadline": "Rangos de números",
@@ -3006,9 +3081,11 @@
             "descriptionLabel": "Descripción",
             "messageSaveSuccess": "La categoría \"{name}\" ha sido guardada correctamente.",
             "useAsLogo": "Usar como imagen de visualización",
-            "treeHeadline": "Estructura de categorías",
+            "treeHeadline": "Categorías",
             "treeHeadSelected": "{count} seleccionado",
             "emptyStateHeadline": "Ninguna categoría seleccionada",
+            "errorNavigationEntryPoint": "Esta categoría se define como una navegación principal de al menos un canal de ventas y, por lo tanto, no se puede eliminar.",
+            "errorNavigationEntryPointMultiple": "Una o más categorías se definen como una navegación principal de al menos un canal de ventas y, por lo tanto, no se pueden eliminar.",
             "actions": {
                 "actionsDisabledInLanguage": "Las categorías solo se pueden crear en el idioma estándar.",
                 "createSub": "Nueva subcategoría",
@@ -3022,58 +3099,54 @@
             "products": "Productos",
             "seo": "SEO",
             "columnInfoHeader": "Elemento pie de página",
-            "columnInfo": "Esta categoría configura una columna designada en el pie de página. El nombre de la categoría se mostrará como título que no se puede hacer clic para la columna. Todas las categorías siguientes se muestran como filas en las que se puede hacer clic debajo del título de la columna."
+            "columnInfo": "Esta categoría configura una columna designada en el pie de página. El nombre de la categoría se mostrará como título de la columna. Todas las categorías del primer nivel debajo de esta categoría se muestran como filas debajo del encabezado de la columna."
         },
         "base": {
             "general": {
                 "categoryNameLabel": "Nombre",
                 "headlineInformationCard": "General",
-                "isCategoryActiveLabel": "La categoría está activa",
+                "isCategoryActiveLabel": "Activo",
                 "useAsLink": "Usar como enlace",
                 "labelCategoryTags": "Etiquetas",
                 "labelCategoryTagsPlaceholder": "Introducir etiquetas individuales...",
                 "types": {
                     "title": "Tipo de categoría",
-                    "page": "Categoría",
-                    "folder": "Punto de entrada",
-                    "link": "Enlace definido por el usuario",
-                    "column": "Columna",
-                    "entrypoint": "Punto de entrada",
-                    "pageList": "Página/Lista",
-                    "help": "Una categoría de estructura no se puede abrir por sí misma; sirve únicamente para la estructuración."
-                }
-            },
-            "entry-point": {
-                "title": "Punto de entrada",
-                "navigation": {
-                    "descriptionGeneral": "Has asignado esta categoría en los siguientes canales de venta como punto de entrada para la navegación principal:"
-                },
-                "serviceSales": {
-                    "descriptionGeneral": "Has asignado esta categoría en los siguientes canales de venta como punto de entrada para la navegación de servicio:"
-                },
-                "footerSales": {
-                    "descriptionGeneral": "Has asignado esta categoría en los siguientes canales de venta como punto de entrada para la navegación de pie de página:"
+                    "page": "Página/Lista",
+                    "folder": "Elemento estructurante/Punto de entrada",
+                    "link": "Vínculo",
+                    "linkUnavailable": "Enlace (no seleccionable si la categoría se define como punto de entrada)",
+                    "help": "Una categoría de estructura no se puede abrir por sí misma; sirve únicamente para la estructuración.",
+                    "helpText": {
+                        "page": "Una página/lista tiene productos asociados y se puede acceder directamente con el diseño asignado.",
+                        "folder": "Un elemento estructurante/punto de entrada sólo se mostrará en la estructura y no es accesible directamente, excepto que se le asigna como punto de entrada de un canal de ventas.",
+                        "link": "Un vínculo permite hacer referencia a un producto, a otra categoría, a una página de destino o a un sitio externo."
+                    }
                 }
             },
             "entry-point-card": {
-                "cardTitle": "Punto de entrada",
+                "cardTitle": "Aeronavegación",
                 "labelEntryPoint": "Punto de entrada",
                 "placeholderEntryPoint": "Seleccionar punto de entrada...",
-                "labelSalesChannels": "Canales de venta",
-                "placeholderSalesChannels": "Seleccione el canal de ventas...",
-                "buttonConfigureHome": "Configurar inicio",
+                "existingNavigationDescription": "Ha asignado esta categoría como punto de entrada para la navegación principal en estos Canales de venta:",
+                "labelSalesChannelsAdd": "Asignación de canal de",
+                "placeholderSalesChannels": "Agregar canales de venta...",
+                "buttonConfigureHome": "Configurar página de inicio",
                 "types": {
                     "labelMainNavigation": "Navegación principal",
+                    "helpTextMainNavigation": "El punto de entrada para la navegación principal es un campo obligatorio para Canales de venta. Si asigna esta categoría como punto de entrada para la navegación principal a uno o varios canales de venta, sólo puede cambiar esta asignación en el propio canal de ventas.",
                     "labelFooterNavigation": "Navegación pie de página",
-                    "labelServiceNavigation": "Navegación servicio"
+                    "helpTextFooterNavigation": "Si asigna esta categoría como punto de entrada para la navegación de pie de página a uno o varios canales de venta, las categorías en el siguiente nivel serán columnas. Esto le permite dividir la navegación del pie de página en varias áreas.",
+                    "labelServiceNavigation": "Navegación servicio",
+                    "helpTextServiceNavigation": "Si asigna esta categoría como punto de entrada para la navegación Servicio a uno o varios canales de venta, las categorías del siguiente nivel se mostrarán como una segunda navegación en el área del pie de página."
                 }
             },
             "entry-point-modal": {
-                "modalTitle": "Configurar Inicio",
-                "salesChannelSelection": "Navegación principal del punto de entrada",
-                "showInMainNavigation": "Mostrar como Inicio en la navegación principal",
-                "mainNavigationName": "Nombre en la navegación principal",
-                "mainNavigationNamePlaceholder": "Nombre en la navegación principal...",
+                "modalTitle": "Configurar página de inicio",
+                "salesChannelSelection": "Canal de ventas",
+                "showInMainNavigation": "Mostrar en la navegación principal",
+                "mainNavigationName": "Nombre para mostrar",
+                "mainNavigationNamePlaceholder": "Introduzca un nombre de página de inicio alternativo...",
+                "mainNavigationNameHelpText": "De forma predeterminada, esta categoría se muestra como «inicio». Introduzca un nombre para mostrar alternativo si la configuración predeterminada no se ajusta al canal de ventas actual.",
                 "layoutHeadline": "Diseño",
                 "seoSettingsHeadline": "Configuración de SEO",
                 "metaTitleLabel": "Meta título",
@@ -3154,6 +3227,10 @@
             "textDeleteConfirm": "¿Realmente deseas eliminar la categoría \"{name}\"?",
             "textDeleteChildrenConfirm": "También se eliminarán todas las categorías subordinadas.",
             "textDeleteMultipleConfirm": "¿Realmente deseas eliminar estas {count} categorías seleccionadas?"
+        },
+        "entry-point-overwrite-modal": {
+            "textBefore": "Ya ha asignado un punto de entrada al siguiente canal de ventas: | Ya ha asignado puntos de entrada a los siguientes canales de venta:",
+            "textAfter": "¿Debería sobrescribirse esta asignación? | ¿Deben sobrescribirse estas asignaciones?"
         }
     },
     "sw-landing-page": {
@@ -3162,16 +3239,19 @@
             "cms": "Diseño"
         },
         "general": {
-            "placeholderSearchBar": "Buscar páginas de aterrizaje...",
+            "placeholderSearchBar": "Buscar páginas de destino...",
             "treeHeadSelected": "{count} seleccionado",
-            "buttonCreate": "Añadir página de destino",
-            "treeHeadline": "Páginas de destino"
+            "buttonCreate": "Agregar página de destino",
+            "treeHeadline": "Páginas de destino",
+            "actions": {
+                "actionsDisabledInLanguage": "Las páginas de destino solo se pueden crear en el idioma predeterminado del sistema."
+            }
         },
         "base": {
             "general": {
                 "labelName": "Nombre",
                 "headlineInformationCard": "General",
-                "isActiveLabel": "Página de aterrizaje activa",
+                "isActiveLabel": "Activo",
                 "labelTags": "Etiquetas",
                 "labelTagsPlaceholder": "Introducir etiquetas individualmente..."
             },
@@ -3182,11 +3262,11 @@
                 "labelMetaDescription": "Descripción de Meta",
                 "labelKeywords": "Palabras clave SEO",
                 "labelUrl": "URL SEO",
-                "placeholderSalesChannel": "Elige un canal de ventas...",
+                "placeholderSalesChannel": "Elija un canal de ventas...",
                 "placeholderMetaTitle": "Ingresar el título meta...",
                 "placeholderMetaDescription": "Introduzca una metadescripción...",
                 "placeholderKeywords": "Introduce una o más palabras clave...",
-                "placeholderUrl": "Introduce una URL..."
+                "placeholderUrl": "Introducir URL..."
             },
             "cms": {
                 "title": "Asignar diseño",
@@ -3196,11 +3276,12 @@
                 "editInPagebuilderEmpty": "Crear un nuevo diseño",
                 "editContent": "Editar contenido",
                 "defaultTitle": "Diseño predeterminado",
-                "defaultDesc": "Página de categoría"
+                "defaultDesc": "Página de categoría",
+                "cmsLayoutModalHeadline": "Página de destino"
             }
         },
         "modal": {
-            "textDeleteConfirm": "¿Estás seguro de que realmente quieres eliminar la página de destino \"{name}«?",
+            "textDeleteConfirm": "¿Está seguro de que realmente desea eliminar la página de destino \"{name}«?",
             "textDeleteMultipleConfirm": "¿Está seguro de que desea eliminar las {count} páginas de destino seleccionadas?"
         }
     },
@@ -3213,7 +3294,8 @@
             "columnLinkOnly": "Oculto",
             "linkAdvancedVisibility": "Configurar visibilidad avanzada",
             "labelVisibility": "Visibilidad",
-            "closeModal": "Aplicar"
+            "closeModal": "Aplicar",
+            "bodyVisibility": "Añadir canales de ventas donde se debe mostrar el producto. También puedes definir con más detalle la visibilidad del producto para cada canal de ventas de escaparate a través del enlace a continuación."
         },
         "general": {
             "mainMenuItemGeneral": "Productos",
@@ -3223,10 +3305,13 @@
             "placeholderSearchBar": "Examinar todos los productos...",
             "inheritanceModuleName": "Este producto",
             "backToParent": "Volver al resumen de variantes",
+            "backToGeneralOverview": "Volver a la descripción general",
             "copy": "Copia",
             "cloneSuffix": "Variantes",
             "cloneNotice": "Las variantes de producto se duplican. Si se interrumpe este proceso es posible que no todas las variantes sean duplicadas por completo. En este caso puedes volver a generar las variantes en el nuevo producto.",
-            "cloneTitle": "Duplicar variantes"
+            "cloneTitle": "Duplicar variantes",
+            "tooltipModeSettings": "Configuración del modo",
+            "textAdvancedMode": "Modo avanzado"
         },
         "basicForm": {
             "labelTitle": "Título",
@@ -3256,7 +3341,10 @@
             "textAddSearchKeyword": "Haga clic aquí para agregar la palabra clave de búsqueda",
             "textEnterValidSearchKeyword": "Palabras clave que se pueden buscar",
             "helpTextSearchKeyword": "El producto del escaparate también se puede encontrar usando estas palabras clave.",
-            "helpTextTags": "Las etiquetas están pensadas solo para uso interno. Pueden ayudarle a administrar grupos de productos, aplicar reglas o servir como términos de búsqueda personalizados."
+            "helpTextTags": "Las etiquetas están pensadas solo para uso interno. Pueden ayudarle a administrar grupos de productos, aplicar reglas o servir como términos de búsqueda personalizados.",
+            "categoriesTitle": "Categorías y etiquetas",
+            "descriptionCategories": "Añada categorías para que el producto se pueda encontrar a través del menú principal de Storefront o mediante conexiones API. Asegúrese de seleccionar categorías que estén disponibles y activas en el canal de ventas seleccionado.",
+            "descriptionTags": "Las etiquetas le ayudan a encontrar productos más rápido. Facilitan la agrupación de productos y se pueden utilizar para automatizar tareas con el Generador de reglas."
         },
         "priceForm": {
             "labelTaxRate": "Tipo impositivo",
@@ -3306,7 +3394,7 @@
             "labelEan": "EAN",
             "labelManufacturerNumber": "Número de fabricante",
             "labelStock": "Existencias",
-            "labelActive": "Activo",
+            "labelActive": "Activo para todos los canales de venta seleccionados",
             "labelShippingFree": "Sin gastos de envío",
             "labelMarkAsTopseller": "Resaltar producto",
             "labelIsCloseout": "Venta",
@@ -3341,7 +3429,7 @@
         "detailBase": {
             "cardTitleDeliverabilityInfo": "Disponibilidad",
             "cardTitleProductInfo": "Información",
-            "cardTitleAssignment": "Asignación",
+            "cardTitleAssignment": "Visibilidad y estructura",
             "cardTitlePrices": "Precios",
             "cardTitleSettings": "Etiquetado",
             "cardTitlePackaging": "Medidas y embalaje",
@@ -3350,12 +3438,15 @@
             "cardTitleReviews": "Valoraciones",
             "cardTitleMedia": "Medios",
             "labelContextMenuAddToProduct": "Añadir al producto",
-            "cardTitleSeo": "SEO"
+            "cardTitleSeo": "SEO",
+            "cardTitleVisibilityStructure": "Estructura de visibilidad"
         },
         "specifications": {
             "cardTitleMeasuresPackaging": "Medidas y embalaje",
             "cardTitleEssentialCharacteristics": "Características esenciales",
-            "cardTitleCustomFields": "Campos personalizados"
+            "cardTitleCustomFields": "Campos personalizados",
+            "cardTitleProperties": "Propiedades",
+            "cardTitleCustomProduct": "Productos personalizados"
         },
         "seo": {
             "cardTitleSeo": "SEO"
@@ -3509,7 +3600,7 @@
             "generationNotificationCountDeletion": "Se elimina 1 variante | Se eliminan {count} variantes",
             "generationNotificationButtonCancel": "Cancelar",
             "generationNotificationButtonContinue": "Generar",
-            "generatedFilterList": "Filtrar lista",
+            "generatedFilterList": "Lista de filtros",
             "generatedListColumnVariation": "Variante",
             "generatedListColumnPrice": "Precio (bruto / neto)",
             "generatedListColumnProductNumber": "Número de producto",
@@ -3532,24 +3623,26 @@
             },
             "configuratorModal": {
                 "title": "Generar variantes",
-                "selectOptions": "Seleccionar rasgos",
-                "selectOptionsExplanation": "Empieza por la selección de los rasgos de las características, a partir de los cuales se deberán generar las variantes.",
-                "priceSurcharges": "Suplementos/descuentos precio",
+                "selectOptions": "Selección de valor",
+                "selectOptionsExplanation": "Seleccione los valores de propiedad a partir de los cuales generar variantes.",
+                "selectRestrictionsExplanation": "Seleccione los valores de propiedad que desea excluir de la generación de variantes.",
+                "selectPricesExplanation": "Añada recargos a valores o divisas.",
+                "priceSurcharges": "Recargos de precios",
                 "resetSurcharges": "Eliminar suplementos/descuentos",
-                "defineRestrictions": "Definir exclusiones",
-                "priceOptions": "Rasgos",
-                "restrictedCombinations": "Rasgos de características excluidos",
-                "searchRestrictions": "Examinar características…",
-                "addNewRestriction": "Añadir exclusión",
-                "editRestriction": "Editar exclusión",
-                "deleteRestriction": "Eliminar exclusión",
+                "defineRestrictions": "Exclusión valor",
+                "priceOptions": "Valor",
+                "restrictedCombinations": "Valores de propiedad excluidos",
+                "searchRestrictions": "Buscar valores excluidos...",
+                "addNewRestriction": "Excluir valores",
+                "editRestriction": "Editar",
+                "deleteRestriction": "Borrar",
                 "singleRestrictionSeperation": "Y",
-                "deleteCombination": "Eliminar combinación",
+                "deleteCombination": "Borrar",
                 "isOneFrom": "es uno de",
                 "cancel": "Cancelar",
                 "save": "Guardar",
                 "searchPlaceholder": "Examinar rasgos...",
-                "singleRestrictionAddTitle": "Añadir exclusión",
+                "singleRestrictionAddTitle": "Excluir valores",
                 "surchargeNotice": "Las modificaciones realizadas en los suplementos no repercuten en las variantes que ya hayan sido generadas. Utiliza la página de detalles de variantes para realizar modificaciones en los precios."
             },
             "deliveryModal": {
@@ -3573,7 +3666,7 @@
         "layout": {
             "title": "Asignar diseño",
             "subtitle": "Puede cambiar las páginas de detalles del producto asignando diseños personalizados. Si no se asigna ningún diseño personalizado aquí, se utilizará el diseño predeterminado.",
-            "textNoConfig": "El diseño seleccionado actual no tiene ningún elemento editable",
+            "textNoConfig": "El diseño seleccionado actualmente no tiene ningún elemento editable",
             "textContentInfo": "Los bloques de productos predeterminados se rellenan automáticamente con datos de producto. Por lo tanto, los contenidos reales no se enumeran aquí."
         },
         "crossselling": {
@@ -3618,7 +3711,7 @@
             "templateSelectFieldPlaceholder": "Selecciona una o varias plantillas…"
         },
         "layoutAssignment": {
-            "title": "Repliegue predeterminado",
+            "title": "Valor predeterminado",
             "subtitle": "Página del producto",
             "textAssignLayout": "Asignar diseño",
             "textChangeLayout": "Cambiar diseño",
@@ -3626,14 +3719,45 @@
             "textEditInDesigner": "Editar en diseñador"
         },
         "filters": {
+            "fromPlaceholder": "Introducir valor inicial...",
+            "toPlaceholder": "Introduzca valor final...",
             "activeFilter": {
                 "label": "Activo",
                 "placeholder": "Seleccione un estado..."
             },
             "imagesFilter": {
                 "label": "Imágenes",
-                "placeholder": "Seleccione el estado de una imagen..."
-            }
+                "placeholder": "Seleccione el estado de una imagen...",
+                "textHasCriteria": "Al menos una imagen de producto asignada",
+                "textNoCriteria": "No se han asignado imágenes de producto"
+            },
+            "releaseDateFilter": {
+                "label": "Fecha de lanzamiento"
+            },
+            "stockFilter": {
+                "label": "Stock"
+            },
+            "priceFilter": {
+                "label": "Precio"
+            },
+            "manufacturerFilter": {
+                "label": "Fabricante",
+                "placeholder": "Seleccione fabricante..."
+            },
+            "salesChannelsFilter": {
+                "label": "Canales de venta",
+                "placeholder": "Seleccionar canales de venta..."
+            },
+            "categoriesFilter": {
+                "label": "Categorías",
+                "placeholder": "Seleccionar categorías..."
+            },
+            "tagsFilter": {
+                "label": "Etiquetas",
+                "placeholder": "Seleccionar etiquetas..."
+            },
+            "messageEmptyTitle": "No se encontró nada",
+            "messageEmptySubline": "Edite los filtros para ver los resultados."
         },
         "notification": {
             "notificationSaveErrorProductNoAlreadyExists": "El número de producto \"{productNo}\" ya está asignado."
@@ -3873,6 +3997,7 @@
             "info": "¿Qué hay de nuevo?",
             "requirements": "Requisitos del sistema",
             "plugins": "Compatibilidad plugins",
+            "extensions": "Compatibilidad de extensión",
             "updating": "Actualización"
         },
         "notifications": {
@@ -3916,6 +4041,7 @@
             },
             "actions": {
                 "openPluginManager": "Abrir administrador de plugins.",
+                "openMyExtensions": "Abrir mis extensiones",
                 "deactivateAll": "Desactivar todos los plugins.",
                 "deactivateIncompatible": "Desactivar todos los plugins incompatibles.",
                 "deactivateNone": "Soy consciente de los potenciales riesgos. A pesar de ellos, deseo realizar una actualización sin desactivar previamente los plugins correspondientes. Estoy informado de que Shopware no puede garantizar el funcionamiento de mi instalación después de una actualización incompatible.",
@@ -3987,82 +4113,83 @@
         },
         "generalTab": {
             "labelSearchBehaviour": "comportamiento de búsqueda",
-            "textTitleSearchBehaviour": "Predefina tu comportamiento de búsqueda de escaparate.",
+            "textTitleSearchBehaviour": "Predefina el comportamiento de búsqueda de tus canales de ventas.",
             "labelSearchAndCondition": "Búsqueda «AND»",
-            "textSearchAndConditionExplain": "Los resultados de búsqueda coinciden con cada elemento del término de búsqueda introducido.\nEjemplo: «Jeans summer» encontrará productos que contienen palabras clave «jeans» y «verano».",
+            "textSearchAndConditionExplain": "Los resultados de búsqueda coinciden con cada elemento del término de búsqueda introducido.\nEjemplo: «Jeans summer» encontrará resultados de búsqueda que contengan los términos de búsqueda «jeans» y «verano».",
             "labelSearchOrCondition": "Búsqueda «OR»",
-            "textSearchOrConditionExplain": "Los resultados de búsqueda coinciden con cualquier elemento del término de búsqueda introducido.\nEjemplo: «Jeans summer» encontrará productos que contienen la palabra clave «jeans» y «verano».",
+            "textSearchOrConditionExplain": "Los resultados de búsqueda coinciden con cualquier elemento del término de búsqueda introducido.\nEjemplo: «Jeans summer» encontrará resultados de búsqueda que contengan el término de búsqueda «jeans» o el término de búsqueda «verano».",
             "labelMinimalSearchTerm": "Longitud mínima del término de búsqueda",
             "labelExcludedSearchTerms": "Términos de búsqueda excluidos",
             "textEmptyStateExcludedSearchTerms": "Todavía no se han excluido términos de búsqueda",
-            "buttonAddExcludedSearch": "Agregar exclusión",
-            "textPlaceholderTermsFilter": "Buscar términos excluidos...",
-            "buttonAddExcludedSearchTerms": "Agregar término de exclusión",
+            "buttonAddExcludedSearch": "Excluir término de búsqueda",
+            "textPlaceholderTermsFilter": "Buscar términos de búsqueda excluidos...",
+            "buttonAddExcludedSearchTerms": "Excluir término de búsqueda",
             "labelExcludedSearchTermsNoResults": "No se han encontrado resultados.",
             "labelSearchableContent": "Contenido en que se puede buscar",
-            "textDescriptionSearchableContent": "Todo el contenido en el que se puede realizar búsquedas se muestra en la tabla siguiente. Para personalizar los resultados de búsqueda en tu escaparate, sigue adelante y excluye el contenido de las búsquedas o modificar la clasificación de cada elemento individual a tu gusto. Los elementos de clasificación superior tienen un «valor de búsqueda» aumentado y se ubicarán más arriba en los resultados de búsqueda.",
+            "textDescriptionSearchableContent": "Todo el contenido en el que se puede realizar búsquedas se muestra en la tabla siguiente. Para personalizar los resultados de búsqueda en sus Canales de ventas, siga adelante y excluya el contenido de la búsqueda o ajuste la clasificación de cada elemento individual a su gusto. Los elementos de clasificación superior tienen un «valor de búsqueda» aumentado y se ubicarán más arriba en los resultados de búsqueda.",
             "buttonResetDefault": "Restablecer al valor predeterminado",
             "linkExample": "Mostrar ejemplo",
-            "buttonAddContent": "Añadir contenido",
+            "buttonAddContent": "Agregar contenido en el que se puede buscar",
             "labelGeneralTab": "General",
             "labelCustomFieldsTab": "Campos personalizados",
             "textEmptyStateSearchableContent": "Aún no se ha añadido contenido para búsquedas.",
             "titleExampleModal": "Ejemplo de clasificación de búsqueda",
-            "textColumnSearchTerm": "Términos de búsqueda",
+            "textColumnSearchTerm": "Términos de búsqueda excluidos",
             "modal": {
                 "textExplain": "A continuación encontrará tres resultados de búsqueda ficticios para el término de búsqueda «jeans». Se pueden buscar títulos de productos (puntuación de clasificación 100), descripciones de productos (puntuación de clasificación 50) y etiquetas de producto (puntuación de clasificación 20).",
                 "textTitle": "Título",
-                "textSuperJeans": "súper jeans",
+                "textSuperJeans": "Súper jeans",
                 "textDescription": "Descripción",
-                "textFancyJeans": "jeans de lujo",
+                "textFancyJeans": "Vaqueros elegantes",
                 "textTag": "Etiqueta",
                 "textJeans": "Pantalones vaqueros",
                 "textTotal": "Total",
                 "textProductRankedFirstScore": "El producto clasificado primero tiene un golpe de búsqueda en cada entidad en la que se puede buscar, lo que da como resultado una puntuación total de 170.",
-                "textFancyPants": "pantalones de lujo",
-                "textProductRankedSecondScore": "El producto clasificado en segundo lugar tiene resultados de búsqueda para el título del producto y las etiquetas de producto, lo que da como resultado una puntuación total de 120.",
+                "textFancyPants": "Pantalones de lujo",
+                "textProductRankedSecondScore": "El producto clasificado en segundo lugar tiene resultados de búsqueda para el nombre del producto y las etiquetas de producto, lo que da como resultado una puntuación total de 120.",
                 "textSuperPants": "Super Pantalones",
                 "textProductRankedThirdScore": "El producto clasificado en tercer lugar sólo tiene un éxito en las etiquetas de producto, lo que da como resultado una puntuación total de 20."
             },
             "labelSearchIndex": "Índice de búsqueda",
             "buttonRebuildSearchIndex": "Reconstruir el índice de búsqueda",
-            "textWarningOpenTab": "Mantenga esta ventana/pestaña abierta.",
-            "textRebuildSearchIndexDescription": "Reconstrucción del índice de búsqueda lleva un poco de tiempo. Durante ese tiempo, es obligatorio mantener esta ventana/pestaña abierta para reconstruir correctamente el índice de búsqueda. Recibirás una notificación tan pronto como el proceso haya finalizado.",
+            "textWarningOpenTab": "Por favor, mantén esta ventana abierta.",
+            "textRebuildSearchIndexDescription": "Reconstrucción del índice de búsqueda lleva algún tiempo. Durante ese tiempo, es obligatorio mantener esta ventana abierta para reconstruir correctamente el índice de búsqueda. Recibirás una notificación tan pronto como el proceso haya finalizado.",
             "textRebuildingSearchIndex": "Reconstrucción del índice de búsqueda",
             "textLastedBuild": "Última compilación:",
+            "textSearchNotIndexedYet": "La búsqueda aún no está indexada.",
             "list": {
                 "columnSearchable": "Buscable",
-                "columnRankingPoints": "Puntos de clasificación",
+                "columnRankingPoints": "Puntuación de",
                 "columnContent": "Contenido",
-                "columnSplitKeywords": "Palabras clave divididas",
+                "columnSplitKeywords": "Dividir términos de búsqueda",
                 "textResetRanking": "Restablecer clasificación",
                 "textRemove": "Quitar"
             },
             "configFields": {
-                "name": "Nombre",
-                "description": "Descripción",
+                "name": "Nombre del producto",
+                "description": "Descripción del producto",
                 "productNumber": "Número de producto",
                 "manufacturerNumber": "Número de fabricante",
-                "ean": "EAN",
-                "customSearchKeywords": "Palabras clave de búsqueda personalizadas",
+                "ean": "EAN del producto",
+                "customSearchKeywords": "Términos de búsqueda personalizados",
                 "manufacturerName": "Nombre del fabricante",
                 "manufacturerCustomFields": "Campos personalizados del fabricante",
-                "categoriesName": "Nombre de las categorías",
-                "categoriesCustomFields": "Categorías campos personalizados",
-                "tagsName": "Nombre de etiqueta",
-                "metaTitle": "Meta título",
-                "metaDescription": "Descripción de Meta",
+                "categoriesName": "Nombre de la categoría",
+                "categoriesCustomFields": "Campos personalizados de categoría",
+                "tagsName": "Etiqueta del producto",
+                "metaTitle": "MetaTítulo del producto",
+                "metaDescription": "Metadescripción del producto",
                 "propertiesName": "Nombre de la propiedad",
-                "variantValue": "Valor de variante"
+                "variantValue": "Valor de propiedad"
             }
         },
         "notification": {
-            "saveSuccess": "Se ha guardado la configuración.",
-            "excludedTermRequired": "El término excluido no debe estar vacío.",
-            "excludedTermAlreadyExists": "El término excluido ya existe.",
-            "updateExcludedTermSuccess": "Se excluyó el éxito de actualización de término",
-            "createExcludedTermSuccess": "Término excluido crear éxito.",
-            "deleteExcludedTermSuccess": "Se ha excluido el término eliminado.",
+            "saveSuccess": "Configuración guardada.",
+            "excludedTermRequired": "Los términos de búsqueda excluidos no deben estar vacíos.",
+            "excludedTermAlreadyExists": "El término de búsqueda excluido ya existe.",
+            "updateExcludedTermSuccess": "Término de búsqueda excluido actualizado.",
+            "createExcludedTermSuccess": "Se ha creado un término de búsqueda excluido",
+            "deleteExcludedTermSuccess": "Término de búsqueda excluido eliminado.",
             "saveError": "Se ha producido un error al guardar la configuración.",
             "index": {
                 "started": "Indices de productos de construcción.",
@@ -4071,14 +4198,14 @@
             "loadError": "Se ha producido un error al cargar la configuración."
         },
         "liveSearchTab": {
-            "titleCard": "Búsqueda en directo de Storefront",
-            "textDescription": "Pruebe la configuración de búsqueda personalizada a continuación. Si acaba de realizar cambios en la configuración de búsqueda, asegúrese de guardarlos antes de probarlos con esta búsqueda activa.",
+            "titleCard": "Búsqueda en directo del canal de ventas",
+            "textDescription": "Pruebe la configuración de búsqueda personalizada a continuación.",
             "labelSalesChannelSelect": "Canal de ventas",
-            "textPlaceholderSalesChannel": "Seleccione un canal de ventas para probar la búsqueda en vivo",
+            "textPlaceholderSalesChannel": "Seleccione un canal de ventas...",
             "linkRebuildSearchIndex": "Reconstruir el índice de búsqueda",
-            "labelName": "Nombre",
-            "labelScore": "Puntuación",
-            "textNoResult": "No hay resultados para las palabras clave introducidas. Pruebe otra (s) palabra (s) clave (s)"
+            "labelName": "Resultado de búsqueda",
+            "labelScore": "Puntuación de",
+            "textNoResult": "No se han encontrado resultados. Inténtelo de nuevo con otro término de búsqueda."
         }
     },
     "sw-settings-mailer": {
@@ -4115,8 +4242,6 @@
             "password-placeholder": "Introduce una contraseña…",
             "encryption": "Método de encriptación",
             "encryption-placeholder": "Seleccionar método de encriptación…",
-            "authentication": "Método de autentificación",
-            "authentication-placeholder": "Seleccionar método de autentificación…",
             "sender-address": "Dirección del remitente",
             "sender-address-placeholder": "Introduce una dirección de correo electrónico a la cual tengas acceso…",
             "delivery-address": "Dirección del destinatario",
@@ -4128,12 +4253,6 @@
             "no-encryption": "Sin encriptación",
             "ssl": "SSL",
             "tls": "TLS"
-        },
-        "authentication": {
-            "no-authentication": "Sin autentificación",
-            "plain": "Simple",
-            "login": "Inicio de sesión",
-            "cram-md5": "Cram MD5"
         },
         "helpText": "Para más información, consulta la <a target=\"_blank\" href=\"https://docs.shopware.com/en/shopware-6-en\">documentación</a>"
     },
@@ -4151,42 +4270,44 @@
         "my-extensions": {
             "listing": {
                 "initialSearchType": "Extensiones",
-                "placeholderSearchBar": "Extensiones de búsqueda…",
+                "placeholderSearchBar": "Extensiones de búsqueda...",
                 "controls": {
                     "labelActiveStateSwitch": "Ocultar extensiones inactivas",
                     "filterOptions": {
                         "last-updated": "Última actualización",
-                        "name-asc": "Nombre de la extensión, asc.",
-                        "name-desc": "Nombre de la extensión, desc."
+                        "name-asc": "Nombre A - Z.",
+                        "name-desc": "Nombre Z - A."
                     }
-                }
+                },
+                "version": "Versión",
+                "update": "Actualizar"
             },
             "account": {
                 "headline": "Cuenta de Shopware",
-                "isLoggedIn": "Cuenta conectada con éxito. Ve a la pestaña «Aplicación» o «Temas» y comprueba si las extensiones compradas aparecen en la lista. De lo contrario, consulta tu cuenta de Showare y asegúrate de que se haya establecido el dominio correcto para las extensiones.",
+                "isLoggedIn": "Cuenta de Shopware correctamente conectada. Ve a la pestaña «Aplicación» o «Temas» y comprueba si las extensiones compradas aparecen en la lista. De lo contrario, consulta tu cuenta de Showare y asegúrate de que se haya establecido el dominio correcto para las extensiones.",
                 "login": "Iniciar sesión",
                 "logout": "Cerrar sesión",
-                "loginMessage": "Inicia sesión con tu cuenta de Shopware para acceder a las extensiones que compraste en store.shopware.com",
-                "register": "¡Regístrese y forme parte de la comunidad de Shopware!",
+                "loginMessage": "Inicie sesión con su cuenta de Shopware para acceder a las extensiones que compró en store.shopware.com",
+                "register": "¡Regístrate ahora y conviértete en parte de la comunidad de Shopware!",
                 "registerNow": "Regístrese ahora",
                 "registerUrl": "https://account.shopware.com/register?lang=en",
                 "mailLabel": "Dirección de correo electrónico",
-                "mailPlaceholder": "Introduzca su dirección de correo electrónico…",
+                "mailPlaceholder": "Introduce tu dirección de correo electrónico...",
                 "passwordLabel": "Contraseña",
-                "passwordPlaceholder": "Introduzca su contraseña…",
+                "passwordPlaceholder": "Introduce tu contraseña...",
                 "recoveryUrl": "https://account.shopware.com/recovery?lang=en",
                 "passwordForgot": "¿Olvidaste tu contraseña?",
                 "loginNotificationMessage": "Ha iniciado sesión en la cuenta de Shopware."
             },
             "tabs": {
-                "app": "App",
-                "theme": "Tema",
+                "app": "Aplicaciones",
+                "theme": "Temas",
                 "recommendation": "Recomendaciones",
                 "shopwareAccount": "Cuenta de Shopware"
             },
             "fileUpload": {
-                "buttonFileUpload": "Subir plugin",
-                "messageUploadSuccess": "Se ha subido el plugin."
+                "buttonFileUpload": "Subir extensión",
+                "messageUploadSuccess": "Extensión cargada."
             }
         },
         "errors": {
@@ -4194,19 +4315,19 @@
             "messageGenericFailure": "Eso no funcionó.",
             "messageUploadFailureNotAZipFile": "El archivo cargado no es un archivo ZIP.",
             "messageUploadFailureUnzipFailed": "No se puede extraer el archivo ZIP.",
-            "messageUploadFailureNoPluginFoundInZipFile": "No se ha encontrado ningún complemento en el archivo ZIP.",
+            "messageUploadFailureNoPluginFoundInZipFile": "No se ha encontrado ninguna extensión en el archivo ZIP.",
             "messageLoginDataInvalid": "Datos de inicio de sesión incompletos.",
             "messageStoreLicenseDomainMissing": "Error de inicio de sesión. ¿Ha proporcionado el dominio de licencia correcto desde su cuenta de Shopware en «Configuración/Cuenta de Shopware»?",
-            "messageStoreNotAvailable": "Shopware Store no está disponible.",
-            "messagePluginBaseClassNotFound": "No se pudo cargar la clase base del complemento. Compruebe su plugin composer.json con respecto a la carga automática de la clase",
-            "messagePluginInstallationFailed": "No se pudo instalar el complemento debido al mensaje de error \"{message}»",
-            "messagePluginUninstallationFailed": "El complemento no se pudo desinstalar debido al mensaje de error \"{message}»",
-            "messagePluginActivationFailed": "El complemento no se pudo activar debido al mensaje de error \"{message}»",
-            "messagePluginDeactivationFailed": "El complemento no se pudo desactivar debido al mensaje de error \"{message}»",
-            "messageDeactivationFailedDependencies": "El plugin \"{dependency}\" no se puede desactivar, porque hay otros complementos que dependen de él. Desactive los siguientes complementos antes de reiniciar la actualización: {dependantNames}",
+            "messageStoreNotAvailable": "La Tienda Shopware no está disponible.",
+            "messagePluginBaseClassNotFound": "No se pudo cargar la clase base de extensión. Compruebe su complementos composer.json con respecto a la carga automática de la clase.",
+            "messagePluginInstallationFailed": "No se pudo instalar la extensión: \"{message}».",
+            "messagePluginUninstallationFailed": "No se pudo desinstalar la extensión: \"{message}».",
+            "messagePluginActivationFailed": "No se pudo activar la extensión: \"{message}».",
+            "messagePluginDeactivationFailed": "No se pudo desactivar la extensión: \"{message}».",
+            "messageDeactivationFailedDependencies": "La extensión \"{dependency}\" no se puede desactivar, porque hay otras extensiones que dependen de ella. Desactive las siguientes extensiones antes de reiniciar la actualización: {dependantNames}",
             "messageDeactivationFailedThemeAssignment": "No se puede desactivar o desinstalar el tema \"{themeName}». Elimine las siguientes asignaciones de temas: {assignments}.",
-            "messagePluginUpdateFailed": "El complemento no se pudo actualizar debido al mensaje de error \"{message}». {pluginDeactivatedHint}",
-            "pluginDeactivatedHint": "El complemento se desactivó."
+            "messagePluginUpdateFailed": "No se pudo actualizar la extensión: \"{message}». {pluginDeactivatedHint}",
+            "pluginDeactivatedHint": "Extensión desactivada."
         },
         "mainMenu": {
             "mainMenuItemExtensionStore": "Extensiones",
@@ -4216,6 +4337,20 @@
         }
     },
     "sw-extension-store": {
+        "landing-page": {
+            "enablingShopwareStore": "Activando la Tienda Shopware...",
+            "takeMinutes": "Esto puede tardar unos minutos.",
+            "activationErrorTitle": "Error durante la activación",
+            "activationErrorDescription": "Inténtalo de nuevo. Si eso no funciona, pide ayuda al administrador.",
+            "retryButton": "Intentar de nuevo",
+            "activationSuccessTitle": "Activado correctamente",
+            "activationSuccessDescription": "Diviértete explorando la Tienda Shopware.",
+            "label": "Ya disponible",
+            "activationDescriptionTitleFirst": "Explore y compre extensiones fácilmente -",
+            "activationDescriptionTitleSecond": "directamente desde su propia tienda Shopware.",
+            "activationDescriptionTitleDescription": "Activa la nueva Tienda Shopware y accede a un montón de útiles extensiones y temas modernos que se pueden integrar en tu tienda sin ninguna habilidad de programación.",
+            "activate": "Activar"
+        },
         "title": "Tienda",
         "descriptionTextModule": "Administrar sus extensiones",
         "general": {
@@ -4234,8 +4369,8 @@
                 "releaseDateDesc": "Fecha de lanzamiento más reciente - más antigua",
                 "nameAsc": "Nombre A - Z",
                 "nameDesc": "Nombre Z - A",
-                "ratingAsc": "Clasificación Baja - Alta",
-                "ratingDesc": "Calificación Alta - Baja"
+                "ratingAsc": "Clasificación baja - alta",
+                "ratingDesc": "Calificación alta - baja"
             }
         },
         "detail": {
@@ -4243,7 +4378,7 @@
             "labelButtonOpenExtension": "Abrir extensión",
             "labelButtonInstallExtension": "Instalar extensión",
             "labelBy": "por",
-            "numberOfRatings": "{count} Reseña | {count} Reseñas",
+            "numberOfRatings": "{count} reseña | {count} reseñas",
             "noRatings": "Aún no hay valoraciones",
             "cardTitleInformation": "Información",
             "labelButtonReadMore": "Leer más",
@@ -4254,7 +4389,7 @@
                 "labelUpdatedAt": "Última actualización",
                 "labelLanguages": "Idiomas",
                 "labelWebsite": "Sitio web del desarrollador",
-                "labelPrivacy": "Privacylink"
+                "labelPrivacy": "Política de privacidad"
             },
             "cardTitleFAQ": "PREGUNTAS FRECUENTES",
             "cardTitleChangelog": "Registro de cambios",
@@ -4268,7 +4403,7 @@
             },
             "sw-extension-buy-modal": {
                 "title": "Añadir extensión",
-                "labelAcceptPermissions": "Soy consciente de que esta extensión necesita permisos",
+                "labelAcceptPermissions": "Soy consciente de que esta extensión necesita permisos adicionales",
                 "labelAcceptPrivacyExtensions": "Soy consciente de que necesito ampliar mi política de privacidad",
                 "buttonShowPrivacyExtensions": "Mostrar detalles",
                 "variantCard": {
@@ -4280,7 +4415,7 @@
                 "variantSummary": {
                     "labelVat": "más IVA",
                     "labelPrice": "Precio",
-                    "renewal": "Renovación {renewalDate}"
+                    "renewal": "Renovación el {renewalDate}"
                 },
                 "purchaseButtonsLabels": {
                     "free": "Añadir extensión de forma gratuita",
@@ -4288,23 +4423,23 @@
                     "buy": "Comprar extensión ahora"
                 },
                 "successNotification": {
-                    "titleSuccess": "¡Extensiones agregadas correctamente!",
+                    "titleSuccess": "¡Extensión agregada correctamente!",
                     "subtitleSuccess": "Ahora puede probar su nueva extensión.",
                     "labelButtonBack": "Volver a los detalles"
                 },
                 "alertCanNotBuy": {
-                    "text": "Necesitas haber iniciado sesión en la Tienda para hacer esto",
+                    "text": "Necesitas iniciar sesión en la Tienda para hacer esto.",
                     "linkChoosePLan": "Elegir un plan"
                 }
             },
             "sw-extension-adding-failed": {
-                "titleFailure": "Error al agregar la extensión",
+                "titleFailure": "Error al agregar la extensión ",
                 "textProblem": "Se ha producido un problema al agregar la extensión.",
                 "installationFailed": {
                     "titleFailure": "Error en la instalación",
                     "textProblem": "Se ha producido un problema al instalar la extensión. Informaremos al fabricante.",
-                    "notificationLicense": "Tenga en cuenta que la suscripción a esta aplicación o tema permanece activa.",
-                    "textSupport": "Si tiene alguna pregunta sobre la licencia, póngase en contacto con Shopware Financial Services. Disponible por correo electrónico a {0} o por teléfono a la {1}.",
+                    "notificationLicense": "Tenga en cuenta que la suscripción a esta extensión permanece activa.",
+                    "textSupport": "Si tiene alguna pregunta sobre la licencia, póngase en contacto con Shopware Financial Services. Disponible por correo electrónico en {0} o por teléfono en {1}.",
                     "supportEmail": "financial.services@shopware.com",
                     "supportPhone": "+49 (0) 2555/9288510"
                 }
@@ -4321,7 +4456,7 @@
                     "submitBtn": "Enviar"
                 },
                 "sw-extension-ratings-summary": {
-                    "labelRating": "Sin calificaciones | {numberOfRatings} Calificación | {numberOfRatings} Calificaciones"
+                    "labelRating": "Sin calificaciones | {numberOfRatings} calificación | {numberOfRatings} valoraciones"
                 },
                 "sw-extension-review": {
                     "labelLastChangeDate": "Por {author} en {lastChangeDate}",
@@ -4334,6 +4469,7 @@
                     "labelNoReviews": "Esta extensión todavía no ha recibido opiniones o comentarios."
                 },
                 "sw-extension-review-creation-inputs": {
+                    "title": "Extensión de tarifa",
                     "labelHeadline": "Titular",
                     "placeholderHeadline": "Escriba un título corto...",
                     "labelRating": "Calificación",
@@ -4346,8 +4482,8 @@
             "sw-extension-card-base": {
                 "subscriptionLabel": "Suscripción:",
                 "inactiveLabel": "(inactivo)",
-                "purchasedLabel": "Comprado: ",
-                "installedLabel": "Instalado: ",
+                "purchasedLabel": "Comprado el ",
+                "installedLabel": "Instalado en ",
                 "openExtensionLabel": "Abrir aplicación",
                 "installExtensionLabel": "Instalar la aplicación",
                 "labelAcceptAndInstall": "Aceptar e instalar",
@@ -4355,7 +4491,7 @@
                     "getHelpLabel": "Obtener ayuda",
                     "seeDetailsLabel": "Ver detalles",
                     "config": "Configuración",
-                    "privacyAndSafetyLabel": "Privacidad y seguridad",
+                    "privacyAndSafetyLabel": "Privacidad y seguridad de los datos",
                     "removeLabel": "Quitar",
                     "cancelAndRemoveLabel": "Cancelar y eliminar",
                     "uninstallLabel": "Desinstalar",
@@ -4368,18 +4504,18 @@
             "sw-extension-deactivation-modal": {
                 "deactivateExtensionLabel": "Desactivar \"{extensionName}»",
                 "description": "La extensión \"{extensionName}\" tiene una cuota de suscripción mensual.<br>Desactivar la extensión <b>no cancelará</b> la suscripción y las tarifas se seguirán cobrando!",
-                "descriptionCancel": "Si desea cancelar la suscripción en su lugar, puede eliminarla en el menú contextual en \"{removeLabel}».",
+                "descriptionCancel": "Si desea cancelar la suscripción, puede eliminarla a través de \"{removeLabel}\" en el menú contextual.",
                 "alertDeactivate": "¿Todavía desea desactivar la extensión?",
                 "deactivateLabel": "Desactivar"
             },
             "sw-extension-permissions-modal": {
                 "title": "{extensionLabel} permisos",
-                "description": "{extensionLabel} obtendrá acceso a los siguientes componentes. Haga clic en el vínculo situado junto al componente para mostrar los detalles de la entidad.",
+                "description": "{extensionLabel} tendrá acceso a los siguientes componentes. Haga clic en el vínculo situado junto al componente para mostrar los detalles de la entidad.",
                 "textEntities": "Mostrar permisos"
             },
             "sw-extension-privacy-policy-extensions-modal": {
                 "title": "{extensionLabel}: extensiones de política de privacidad",
-                "intro": "Esta aplicación procesa información personal. El fabricante da los siguientes consejos para los ajustes de su política de privacidad:"
+                "intro": "Esta aplicación procesa información personal. El fabricante recomienda los ajustes de su política de privacidad:"
             },
             "sw-extension-permissions-details-modal": {
                 "operationRead": "Ver",
@@ -4388,16 +4524,23 @@
                 "operationDelete": "Borrar"
             },
             "sw-extension-my-extensions-listing": {
-                "noActivePlugins": "No hay extensiones activas.",
-                "titleEmptyState": "Aún no hay aplicaciones instaladas",
-                "textEmptyState": "Si instalas aplicaciones, se mostrarán aquí.",
+                "apps": {
+                    "noActivePlugins": "No se encontraron extensiones activas.",
+                    "titleEmptyState": "Aún no hay aplicaciones instaladas",
+                    "textEmptyState": "Si instalas aplicaciones, se mostrarán aquí."
+                },
+                "themes": {
+                    "noActivePlugins": "No se encontraron temas activos.",
+                    "titleEmptyState": "Aún no hay temas instalados",
+                    "textEmptyState": "Si instala temas, se mostrarán aquí."
+                },
                 "btnOpenStore": "Tienda abierta"
             },
             "sw-extension-removal-modal": {
                 "titleCancel": "«{extensionName}\" cancelar y eliminar",
                 "titleRemove": "«{extensionName}\" eliminar",
                 "description": "Si elimina la extensión, ya no podrá usarla.",
-                "alertCancel": "¿Está seguro de que desea eliminar la extensión?",
+                "alertCancel": "¿Está seguro de que desea cancelar y eliminar la extensión?",
                 "alertRemove": "¿Está seguro de que desea eliminar la extensión?",
                 "labelCancel": "Cancelar y eliminar",
                 "labelRemove": "Quitar"
@@ -4415,7 +4558,7 @@
                 "labelLicensed": "Comprado"
             },
             "sw-extension-config": {
-                "messageSaveSuccess": "Se ha guardado la configuración."
+                "messageSaveSuccess": "Configuración guardada."
             }
         },
         "errors": {
@@ -4423,7 +4566,7 @@
                 "message": "Usted tiene que aceptar nuestros términos y condiciones para continuar."
             },
             "FRAMEWORK__EXTENSION_THEME_STILL_IN_USE": {
-                "message": "El tema se sigue utilizando actualmente en uno o más canales de venta."
+                "message": "El tema está siendo utilizado actualmente por uno o varios canales de venta."
             },
             "FRAMEWORK__INVALID_EXTENSION_ID": {
                 "message": "El número de identificación de la extensión no es válido."
@@ -4450,7 +4593,7 @@
                 "message": "La extensión no se puede cancelar."
             },
             "SAAS_EXTENSION_CANCELLATION__STILL_IN_USE": {
-                "message": "La extensión no se puede cancelar porque todavía está en uso."
+                "message": "La extensión no se puede cancelar, porque todavía está en uso."
             },
             "SAAS_EXTENSION_RATING__ALREADY_RATED": {
                 "message": "La extensión ya ha sido clasificada."
@@ -4465,39 +4608,39 @@
                 "message": "El modelo de precio seleccionado no está permitido para la extensión."
             },
             "SAAS_EXTENSION_ORDER__NO_DEFAULT_PAYMENT_MEAN": {
-                "message": "No hay ningún medio de pago predeterminado disponible.",
-                "labelLink": "Configurar el pago predeterminado"
+                "message": "No hay ningún método de pago predeterminado disponible.",
+                "labelLink": "Configurar el método de pago predeterminado"
             },
             "SAAS_EXTENSION_ORDER__INSUFFICIENT_BALANCE": {
-                "message": "No hay suficiente saldo disponible."
+                "message": "Equilibrio insuficiente."
             },
             "SAAS_EXTENSION_REQUEST__INVALID_CONTENT": {
                 "message": "Falta la información de solicitud requerida o no es válida."
             },
             "SAAS_EXTENSION_INVALID_BASKET__MULTIPLE_LICENSES_OR_LICENSE_ALREADY_OWNED": {
-                "message": "La cesta no es válida porque contiene varias licencias o contiene una licencia que ya posee."
+                "message": "El carrito de compras no es válido porque contiene varias licencias o contiene una licencia que ya posee."
             },
             "SAAS_EXTENSION_INVALID_BASKET__INVALID_ORDER_POSITION": {
-                "message": "La cesta no es válida debido a una posición de pedido no válida."
+                "message": "El carrito de la compra no es válido debido a una posición de pedido no válida."
             },
             "SAAS_EXTENSION_INVALID_BASKET__GENERAL": {
-                "message": "La cesta no es válida."
+                "message": "El carrito de la compra no es válido."
             },
             "SAAS_EXTENSION_INVALID_BASKET__INVALID_COMPANY": {
-                "message": "La cesta no es válida porque tu empresa no tiene ningún país asignado."
+                "message": "El carrito de la compra no es válido porque su empresa no tiene ningún país asignado."
             },
             "SAAS_EXTENSION_RATING__INVALID_EXTENSION": {
                 "message": "No se pudo guardar su calificación porque la extensión relacionada no es válida."
             },
             "SAAS_COMPANY__MISSING": {
-                "message": "Falta la empresa requerida.",
+                "message": "Falta la declaración de la empresa requerida.",
                 "labelLink": "Asignar empresa"
             }
         }
     },
     "entityCategories": {
         "admin_user": {
-            "title": "Usuario administrador",
+            "title": "Usuario de administración",
             "entities": {
                 "integration": "Integración",
                 "user": "Usuario",
@@ -4541,7 +4684,7 @@
                 "customer_address": "Dirección",
                 "customer_group": "Grupo de clientes",
                 "customer_group_translation": "Traducción de grupos de clientes",
-                "customer_group_registration_sales_channels": "Canal de ventas de registro de grupo de clientes",
+                "customer_group_registration_sales_channels": "Canal de ventas para registros de grupos de clientes",
                 "customer_recovery": "Recuperación",
                 "customer_tag": "Etiqueta"
             }
@@ -4558,8 +4701,8 @@
             "title": "Documentos",
             "entities": {
                 "document": "Documento",
-                "document_base_config": "Configuración de base",
-                "document_base_config_sales_channel": "Configuración base para canales de venta",
+                "document_base_config": "Configuración básica",
+                "document_base_config_sales_channel": "Configuración básica para canales de venta",
                 "document_type": "Tipo",
                 "document_type_translation": "Tipo de traducción"
             }
@@ -4599,8 +4742,8 @@
         "media": {
             "title": "Medios",
             "entities": {
-                "media": "Medios",
-                "media_translation": "Traducción de medios",
+                "media": "Mediano",
+                "media_translation": "Traducción media",
                 "media_default_folder": "Carpeta predeterminada",
                 "media_folder": "Carpeta",
                 "media_folder_configuration": "Configuración de carpetas",
@@ -4716,15 +4859,15 @@
                 "sales_channel_payment_method": "Método de pago",
                 "sales_channel_shipping_method": "Método de envío",
                 "sales_channel_translation": "Traducción del canal de ventas",
-                "sales_channel_type": "Tipo",
-                "sales_channel_type_translation": "Tipo de traducción"
+                "sales_channel_type": "Tipo de canal de ventas",
+                "sales_channel_type_translation": "Traducción del tipo de canal de ventas"
             }
         },
         "settings": {
             "title": "Configuración",
             "entities": {
                 "country": "País",
-                "country_state": "Estado del país",
+                "country_state": "Estado/provincia",
                 "currency": "Moneda",
                 "delivery_time": "Tiempo de entrega",
                 "language": "Idioma",
@@ -4748,7 +4891,7 @@
                 "tax": "Impuestos",
                 "tax_rule": "Regla fiscal",
                 "tax_rule_type": "Tipo de regla fiscal",
-                "unit": "Unidad",
+                "unit": "Unidad de escala",
                 "version": "Versión"
             }
         },
@@ -4944,7 +5087,7 @@
             "placeholderSalesChannels": "Seleccionar canales de venta...",
             "placeholderMailTemplate": "Seleccione una plantilla de correo electrónico...",
             "titleRecipientsCard": "Destinatarios de correo",
-            "textEmptyStateRecipients": "Todavía no hay destinatarios adicionales para este evento. - Los correos electrónicos del cliente se enviarán independientemente.",
+            "textEmptyStateRecipients": "Añadir destinatarios alternativos - Si se establecen los correos electrónicos del cliente se incluirán!",
             "columnRecipientName": "Nombre",
             "columnRecipientMail": "Dirección de correo electrónico",
             "addRecipientButton": "Agregar destinatario",
@@ -4954,7 +5097,7 @@
     },
     "sw-settings-logging": {
         "general": {
-            "mainMenuItemGeneral": "Registro",
+            "mainMenuItemGeneral": "Registros de eventos",
             "placeholderSearchBar": "Examinar registros..."
         },
         "list": {
@@ -5181,6 +5324,7 @@
             "buttonNextPayPalInfo": "Configurar",
             "buttonBack": "Atrás",
             "buttonInstall": "Instalar",
+            "buttonActivate": "Activar",
             "buttonFinish": "Terminado",
             "buttonConfigureLater": "Ajustar más tarde",
             "pluginInstalled": "Instalados"
@@ -5189,16 +5333,16 @@
             "modalTitle": "Bienvenido/a",
             "headlineWelcome": "Bienvenido/a a la administración de Shopware 6",
             "messageWelcome": "Este asistente de configuración te acompañará por los principales ajustes y te ofrecerá valiosos consejos para la configuración.<br/>¿Deseas utilizar tu tienda en otro idioma para llegar también a clientes en otros países? Aquí puedes instalar sencillamente los paquetes de idioma deseados.",
-            "headlineChangeLanguage": "Instala paquetes de idioma adicionales",
+            "headlineChangeLanguage": "Instalar idiomas adicionales",
             "switchLanguageModalTitle": "Selecciona el idioma de la interfaz de usuario",
             "confirmLanguageSwitch": "Cambiar idioma",
             "cancelLanguageSwitch": "Cancelar",
             "switchLanguageMessage": "El plugin de idioma \"{pluginName}\" ha sido instalado correctamente. ¿Deseas cambiar el idioma de la interfaz de usuario?",
-            "pluginsInstalled": "Plugin de idioma{plural} instalado",
-            "pluginsInstalledMessage": "Plugin de idioma instalado: | Se han instalado los plugins de idioma para los siguientes idiomas: ",
-            "pluginNotFoundMessage": "No se pudo encontrar el complemento de idioma {languageName}.",
-            "pluginInstallationFailedMessage": "No se ha podido instalar el plugin: ",
-            "pluginActivationFailedMessage": "No se ha podido activar el plugin: ",
+            "pluginsInstalled": "Extensión instalada | Extensiones instaladas",
+            "pluginsInstalledMessage": "Se ha instalado la extensión de idioma: | Se han instalado estas extensiones de idioma: ",
+            "pluginNotFoundMessage": "No se pudo encontrar la extensión de idioma {languageName}.",
+            "pluginInstallationFailedMessage": "No se pudo instalar la extensión: ",
+            "pluginActivationFailedMessage": "No se pudo activar la extensión: ",
             "tryAgainLater": "Vuelve a intentarlo más tarde.",
             "noConnectionMessage": "Existen problemas de conexión; el idioma deseado no se puede instalar en este momento."
         },
@@ -5210,7 +5354,7 @@
             "headlineMigration": "Migrar tienda propia",
             "messageMigration": "El asistente para la migración te ayuda a conectar tu sistema de tienda con Shopware 6 y transferir los datos existentes.",
             "buttonInstallMigration": "Instalar asistente para la migración",
-            "loadingMessage": "Instalando el plugin<br/>Esta operación puede durar algún tiempo…"
+            "loadingMessage": "Instalando la extensión<br>Esto puede tardar un tiempo..."
         },
         "mailerSelection": {
             "headline": "Configuración de la comunicación por correo electrónico",
@@ -5247,7 +5391,7 @@
         },
         "recommendedPlugins": {
             "headline": "Nuestras recomendaciones",
-            "modalTitle": "Plugins",
+            "modalTitle": "Extensiones",
             "message": "Aquí encontrarás una selección de extensiones recomendadas para tu tienda. Selecciona primero las más relevantes para ti. Más tarde podrás seguir explorando diferentes categorías de extensiones.",
             "availableInRegion": "Disponible en la zona",
             "category": "Categoría",
@@ -5277,6 +5421,24 @@
             "labelCreateDomain": "Crea un nuevo dominio de tienda",
             "testEnvironment": "Entorno de prueba"
         },
+        "store": {
+            "modalTitle": "Tienda Shopware",
+            "loadStatusCollect": "Recopilar información de la tienda...",
+            "takeMinutes": "Esto puede tardar unos minutos.",
+            "alreadyActivated": "La tienda ya se ha activado correctamente.",
+            "enablingStore": "Habilitando la Tienda Shopware... ",
+            "activationErrorTitle": "Error al activar",
+            "activationErrorDescription": "Pida ayuda a su administrador.",
+            "headingOne": "Explore y compre extensiones fácilmente -",
+            "headingTwo": "directamente desde su propia tienda Shopware.",
+            "description": "Activa la nueva Tienda Shopware y accede a un montón de útiles extensiones y temas modernos que se pueden integrar en tu tienda sin ninguna habilidad de programación."
+        },
+        "markets": {
+            "modalTitle": "Mercados de Shopware",
+            "heading": "Mercados de Shopware",
+            "description": "Shopware Markets te permite conectar tu tienda a las webs de Amazon y eBay, a la vez que hace que la transferencia de productos y pedidos sea lo más conveniente posible.<br>Shopware Markets fue diseñado para hacer crecer aún más su negocio con la ayuda de los canales de ventas*¹.",
+            "footnote": "*¹ Se requiere una suscripción de pago para utilizar los canales de venta añadidos a los mercados de Shopware."
+        },
         "finish": {
             "headlineAllDone": "¡Felicidades!",
             "message": "Tu Shopware 6 {edition} ha sido verificado.",
@@ -5288,14 +5450,17 @@
             "forumLabel": "Foro",
             "forumUrl": "https://forum.shopware.com/",
             "roadmapLabel": "Hoja de ruta",
-            "roadmapUrl": "https://www.shopware.com/en/roadmap/"
+            "roadmapUrl": "https://www.shopware.com/en/roadmap/",
+            "modalTitle": "Terminado"
         },
         "stepItemTitle": {
             "dataImport": "Importación de datos",
             "mailer": "Ajustes del mailer",
             "setupPaypal": "Configuración de PayPal",
-            "plugins": "Plugins",
-            "shopware": "Cuenta de Shopware"
+            "plugins": "Extensiones",
+            "shopware": "Cuenta de Shopware",
+            "store": "Tienda Shopware",
+            "markets": "Mercados de Shopware"
         }
     },
     "sw-sales-channel": {
@@ -6043,7 +6208,7 @@
             "messageSaveError": "No se ha podido guardar el cliente.",
             "messageSaveSuccess": "El cliente \"{name}\" ha sido guardado correctamente.",
             "notificationPasswordErrorMessage": "Las contraseñas introducidas no coinciden.",
-            "notificationPasswordLengthErrorMessage": "La contraseña no tiene la longitud mínima de 8."
+            "notificationPasswordLengthErrorMessage": "La contraseña enviada no cumple el requisito de longitud mínima de ocho caracteres."
         },
         "filter": {
             "salutation": {
@@ -6073,7 +6238,9 @@
             "tags": {
                 "label": "Etiquetas",
                 "placeholder": "Seleccionar etiquetas..."
-            }
+            },
+            "messageEmptyTitle": "No se encontró nada",
+            "messageEmptySubline": "Edite los filtros para encontrar resultados."
         }
     },
     "sw-settings-document": {
@@ -6725,13 +6892,14 @@
         },
         "roles": {
             "general": {
-                "labelCreateNewRole": "Nueva regla",
+                "labelCreateNewRole": "Crear rol",
                 "cardLabel": "Roles"
             },
             "role-grid": {
                 "labelName": "Nombre",
                 "labelDescription": "Descripción",
                 "messageEmptyTitle": "Todavía no existen roles",
+                "messageEmptySubline": "Cree roles para comenzar a administrar los derechos de usuario.",
                 "contextMenuEdit": "Editar",
                 "contextMenuDelete": "Eliminar",
                 "titleModalDelete": "Eliminar rol",
@@ -6740,10 +6908,10 @@
                 "labelButtonDelete": "Eliminar",
                 "notification": {
                     "deleteSuccess": {
-                        "message": "El rol \"{name}\" se ha eliminado correctamente."
+                        "message": "Rol \"{name}\" eliminado."
                     },
                     "deleteError": {
-                        "message": "Se ha producido un error al eliminar el rol \"{name}\"."
+                        "message": "No se pudo eliminar el rol \"{name}»."
                     }
                 }
             },
@@ -6766,7 +6934,7 @@
             },
             "view": {
                 "detailed": {
-                    "alertText": "En esta vista los privilegios se pueden configurar en detalle. Esta configuración sólo es necesaria en situaciones excepcionales. Si, por ejemplo, se utilizan extensiones en el sistema que agregan nuevos conjuntos de datos pero no tienen privilegios, se pueden configurar aquí. Todas las casillas de verificación desactivadas son permisos que ya se han asignado en la pestaña «General»."
+                    "alertText": "Configure los privilegios en detalle. Todas las casillas de verificación desactivadas son permisos que ya se han asignado en la pestaña «General» y no son configurables. Esta configuración solo es necesaria si, por ejemplo, se utilizan extensiones que agregan nuevos datasets pero no tienen privilegios, estas pueden configurarse aquí."
                 }
             },
             "tabs": {
@@ -6797,10 +6965,10 @@
                 "labelButtonDelete": "Eliminar",
                 "notification": {
                     "deleteSuccess": {
-                        "message": "El usuario \"{name}\" ha sido eliminado correctamente."
+                        "message": "Usuario \"{name}\" eliminado."
                     },
                     "deleteError": {
-                        "message": "Se ha producido un error al eliminar el usuario \"{name}\"."
+                        "message": "No se pudo eliminar el usuario \"{name}»."
                     },
                     "deleteUserLoggedInError": {
                         "message": "Los usuarios no se pueden eliminar a sí mismos."
@@ -6827,17 +6995,19 @@
                 "labelNewPassword": "Contraseña nueva",
                 "labelNewUser": "Nuevo usuario",
                 "placeholderNewPassword": "Introducir contraseña nueva...",
-                "placeholderNewPasswordConfirm": "Volver a introducir la contraseña nueva…",
+                "placeholderNewPasswordConfirm": "Confirmar nueva contraseña...",
                 "labelButtonCancel": "Cancelar",
                 "labelButtonChangePassword": "Modificar",
                 "labelButtonSave": "Guardar",
+                "writeAccess": "Escribir",
+                "readAccess": "Leer",
                 "contextMenuEdit": "Editar",
                 "contextMenuDelete": "Eliminar",
                 "textChangePassword": "Al presionar el botón «cambiar» se guardará inmediatamente la nueva contraseña!",
-                "addAccessKey": "Nueva clave de acceso",
+                "addAccessKey": "Crear clave de acceso",
                 "labelAccessKey": "Clave de acceso",
                 "labelPermissions": "Permisos",
-                "disabledRoleSelectWarning": "Las funciones solo están disponibles para usuarios que no son «administradores».",
+                "disabledRoleSelectWarning": "Las funciones solo están disponibles para los usuarios que no tienen derechos de administrador.",
                 "passwordConfirmation": {
                     "titleConfirmPasswordModal": "Introduzca su contraseña actual para confirmar",
                     "labelConfirmPassword": "Contraseña",
@@ -6859,18 +7029,18 @@
                     "hintCreateNewApiKeys": "Para volver a generar los datos de acceso API es necesario actualizar todos los scripts o aplicaciones.",
                     "labelFieldLabel": "Nombre",
                     "idFieldLabel": "ID de acceso",
-                    "secretFieldLabel": "Clave de seguridad",
+                    "secretFieldLabel": "Clave de acceso segura",
                     "secretHelpText": "Copia ahora tu clave de seguridad. Por motivos de seguridad, esta no se volverá a mostrar después de haberla guardado.",
-                    "messageSaveSuccess": "Integración guardada correctamente.",
+                    "messageSaveSuccess": "Integración guardada.",
                     "messageSaveError": "No se ha podido guardar la integración.",
                     "messageCreateNewError": "No se ha podido crear la integración."
                 },
                 "notification": {
                     "saveError": {
-                        "message": "Se ha producido un error al guardar el usuario \"{name}\"."
+                        "message": "No se pudo guardar el usuario \"{name}»."
                     },
                     "saveSuccess": {
-                        "message": "El usuario \"{name}\" ha sido guardado correctamente."
+                        "message": "Usuario \"{name}\" guardado."
                     },
                     "invalidEmailErrorMessage": "Introduce una dirección de correo electrónico válida.",
                     "duplicateEmailErrorMessage": "Tu dirección de correo electrónico ya se encuentra en uso."
@@ -6908,143 +7078,6 @@
             "labelUseAsLogo": "Usar como logotipo"
         }
     },
-    "sw-plugin": {
-        "general": {
-            "mainMenuItemGeneral": "Plugins",
-            "mainMenuPluginList": "Instalados",
-            "mainMenuLicenseList": "Mis licencias",
-            "descriptionTextModule": "Administración de plugins",
-            "placeholderSearchBar": "Examinar plugins...",
-            "tabList": "Mis plugins",
-            "tabLicenses": "Compras",
-            "tabUpdates": "Actualizaciones",
-            "version": "Versión",
-            "accountLink": "https://account.shopware.com/?lang=en",
-            "accountLabel": "Ir a la cuenta Shopware",
-            "login": "Iniciar sesión",
-            "logout": "Cerrar sesión",
-            "messageDownloadSuccess": "El plugin ha sido descargado.",
-            "downloadButton": "Cargar",
-            "recommendationsLabel": "Recomendaciones",
-            "storeLink": "https://store.shopware.com/",
-            "storeLabel": "Tienda Shopware",
-            "storeNotAvailable": "No se ha podido establecer ninguna conexión con la tienda Shopware.",
-            "loggedIn": "Sesión iniciada como"
-        },
-        "errors": {
-            "messageToTheShopwareDocumentation": "<a href=\"{documentationLink}\" target=\"_blank\">Ir a la documentación de Shopware</a>",
-            "messageGenericFailure": "No ha funcionado.",
-            "messageUploadFailureNotAZipFile": "El archivo cargado no es un archivo Zip.",
-            "messageUploadFailureUnzipFailed": "No se ha podido descomprimir el archivo Zip.",
-            "messageUploadFailureNoPluginFoundInZipFile": "No se encuentra ningún plugin en el archivo Zip cargado.",
-            "messageLoginDataInvalid": "No se han indicado los datos de inicio de sesión completos.",
-            "messageStoreLicenseDomainMissing": "Para poder iniciar correctamente una sesión, necesitas indicar primero tu dominio de licencia en \"Ajustes/Cuenta Shopware\".",
-            "messageStoreNotAvailable": "No se puede acceder a la tienda Shopware.",
-            "messagePluginBaseClassNotFound": "No se puede cargar el punto de entrada al plugin. Comprueba que la clase básica se puede cargar correctamente.",
-            "messagePluginInstallationFailed": "No se ha podido instalar el plugin debido al mensaje de error \"{message}\"",
-            "messagePluginUninstallationFailed": "No se ha podido desinstalar el plugin debido al mensaje de error \"{message}\"",
-            "messagePluginActivationFailed": "No se ha podido activar el plugin debido al mensaje de error \"{message}\"",
-            "messagePluginDeactivationFailed": "No se ha podido desactivar el plugin debido al mensaje de error \"{message}\"",
-            "messageDeactivationFailedDependencies": "El plugin \"{dependency}\" no se puede desactivar, dado que existen todavía plugins activos que dependen de él. Desactiva los siguientes plugins antes de volver a iniciar la actualización: {dependantNames}",
-            "messagePluginUpdateFailed": "No se ha podido actualizar el plugin debido al mensaje de error \"{message}\". {pluginDeactivatedHint}",
-            "pluginDeactivatedHint": "El plugin ha sido desactivado."
-        },
-        "fileUpload": {
-            "buttonFileUpload": "Cargar plugin",
-            "messageUploadSuccess": "El plugin ha sido cargado.",
-            "buttonRefreshPlugins": "Actualizar vista general"
-        },
-        "store-login": {
-            "headline": "Cuenta de Shopware - Iniciar sesión",
-            "information": "La cuenta de Shopware es su principal centro de interacción con todos los servicios de Shopware.",
-            "loginMessage": "Has iniciado una sesión en la cuenta Shopware.",
-            "labelEmailAddress": "Dirección de correo electrónico",
-            "placeholderEmailAddress": "Introduce tu dirección de correo electrónico...",
-            "labelPassword": "Contraseña",
-            "placeholderPassword": "Introduce tu contraseña...",
-            "buttonLogin": "Iniciar sesión",
-            "buttonCancel": "Cancelar",
-            "footerNoAccount": "¿Aún no tienes una cuenta de Shopware?",
-            "footerRegisterAccount": "¡Crea tu cuenta de Shopware ahora!",
-            "forgotPassword": "¿Olvidaste tu contraseña?",
-            "forgotPasswordUrl": "https://account.shopware.com/recovery?lang=en",
-            "registerAccountUrl": "https://account.shopware.com/register?lang=en"
-        },
-        "list": {
-            "textPluginManager": "Plugins",
-            "messageEmpty": "Aún no se ha cargado ningún plugin.",
-            "columnPluginName": "Plugin",
-            "columnVersion": "Versión",
-            "columnInstalledAt": "Instalado el",
-            "columnUpdatedAt": "Actualizado el",
-            "columnLicense": "Licencia",
-            "columnActive": "Estado",
-            "columnAuthor": "Fabricante",
-            "columnPlugin": "Plugin",
-            "columnChangelog": "Nuevas funciones",
-            "titleSidebarItemRefresh": "Actualizar",
-            "contextInstall": "Instalar",
-            "contextUninstall": "Desinstalar",
-            "contextActivate": "Activar",
-            "contextDeactivate": "Desactivar",
-            "contextUpdate": "Actualizar a",
-            "contextDelete": "Eliminar",
-            "pluginHeader": "Mis plugins",
-            "sortUpgradedAtAsc": "Última actualización",
-            "sortPluginNameAsc": "Nombre de plugin, A-Z",
-            "sortPluginNameDsc": "Nombre de plugin, Z-A",
-            "sortLabel": "Ordenar por:",
-            "messageActivateSuccess": "El plugin ha sido activado correctamente.",
-            "messageDeactivateSuccess": "El plugin ha sido desactivado correctamente.",
-            "messageInstallSuccess": "El plugin ha sido instalado correctamente.",
-            "messageUninstallSuccess": "El plugin ha sido desinstalado correctamente.",
-            "messageDeleteSuccess": "El plugin ha sido eliminado correctamente.",
-            "messageUpdateSuccess": "El plugin ha sido actualizado correctamente.",
-            "messageDeleteConfirm": "¿Estás seguro de que quieres eliminar este plugin?",
-            "titleUninstallConfirm": "Desinstalar plugin",
-            "messageUninstallConfirm": "¿Está seguro de que desea desinstalar {pluginName}?",
-            "labelRemovePluginData": "Eliminar todos los datos del complemento permanentemente",
-            "helpTextRemovePluginData": "Advertencia: Todos los datos del plugin se eliminarán permanentemente. Este proceso es irreversible.",
-            "labelUninstallButton": "Desinstalar",
-            "deactivated": "Desactivado",
-            "activated": "Activado",
-            "config": "Configuración",
-            "description": "Descripción",
-            "tooltipActivationDisabled": "Solo puedes activar plugins instalados."
-        },
-        "license-list": {
-            "textMyPurchases": "Licencias compradas",
-            "columnName": "Plugin",
-            "columnCreationDate": "Comprado el",
-            "columnExpirationDate": "Válido hasta",
-            "columnType": "Variante",
-            "messageEmpty": "No existen licencias.",
-            "messageNotLoggedIn": "Necesitas tener una sesión iniciada en tu cuenta Shopware.",
-            "labelAccountLogin": "Inicio de sesión en mi cuenta Shopware",
-            "labelType_buy": "Compra",
-            "labelType_rent": "Alquiler",
-            "labelType_test": "Test",
-            "labelType_free": "Gratuito",
-            "labelType_support": "Asistencia sujeta a pago"
-        },
-        "updates": {
-            "messageEmpty": "No hay actualizaciones disponibles.",
-            "updateError": "Error al cargar las actualizaciones",
-            "updateButton": "Actualizar",
-            "updateAllButton": "Actualizar todos",
-            "updateHeader": "Actualizaciones",
-            "lastUpdatesHeader": "Última actualización",
-            "messageUpdateSuccess": "El plugin ha sido actualizado. | Los plugins han sido actualizados.",
-            "messageUpdatesSuccess": "Los plugins han sido actualizados.",
-            "cancelUpdates": "Cancelar"
-        }
-    },
-    "sw-plugin-config": {
-        "messageSaveSuccess": "La configuración ha sido guardada."
-    },
-    "sw-plugin-description": {
-        "buttonBack": "Atrás"
-    },
     "sw-settings": {
         "general": {
             "mainMenuItemGeneral": "Ajustes"
@@ -7053,7 +7086,7 @@
             "title": "Ajustes",
             "tabShop": "Tienda",
             "tabSystem": "Sistema",
-            "tabPlugins": "Plugins"
+            "tabPlugins": "Extensiones"
         },
         "system-config": {
             "labelSalesChannelSelect": "Canal de venta",
@@ -7140,10 +7173,10 @@
         }
     },
     "sw-property-search": {
-        "placeholderSearch": "Buscar por características...",
-        "selected": "{count} opción seleccionada | {count} opciones seleccionadas",
-        "noPropertiesFound": "No se han encontrado propiedades",
-        "noPropertiesFoundDescription": "Pruebe con otra frase de búsqueda."
+        "placeholderSearch": "Valores de búsqueda...",
+        "selected": "{count} valor seleccionado | {count} valores seleccionados",
+        "noPropertiesFound": "No se encontraron valores de propiedad",
+        "noPropertiesFoundDescription": "Pruebe un término de búsqueda diferente."
     },
     "sw-property-assignment": {
         "columnGroup": "Característica",
@@ -7173,6 +7206,7 @@
         "checkboxMessage": "He leído la advertencia y comprendo las posibles consecuencias.",
         "closeModal": "Cerrar advertencia",
         "ignorePlugin": "Ignorar permanentemente",
+        "successfullyDeleted": "Se ha eliminado la extensión",
         "table": {
             "plugin": "Extensión",
             "warning": "Advertencia"
@@ -7373,7 +7407,7 @@
         "hasCriteria": "Tiene {criteriaName}"
     },
     "sw-filter-panel": {
-        "titleSidebarItemFilter": "Filtro"
+        "titleSidebarItemFilter": "Filtros"
     },
     "sw-sidebar-filter-panel": {
         "resetButton": "Restablecer todo"

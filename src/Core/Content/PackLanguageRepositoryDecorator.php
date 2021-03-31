@@ -15,6 +15,7 @@ use Shopware\Core\Framework\DataAbstractionLayer\Search\AggregationResult\Aggreg
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\EntitySearchResult;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\IdSearchResult;
+use Shopware\Core\Framework\DataAbstractionLayer\Write\CloneBehavior;
 
 class PackLanguageRepositoryDecorator implements EntityRepositoryInterface
 {
@@ -57,9 +58,9 @@ class PackLanguageRepositoryDecorator implements EntityRepositoryInterface
         return $this->inner->aggregate($criteria, $context);
     }
 
-    public function clone(string $id, Context $context, ?string $newId = null): EntityWrittenContainerEvent
+    public function clone(string $id, Context $context, ?string $newId = null, ?CloneBehavior $behavior = null): EntityWrittenContainerEvent
     {
-        return $this->inner->clone($id, $context, $newId);
+        return $this->inner->clone($id, $context, $newId, $behavior);
     }
 
     public function update(array $data, Context $context): EntityWrittenContainerEvent
@@ -77,9 +78,9 @@ class PackLanguageRepositoryDecorator implements EntityRepositoryInterface
         return $this->inner->create($data, $context);
     }
 
-    public function delete(array $data, Context $context): EntityWrittenContainerEvent
+    public function delete(array $ids, Context $context): EntityWrittenContainerEvent
     {
-        return $this->inner->delete($data, $context);
+        return $this->inner->delete($ids, $context);
     }
 
     public function createVersion(string $id, Context $context, ?string $name = null, ?string $versionId = null): string

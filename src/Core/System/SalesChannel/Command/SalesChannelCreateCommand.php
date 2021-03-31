@@ -16,7 +16,6 @@ use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\OrFilter;
-use Shopware\Core\Framework\DataAbstractionLayer\Search\IdSearchResult;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Sorting\FieldSorting;
 use Shopware\Core\Framework\DataAbstractionLayer\Write\WriteException;
 use Shopware\Core\Framework\Uuid\Uuid;
@@ -257,11 +256,7 @@ class SalesChannelCreateCommand extends Command
     protected function getAllIdsOf(string $entity, Context $context): array
     {
         $repository = $this->definitionRegistry->getRepository($entity);
-
-        /** @var IdSearchResult $ids */
-        $ids = $context->disableCache(function (Context $context) use ($repository): IdSearchResult {
-            return $repository->searchIds(new Criteria(), $context);
-        });
+        $ids = $repository->searchIds(new Criteria(), $context);
 
         return \array_map(
             /**
@@ -292,10 +287,7 @@ class SalesChannelCreateCommand extends Command
             new EqualsFilter('swagLanguagePackLanguage.salesChannelActive', null),
         ]));
 
-        /** @var IdSearchResult $ids */
-        $ids = $context->disableCache(function (Context $context) use ($criteria): IdSearchResult {
-            return $this->languageRepository->searchIds($criteria, $context);
-        });
+        $ids = $this->languageRepository->searchIds($criteria, $context);
 
         return \array_map(
             /**

@@ -49,12 +49,12 @@ psalm: ## Run vimeo psalm
 	php ../../../dev-ops/analyze/vendor/bin/psalm --config=psalm.xml --threads=2 --diff --show-info=false
 .PHONY: psalm
 
-phpunit: ## Run phpunit
+phpunit: ## Run phpunit; Accepts an additional argument "FILTER='search term'"
 	composer dump-autoload \
- 		&& ./../../../vendor/bin/phpunit
+        && ./../../../vendor/bin/phpunit --filter "$(FILTER)"
 .PHONY: phpunit
 
-phpunit-coverage: ## Run phpunit with coverage report
+phpunit-coverage: ## Run phpunit with coverage report; Accepts an additional argument "FILTER='search term'"
 	composer dump-autoload \
- 		&& php -d pcov.enabled=1 -d pcov.directory=./.. ./../../../vendor/bin/phpunit --configuration phpunit.xml.dist --log-junit ./../../../build/artifacts/phpunit.junit.xml --coverage-clover ./../../../build/artifacts/phpunit.clover.xml --coverage-html ./../../../build/artifacts/coverage-language-pack --coverage-text
+	    && php -d pcov.enabled=1 -d pcov.directory=./.. ./../../../vendor/bin/phpunit --configuration phpunit.xml.dist --log-junit ./../../../build/artifacts/phpunit-language-pack.junit.xml --coverage-clover ./../../../build/artifacts/phpunit-language-pack.clover.xml --coverage-html ./../../../build/artifacts/coverage-language-pack --coverage-text --filter "$(FILTER)"
 .PHONY: phpunit-coverage

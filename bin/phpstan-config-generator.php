@@ -12,7 +12,7 @@ use Swag\LanguagePack\SwagLanguagePack;
 use Symfony\Component\Dotenv\Dotenv;
 
 $classLoader = require __DIR__ . '/../../../../vendor/autoload.php';
-(new Dotenv(true))->load(__DIR__ . '/../../../../.env');
+(new Dotenv())->usePutEnv(true)->load(__DIR__ . '/../../../../.env');
 
 $shopwareVersion = Versions::getVersion('shopware/platform');
 

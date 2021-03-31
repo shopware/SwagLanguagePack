@@ -57,7 +57,7 @@ class LifecycleTest extends TestCase
         $connection = $this->getConnectionMock();
 
         $connection->expects(static::atLeast(4))
-            ->method('executeUpdate')
+            ->method('executeStatement')
             ->willReturnOnConsecutiveCalls([false, true]);
 
         $connection->expects(static::atLeast(2))
@@ -77,7 +77,7 @@ class LifecycleTest extends TestCase
         $uninstallContext = $this->getUninstallContext(true);
 
         $connection->expects(static::never())
-            ->method('executeUpdate');
+            ->method('executeStatement');
 
         /** @var EntityRepositoryInterface $languageRepository */
         $languageRepository = $this->getContainer()->get('language.repository');
@@ -116,7 +116,7 @@ class LifecycleTest extends TestCase
     {
         return $this->getMockBuilder(Connection::class)
             ->disableOriginalConstructor()
-            ->onlyMethods(['executeUpdate', 'executeQuery'])
+            ->onlyMethods(['executeStatement', 'executeQuery'])
             ->getMock();
     }
 

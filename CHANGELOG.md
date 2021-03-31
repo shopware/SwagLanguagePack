@@ -1,3 +1,6 @@
+# 2.0.0
+- LAN-53 - Compatibility for Shopware 6.4
+
 # 1.2.0
 - B2B-459 - Added SwagEnterpriseSearch, PluginPublisher and B2bSuite
 - LAN-56 - Exclude deactivated languages in sales-channel:create:storefront command

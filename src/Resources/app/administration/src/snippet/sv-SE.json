@@ -280,7 +280,13 @@
             "labelDownloadPdf": "Ladda ned PDF",
             "labelCreateNew": "Skapa nytt",
             "messageEmptyTitle": "Ännu inga dokument",
-            "messageEmptySubline": "Hantering av dokument."
+            "messageEmptySubline": "Hantering av dokument.",
+            "error": {
+                "DOCUMENT__NUMBER_ALREADY_EXISTS": "Dokumentnummer {number} har redan tilldelats."
+            },
+            "info": {
+                "DOCUMENT__NUMBER_WAS_CHANGED": "Duplicera dokumentnummer. Ett på varandra följande tal har automatiskt dragits från respektive nummerintervall."
+            }
         },
         "documentModal": {
             "modalTitle": "Skapa dokument",
@@ -319,6 +325,63 @@
             "message": "Följande automatiska reklamkampanjer inaktiveras:",
             "messageNoItems": "Ännu inga aktiva automatiska reklamkampanjer.",
             "buttonDisable": "Avaktivera"
+        },
+        "filters": {
+            "documentFilter": {
+                "label": "Dokument",
+                "placeholder": "Välj dokumentstatus...",
+                "textHasCriteria": "Minst ett tilldelat dokument",
+                "textNoCriteria": "Inga tilldelade dokument"
+            },
+            "orderDateFilter": {
+                "label": "Beställningsdatum"
+            },
+            "statusFilter": {
+                "label": "Status för beställning",
+                "placeholder": "Välj orderstatus..."
+            },
+            "paymentStatusFilter": {
+                "label": "Betalningsstatus",
+                "placeholder": "Välj betalningsstatus..."
+            },
+            "deliveryStatusFilter": {
+                "label": "Status för leverans",
+                "placeholder": "Välj leveransstatus..."
+            },
+            "paymentMethodFilter": {
+                "label": "Betalningsmetod",
+                "placeholder": "Välj betalningsmetod..."
+            },
+            "shippingMethodFilter": {
+                "label": "Leveransmetod",
+                "placeholder": "Välj sändningsmetod..."
+            },
+            "salesChannelFilter": {
+                "label": "Försäljningskanaler",
+                "placeholder": "Välj försäljningskanaler..."
+            },
+            "billingCountryFilter": {
+                "label": "Land för fakturering",
+                "placeholder": "Välj faktureringsländer..."
+            },
+            "shippingCountryFilter": {
+                "label": "Leverans land",
+                "placeholder": "Välj sändningsländer..."
+            },
+            "customerGroupFilter": {
+                "label": "Kundgrupp",
+                "placeholder": "Välj kundgrupp..."
+            },
+            "tagFilter": {
+                "label": "Tags",
+                "placeholder": "Markera taggar..."
+            },
+            "productFilter": {
+                "label": "Produkter",
+                "placeholder": "Välj produkter..."
+            },
+            "messageEmptyTitle": "Ingenting hittades",
+            "messageEmptySubline": "Redigera dina filter för att hitta resultat."
         }
     },
     "sw-privileges": {
@@ -378,7 +441,7 @@
                 "label": "Mottagare av nyhetsbrev"
             },
             "product_search_config": {
-                "label": "Sök efter produkt"
+                "label": "Sök"
             },
             "scale_unit": {
                 "label": "Skala enheter"
@@ -443,7 +506,7 @@
         },
         "additional_permissions": {
             "orders": {
-                "create_discounts": "Skapa rabatt",
+                "create_discounts": "Skapa kreditposter",
                 "label": "Beställningar"
             },
             "user": {
@@ -453,8 +516,9 @@
             "system": {
                 "core_update": "Starta uppdatering",
                 "plugin_maintain": "Underhålla tillägg",
+                "extension_store": "Butiksbutik",
                 "clear_cache": "Rensa cache",
-                "logging": "Loggning",
+                "logging": "Loggar",
                 "frw": "Guiden Första kör",
                 "import_export": "Importera/exportera",
                 "label": "Inställningar",
@@ -466,7 +530,7 @@
             },
             "routes": {
                 "label": "Rutter",
-                "api_action_access-key_integration": "Skapa ny API-nyckel",
+                "api_action_access-key_integration": "Skapa API-nycklar",
                 "api_acl_privileges_get": "Läs alla behörigheter för ACL",
                 "api_acl_privileges_route_get": "Läs behörigheter för ACL-flöde",
                 "api_action_cache_info": "Läs information om cache",
@@ -558,7 +622,7 @@
     },
     "sw-cms": {
         "general": {
-            "placeholderSearchBar": "Sök bland layouter...",
+            "placeholderSearchBar": "Sök i layouter...",
             "mainMenuItemGeneral": "Upplevelsevärldar",
             "moduleTitle": "Upplevelsevärldar",
             "greeting": "Layouter",
@@ -1208,6 +1272,7 @@
                 "infoTextProductDetailPages": "Layouten kan bara ses i din butik när du tilldelar den till en aktiv produkt.",
                 "labelCategories": "Kategori",
                 "placeholderCategories": "Välj kategorier...",
+                "placeholderLandingPages": "Välj målsidor...",
                 "labelSalesChannel": "Försäljningskanal",
                 "placeholderSalesChannel": "Välj en försäljningskanal...",
                 "resetOptionSalesChannel": "Alla försäljningskanaler",
@@ -1218,6 +1283,8 @@
                 "confirmChangesRestorePrev": "Kassera",
                 "confirmChangesTextCategories": "Du har tagit bort layouttilldelningar från kategorier. Om du bekräftar ändringarna kommer dessa kategorier inte längre att ha en layout tilldelad.",
                 "confirmChangesTextCategoriesAssignedLayouts": "Vissa av de valda kategorierna har redan en tilldelad layout. Om du fortsätter kommer de tidigare tilldelningarna att ersättas med den aktuella layouten.",
+                "confirmChangesTextLandingPages": "Du har tagit bort layouttilldelningar från målsidor. Om du bekräftar ändringarna kommer dessa målsidor inte längre att ha en layout tilldelad.",
+                "confirmChangesTextLandingPagesAssignedLayouts": "Vissa av de markerade målsidorna har redan tilldelats en layout. Om du fortsätter kommer de tidigare tilldelningarna att ersättas med den aktuella layouten.",
                 "confirmChangesTextProducts": "Du har tagit bort layouttilldelningar från produkter. Om du bekräftar ändringarna kommer dessa produkter inte längre att ha en layout tilldelad.",
                 "confirmChangesTextProductsAssignedLayouts": "Vissa av de valda produkterna har redan en layout tilldelad. Om du fortsätter kommer de tidigare tilldelningarna att ersättas med den aktuella layouten.",
                 "confirmChangesTextShopPages": "Du har tagit bort layouttilldelningar från butikssidor. Om du bekräftar ändringarna kommer dessa butikssidor inte längre att ha en layout tilldelad",
@@ -1227,6 +1294,7 @@
                 "shopPagesSaveError": "Det gick inte att spara butikssidor",
                 "tabCategories": "Kategori",
                 "tabShopPages": "Handla sidor",
+                "tabLandingPages": "Landningssidor",
                 "shopPages": {
                     "tosPage": "TOS sidor",
                     "revocationPage": "Meddelanden om återkallelse",
@@ -1535,7 +1603,7 @@
                 "keywords": "Nyckelord",
                 "length": "Längd",
                 "linked": "Länkad",
-                "manufacturer": "Tillverkare",
+                "manufacturerId": "Tillverkare",
                 "manufacturerNumber": "Tillverkningsnummer",
                 "markAsTopseller": "Markerad som toppsäljare",
                 "maxDeliveryTime": "Maximal leveranstid",
@@ -1548,7 +1616,7 @@
                 "option": "Alternativ",
                 "packUnit": "Förpackningsenhet",
                 "packUnitPlural": "Förpackningsenhet flertal",
-                "price": "Pris",
+                "cheapestPrice": "Pris",
                 "product": "Produkt",
                 "productNumber": "Produktnummer",
                 "purchasePrice": "Försäljningspris",
@@ -1680,7 +1748,7 @@
             "c1051bb4-d103-4f74-8988-acbcafc7fdc3": "Fältet får inte vara tomt.",
             "INVALID_MEDIA_URL": "Ange en giltig URL för att ladda upp en fil.",
             "CONTENT__MISSING_RULE_TYPE_EXCEPTION": "Du måste välja en typ för den här regeln.",
-            "CONTENT__INVALID_CATEGORY_TYPE_AS_ENTRY_POINT": "Typen kan inte tilldelas medan kategorin är ingångspunkt.",
+            "CONTENT__INVALID_CATEGORY_TYPE_AS_ENTRY_POINT": "Typen kan inte tilldelas medan kategorin är en ingångspunkt.",
             "SHOPWARE_INVALID_IP": "Vänligen, ange en giltig IP-adress",
             "INVALID_URL": "Vänligen, ange en giltig URL."
         },
@@ -1703,7 +1771,9 @@
             "ascending": "Stigande",
             "descending": "Fallande",
             "xTimesIn": "{n} gånger i",
-            "close": "Stäng"
+            "close": "Stäng",
+            "from": "Från",
+            "to": "Till"
         },
         "notification": {
             "notificationSaveErrorMessage": "Vid sparande av enheten \"{entityName}\" uppstod ett fel.",
@@ -2687,7 +2757,12 @@
     "sw-settings-number-range": {
         "general": {
             "mainMenuItemGeneral": "Nummerområden",
-            "placeholderSearchBar": "Sök igenom nummerområden..."
+            "placeholderSearchBar": "Sök igenom nummerområden...",
+            "infoGlobalType": "Det kan bara finnas ett \"{typeName}\" nummerintervall. Ändringar i nummerintervallet av typen \"{typeName}\" måste göras här och kommer att påverka alla försäljningskanaler globalt.",
+            "infoGlobalTypeTitle": "Globalt nummerintervall typ \"{typeName}”",
+            "infoGlobal": "Du kan inte ändra typen för ett globalt nummerintervall. Men du kan skapa ytterligare nummerintervall för de flesta typer och särskilda försäljningskanaler tillbaka i översikten.",
+            "infoGlobalTitle": "Globalt nummerintervall \"{name}”",
+            "infoSalesChannelBound": "Om du vill ändra ett nummerintervall tar du bort alla försäljningskanalstilldelningar först."
         },
         "list": {
             "textHeadline": "Nummerområden",
@@ -3005,9 +3080,11 @@
             "descriptionLabel": "Beskrivning",
             "messageSaveSuccess": "Kategorin \"{name}\" sparades framgångsrikt.",
             "useAsLogo": "Använd som visningsbild",
-            "treeHeadline": "Kategoristruktur",
+            "treeHeadline": "Kategori",
             "treeHeadSelected": "{count} urval",
             "emptyStateHeadline": "Inga kategorier har valts.",
+            "errorNavigationEntryPoint": "Denna kategori definieras som en huvudnavigering på minst en försäljningskanal och kan därför inte tas bort.",
+            "errorNavigationEntryPointMultiple": "En eller flera kategorier definieras som en huvudnavigering i minst en försäljningskanal och kan därför inte tas bort.",
             "actions": {
                 "actionsDisabledInLanguage": "Kategorier kan bara skapas på standardspråket.",
                 "createSub": "Ny underkategori",
@@ -3021,58 +3098,54 @@
             "products": "Produkter",
             "seo": "SEO",
             "columnInfoHeader": "Sidfot, element",
-            "columnInfo": "Den här kategorin ställer in en angiven kolumn i sidfoten. Kategorinamnet visas som en icke-klickbar rubrik för kolumnen. Alla kategorier nedan visas som klickbara rader under kolumnrubriken."
+            "columnInfo": "Den här kategorin ställer in en angiven kolumn i sidfoten. Kategorinamnet visas som rubrik för kolumnen. Alla kategorier på den första nivån under denna kategori visas som rader under kolumnrubriken."
         },
         "base": {
             "general": {
                 "categoryNameLabel": "Namn",
                 "headlineInformationCard": "Allmänt",
-                "isCategoryActiveLabel": "Kategorin är aktiv",
+                "isCategoryActiveLabel": "Aktiv",
                 "useAsLink": "Använd som länk",
                 "labelCategoryTags": "Taggar",
                 "labelCategoryTagsPlaceholder": "Ange enskilda taggar...",
                 "types": {
                     "title": "Kategorityp",
-                    "page": "Kategori",
-                    "folder": "Ingångspunkt",
-                    "link": "Användardefinierad länk",
-                    "column": "Kolumn",
-                    "entrypoint": "Ingångspunkt",
-                    "pageList": "Sida/lista",
-                    "help": "Du kan inte hämta en strukturkategori själv, den används bara för strukturering."
-                }
-            },
-            "entry-point": {
-                "title": "Ingångspunkt",
-                "navigation": {
-                    "descriptionGeneral": "Du har tilldelat denna kategori som startpunkt för huvudnavigering för följande försäljningskanaler:"
-                },
-                "serviceSales": {
-                    "descriptionGeneral": "Du har tilldelat denna kategori som startpunkt för servicenavigeringen i följande försäljningskanaler:"
-                },
-                "footerSales": {
-                    "descriptionGeneral": "Du har tilldelat denna kategori som startpunkt för sidfotsnavigering i följande försäljningskanaler:"
+                    "page": "Sida/lista",
+                    "folder": "Strukturerande element/ingångspunkt",
+                    "link": "Länk",
+                    "linkUnavailable": "Länk (kan inte väljas om kategorin är definierad som startpunkt)",
+                    "help": "Du kan inte hämta en strukturkategori själv, den används bara för strukturering.",
+                    "helpText": {
+                        "page": "En sida/lista har tillhörande produkter och kan nås direkt med den tilldelade layouten.",
+                        "folder": "Ett struktureringselement/ingångspunkt visas bara i strukturen och är inte direkt tillgängligt, förutom att det är tilldelat som en ingångspunkt för en försäljningskanal.",
+                        "link": "En länk möjliggör referens till en produkt, en annan kategori, en landningssida eller en extern webbplats."
+                    }
                 }
             },
             "entry-point-card": {
-                "cardTitle": "Ingångspunkt",
+                "cardTitle": "navigering",
                 "labelEntryPoint": "Ingångspunkt",
                 "placeholderEntryPoint": "Välj ingångspunkt...",
-                "labelSalesChannels": "Försäljningskanaler",
-                "placeholderSalesChannels": "Välj försäljningskanal...",
-                "buttonConfigureHome": "Anpassa hem",
+                "existingNavigationDescription": "Du har tilldelat den här kategorin som en startpunkt för huvudnavigeringen i dessa försäljningskanaler:",
+                "labelSalesChannelsAdd": "Tilldelning av säljkanal",
+                "placeholderSalesChannels": "Lägg till säljkanaler...",
+                "buttonConfigureHome": "Anpassa startsida",
                 "types": {
                     "labelMainNavigation": "Huvud navigering",
+                    "helpTextMainNavigation": "Ingångspunkten för huvudnavigeringen är ett obligatoriskt fält för Försäljningskanaler. Om du tilldelar den här kategorin som startpunkt för huvudnavigeringen till en eller flera försäljningskanaler kan du bara ändra tilldelningen på själva försäljningskanalen.",
                     "labelFooterNavigation": "Sidfot navigering",
-                    "labelServiceNavigation": "Tjänstnavigering"
+                    "helpTextFooterNavigation": "Om du tilldelar den här kategorin som startpunkt för sidfotsnavigering till en eller flera försäljningskanaler kommer kategorierna på nästa nivå att vara kolumner. Detta gör att du kan dela upp sidfotsnavigering i flera områden.",
+                    "labelServiceNavigation": "Tjänstnavigering",
+                    "helpTextServiceNavigation": "Om du tilldelar den här kategorin som startpunkt för tjänstnavigeringen till en eller flera försäljningskanaler visas kategorierna på nästa nivå som en andra navigering i sidfotsområdet."
                 }
             },
             "entry-point-modal": {
                 "modalTitle": "Anpassa startsida",
-                "salesChannelSelection": "Navigering av start",
-                "showInMainNavigation": "Visa som startsida i huvudnavigeringen",
-                "mainNavigationName": "Namn i huvudnavigeringen",
-                "mainNavigationNamePlaceholder": "Namn i huvudnavigeringen...",
+                "salesChannelSelection": "Försäljningskanal",
+                "showInMainNavigation": "Visa i huvudnavigeringen",
+                "mainNavigationName": "Visningsnamn",
+                "mainNavigationNamePlaceholder": "Ange alternativt namn på startsidan...",
+                "mainNavigationNameHelpText": "Som standard visas denna kategori som ”hem”. Ange ett alternativt visningsnamn om standardkonfigurationen inte passar den aktuella försäljningskanalen.",
                 "layoutHeadline": "layout",
                 "seoSettingsHeadline": "SEO-inställningar",
                 "metaTitleLabel": "Meta titel",
@@ -3153,6 +3226,10 @@
             "textDeleteConfirm": "Vill du verkligen ta bort kategorin \"{name}\"?",
             "textDeleteChildrenConfirm": "Alla underliggande kategorier tas också bort.",
             "textDeleteMultipleConfirm": "Vill du verkligen ta bortden valda kategorin {count}?"
+        },
+        "entry-point-overwrite-modal": {
+            "textBefore": "Du har redan tilldelat en startpunkt till följande försäljningskanal: | Du har redan tilldelat ingångspunkter till följande försäljningskanaler:",
+            "textAfter": "Ska uppdraget skrivas över? | Ska dessa uppdrag skrivas över?"
         }
     },
     "sw-landing-page": {
@@ -3161,16 +3238,19 @@
             "cms": "layout"
         },
         "general": {
-            "placeholderSearchBar": "Sök efter landningssidor...",
+            "placeholderSearchBar": "Sök målsidor...",
             "treeHeadSelected": "{count} vald",
-            "buttonCreate": "Lägg till landningssida",
-            "treeHeadline": "Landningssidor"
+            "buttonCreate": "Lägg till målsida",
+            "treeHeadline": "Landningssidor",
+            "actions": {
+                "actionsDisabledInLanguage": "Landningssidor kan bara skapas på systemets standardspråk."
+            }
         },
         "base": {
             "general": {
                 "labelName": "Namn",
                 "headlineInformationCard": "General",
-                "isActiveLabel": "Landningssida aktiv",
+                "isActiveLabel": "Aktiv",
                 "labelTags": "Tags",
                 "labelTagsPlaceholder": "Skriv in taggar individuellt..."
             },
@@ -3181,11 +3261,11 @@
                 "labelMetaDescription": "Meta beskrivning",
                 "labelKeywords": "SEO-nyckelord",
                 "labelUrl": "SEO URL",
-                "placeholderSalesChannel": "Välja en försäljningskanal...",
+                "placeholderSalesChannel": "Välj en försäljningskanal...",
                 "placeholderMetaTitle": "Skriv in metapartitel...",
                 "placeholderMetaDescription": "Skriv in en metabeskrivning...",
                 "placeholderKeywords": "Skriv in ett eller flera nyckelord...",
-                "placeholderUrl": "Ange en webbadress..."
+                "placeholderUrl": "Ange webbadress..."
             },
             "cms": {
                 "title": "Layouttilldelning",
@@ -3195,12 +3275,13 @@
                 "editInPagebuilderEmpty": "Skapa ny layout",
                 "editContent": "Redigera innehåll",
                 "defaultTitle": "Standardlayout",
-                "defaultDesc": "Sidan Kategori"
+                "defaultDesc": "Sidan Kategori",
+                "cmsLayoutModalHeadline": "Landningssida"
             }
         },
         "modal": {
-            "textDeleteConfirm": "Är du säker på att du verkligen vill radera landningssidan \"{name}”?",
-            "textDeleteMultipleConfirm": "Är du säker på att du vill ta bort de {count} markerade landningssidorna?"
+            "textDeleteConfirm": "Är du säker på att du verkligen vill ta bort målsidan \"{name}”?",
+            "textDeleteMultipleConfirm": "Är du säker på att du vill ta bort de {count} markerade målsidorna?"
         }
     },
     "sw-product": {
@@ -3212,7 +3293,8 @@
             "columnLinkOnly": "Dolt",
             "linkAdvancedVisibility": "Konfigurera avancerad synlighet",
             "labelVisibility": "Synlighet",
-            "closeModal": "Ta över"
+            "closeModal": "Ta över",
+            "bodyVisibility": "Lägg till försäljningskanaler där är produkten ska visas. Du kan också ytterligare definiera produktens synlighet för varje Storefront Sales Channel via de länk nedan."
         },
         "general": {
             "mainMenuItemGeneral": "Produkter",
@@ -3222,10 +3304,13 @@
             "placeholderSearchBar": "Sök igenom alla produkter...",
             "inheritanceModuleName": "Denna produkt",
             "backToParent": "tillbaka till variantöversikten",
+            "backToGeneralOverview": "Gå tillbaka till den allmänna översikten",
             "copy": "Kopia",
             "cloneSuffix": "Varianter",
             "cloneNotice": "Produktvarianterna dupliceras. Om denna process avbryts är det möjligt att inte alla varianter blir helt duplicerade. I detta fall kan du generera varianterna igen för den nya produkten.",
-            "cloneTitle": "Duplicera varianter"
+            "cloneTitle": "Duplicera varianter",
+            "tooltipModeSettings": "Inställningar för läge",
+            "textAdvancedMode": "Avancerat läge"
         },
         "basicForm": {
             "labelTitle": "Titel",
@@ -3255,7 +3340,10 @@
             "textAddSearchKeyword": "Klicka här för att lägga till sökord",
             "textEnterValidSearchKeyword": "Sökbara nyckelord",
             "helpTextSearchKeyword": "Produkten i Storefront kan också hittas med hjälp av dessa nyckelord.",
-            "helpTextTags": "Taggar är endast avsedda för internt bruk. De kan hjälpa dig att hantera grupper av produkter, tillämpa regler eller fungera som anpassade söktermer."
+            "helpTextTags": "Taggar är endast avsedda för internt bruk. De kan hjälpa dig att hantera grupper av produkter, tillämpa regler eller fungera som anpassade söktermer.",
+            "categoriesTitle": "Kategorier och taggar",
+            "descriptionCategories": "Lägg till kategorier så att produkten kan hittas via huvudmenyn Storefront eller API-anslutningar. Se till att du väljer kategorier som är tillgängliga och aktiva i den valda försäljningskanalen.",
+            "descriptionTags": "Taggar hjälper dig att hitta produkter snabbare. De gör det enklare att gruppera produkter och kan användas för att automatisera uppgifter med regelbyggaren."
         },
         "priceForm": {
             "labelTaxRate": "Skattesats",
@@ -3305,7 +3393,7 @@
             "labelEan": "EAN",
             "labelManufacturerNumber": "Tillverkningsnummer",
             "labelStock": "Aktuellt lager",
-            "labelActive": "Aktiv",
+            "labelActive": "Aktiv för alla valda försäljningskanaler",
             "labelShippingFree": "Fri frakt",
             "labelMarkAsTopseller": "Markera produkt",
             "labelIsCloseout": "Försäljning",
@@ -3340,7 +3428,7 @@
         "detailBase": {
             "cardTitleDeliverabilityInfo": "Tillgänglighet",
             "cardTitleProductInfo": "Information",
-            "cardTitleAssignment": "Allokering",
+            "cardTitleAssignment": "Synlighet och struktur",
             "cardTitlePrices": "Pris",
             "cardTitleSettings": "Beviljande",
             "cardTitlePackaging": "Mått & förpackning",
@@ -3349,12 +3437,15 @@
             "cardTitleReviews": "Omdömen",
             "cardTitleMedia": "Media",
             "labelContextMenuAddToProduct": "Lägg til produkt",
-            "cardTitleSeo": "SEO"
+            "cardTitleSeo": "SEO",
+            "cardTitleVisibilityStructure": "Synlighetsstruktur"
         },
         "specifications": {
             "cardTitleMeasuresPackaging": "Mått & förpackning",
             "cardTitleEssentialCharacteristics": "Viktiga egenskaper",
-            "cardTitleCustomFields": "Anpassade fält"
+            "cardTitleCustomFields": "Anpassade fält",
+            "cardTitleProperties": "Egenskaper",
+            "cardTitleCustomProduct": "Anpassade produkter"
         },
         "seo": {
             "cardTitleSeo": "SEO"
@@ -3508,7 +3599,7 @@
             "generationNotificationCountDeletion": "1 variant tas bort | {count} Varianter tas bort",
             "generationNotificationButtonCancel": "Avbryt",
             "generationNotificationButtonContinue": "Generera",
-            "generatedFilterList": "Lista filter",
+            "generatedFilterList": "Filtrera lista",
             "generatedListColumnVariation": "Variant",
             "generatedListColumnPrice": "Pris (brutto/netto)",
             "generatedListColumnProductNumber": "Produktnummer",
@@ -3531,24 +3622,26 @@
             },
             "configuratorModal": {
                 "title": "Generera varianter",
-                "selectOptions": "Välj specifikationer",
-                "selectOptionsExplanation": "Börja med att välja egenskaper-specifikationer som varianterna ska genereras från.",
-                "priceSurcharges": "Pristillägg/prisavdrag",
+                "selectOptions": "Val av värde",
+                "selectOptionsExplanation": "Välj egenskapsvärden att generera varianter från.",
+                "selectRestrictionsExplanation": "Välj egenskapsvärden att exkludera från variantgenerering.",
+                "selectPricesExplanation": "Lägg till tilläggsavgifter till värden eller valutor.",
+                "priceSurcharges": "Pris tilläggsavgifter",
                 "resetSurcharges": "Radera tillägg/avdrag",
-                "defineRestrictions": "Definiera undantag",
-                "priceOptions": "Specifikationer",
-                "restrictedCombinations": "Uteslutna egenskaper - specifikationer",
-                "searchRestrictions": "Sök igenom egenskaper...",
-                "addNewRestriction": "Lägg till undantag",
-                "editRestriction": "Redigera undantag",
-                "deleteRestriction": "Radera undantag",
+                "defineRestrictions": "Värde exkludering",
+                "priceOptions": "Värde",
+                "restrictedCombinations": "Egendomsvärden",
+                "searchRestrictions": "Sök uteslutna värden...",
+                "addNewRestriction": "Uteslut värden",
+                "editRestriction": "Redigera",
+                "deleteRestriction": "Ta bort",
                 "singleRestrictionSeperation": "och",
-                "deleteCombination": "Ta bort kombinationen",
+                "deleteCombination": "Ta bort",
                 "isOneFrom": "är en av",
                 "cancel": "Avbryt",
                 "save": "Spara",
                 "searchPlaceholder": "Sök igenom specifikationer...",
-                "singleRestrictionAddTitle": "Lägg till undantag",
+                "singleRestrictionAddTitle": "Uteslut värden",
                 "surchargeNotice": "Ändringar av markeringarna har ingen effekt på varianter som redan har genererats. Använd sidan för variantdetaljer för att göra ändringar i priserna."
             },
             "deliveryModal": {
@@ -3572,7 +3665,7 @@
         "layout": {
             "title": "Layouttilldelning",
             "subtitle": "Du kan ändra produktdetaljsidor genom att tilldela anpassade layouter. Om ingen anpassad layout tilldelas här används standardlayouten.",
-            "textNoConfig": "Den aktuella markerade layouten har inga redigerbara element",
+            "textNoConfig": "Layouten som för närvarande är markerad har inga redigerbara element",
             "textContentInfo": "Standardproduktblock fylls automatiskt med produktdata. Det faktiska innehållet är alltså inte listat här."
         },
         "crossselling": {
@@ -3617,7 +3710,7 @@
             "templateSelectFieldPlaceholder": "Välj ut en eller flera mallar..."
         },
         "layoutAssignment": {
-            "title": "Standard återgång",
+            "title": "Standardvärde",
             "subtitle": "Produkt sida",
             "textAssignLayout": "Tilldela layout",
             "textChangeLayout": "Ändra layout",
@@ -3625,14 +3718,45 @@
             "textEditInDesigner": "Redigera i designer"
         },
         "filters": {
+            "fromPlaceholder": "Skriv in startvärde...",
+            "toPlaceholder": "Ange slutvärde...",
             "activeFilter": {
                 "label": "Aktiv",
                 "placeholder": "Välj en status..."
             },
             "imagesFilter": {
                 "label": "Bilder",
-                "placeholder": "Välj en bildstatus..."
-            }
+                "placeholder": "Välj en bildstatus...",
+                "textHasCriteria": "Minst en produktbild tilldelad",
+                "textNoCriteria": "Inga produktbilder tilldelade"
+            },
+            "releaseDateFilter": {
+                "label": "Utgivningsdatum"
+            },
+            "stockFilter": {
+                "label": "Lager"
+            },
+            "priceFilter": {
+                "label": "Pris"
+            },
+            "manufacturerFilter": {
+                "label": "Tillverkare",
+                "placeholder": "Välj tillverkare..."
+            },
+            "salesChannelsFilter": {
+                "label": "Försäljningskanaler",
+                "placeholder": "Välj försäljningskanaler..."
+            },
+            "categoriesFilter": {
+                "label": "Kategori",
+                "placeholder": "Välj kategorier..."
+            },
+            "tagsFilter": {
+                "label": "Tags",
+                "placeholder": "Markera taggar..."
+            },
+            "messageEmptyTitle": "Ingenting hittades",
+            "messageEmptySubline": "Redigera dina filter för att se resultat."
         },
         "notification": {
             "notificationSaveErrorProductNoAlreadyExists": "Produktnummer \"{productNo}\" är redan tilldelat."
@@ -3872,6 +3996,7 @@
             "info": "Vad är nytt?",
             "requirements": "Systemkrav",
             "plugins": "Plugin-kompatiblitet",
+            "extensions": "Kompatibiliteten",
             "updating": "Uppdatering"
         },
         "notifications": {
@@ -3915,6 +4040,7 @@
             },
             "actions": {
                 "openPluginManager": "Öppna Plugin-Manager.",
+                "openMyExtensions": "Öppna mina tillägg",
                 "deactivateAll": "Inaktivera alla plugins",
                 "deactivateIncompatible": "Inaktivera alla inkompatibla plugins",
                 "deactivateNone": "Jag är medveten om farorna och vill göra en uppdatering och vill ändå utföra en uppdatering, utan att dessförinnan inaktivera motsvarande plugins. Jag inser att Shopware inte kan garantera funktionen för min installation efter en inkompatibel uppdatering.",
@@ -3986,82 +4112,83 @@
         },
         "generalTab": {
             "labelSearchBehaviour": "Sökning beteende",
-            "textTitleSearchBehaviour": "Fördefiniera ditt sökbeteende i butik.",
+            "textTitleSearchBehaviour": "Fördefiniera säljkanalernas sökbeteende i förväg.",
             "labelSearchAndCondition": "”OCH” Sök",
-            "textSearchAndConditionExplain": "Sökresultaten matchar varje enskilt element i det angivna söktermen.\nExempel: ”Jeans sommar” hittar produkter som innehåller både nyckelord ”jeans” och ”sommar”.",
+            "textSearchAndConditionExplain": "Sökresultaten matchar varje enskilt element i det angivna söktermen.\nExempel: ”Jeans summer” hittar sökresultat som innehåller både söktermerna ”jeans” och ”sommar”.",
             "labelSearchOrCondition": "”ELLER” Sök",
-            "textSearchOrConditionExplain": "Sökresultaten matchar alla element i det angivna söktermen.\nExempel: ”Jeans sommar” hittar produkter som innehåller antingen nyckelordet ”jeans” och ”sommar”.",
+            "textSearchOrConditionExplain": "Sökresultaten matchar alla element i det angivna söktermen.\nExempel: ”Jeans summer” hittar sökresultat som innehåller antingen söktermen ”jeans” eller söktermen ”sommar”.",
             "labelMinimalSearchTerm": "Minimal längd på sökord",
             "labelExcludedSearchTerms": "Uteslutna söktermer",
             "textEmptyStateExcludedSearchTerms": "Inga söktermer uteslutna än",
-            "buttonAddExcludedSearch": "Lägg till uteslutning",
-            "textPlaceholderTermsFilter": "Sök uteslutna termer...",
-            "buttonAddExcludedSearchTerms": "Lägg till uteslutningsperiod",
+            "buttonAddExcludedSearch": "Uteslut sökterm",
+            "textPlaceholderTermsFilter": "Sök uteslutna söktermer...",
+            "buttonAddExcludedSearchTerms": "Uteslut sökterm",
             "labelExcludedSearchTermsNoResults": "Inga resultat hittades.",
             "labelSearchableContent": "Sökbart innehåll",
-            "textDescriptionSearchableContent": "Allt sökbart innehåll visas i tabellen nedan. För att anpassa sökresultaten i din Storefront, fortsätt och antingen utesluta innehåll från att vara sökbart alls eller justera rankningen av varje enskilt element efter eget tycke. Högre rankningselement har ett ökat ”sökvärde” och kommer att placera högre i sökresultaten.",
+            "textDescriptionSearchableContent": "Allt sökbart innehåll visas i tabellen nedan. För att anpassa sökresultaten i dina försäljningskanaler, fortsätt och antingen utesluta innehåll från att vara sökbart alls eller justera rankningen av varje enskilt element efter eget tycke. Högre rankningselement har ett ökat ”sökvärde” och kommer att placera högre i sökresultaten.",
             "buttonResetDefault": "Återställ till standard",
             "linkExample": "Visa exempel",
-            "buttonAddContent": "Lägg till innehåll",
+            "buttonAddContent": "Lägg till sökbart innehåll",
             "labelGeneralTab": "General",
             "labelCustomFieldsTab": "Anpassade fält",
             "textEmptyStateSearchableContent": "Inget sökbart innehåll har lagts till ännu.",
             "titleExampleModal": "Exempel på sökning rankning",
-            "textColumnSearchTerm": "Sök termer",
+            "textColumnSearchTerm": "Uteslutna söktermer",
             "modal": {
                 "textExplain": "Nedan hittar du tre fiktiva sökresultat för söktermen ”jeans”. Sökbara är produkttitlar (rankningsresultat 100), produktbeskrivningar (rankningsresultat 50) och produkttaggar (rankningsresultat 20).",
                 "textTitle": "Titel",
-                "textSuperJeans": "super jeans",
+                "textSuperJeans": "Super jeans",
                 "textDescription": "Beskrivning",
-                "textFancyJeans": "snygga jeans",
+                "textFancyJeans": "Fancy jeans",
                 "textTag": "Tag",
                 "textJeans": "Jeans",
                 "textTotal": "Totalt",
                 "textProductRankedFirstScore": "Den produkt som rankas först har en sökträff i varje sökbar enhet, vilket resulterar i en total rankningspoäng på 170.",
-                "textFancyPants": "snygga byxor",
-                "textProductRankedSecondScore": "Den andra produkten har sökträffar för produkttitel och produkttaggar, vilket resulterar i en total rankningspoäng på 120.",
+                "textFancyPants": "Fancy byxor",
+                "textProductRankedSecondScore": "Den andra produkten har sökträffar för produktnamn och produkttaggar, vilket resulterar i en total rankningspoäng på 120.",
                 "textSuperPants": "Super byxor",
                 "textProductRankedThirdScore": "Den tredje produkten har bara en träff i produkttaggar, vilket resulterar i en total rankningspoäng på 20."
             },
             "labelSearchIndex": "Sök index",
             "buttonRebuildSearchIndex": "Återskapa sökindex",
-            "textWarningOpenTab": "Håll denna fönster/flik öppen.",
-            "textRebuildSearchIndexDescription": "Återuppbyggnaden av sökindexet tar lite tid. Under den tiden är det obligatoriskt att hålla denna fönster/flik öppen för att framgångsrikt kunna återskapa sökindexet. Du meddelas så snart processen är klar.",
+            "textWarningOpenTab": "Var snäll och håll fönstret öppet.",
+            "textRebuildSearchIndexDescription": "Återuppbyggnaden av sökindexet tar lite tid. Under den tiden är det obligatoriskt att hålla det här fönstret öppet för att kunna bygga om sökindexet. Du meddelas så snart processen är klar.",
             "textRebuildingSearchIndex": "Återskapa sökindex",
             "textLastedBuild": "Senaste bygget:",
+            "textSearchNotIndexedYet": "Sökningen är ännu inte indexerad.",
             "list": {
                 "columnSearchable": "Sökbar",
-                "columnRankingPoints": "Ranking poäng",
+                "columnRankingPoints": "Rankning poäng",
                 "columnContent": "Innehåll",
-                "columnSplitKeywords": "Dela nyckelord",
+                "columnSplitKeywords": "Dela sökord",
                 "textResetRanking": "Återställ rankning",
                 "textRemove": "Ta bort"
             },
             "configFields": {
-                "name": "Namn",
-                "description": "Beskrivning",
+                "name": "Produktens namn",
+                "description": "Beskrivning av produkten",
                 "productNumber": "Produktens nummer",
                 "manufacturerNumber": "Tillverkarens nummer",
-                "ean": "EAN",
-                "customSearchKeywords": "Anpassade sökord",
+                "ean": "Produkt EAN",
+                "customSearchKeywords": "Anpassade söktermer",
                 "manufacturerName": "Tillverkarens namn",
                 "manufacturerCustomFields": "Tillverkarens anpassade fält",
-                "categoriesName": "Namn på kategorier",
-                "categoriesCustomFields": "Kategorier anpassade fält",
-                "tagsName": "Namn på tagg",
-                "metaTitle": "Meta titel",
-                "metaDescription": "Meta beskrivning",
+                "categoriesName": "Kategori namn",
+                "categoriesCustomFields": "Kategori anpassade fält",
+                "tagsName": "Produkt tagg",
+                "metaTitle": "Produktens meta titel",
+                "metaDescription": "Produktens meta beskrivning",
                 "propertiesName": "Fastighetens namn",
-                "variantValue": "Variant värde"
+                "variantValue": "Fastighetsvärde"
             }
         },
         "notification": {
-            "saveSuccess": "Konfigurationen har sparats.",
-            "excludedTermRequired": "Utesluten term bör inte vara tom.",
-            "excludedTermAlreadyExists": "Utesluten term finns redan.",
-            "updateExcludedTermSuccess": "Uteslutna termen uppdatering framgång.",
-            "createExcludedTermSuccess": "Uteslutna termen skapar framgång.",
-            "deleteExcludedTermSuccess": "Uteslutna termen radera framgång.",
+            "saveSuccess": "Konfigurationen sparad.",
+            "excludedTermRequired": "Uteslutna söktermer bör inte vara tomma.",
+            "excludedTermAlreadyExists": "Uteslutna söktermen finns redan.",
+            "updateExcludedTermSuccess": "Utesluten sökterm uppdaterad.",
+            "createExcludedTermSuccess": "Utesluten sökterm skapad.",
+            "deleteExcludedTermSuccess": "Utesluten sökterm borttagen.",
             "saveError": "Ett fel uppstod när konfigurationen sparades.",
             "index": {
                 "started": "Bygga produktindex.",
@@ -4070,14 +4197,14 @@
             "loadError": "Ett fel uppstod när konfigurationen lästes in."
         },
         "liveSearchTab": {
-            "titleCard": "Live-sökning i butik",
-            "textDescription": "Testa dina anpassade sökinställningar nedan. Om du just har gjort ändringar i dina sökinställningar, se till att spara dessa inställningar innan du testar dem med den här livesökningen.",
+            "titleCard": "Sökning på försäljningskanal",
+            "textDescription": "Testa dina anpassade sökinställningar nedan.",
             "labelSalesChannelSelect": "Försäljningskanal",
-            "textPlaceholderSalesChannel": "Välj en försäljningskanal för att testa livesökningen",
+            "textPlaceholderSalesChannel": "Välj en försäljningskanal...",
             "linkRebuildSearchIndex": "Återskapa sökindex",
-            "labelName": "Namn",
-            "labelScore": "Göra",
-            "textNoResult": "Inga resultat för de nyckelord du har angett. Försök med ett annat nyckelord"
+            "labelName": "Sök resultat",
+            "labelScore": "Rankning poäng",
+            "textNoResult": "Inga resultat hittades. Försök igen med ett annat sökord."
         }
     },
     "sw-settings-mailer": {
@@ -4114,8 +4241,6 @@
             "password-placeholder": "Ange ett lösenord...",
             "encryption": "Krypteringsmetod",
             "encryption-placeholder": "Välj krypteringsmetod...",
-            "authentication": "Autentiseringsmetod",
-            "authentication-placeholder": "Välj autentiseringsmetod...",
             "sender-address": "Avsändaradress",
             "sender-address-placeholder": "Ange en e-postadress som du har tillgång till...",
             "delivery-address": "Mottagaradress",
@@ -4127,12 +4252,6 @@
             "no-encryption": "Ingen kryptering",
             "ssl": "SSL",
             "tls": "TLS"
-        },
-        "authentication": {
-            "no-authentication": "Ingen autentisering",
-            "plain": "Engång",
-            "login": "Login",
-            "cram-md5": "Cram MD5"
         },
         "helpText": "För mer information, se <a target=\"_blank\" href=\"https://docs.shopware.com/en/shopware-6-en\">Dokumentation</a>"
     },
@@ -4150,42 +4269,44 @@
         "my-extensions": {
             "listing": {
                 "initialSearchType": "förlängningar",
-                "placeholderSearchBar": "Sök tillägg…",
+                "placeholderSearchBar": "Sök tillägg...",
                 "controls": {
                     "labelActiveStateSwitch": "Dölj inaktiva tillägg",
                     "filterOptions": {
                         "last-updated": "Senast uppdaterad",
-                        "name-asc": "Tilläggsnamn, asc.",
-                        "name-desc": "Tilläggsnamn, desc."
+                        "name-asc": "Namn A - Z.",
+                        "name-desc": "Namn Z - A."
                     }
-                }
+                },
+                "version": "Version",
+                "update": "Uppdatera"
             },
             "account": {
                 "headline": "Konto för butiksprogram",
-                "isLoggedIn": "Kontot har anslutits. Gå till fliken ”App” eller ”Teman” och kontrollera om dina köpta tillägg är listade. Om inte, kolla huvudet över till ditt Showare-konto och se till att rätt domän för tillägg har ställts in.",
+                "isLoggedIn": "Shopware Konto framgångsrikt ansluten. Gå till fliken ”App” eller ”Teman” och kontrollera om dina köpta tillägg är listade. Om inte, kolla huvudet över till ditt Showare-konto och se till att rätt domän för tillägg har ställts in.",
                 "login": "Logga in",
                 "logout": "Utloggning",
-                "loginMessage": "Logga in med ditt Shopware-konto för att komma åt de tillägg du köpt på store.shopware.com",
-                "register": "Registrera dig och bli en del av Shopware-communityn!",
+                "loginMessage": "Logga in med ditt Shopware-konto för att få tillgång till tillägg du köpt på store.shopware.com",
+                "register": "Registrera dig nu och bli en del av Shopware-communityn!",
                 "registerNow": "Registrera dig nu",
                 "registerUrl": "https://account.shopware.com/register?lang=en",
                 "mailLabel": "E-postadress",
-                "mailPlaceholder": "Ange din e-postadress…",
+                "mailPlaceholder": "Ange din e-postadress...",
                 "passwordLabel": "lösenord",
-                "passwordPlaceholder": "Ange ditt lösenord…",
+                "passwordPlaceholder": "Skriv in ditt lösenord...",
                 "recoveryUrl": "https://account.shopware.com/recovery?lang=en",
                 "passwordForgot": "Glömde du ditt lösenord?",
                 "loginNotificationMessage": "Du är inloggad på Shopware-kontot."
             },
             "tabs": {
-                "app": "App",
-                "theme": "Tema",
+                "app": "Appar",
+                "theme": "Teman",
                 "recommendation": "rekommendationer",
                 "shopwareAccount": "Konto för butiksprogram"
             },
             "fileUpload": {
-                "buttonFileUpload": "Ladda upp plugin",
-                "messageUploadSuccess": "Insticksprogrammet har laddats upp."
+                "buttonFileUpload": "Uppladdning",
+                "messageUploadSuccess": "Tillägget laddat upp."
             }
         },
         "errors": {
@@ -4193,19 +4314,19 @@
             "messageGenericFailure": "Det funkade inte.",
             "messageUploadFailureNotAZipFile": "Uppladdad fil är inte en ZIP-fil.",
             "messageUploadFailureUnzipFailed": "Kan inte extrahera ZIP-filen.",
-            "messageUploadFailureNoPluginFoundInZipFile": "Inget insticksprogram hittades i ZIP-filen.",
+            "messageUploadFailureNoPluginFoundInZipFile": "Ingen filändelse hittades i ZIP-filen.",
             "messageLoginDataInvalid": "Inloggningsuppgifter ofullständiga",
             "messageStoreLicenseDomainMissing": "Inloggning misslyckades. Gav du rätt licensdomän från ditt Shopware-konto i ”Inställningar/Shopware-konto”?",
             "messageStoreNotAvailable": "Shopware Store är inte tillgänglig.",
-            "messagePluginBaseClassNotFound": "Insticksprogrammets basklass kunde inte läsas in. Kontrollera din plugin composer.json om klassen autoloading",
-            "messagePluginInstallationFailed": "Plugin kunde inte installeras på grund av felmeddelandet \"{message}”",
-            "messagePluginUninstallationFailed": "Insticksprogrammet kunde inte avinstalleras på grund av felmeddelandet \"{message}”",
-            "messagePluginActivationFailed": "Insticksprogrammet kunde inte aktiveras på grund av felmeddelandet \"{message}”",
-            "messagePluginDeactivationFailed": "Insticksprogrammet kunde inte avaktiveras på grund av felmeddelandet \"{message}”",
-            "messageDeactivationFailedDependencies": "Insticksprogrammet \"{dependency}\" kan inte avaktiveras, eftersom det finns andra insticksprogram beroende på det. Inaktivera följande plugins innan du startar om uppdateringen: {dependantNames}",
+            "messagePluginBaseClassNotFound": "Tilläggsbasklassen kunde inte läsas in. Kontrollera din plugin composer.json angående klassen autoloading.",
+            "messagePluginInstallationFailed": "Tillägget kunde inte installeras: \"{message}”.",
+            "messagePluginUninstallationFailed": "Tillägget kunde inte avinstalleras: \"{message}”.",
+            "messagePluginActivationFailed": "Tillägget kunde inte aktiveras: \"{message}”.",
+            "messagePluginDeactivationFailed": "Tillägget kunde inte avaktiveras: \"{message}”.",
+            "messageDeactivationFailedDependencies": "Tillägget \"{dependency}\" kan inte avaktiveras, eftersom det finns andra tillägg beroende på det. Inaktivera följande tillägg innan du startar om uppdateringen: {dependantNames}",
             "messageDeactivationFailedThemeAssignment": "Det gick inte att avaktivera eller avinstallera temat \"{themeName}”. Ta bort följande tematilldelningar: {assignments}.",
-            "messagePluginUpdateFailed": "Plugin kunde inte uppdateras på grund av felmeddelandet \"{message}”. {pluginDeactivatedHint}",
-            "pluginDeactivatedHint": "Insticksprogrammet avaktiverades."
+            "messagePluginUpdateFailed": "Tillägget kunde inte uppdateras: \"{message}”. {pluginDeactivatedHint}",
+            "pluginDeactivatedHint": "Extension inaktiverad."
         },
         "mainMenu": {
             "mainMenuItemExtensionStore": "förlängningar",
@@ -4215,6 +4336,20 @@
         }
     },
     "sw-extension-store": {
+        "landing-page": {
+            "enablingShopwareStore": "Aktiverar Shopware Store...",
+            "takeMinutes": "Det kan ta några minuter.",
+            "activationErrorTitle": "Fel vid aktivering",
+            "activationErrorDescription": "Var snäll och försök igen. Om det inte fungerar ber du administratören om hjälp.",
+            "retryButton": "Försök igen",
+            "activationSuccessTitle": "Aktiverats framgångsrikt",
+            "activationSuccessDescription": "Ha kul att utforska Shopware Store.",
+            "label": "Nu tillgänglig",
+            "activationDescriptionTitleFirst": "Utforska och köp enkelt tillägg -",
+            "activationDescriptionTitleSecond": "direkt från din egen Shopware-butik.",
+            "activationDescriptionTitleDescription": "Aktivera den helt nya Shopware Store och få tillgång till massor av användbara tillägg och moderna teman som kan integreras i din butik utan några programmeringskunskaper.",
+            "activate": "Aktivera"
+        },
         "title": "Butik",
         "descriptionTextModule": "Hantera dina tillägg",
         "general": {
@@ -4232,7 +4367,7 @@
                 "releaseDateDesc": "Utgivningsdatum nyaste - äldsta",
                 "nameAsc": "Namn A - Ö",
                 "nameDesc": "Namn Z - A",
-                "ratingAsc": "Betyg Låg - Hög",
+                "ratingAsc": "Betyg låg - hög",
                 "ratingDesc": "Betyg hög - låg"
             }
         },
@@ -4241,7 +4376,7 @@
             "labelButtonOpenExtension": "Öppet tillägg",
             "labelButtonInstallExtension": "Installera tillägg",
             "labelBy": "av",
-            "numberOfRatings": "{count} Recension | {count} Recensioner",
+            "numberOfRatings": "{count} recension | {count} omdömen",
             "noRatings": "Inga betyg ännu",
             "cardTitleInformation": "Information",
             "labelButtonReadMore": "Läs mer",
@@ -4252,7 +4387,7 @@
                 "labelUpdatedAt": "Senast uppdaterad",
                 "labelLanguages": "Språk",
                 "labelWebsite": "Utvecklarens webbplats",
-                "labelPrivacy": "Privacylink"
+                "labelPrivacy": "Sekretesspolicy"
             },
             "cardTitleFAQ": "FAQ",
             "cardTitleChangelog": "Ändringslogg",
@@ -4266,7 +4401,7 @@
             },
             "sw-extension-buy-modal": {
                 "title": "Lägg till tillägg",
-                "labelAcceptPermissions": "Jag är medveten om att detta tillägg behöver behörigheter",
+                "labelAcceptPermissions": "Jag är medveten om att denna utökning kräver ytterligare behörigheter",
                 "labelAcceptPrivacyExtensions": "Jag är medveten om att jag behöver utöka min integritetspolicy",
                 "buttonShowPrivacyExtensions": "Visa detaljer",
                 "variantCard": {
@@ -4278,7 +4413,7 @@
                 "variantSummary": {
                     "labelVat": "plus moms",
                     "labelPrice": "Pris",
-                    "renewal": "Förnyelse {renewalDate}"
+                    "renewal": "Förnyelse på {renewalDate}"
                 },
                 "purchaseButtonsLabels": {
                     "free": "Lägg till tillägg gratis",
@@ -4286,7 +4421,7 @@
                     "buy": "Köp förlängning nu"
                 },
                 "successNotification": {
-                    "titleSuccess": "Tillägg har lagts till!",
+                    "titleSuccess": "Extension har lagts till!",
                     "subtitleSuccess": "Nu kan du prova ditt nya tillägg.",
                     "labelButtonBack": "Tillbaka till detaljer"
                 },
@@ -4296,12 +4431,12 @@
                 }
             },
             "sw-extension-adding-failed": {
-                "titleFailure": "Lägga till tillägg misslyckades",
-                "textProblem": "Ett problem uppstod när du lade till tillägget.",
+                "titleFailure": "Misslyckades lägga till tillägget ",
+                "textProblem": "Ett problem uppstod när tillägget lades till.",
                 "installationFailed": {
                     "titleFailure": "Installationen misslyckades",
                     "textProblem": "Ett problem uppstod när du installerade tillägget. Vi kommer att informera tillverkaren.",
-                    "notificationLicense": "Observera att prenumerationen på denna app eller tema förblir aktiv.",
+                    "notificationLicense": "Observera att prenumerationen på detta tillägg fortfarande är aktiv.",
                     "textSupport": "Om du har några frågor om licensen, vänligen kontakta Shopware Financial Services. Tillgänglig via e-post vid {0} eller per telefon vid {1}.",
                     "supportEmail": "financial.services@shopware.com",
                     "supportPhone": "+49 (0) 2555/ 9288510"
@@ -4319,7 +4454,7 @@
                     "submitBtn": "Skicka"
                 },
                 "sw-extension-ratings-summary": {
-                    "labelRating": "Inga betyg | {numberOfRatings} Betyg | {numberOfRatings} Betyg"
+                    "labelRating": "Inga betyg | {numberOfRatings} betyg | {numberOfRatings} betyg"
                 },
                 "sw-extension-review": {
                     "labelLastChangeDate": "Genom {author} på {lastChangeDate}",
@@ -4332,6 +4467,7 @@
                     "labelNoReviews": "Det här tillägget har inte fått några betyg eller recensioner än."
                 },
                 "sw-extension-review-creation-inputs": {
+                    "title": "Rate förlängning",
                     "labelHeadline": "Rubrik",
                     "placeholderHeadline": "Skriv in en kort rubrik...",
                     "labelRating": "Betyg",
@@ -4344,8 +4480,8 @@
             "sw-extension-card-base": {
                 "subscriptionLabel": "Prenumeration",
                 "inactiveLabel": "(inaktiv)",
-                "purchasedLabel": "Köpt: ",
-                "installedLabel": "Installerad: ",
+                "purchasedLabel": "Köpt på ",
+                "installedLabel": "Installerad på ",
                 "openExtensionLabel": "Öppna appen",
                 "installExtensionLabel": "Installera app",
                 "labelAcceptAndInstall": "Acceptera och installera",
@@ -4353,7 +4489,7 @@
                     "getHelpLabel": "Få hjälp",
                     "seeDetailsLabel": "Se detaljer",
                     "config": "Konfiguration",
-                    "privacyAndSafetyLabel": "Sekretess & säkerhet",
+                    "privacyAndSafetyLabel": "Dataintegritet och säkerhet",
                     "removeLabel": "Ta bort",
                     "cancelAndRemoveLabel": "Avbryta och ta bort",
                     "uninstallLabel": "Avinstallera",
@@ -4366,18 +4502,18 @@
             "sw-extension-deactivation-modal": {
                 "deactivateExtensionLabel": "Inaktivera \"{extensionName}”",
                 "description": "Tillägget \"{extensionName}\" har en månadsavgift.<br>Inaktivering av tillägget <b>kommer inte</b> att avbryta prenumerationen och avgifter kommer att fortsätta att samlas in!",
-                "descriptionCancel": "Om du vill avbryta prenumerationen istället kan du ta bort den i snabbmenyn under \"{removeLabel}”.",
+                "descriptionCancel": "Om du vill avbryta prenumerationen kan du ta bort den via \"{removeLabel}\" i snabbmenyn.",
                 "alertDeactivate": "Vill du fortfarande inaktivera tillägget?",
                 "deactivateLabel": "Inaktivera"
             },
             "sw-extension-permissions-modal": {
                 "title": "{extensionLabel} behörigheter",
-                "description": "{extensionLabel} kommer att få tillgång till följande komponenter. Klicka på länken bredvid komponenten för att visa entitetsinformationen.",
+                "description": "{extensionLabel} kommer att ha tillgång till följande komponenter. Klicka på länken bredvid komponenten för att visa entitetsinformationen.",
                 "textEntities": "Visa behörigheter"
             },
             "sw-extension-privacy-policy-extensions-modal": {
                 "title": "{extensionLabel}: tillägg till sekretesspolicyn",
-                "intro": "Denna app behandlar personlig information. Tillverkaren ger följande råd för justeringar av din sekretesspolicy:"
+                "intro": "Denna app behandlar personlig information. Tillverkaren rekommenderar justeringar av din sekretesspolicy:"
             },
             "sw-extension-permissions-details-modal": {
                 "operationRead": "Visa",
@@ -4386,16 +4522,23 @@
                 "operationDelete": "Ta bort"
             },
             "sw-extension-my-extensions-listing": {
-                "noActivePlugins": "Det finns inga aktiva tillägg.",
-                "titleEmptyState": "Inga appar installerade ännu",
-                "textEmptyState": "Om du installerar appar visas de här.",
+                "apps": {
+                    "noActivePlugins": "Inga aktiva tillägg hittades.",
+                    "titleEmptyState": "Inga appar installerade ännu",
+                    "textEmptyState": "Om du installerar appar visas de här."
+                },
+                "themes": {
+                    "noActivePlugins": "Inga aktiva teman hittades.",
+                    "titleEmptyState": "Inga teman installerade ännu",
+                    "textEmptyState": "Om du installerar teman visas de här."
+                },
                 "btnOpenStore": "Öppen butik"
             },
             "sw-extension-removal-modal": {
                 "titleCancel": "”{extensionName}\" avbryt och ta bort",
                 "titleRemove": "”{extensionName}\" ta bort",
                 "description": "Om du tar bort tillägget kan du inte längre använda det.",
-                "alertCancel": "Är du säker på att du vill ta bort tillägget?",
+                "alertCancel": "Är du säker på att du vill avbryta och ta bort tillägget?",
                 "alertRemove": "Är du säker på att du vill ta bort tillägget?",
                 "labelCancel": "Avbryta och ta bort",
                 "labelRemove": "Ta bort"
@@ -4413,7 +4556,7 @@
                 "labelLicensed": "Köpt"
             },
             "sw-extension-config": {
-                "messageSaveSuccess": "Konfigurationen har sparats."
+                "messageSaveSuccess": "Konfigurationen sparad."
             }
         },
         "errors": {
@@ -4421,7 +4564,7 @@
                 "message": "Du måste acceptera våra regler och villkor för att fortsätta."
             },
             "FRAMEWORK__EXTENSION_THEME_STILL_IN_USE": {
-                "message": "Temat används för närvarande fortfarande i en eller flera försäljningskanaler."
+                "message": "Temat används för närvarande av en eller flera försäljningskanaler."
             },
             "FRAMEWORK__INVALID_EXTENSION_ID": {
                 "message": "Identifieringsnumret är ogiltigt."
@@ -4463,39 +4606,39 @@
                 "message": "Den valda prismodell är inte tillåten för förlängningen."
             },
             "SAAS_EXTENSION_ORDER__NO_DEFAULT_PAYMENT_MEAN": {
-                "message": "Det finns inget standardbetalningsmedel tillgängligt.",
-                "labelLink": "Ställ in standardbetalning"
+                "message": "Det finns ingen standardbetalningsmetod tillgänglig.",
+                "labelLink": "Ställ in standardbetalningsmetod"
             },
             "SAAS_EXTENSION_ORDER__INSUFFICIENT_BALANCE": {
-                "message": "Det finns inte tillräckligt med balans."
+                "message": "Otillräcklig balans."
             },
             "SAAS_EXTENSION_REQUEST__INVALID_CONTENT": {
                 "message": "Obligatorisk begäran data saknas eller är ogiltig."
             },
             "SAAS_EXTENSION_INVALID_BASKET__MULTIPLE_LICENSES_OR_LICENSE_ALREADY_OWNED": {
-                "message": "Korgen är ogiltig eftersom den innehåller flera licenser eller innehåller en redan ägd licens."
+                "message": "Varukorgen är ogiltig, eftersom den innehåller flera licenser eller innehåller en redan ägd licens."
             },
             "SAAS_EXTENSION_INVALID_BASKET__INVALID_ORDER_POSITION": {
-                "message": "Korgen är ogiltig på grund av en ogiltig beställningsposition."
+                "message": "Kundvagnen är ogiltig på grund av en ogiltig beställningsposition."
             },
             "SAAS_EXTENSION_INVALID_BASKET__GENERAL": {
-                "message": "Korgen är ogiltig."
+                "message": "Varukorgen är ogiltig."
             },
             "SAAS_EXTENSION_INVALID_BASKET__INVALID_COMPANY": {
-                "message": "Korgen är ogiltig eftersom ditt företag inte har något land tilldelat."
+                "message": "Kundvagnen är ogiltig, eftersom ditt företag inte har något land tilldelat."
             },
             "SAAS_EXTENSION_RATING__INVALID_EXTENSION": {
                 "message": "Ditt betyg kunde inte sparas eftersom det relaterade tillägget är ogiltigt."
             },
             "SAAS_COMPANY__MISSING": {
-                "message": "Obligatoriskt företag saknas.",
+                "message": "Obligatoriskt företagsuttalande saknas.",
                 "labelLink": "Tilldela företag"
             }
         }
     },
     "entityCategories": {
         "admin_user": {
-            "title": "Admin användare",
+            "title": "Administration användare",
             "entities": {
                 "integration": "Integration",
                 "user": "Användare",
@@ -4539,7 +4682,7 @@
                 "customer_address": "Adress",
                 "customer_group": "Kundgrupp",
                 "customer_group_translation": "Översättning av kundgrupp",
-                "customer_group_registration_sales_channels": "Försäljningskanal för kundgruppregistrering",
+                "customer_group_registration_sales_channels": "Försäljningskanal för kundgruppregistreringar",
                 "customer_recovery": "Återhämtning",
                 "customer_tag": "Tag"
             }
@@ -4556,8 +4699,8 @@
             "title": "Dokument",
             "entities": {
                 "document": "Dokument",
-                "document_base_config": "Baskonfiguration",
-                "document_base_config_sales_channel": "Baskonfiguration för försäljningskanaler",
+                "document_base_config": "Grundläggande inställning",
+                "document_base_config_sales_channel": "Grundläggande konfiguration för försäljningskanaler",
                 "document_type": "Typ",
                 "document_type_translation": "Typ översättning"
             }
@@ -4597,8 +4740,8 @@
         "media": {
             "title": "Media",
             "entities": {
-                "media": "Media",
-                "media_translation": "Översättning av media",
+                "media": "Medium",
+                "media_translation": "Medelstor översättning",
                 "media_default_folder": "Standardmapp",
                 "media_folder": "Mapp",
                 "media_folder_configuration": "Konfiguration av mapp",
@@ -4652,11 +4795,11 @@
             "entities": {
                 "product": "Produkt",
                 "product_category": "Kategori",
-                "product_category_tree": "Kategori Träd",
+                "product_category_tree": "Kategori träd",
                 "product_configurator_setting": "Konfigurator-inställning",
                 "product_cross_selling": "Korsförsäljning",
-                "product_cross_selling_translation": "Korsförsäljning översättning",
-                "product_cross_selling_assigned_products": "Korsförsäljning tilldelad översättning",
+                "product_cross_selling_translation": "Cross Selling översättning",
+                "product_cross_selling_assigned_products": "Cross Selling översatt",
                 "product_export": "Export av produkt",
                 "product_keyword_dictionary": "Sökordlista",
                 "product_manufacturer": "Tillverkare",
@@ -4714,15 +4857,15 @@
                 "sales_channel_payment_method": "Betalningsmetod",
                 "sales_channel_shipping_method": "Leveransmetod",
                 "sales_channel_translation": "Översättning av säljkanal",
-                "sales_channel_type": "Typ",
-                "sales_channel_type_translation": "Typ översättning"
+                "sales_channel_type": "Typ av försäljningskanal",
+                "sales_channel_type_translation": "Översättning av försäljningskanal"
             }
         },
         "settings": {
             "title": "Inställningar",
             "entities": {
                 "country": "Land",
-                "country_state": "Land",
+                "country_state": "Stat/provins",
                 "currency": "Valuta",
                 "delivery_time": "Leveranstid",
                 "language": "Språk",
@@ -4746,7 +4889,7 @@
                 "tax": "Skatt",
                 "tax_rule": "Skatteregler",
                 "tax_rule_type": "Typ av skattegel",
-                "unit": "Enhet",
+                "unit": "Skala enhet",
                 "version": "Version"
             }
         },
@@ -4942,7 +5085,7 @@
             "placeholderSalesChannels": "Välj försäljningskanaler...",
             "placeholderMailTemplate": "Välj en e- postmall...",
             "titleRecipientsCard": "E-postmottagare",
-            "textEmptyStateRecipients": "Det finns inga ytterligare mottagare för denna händelse ännu. - Kundens e-post kommer att skickas oavsett.",
+            "textEmptyStateRecipients": "Lägg till alternativa mottagare - Om inställd kund e-post kommer att antas!",
             "columnRecipientName": "Namn",
             "columnRecipientMail": "E-postadress",
             "addRecipientButton": "Lägg till mottagare",
@@ -4952,7 +5095,7 @@
     },
     "sw-settings-logging": {
         "general": {
-            "mainMenuItemGeneral": "Loggning",
+            "mainMenuItemGeneral": "Loggar",
             "placeholderSearchBar": "Sök igenom loggar..."
         },
         "list": {
@@ -5179,6 +5322,7 @@
             "buttonNextPayPalInfo": "Konfigurera",
             "buttonBack": "Tillbaka",
             "buttonInstall": "Installera",
+            "buttonActivate": "Aktivera",
             "buttonFinish": "Klart",
             "buttonConfigureLater": "Ställ in senare",
             "pluginInstalled": "Installerat"
@@ -5187,16 +5331,16 @@
             "modalTitle": "Välkommen",
             "headlineWelcome": "Välkommen till Shopware 6 Administration",
             "messageWelcome": "Denna installationsassistent guidar dig genom de viktigaste inställningarna och ger dig värdefulla konfigureringstips.<br/>Vill du använda din butik på ett annat språk och därmed också nå kunder i andra länder? Då kan du helt enkelt installera önskade språkpaket här.",
-            "headlineChangeLanguage": "Installera ytterligare språkpaket",
+            "headlineChangeLanguage": "Installera ytterligare språk",
             "switchLanguageModalTitle": "Välj användargränssnittets språk",
             "confirmLanguageSwitch": "Växla språk",
             "cancelLanguageSwitch": "Avbryt",
             "switchLanguageMessage": "Språk-plugin \"{pluginName}\" installerades framgångsrikt. Vill du ändra användargränssnittets språk?",
-            "pluginsInstalled": "Språk-plugin{plural} har installerats",
-            "pluginsInstalledMessage": "Språk-plugin har installerats: | Språk-plugin för följande språk har installerats: ",
-            "pluginNotFoundMessage": "Språk-plugin {languageName} hittades inte.",
-            "pluginInstallationFailedMessage": "Plugin kunde inte installeras: ",
-            "pluginActivationFailedMessage": "Plugin kunde inte aktiveras: ",
+            "pluginsInstalled": "Tillägget installerat | Tillägg installerade",
+            "pluginsInstalledMessage": "Språktillägg har installerats: | Dessa språktillägg har installerats: ",
+            "pluginNotFoundMessage": "Språktillägget {languageName} kunde inte hittas.",
+            "pluginInstallationFailedMessage": "Extension kunde inte installeras: ",
+            "pluginActivationFailedMessage": "Extension kunde inte aktiveras: ",
             "tryAgainLater": "Vänligen försök på nytt senare.",
             "noConnectionMessage": "Anslutningsproblem, det begärda språket kan inte installeras just nu."
         },
@@ -5208,7 +5352,7 @@
             "headlineMigration": "Migrera din egen butik",
             "messageMigration": "Migrationsassistenten hjälper dig att ansluta ditt butiksystem till Shopware 6 och överföra befintlig data.",
             "buttonInstallMigration": "Installera migrationsassistenten",
-            "loadingMessage": "Installera plugin<br/>Det kan ta ett tag..."
+            "loadingMessage": "Installerar tillägg<br>Det här kan ta ett tag..."
         },
         "mailerSelection": {
             "headline": "Upprättande av e-postkommunikation",
@@ -5245,7 +5389,7 @@
         },
         "recommendedPlugins": {
             "headline": "Våra rekommendationer",
-            "modalTitle": "Plugins",
+            "modalTitle": "förlängningar",
             "message": "Här hittar du ett urval av rekommenderade tillägg för din butik. Välj först de som är relevanta för dig. Du kan fortsätta att bläddra igenom de olika tilläggskategorierna senare.",
             "availableInRegion": "Finns i region",
             "category": "Kategori",
@@ -5275,6 +5419,24 @@
             "labelCreateDomain": "Skapa en ny butiksdomän",
             "testEnvironment": "Testmiljö"
         },
+        "store": {
+            "modalTitle": "Butiksbutik",
+            "loadStatusCollect": "Samla information om butiken...",
+            "takeMinutes": "Det kan ta några minuter.",
+            "alreadyActivated": "Butiken har redan aktiverats.",
+            "enablingStore": "Aktiverar Shopware Store... ",
+            "activationErrorTitle": "Fel vid aktivering",
+            "activationErrorDescription": "Be din administratör om hjälp.",
+            "headingOne": "Utforska och köp enkelt tillägg -",
+            "headingTwo": "direkt från din egen Shopware-butik.",
+            "description": "Aktivera den helt nya Shopware Store och få tillgång till massor av användbara tillägg och moderna teman som kan integreras i din butik utan några programmeringskunskaper."
+        },
+        "markets": {
+            "modalTitle": "Marknader för butiksprogram",
+            "heading": "Marknader för butiksprogram",
+            "description": "Shopware Markets gör att du kan ansluta din butik till Amazon och eBay marknadsplatser - samtidigt som du gör överföringen av produkter och beställningar så bekväm som möjligt.<br>Markets Shopware har utformats för att ytterligare utöka din verksamhet med hjälp av Sales Channels*¹.",
+            "footnote": "*¹ En betald prenumeration krävs för att använda Shopware Markets tillagda försäljningskanaler."
+        },
         "finish": {
             "headlineAllDone": "Lycka till!",
             "message": "Din Shopware 6 {edition} är nu verifierad.",
@@ -5286,14 +5448,17 @@
             "forumLabel": "Forum",
             "forumUrl": "https://forum.shopware.com/",
             "roadmapLabel": "Utvecklingsplan",
-            "roadmapUrl": "https://www.shopware.com/en/roadmap/"
+            "roadmapUrl": "https://www.shopware.com/en/roadmap/",
+            "modalTitle": "Klar"
         },
         "stepItemTitle": {
             "dataImport": "Dataimport",
             "mailer": "E-postinställningar",
             "setupPaypal": "PayPal inställning",
-            "plugins": "Plugins",
-            "shopware": "Konto för butiksprogram"
+            "plugins": "förlängningar",
+            "shopware": "Konto för butiksprogram",
+            "store": "Butiksbutik",
+            "markets": "Marknader för butiksprogram"
         }
     },
     "sw-sales-channel": {
@@ -6041,7 +6206,7 @@
             "messageSaveError": "Kunden kunde inte sparas.",
             "messageSaveSuccess": "Kunden \"{name}\" sparades framgångsrikt.",
             "notificationPasswordErrorMessage": "De inmatade lösenorden matchar inte.",
-            "notificationPasswordLengthErrorMessage": "Lösenordet uppfyller inte minimilängden på 8 tecken."
+            "notificationPasswordLengthErrorMessage": "Det inskickade lösenordet uppfyller inte kravet på minsta längd på åtta tecken."
         },
         "filter": {
             "salutation": {
@@ -6071,7 +6236,9 @@
             "tags": {
                 "label": "Tags",
                 "placeholder": "Markera taggar..."
-            }
+            },
+            "messageEmptyTitle": "Ingenting hittades",
+            "messageEmptySubline": "Redigera dina filter för att hitta resultat."
         }
     },
     "sw-settings-document": {
@@ -6722,13 +6889,14 @@
         },
         "roles": {
             "general": {
-                "labelCreateNewRole": "Ny regel",
+                "labelCreateNewRole": "Skapa roll",
                 "cardLabel": "Roller"
             },
             "role-grid": {
                 "labelName": "Namn",
                 "labelDescription": "Beskrivning",
                 "messageEmptyTitle": "Det finns ännu inga roller",
+                "messageEmptySubline": "Skapa roller för att börja hantera användarrättigheter.",
                 "contextMenuEdit": "Redigera",
                 "contextMenuDelete": "Radera",
                 "titleModalDelete": "Radera roll",
@@ -6737,10 +6905,10 @@
                 "labelButtonDelete": "Radera",
                 "notification": {
                     "deleteSuccess": {
-                        "message": "Rollen \"{name}\" togs framgångsrikt bort."
+                        "message": "Roll \"{name}\" borttagen."
                     },
                     "deleteError": {
-                        "message": "Vid raderandet av rollen \"{name}\" uppstod ett fel."
+                        "message": "Rollen \"{name}\" kunde inte tas bort."
                     }
                 }
             },
@@ -6763,7 +6931,7 @@
             },
             "view": {
                 "detailed": {
-                    "alertText": "I den här vyn kan privilegier konfigureras i detalj. Denna konfiguration är endast nödvändig i exceptionella situationer. Om t.ex. tillägg används i systemet som lägger till nya datauppsättningar men inte har behörighet, kan de konfigureras här. Alla inaktiverade kryssrutor är behörigheter som redan har tilldelats på fliken ”Allmänt”."
+                    "alertText": "Konfigurera behörigheter i detalj. Alla inaktiverade kryssrutor är behörigheter som redan har tilldelats på fliken ”Allmänt” och som inte kan konfigureras. Denna konfiguration är endast nödvändig om t.ex. tillägg används som lägger till nya datauppsättningar men inte har behörighet, kan dessa konfigureras här."
                 }
             },
             "tabs": {
@@ -6794,10 +6962,10 @@
                 "labelButtonDelete": "Radera",
                 "notification": {
                     "deleteSuccess": {
-                        "message": "Användaren \"{name}\" raderades framgångsrikt."
+                        "message": "Användare \"{name}\" borttagen."
                     },
                     "deleteError": {
-                        "message": "Vid raderandet av användaren \"{name}\" uppstod ett fel."
+                        "message": "Användaren \"{name}\" kunde inte tas bort."
                     },
                     "deleteUserLoggedInError": {
                         "message": "Användare kan inte radera sig själva."
@@ -6809,7 +6977,7 @@
                 "labelIntegrationsCard": "Integrationer",
                 "labelFirstName": "Förnamn",
                 "labelLastName": "Efternamn",
-                "labelEmail": "E-postadress:",
+                "labelEmail": "E-postadress",
                 "errorEmailUsed": "Denna e-post är redan i bruk.",
                 "errorUsernameUsed": "Detta användarnamn är redan i bruk.",
                 "labelUsername": "Användarnamn",
@@ -6824,17 +6992,19 @@
                 "labelNewPassword": "Nytt lösenord",
                 "labelNewUser": "Ny användare",
                 "placeholderNewPassword": "Ange nytt lösenord...",
-                "placeholderNewPasswordConfirm": "Ange nytt lösenord igen...",
+                "placeholderNewPasswordConfirm": "Bekräfta nytt lösenord...",
                 "labelButtonCancel": "Avbryt",
                 "labelButtonChangePassword": "Ändra",
                 "labelButtonSave": "Spara",
+                "writeAccess": "Skriv",
+                "readAccess": "Läs",
                 "contextMenuEdit": "Redigera",
                 "contextMenuDelete": "Radera",
                 "textChangePassword": "Genom att trycka på ”ändra” -knappen sparar du omedelbart det nya lösenordet!",
-                "addAccessKey": "Ny åtkomstnyckel",
+                "addAccessKey": "Skapa åtkomstnyckel",
                 "labelAccessKey": "Åtkomstnyckel",
                 "labelPermissions": "Behörigheter",
-                "disabledRoleSelectWarning": "Roller är bara tillgängliga för användare som inte är ”administratör”.",
+                "disabledRoleSelectWarning": "Roller är bara tillgängliga för användare som inte har administratörsrättigheter.",
                 "passwordConfirmation": {
                     "titleConfirmPasswordModal": "Ange ditt nuvarande lösenord för att bekräfta",
                     "labelConfirmPassword": "lösenord",
@@ -6856,18 +7026,18 @@
                     "hintCreateNewApiKeys": "Regenerering av API-åtkomstdata kräver uppdatering av alla tillhörande skript eller program.",
                     "labelFieldLabel": "Namn",
                     "idFieldLabel": "Åtkomst-ID",
-                    "secretFieldLabel": "Säkerhetsnyckel",
+                    "secretFieldLabel": "Säker åtkomstnyckel",
                     "secretHelpText": "Vänligen kopiera din säkerhetsnyckel nu. Efter att ha sparats visas den inte igen av säkerhetsskäl.",
-                    "messageSaveSuccess": "Integrationen sparades framgångsrikt.",
+                    "messageSaveSuccess": "Integration sparad.",
                     "messageSaveError": "Integrationen kunde inte sparas.",
                     "messageCreateNewError": "Integrationen kunde inte skapas."
                 },
                 "notification": {
                     "saveError": {
-                        "message": "Vid sparandet av användaren \"{name}\" uppstod ett fel."
+                        "message": "Användaren \"{name}\" kunde inte sparas."
                     },
                     "saveSuccess": {
-                        "message": "Användaren \"{name}\" sparades framgångsrikt."
+                        "message": "Användare \"{name}\" sparad."
                     },
                     "invalidEmailErrorMessage": "Ange en giltig e-postadress",
                     "duplicateEmailErrorMessage": "Denna e-postadress är redan i bruk."
@@ -6905,143 +7075,6 @@
             "labelUseAsLogo": "Använd som logotyp"
         }
     },
-    "sw-plugin": {
-        "general": {
-            "mainMenuItemGeneral": "Plugins",
-            "mainMenuPluginList": "Installerat",
-            "mainMenuLicenseList": "Mina licenser",
-            "descriptionTextModule": "Administration av plugins",
-            "placeholderSearchBar": "Sök igenom plugins...",
-            "tabList": "Mina plugins",
-            "tabLicenses": "Inköp",
-            "tabUpdates": "Uppdateringar",
-            "version": "Version",
-            "accountLink": "https://account.shopware.com/?lang=en",
-            "accountLabel": "Till Shopware-kontot",
-            "login": "Registrering",
-            "logout": "Logga ut",
-            "messageDownloadSuccess": "Plugin laddades ned framgångsrikt.",
-            "downloadButton": "Butik",
-            "recommendationsLabel": "Rekommendationer",
-            "storeLink": "https://store.shopware.com/",
-            "storeLabel": "Shopware Store",
-            "storeNotAvailable": "Det gick inte att ansluta till Shopware Store.",
-            "loggedIn": "Logga in som"
-        },
-        "errors": {
-            "messageToTheShopwareDocumentation": "<a href=\"{documentationLink}\" target=\"_blank\">Till Shopware-dokumentation</a>",
-            "messageGenericFailure": "Det fungerade inte.",
-            "messageUploadFailureNotAZipFile": "Den uppladdade filen är inte en ZIP-fil.",
-            "messageUploadFailureUnzipFailed": "ZIP-filen kunde inte packas upp.",
-            "messageUploadFailureNoPluginFoundInZipFile": "Ingen plugin hittades i den uppladdade ZIP-filen.",
-            "messageLoginDataInvalid": "Inloggningsuppgifter har inte angetts till fullo.",
-            "messageStoreLicenseDomainMissing": "För att kunna logga in måste du först ange din licensdomän i \"Inställningar/Shopware-konto\".",
-            "messageStoreNotAvailable": "Shopware Store kan inte nås.",
-            "messagePluginBaseClassNotFound": "Plugin-ingångspunkten kunde inte laddas. Säkerställ att basklassen kan laddas korrekt.",
-            "messagePluginInstallationFailed": "Plugin kunde p.g.a. felmeddelande \"{message}\" inte installeras",
-            "messagePluginUninstallationFailed": "Plugin kunde p.g.a. felmeddelande \"{message}\" inte avinstalleras",
-            "messagePluginActivationFailed": "Plugin kunde p.g.a. felmeddelande \"{message}\" inte aktiveras",
-            "messagePluginDeactivationFailed": "Plugin kunde p.g.a. felmeddelande \"{message}\" inte avaktiveras",
-            "messageDeactivationFailedDependencies": "Plugin \"{dependency}\" kan inte inaktiveras då det fortfarande finns aktiva plugins som är beroende av den. Avaktivera först följande plugins innan du startar uppdateringen igen: {dependantNames}",
-            "messagePluginUpdateFailed": "Plugin kunde p.g.a. felmeddelande \"{message}\" inte uppdateras. {pluginDeactivatedHint}",
-            "pluginDeactivatedHint": "Plugin avaktiverad."
-        },
-        "fileUpload": {
-            "buttonFileUpload": "Ladda upp plugin",
-            "messageUploadSuccess": "Plugin har laddats upp.",
-            "buttonRefreshPlugins": "Uppdatera översikt"
-        },
-        "store-login": {
-            "headline": "Shopware-konto - Logga in",
-            "information": "Shopware-kontot är ditt huvudsakliga nav för interaktion med alla Shopware-tjänster.",
-            "loginMessage": "Du är inloggad på Shopware-kontot.",
-            "labelEmailAddress": "E-postadress",
-            "placeholderEmailAddress": "Ange din e-postadress...",
-            "labelPassword": "Lösenord",
-            "placeholderPassword": "Skriv in ditt lösenord...",
-            "buttonLogin": "Registrering",
-            "buttonCancel": "Avbryt",
-            "footerNoAccount": "Har du inget Shopware-konto än?",
-            "footerRegisterAccount": "Skapa ditt Shopware-konto nu!",
-            "forgotPassword": "Glömde du ditt lösenord?",
-            "forgotPasswordUrl": "https://account.shopware.com/recovery?lang=en",
-            "registerAccountUrl": "https://account.shopware.com/register?lang=en"
-        },
-        "list": {
-            "textPluginManager": "Plugins",
-            "messageEmpty": "Du har ännu inte laddat upp några plugins.",
-            "columnPluginName": "Plugin",
-            "columnVersion": "Version",
-            "columnInstalledAt": "Installerad den",
-            "columnUpdatedAt": "Uppdaterad den",
-            "columnLicense": "Licens",
-            "columnActive": "Status",
-            "columnAuthor": "Tillverkare",
-            "columnPlugin": "Plugin",
-            "columnChangelog": "Nya funktioner",
-            "titleSidebarItemRefresh": "Uppdatera",
-            "contextInstall": "Installera",
-            "contextUninstall": "Avinstallera",
-            "contextActivate": "Aktivera",
-            "contextDeactivate": "Avaktivera",
-            "contextUpdate": "Uppdatering av",
-            "contextDelete": "Radera",
-            "pluginHeader": "Mina plugins",
-            "sortUpgradedAtAsc": "Senast uppdaterad",
-            "sortPluginNameAsc": "Pluginnnamn, A-Ö",
-            "sortPluginNameDsc": "Pluginnnamn, Ö-A",
-            "sortLabel": "Sortera efter:",
-            "messageActivateSuccess": "Plugin aktiverades framgångsrikt.",
-            "messageDeactivateSuccess": "Plugin avaktiverades framgångsrikt.",
-            "messageInstallSuccess": "Plugin installerades framgångsrikt.",
-            "messageUninstallSuccess": "Plugin avinstallerades framgångsrikt.",
-            "messageDeleteSuccess": "Plugin raderades framgångsrikt.",
-            "messageUpdateSuccess": "Plugin uppdaterades framgångsrikt.",
-            "messageDeleteConfirm": "Är du säker på att du vill ta bort denna plugin?",
-            "titleUninstallConfirm": "Avinstallera plugin",
-            "messageUninstallConfirm": "Är du säker på att du vill avinstallera {pluginName}?",
-            "labelRemovePluginData": "Ta bort alla insticksdata permanent",
-            "helpTextRemovePluginData": "Varning: Alla data i insticksprogrammet tas bort permanent. Denna process är oåterkallelig.",
-            "labelUninstallButton": "Avinstallera",
-            "deactivated": "Avaktiverad",
-            "activated": "Aktiverad",
-            "config": "Konfiguration",
-            "description": "Beskrivning",
-            "tooltipActivationDisabled": "Du kan nu aktivera installerade plugins."
-        },
-        "license-list": {
-            "textMyPurchases": "Inköpta licenser",
-            "columnName": "Plugin",
-            "columnCreationDate": "Inköpt den",
-            "columnExpirationDate": "Giltig t.o.m.",
-            "columnType": "Variant",
-            "messageEmpty": "Det finns inga tillgängliga licenser.",
-            "messageNotLoggedIn": "Du måste vara inloggad på ditt Shopware-konto.",
-            "labelAccountLogin": "Logga in på mitt Shopware-konto",
-            "labelType_buy": "Köp",
-            "labelType_rent": "Hyr",
-            "labelType_test": "Prova",
-            "labelType_free": "Kostnadsfritt",
-            "labelType_support": "Avgiftsbelagd support"
-        },
-        "updates": {
-            "messageEmpty": "Det finns inga tillgängliga uppdateringar.",
-            "updateError": "Fel uppstod när du laddade ned uppdateringar!",
-            "updateButton": "Uppdatera",
-            "updateAllButton": "Uppdatera allt",
-            "updateHeader": "Uppdateringar",
-            "lastUpdatesHeader": "Senast uppdaterad",
-            "messageUpdateSuccess": "Plugin uppdaterades. | Plugins uppdaterades.",
-            "messageUpdatesSuccess": "Plugins uppdaterades.",
-            "cancelUpdates": "Avbryt"
-        }
-    },
-    "sw-plugin-config": {
-        "messageSaveSuccess": "Konfigurationen sparades."
-    },
-    "sw-plugin-description": {
-        "buttonBack": "Tillbaka"
-    },
     "sw-settings": {
         "general": {
             "mainMenuItemGeneral": "Inställningar"
@@ -7050,7 +7083,7 @@
             "title": "Inställningar",
             "tabShop": "Shop",
             "tabSystem": "System",
-            "tabPlugins": "Plugins"
+            "tabPlugins": "förlängningar"
         },
         "system-config": {
             "labelSalesChannelSelect": "Försäljningskanal",
@@ -7137,10 +7170,10 @@
         }
     },
     "sw-property-search": {
-        "placeholderSearch": "Sök efter egenskaper...",
-        "selected": "{count} Alternativ valt | {count} Alternativ valda",
-        "noPropertiesFound": "Inga egenskaper funna",
-        "noPropertiesFoundDescription": "Försök med en annan sökfras."
+        "placeholderSearch": "Sök värden...",
+        "selected": "{count} valt värde | {count} valda värden",
+        "noPropertiesFound": "Inga egenskapsvärden hittades",
+        "noPropertiesFoundDescription": "Prova en annan sökterm."
     },
     "sw-property-assignment": {
         "columnGroup": "Egenskap",
@@ -7166,10 +7199,11 @@
         "reload": "Ladda igen",
         "alertText": "Vi har upptäckt en licensöverträdelse för minst ett av dina tillägg i den här installationen. För att åtgärda licensöverträdelsen och undvika rättsliga konsekvenser, boka en förlängningsprenumeration eller köpa/hyra tillägget (enligt tillfogad överträdelse typ). Du använder inte förlängningen längre? Ta sedan bort det via Mina tillägg. Om ingen av dessa åtgärder vidtas förbehåller sig butiksprogrammet AG rätten att ta ut straffavgifter för eventuella licensbrott.",
         "deletePlugin": "Ta bort tillägg permanent",
-        "messageDeleteConfirm": "Vill du ta bort tillägget \"{pluginName} \" helt?",
+        "messageDeleteConfirm": "Vill du ta bort tillägget \"{pluginName}\" helt?",
         "checkboxMessage": "Jag har läst och tagit del av varningen och förstår de möjliga konsekvenserna.",
         "closeModal": "Stäng varningen",
         "ignorePlugin": "Ignorera alltid",
+        "successfullyDeleted": "Utvidgningen har tagits bort",
         "table": {
             "plugin": "Utökning",
             "warning": "Varning"

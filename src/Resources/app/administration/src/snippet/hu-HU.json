@@ -277,7 +277,13 @@
             "labelDownloadPdf": "PDF letöltése",
             "labelCreateNew": "Új létrehozása",
             "messageEmptyTitle": "Még nincsenek dokumentumok",
-            "messageEmptySubline": "Itt kezelheti a dokumentumokat."
+            "messageEmptySubline": "Itt kezelheti a dokumentumokat.",
+            "error": {
+                "DOCUMENT__NUMBER_ALREADY_EXISTS": "A {number} számú dokumentum már kiosztásra került."
+            },
+            "info": {
+                "DOCUMENT__NUMBER_WAS_CHANGED": "Duplikált dokumentum száma. A program automatikusan egy egymást követő számot rajzol a megfelelő számtartományból."
+            }
         },
         "documentModal": {
             "modalTitle": "Dokumentum létrehozása",
@@ -316,6 +322,63 @@
             "message": "A következő automatikus promóciók letiltásra kerülnek:",
             "messageNoItems": "Nincs automatikus promóció aktív.",
             "buttonDisable": "Letilt"
+        },
+        "filters": {
+            "documentFilter": {
+                "label": "Okmányok",
+                "placeholder": "Dokumentum állapotának kiválasztása...",
+                "textHasCriteria": "Legalább egy hozzárendelt dokumentum",
+                "textNoCriteria": "Nincsenek hozzárendelt dokumentumok"
+            },
+            "orderDateFilter": {
+                "label": "Megrendelés dátuma"
+            },
+            "statusFilter": {
+                "label": "Megrendelés állapota",
+                "placeholder": "Megrendelés állapotának kiválasztása..."
+            },
+            "paymentStatusFilter": {
+                "label": "Fizetési állapot",
+                "placeholder": "Fizetési állapot kiválasztása..."
+            },
+            "deliveryStatusFilter": {
+                "label": "Szállítási állapot",
+                "placeholder": "Válassza ki a szállítási állapotot..."
+            },
+            "paymentMethodFilter": {
+                "label": "Fizetési mód",
+                "placeholder": "Fizetési mód kiválasztása..."
+            },
+            "shippingMethodFilter": {
+                "label": "Szállítási mód",
+                "placeholder": "Válassza ki a szállítási módot..."
+            },
+            "salesChannelFilter": {
+                "label": "Értékesítési csatornák",
+                "placeholder": "Értékesítési csatornák kiválasztása..."
+            },
+            "billingCountryFilter": {
+                "label": "Számlázási ország",
+                "placeholder": "Számlázási országok kiválasztása..."
+            },
+            "shippingCountryFilter": {
+                "label": "Szállítási ország",
+                "placeholder": "Válassza ki a szállítási országokat..."
+            },
+            "customerGroupFilter": {
+                "label": "Ügyfélcsoport",
+                "placeholder": "Vevőcsoport kiválasztása..."
+            },
+            "tagFilter": {
+                "label": "Címkék",
+                "placeholder": "Címkék kiválasztása..."
+            },
+            "productFilter": {
+                "label": "Termékek",
+                "placeholder": "Termékek kiválasztása..."
+            },
+            "messageEmptyTitle": "Semmi sem található",
+            "messageEmptySubline": "Szerkessze a szűrőket az eredmények megtalálásához."
         }
     },
     "sw-privileges": {
@@ -375,7 +438,7 @@
                 "label": "Hírlevél címzettjei"
             },
             "product_search_config": {
-                "label": "Termék keresése"
+                "label": "Keresés"
             },
             "scale_unit": {
                 "label": "Lépték mértékegységek"
@@ -440,7 +503,7 @@
         },
         "additional_permissions": {
             "orders": {
-                "create_discounts": "Engedmények létrehozása",
+                "create_discounts": "Kreditcikkek létrehozása",
                 "label": "Rendelések"
             },
             "user": {
@@ -450,8 +513,9 @@
             "system": {
                 "core_update": "Frissítések futtatása",
                 "plugin_maintain": "A bővítmények fenntartása",
+                "extension_store": "Bolti áruház",
                 "clear_cache": "Gyorsítótár törlése",
-                "logging": "Naplózás",
+                "logging": "Az eseménynaplók",
                 "frw": "Első futtatás varázsló",
                 "import_export": "Importálás/",
                 "label": "Beállítások",
@@ -463,7 +527,7 @@
             },
             "routes": {
                 "label": "Útvonalak",
-                "api_action_access-key_integration": "Új API-kulcs létrehozása",
+                "api_action_access-key_integration": "API-kulcsok létrehozása",
                 "api_acl_privileges_get": "Az összes ACL-jogosultság elolvasása",
                 "api_acl_privileges_route_get": "ACL útvonal-jogosultságok olvasása",
                 "api_action_cache_info": "Gyorsítótár-információ",
@@ -1206,6 +1270,7 @@
                 "infoTextProductDetailPages": "Az elrendezés csak akkor látható a boltban, ha hozzárendeli azt egy aktív termékhez.",
                 "labelCategories": "kategóriák",
                 "placeholderCategories": "Válasszon kategóriákat...",
+                "placeholderLandingPages": "A céloldalak kiválasztása...",
                 "labelSalesChannel": "Értékesítési csatorna",
                 "placeholderSalesChannel": "Válasszon értékesítési csatornát...",
                 "resetOptionSalesChannel": "Összes értékesítési csatorna",
@@ -1216,6 +1281,8 @@
                 "confirmChangesRestorePrev": "Elvetés",
                 "confirmChangesTextCategories": "Eltávolította az elrendezési hozzárendeléseket a kategóriákból. Ha megerősíti ezeket a módosításokat, azok a kategóriák már nem rendelkeznek elrendezéssel.",
                 "confirmChangesTextCategoriesAssignedLayouts": "A kiválasztott kategóriák némelyikéhez már van hozzárendelve egy elrendezés. Ha folytatja ezeket a korábbi hozzárendeléseket a program lecseréli az aktuális elrendezésre.",
+                "confirmChangesTextLandingPages": "Eltávolította az elrendezési hozzárendeléseket a céloldalakról. Ha megerősíti ezeket a módosításokat, a céloldalakhoz már nem lesz hozzárendelve elrendezés.",
+                "confirmChangesTextLandingPagesAssignedLayouts": "A kijelölt céloldalak némelyikéhez már van hozzárendelve egy elrendezés. Ha folytatja ezeket a korábbi hozzárendeléseket a program lecseréli az aktuális elrendezésre.",
                 "confirmChangesTextProducts": "Eltávolította az elrendezési hozzárendeléseket a termékekből. Ha megerősíti ezeket a módosításokat, azok a termékek már nem rendelkeznek elrendezéssel.",
                 "confirmChangesTextProductsAssignedLayouts": "A kiválasztott termékek némelyikéhez már van hozzárendelve egy elrendezés. Ha folytatja az előző hozzárendeléseket, a program lecseréli az aktuális elrendezést.",
                 "confirmChangesTextShopPages": "Eltávolította az elrendezési hozzárendeléseket a bolti oldalakról. Ha megerősíti ezeket a módosításokat, azokhoz a bolti oldalakhoz már nincs hozzárendelve elrendezés",
@@ -1225,6 +1292,7 @@
                 "shopPagesSaveError": "Nem sikerült menteni a bolti oldalakat",
                 "tabCategories": "kategóriák",
                 "tabShopPages": "Shop oldalak",
+                "tabLandingPages": "Céloldalak",
                 "shopPages": {
                     "tosPage": "TOS oldalak",
                     "revocationPage": "Visszavonási értesítések",
@@ -1533,7 +1601,7 @@
                 "keywords": "Kulcsszavak",
                 "length": "Hossz",
                 "linked": "Kapcsolt",
-                "manufacturer": "Gyártó",
+                "manufacturerId": "Gyártó",
                 "manufacturerNumber": "Gyártó száma",
                 "markAsTopseller": "Topsellerként megjelölve",
                 "maxDeliveryTime": "Max. szállítási idő",
@@ -1546,7 +1614,7 @@
                 "option": "Opció",
                 "packUnit": "Csomagolási egység",
                 "packUnitPlural": "Csomag egység többes szám",
-                "price": "Ár",
+                "cheapestPrice": "Ár",
                 "product": "Termék",
                 "productNumber": "Termékszám",
                 "purchasePrice": "Vásárlási ár",
@@ -1677,7 +1745,7 @@
             "c1051bb4-d103-4f74-8988-acbcafc7fdc3": "Ez a mező nem lehet üres.",
             "INVALID_MEDIA_URL": "Adjon meg egy érvényes URL-t a fájl feltöltéséhez.",
             "CONTENT__MISSING_RULE_TYPE_EXCEPTION": "Ki kell választania egy típust ehhez a szabályhoz.",
-            "CONTENT__INVALID_CATEGORY_TYPE_AS_ENTRY_POINT": "A típus nem rendelhető hozzá, míg a kategória belépési pont.",
+            "CONTENT__INVALID_CATEGORY_TYPE_AS_ENTRY_POINT": "A típus nem rendelhető hozzá, míg a kategória egy belépési pont.",
             "SHOPWARE_INVALID_IP": "Adjon meg egy érvényes IP-címet.",
             "INVALID_URL": "Adjon meg egy érvényes URL-t."
         },
@@ -1700,7 +1768,9 @@
             "ascending": "Növekvő",
             "descending": "Csökkenő",
             "xTimesIn": "{n} alkalommal",
-            "close": "Zárja"
+            "close": "Zárja",
+            "from": "-től",
+            "to": "Hogy"
         },
         "notification": {
             "notificationSaveErrorMessage": "Hiba történt a \"{entityName}” entitás mentése közben.",
@@ -2680,7 +2750,12 @@
     "sw-settings-number-range": {
         "general": {
             "mainMenuItemGeneral": "Számtartományok",
-            "placeholderSearchBar": "Keresési számtartományok..."
+            "placeholderSearchBar": "Keresési számtartományok...",
+            "infoGlobalType": "Csak egy \"{typeName}\" számtartomány lehet. Az „{typeName}” típusú számtartományt itt kell módosítani, és az globálisan hatással lesz az összes értékesítési csatornára.",
+            "infoGlobalTypeTitle": "Globális számtartomány típusa \"{typeName}”",
+            "infoGlobal": "A globális számtartomány típusa nem módosítható. Az áttekintésben azonban további számtartományokat hozhat létre a legtöbb típushoz és adott értékesítési csatornához.",
+            "infoGlobalTitle": "Globális számtartomány \"{name}”",
+            "infoSalesChannelBound": "Egy számtartomány típusának módosításához először távolítsa el az összes Sales Channel hozzárendelést."
         },
         "list": {
             "textHeadline": "Számtartományok",
@@ -2998,9 +3073,11 @@
             "descriptionLabel": "Leírás",
             "messageSaveSuccess": "A „{name}” kategória mentésre került.",
             "useAsLogo": "Használat megjelenítési képként",
-            "treeHeadline": "Kategóriaszerkezet",
+            "treeHeadline": "Kategóriák",
             "treeHeadSelected": "{count} kiválasztva",
             "emptyStateHeadline": "Nincs kiválasztva kategória",
+            "errorNavigationEntryPoint": "Ez a kategória legalább egy értékesítési csatorna fő navigációjaként van meghatározva, ezért nem törölhető.",
+            "errorNavigationEntryPointMultiple": "Egy vagy több kategória legalább egy értékesítési csatorna fő navigációjaként van meghatározva, ezért nem törölhetők.",
             "actions": {
                 "actionsDisabledInLanguage": "Kategóriák csak az alapértelmezett nyelven hozhatók létre.",
                 "createSub": "Új alkategória",
@@ -3014,58 +3091,54 @@
             "products": "Termékek",
             "seo": "SEO",
             "columnInfoHeader": "Lábléc elem",
-            "columnInfo": "Ez a kategória beállít egy kijelölt oszlopot az élőlábban. A kategória neve az oszlop nem kattintható címsoraként jelenik meg. Az alábbi kategóriák az oszlop címsora alatt kattintható sorokként jelennek meg."
+            "columnInfo": "Ez a kategória beállít egy kijelölt oszlopot az élőlábban. A kategória neve az oszlop címsoraként jelenik meg. Az e kategória alatti első szinten található összes kategória sorként jelenik meg az oszlop címsora alatt."
         },
         "base": {
             "general": {
                 "categoryNameLabel": "Név",
                 "headlineInformationCard": "Általános",
-                "isCategoryActiveLabel": "Aktív kategória",
+                "isCategoryActiveLabel": "Aktív",
                 "useAsLink": "Használat hivatkozásként",
                 "labelCategoryTags": "Címkék",
                 "labelCategoryTagsPlaceholder": "Adja meg a címkéket egyenként...",
                 "types": {
                     "title": "Kategória típusa",
-                    "page": "kategória",
-                    "folder": "Belépési pont",
-                    "link": "Testreszabható hivatkozás",
-                    "column": "oszlop",
-                    "entrypoint": "Belépési pont",
-                    "pageList": "Oldal/Lista",
-                    "help": "A szerkezeti kategória önmagában nem nevezhető, hanem csak körvonalazási célokra használható."
-                }
-            },
-            "entry-point": {
-                "title": "Belépési pont",
-                "navigation": {
-                    "descriptionGeneral": "Ezt a kategóriát a fő navigációs pontként rendelte hozzá a következő értékesítési csatornákon:"
-                },
-                "serviceSales": {
-                    "descriptionGeneral": "Ezt a kategóriát a szolgáltatási navigáció belépési pontjaként rendelte hozzá az alábbi értékesítési csatornákon:"
-                },
-                "footerSales": {
-                    "descriptionGeneral": "Ezt a kategóriát rendelte hozzá a lábléc navigációhoz a következő értékesítési csatornákon:"
+                    "page": "Oldal/Lista",
+                    "folder": "Strukturáló elem/Belépési pont",
+                    "link": "Link",
+                    "linkUnavailable": "Csatolás (nem választható, ha a kategória belépési pontként van megadva)",
+                    "help": "A szerkezeti kategória önmagában nem nevezhető, hanem csak körvonalazási célokra használható.",
+                    "helpText": {
+                        "page": "Az oldal/lista társított termékeket tartalmaz, és közvetlenül elérhető a hozzárendelt elrendezéssel.",
+                        "folder": "A strukturáló elem/belépési pont csak a szerkezetben jelenik meg, és közvetlenül nem érhető el, kivéve, ha egy értékesítési csatorna belépési pontjaként van hozzárendelve.",
+                        "link": "A hivatkozás hivatkozást tesz lehetővé egy termékre, egy másik kategóriára, egy céloldalra vagy egy külső webhelyre."
+                    }
                 }
             },
             "entry-point-card": {
-                "cardTitle": "Belépési pont",
+                "cardTitle": "Navigáció",
                 "labelEntryPoint": "Belépési pont",
                 "placeholderEntryPoint": "Válassza ki a belépési pontot...",
-                "labelSalesChannels": "Értékesítési csatornák",
-                "placeholderSalesChannels": "Értékesítési csatorna kiválasztása...",
+                "existingNavigationDescription": "Ezt a kategóriát a fő navigációs pontként rendelte hozzá a következő értékesítési csatornákon:",
+                "labelSalesChannelsAdd": "Értékesítési csatorna hozzárendelés",
+                "placeholderSalesChannels": "Értékesítési csatornák hozzáadása...",
                 "buttonConfigureHome": "Kezdőlap beállítása",
                 "types": {
                     "labelMainNavigation": "Fő navigáció",
+                    "helpTextMainNavigation": "A fő navigáció belépési pontja az értékesítési csatornák kötelező mezője. Ha ezt a kategóriát rendeli hozzá a Fő navigáció belépési pontjaként egy vagy több értékesítési csatornához, ezt a hozzárendelést csak magán az értékesítési csatornán módosíthatja.",
                     "labelFooterNavigation": "Lábléc navigációs",
-                    "labelServiceNavigation": "Szolgáltatási navigáció"
+                    "helpTextFooterNavigation": "Ha ezt a kategóriát hozzárendeli az Élőláb navigáció belépési pontjaként egy vagy több értékesítési csatornához, a következő szinten lévő kategóriák oszlopok lesznek. Ez lehetővé teszi, hogy több területre osztja a lábléc navigációját.",
+                    "labelServiceNavigation": "Szolgáltatási navigáció",
+                    "helpTextServiceNavigation": "Ha ezt a kategóriát rendeli hozzá a Szolgáltatásnavigáció belépési pontjaként egy vagy több értékesítési csatornához, a következő szinten lévő kategóriák második navigációként jelennek meg az élőláb területén."
                 }
             },
             "entry-point-modal": {
                 "modalTitle": "Kezdőlap beállítása",
-                "salesChannelSelection": "Belépési pont fő navigációja",
-                "showInMainNavigation": "Megjelenítés kezdőként a fő navigációban",
-                "mainNavigationName": "Név a fő navigációs",
-                "mainNavigationNamePlaceholder": "Név a fő navigációs...",
+                "salesChannelSelection": "Értékesítési csatorna",
+                "showInMainNavigation": "Megjelenítés a fő navigációs",
+                "mainNavigationName": "Megjelenített név",
+                "mainNavigationNamePlaceholder": "Adja meg az alternatív kezdőlap nevét...",
+                "mainNavigationNameHelpText": "Alapértelmezés szerint ez a kategória „home” -ként jelenik meg. Adjon meg egy alternatív megjelenítési nevet, ha az alapértelmezett konfiguráció nem felel meg az aktuális értékesítési csatornának.",
                 "layoutHeadline": "Layout",
                 "seoSettingsHeadline": "SEO beállítások",
                 "metaTitleLabel": "Meta cím",
@@ -3146,6 +3219,10 @@
             "textDeleteConfirm": "Biztos benne, hogy törölni szeretné a \"{name}„kategóriát?",
             "textDeleteChildrenConfirm": "Az összes alkategória is törlődik.",
             "textDeleteMultipleConfirm": "Biztosan törölni szeretné a {count} kiválasztott kategóriát?"
+        },
+        "entry-point-overwrite-modal": {
+            "textBefore": "Már hozzárendelt egy belépési pontot a következő értékesítési csatornához: | Már hozzárendelt belépési pontokat a következő értékesítési csatornákhoz:",
+            "textAfter": "Ha ezt a feladatot felül kell írni? | Amennyiben ezeket a feladatokat felül kell írni?"
         }
     },
     "sw-landing-page": {
@@ -3154,16 +3231,19 @@
             "cms": "Layout"
         },
         "general": {
-            "placeholderSearchBar": "Keresés a céloldalakon...",
+            "placeholderSearchBar": "Keresni a céloldalakat...",
             "treeHeadSelected": "{count} kiválasztva",
             "buttonCreate": "Céloldal hozzáadása",
-            "treeHeadline": "Céloldalak"
+            "treeHeadline": "Céloldalak",
+            "actions": {
+                "actionsDisabledInLanguage": "A céloldalak csak a rendszer alapértelmezett nyelvén hozhatók létre."
+            }
         },
         "base": {
             "general": {
                 "labelName": "Név",
                 "headlineInformationCard": "Általános",
-                "isActiveLabel": "A céloldal aktív",
+                "isActiveLabel": "Aktív",
                 "labelTags": "Címkék",
                 "labelTagsPlaceholder": "Adja meg a címkéket egyenként..."
             },
@@ -3174,11 +3254,11 @@
                 "labelMetaDescription": "Meta leírása",
                 "labelKeywords": "SEO kulcsszavak",
                 "labelUrl": "SEO URL",
-                "placeholderSalesChannel": "Értékesítési csatornát választott...",
+                "placeholderSalesChannel": "Válasszon értékesítési csatornát...",
                 "placeholderMetaTitle": "Adja meg a meta címét...",
                 "placeholderMetaDescription": "Adjon meg egy meta leírást...",
                 "placeholderKeywords": "Adjon meg egy vagy több kulcsszót...",
-                "placeholderUrl": "Adjon meg egy URL-t..."
+                "placeholderUrl": "URL megadása..."
             },
             "cms": {
                 "title": "Elrendezési feladat",
@@ -3188,7 +3268,8 @@
                 "editInPagebuilderEmpty": "Új elrendezés létrehozása",
                 "editContent": "Tartalom szerkesztése",
                 "defaultTitle": "Alapértelmezett elrendezés",
-                "defaultDesc": "Kategória oldal"
+                "defaultDesc": "Kategória oldal",
+                "cmsLayoutModalHeadline": "Céloldal"
             }
         },
         "modal": {
@@ -3205,7 +3286,8 @@
             "columnLinkOnly": "rejtett",
             "linkAdvancedVisibility": "Speciális hozzárendelési beállítások",
             "labelVisibility": "Értékesítési csatornák",
-            "closeModal": "Jelentkezés"
+            "closeModal": "Jelentkezés",
+            "bodyVisibility": "Értékesítési csatornák hozzáadása, ahol a termék meg kell jeleníteni. Ön is képes tovább meghatározni a termék láthatóságát az egyes Storefront értékesítési csatornákon keresztül de az alábbi linken keresztül."
         },
         "general": {
             "mainMenuItemGeneral": "Termékek",
@@ -3215,10 +3297,13 @@
             "placeholderSearchBar": "Termékek keresése...",
             "inheritanceModuleName": "Ez a termék",
             "backToParent": "Visszatérés a változat áttekintéséhez",
+            "backToGeneralOverview": "Visszatérés az általános áttekintéshez",
             "copy": "Másolás",
             "cloneSuffix": "változatok",
             "cloneNotice": "A termékváltozatok duplikálódnak. Ha ez a folyamat megszakad, lehetséges, hogy nem minden változat duplikálódik teljesen. Ebben az esetben újra létrehozhatja a változatokat az új termékben.",
-            "cloneTitle": "Másolatos változatok"
+            "cloneTitle": "Másolatos változatok",
+            "tooltipModeSettings": "Mód beállításai",
+            "textAdvancedMode": "Speciális mód"
         },
         "basicForm": {
             "labelTitle": "Cím",
@@ -3248,7 +3333,10 @@
             "textAddSearchKeyword": "Kattintson ide a keresési kulcsszó hozzáadásához",
             "textEnterValidSearchKeyword": "Kereshető kulcsszavak",
             "helpTextSearchKeyword": "A Storefront terméke is megtalálható ezekkel a kulcsszavakkal.",
-            "helpTextTags": "A címkék kizárólag belső használatra szolgálnak. Segítenek a termékcsoportok kezelésében, szabályok alkalmazásában, vagy egyéni keresési kifejezésként szolgálhatnak."
+            "helpTextTags": "A címkék kizárólag belső használatra szolgálnak. Segítenek a termékcsoportok kezelésében, szabályok alkalmazásában, vagy egyéni keresési kifejezésként szolgálhatnak.",
+            "categoriesTitle": "Kategóriák és címkék",
+            "descriptionCategories": "Adjon hozzá kategóriákat, hogy a termék megtalálható legyen a Storefront főmenüben vagy API-kapcsolatokon keresztül. Ügyeljen arra, hogy a kiválasztott értékesítési csatornán elérhető és aktív kategóriákat válasszon.",
+            "descriptionTags": "A címkék segítségével gyorsabban megtalálhatja a termékeket. Ezek megkönnyítik a termékek csoportosítását, és felhasználhatók a feladat automatizálására a Szabályépítővel."
         },
         "priceForm": {
             "labelTaxRate": "Adókulcs",
@@ -3298,7 +3386,7 @@
             "labelEan": "EAN",
             "labelManufacturerNumber": "Gyártó termékszáma",
             "labelStock": "Készlet",
-            "labelActive": "Aktív",
+            "labelActive": "Aktív az összes kiválasztott értékesítési csatornára",
             "labelShippingFree": "Ingyenes szállítás",
             "labelMarkAsTopseller": "Termék promóció",
             "labelIsCloseout": "Értékesítés",
@@ -3333,7 +3421,7 @@
         "detailBase": {
             "cardTitleDeliverabilityInfo": "Kiszállíthatóság",
             "cardTitleProductInfo": "Általános információk",
-            "cardTitleAssignment": "Feladat",
+            "cardTitleAssignment": "Láthatóság és szerkezet",
             "cardTitlePrices": "Árak",
             "cardTitleSettings": "Címkék",
             "cardTitlePackaging": "Intézkedések és",
@@ -3342,12 +3430,15 @@
             "cardTitleReviews": "Vélemények",
             "cardTitleMedia": "Média",
             "labelContextMenuAddToProduct": "Hozzáadás a termékhez",
-            "cardTitleSeo": "SEO"
+            "cardTitleSeo": "SEO",
+            "cardTitleVisibilityStructure": "Láthatóság szerkezete"
         },
         "specifications": {
             "cardTitleMeasuresPackaging": "Intézkedések és",
             "cardTitleEssentialCharacteristics": "Alapvető jellemzők",
-            "cardTitleCustomFields": "Egyéni mezők"
+            "cardTitleCustomFields": "Egyéni mezők",
+            "cardTitleProperties": "Tulajdonságok",
+            "cardTitleCustomProduct": "Egyedi termékek"
         },
         "seo": {
             "cardTitleSeo": "SEO"
@@ -3501,7 +3592,7 @@
             "generationNotificationCountDeletion": "Egy változat törlődik | {count} változatok törlődnek",
             "generationNotificationButtonCancel": "Mégse",
             "generationNotificationButtonContinue": "Generál",
-            "generatedFilterList": "Szűrő",
+            "generatedFilterList": "Szűrő lista",
             "generatedListColumnVariation": "Név",
             "generatedListColumnPrice": "Ár (bruttó/nettó)",
             "generatedListColumnProductNumber": "Termékszám",
@@ -3524,24 +3615,26 @@
             },
             "configuratorModal": {
                 "title": "Változatok generálása",
-                "selectOptions": "Értékek kiválasztása",
-                "selectOptionsExplanation": "Válasszon tulajdonságértékeket változatok létrehozásához.",
-                "priceSurcharges": "Ár pótdíj",
+                "selectOptions": "Érték kiválasztása",
+                "selectOptionsExplanation": "Válassza ki a tulajdonságértékeket, amelyből változatokat kíván létrehozni.",
+                "selectRestrictionsExplanation": "Válassza ki a változatok generálásából kizárni kívánt tulajdonságértékeket.",
+                "selectPricesExplanation": "Adjon hozzá pótdíjakat értékekhez vagy pénznemekhez.",
+                "priceSurcharges": "Árak",
                 "resetSurcharges": "Felár törlése",
-                "defineRestrictions": "Korlátozás meghatározása",
+                "defineRestrictions": "Értékkizárás",
                 "priceOptions": "Érték",
-                "restrictedCombinations": "Korlátozott tulajdonságértékek",
-                "searchRestrictions": "Keresési tulajdonságok...",
-                "addNewRestriction": "Korlátozás hozzáadása",
-                "editRestriction": "Korlátozás szerkesztése",
-                "deleteRestriction": "Korlátozás törlése",
+                "restrictedCombinations": "Kizárt tulajdonságértékek",
+                "searchRestrictions": "Kizárt értékek keresése...",
+                "addNewRestriction": "Érték kizárása",
+                "editRestriction": "Szerkesztés",
+                "deleteRestriction": "Törlés",
                 "singleRestrictionSeperation": "És",
-                "deleteCombination": "Kombináció törlése",
+                "deleteCombination": "Törlés",
                 "isOneFrom": "az egyik",
                 "cancel": "Mégse",
                 "save": "Mentés",
                 "searchPlaceholder": "Keresési értékek...",
-                "singleRestrictionAddTitle": "Korlátozás hozzáadása",
+                "singleRestrictionAddTitle": "Érték kizárása",
                 "surchargeNotice": "A pótdíjak módosításai nem befolyásolják a már generált változatokat. Kérjük, látogasson el a változat részletes oldalára, és változtassa meg a már generált változatok árait."
             },
             "deliveryModal": {
@@ -3610,7 +3703,7 @@
             "templateSelectFieldPlaceholder": "Válasszon egy sablont..."
         },
         "layoutAssignment": {
-            "title": "Alapértelmezett tartalék",
+            "title": "Alapértelmezett érték",
             "subtitle": "Termék oldal",
             "textAssignLayout": "elrendezés hozzárendelése",
             "textChangeLayout": "Elrendezés módosítása",
@@ -3618,14 +3711,45 @@
             "textEditInDesigner": "Szerkesztés a tervezőben"
         },
         "filters": {
+            "fromPlaceholder": "Adja meg a kezdő értéket...",
+            "toPlaceholder": "Adja meg a végértéket...",
             "activeFilter": {
                 "label": "Aktív",
                 "placeholder": "Állapot kiválasztása..."
             },
             "imagesFilter": {
                 "label": "Képek",
-                "placeholder": "Válasszon ki egy képállapotot..."
-            }
+                "placeholder": "Válasszon ki egy képállapotot...",
+                "textHasCriteria": "Legalább egy termékkép hozzárendelve",
+                "textNoCriteria": "Nincs termékkép hozzárendelve"
+            },
+            "releaseDateFilter": {
+                "label": "Megjelenés dátuma"
+            },
+            "stockFilter": {
+                "label": "Készlet"
+            },
+            "priceFilter": {
+                "label": "Ár"
+            },
+            "manufacturerFilter": {
+                "label": "Gyártó",
+                "placeholder": "Válasszon gyártót..."
+            },
+            "salesChannelsFilter": {
+                "label": "Értékesítési csatornák",
+                "placeholder": "Értékesítési csatornák kiválasztása..."
+            },
+            "categoriesFilter": {
+                "label": "Kategóriák",
+                "placeholder": "Kategóriák kiválasztása..."
+            },
+            "tagsFilter": {
+                "label": "Címkék",
+                "placeholder": "Címkék kiválasztása..."
+            },
+            "messageEmptyTitle": "Semmi sem található",
+            "messageEmptySubline": "Szerkessze a szűrőket az eredmények megtekintéséhez."
         },
         "notification": {
             "notificationSaveErrorProductNoAlreadyExists": "A „{productNo}” termékszám már hozzá van rendelve."
@@ -3865,6 +3989,7 @@
             "info": "Mi újság?",
             "requirements": "Rendszerkövetelmények",
             "plugins": "A beépülő modul",
+            "extensions": "Bővítés",
             "updating": "Frissítés..."
         },
         "notifications": {
@@ -3907,6 +4032,7 @@
             },
             "actions": {
                 "openPluginManager": "A bővítménykezelő megnyitása",
+                "openMyExtensions": "A bővítmények megnyitása",
                 "deactivateAll": "Kapcsolja ki az összes beépülő modult.",
                 "deactivateIncompatible": "Inkompatibilis bővítmények inaktiválása.",
                 "deactivateNone": "Tisztában vagyok az implicit veszélyekkel, és még mindig szeretném frissíteni a Shopware-t anélkül, hogy inaktiválná az inkompatibilis bővítményeket. Tudatában vagyok annak, hogy a Shopware nem tudja garantálni a telepítésem működését egy inkompatibilis frissítés után.",
@@ -3977,82 +4103,83 @@
         },
         "generalTab": {
             "labelSearchBehaviour": "Keresési viselkedés",
-            "textTitleSearchBehaviour": "Határozza meg előre a kirakati keresési viselkedését.",
+            "textTitleSearchBehaviour": "Határozza meg előre az értékesítési csatornák keresési viselkedését.",
             "labelSearchAndCondition": "„ÉS” Keresés",
-            "textSearchAndConditionExplain": "A keresési eredmények egyeznek a megadott keresési kifejezés minden egyes elemével.\nPélda: A „farmer nyár” olyan termékeket talál, amelyek mind a „farmer”, mind a „nyár” kulcsszavakat tartalmazzák.",
+            "textSearchAndConditionExplain": "A keresési eredmények egyeznek a megadott keresési kifejezés minden egyes elemével.\nPélda: A „farmer nyár” olyan keresési eredményeket talál, amelyek mind a „farmer”, mind a „nyár” kifejezést tartalmazzák.",
             "labelSearchOrCondition": "„VAGy” Keresés",
-            "textSearchOrConditionExplain": "A keresési eredmények egyeznek a megadott keresési kifejezés bármely elemével.\nPélda: A „farmer nyár” olyan termékeket talál, amelyek a „farmer” és a „nyár” kulcsszót tartalmazzák.",
+            "textSearchOrConditionExplain": "A keresési eredmények egyeznek a megadott keresési kifejezés bármely elemével.\nPélda: A „farmer nyári” kifejezés olyan keresési eredményeket talál, amelyek a „farmer” vagy a „nyár” keresési kifejezést tartalmazzák.",
             "labelMinimalSearchTerm": "Minimális keresési kifejezés hossza",
             "labelExcludedSearchTerms": "Kizárt keresési kifejezések",
             "textEmptyStateExcludedSearchTerms": "Még nincsenek kizárva keresési kifejezések",
-            "buttonAddExcludedSearch": "Kizárás hozzáadása",
-            "textPlaceholderTermsFilter": "Kizárt kifejezések keresése...",
-            "buttonAddExcludedSearchTerms": "Kizárási kifejezés hozzáadása",
+            "buttonAddExcludedSearch": "Keresési kifejezés kizárása",
+            "textPlaceholderTermsFilter": "Keresés kizárt keresési kifejezések...",
+            "buttonAddExcludedSearchTerms": "Keresési kifejezés kizárása",
             "labelExcludedSearchTermsNoResults": "Nincs találat.",
             "labelSearchableContent": "Kereshető tartalom",
-            "textDescriptionSearchableContent": "Az összes kereshető tartalom az alábbi táblázatban található. Ha testre szeretné szabni a keresési eredményeket a Storefront, menjen előre, és vagy zárja ki a tartalmat a kereshetőségből, vagy csípje az egyes elemek rangsorát tetszés szerint. A magasabb rangú elemek megnövekedett „keresési értékkel” rendelkeznek, és magasabbra kerülnek a keresési eredmények között.",
+            "textDescriptionSearchableContent": "Az összes kereshető tartalom az alábbi táblázatban található. Az értékesítési csatornák keresési eredményeinek testreszabásához menjen előre, és vagy kizárja a tartalmakat a kereshetőségből, vagy az egyes elemek rangsorolását tetszés szerint módosítsa. A magasabb rangú elemek megnövekedett „keresési értékkel” rendelkeznek, és magasabbra kerülnek a keresési eredmények között.",
             "buttonResetDefault": "Alapértelmezés visszaállítása",
             "linkExample": "Példa mutatása",
-            "buttonAddContent": "Tartalom hozzáadása",
+            "buttonAddContent": "Kereshető tartalom hozzáadása",
             "labelGeneralTab": "Általános",
             "labelCustomFieldsTab": "Egyéni mezők",
             "textEmptyStateSearchableContent": "Még nem adtunk hozzá kereshető tartalmat.",
             "titleExampleModal": "Keresési rangsorolási példa",
-            "textColumnSearchTerm": "Keresési kifejezések",
+            "textColumnSearchTerm": "Kizárt keresési kifejezések",
             "modal": {
                 "textExplain": "Az alábbiakban három kitalált találatot talál a „farmer” keresési kifejezésre. A kereshetőek a termékcímek (rangsor 100), a termékleírások (rangsor 50) és a termékcímkék (rangsor 20).",
                 "textTitle": "Cím",
-                "textSuperJeans": "szuper farmer",
+                "textSuperJeans": "Super farmer",
                 "textDescription": "Leírás",
-                "textFancyJeans": "díszes farmer",
+                "textFancyJeans": "Fancy farmer",
                 "textTag": "Címke",
                 "textJeans": "Farmer",
                 "textTotal": "Összesen",
                 "textProductRankedFirstScore": "Az elsőként rangsorolt termék minden kereshető entitásban keresési találatot tartalmaz, ami összesen 170 pontszámot eredményez.",
-                "textFancyPants": "díszes nadrág",
-                "textProductRankedSecondScore": "A második helyen szereplő terméknek találatai vannak a termék címére és a termékcímkékre vonatkozóan, így a teljes rangsorolási pontszám 120.",
+                "textFancyPants": "Fancy nadrág",
+                "textProductRankedSecondScore": "A második helyen szereplő termék keresési találatai vannak a terméknévre és a termékcímkékre vonatkozóan, így a teljes rangsorolási pontszám 120.",
                 "textSuperPants": "Szuper nadrág",
                 "textProductRankedThirdScore": "A harmadik helyen szereplő terméknek csak egy találata van a termékkategóriákban, ami összesen 20 pontszámot eredményez."
             },
             "labelSearchIndex": "Keresési index",
             "buttonRebuildSearchIndex": "Keresési index újraépítése",
-            "textWarningOpenTab": "Kérem, tartsa nyitva ezt az ablakot/fület.",
-            "textRebuildSearchIndexDescription": "A keresési index újraépítése egy kis időt vesz igénybe. Ezalatt az idő alatt a keresési index sikeres újraépítése érdekében nyitva kell tartani ezt az ablakot/lapot. Amint a folyamat befejeződött, értesítést kap.",
+            "textWarningOpenTab": "Kérem, tartsa nyitva az ablakot.",
+            "textRebuildSearchIndexDescription": "A keresési index újraépítése időbe telik. Ez idő alatt kötelező nyitva tartani ezt az ablakot a keresési index sikeres újraépítése érdekében. Amint a folyamat befejeződött, értesítést kap.",
             "textRebuildingSearchIndex": "Keresési index újraépítése",
             "textLastedBuild": "Legújabb építmények:",
+            "textSearchNotIndexedYet": "A keresés még nincs indexelve.",
             "list": {
                 "columnSearchable": "Kereshető",
-                "columnRankingPoints": "Rangsorolási pontok",
+                "columnRankingPoints": "Rangsor pontszám",
                 "columnContent": "Tartalom",
-                "columnSplitKeywords": "Kulcsszavak megosztása",
+                "columnSplitKeywords": "Osztott keresési kifejezések",
                 "textResetRanking": "Rangsor visszaállítása",
                 "textRemove": "Távolítsa el"
             },
             "configFields": {
-                "name": "Név",
-                "description": "Leírás",
+                "name": "Terméknév",
+                "description": "A termék leírása",
                 "productNumber": "Termékszám",
                 "manufacturerNumber": "Gyártó száma",
-                "ean": "EAN",
-                "customSearchKeywords": "Egyéni keresési kulcsszavak",
+                "ean": "Termék EAN",
+                "customSearchKeywords": "Egyéni keresési kifejezések",
                 "manufacturerName": "Gyártó neve",
                 "manufacturerCustomFields": "Gyártó egyéni mezők",
-                "categoriesName": "Kategóriák neve",
-                "categoriesCustomFields": "Kategóriák: egyéni",
-                "tagsName": "Címke neve",
-                "metaTitle": "Meta cím",
-                "metaDescription": "Meta leírása",
+                "categoriesName": "Kategória neve",
+                "categoriesCustomFields": "Egyedi kategória mezők",
+                "tagsName": "Termék címke",
+                "metaTitle": "Termék meta címe",
+                "metaDescription": "Termék meta leírása",
                 "propertiesName": "Ingatlan neve",
-                "variantValue": "Változat értéke"
+                "variantValue": "Ingatlanérték"
             }
         },
         "notification": {
-            "saveSuccess": "A konfiguráció mentésre került.",
-            "excludedTermRequired": "A kizárt kifejezés nem lehet üres.",
-            "excludedTermAlreadyExists": "Kizárt kifejezés már létezik.",
-            "updateExcludedTermSuccess": "Kizárt kifejezés frissítés siker.",
-            "createExcludedTermSuccess": "A kizárt kifejezés sikerrel jár.",
-            "deleteExcludedTermSuccess": "Kizárt kifejezés törlése siker.",
+            "saveSuccess": "Konfiguráció mentve.",
+            "excludedTermRequired": "A kizárt keresési kifejezések nem lehetnek üresek.",
+            "excludedTermAlreadyExists": "Kizárt keresési kifejezés már létezik.",
+            "updateExcludedTermSuccess": "Kizárt keresési kifejezés frissítve.",
+            "createExcludedTermSuccess": "Kizárt keresési kifejezés létrehozva.",
+            "deleteExcludedTermSuccess": "Kizárt keresési kifejezés törölve.",
             "saveError": "Hiba történt a konfiguráció mentése közben.",
             "index": {
                 "started": "Építési termék indexek.",
@@ -4061,14 +4188,14 @@
             "loadError": "Hiba történt a konfiguráció betöltése közben."
         },
         "liveSearchTab": {
-            "titleCard": "Storefront élő keresés",
-            "textDescription": "Tesztelje az alábbi egyéni keresési beállításokat. Ha éppen most változtatta meg a keresési beállításokat, mindenképpen mentse el ezeket a beállításokat, mielőtt tesztelné őket ezzel az élő kereséssel.",
+            "titleCard": "Értékesítési csatorna élő keresés",
+            "textDescription": "Tesztelje az alábbi egyéni keresési beállításokat.",
             "labelSalesChannelSelect": "Értékesítési csatorna",
-            "textPlaceholderSalesChannel": "Válasszon egy értékesítési csatornát az élő keresés teszteléséhez",
+            "textPlaceholderSalesChannel": "Válasszon egy értékesítési csatornát...",
             "linkRebuildSearchIndex": "Keresési index újraépítése",
-            "labelName": "Név",
-            "labelScore": "Pontszám",
-            "textNoResult": "Nincs találat a megadott kulcsszó (ek) re. Próbálkozzon egy másik kulcsszóval"
+            "labelName": "Keresési eredmény",
+            "labelScore": "Rangsor pontszám",
+            "textNoResult": "Nincs találat. Próbálkozzon újra egy másik keresési kifejezéssel."
         }
     },
     "sw-settings-mailer": {
@@ -4105,8 +4232,6 @@
             "password-placeholder": "Adjon meg egy jelszót...",
             "encryption": "Titkosítás",
             "encryption-placeholder": "Válassza ki a titkosítási módszert...",
-            "authentication": "Hitelesítési módszer",
-            "authentication-placeholder": "Hitelesítési módszer kiválasztása...",
             "sender-address": "Feladó címe",
             "sender-address-placeholder": "Adja meg az e-mail címét, amelyhez hozzáférhet...",
             "delivery-address": "Szállítási cím",
@@ -4118,12 +4243,6 @@
             "no-encryption": "Nincs titkosítás",
             "ssl": "SSL",
             "tls": "TLS"
-        },
-        "authentication": {
-            "no-authentication": "Nincs hitelesítés",
-            "plain": "Sima",
-            "login": "bejelentkezés",
-            "cram-md5": "Cam MD5"
         },
         "helpText": "További információért kérjük, tekintse meg a <a target=\"_blank\", href=\"https://docs.shopware.com/en/shopware-6-en\">dokumentációt.</a>"
     },
@@ -4141,42 +4260,44 @@
         "my-extensions": {
             "listing": {
                 "initialSearchType": "Kiegészítések",
-                "placeholderSearchBar": "Keresési bővítmények…",
+                "placeholderSearchBar": "Keresési bővítmények...",
                 "controls": {
                     "labelActiveStateSwitch": "Inaktív bővítmények elrejtése",
                     "filterOptions": {
                         "last-updated": "Utoljára frissítve",
-                        "name-asc": "Bővítmény neve, asc.",
-                        "name-desc": "Kiterjesztett név, desc."
+                        "name-asc": "Név A - Z.",
+                        "name-desc": "Név: Z - A."
                     }
-                }
+                },
+                "version": "Verzió",
+                "update": "Frissítés"
             },
             "account": {
                 "headline": "Üzletprogram-fiók",
-                "isLoggedIn": "Sikeresen kapcsolódik a fiókhoz. Menjen az „Alkalmazás” vagy a „Témák” fülre, és ellenőrizze, hogy a megvásárolt bővítmények szerepel-e a listában. Ha nem, ellenőrizze a fejét Showare-fiókjához, és győződjön meg róla, hogy a bővítmények megfelelő tartománya be van állítva.",
+                "isLoggedIn": "Shopware Fiók sikeresen csatlakozik. Menjen az „Alkalmazás” vagy a „Témák” fülre, és ellenőrizze, hogy a megvásárolt bővítmények szerepel-e a listában. Ha nem, ellenőrizze a fejét Shopware Fiók, és győződjön meg róla, hogy a bővítmények megfelelő tartománya be van állítva.",
                 "login": "bejelentkezés",
                 "logout": "Kijelentkezés",
-                "loginMessage": "Jelentkezzen be Önnel Shopware Fiókjába, hogy hozzáférjen a store.shopware.com oldalon vásárolt bővítményekhez",
-                "register": "Regisztráljon és váljon a Shopware közösség részévé!",
-                "registerNow": "Regisztráljon most",
+                "loginMessage": "Jelentkezzen be veled Shopware Fiókba, hogy hozzáférjen a store.shopware.com oldalon vásárolt bővítményekhez",
+                "register": "Regisztráljon most, és váljon a Shopware közösség részévé!",
+                "registerNow": "Iratkozzon fel most",
                 "registerUrl": "https://account.shopware.com/register?lang=en",
                 "mailLabel": "E-mail cím",
-                "mailPlaceholder": "Adja meg e-mail címét…",
+                "mailPlaceholder": "Adja meg az e-mail címét...",
                 "passwordLabel": "Jelszó",
-                "passwordPlaceholder": "Adja meg a jelszavát…",
+                "passwordPlaceholder": "Adja meg a jelszavát...",
                 "recoveryUrl": "https://account.shopware.com/recovery?lang=en",
-                "passwordForgot": "Elfelejtetted a jelszavadat?",
+                "passwordForgot": "Elfelejtetted a jelszavad?",
                 "loginNotificationMessage": "Ön be van jelentkezve a Shopware fiókjába."
             },
             "tabs": {
-                "app": "Alkalmazás",
-                "theme": "Téma",
+                "app": "Alkalmazások",
+                "theme": "Témák",
                 "recommendation": "Javaslatok",
                 "shopwareAccount": "Üzletprogram-fiók"
             },
             "fileUpload": {
-                "buttonFileUpload": "bővítmény feltöltése",
-                "messageUploadSuccess": "A plugin fel lett töltve."
+                "buttonFileUpload": "Feltöltés bővítmény",
+                "messageUploadSuccess": "A bővítmény feltöltve."
             }
         },
         "errors": {
@@ -4184,19 +4305,19 @@
             "messageGenericFailure": "Ez nem működött.",
             "messageUploadFailureNotAZipFile": "A feltöltött fájl nem ZIP fájl.",
             "messageUploadFailureUnzipFailed": "Nem sikerült kibontani a ZIP fájlt.",
-            "messageUploadFailureNoPluginFoundInZipFile": "Nem található plugin ZIP fájl.",
+            "messageUploadFailureNoPluginFoundInZipFile": "Nem található kiterjesztés ZIP fájl.",
             "messageLoginDataInvalid": "A bejelentkezési adatok hiányosak.",
             "messageStoreLicenseDomainMissing": "A bejelentkezés sikertelen. Megadtad a helyes licencdomaint Shopware fiókjából a „Beállítások/Shopware Account” alatt?",
             "messageStoreNotAvailable": "A Shopware Store nem érhető el.",
-            "messagePluginBaseClassNotFound": "A beépülő modul alaposztályát nem lehetett betölteni. Ellenőrizze a plugin zeneszerző.json tekintetében az osztály autoloading",
-            "messagePluginInstallationFailed": "A bővítmény nem telepíthető a \"{message}” hibaüzenet miatt",
-            "messagePluginUninstallationFailed": "A bővítmény nem távolítható el a \"{message}” hibaüzenet miatt",
-            "messagePluginActivationFailed": "A bővítmény nem aktiválható a \"{message}” hibaüzenet miatt",
-            "messagePluginDeactivationFailed": "A beépülő modul nem kapcsolható ki a \"{message}” hibaüzenet miatt",
-            "messageDeactivationFailedDependencies": "A „{dependency}” bővítmény nem kapcsolható ki, mert attól függően más bővítmények is vannak. Kérjük, kapcsolja ki a következő bővítményeket a frissítés újraindítása előtt: {dependantNames}",
+            "messagePluginBaseClassNotFound": "A kiegészítő alaposztály nem tölthető be. Ellenőrizze a plugin zeneszerző.json tekintetében az osztály automatikus rakodás.",
+            "messagePluginInstallationFailed": "A bővítmény nem telepíthető: \"{message}”.",
+            "messagePluginUninstallationFailed": "A kiterjesztés nem távolítható el: \"{message}”.",
+            "messagePluginActivationFailed": "A kiterjesztés nem aktiválható: \"{message}”.",
+            "messagePluginDeactivationFailed": "A kiterjesztés nem kapcsolható ki: \"{message}”.",
+            "messageDeactivationFailedDependencies": "A „{dependency}” kiterjesztés nem kapcsolható ki, mert attól függően más bővítmények is vannak. Kérjük, kapcsolja ki a következő bővítményeket a frissítés újraindítása előtt: {dependantNames}",
             "messageDeactivationFailedThemeAssignment": "Nem sikerült kikapcsolni vagy eltávolítani a „{themeName}” témát. Kérjük, távolítsa el a következő témákat: {assignments}.",
-            "messagePluginUpdateFailed": "A beépülő modul nem frissíthető a \"{message}” hibaüzenet miatt. {pluginDeactivatedHint}",
-            "pluginDeactivatedHint": "A beépülő modul ki lett kapcsolva."
+            "messagePluginUpdateFailed": "A kiterjesztés nem frissíthető: \"{message}”. {pluginDeactivatedHint}",
+            "pluginDeactivatedHint": "Bővítés kikapcsolva."
         },
         "mainMenu": {
             "mainMenuItemExtensionStore": "Kiegészítések",
@@ -4206,6 +4327,20 @@
         }
     },
     "sw-extension-store": {
+        "landing-page": {
+            "enablingShopwareStore": "A Shopware Store aktiválása...",
+            "takeMinutes": "Ez eltarthat néhány percig.",
+            "activationErrorTitle": "Hiba az aktiválás során",
+            "activationErrorDescription": "Kérem, próbálja meg újra. Ha ez nem működik, kérjen segítséget a rendszergazdától.",
+            "retryButton": "Újra próbálkozás",
+            "activationSuccessTitle": "Sikeresen aktiválva",
+            "activationSuccessDescription": "Jó szórakozást a Shopware Store felfedezésében.",
+            "label": "Most már elérhető",
+            "activationDescriptionTitleFirst": "Fedezze fel és vásároljon bővítményeket egyszerűen -",
+            "activationDescriptionTitleSecond": "közvetlenül a saját Shopware boltjából.",
+            "activationDescriptionTitleDescription": "Aktiválja a vadonatúj Shopware Áruházat, és hozzáférhet a sok hasznos bővítményhez és modern témához, amelyek beépíthetők üzletébe, bármilyen programozási készség nélkül.",
+            "activate": "Aktiválása"
+        },
         "title": "Store",
         "descriptionTextModule": "A bővítmények kezelése",
         "general": {
@@ -4224,8 +4359,8 @@
                 "releaseDateDesc": "Megjelenés dátuma legújabb - legrégebbi",
                 "nameAsc": "Név A - Z",
                 "nameDesc": "Név Z - A",
-                "ratingAsc": "Értékelés alacsony - Magas",
-                "ratingDesc": "Minősítés magas — alacsony"
+                "ratingAsc": "Értékelés alacsony - magas",
+                "ratingDesc": "Értékelés magas - alacsony"
             }
         },
         "detail": {
@@ -4233,7 +4368,7 @@
             "labelButtonOpenExtension": "Nyílt kiterjesztés",
             "labelButtonInstallExtension": "Telepítési bővítmény",
             "labelBy": "által",
-            "numberOfRatings": "{count} Értékelés | {count} Értékelések",
+            "numberOfRatings": "{count} felülvizsgálat | {count} vélemény",
             "noRatings": "Még nincs értékelés",
             "cardTitleInformation": "Információ",
             "labelButtonReadMore": "Bővebben",
@@ -4244,7 +4379,7 @@
                 "labelUpdatedAt": "Utoljára frissítve",
                 "labelLanguages": "Nyelvek",
                 "labelWebsite": "Fejlesztői weboldal",
-                "labelPrivacy": "Privacylink"
+                "labelPrivacy": "Adatvédelmi irányelvek"
             },
             "cardTitleFAQ": "GYIK",
             "cardTitleChangelog": "Változási napló",
@@ -4258,7 +4393,7 @@
             },
             "sw-extension-buy-modal": {
                 "title": "Hosszabbítás hozzáadása",
-                "labelAcceptPermissions": "Tisztában vagyok vele, hogy ez a bővítmény engedélyekre van",
+                "labelAcceptPermissions": "Tisztában vagyok azzal, hogy ez a bővítmény további engedélyeket igényel",
                 "labelAcceptPrivacyExtensions": "Tisztában vagyok azzal, hogy ki kell terjesztenem az adatvédelmi irányelveimet",
                 "buttonShowPrivacyExtensions": "Részletek megjelenítése",
                 "variantCard": {
@@ -4270,7 +4405,7 @@
                 "variantSummary": {
                     "labelVat": "plusz ÁFA",
                     "labelPrice": "Ár",
-                    "renewal": "Megújítás {renewalDate}"
+                    "renewal": "Megújítás: {renewalDate}"
                 },
                 "purchaseButtonsLabels": {
                     "free": "Bővítmény hozzáadása ingyen",
@@ -4278,22 +4413,22 @@
                     "buy": "Vásároljon bővítményt most"
                 },
                 "successNotification": {
-                    "titleSuccess": "A bővítmények sikeresen hozzáadva!",
+                    "titleSuccess": "A bővítmény sikeresen hozzáadva!",
                     "subtitleSuccess": "Most kipróbálhatja az új kiterjesztést.",
                     "labelButtonBack": "Vissza a részletekhez"
                 },
                 "alertCanNotBuy": {
-                    "text": "Ehhez be kell jelentkeznie az Áruházban",
+                    "text": "Ehhez be kell jelentkezned az Áruházba",
                     "linkChoosePLan": "Válasszon egy tervet"
                 }
             },
             "sw-extension-adding-failed": {
-                "titleFailure": "A kiterjesztés hozzáadása nem sikerült",
+                "titleFailure": "Nem sikerült hozzáadni a bővítményt ",
                 "textProblem": "Probléma merült fel a kiterjesztés hozzáadása közben.",
                 "installationFailed": {
                     "titleFailure": "A telepítés sikertelen",
                     "textProblem": "Probléma történt a kiterjesztés telepítése közben. Tájékoztatjuk a gyártót.",
-                    "notificationLicense": "Kérjük, vegye figyelembe, hogy az alkalmazás vagy téma előfizetése aktív marad.",
+                    "notificationLicense": "Kérjük, vegye figyelembe, hogy a bővítményre vonatkozó előfizetés aktív marad.",
                     "textSupport": "Ha bármilyen kérdése van a licenccel kapcsolatban, vegye fel a kapcsolatot a Shopware Financial Services szolgáltatással. Elérhető e-mailben {0} vagy telefonon {1}.",
                     "supportEmail": "financial.services@shopware.com",
                     "supportPhone": "+49 (0) 2555/9288510"
@@ -4311,7 +4446,7 @@
                     "submitBtn": "Küldés"
                 },
                 "sw-extension-ratings-summary": {
-                    "labelRating": "Nincs értékelés | {numberOfRatings} Értékelés | {numberOfRatings} Értékelések"
+                    "labelRating": "Nincs értékelés | {numberOfRatings} értékelés | {numberOfRatings} értékelés"
                 },
                 "sw-extension-review": {
                     "labelLastChangeDate": "Által {author} on {lastChangeDate}",
@@ -4324,6 +4459,7 @@
                     "labelNoReviews": "Ez a kiterjesztés még nem kapott értékelést vagy értékelést."
                 },
                 "sw-extension-review-creation-inputs": {
+                    "title": "Rate kiterjesztése",
                     "labelHeadline": "Főcím",
                     "placeholderHeadline": "Adjon meg egy rövid címsort...",
                     "labelRating": "Értékelés",
@@ -4336,8 +4472,8 @@
             "sw-extension-card-base": {
                 "subscriptionLabel": "Előfizetés:",
                 "inactiveLabel": "(inaktív)",
-                "purchasedLabel": "Megvásárolt: ",
-                "installedLabel": "Telepítve: ",
+                "purchasedLabel": "Megvásárolva ",
+                "installedLabel": "Telepítve ",
                 "openExtensionLabel": "Alkalmazás megnyitása",
                 "installExtensionLabel": "Alkalmazás telepítése",
                 "labelAcceptAndInstall": "Fogadja el és telepítse",
@@ -4357,18 +4493,18 @@
             "sw-extension-deactivation-modal": {
                 "deactivateExtensionLabel": "\"{extensionName}” inaktiválása",
                 "description": "A „{extensionName}” kiterjesztésnek havi előfizetési díja van.<br>A <b>kiterjesztés kikapcsolása nem</b> törli az előfizetést, és a díjak továbbra is beszedésre kerülnek!",
-                "descriptionCancel": "Ha inkább le szeretné mondani az előfizetést, eltávolíthatja azt a helyi menüben a \"{removeLabel}” alatt.",
+                "descriptionCancel": "Ha törölni szeretné az előfizetést, eltávolíthatja azt a helyi menüben a \"{removeLabel}\" -on keresztül.",
                 "alertDeactivate": "Még mindig ki szeretné kapcsolni a bővítményt?",
                 "deactivateLabel": "Deaktiválás"
             },
             "sw-extension-permissions-modal": {
                 "title": "{extensionLabel} engedélyeit",
-                "description": "{extensionLabel} hozzáférést kap a következő összetevőkhöz. Kattintson a komponens melletti hivatkozásra az entitás részleteinek megjelenítéséhez.",
+                "description": "{extensionLabel} hozzáférhet a következő összetevőkhöz. Kattintson a komponens melletti hivatkozásra az entitás részleteinek megjelenítéséhez.",
                 "textEntities": "Engedélyek megjelenítése"
             },
             "sw-extension-privacy-policy-extensions-modal": {
                 "title": "{extensionLabel}: Adatvédelmi irányelvek kiterjesztései",
-                "intro": "Ez az alkalmazás személyes adatokat dolgoz fel. A gyártó az alábbi tanácsokat nyújtja az Ön adatvédelmi irányelveinek módosításához:"
+                "intro": "Ez az alkalmazás személyes adatokat dolgoz fel. A gyártó ajánlja az adatvédelmi irányelvek módosításait:"
             },
             "sw-extension-permissions-details-modal": {
                 "operationRead": "Nézet",
@@ -4377,16 +4513,23 @@
                 "operationDelete": "Törlés"
             },
             "sw-extension-my-extensions-listing": {
-                "noActivePlugins": "Nincsenek aktív bővítmények.",
-                "titleEmptyState": "Még nincsenek telepítve alkalmazások",
-                "textEmptyState": "Ha alkalmazásokat telepít, azok itt lesznek felsorolva.",
+                "apps": {
+                    "noActivePlugins": "Nem található aktív kiterjesztés.",
+                    "titleEmptyState": "Még nincsenek telepítve alkalmazások",
+                    "textEmptyState": "Ha alkalmazásokat telepít, azok itt lesznek felsorolva."
+                },
+                "themes": {
+                    "noActivePlugins": "Nem található aktív téma.",
+                    "titleEmptyState": "Még nincsenek telepítve témák",
+                    "textEmptyState": "Ha témákat telepít, ezek itt lesznek felsorolva."
+                },
                 "btnOpenStore": "Nyitott üzlet"
             },
             "sw-extension-removal-modal": {
                 "titleCancel": "„{extensionName}\" törölni és eltávolítani",
                 "titleRemove": "„{extensionName}” eltávolítás",
                 "description": "Ha eltávolítja a bővítményt, akkor már nem használhatja.",
-                "alertCancel": "Biztosan el szeretné távolítani a bővítményt?",
+                "alertCancel": "Biztos benne, hogy meg szeretné szakítani és eltávolítani a bővítményt?",
                 "alertRemove": "Biztosan el szeretné távolítani a bővítményt?",
                 "labelCancel": "Törlés és eltávolítás",
                 "labelRemove": "Távolítsa el"
@@ -4404,7 +4547,7 @@
                 "labelLicensed": "Megvásárolt"
             },
             "sw-extension-config": {
-                "messageSaveSuccess": "A konfiguráció mentésre került."
+                "messageSaveSuccess": "Konfiguráció mentve."
             }
         },
         "errors": {
@@ -4412,7 +4555,7 @@
                 "message": "A folytatáshoz el kell fogadnia az általános szerződési feltételeket."
             },
             "FRAMEWORK__EXTENSION_THEME_STILL_IN_USE": {
-                "message": "A téma jelenleg is használatos egy vagy több értékesítési csatornán."
+                "message": "A témát jelenleg egy vagy több értékesítési csatorna használja."
             },
             "FRAMEWORK__INVALID_EXTENSION_ID": {
                 "message": "A kiterjesztés azonosító száma érvénytelen."
@@ -4454,11 +4597,11 @@
                 "message": "A kiválasztott ármodell nem engedélyezett a kiterjesztéshez."
             },
             "SAAS_EXTENSION_ORDER__NO_DEFAULT_PAYMENT_MEAN": {
-                "message": "Nincs alapértelmezett fizetési átlag elérhető.",
-                "labelLink": "Alapértelmezett fizetés beállítása"
+                "message": "Nincs alapértelmezett fizetési mód.",
+                "labelLink": "Alapértelmezett fizetési mód beállítása"
             },
             "SAAS_EXTENSION_ORDER__INSUFFICIENT_BALANCE": {
-                "message": "Nincs elegendő egyenleg."
+                "message": "Elégtelen egyensúly."
             },
             "SAAS_EXTENSION_REQUEST__INVALID_CONTENT": {
                 "message": "A kérelemadatok hiányoznak vagy érvénytelenek."
@@ -4467,26 +4610,26 @@
                 "message": "A kosár érvénytelen, mert több licencet tartalmaz, vagy már birtokolt licencet tartalmaz."
             },
             "SAAS_EXTENSION_INVALID_BASKET__INVALID_ORDER_POSITION": {
-                "message": "A kosár érvénytelen rendelési pozíció miatt."
+                "message": "A bevásárlókosár érvénytelen, mert érvénytelen rendelési pozíció."
             },
             "SAAS_EXTENSION_INVALID_BASKET__GENERAL": {
-                "message": "A kosár érvénytelen."
+                "message": "A bevásárlókosár érvénytelen."
             },
             "SAAS_EXTENSION_INVALID_BASKET__INVALID_COMPANY": {
-                "message": "A kosár érvénytelen, mert a vállalat nem rendelkezik országgal."
+                "message": "A bevásárlókosár érvénytelen, mert a vállalat nem rendelkezik országgal."
             },
             "SAAS_EXTENSION_RATING__INVALID_EXTENSION": {
                 "message": "A minősítés nem menthető, mert a kapcsolódó kiterjesztés érvénytelen."
             },
             "SAAS_COMPANY__MISSING": {
-                "message": "Eltűnt a szükséges cég.",
+                "message": "A szükséges vállalati nyilatkozat hiányzik.",
                 "labelLink": "Céges hozzárend"
             }
         }
     },
     "entityCategories": {
         "admin_user": {
-            "title": "Rendszergazdai felhasználó",
+            "title": "Rendszergazda felhasználó",
             "entities": {
                 "integration": "integráció",
                 "user": "Felhasználó",
@@ -4530,7 +4673,7 @@
                 "customer_address": "Cím",
                 "customer_group": "Ügyfélcsoport",
                 "customer_group_translation": "Ügyfélcsoport fordítás",
-                "customer_group_registration_sales_channels": "Ügyfélcsoport regisztrációs értékesítési csatorna",
+                "customer_group_registration_sales_channels": "Értékesítési csatorna ügyfélcsoport-regisztrációkhoz",
                 "customer_recovery": "Recovery",
                 "customer_tag": "Címke"
             }
@@ -4547,8 +4690,8 @@
             "title": "Okmányok",
             "entities": {
                 "document": "A dokumentum",
-                "document_base_config": "Alapkonfiguráció",
-                "document_base_config_sales_channel": "Értékesítési csatornák alapkonfigurálása",
+                "document_base_config": "Alapvető konfiguráció",
+                "document_base_config_sales_channel": "Alapvető konfiguráció értékesítési csatornákhoz",
                 "document_type": "Típus",
                 "document_type_translation": "Típus fordítás"
             }
@@ -4588,8 +4731,8 @@
         "media": {
             "title": "Média",
             "entities": {
-                "media": "Média",
-                "media_translation": "Média fordítás",
+                "media": "Közeg",
+                "media_translation": "Középfokú fordítás",
                 "media_default_folder": "Alapértelmezett mappa",
                 "media_folder": "mappa",
                 "media_folder_configuration": "Mappa beállítása",
@@ -4645,9 +4788,9 @@
                 "product_category": "kategória",
                 "product_category_tree": "Kategória fa",
                 "product_configurator_setting": "Konfigurátor beállítása",
-                "product_cross_selling": "Keresztértékesítés",
-                "product_cross_selling_translation": "Keresztes fordítás",
-                "product_cross_selling_assigned_products": "Keresztértékesítés hozzárendelt fordítás",
+                "product_cross_selling": "Keresztes értékesítés",
+                "product_cross_selling_translation": "Keresztértékesítési fordítás",
+                "product_cross_selling_assigned_products": "Keresztértékesítési hozzárendelt fordítás",
                 "product_export": "Termék kivitel",
                 "product_keyword_dictionary": "Kulcsszótár",
                 "product_manufacturer": "Gyártó",
@@ -4705,15 +4848,15 @@
                 "sales_channel_payment_method": "Fizetési mód",
                 "sales_channel_shipping_method": "Szállítási mód",
                 "sales_channel_translation": "Értékesítési csatorna fordítása",
-                "sales_channel_type": "Típus",
-                "sales_channel_type_translation": "Típus fordítás"
+                "sales_channel_type": "Értékesítési csatorna típusa",
+                "sales_channel_type_translation": "Értékesítési csatorna típusú fordítás"
             }
         },
         "settings": {
             "title": "Beállítások",
             "entities": {
                 "country": "Ország",
-                "country_state": "Ország szerinti állam",
+                "country_state": "Állam/tartomány",
                 "currency": "Pénznem",
                 "delivery_time": "Szállítási idő",
                 "language": "Nyelv",
@@ -4737,7 +4880,7 @@
                 "tax": "Adó",
                 "tax_rule": "Adószabály",
                 "tax_rule_type": "Adószabály típusa",
-                "unit": "Egység",
+                "unit": "Méretezési egység",
                 "version": "Verzió"
             }
         },
@@ -4933,7 +5076,7 @@
             "placeholderSalesChannels": "Értékesítési csatornák kiválasztása...",
             "placeholderMailTemplate": "Válasszon egy e-mail sablont...",
             "titleRecipientsCard": "E-mail címzettek",
-            "textEmptyStateRecipients": "Ehhez az eseményhez még nincsenek további címzettek. - Az ügyfelek e-mailjei függetlenül lesznek elküldve.",
+            "textEmptyStateRecipients": "Alternatív címzettek hozzáadása - Ha be van állítva az ügyfél e-mailjeit el kell fogadnia!",
             "columnRecipientName": "Név",
             "columnRecipientMail": "E-mail cím",
             "addRecipientButton": "Címzett hozzáadása",
@@ -4943,7 +5086,7 @@
     },
     "sw-settings-logging": {
         "general": {
-            "mainMenuItemGeneral": "Naplózás",
+            "mainMenuItemGeneral": "Az eseménynaplók",
             "placeholderSearchBar": "Keresési naplók..."
         },
         "list": {
@@ -5170,6 +5313,7 @@
             "buttonNextPayPalInfo": "Beállítás",
             "buttonBack": "Vissza",
             "buttonInstall": "Telepítés",
+            "buttonActivate": "Aktiválása",
             "buttonFinish": "Finish",
             "buttonConfigureLater": "Konfigurálás később",
             "pluginInstalled": "Telepítve"
@@ -5178,16 +5322,16 @@
             "modalTitle": "Üdvözöljük",
             "headlineWelcome": "Üdvözöljük a Shopware 6 adminisztrációjában",
             "messageWelcome": "Ez a varázsló végigvezeti a telepítésen, és megpróbál segíteni a legfontosabb beállításokban.<br>Más nyelven szeretné üzletét használni, és más országokban is el szeretné érni az ügyfeleket? Ezután egyszerűen telepítse a kívánt nyelvi csomagokat itt.",
-            "headlineChangeLanguage": "További nyelvi bővítmények telepítése",
+            "headlineChangeLanguage": "További nyelvek telepítése",
             "switchLanguageModalTitle": "Válassza ki az interfész nyelvét",
             "confirmLanguageSwitch": "Nyelv módosítása",
             "cancelLanguageSwitch": "Mégse",
             "switchLanguageMessage": "A „{pluginName}\" telepítése sikeresen megtörtént. Szeretné megváltoztatni a kezelőfelület nyelvét?",
-            "pluginsInstalled": "Telepített beépülő modul | Telepített bővítmények",
-            "pluginsInstalledMessage": "Language plugin telepítve van: | Ezek a nyelvi bővítmények telepítve lettek: ",
-            "pluginNotFoundMessage": "A {languageName} nyelvi bővítmény nem található.",
-            "pluginInstallationFailedMessage": "A beépülő modul nem telepíthető: ",
-            "pluginActivationFailedMessage": "A beépülő modul nem aktiválható: ",
+            "pluginsInstalled": "Extension telepítve | Extensions telepítve",
+            "pluginsInstalledMessage": "Nyelv bővítmény lett telepítve: | Ezek a nyelvi kiterjesztések már telepítve: ",
+            "pluginNotFoundMessage": "A {languageName} nyelvkiterjesztés nem található.",
+            "pluginInstallationFailedMessage": "A bővítmény nem telepíthető: ",
+            "pluginActivationFailedMessage": "A kiterjesztés nem aktiválható: ",
             "tryAgainLater": "Kérjük, próbálja meg később.",
             "noConnectionMessage": "Úgy tűnik, hogy csatlakozási problémák merülnek fel, a nyelv nem telepíthető."
         },
@@ -5199,7 +5343,7 @@
             "headlineMigration": "Üzletadatok áttelepítése",
             "messageMigration": "Az Áttelepítési asszisztens segítségével csatlakozhat egy korábbi bolti rendszerekhez, és átviheti az adatokat közvetlenül az új Shopware 6 környezetbe.",
             "buttonInstallMigration": "Áttelepítési segéd telepítése",
-            "loadingMessage": "Plugin telepítése<br>Ez eltarthat egy ideig..."
+            "loadingMessage": "A<br>kiterjesztés telepítése Ez eltarthat egy ideig..."
         },
         "mailerSelection": {
             "headline": "E-mail kommunikáció létrehozása",
@@ -5236,7 +5380,7 @@
         },
         "recommendedPlugins": {
             "headline": "Ajánlásaink",
-            "modalTitle": "Beépülő modulok",
+            "modalTitle": "Kiegészítések",
             "message": "Itt van néhány hasznos bővítmény a boltban. Először válasszon ki egy Önnek megfelelő régiót. Ezután különböző kategóriák között böngészhet.",
             "availableInRegion": "Elérhető a régióban",
             "category": "kategória",
@@ -5266,6 +5410,24 @@
             "labelCreateDomain": "Új üzlet tartomány létrehozása",
             "testEnvironment": "Tesztkörnyezet"
         },
+        "store": {
+            "modalTitle": "Bolti áruház",
+            "loadStatusCollect": "Áruházi információk gyűjtése...",
+            "takeMinutes": "Ez eltarthat néhány percig.",
+            "alreadyActivated": "Az áruház már sikeresen aktiválva van.",
+            "enablingStore": "A Shopware Store engedélyezése... ",
+            "activationErrorTitle": "Hiba történt az aktiváláskor",
+            "activationErrorDescription": "Kérjen segítséget a rendszergazdától.",
+            "headingOne": "Fedezze fel és vásároljon bővítményeket egyszerűen -",
+            "headingTwo": "közvetlenül a saját Shopware boltjából.",
+            "description": "Aktiválja a vadonatúj Shopware Áruházat, és hozzáférhet a sok hasznos bővítményhez és modern témához, amelyek beépíthetők üzletébe, bármilyen programozási készség nélkül."
+        },
+        "markets": {
+            "modalTitle": "Bolti piacok",
+            "heading": "Bolti piacok",
+            "description": "A Shopware Markets lehetővé teszi, hogy üzletét összekapcsolja az Amazon és az eBay piactérrel - miközben a termékek és rendelések átvitelét a lehető legkényelmesebbé teszi.<br>A Shopware Markets úgy lett kialakítva, hogy még tovább növelje vállalkozását a Sales Channels*¹ segítségével.",
+            "footnote": "*¹ Fizetett előfizetés szükséges a Shopware Markets hozzáadott értékesítési csatornák használatához."
+        },
         "finish": {
             "headlineAllDone": "Minden kész!",
             "message": "A Shopware 6 {edition} már ellenőrizve van.",
@@ -5277,14 +5439,17 @@
             "forumLabel": "Fórum",
             "forumUrl": "https://forum.shopware.com/",
             "roadmapLabel": "Ütemterv",
-            "roadmapUrl": "https://www.shopware.com/en/roadmap/"
+            "roadmapUrl": "https://www.shopware.com/en/roadmap/",
+            "modalTitle": "Kész"
         },
         "stepItemTitle": {
             "dataImport": "Adatok importálása",
             "mailer": "Mailer konfiguráció",
             "setupPaypal": "PayPal beállítás",
-            "plugins": "Beépülő modulok",
-            "shopware": "Üzletprogram-fiók"
+            "plugins": "Kiegészítések",
+            "shopware": "Üzletprogram-fiók",
+            "store": "Bolti áruház",
+            "markets": "Bolti piacok"
         }
     },
     "sw-sales-channel": {
@@ -6032,7 +6197,7 @@
             "messageSaveError": "Az ügyfél nem menthető.",
             "messageSaveSuccess": "Ügyfél \"{name}\" mentésre került.",
             "notificationPasswordErrorMessage": "A beküldött jelszavak nem egyeznek.",
-            "notificationPasswordLengthErrorMessage": "A megadott jelszó nem felel meg a 8 minimális hosszúsági követelménynek."
+            "notificationPasswordLengthErrorMessage": "A megadott jelszó nem felel meg a nyolc karakterből álló minimális hosszúsági követelménynek."
         },
         "filter": {
             "salutation": {
@@ -6062,7 +6227,9 @@
             "tags": {
                 "label": "Címkék",
                 "placeholder": "Címkék kiválasztása..."
-            }
+            },
+            "messageEmptyTitle": "Semmi sem található",
+            "messageEmptySubline": "Szerkessze a szűrőket az eredmények megtalálásához."
         }
     },
     "sw-settings-document": {
@@ -6714,13 +6881,14 @@
         },
         "roles": {
             "general": {
-                "labelCreateNewRole": "Új szerep létrehozása",
+                "labelCreateNewRole": "Szerepkör létrehozása",
                 "cardLabel": "Szerepek"
             },
             "role-grid": {
                 "labelName": "Név",
                 "labelDescription": "Leírás",
                 "messageEmptyTitle": "Még nincsenek szerepek",
+                "messageEmptySubline": "Szerepkörök létrehozása a felhasználói jogok kezelésének megkezdéséhez.",
                 "contextMenuEdit": "Szerkesztés",
                 "contextMenuDelete": "Törlés",
                 "titleModalDelete": "Szerepkör törlése",
@@ -6729,10 +6897,10 @@
                 "labelButtonDelete": "Törlés",
                 "notification": {
                     "deleteSuccess": {
-                        "message": "A „{name}” szerepkör törölve lett."
+                        "message": "A „{name}” szerepkör törölve."
                     },
                     "deleteError": {
-                        "message": "Hiba történt a \"{name}” szerepkör törlése közben."
+                        "message": "A „{name}” szerep nem törölhető."
                     }
                 }
             },
@@ -6755,7 +6923,7 @@
             },
             "view": {
                 "detailed": {
-                    "alertText": "Ebben a nézetben a jogosultságok részletesen konfigurálhatók. Ez a konfiguráció csak kivételes helyzetekben szükséges. Ha például olyan bővítményeket használnak a rendszerben, amelyek új adatkészleteket adnak hozzá, de nem rendelkeznek jogosultságokkal, akkor itt konfigurálhatók. Minden deaktivált jelölőnégyzet olyan engedélyek, amelyeket az „Általános” lapon már hozzárendeltek."
+                    "alertText": "A jogosultságok részletes konfigurálása. Minden deaktivált jelölőnégyzet olyan engedélyek, amelyeket az „Általános” lapon már hozzárendeltek, és nem konfigurálhatók. Ez a konfiguráció csak akkor szükséges, ha például olyan bővítményeket használnak, amelyek új adatkészleteket adnak hozzá, de nem rendelkeznek jogosultságokkal, ezek itt konfigurálhatók."
                 }
             },
             "tabs": {
@@ -6786,10 +6954,10 @@
                 "labelButtonDelete": "Törlés",
                 "notification": {
                     "deleteSuccess": {
-                        "message": "A „{name}” felhasználó törölve lett."
+                        "message": "A „{name}” felhasználó törölve."
                     },
                     "deleteError": {
-                        "message": "Hiba történt a \"{name}” felhasználó törlése közben."
+                        "message": "A „{name}” felhasználó nem törölhető."
                     },
                     "deleteUserLoggedInError": {
                         "message": "A felhasználók nem tudják törölni magukat."
@@ -6801,7 +6969,7 @@
                 "labelIntegrationsCard": "Integrációk",
                 "labelFirstName": "Keresztnév",
                 "labelLastName": "Vezetéknév",
-                "labelEmail": "E-mail",
+                "labelEmail": "E-mail cím",
                 "errorEmailUsed": "Ez az e-mail cím már használatban van.",
                 "errorUsernameUsed": "Ez a felhasználónév már használatban van.",
                 "labelUsername": "Felhasználónév",
@@ -6816,17 +6984,19 @@
                 "labelNewPassword": "Új jelszó",
                 "labelNewUser": "Új felhasználó",
                 "placeholderNewPassword": "Adja meg az új jelszót...",
-                "placeholderNewPasswordConfirm": "Adja meg újra az új jelszót...",
+                "placeholderNewPasswordConfirm": "Új jelszó megerősítése...",
                 "labelButtonCancel": "Mégse",
                 "labelButtonChangePassword": "Változás",
                 "labelButtonSave": "Mentés",
+                "writeAccess": "Írj",
+                "readAccess": "Olvasd",
                 "contextMenuEdit": "Szerkesztés",
                 "contextMenuDelete": "Törlés",
                 "textChangePassword": "A „változás” gomb megnyomásával azonnal elmentheti az új jelszót!",
-                "addAccessKey": "Új hozzáférési kulcs",
+                "addAccessKey": "Hozzáférési kulcs létrehozása",
                 "labelAccessKey": "Hozzáférési kulcs",
                 "labelPermissions": "Jogosultságok",
-                "disabledRoleSelectWarning": "A szerepkörök csak olyan felhasználók számára érhetők el, akik nem „rendszergazdai”.",
+                "disabledRoleSelectWarning": "A szerepkörök csak rendszergazdai jogosultsággal nem rendelkező felhasználók számára érhetők el.",
                 "passwordConfirmation": {
                     "titleConfirmPasswordModal": "Adja meg aktuális jelszavát a megerősítéshez",
                     "labelConfirmPassword": "Jelszó",
@@ -6848,18 +7018,18 @@
                     "hintCreateNewApiKeys": "Új API-hozzáférési kulcsok létrehozásához ajánlott frissíteni az összes kapcsolódó szkriptet és alkalmazást.",
                     "labelFieldLabel": "Név",
                     "idFieldLabel": "Hozzáférési kulcs azonosító",
-                    "secretFieldLabel": "Titkos hozzáférési kulcs",
+                    "secretFieldLabel": "Biztonságos hozzáférési kulcs",
                     "secretHelpText": "Kérem, másolja át a hozzáférési kulcsot most. Biztonsági okokból a mentés után már nem lesz látható.",
-                    "messageSaveSuccess": "Az integráció mentve lett.",
+                    "messageSaveSuccess": "Integráció mentve.",
                     "messageSaveError": "Az integráció nem menthető.",
                     "messageCreateNewError": "Az integráció nem menthető."
                 },
                 "notification": {
                     "saveError": {
-                        "message": "Hiba történt a \"{name}” felhasználó mentése közben."
+                        "message": "A „{name}” felhasználó nem menthető."
                     },
                     "saveSuccess": {
-                        "message": "A „{name}” felhasználó mentésre került."
+                        "message": "Felhasználó \"{name}\" mentve."
                     },
                     "invalidEmailErrorMessage": "Kérjük, adjon meg egy érvényes e-mail címet.",
                     "duplicateEmailErrorMessage": "Ez az e-mail cím már regisztrálva van."
@@ -6897,142 +7067,6 @@
             "labelUseAsLogo": "Használat logóként"
         }
     },
-    "sw-plugin": {
-        "general": {
-            "mainMenuItemGeneral": "Beépülő modulok",
-            "mainMenuPluginList": "Telepítve",
-            "mainMenuLicenseList": "Licenceim",
-            "descriptionTextModule": "Bővítmények kezelése itt",
-            "placeholderSearchBar": "Bővítmények keresése...",
-            "tabList": "Saját bővítmények",
-            "tabLicenses": "Licencek",
-            "tabUpdates": "Frissítések",
-            "version": "Verzió",
-            "accountLink": "https://account.shopware.com/?lang=en",
-            "accountLabel": "Ugrás a Shopware fiókra",
-            "login": "bejelentkezés",
-            "logout": "Kijelentkezés",
-            "messageDownloadSuccess": "A bővítmény letöltődött.",
-            "downloadButton": "Letöltés",
-            "recommendationsLabel": "Javaslatok",
-            "storeLink": "https://store.shopware.com/en",
-            "storeLabel": "Bolti áruház",
-            "storeNotAvailable": "Nem sikerült csatlakozni a Shopware áruházhoz.",
-            "loggedIn": "Bejelentkezve"
-        },
-        "errors": {
-            "messageToTheShopwareDocumentation": "<a href=\"{documentationLink}\" target=\"_blank\">Open Shopware dokumentáció</a>",
-            "messageGenericFailure": "Ez nem működött.",
-            "messageUploadFailureNotAZipFile": "A feltöltött fájl nem ZIP fájl.",
-            "messageUploadFailureUnzipFailed": "Nem sikerült kibontani a ZIP fájlt.",
-            "messageUploadFailureNoPluginFoundInZipFile": "Nem található plugin ZIP fájl.",
-            "messageLoginDataInvalid": "A bejelentkezési adatok hiányosak.",
-            "messageStoreLicenseDomainMissing": "A bejelentkezés sikertelen. Megadtad a helyes licencdomaint Shopware fiókjából a „Beállítások/Shopware Account” alatt?",
-            "messageStoreNotAvailable": "A Shopware Store nem érhető el.",
-            "messagePluginBaseClassNotFound": "A beépülő modul alaposztályát nem lehetett betölteni. Ellenőrizze a plugin zeneszerző.json tekintetében az osztály autoloading",
-            "messagePluginInstallationFailed": "A bővítmény nem telepíthető a \"{message}” hibaüzenet miatt",
-            "messagePluginUninstallationFailed": "A bővítmény nem távolítható el a \"{message}” hibaüzenet miatt",
-            "messagePluginActivationFailed": "A bővítmény nem aktiválható a \"{message}” hibaüzenet miatt",
-            "messagePluginDeactivationFailed": "A beépülő modul nem kapcsolható ki a \"{message}” hibaüzenet miatt",
-            "messageDeactivationFailedDependencies": "A „{dependency}” bővítmény nem kapcsolható ki, mert attól függően más bővítmények is vannak. Kérjük, kapcsolja ki a következő bővítményeket a frissítés újraindítása előtt: {dependantNames}",
-            "messagePluginUpdateFailed": "A beépülő modul nem frissíthető a \"{message}” hibaüzenet miatt. {pluginDeactivatedHint}",
-            "pluginDeactivatedHint": "A beépülő modul ki lett kapcsolva."
-        },
-        "fileUpload": {
-            "buttonFileUpload": "bővítmény feltöltése",
-            "messageUploadSuccess": "A plugin fel lett töltve.",
-            "buttonRefreshPlugins": "Frissítés áttekintése"
-        },
-        "store-login": {
-            "headline": "Shopware fiók - Bejelentkezés",
-            "information": "A Shopware Account az Ön fő központja az összes Shopware szolgáltatással való interakciónak.",
-            "loginMessage": "Ön be van jelentkezve a Shopware fiókjába.",
-            "labelEmailAddress": "E-mail cím",
-            "placeholderEmailAddress": "Adja meg az e-mail címét...",
-            "labelPassword": "Jelszó",
-            "placeholderPassword": "Adja meg a jelszavát...",
-            "buttonLogin": "bejelentkezés",
-            "buttonCancel": "Mégse",
-            "footerNoAccount": "Még nincs Shopware fiókja?",
-            "footerRegisterAccount": "Hozza létre Shopware fiókját most!",
-            "forgotPassword": "Elfelejtetted a jelszavad?",
-            "forgotPasswordUrl": "https://account.shopware.com/recovery?lang=en",
-            "registerAccountUrl": "https://account.shopware.com/register?lang=en"
-        },
-        "list": {
-            "textPluginManager": "Beépülő modulok",
-            "messageEmpty": "Még nem töltötték fel a bővítményeket.",
-            "columnPluginName": "bővítmény",
-            "columnVersion": "Verzió",
-            "columnInstalledAt": "Telepítve",
-            "columnUpdatedAt": "Frissítve",
-            "columnLicense": "Licenc",
-            "columnActive": "Aktív",
-            "columnAuthor": "Gyártó",
-            "columnPlugin": "bővítmény",
-            "columnChangelog": "Új funkciók",
-            "titleSidebarItemRefresh": "Frissítés",
-            "contextInstall": "Telepítés",
-            "contextUninstall": "Távolítsa el",
-            "contextActivate": "aktiválása",
-            "contextDeactivate": "Deaktiválás",
-            "contextUpdate": "Frissítés",
-            "contextDelete": "Törlés",
-            "pluginHeader": "Saját bővítmények",
-            "sortUpgradedAtAsc": "Utoljára frissítve",
-            "sortPluginNameAsc": "Plugin nevek, asc.",
-            "sortPluginNameDsc": "Plugin nevek, desc.",
-            "sortLabel": "Rendezés:",
-            "messageActivateSuccess": "A beépülő modul aktiválva van.",
-            "messageDeactivateSuccess": "A beépülő modul ki lett kapcsolva.",
-            "messageInstallSuccess": "A beépülő modul telepítve lett.",
-            "messageUninstallSuccess": "A beépülő modul eltávolításra került.",
-            "messageDeleteSuccess": "A beépülő modul törölve lett.",
-            "messageUpdateSuccess": "A beépülő modul frissítve lett.",
-            "messageDeleteConfirm": "Biztos benne, hogy tényleg törölni szeretné ezt a plugint?",
-            "titleUninstallConfirm": "Eltávolítás plugin",
-            "labelRemovePluginData": "Az összes beépülő modul adatainak végleges eltávolítása",
-            "helpTextRemovePluginData": "Figyelmeztetés: A bővítmény összes adata véglegesen eltávolításra kerül. Ez a folyamat visszafordíthatatlan.",
-            "labelUninstallButton": "Távolítsa el",
-            "deactivated": "Kikapcsolva",
-            "activated": "Aktív",
-            "config": "Konfiguráció",
-            "description": "Leírás",
-            "tooltipActivationDisabled": "Csak a telepített bővítményeket aktiválhatja."
-        },
-        "license-list": {
-            "textMyPurchases": "Vásárolt licencek",
-            "columnName": "bővítmény",
-            "columnCreationDate": "Megvásárolva",
-            "columnExpirationDate": "Érvényes",
-            "columnType": "Változat",
-            "messageEmpty": "Nincsenek meglévő licencek.",
-            "messageNotLoggedIn": "Shopware Account - bejelentkezés szükséges!",
-            "labelAccountLogin": "Jelentkezzen be a Shopware fiók hitelesítő adataival",
-            "labelType_buy": "Vásárlás",
-            "labelType_rent": "Kiadó",
-            "labelType_test": "Teszt",
-            "labelType_free": "Ingyenes",
-            "labelType_support": "Fizetett támogatás"
-        },
-        "updates": {
-            "messageEmpty": "Nincsenek elérhető frissítések.",
-            "updateError": "Hiba a frissítések betöltése",
-            "updateButton": "Frissítés",
-            "updateAllButton": "Összes frissítése",
-            "updateHeader": "Frissítések",
-            "lastUpdatesHeader": "Utolsó frissítések",
-            "messageUpdateSuccess": "A bővítmény frissítve lett.",
-            "messageUpdatesSuccess": "A bővítmények frissültek.",
-            "cancelUpdates": "Mégse"
-        }
-    },
-    "sw-plugin-config": {
-        "messageSaveSuccess": "A konfiguráció mentésre került."
-    },
-    "sw-plugin-description": {
-        "buttonBack": "Vissza"
-    },
     "sw-settings": {
         "general": {
             "mainMenuItemGeneral": "Beállítások"
@@ -7041,7 +7075,7 @@
             "title": "Beállítások",
             "tabShop": "Shop",
             "tabSystem": "Rendszer",
-            "tabPlugins": "Beépülő modulok"
+            "tabPlugins": "Kiegészítések"
         },
         "system-config": {
             "labelSalesChannelSelect": "Értékesítési csatorna",
@@ -7128,10 +7162,10 @@
         }
     },
     "sw-property-search": {
-        "placeholderSearch": "Keresési tulajdonságok...",
-        "selected": "{count} opció kiválasztva | {count} opció kiválasztva",
-        "noPropertiesFound": "Nem található ingatlan",
-        "noPropertiesFoundDescription": "Próbáljon egy másik keresőkifejezést."
+        "placeholderSearch": "Keresési értékek...",
+        "selected": "{count} érték kiválasztva | {count} érték kiválasztva",
+        "noPropertiesFound": "Nem található tulajdonság érték",
+        "noPropertiesFoundDescription": "Próbálkozzon egy másik keresési kifejezéssel."
     },
     "sw-property-assignment": {
         "columnGroup": "Ingatlan",
@@ -7157,10 +7191,11 @@
         "reload": "Újratöltés",
         "alertText": "A telepítésben legalább egy bővítmény licencmegsértését észleltük. A licenc megsértésének kijavítása és a jogi következmények elkerülése érdekében foglaljon le egy meghosszabbítási előfizetést, vagy vásárolja/bérelje ki a bővítményt (az okozott jogsértés típusának megfelelően). Már nem használja a kiterjesztést? Ezután törölje a My Extensions segítségével. Ha ezen intézkedések egyikét sem teszik meg, a shopware AG fenntartja magának a jogot, hogy a licenc megsértéséért büntetődíjat számítson fel.",
         "deletePlugin": "A bővítmény végleges törlése",
-        "messageDeleteConfirm": "Teljesen törölni szeretné a „{pluginName} ” kiterjesztést?",
+        "messageDeleteConfirm": "Teljesen törölni szeretné a „{pluginName}” kiterjesztést?",
         "checkboxMessage": "Észrevettem ezt az üzenetet, és végül felhalmozódó következményeket.",
         "closeModal": "Értesítések bezárása",
         "ignorePlugin": "Végleges figyelmen kívül",
+        "successfullyDeleted": "Kiterjesztés törölve",
         "table": {
             "plugin": "Extension",
             "warning": "figyelmeztetés"
@@ -7361,7 +7396,7 @@
         "hasCriteria": "Van {criteriaName}"
     },
     "sw-filter-panel": {
-        "titleSidebarItemFilter": "Szűrő"
+        "titleSidebarItemFilter": "Szűrők"
     },
     "sw-sidebar-filter-panel": {
         "resetButton": "Összes visszaállítása"

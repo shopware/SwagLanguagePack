@@ -248,7 +248,7 @@ SQL;
         $sql = <<<SQL
 SELECT lang.`id` as id, loc.`code` as code
 FROM `language` lang
-LEFT JOIN `locale` loc ON loc.`id` = lang.`locale_id`
+LEFT JOIN `locale` loc ON loc.`id` = lang.`translation_code_id`
 WHERE loc.`code` IN (?)
 SQL;
 

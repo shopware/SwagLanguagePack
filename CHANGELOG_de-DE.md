@@ -1,5 +1,6 @@
 # 2.0.0
 - LAN-53 - Kompatibilität für Shopware 6.4
+- LAN-64 - Assoziiere Import existierender Sprachen neu, so dass die Abhängigkeit auf die Übersetzung anstatt wie zuvor auf den Ort verknüpft wird
 
 # 1.2.0
 - B2B-459 - Fügt SwagEnterpriseSearch, PluginPublisher and B2bSuite hinzu

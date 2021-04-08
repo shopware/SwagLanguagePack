@@ -1,5 +1,7 @@
 # 2.0.0
 - LAN-53 - Compatibility for Shopware 6.4
+
+# 1.2.1
 - LAN-64 - Re-associate existing language import to translation instead of location
 
 # 1.2.0

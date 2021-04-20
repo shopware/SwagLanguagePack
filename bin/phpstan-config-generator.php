@@ -25,6 +25,8 @@ $swagLanguagePack = [
     'managedByComposer' => false,
     'active' => true,
     'path' => $pluginRootPath,
+    'name' => 'SwagLanguagePack',
+    'version' => $composerJson['version']
 ];
 $pluginLoader = new StaticKernelPluginLoader($classLoader, null, [$swagLanguagePack]);
 

@@ -17,6 +17,7 @@ use Shopware\Core\Framework\DataAbstractionLayer\Search\Sorting\FieldSorting;
 use Shopware\Core\Framework\Plugin\Context\DeactivateContext;
 use Shopware\Core\Framework\Plugin\Context\UninstallContext;
 use Shopware\Core\System\Language\LanguageDefinition;
+use Swag\LanguagePack\Extension\LanguageExtension;
 use Swag\LanguagePack\PackLanguage\PackLanguageDefinition;
 use Swag\LanguagePack\SwagLanguagePack;
 use Swag\LanguagePack\Util\Exception\PackLanguagesStillInUseException;
@@ -47,7 +48,10 @@ class Lifecycle
                     new EqualsFilter('salesChannels.id', null),
                 ]),
                 new NotFilter('AND', [
-                    new EqualsFilter('swagLanguagePackLanguageId', null),
+                    new EqualsFilter(
+                        \sprintf('%s.id', LanguageExtension::PACK_LANGUAGE_ASSOCIATION_PROPERTY_NAME),
+                        null
+                    ),
                 ]),
             ])
         )->addSorting(new FieldSorting('name', 'ASC'));

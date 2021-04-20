@@ -1,3 +1,6 @@
+# REPLACE-GLOBAL-WITH-NEXT-VERSION
+- LAN-67 - Plugin is valid for the `dal:validate` console command
+
 # 2.0.0
 - LAN-53 - Compatibility for Shopware 6.4
 

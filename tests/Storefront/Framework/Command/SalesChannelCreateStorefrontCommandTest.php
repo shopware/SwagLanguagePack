@@ -18,6 +18,7 @@ use Shopware\Core\System\Language\LanguageCollection;
 use Shopware\Core\System\SalesChannel\SalesChannelEntity;
 use Shopware\Storefront\Framework\Command\SalesChannelCreateStorefrontCommand as StorefrontSalesChannelCreateCommand;
 use Shopware\Storefront\Storefront;
+use Swag\LanguagePack\Extension\LanguageExtension;
 use Swag\LanguagePack\Storefront\Framework\Command\SalesChannelCreateStorefrontCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Tester\CommandTester;
@@ -92,7 +93,12 @@ class SalesChannelCreateStorefrontCommandTest extends TestCase
         static::assertNotNull($storefront);
 
         $criteria = new Criteria();
-        $criteria->addFilter(new EqualsFilter('swagLanguagePackLanguageId', null));
+        $criteria->addFilter(
+            new EqualsFilter(
+                \sprintf('%s.id', LanguageExtension::PACK_LANGUAGE_ASSOCIATION_PROPERTY_NAME),
+                null
+            )
+        );
 
         $activeLanguageIds = $this->languageRepository->searchIds($criteria, $this->context)->getIds();
 

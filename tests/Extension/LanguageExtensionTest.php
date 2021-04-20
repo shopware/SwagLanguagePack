@@ -9,7 +9,6 @@ namespace Swag\LanguagePack\Test\Extension;
 
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
-use Shopware\Core\Framework\DataAbstractionLayer\Field\FkField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\Flag\SetNullOnDelete;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\OneToOneAssociationField;
 use Shopware\Core\Framework\DataAbstractionLayer\FieldCollection;
@@ -30,23 +29,14 @@ class LanguageExtensionTest extends TestCase
         $collection
             ->expects(static::atLeastOnce())
             ->method('add')
-            ->withConsecutive(
-                [
-                    new FkField(
-                        PackLanguageDefinition::PACK_LANGUAGE_FOREIGN_KEY_STORAGE_NAME,
-                        'swagLanguagePackLanguageId',
-                        PackLanguageDefinition::class
-                    ),
-                ],
-                [
-                    (new OneToOneAssociationField(
-                        LanguageExtension::PACK_LANGUAGE_ASSOCIATION_PROPERTY_NAME,
-                        'swag_language_pack_language_id',
-                        'id',
-                        PackLanguageDefinition::class,
-                        false
-                    ))->addFlags(new SetNullOnDelete()),
-                ]
+            ->with(
+                (new OneToOneAssociationField(
+                    LanguageExtension::PACK_LANGUAGE_ASSOCIATION_PROPERTY_NAME,
+                    'id',
+                    'language_id',
+                    PackLanguageDefinition::class,
+                    false
+                ))->addFlags(new SetNullOnDelete())
             );
 
         (new LanguageExtension())->extendFields($collection);

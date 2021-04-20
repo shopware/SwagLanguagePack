@@ -16,7 +16,7 @@ Component.override('sw-settings-language-list', {
         packLanguageCriteria() {
             return (new Criteria(1, 50)).addFilter(
                 Criteria.not('and', [
-                    Criteria.equals('swagLanguagePackLanguageId', null)
+                    Criteria.equals('swagLanguagePackLanguage.id', null)
                 ])
             );
         }

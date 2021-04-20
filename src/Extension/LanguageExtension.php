@@ -8,7 +8,6 @@
 namespace Swag\LanguagePack\Extension;
 
 use Shopware\Core\Framework\DataAbstractionLayer\EntityExtension;
-use Shopware\Core\Framework\DataAbstractionLayer\Field\FkField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\Flag\SetNullOnDelete;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\OneToOneAssociationField;
 use Shopware\Core\Framework\DataAbstractionLayer\FieldCollection;
@@ -27,18 +26,10 @@ class LanguageExtension extends EntityExtension
     public function extendFields(FieldCollection $collection): void
     {
         $collection->add(
-            new FkField(
-                PackLanguageDefinition::PACK_LANGUAGE_FOREIGN_KEY_STORAGE_NAME,
-                'swagLanguagePackLanguageId',
-                PackLanguageDefinition::class
-            )
-        );
-
-        $collection->add(
             (new OneToOneAssociationField(
                 self::PACK_LANGUAGE_ASSOCIATION_PROPERTY_NAME,
-                PackLanguageDefinition::PACK_LANGUAGE_FOREIGN_KEY_STORAGE_NAME,
                 'id',
+                'language_id',
                 PackLanguageDefinition::class,
                 false
             ))->addFlags(new SetNullOnDelete())

@@ -21,6 +21,8 @@ use Shopware\Core\Framework\Plugin\Context\UninstallContext;
 use Shopware\Core\Framework\Test\TestCaseBase\IntegrationTestBehaviour;
 use Shopware\Core\System\Language\LanguageEntity;
 use Shopware\Core\System\SalesChannel\SalesChannelEntity;
+use Swag\LanguagePack\Extension\LanguageExtension;
+use Swag\LanguagePack\PackLanguage\PackLanguageEntity;
 use Swag\LanguagePack\SwagLanguagePack;
 use Swag\LanguagePack\Util\Lifecycle\Lifecycle;
 
@@ -129,14 +131,19 @@ class LifecycleTest extends TestCase
         $packLanguageRepository = $this->getContainer()->get('swag_language_pack_language.repository');
 
         $languageCriteria = (new Criteria())
+            ->addAssociation(LanguageExtension::PACK_LANGUAGE_ASSOCIATION_PROPERTY_NAME)
             ->addFilter(new EqualsFilter('name', 'Nederlands'))
             ->setLimit(1);
 
         /** @var LanguageEntity $dutchLanguage */
         $dutchLanguage = $languageRepository->search($languageCriteria, $context)->first();
 
+        /** @var PackLanguageEntity|null $packLanguage */
+        $packLanguage = $dutchLanguage->get(LanguageExtension::PACK_LANGUAGE_ASSOCIATION_PROPERTY_NAME);
+        static::assertInstanceOf(PackLanguageEntity::class, $packLanguage);
+
         $packLanguageData = [[
-            'id' => $dutchLanguage->get('swagLanguagePackLanguageId'),
+            'id' => $packLanguage->getId(),
             'salesChannelActive' => true,
         ]];
         $packLanguageRepository->update($packLanguageData, $context);

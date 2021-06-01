@@ -1,4 +1,4 @@
-# REPLACE-GLOBAL-WITH-NEXT-VERSION
+# 2.0.1
 - LAN-67 - Das Plugin ist jetzt valide für den Konsolenbefehl `dal:validate`
 
 # 2.0.0

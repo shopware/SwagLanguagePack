@@ -6,8 +6,8 @@ variables:
     WEB_DOCUMENT_ROOT: $CI_PROJECT_DIR/development/public
     DEVELOPMENT_BRANCH: 'trunk'
     PLATFORM_BRANCH: 'trunk'
-    DEVELOPMENT_MIN_VERSION: 'v6.4.0.0'
-    PLATFORM_MIN_VERSION: 'v6.4.0.0'
+    DEVELOPMENT_MIN_VERSION: 'trunk'
+    PLATFORM_MIN_VERSION: 'trunk'
     RUN_IN_MR: 'true'
 
 stages:
@@ -103,7 +103,7 @@ ToDos resolved:
 PHPUnit:
     stage: Unit
     services:
-        -   name: mariadb:10.3
+        -   name: mariadb:10.3.28
             alias: mysql
     script:
         - cd $CI_PROJECT_DIR/development/custom/plugins/SwagLanguagePack

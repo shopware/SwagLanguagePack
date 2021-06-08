@@ -1,3 +1,16 @@
+# 2.1.0
+- LAN-74 - Update translations for Shopware 6.4.1.0
+- LAN-74 - Added Korean language support
+- LAN-74 - Added Greek language support
+- LAN-74 - Added Ukrainian language support
+- LAN-74 - Added Turkish language support
+- LAN-74 - Added Slovenian language support
+- LAN-74 - Added Slovak language support
+- LAN-74 - Added Serbian(Latin) language support
+- LAN-74 - Added Hindi language support
+- LAN-74 - Added Croatian language support
+- LAN-74 - Added Bulgarian language support
+
 # 2.0.1
 - LAN-67 - Plugin is valid for the `dal:validate` console command
 

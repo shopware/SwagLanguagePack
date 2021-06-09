@@ -47,7 +47,7 @@ Component.register('swag-language-pack-settings', {
         },
 
         packLanguageCriteria() {
-            return (new Criteria())
+            return (new Criteria(1, 500))
                 .addSorting(Criteria.sort('language.name', 'ASC'))
                 .addAssociation('language.salesChannels.domains');
         }

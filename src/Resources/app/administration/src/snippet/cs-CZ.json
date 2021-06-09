@@ -36,8 +36,6 @@
         },
         "detail": {
             "buttonCancel": "Zahodit změny",
-            "buttonSave": "Uložit",
-            "buttonEdit": "Upravit",
             "tabOrderDetails": "Detaily objednávky",
             "tabDeliveries": "Dodávky",
             "textHeadline": "Objednávka",
@@ -148,7 +146,7 @@
         "detailBase": {
             "cardTitleDetails": "Podrobnosti",
             "cardTitleLineItems": "Položky",
-            "columnProductName": "Název",
+            "columnProductName": "Jméno",
             "columnQuantity": "Množství",
             "columnPriceNet": "Cena netto",
             "columnPriceGross": "Cena brutto",
@@ -181,6 +179,7 @@
             "buttonAddBlankProduct": "Přidat prázdnou položku",
             "buttonAddCredit": "Přidat dobropis",
             "buttonEditAddress": "Upravit",
+            "tooltipNestedLineItemsButton": "Tato položka řádku obsahuje podpoložky.",
             "labelNoPhoneNumber": "Žádné",
             "labelNoEmail": "Žádné",
             "labelCustomerPhoneNumber": "Telefonní číslo",
@@ -207,6 +206,14 @@
             "enterValidTrackingCode": "Zadejte kód sledování",
             "textCreditTax": "auto",
             "taxDetail": "{taxRate}%: {tax}"
+        },
+        "nestedLineItemsModal": {
+            "titlePrefix": "Položka: {lineItemLabel} - {price}",
+            "headerLabel": "Jméno",
+            "headerUnitPrice": "Cena (hrubá)",
+            "headerQuantity": "Množství",
+            "headerTotalPrice": "Mezisoučet",
+            "headerTax": "DPH"
         },
         "detailDeliveries": {
             "cardTitleItems": "Dodávka {count}",
@@ -380,6 +387,14 @@
                 "label": "Produkty",
                 "placeholder": "Vyberte produkty..."
             },
+            "affiliateCodeFilter": {
+                "label": "Partnerský kód",
+                "placeholder": "Vyberte partnerský kód..."
+            },
+            "campaignCodeFilter": {
+                "label": "Kód kampaně",
+                "placeholder": "Vyberte kód kampaně..."
+            },
             "messageEmptyTitle": "Nic nenalezeno",
             "messageEmptySubline": "Upravte filtry a najděte výsledky."
         }
@@ -457,6 +472,9 @@
             },
             "customer_groups": {
                 "label": "Skupiny zákazníků"
+            },
+            "flow": {
+                "label": "Tvůrce toku"
             },
             "sales_channel": {
                 "label": "Prodejní kanály"
@@ -616,7 +634,16 @@
         },
         "captcha": {
             "label": {
-                "honeypot": "Captcha Honeypot"
+                "honeypot": "Honeypot CAPTCHA",
+                "basicCaptcha": "Basic Captcha",
+                "googleReCaptchaV2": "Google reCAPTCHA v2",
+                "googleReCaptchaV2SiteKey": "Klíč webu Google reCAPTCHA v2",
+                "googleReCaptchaV2SecretKey": "Tajný klíč Google reCAPTCHA v2",
+                "googleReCaptchaV2Invisible": "Google reCAPTCHA v2 neviditelný",
+                "googleReCaptchaV3": "Google reCAPTCHA v3",
+                "googleReCaptchaV3SiteKey": "Klíč webu Google reCAPTCHA v3",
+                "googleReCaptchaV3SecretKey": "Tajný klíč Google reCAPTCHA v3",
+                "googleReCaptchaV3ThresholdScore": "Prahové skóre Google reCAPTCHA v3"
             }
         }
     },
@@ -750,8 +777,8 @@
                 "messageMissingFields": "Vyplňte potřebná pole konfigurace.",
                 "messageMissingBlockFields": "Je vyžadována konfigurace. Vyplňte prosím údaje ve všech prvcích.",
                 "messageMissingProductListing": "Nelze uložit. Přidejte alespoň jeden blok výpisu produktu nebo změňte typ tohoto rozvržení.",
-                "messageMissingSections": "Prázdné stránky nelze uložit. Nejdříve přidejte sekci.",
-                "messageMissingBlocks": "Prázdnou stránku nelze uložit. Přidejte bloky.",
+                "messageMissingSections": "Nelze uložit prázdnou stránku. Prosím, přidejte nejprve sekci.",
+                "messageMissingBlocks": "Nelze uložit prázdnou stránku. Nejprve přidejte alespoň jeden blok.",
                 "messageMissingElements": "Je vyžadována konfigurace. Prosím, nakonfigurujte všechny prvky vašeho rozvržení.",
                 "messageRedundantElements": "Rozvržení nesmí obsahovat více než jeden prvek {name}."
             },
@@ -767,7 +794,7 @@
                 "titleNavigator": "Navigátor",
                 "titleSectionSettings": "Nastavení sekce",
                 "titleLayoutAssignment": "Přiřazení rozvržení",
-                "mobile": "Chování mobilního bočního panelu",
+                "mobile": "Chování mobilního postranního panelu",
                 "mobileOptionHidden": "Nezobrazeno",
                 "mobileOptionWrap": "Zalomit"
             },
@@ -778,7 +805,7 @@
             "tooltip": {
                 "blockNameField": "Abyste si udrželi dobrý přehled o své práci, pojmenujte každý blok jednotlivě a jednoznačně.",
                 "sectionNameField": "Abyste získali dobrý přehled o své práci, pojmenujte každou sekci jednotlivě a jednoznačně.",
-                "cannotSelectProductPageLayout": "Rozložení stránky typu produktu nelze změnit na jiný typ rozvržení."
+                "cannotSelectProductPageLayout": "Typ rozvržení stránky produktu nelze změnit."
             }
         },
         "elements": {
@@ -1123,6 +1150,9 @@
                         "productDetailElement": "Produktová data tohoto prvku jsou automaticky načtena produktem přidruženým k tomuto rozvržení. Obsah zobrazuje pouze ukázkový náhled."
                     }
                 }
+            },
+            "productName": {
+                "label": "Název produktu"
             }
         },
         "blocks": {
@@ -1378,6 +1408,11 @@
             }
         },
         "index": {
+            "defaultSalesChannel": {
+                "title": "Výchozí prodejní kanál",
+                "description": "Vyberte výchozí prodejní kanály, které jsou automaticky přiřazeny k nově vytvořeným produktům.",
+                "linkAdvancedVisibility": "Nastavení viditelnosti pro vybrané prodejní kanály"
+            },
             "productSorting": {
                 "title": "Možnosti třídění",
                 "addButton": "Přidat možnost",
@@ -1430,16 +1465,64 @@
             "descriptionTextModule": "Počáteční stránka, statistiky a systémové informace"
         },
         "introduction": {
-            "headline": "Vítejte v aplikaci Shopware 6",
-            "enduserDocumentation": "Dokumentace koncového uživatele",
-            "enduserDocumentationLink": "https://docs.shopware.com/en/shopware-6-en",
-            "developerDocumentation": "Dokumentace vývojáře",
-            "developerDocumentationLink": "https://docs.shopware.com/en/shopware-platform-dev-en",
-            "migrationDocumentation": "Dokumentace migrace",
-            "migrationDocumentationLink": "https://docs.shopware.com/en/migration-en",
-            "roadmap": "Přehledná mapa Shopware",
-            "roadmapLink": "https://www.shopware.com/en/roadmap/",
-            "feedback": "Zpětná vazba",
+            "headlineUnkownUser": "Vítejte v Shopware.",
+            "daytimeHeadline": {
+                "5h": {
+                    "0": "Dobré ráno, {greetingName}.",
+                    "1": "Ahoj, {greetingName}!"
+                },
+                "11h": {
+                    "0": "Ahoj, {greetingName}.",
+                    "1": "Hezký den, {greetingName}.",
+                    "2": "Nazdar, {greetingName}!"
+                },
+                "18h": {
+                    "0": "Dobrý večer, {greetingName}.",
+                    "1": "Ahoj, {greetingName}!"
+                },
+                "23h": {
+                    "0": "Rád tě vidím, {greetingName}.",
+                    "1": "Pořád vzhůru, {greetingName}?"
+                }
+            },
+            "daytimeWelcomeText": {
+                "5h": {
+                    "0": "Čas na kafe, ne?",
+                    "1": "Jdeš na skvělý začátek!",
+                    "2": "Příliš mnoho na dnešek? Zaměřte se na ty úkoly, které budou mít většinu dopadu.",
+                    "3": "Dneska vypadáš úžasně!"
+                },
+                "11h": {
+                    "0": "Další den, další šance na růst vašeho podnikání.",
+                    "1": "Dneska můžeš ovlivnit něčí život.",
+                    "2": "Dneska vypadáš báječně!",
+                    "3": "Dnes máš šanci vytvarovat zítřek, jaký chceš."
+                },
+                "18h": {
+                    "0": "Den je téměř hotový, čas zkontrolovat nejnovější aktivity vašeho obchodu.",
+                    "1": "Čas vyhodnotit - Podívejte se na to, jak váš obchod dnes dělá.",
+                    "2": "Dnešní akce jsou zítřejším výsledkem."
+                },
+                "23h": {
+                    "0": "Najděte krásu ve všem, abyste se inspirovali.",
+                    "1": "Podívejte, venku někdo přepnul temný režim.",
+                    "2": "Téměř vše bude fungovat znovu, pokud jej odpojíte na několik minut - to zahrnuje vás. Dej si pauzu."
+                }
+            }
+        },
+        "helpcard": {
+            "headline": "Připravte se na prodej svých produktů.",
+            "helpcenter": "Centrum nápovědy Shopware",
+            "helpcenterLink": "https://docs.shopware.com/en/shopware-6-en",
+            "takeOffTip": "Přečtěte si, jak provést první prodej",
+            "takeOffTipLink": "https://www.shopware.com/en/news/take-off-in-ecommerce-10-tips-for-your-initial-sales/",
+            "getToKnowSales": "Poznejte prodejní kanály",
+            "getToKnowSalesLink": "https://www.youtube.com/watch?v=RsEeersOgIo"
+        },
+        "feedbackCard": {
+            "headline": "Počítají se první dojmy.",
+            "text": "Podělte se o své první dojmy a pomozte nám zlepšit celkový Shopware zážitek.",
+            "feedback": "Dejte zpětnou vazbu",
             "feedbackLink": "https://issues.shopware.com"
         },
         "todayStats": {
@@ -1592,6 +1675,7 @@
                 "category": "Kategorie",
                 "categories": "Kategorie",
                 "categoriesRo": "Kategorie",
+                "cheapestPrice": "Cena",
                 "choose": "Výběr",
                 "description": "Popis",
                 "descriptionLong": "Popis země",
@@ -1605,6 +1689,7 @@
                 "length": "Délka",
                 "linked": "Propojeno",
                 "manufacturerId": "Výrobce",
+                "manufacturer": "Výrobce",
                 "manufacturerNumber": "Číslo výrobce",
                 "markAsTopseller": "Označen jako top prodejce",
                 "maxDeliveryTime": "Maximální lhůta dodávky",
@@ -1617,7 +1702,7 @@
                 "option": "Volba",
                 "packUnit": "Jednotka balení",
                 "packUnitPlural": "Jednotka balení větší množství",
-                "cheapestPrice": "Cena",
+                "price": "Cena",
                 "product": "Výrobek",
                 "productNumber": "Číslo výrobku",
                 "purchasePrice": "Prodejní cena",
@@ -1774,7 +1859,9 @@
             "xTimesIn": "{n} krát v",
             "close": "Zavřít",
             "from": "Od",
-            "to": "Na"
+            "to": "Na",
+            "bulkEdit": "Hromadné úpravy",
+            "startBulkEdit": "Zahájení hromadných úprav"
         },
         "notification": {
             "notificationSaveErrorMessage": "Při ukládání entity \"{entityName}\" došlo k chybě.",
@@ -1847,7 +1934,7 @@
             },
             "plugin-updates-listener": {
                 "updatesAvailableTitle": "K dispozici jsou aktualizace.",
-                "updatesAvailableMessage": "Pro některé doplňky jsou připraveny aktualizace."
+                "updatesAvailableMessage": "Stáhněte si nejnovější verze rozšíření."
             },
             "shopware-updates-listener": {
                 "updatesAvailableTitle": "K dispozici je nová verze Shopware {version}",
@@ -2132,6 +2219,7 @@
         },
         "sw-media-upload-v2": {
             "buttonFileUpload": "Odeslat soubory",
+            "buttonFilesUpload": "Nahrát soubory",
             "buttonUrlUpload": "Odeslat přes URL",
             "buttonSwitchToFileUpload": "Odeslat soubor z vašeho počítače",
             "buttonSwitchToUrlUpload": "Odeslat soubor z URL",
@@ -2218,14 +2306,10 @@
         },
         "sw-multi-tag-ip-select": {
             "enterValidIp": "Zadejte platnou adresu IPv4 nebo IPv6",
-            "addIpAdress": "Přidat IP adresu",
+            "addIpAddress": "Přidat IP adresu",
             "knownIps": {
                 "you": "Ty"
             }
-        },
-        "sw-multi-ip-select": {
-            "enterValidIp": "Zadejte platnou adresu IPv4 nebo IPv6",
-            "addIpAdress": "Přidat IP adresu"
         },
         "sw-entity-multi-select": {
             "messageNoResults": "Pro \"{term}\" nebyly nalezeny žádné výsledky."
@@ -2295,6 +2379,7 @@
                 "shippingCountryRule": "Země dodávky",
                 "shippingStreetRule": "Ulice dodací adresy",
                 "shippingZipCodeRule": "Dodací adresa – PSČ",
+                "customerLoggedInRule": "Přihlášený zákazník",
                 "cartAmountRule": "Hodnota košíku",
                 "goodsCountRule": "Počet zboží v košíku",
                 "goodsPriceRule": "Cena zboží v košíku",
@@ -2336,7 +2421,7 @@
                 "alwaysValidRule": "Vždy vhodné",
                 "lineItemPropertyRule": "Položky s vlastnostmi",
                 "lineItemNoveltyRule": "Novinky",
-                "lineItemCustomFieldRule": "Položky s atributem",
+                "lineItemCustomFieldRule": "Řádková položka s vlastním polem",
                 "lineItemIsNewRule": "Novinky",
                 "lineItemOfManufacturerRule": "Výrobce",
                 "lineItemPurchasePriceRule": "Položky nákupní cena",
@@ -2368,7 +2453,8 @@
         "sw-product-image": {
             "context": {
                 "buttonAsCover": "Použít jako cover",
-                "buttonRemove": "Odstranit"
+                "buttonRemove": "Odstranit",
+                "buttonPreviewImage": "Náhled obrázku"
             }
         },
         "sw-simple-search-field": {
@@ -2438,7 +2524,9 @@
             "delivery_time": "Dodací lhůta | Dodací lhůty",
             "import_export_profile": "Import/Export – profil | Import/Export – profily",
             "feature_set": "Šablona | Šablony",
-            "event_action": "Firemní akce"
+            "event_action": "Firemní akce",
+            "property_group": "Skupina nemovitostí | Skupiny nemovitostí",
+            "document_base_config": "Dokument base config | Konfigurace základny dokumentu"
         },
         "day-of-week": {
             "monday": "Pondělí",
@@ -2469,6 +2557,7 @@
             "mail_sent": "E-mail odeslán",
             "newsletter_confirm": "Přihlášení k newsletteru potvrzeno",
             "newsletter_register": "Registrace newsletteru",
+            "newsletter_unsubscribe": "Odhlášen newsletter",
             "newsletter_update": "Přihlášení k newsletteru aktualizováno",
             "product_export_log": "Provedený vývoz produktu",
             "state_enter_order_state_cancelled": "Objednávka zadá stav zrušen",
@@ -2900,6 +2989,7 @@
             "columnDescription": "Popis",
             "columnActive": "Aktivní",
             "columnPosition": "Pozice",
+            "columnExtension": "Prodloužení",
             "buttonAddPaymentMethod": "Založit způsob platby",
             "contextMenuEdit": "Upravit",
             "contextMenuDelete": "Smazat",
@@ -2931,7 +3021,7 @@
         }
     },
     "sw-plugin-box": {
-        "buttonPluginSettings": "Nastavení doplňku"
+        "buttonPluginSettings": "Nastavení rozšíření"
     },
     "sw-settings-country": {
         "general": {
@@ -2978,7 +3068,10 @@
             "buttonAddCountryState": "Přidat spolkovou zemi/kraj",
             "editAction": "Editovat",
             "columnStateNameLabel": "Název",
-            "columnStateShortCodeLabel": "Zkratka"
+            "columnStateShortCodeLabel": "Zkratka",
+            "taxFreeFrom": "Daně bez",
+            "taxFreeFromHelpText": "Pokud je celkový nákupní košík vyšší než hodnota nastavená v části „Bez daně“, bude celý nákupní košík osvobozen od daně.",
+            "labelVatIdRequired": "Pole ID DPH povinné"
         }
     },
     "sw-country-state-detail": {
@@ -3047,7 +3140,9 @@
             },
             "emptyCountryRoundings": "Přidejte jednotlivá desetinná místa a faktory zaokrouhlení pro různé země.",
             "emptyCountryRoundingsNewCurrency": "Vyplňte základní informace, uložte měnu - přidejte hodnoty",
-            "buttonAddCountry": "Přidat zemi"
+            "buttonAddCountry": "Přidat zemi",
+            "taxFreeFrom": "Daně bez",
+            "taxFreeFromHelpText": "Pokud je celkový nákupní košík vyšší než hodnota nastavená v části „Bez daně“, bude celý nákupní košík osvobozen od daně. Platí pouze pro nákupní vozíky placené v \"{currencyName}“."
         },
         "currency-country-modal": {
             "labelCountrySelect": "Země",
@@ -3062,11 +3157,13 @@
             "labelRoundForNet": "Kolo i pro čisté zákazníky",
             "grandHeadline": "Celkový součet",
             "grandSubline": "Zaokrouhlení platí pro celkové součty",
+            "headerWarning": "Různé intervaly zaokrouhlování - Ujistěte se, že se obraťte zpět u svých individuálních poskytovatelů služeb, abyste předešli problémům",
+            "headerInfo": "Výpočet daně je založen na nezaokrouhlených součtech. Vyskytující se rozdíly zaokrouhlování nepodléhají výpočtu daně.",
             "helpTextDecimals": "Desetinná místa označují maximální počet číslic za desetinným oddělovačem.",
-            "helpTextInterval": "Intervaly zaokrouhlování použijte k zaúčtování trhů, kde byly zrušeny nejnižší fyzické nominální hodnoty měny a jsou zavedeny hotovostní zaokrouhlování. <br><br> Tip: Vyberte možnost „Žádné“, pokud nechcete použít žádné zaokrouhlování v hotovosti. Například při použití desetinných míst větších než 2.",
+            "helpTextInterval": "Intervaly zaokrouhlování použijte k zaúčtování trhů, kde byly zrušeny nejnižší fyzické nominální hodnoty měny a jsou zavedeny hotovostní zaokrouhlování. <br><br> Tip: Vyberte možnost „Žádné“, pokud nechcete použít žádné zaokrouhlování ceny. Například při použití desetinných míst větších než 2.",
             "helpTextRoundForNet": "Aktivujte zaokrouhlení pro čisté skupiny odběratelů navíc.",
             "labelIntervalNone": "Žádná",
-            "tooltipIntervalDisabled": "Zaokrouhlení hotovosti se nepoužije, pokud je desetinná místa větší než 2."
+            "tooltipIntervalDisabled": "Zaokrouhlení ceny se nepoužije, pokud jsou konfigurovány desetinná místa větší než 2."
         }
     },
     "sw-category": {
@@ -3289,13 +3386,15 @@
         "visibility": {
             "textHeadline": "Stanovte viditelnost na prodejní kanál",
             "placeholderVisibility": "Přiřadit prodejní kanály...",
-            "columnAll": "Všude",
-            "columnSearchOnly": "Jen ve viditelném hledání",
-            "columnLinkOnly": "Skryté",
-            "linkAdvancedVisibility": "Konfigurovat rozšířenou viditelnost",
+            "columnAll": "Viditelné",
+            "columnSearchOnly": "Skrýt v seznamu",
+            "columnLinkOnly": "Skrýt v seznamu a hledání",
+            "visibilityModalDescription": "„Skrýt v seznamu“ vyloučí produkt z přehledu produktů, ale také z posuvníků produktů a křížových prodejních seznamů. Výběr možnosti „Skrýt v seznamu a hledání“ také vyloučí produkt z akcí vyhledávání. Produkty lze dosáhnout přes adresu URL.",
+            "linkAdvancedVisibility": "Nastavení viditelnosti pro vybrané prodejní kanály",
             "labelVisibility": "Viditelnost",
             "closeModal": "Převzít",
-            "bodyVisibility": "Přidat prodejní kanály, kde je produkt by měl být zobrazen. Můžete také dále definovat viditelnost produktu pro každý prodejní kanál Storefront prostřednictvím níže uvedeného odkazu."
+            "bodyVisibility": "Přidat prodejní kanály, ve kterých by měl být tento produkt zobrazen. Můžete dále definovat viditelnost produktu pro každý prodejní kanál Storefront prostřednictvím níže uvedeného odkazu.",
+            "errorMessage": "Nelze načíst výchozí konfiguraci prodejního kanálu."
         },
         "general": {
             "mainMenuItemGeneral": "Výrobky",
@@ -3380,7 +3479,10 @@
             "placeholderMetaTitle": "Zadejte meta název...",
             "placeholderMetaDescription": "Zadejte meta popis...",
             "placeholderKeywords": "Zadejte jedno nebo více klíčových slov...",
-            "placeholderCanonicalProduct": "Vyberte variantu..."
+            "placeholderCanonicalProduct": "Vyberte variantu...",
+            "helpTextMetaTitle": "Meta title je nejdůležitějším SEO prvkem a měl by být jedinečný pro každou stránku. Měli byste se omezit na délku maximálně 56 znaků. Vaše klíčové slovo by mělo být v ideálním případě umístěno na přední straně.",
+            "helpTextMetaDescription": "S meta popisem potvrdíte svým zákazníkům, že jsou na správném místě ve vašem obchodě. Vytváříte pobídky, budujete důvěru a pozváte na akci. Měli byste se omezit na maximálně 155 znaků.",
+            "helpTextKeywords": "Zde můžete definovat tři až pět klíčových slov, pod kterými by měl být váš produkt nalezen."
         },
         "settingsForm": {
             "labelCreatedAt": "Datum vytvoření",
@@ -3504,6 +3606,7 @@
             "columnInStock": "Stav zásob skladem",
             "columnAvailableStock": "Ještě k dispozici",
             "columnActions": "Akce",
+            "columnMedia": "Média",
             "contextMenuEdit": "Upravit",
             "contextMenuDelete": "Smazat",
             "contextMenuDuplicate": "Duplikovat",
@@ -3604,6 +3707,7 @@
             "generatedListColumnVariation": "Varianta",
             "generatedListColumnPrice": "Cena (brutto / netto)",
             "generatedListColumnProductNumber": "Číslo výrobku",
+            "generatedListColumnMedia": "Média",
             "generatedListColumnActive": "Aktivní",
             "generatedListColumnStock": "Stav zásob skladem",
             "generatedListContextMenuEdit": "Upravit",
@@ -3672,6 +3776,7 @@
         "crossselling": {
             "cardTitleCrossSelling": "Křížový prodej",
             "buttonAddCrossSelling": "Přidat nový křížový prodej",
+            "buttonAddCrossSellingLanguageWarning": "Nové křížové prodeje můžete vytvořit pouze ve výchozím jazyce",
             "buttonDeleteCrossSelling": "Smazat",
             "inputCrossSellingTitle": "Titul",
             "inputCrossSellingActive": "Aktivní",
@@ -4190,12 +4295,15 @@
             "updateExcludedTermSuccess": "Vyloučený hledaný výraz aktualizován",
             "createExcludedTermSuccess": "Vyloučený hledaný výraz vytvořen",
             "deleteExcludedTermSuccess": "Vyloučený hledaný výraz smazán",
+            "resetToDefaultExcludedTermSuccess": "Vyloučené hledané výrazy byly obnoveny na výchozí.",
+            "resetToDefaultExcludedTermError": "Při resetování vyloučených hledaných výrazů došlo k chybě.",
             "saveError": "Při ukládání konfigurace došlo k chybě.",
             "index": {
                 "started": "Vytváření indexů produktů.",
                 "success": "Produktové indexy vytvořeny."
             },
-            "loadError": "Při načítání konfigurace došlo k chybě."
+            "loadError": "Při načítání konfigurace došlo k chybě.",
+            "notSupportedLanguageError": "Vybraný jazyk není dostupný ve vybraném prodejním kanálu"
         },
         "liveSearchTab": {
             "titleCard": "Živé vyhledávání prodejního kanálu",
@@ -4348,7 +4456,7 @@
             "label": "Nyní k dispozici",
             "activationDescriptionTitleFirst": "Prozkoumejte a kupujte rozšíření snadno -",
             "activationDescriptionTitleSecond": "přímo z vlastního obchodu Shopware.",
-            "activationDescriptionTitleDescription": "Aktivujte zcela nový obchod Shopware Store a získejte přístup k spoustě užitečných rozšíření a moderních motivů, které lze do Obchodu bez zdánlivě integrovat - bez jakýchkoli programovacích dovedností.",
+            "activationDescriptionTitleDescription": "Aktivujte obchod Shopware Store a získejte přístup k spoustě užitečných rozšíření a moderních motivů, které lze do Obchodu bez zdánlivě integrovat - bez jakýchkoli programovacích dovedností.",
             "activate": "Aktivovat"
         },
         "title": "Obchod",
@@ -4501,6 +4609,9 @@
                     "permissions": "Oprávnění"
                 }
             },
+            "sw-extension-card-bought": {
+                "subscriptionExpiredAt": "Platnost předplatného vyprší na {date}"
+            },
             "sw-extension-deactivation-modal": {
                 "deactivateExtensionLabel": "Deaktivovat \"{extensionName}“",
                 "description": "Rozšíření \"{extensionName}“ má měsíční poplatek za předplatné.<br>Deaktivace rozšíření <b>nebude</b> zrušit předplatné a poplatky budou i nadále vybírány!",
@@ -4510,8 +4621,16 @@
             },
             "sw-extension-permissions-modal": {
                 "title": "{extensionLabel} oprávnění",
-                "description": "{extensionLabel} bude mít přístup k následujícím komponentám. Kliknutím na odkaz vedle komponenty zobrazíte podrobnosti o entitě.",
-                "textEntities": "Zobrazit oprávnění"
+                "description": "{extensionLabel} získá přístup k níže uvedeným komponentám. Kliknutím na odkaz vedle komponenty zobrazíte podrobnosti o entitě.",
+                "domainHint": "Některá data budou také sdílena s jinými doménami. Další podrobnosti získáte kliknutím na odkaz vedle domén.",
+                "textEntities": "Zobrazit oprávnění",
+                "domains": "Domény",
+                "showDomains": "Zobrazit domény"
+            },
+            "sw-extension-domains-modal": {
+                "modalTitle": "{extensionLabel} - Domény",
+                "description": "Některá data budou sdílena/přenášena do níže uvedených domén.",
+                "listTitle": "Doména"
             },
             "sw-extension-privacy-policy-extensions-modal": {
                 "title": "{extensionLabel}: rozšíření zásad ochrany osobních údajů",
@@ -4940,7 +5059,6 @@
             "messageServerError": "Na ověřovacím serveru se vyskytla všeobecná chyba.",
             "messageInvalidRefreshToken": "Zadaný token obnovení je neplatný.",
             "messageAccessDenied": "Přístup byl odmítnut.",
-            "messageInvalidGrant": "Typ Grant nebo token obnovení Refresh jsou neplatné.",
             "messageGeneralRequestError": "Poptávka po \"{url}\" se nezdařila.",
             "forgottenPasswordLink": "Zapomněli jste heslo?"
         },
@@ -5463,6 +5581,23 @@
             "markets": "Shopware Markets"
         }
     },
+    "sw-flow": {
+        "general": {
+            "mainMenuItemGeneral": "Tvůrce toku",
+            "descriptionTextModule": "Tvůrce toku"
+        },
+        "list": {
+            "textHeadline": "Tvůrce toku",
+            "buttonAddFlow": "Přidat průtok"
+        },
+        "detail": {
+            "textHeadline": "Nový tok"
+        },
+        "page": {
+            "generalTab": "generál",
+            "flowTab": "Průtok"
+        }
+    },
     "sw-sales-channel": {
         "general": {
             "tooltipOpenStorefront": "Otevřít výkladní",
@@ -5569,6 +5704,14 @@
             "ipAddressWhitleListHelpText": "Přidejte IP adresy seznamu povolených adres Whitelist a umožněte tak selektivní přístup do obchodu. V případě potřeby lze přidávat adresy IPv4 a IPv6.",
             "basicinformationLink": "Změnit standardní rozvržení stránek údržby",
             "columnDomainCurrency": "Měna",
+            "products": {
+                "titleEmptyState": "Zatím nebyly přidány žádné produkty",
+                "titleEmptyStateTable": "Nebyly nalezeny žádné odpovídající produkty",
+                "buttonAddProducts": "Přidání produktů",
+                "columnProductName": "Název produktu",
+                "columnActive": "Aktivní",
+                "columnProductNumber": "Číslo produktu"
+            },
             "productComparison": {
                 "inputHeaderLabel": "Řádek záhlaví",
                 "inputBodyLabel": "Řádek produktu",
@@ -5690,6 +5833,12 @@
                 "verticalDescription": "Součet daně z přidané hodnoty se vypočítá na základě celkové částky objednávky. Podíly daně z přidané hodnoty jednotlivých položek se v pokladně nezobrazují. ",
                 "horizontalName": "Vyúčtování po řádkách (horizontálně)",
                 "horizontalDescription": "Daň z přidané hodnoty se vypočítá podle položky v nákupním košíku. Podíly daně z přidané hodnoty jednotlivých položek v nákupním košíku se zobrazují během platby u pokladny. Souhrn daně z přidané hodnoty se vypočítává z podílů daně z přidané hodnoty jednotlivých položek."
+            },
+            "productAssigmentModal": {
+                "title": "Přidání produktů",
+                "singleProducts": "Jednotlivé produkty",
+                "categories": "Filtrovat podle kategorií",
+                "dynamicProductGroups": "Filtrovat podle dynamických skupin produktů"
             }
         },
         "sw-sales-channel-defaults-select": {
@@ -5761,8 +5910,12 @@
                 "placeholderTestMail": "obchod@priklad.com",
                 "buttonTestMail": "Odeslat",
                 "labelTestMail": "Adresa příjemce",
-                "titleTestMail": "Poslat zkušební e-mail"
+                "titleTestMail": "Poslat zkušební e-mail",
+                "titleShowPreview": "Zobrazit náhled",
+                "titleShowAvailableVariables": "Proměnné",
+                "copyTooltip": "Kopírovat do schránky."
             },
+            "previewModalTitle": "Náhled",
             "buttonCancel": "Přerušit",
             "buttonSave": "Uložit",
             "textHeadline": "Nová šablona e-mailu",
@@ -6238,6 +6391,20 @@
             "tags": {
                 "label": "Tagy",
                 "placeholder": "Vybrat tagy..."
+            },
+            "affiliateCode": {
+                "label": "Partnerský kód",
+                "placeholder": "Vyberte partnerský kód..."
+            },
+            "campaignCode": {
+                "label": "Kód kampaně",
+                "placeholder": "Vyberte kód kampaně..."
+            },
+            "customerGroupRequest": {
+                "label": "Žádosti o skupinu zákazníků",
+                "placeholder": "Vyberte stav požadavku...",
+                "textHasCriteria": "Otevřít žádosti o skupiny odběratelů",
+                "textNoCriteria": "Žádné požadavky na skupinu zákazníků"
             },
             "messageEmptyTitle": "Nic nenalezeno",
             "messageEmptySubline": "Upravte filtry a najděte výsledky."
@@ -7198,9 +7365,9 @@
         "infoTextInheritedField": "{moduleName} má zděděná pole. To znamená, že dokud je aktivní zděděný stav, obsah se dětí. Zděděná pole lze uvolnit kliknutím na symbol odkazu. Nové kliknutí na symbol opět vrátí zděděný stav zpět."
     },
     "sw-license-violation": {
-        "title": "Výstraha (výstraha) rozšíření",
+        "title": "Výstraha rozšíření",
         "reload": "Znovu načíst",
-        "alertText": "V této instalaci jsme zjistili porušení licence pro alespoň jedno z vašich rozšíření. Chcete-li opravit porušení licence a vyhnout se právním důsledkům, rezervujte si prodloužení nebo zakoupení/pronajmutí rozšíření (podle typu způsobeného porušení). Rozšíření už nepoužíváte? Potom ji smažte prostřednictvím Moje rozšíření. Pokud nebude přijata žádná z těchto opatření, společnost shopware AG si vyhrazuje právo účtovat sankční poplatky za jakékoli porušení licence.",
+        "alertText": "V této instalaci jsme zjistili porušení licence pro alespoň jedno z vašich rozšíření. Chcete-li opravit porušení licence a vyhnout se právním důsledkům, zarezervujte si předplatné nebo si zakoupení/pronajmutí rozšíření (podle typu způsobeného porušení). Rozšíření už nepoužíváte? Poté jej odstraňte pomocí tlačítka „Smazat rozšíření trvale“ nebo přes Moje rozšíření. Pokud nebude přijata žádná z těchto opatření, shopware AG si vyhrazuje právo účtovat pokutové poplatky za jakékoli porušení licence.",
         "deletePlugin": "Trvalé odstranění rozšíření",
         "messageDeleteConfirm": "Chcete úplně odstranit rozšíření \"{pluginName}\"?",
         "checkboxMessage": "Přečetl(a) jsem si varování a rozumím možným následkům.",
@@ -7364,7 +7531,7 @@
                 },
                 "reinstall-apps": {
                     "name": "Kopírování aplikací do aktuální domény",
-                    "description": "Pokud chcete, aby vaše aplikace fungovaly na obou doménách, přeinstaluje se tím všechny aplikace na vaší nové doméně. Poznámka: Data aplikací na vaší staré doméně budou stále k dispozici, nebezplatné aplikace mohou vyžadovat další poplatky za každou doménu."
+                    "description": "Pokud chcete, aby vaše aplikace fungovaly na obou doménách, znovu nainstalujete všechny aplikace do nové domény. Poznámka: Data aplikací na vaší staré doméně budou stále k dispozici, nebezplatné aplikace mohou vyžadovat další poplatky za každou doménu."
                 },
                 "uninstall-apps": {
                     "name": "Odinstalování aplikací",

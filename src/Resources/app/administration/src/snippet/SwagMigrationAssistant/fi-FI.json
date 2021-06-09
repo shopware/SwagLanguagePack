@@ -43,7 +43,7 @@
                     "availableVersionHeadline": "Tuetut:",
                     "installedHint": "Asennettu",
                     "installationButton": "Asenna",
-                    "shopwareProfileHeadline": "Shopware 5 - Profil",
+                    "shopwareProfileHeadline": "Shopware - Profil",
                     "magentoProfileHeadline": "Magento - Profil",
                     "profileManufacturer": "shopware AG"
                 },
@@ -79,6 +79,12 @@
                         "contentTitle": "Plugin vaaditaan",
                         "contentInformation": "Tarvittava plugin ”Migration Connector” on ilmainen, ja se löytyy Shopware 5 -taustalevystä kohdasta Plugin Manager > Laajennukset > Siirtotyökalut. Asenna ja aktivoi liitännäinen jatkaaksesi.",
                         "pluginLink": "Lisätietoja liitännäisestä"
+                    },
+                    "shopware6Api": {
+                        "contentTitle": "Integrointi vaaditaan",
+                        "contentInformation": "Sen on luotava integrointi lähdejärjestelmään valitsemalla Asetukset > Järjestelmä > Integrations.",
+                        "pluginLink": "Lisätietoja integraatioista",
+                        "link": "https://docs.shopware.com/en/shopware-6-en/settings/system/integrationen"
                     }
                 },
                 "credentials": {
@@ -110,6 +116,20 @@
                             "dbPasswordPlaceholder": "Syötä salasana",
                             "installationRoot": "Kaupan asennuskansio",
                             "installationRootPlaceholder": "Syötä asennuksen pääkäyttäjä"
+                        }
+                    },
+                    "shopware6": {
+                        "api": {
+                            "contentInformation": "Tarvitset voimassa olevat API-tunnistetiedot luodaksesi yhteyden lähteen ja kohteen Shopware 6 -esiintymän välille. Näitä saa, kun luot integroinnin lähdejärjestelmään.",
+                            "apiPasswordLabel": "Salainen käyttöavain",
+                            "apiPasswordTooltip": "Salaista käyttöavainta käytetään suojaukseen ja tunnistamiseen.",
+                            "apiPasswordPlaceholder": "Syötä salainen käyttöavain",
+                            "apiUserLabel": "Pääsyavaimen tunnus",
+                            "apiUserTooltip": "Access avaimen tunnus integrointi.",
+                            "apiUserPlaceholder": "Anna pääsyavaimen tunnus",
+                            "endpointLabel": "Kauppa verkkotunnus",
+                            "endpointPlaceholder": "www.demoshop.com",
+                            "endpointSSLLabel": "Kauppani käyttää suojattua yhteyttä (SSL)"
                         }
                     },
                     "statusTitle": "Yhteyden tarkistus",
@@ -236,12 +256,15 @@
                     "newsletterRecipient": "Uutiskirjeen vastaanottaja",
                     "productReviews": "Tuotearvostelut",
                     "seoUrls": "Seo-urlit",
-                    "promotions": "kampanjat"
+                    "promotions": "kampanjat",
+                    "cms": "Asettelut",
+                    "customerWishlists": "Toivelistat"
                 },
                 "entities": {
                     "category": "Luokat:",
                     "product": "Tuotteet:",
                     "customer": "Asiakkaat:",
+                    "delivery_time": "Toimitusajat:",
                     "order": "Tilaukset:",
                     "media": "Media:",
                     "translation": "Käännökset:",
@@ -251,14 +274,44 @@
                     "property_group_option": "Ominaisuudet:",
                     "number_range": "Lukualueet:",
                     "order_document": "Tilausasiakirjat:",
+                    "order_document_base_config": "Asiakirjan config:",
+                    "order_document_inheritance": "Tilausasiakirjan suhteet:",
                     "shipping_method": "Toimitustavat:",
                     "currency": "Valuutat:",
                     "sales_channel": "Myyntikanavat:",
+                    "sales_channel_domain": "Verkkotunnukset:",
                     "product_review": "Arviot:",
-                    "seo_url": "Seo-urlit:",
+                    "seo_url": "SEO-URL-osoitteet:",
+                    "seo_url_template": "SEO-URL-mallit:",
                     "product_cross_selling": "Ristiinmyynti:",
+                    "promotion": "Kampanjat:",
+                    "language": "Kielet:",
+                    "category_association": "Luokka yhdistykset:",
+                    "category_cms_page_association": "Luokan asetteluyhdistykset",
+                    "tax": "Veroprosentit:",
+                    "tax_rule": "Verosäännöt:",
+                    "property_group": "Kiinteistöryhmät:",
+                    "product_manufacturer": "Tuotteiden valmistajat:",
                     "main_variant_relation": "Tärkeimmät muunnoksen suhteet:",
-                    "promotion": "Kampanjat:"
+                    "customer_wishlist": "Toivelistat:",
+                    "unit": "Skaalayksiköt:",
+                    "media_folder": "Media-kansiot:",
+                    "media_folder_inheritance": "Mediakansion perimät:",
+                    "salutation": "Tervehdykset:",
+                    "rule": "Säännöt:",
+                    "country": "Maat:",
+                    "custom_field_set": "Mukautetut kenttäjoukot:",
+                    "snippet": "Katkelmat:",
+                    "snippet_set": "Katkelmasarjat:",
+                    "mail_template": "Sähköpostimallit:",
+                    "product_feature_set": "Olennaiset ominaisuudet:",
+                    "product_sorting": "Tuotteen lajittelu:",
+                    "system_config": "Perustiedot:",
+                    "page_system_config": "Sivun perustiedot:",
+                    "cms_page": "Asettelut:",
+                    "product_stream": "Dynaamiset tuoter",
+                    "product_stream_filter_inheritance": "Dynaamiset tuoteryhmän suodat",
+                    "country_state": "Maavaltiot:"
                 },
                 "noData": "Mitään ei löytynyt muuttoa."
             },

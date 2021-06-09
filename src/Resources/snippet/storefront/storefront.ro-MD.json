@@ -3,13 +3,13 @@
         "homeLink": "Acasă",
         "menuLink": "Meniu",
         "star": "*",
-        "grossTaxInformation": "Preturi incl. TVA plus costurile de transport",
-        "netTaxInformation": "Prețuri, cu excepția. TVA plus costurile de transport",
+        "grossTaxInformation": "Preturile includ TVA și costul de transport",
+        "netTaxInformation": "Prețurile fară TVA și costul de transport",
         "deliveryShippingFree": "Transport gratuit",
         "deliveryNotAvailable": "Aceste opțiuni nu sunt disponibile în prezent.",
         "deliveryShipping": "Acest produs va fi lansat pe",
         "deliveryPartialStock": "Numai %inStock% din %quantity% în stoc",
-        "deliveryPartialStockAddon": "- Timp estimat de livrare (produs scos din stoc): %shippingTime% zile lucrătoare",
+        "deliveryPartialStockAddon": "- Timp estimat de livrare (produs indisponibil): %shippingTime% zile lucrătoare",
         "deliveryInStock": "Gata de livrare, timp estimat de livrare: 1-3 zile lucrătoare",
         "deliveryShippingTime": "Timp estimat de livrare: %shippingTime% zile lucrătoare",
         "deliveryShippingDelay": "Timp estimat de livrare: 5 zile lucrătoare",
@@ -39,20 +39,20 @@
         "formSubmit": "Trimite"
     },
     "header": {
-        "logoLink": "Accesați pagina de pornire",
+        "logoLink": "Accesați prima pagină",
         "searchButton": "Caută",
         "searchPlaceholder": "Caută în toate categoriile...",
         "searchAllResults": "Afișează toate rezultatele căutării",
         "searchResults": "{1} 1 Result|] 1, Inf [ %count% Rezultate",
         "supportInfo": "<strong>Întrebări cu privire la comanda dvs.?</strong><br /><strong><a href=\"tel:+4912345-123456789\">12345-123456789</a></strong> <small>Zilnic de la 7:30am la 10:00pm</small>",
-        "indexLinkService": "Serviciu/ajutor",
+        "indexLinkService": "Service/ajutor",
         "searchNoResult": "Nu a fost găsit niciun rezultat.",
         "wishlist": "Wishlist"
     },
     "error": {
         "VIOLATION::IS_BLANK_ERROR": "%field% nu trebuie să fie gol.",
         "VIOLATION::TOO_LOW_ERROR": "%field% nu trebuie să fie gol.",
-        "VIOLATION::STRICT_CHECK_FAILED_ERROR": "%field% este nevalid",
+        "VIOLATION::STRICT_CHECK_FAILED_ERROR": "%field% nu este valid",
         "VIOLATION::CUSTOMER_EMAIL_NOT_UNIQUE": "Această adresă de e-mail a fost deja înregistrată.",
         "VIOLATION::CUSTOMER_PASSWORD_NOT_CORRECT": "Parola incorectă",
         "VIOLATION::VAT_ID_FORMAT_NOT_CORRECT": "Codul TVA pe care l-ați introdus nu are formatul corect.",
@@ -63,7 +63,6 @@
         "CHECKOUT__UNKNOWN_PAYMENT_METHOD": "Metoda de plată selectată nu există.",
         "productNotFound": "Produsul \"%number%\" nu a fost găsit.",
         "payment-method-blocked": "Plata prin %name% nu este disponibilă.",
-        "shipping-method-blocked": "%name% de transport maritim nu este disponibil.",
         "shipping-address-blocked": "Expedierea la adresa selectată nu este posibilă.",
         "shipping-address-invalid": "Adresa de expediere selectată nu este validă sau incompletă. Vă rugăm să verificați intrările.",
         "billing-address-blocked": "Facturarea la adresa selectată nu este posibilă.",
@@ -73,7 +72,10 @@
         "message-403-ajax": "Sesiunea ta a expirat. Vă rugăm să reîncărcați pagina și încercați din nou.",
         "message-403": "Sesiunea ta a expirat. Vă rugăm să reveniți la ultima pagină și încercați din nou.",
         "product-out-of-stock": "%name% nu este disponibil în acest moment.",
-        "auto-promotion-not-found": "Promovarea \"%name%\" nu mai era validă!"
+        "auto-promotion-not-found": "Promovarea \"%name%\" nu mai este validă!",
+        "captcha": {
+            "basic-captcha-invalid": "Captcha nu este validă. Vă rugăm să verificați intrările."
+        }
     },
     "account": {
         "externalPaymentCanceled": "Am primit comanda ta, dar plata a fost anulată. Modificați metoda de plată sau încercați din nou",
@@ -540,7 +542,8 @@
         "noLongerAvailableTooltip": "Produsul nu mai este disponibil.",
         "wishlistMergeHint": "Lista dvs. de dorințe poate conține produse care au fost adăugate și salvate în timpul unei vizite anterioare.",
         "wishlistEmptyHeader": "Lista ta de dorinţe este goală",
-        "wishlistEmptyDescription": "Fiți cu ochii pe produsele care vă plac adăugându-le în lista de dorințe."
+        "wishlistEmptyDescription": "Fiți cu ochii pe produsele care vă plac adăugându-le în lista de dorințe.",
+        "deliveryTimeRestock": "{1} Disponibil în 1 zi, timp de livrare %name%|] 1, Inf [Disponibil în %restockTime% zile, timp de livrare %name%"
     },
     "footer": {
         "serviceHotlineHeadline": "Linia telefonică de servicii",
@@ -555,6 +558,12 @@
         "excludeVat": "* Toate prețurile, cu excepția. TVA plus <a data-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">costurile de transport</a> și eventualele taxe de livrare, dacă nu se specifică altfel.",
         "copyrightInfo": "Realizata cu Shopware"
     },
+    "captcha": {
+        "googleReCaptcha": {
+            "dataProtectionInformation": "Acest site este protejat de reCAPTCHA și se aplică Politica de confidențialitate Google\n<a href=\"https://policies.google.com/privacy\"></a> și\n<a href=\"https://policies.google.com/terms\">Termeni și Condiții de utilizare</a>."
+        },
+        "basicCaptchaLabel": "Vă rugăm să introduceți caracterele de mai sus.*"
+    },
     "cookie": {
         "message": "Acest site foloseste cookie-uri pentru a asigura cea mai buna experienta posibila. <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"More information\">Mai multe informații...</a>",
         "deny": "Deny",
@@ -568,7 +577,7 @@
         "groupRequiredSession": "Sesiune",
         "groupRequiredCsrf": "Protecție CSRF",
         "groupRequiredTimezone": "Fus orar",
-        "groupRequiredGoogleReCaptcha": "Google reCAPTCHA",
+        "groupRequiredCaptcha": "Integrare Captcha",
         "groupStatistical": "Statistici",
         "groupStatisticalDescription": "Cookie-uri utilizate pentru statistici și indicatori de performanță magazin.",
         "groupStatisticalGoogleAnalytics": "Google Analytics",

@@ -63,7 +63,6 @@
         "CHECKOUT__UNKNOWN_PAYMENT_METHOD": "Le moyen de paiement sélectionné n'a pas pu être trouvé.",
         "productNotFound": "Le produit \"%number%\" est introuvable.",
         "payment-method-blocked": "Le moyen de paiement sélectionné %name% est indisponible.",
-        "shipping-method-blocked": "Le mode d'expédition sélectionné %name% est indisponible.",
         "shipping-address-blocked": "Impossible de livrer à l'adresse sélectionnée.",
         "shipping-address-invalid": "L'adresse d'expédition sélectionnée n'est pas valide ou incomplète. Veuillez vérifier vos entrées.",
         "billing-address-blocked": "La facturation à l'adresse sélectionnée n'est pas possible.",
@@ -73,7 +72,10 @@
         "message-403-ajax": "La session a expiré. Veuillez actualiser la page et recommencer.",
         "message-403": "La session a expiré. Veuillez retourner à la page précédente et recommencer.",
         "product-out-of-stock": "%name% n'est pas disponible actuellement.",
-        "auto-promotion-not-found": "La promotion \"%name%\" n'était plus valide !"
+        "auto-promotion-not-found": "La promotion \"%name%\" n'est plus valide !",
+        "captcha": {
+            "basic-captcha-invalid": "Le captcha n'est pas valide. Veuillez vérifier vos entrées."
+        }
     },
     "account": {
         "externalPaymentCanceled": "Nous avons reçu votre commande, mais le paiement a été annulé. Veuillez modifier votre mode de paiement ou réessayer",
@@ -318,7 +320,7 @@
         "continueShopping": "Continuer vos achats",
         "emptyCart": "Votre panier est vide",
         "proceedToCart": "Afficher le panier",
-        "proceedToCheckout": "Payer",
+        "proceedToCheckout": "Passer en caisse",
         "quantityTimes": "x",
         "priceUnitName": "Contenu :",
         "removeLineItem": "Supprimer le produit",
@@ -479,7 +481,7 @@
         "descriptionTitle": "Informations sur le produit",
         "priceUnitName": "Contenu :",
         "priceDataInfoUntil": "À",
-        "priceDataInfoFrom": "Dès",
+        "priceDataInfoFrom": "À partir de",
         "listPricePercentage": "(économie de %price%%)",
         "dataColumnQuantity": "Quantité",
         "dataColumnPrice": "Prix unitaire",
@@ -503,7 +505,7 @@
         "reviewFormContentLabel": "Votre commentaire",
         "reviewFormSubmitText": "Envoyer",
         "reviewFormCancelText": "Annuler",
-        "reviewFormErrorAlert": "Une erreur est survenue. Veuillez vérifiez que tous les champs sont correctement remplis.",
+        "reviewFormErrorAlert": "Une erreur s'est produite. Veuillez vous assurer que tous les champs sont correctement renseignés.",
         "reviewFormSuccessAlert": "Merci d'avoir soumis votre avis. Nous examinerons l'examen et finirons par le déverrouiller, s'il vous plaît soyez patient.",
         "reviewFormSuccessUpdateAlert": "Nous vous remercions d'avoir pris le temps de réaliser cette évaluation. Elle réapparaitra dès que nous l'aurons à nouveau activée.",
         "reviewTeaserTitle": "Laissez une évaluation !",
@@ -540,7 +542,8 @@
         "noLongerAvailableTooltip": "Le produit n'est plus disponible.",
         "wishlistMergeHint": "Votre liste d'envies peut contenir des produits qui ont été ajoutés et enregistrés lors d'une visite précédente.",
         "wishlistEmptyHeader": "Votre liste de souhaits est vide",
-        "wishlistEmptyDescription": "Gardez un œil sur les produits que vous aimez en les ajoutant à votre liste d'envies."
+        "wishlistEmptyDescription": "Gardez un œil sur les produits que vous aimez en les ajoutant à votre liste d'envies.",
+        "deliveryTimeRestock": "{1} Disponible en 1 jour, Délai de livraison %name%|] 1, Inf [Disponible en %restockTime% jours, Délai de livraison %name%"
     },
     "footer": {
         "serviceHotlineHeadline": "Assistance téléphonique",
@@ -555,6 +558,12 @@
         "excludeVat": "* Tous les prix s'entendent hors TVA, <a data-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">frais de livraison</a> en sus et, le cas échéant, frais de contre-remboursement en sus, sauf indication contraire.",
         "copyrightInfo": "Créé avec Shopware"
     },
+    "captcha": {
+        "googleReCaptcha": {
+            "dataProtectionInformation": "Ce site est protégé par reCAPTCHA et la politique de confidentialité de Google\n<a href=\"https://policies.google.com/privacy\"></a> et\n<a href=\"https://policies.google.com/terms\">Conditions d'utilisation</a> s'appliquent."
+        },
+        "basicCaptchaLabel": "Veuillez saisir les caractères indiqués ci-dessus*"
+    },
     "cookie": {
         "message": "Ce site Web utilise des cookies afin de vous offrir la meilleure expérience possible. <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Plus d'informations\">Plus d'informations...</a>",
         "deny": "Refuser",
@@ -568,7 +577,7 @@
         "groupRequiredSession": "Session",
         "groupRequiredCsrf": "Protection CSRF",
         "groupRequiredTimezone": "Fuseau horaire",
-        "groupRequiredGoogleReCaptcha": "Google reCAPTCHA",
+        "groupRequiredCaptcha": "Intégration de Captcha",
         "groupStatistical": "Statistiques",
         "groupStatisticalDescription": "Cookies utilisés pour les statistiques et les mesures de performance de la boutique.",
         "groupStatisticalGoogleAnalytics": "Google Analytics",

@@ -63,7 +63,6 @@
         "CHECKOUT__UNKNOWN_PAYMENT_METHOD": "Izvēlētā maksājuma metode neeksistē.",
         "productNotFound": "Produkts \"%number%\" nav atrasts.",
         "payment-method-blocked": "Maksājums ar %name% nav pieejams.",
-        "shipping-method-blocked": "%name% piegāde nav pieejama.",
         "shipping-address-blocked": "Piegāde uz izvēlēto piegādes adresi nav iespējama.",
         "shipping-address-invalid": "Izvēlētā piegādes adrese nav derīga vai nepilnīga. Lūdzu, pārbaudiet savus ierakstus.",
         "billing-address-blocked": "Norēķini uz izvēlēto adresi nav iespējams.",
@@ -73,7 +72,10 @@
         "message-403-ajax": "Jūsu sesijas termiņš ir beidzies. Lūdzu atkārtoti atveriet lapu un mēģiniet vēlreiz.",
         "message-403": "Jūsu sesijas termiņš ir beidzies. Lūdzu atgriezieties pēdējā lapā un mēģiniet vēlreiz.",
         "product-out-of-stock": "%name% šobrīd nav pieejams.",
-        "auto-promotion-not-found": "Promotion \"%name%\" vairs nebija derīgs!"
+        "auto-promotion-not-found": "Akcija \"%name%\" vairs nav derīga!",
+        "captcha": {
+            "basic-captcha-invalid": "Captcha ir nederīga. Lūdzu, pārbaudiet savus ierakstus."
+        }
     },
     "account": {
         "externalPaymentCanceled": "Mēs saņēmām jūsu pasūtījumu, bet maksājums tika pārtraukts. Lūdzu, mainiet maksājuma veidu vai mēģiniet vēlreiz",
@@ -503,7 +505,7 @@
         "reviewFormContentLabel": "Jūsu vērtējums",
         "reviewFormSubmitText": "Apstiprināt",
         "reviewFormCancelText": "Atcelt",
-        "reviewFormErrorAlert": "Radās kļūda. Lūdzu pārliecinieties vai esat pareizi aizpildījis visus laukus.",
+        "reviewFormErrorAlert": "Radās kļūda. Lūdzu, pārliecinieties, ka esat aizpildījis visus laukus pareizi.",
         "reviewFormSuccessAlert": "Paldies, ka iesniedzāt savu atsauksmi. Mēs izskatīsim pārskatu un galu galā atbloķēsim to, lūdzu, esiet pacietīgi.",
         "reviewFormSuccessUpdateAlert": "Paldies ka rediģējāt pārskatu. Izmaiņas būs redzamas, tiklīdz tās būsim atbloķējuši.",
         "reviewTeaserTitle": "Uzrakstiet vērtējumu!",
@@ -540,7 +542,8 @@
         "noLongerAvailableTooltip": "Produkts vairs nav pieejams.",
         "wishlistMergeHint": "Jūsu vēlmju sarakstā var būt ietverti produkti, kas ir pievienoti un saglabāti iepriekšējā apmeklējuma laikā.",
         "wishlistEmptyHeader": "Jūsu vēlmju saraksts ir tukšs",
-        "wishlistEmptyDescription": "Sekojiet līdzi produktiem, kas jums patīk, pievienojot tos savam vēlmju sarakstam."
+        "wishlistEmptyDescription": "Sekojiet līdzi produktiem, kas jums patīk, pievienojot tos savam vēlmju sarakstam.",
+        "deliveryTimeRestock": "{1} Pieejams 1 dienā, piegādes laiks %name%|] 1, Inf [Pieejams %restockTime% dienās, piegādes laiks %name%"
     },
     "footer": {
         "serviceHotlineHeadline": "Pakalpojuma karstā līnija",
@@ -555,6 +558,12 @@
         "excludeVat": "* Visas cenas tiek norādītas bez PVN plus <a data-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">nosūtīšanas izmaksas</a> un iespējams, piegādes izmaksas, ja nav aprakstīts citādi.",
         "copyrightInfo": "Realizēts ar Shopware"
     },
+    "captcha": {
+        "googleReCaptcha": {
+            "dataProtectionInformation": "Šī vietne ir aizsargāta ar ReCAPTCHA un tiek piemērota Google\n<a href=\"https://policies.google.com/privacy\">privātuma politika</a> un\n<a href=\"https://policies.google.com/terms\">Pakalpojuma noteikumi</a>."
+        },
+        "basicCaptchaLabel": "Lūdzu, ievadiet rakstzīmes, kas norādītas augšā*"
+    },
     "cookie": {
         "message": "Šī vietne izmanto sīkdatnes, lai nodrošinātu vislabāko lietojamību mūsu vietnē. <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Vairāk infomācijas\">Vairāk infomācijas...</a>",
         "deny": "Aizliegts",
@@ -568,7 +577,7 @@
         "groupRequiredSession": "Sesija",
         "groupRequiredCsrf": "CSRF aizsardzība",
         "groupRequiredTimezone": "Laika zona",
-        "groupRequiredGoogleReCaptcha": "Google reCAPTCHA",
+        "groupRequiredCaptcha": "Captcha integrācija",
         "groupStatistical": "Statistika",
         "groupStatisticalDescription": "Šīs sīkdatnes tiek izmantotas statistikai un veikalu veiktspējas rādītājiem.",
         "groupStatisticalGoogleAnalytics": "Google Analytics",

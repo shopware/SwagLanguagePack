@@ -36,8 +36,6 @@
         },
         "detail": {
             "buttonCancel": "Wijzigingen negeren",
-            "buttonSave": "Opslaan",
-            "buttonEdit": "Bewerken",
             "tabOrderDetails": "Besteldetails",
             "tabDeliveries": "Leveringen",
             "textHeadline": "Bestelling",
@@ -181,6 +179,7 @@
             "buttonAddBlankProduct": "Lege positie toevoegen",
             "buttonAddCredit": "Creditnota toevoegen",
             "buttonEditAddress": "Bewerken",
+            "tooltipNestedLineItemsButton": "Dit regelitem bevat subitems.",
             "labelNoPhoneNumber": "Nog geen telefoonnummer",
             "labelNoEmail": "Geen",
             "labelCustomerPhoneNumber": "Telefoonnummer",
@@ -207,6 +206,14 @@
             "enterValidTrackingCode": "Voer de trackingcode in",
             "textCreditTax": "auto",
             "taxDetail": "{taxRate}%: {tax}"
+        },
+        "nestedLineItemsModal": {
+            "titlePrefix": "Item: {lineItemLabel} - {price}",
+            "headerLabel": "Naam",
+            "headerUnitPrice": "Prijs (bruto)",
+            "headerQuantity": "hoeveelheid",
+            "headerTotalPrice": "Subtotaal",
+            "headerTax": "BTW"
         },
         "detailDeliveries": {
             "cardTitleItems": "Levering {count}",
@@ -380,6 +387,14 @@
                 "label": "Producten",
                 "placeholder": "Selecteer producten..."
             },
+            "affiliateCodeFilter": {
+                "label": "Affiliate code",
+                "placeholder": "Selecteer affiliate code..."
+            },
+            "campaignCodeFilter": {
+                "label": "Campagne code",
+                "placeholder": "Selecteer campagnecode..."
+            },
             "messageEmptyTitle": "Niets gevonden",
             "messageEmptySubline": "Bewerk uw filters om resultaten te vinden."
         }
@@ -457,6 +472,9 @@
             },
             "customer_groups": {
                 "label": "Klantengroepen"
+            },
+            "flow": {
+                "label": "Flow Builder"
             },
             "sales_channel": {
                 "label": "Verkoopkanalen"
@@ -616,7 +634,16 @@
         },
         "captcha": {
             "label": {
-                "honeypot": "Honeypot captcha"
+                "honeypot": "Honingpot CAPTCHA",
+                "basicCaptcha": "Basic Captcha",
+                "googleReCaptchaV2": "Google reCAPTCHA v2",
+                "googleReCaptchaV2SiteKey": "Google reCAPTCHA v2-sitesleutel",
+                "googleReCaptchaV2SecretKey": "Google reCAPTCHA v2 geheime sleutel",
+                "googleReCaptchaV2Invisible": "Google reCAPTCHA v2 onzichtbaar",
+                "googleReCaptchaV3": "Google reCAPTCHA v3",
+                "googleReCaptchaV3SiteKey": "Google reCAPTCHA v3-sitesleutel",
+                "googleReCaptchaV3SecretKey": "Google reCAPTCHA v3 geheime sleutel",
+                "googleReCaptchaV3ThresholdScore": "Google reCAPTCHA v3-drempelscore"
             }
         }
     },
@@ -750,8 +777,8 @@
                 "messageMissingFields": "Configuratie vereist.  alle vereiste configuratievelden in.",
                 "messageMissingBlockFields": "Configuratie vereist. Gelieve alle gegevens in te vullen.",
                 "messageMissingProductListing": "Kan niet opslaan. Voeg ten minste één blok met productvermeldingen toe of wijzig het type van deze lay-out.",
-                "messageMissingSections": "Er kan geen lege pagina worden opslaan. Voeg eerst een sectie toe.",
-                "messageMissingBlocks": "Er kan geen lege pagina worden opgeslagen. Voeg eerst blokken toe.",
+                "messageMissingSections": "U kunt geen lege pagina opslaan. Voeg eerst een sectie toe.",
+                "messageMissingBlocks": "U kunt geen lege pagina opslaan. Voeg eerst ten minste één blok toe.",
                 "messageMissingElements": "Configuratie vereist. Configureer alle elementen van uw lay-out.",
                 "messageRedundantElements": "Layouts mogen niet meer dan één {name} element bevatten."
             },
@@ -767,7 +794,7 @@
                 "titleNavigator": "Navigator",
                 "titleSectionSettings": "Sectie-instellingen",
                 "titleLayoutAssignment": "Layout opdracht",
-                "mobile": "Mobiel zijbalkgedrag",
+                "mobile": "Gedrag van mobiele zijbalk",
                 "mobileOptionHidden": "Verborgen",
                 "mobileOptionWrap": "Wikkel"
             },
@@ -778,7 +805,7 @@
             "tooltip": {
                 "blockNameField": "Benoem elk blok afzonderlijk om het werk bij te houden.",
                 "sectionNameField": "Benoem elke sectie afzonderlijk om het werk bij te houden.",
-                "cannotSelectProductPageLayout": "U kunt een lay-out van het type productpagina niet wijzigen in een ander lay-outtype."
+                "cannotSelectProductPageLayout": "U kunt het lay-outtype van een productpagina niet wijzigen."
             }
         },
         "elements": {
@@ -953,7 +980,7 @@
             "sidebarCategoryNavigation": {
                 "label": "Navigatie categorie",
                 "infoText": {
-                    "navigationElement": "De productgegevens voor dit element worden automatisch gevuld via de categorietoewijzing. De inhoud is slechts indicatief."
+                    "navigationElement": "De navigatiegegevens van dit element worden automatisch geladen door de categorie die bij deze lay-out hoort. De inhoud toont slechts een indicatief voorbeeld."
                 },
                 "component": {
                     "label": {
@@ -985,36 +1012,36 @@
                 "config": {
                     "label": {
                         "videoId": "Video-link",
-                        "autoPlay": "Automatisch afspelen",
-                        "loop": "Video herhalen",
-                        "showControls": "Video-navigatie tonen",
-                        "controlsColor": "Kleur van de video-navigatie wijzigen",
-                        "byLine": "Naam van de maker van de video weergeven",
+                        "autoPlay": "Video automatisch afspelen",
+                        "loop": "Video herhalend afspelen",
+                        "showControls": "Video navigatie tonen",
+                        "controlsColor": "Kleur van de video navigatie wijzigen",
+                        "byLine": "Videomaker weergeven",
                         "showPortrait": "Profielfoto van de maker van de video weergeven",
-                        "showTitle": "Titel van de video weergeven",
-                        "advancedPrivacy": "Geavanceerde gegevensbeschermingsmodus",
+                        "showTitle": "Videotitel weergeven",
+                        "advancedPrivacy": "Geavanceerde privacymodus",
                         "start": "Video starten vanaf",
                         "end": "Video afspelen tot",
                         "needsConfirmation": "Video alleen laden na bevestiging door de gebruiker",
                         "previewImage": "Voorbeeld van afbeelding"
                     },
                     "placeholder": {
-                        "videoId": "Videolink invoeren ..."
+                        "videoId": "Videolink invoeren..."
                     },
                     "helpText": {
-                        "autoPlay": "Een aantal browsers voorkomen het automatisch afspelen van video's",
-                        "advancedPrivacy": "Als je de geavanceerde privacymodus activeert, wordt van het video-platform geen informatie over de bezoeker van je webpagina opgeslagen, tot ze de video hebben bekeken."
+                        "autoPlay": "Sommige browsers voorkomen het automatisch afspelen van video's.",
+                        "advancedPrivacy": "Als de geavanceerde privacymodus is ingeschakeldactiveert, slaat het videoplatform geen informatie over bezoekers op uw website op, totdat ze de video afspelen."
                     }
                 }
             },
             "youtubeVideo": {
-                "label": "YouTube-video"
+                "label": "YouTube video"
             },
             "form": {
                 "label": "Formulier",
                 "config": {
                     "label": {
-                        "receiverEmail": "Ontvangeradressen",
+                        "receiverEmail": "Ontvanger adressen",
                         "title": "Titel",
                         "type": "Type formulier",
                         "typeContact": "Contact",
@@ -1022,7 +1049,7 @@
                         "confirmationText": "Bevestigingstekst"
                     },
                     "placeholder": {
-                        "type": "Kies een type formulier ..."
+                        "type": "Kies een type formulier..."
                     }
                 },
                 "element": {
@@ -1033,7 +1060,7 @@
                         "lastName": "Achternaam*",
                         "message": "Uw bericht*",
                         "newsletterSubmit": "Verder",
-                        "phone": "Telefoon",
+                        "phone": "Telefoonnummer",
                         "privacy": "Privacy",
                         "salutation": "Aanhef*",
                         "salutationUndisclosed": "Niet opgegeven",
@@ -1042,9 +1069,9 @@
                         "subscribeToNewsletter": "Nieuwsbrief abonneren"
                     },
                     "placeholder": {
-                        "firstName": "John",
-                        "lastName": "Doe",
-                        "email": "john@doe.com",
+                        "firstName": "Jan",
+                        "lastName": "Jansen",
+                        "email": "jan@jansen.nl",
                         "phone": "+4920 3920173",
                         "subject": "Lorem ipsum dolor sit amet.",
                         "message": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum."
@@ -1123,6 +1150,9 @@
                         "productDetailElement": "De productgegevens van dit element worden automatisch geladen door het product dat aan deze lay-out is gekoppeld. De inhoud toont alleen een voorbeeldvoorbeeld."
                     }
                 }
+            },
+            "productName": {
+                "label": "Naam van het product"
             }
         },
         "blocks": {
@@ -1137,7 +1167,7 @@
                     "label": "Productslider"
                 },
                 "productThreeColumn": {
-                    "label": "Drie kolommen, productboxen"
+                    "label": "Drie kolommen, productdozen"
                 },
                 "productDescriptionReviews": {
                     "label": "Beschrijving van het product & beoordelingen",
@@ -1157,37 +1187,37 @@
             },
             "image": {
                 "image": {
-                    "label": "Afbeelding, gecentreerd"
+                    "label": "Afbeelding, ingesloten"
                 },
                 "imageBubbleRow": {
                     "label": "Drie kolommen, afgerond"
                 },
                 "imageCover": {
-                    "label": "Afbeelding, aangepaste breedte"
+                    "label": "Afbeelding, volledige breedte"
                 },
                 "imageFourColumn": {
-                    "label": "Vier kolommen, gecentreerd"
+                    "label": "Vier kolommen, ingesloten"
                 },
                 "imageGallery": {
                     "label": "Galerie"
                 },
                 "imageHighlightRow": {
-                    "label": "Drie kolommen, achtergrond"
+                    "label": "Drie kolommen, ingesloten & achtergrond"
                 },
                 "imageSimpleGrid": {
-                    "label": "Afbeelding in raster"
+                    "label": "Afbeelding raster"
                 },
                 "imageSlider": {
-                    "label": "Slider met afbeeldingen"
+                    "label": "Afbeelding slider"
                 },
                 "imageThreeColumn": {
-                    "label": "Twee kolommen, gecentreerd"
+                    "label": "Twee kolommen, ingesloten"
                 },
                 "imageThreeCover": {
-                    "label": "Drie kolommen, aangepaste breedte"
+                    "label": "Drie kolommen, ware grootte"
                 },
                 "imageTwoColumn": {
-                    "label": "Twee kolommen, gecentreerd"
+                    "label": "Twee kolommen, ingesloten"
                 }
             },
             "sidebar": {
@@ -1225,22 +1255,22 @@
             },
             "textImage": {
                 "centerText": {
-                    "label": "Drie kolommen, afbeelding &amp; tekst"
+                    "label": "Drie kolommen, ingesloten afbeelding & tekst"
                 },
                 "imageText": {
-                    "label": "Twee kolommen, gecentreerde afbeelding &amp; tekst"
+                    "label": "Twee kolommen, ingesloten afbeelding & tekst"
                 },
                 "imageTextBubble": {
-                    "label": "Drie kolommen, afgeronde afbeeldingen met beschrijving eronder"
+                    "label": "Drie kolommen, onderschrift en afgerond"
                 },
                 "imageTextCover": {
-                    "label": "Twee kolommen, afbeelding met aangepaste breedte &amp; tekst"
+                    "label": "Twee kolommen, afbeelding en tekst op volledige grootte"
                 },
                 "imageTextGallery": {
                     "label": "Drie kolommen, afbeeldings/tekstkaarten"
                 },
                 "imageTextRow": {
-                    "label": "Drie kolommen, afbeeldingen met beschrijving eronder"
+                    "label": "Drie kolommen, afbeeldingen met onderschrift"
                 },
                 "textOnImage": {
                     "label": "Banner"
@@ -1248,10 +1278,10 @@
             },
             "video": {
                 "vimeoVideo": {
-                    "label": "Vimeo-video"
+                    "label": "Vimeo video"
                 },
                 "youtubeVideo": {
-                    "label": "YouTube-video"
+                    "label": "YouTube video"
                 }
             },
             "form": {
@@ -1265,7 +1295,7 @@
                 "actionCancel": "Annuleren",
                 "actionConfirm": "Lay-out toepassen",
                 "modalTitle": "Lay-out selecteren",
-                "headline": "Landingpage / productlisting"
+                "headline": "Landingpagina / productlijsten"
             },
             "cmsLayoutAssignmentModal": {
                 "infoText": "De lay-out wordt weergegeven in uw winkel, zodra u deze aan een actieve categorie toewijst.",
@@ -1333,7 +1363,7 @@
                 "removePreviewImage": "Voorbeeld verwijderen",
                 "notificationDeleteErrorMessage": "De lay-out is nog aan minstens één categorie toegewezen.",
                 "modal": {
-                    "textDeleteConfirm": "Wil je de lay-out \"{pageName}\" echt verwijderen?",
+                    "textDeleteConfirm": "De lay-out \"{pageName}\" echt verwijderen?",
                     "buttonCancel": "Annuleren",
                     "buttonDelete": "Verwijderen"
                 }
@@ -1378,6 +1408,11 @@
             }
         },
         "index": {
+            "defaultSalesChannel": {
+                "title": "Standaard verkoopkanaal",
+                "description": "Selecteer standaard verkoopkanalen die automatisch worden toegewezen aan nieuw gemaakte producten.",
+                "linkAdvancedVisibility": "Zichtbaarheid instellen voor geselecteerde verkoopkanalen"
+            },
             "productSorting": {
                 "title": "Sorteeropties",
                 "addButton": "Optie toevoegen",
@@ -1430,16 +1465,64 @@
             "descriptionTextModule": "De administratie startpagina met statistieken en systeeminformatie"
         },
         "introduction": {
-            "headline": "Welkom bij Shopware 6",
-            "enduserDocumentation": "Documentatie over eindgebruiker",
-            "enduserDocumentationLink": "https://docs.shopware.com/de/shopware-6-de",
-            "developerDocumentation": "Documentatie over ontwikkelaar",
-            "developerDocumentationLink": "https://docs.shopware.com/de/shopware-platform--dev-de",
-            "migrationDocumentation": "Documentatie over de migratie",
-            "migrationDocumentationLink": "https://docs.shopware.com/de/migration-de",
-            "roadmap": "Shopware Roadmap",
-            "roadmapLink": "https://www.shopware.com/de/roadmap/",
-            "feedback": "Feedback",
+            "headlineUnkownUser": "Welkom bij Shopware.",
+            "daytimeHeadline": {
+                "5h": {
+                    "0": "Goede morgen, {greetingName}.",
+                    "1": "Hi, {greetingName}!"
+                },
+                "11h": {
+                    "0": "Hallo, {greetingName}.",
+                    "1": "Goede dag, {greetingName}.",
+                    "2": "Howdy, {greetingName}!"
+                },
+                "18h": {
+                    "0": "Goede avond, {greetingName}.",
+                    "1": "Hi, {greetingName}!"
+                },
+                "23h": {
+                    "0": "Goed je te zien, {greetingName}.",
+                    "1": "Nog steeds wakker, {greetingName}?"
+                }
+            },
+            "daytimeWelcomeText": {
+                "5h": {
+                    "0": "Tijd voor koffie, toch?",
+                    "1": "Je bent aan een goede start!",
+                    "2": "Teveel te doen vandaag? Focus op die taken die het grootste deel van de impact zullen hebben.",
+                    "3": "Je ziet er prachtig uit vandaag!"
+                },
+                "11h": {
+                    "0": "Nog een dag, weer een kans om je bedrijf te laten groeien.",
+                    "1": "Je kunt iemands leven vandaag beïnvloeden.",
+                    "2": "Je ziet er fantastisch uit vandaag!",
+                    "3": "Vandaag heb je de kans om de morgen die je wilt vorm te geven."
+                },
+                "18h": {
+                    "0": "De dag is bijna voorbij, tijd om de nieuwste activiteiten van uw winkel te bekijken.",
+                    "1": "Tijd om te evalueren - Bekijk hoe uw winkel het vandaag doet.",
+                    "2": "De acties van vandaag zijn het resultaat van morgen."
+                },
+                "23h": {
+                    "0": "Vind schoonheid in alles om jezelf te inspireren.",
+                    "1": "Buiten heeft iemand de duistere modus omgeschakeld.",
+                    "2": "Bijna alles zal weer werken, als je het een paar minuten loskoppelt - dat geldt ook voor jou. Neem een pauze."
+                }
+            }
+        },
+        "helpcard": {
+            "headline": "Maak je klaar om je producten te verkopen.",
+            "helpcenter": "Shopware Helpcentrum",
+            "helpcenterLink": "https://docs.shopware.com/en/shopware-6-en",
+            "takeOffTip": "Leer hoe u uw eerste verkoop kunt doen",
+            "takeOffTipLink": "https://www.shopware.com/en/news/take-off-in-ecommerce-10-tips-for-your-initial-sales/",
+            "getToKnowSales": "Maak kennis met verkoopkanalen",
+            "getToKnowSalesLink": "https://www.youtube.com/watch?v=RsEeersOgIo"
+        },
+        "feedbackCard": {
+            "headline": "Eerste indrukken tellen.",
+            "text": "Deel je eerste indrukken en help ons de algehele Shopware-ervaring te verbeteren.",
+            "feedback": "Feedback geven",
             "feedbackLink": "https://issues.shopware.com"
         },
         "todayStats": {
@@ -1470,7 +1553,7 @@
             "buttonAddTax": "Belasting aanmaken",
             "contextMenuEdit": "Bewerken",
             "contextMenuDelete": "Verwijderen",
-            "messageDeleteSuccess": "De belasting \"{name}\" is succesvol verwijderd.",
+            "messageDeleteSuccess": "De belasting \"{name}\" is verwijderd.",
             "buttonCancel": "Annuleren",
             "buttonDelete": "Verwijderen"
         },
@@ -1530,7 +1613,7 @@
             "notificationOldPasswordErrorMessage": "Voer je huidige wachtwoord juist in.",
             "notificationNewPasswordIsSameAsOldErrorMessage": "Je nieuwe wachtwoord is hetzelfde als je oude. Kies een nieuw wachtwoord.",
             "notificationInvalidEmailErrorMessage": "Voer een geldig e-mailadres in.",
-            "notificationSaveSuccessMessage": "Je profielgegevens zijn succesvol opgeslagen.",
+            "notificationSaveSuccessMessage": "Profielgegevens zijn opgeslagen.",
             "notificationSaveErrorMessage": "Je profielinformatie kon niet worden opgeslagen.",
             "labelUploadAvatar": "Upload een profielfoto",
             "labelUseAsAvatar": "Als profielfoto gebruiken",
@@ -1544,8 +1627,8 @@
     "sw-product-stream": {
         "general": {
             "mainMenuItemGeneral": "Dynamische productgroepen",
-            "placeholderSearchBar": "Doorzoek alle dynamische productgroepen ...",
-            "descriptionTextModule": "Beheer hier je dynamische productgroepen."
+            "placeholderSearchBar": "Doorzoek alle dynamische productgroepen...",
+            "descriptionTextModule": "Beheer dynamische productgroepen hier."
         },
         "acl": {
             "conditionsAlertHeading": "Onvoldoende rechten",
@@ -1555,30 +1638,30 @@
             "textProductStreamOverview": "Dynamische productgroepen",
             "columnName": "Naam",
             "columnDescription": "Beschrijving",
-            "columnDateUpdated": "Wijzigingsdatum",
+            "columnDateUpdated": "Laatst bijgewerkt",
             "columnStatus": "Status",
-            "titleSidebarItemRefresh": "Refresh",
-            "buttonAddProductStream": "Productgroep aanmaken",
+            "titleSidebarItemRefresh": "Bijwerken",
+            "buttonAddProductStream": "Dynamische productgroep toevoegen",
             "status": {
                 "valid": "Geldig",
                 "invalid": "Ongeldig"
             },
-            "messageEmpty": "Nog geen productgroepen"
+            "messageEmpty": "Nog geen dynamische productgroepen"
         },
         "filter": {
             "placeholderFieldSelect": "Selecteer een eigenschap...",
             "placeholderOperatorSelect": "Selecteer een operator...",
-            "valid": "Alleen geldige productgroepen tonen",
+            "valid": "Alleen geldige dynamische productgroepen tonen",
             "type": {
-                "equals": "Gelijk aan",
-                "equalsAny": "Een van",
+                "equals": "Is gelijk aan",
+                "equalsAny": "Is gelijk aan een van de",
                 "contains": "Bevat",
-                "greaterThan": "Groter dan",
-                "lessThan": "Kleiner dan",
-                "greaterThanEquals": "Groter dan/gelijk aan",
-                "lessThanEquals": "Kleiner dan/gelijk aan",
-                "notEquals": "Niet gelijk aan",
-                "notEqualsAny": "Geen van",
+                "greaterThan": "Is groter dan",
+                "lessThan": "Is kleiner dan",
+                "greaterThanEquals": "Is groter of gelijk aan",
+                "lessThanEquals": "Is kleiner of gelijk aan",
+                "notEquals": "Is niet gelijk aan",
+                "notEqualsAny": "Is niet gelijk aan een van de",
                 "notContains": "Bevat niet",
                 "range": "Bereik"
             },
@@ -1592,6 +1675,7 @@
                 "category": "Categorie",
                 "categories": "Categorieën",
                 "categoriesRo": "categorieën",
+                "cheapestPrice": "Prijs",
                 "choose": "Selectie",
                 "description": "Beschrijving",
                 "descriptionLong": "Lange beschrijving",
@@ -1605,8 +1689,9 @@
                 "length": "Lengte",
                 "linked": "Gelinkt",
                 "manufacturerId": "Fabrikant",
+                "manufacturer": "Fabrikant",
                 "manufacturerNumber": "Fabrikantnummer",
-                "markAsTopseller": "Als topseller gemarkeerd",
+                "markAsTopseller": "Gemarkeerd als topverkoper",
                 "maxDeliveryTime": "Maximale levertijd",
                 "maxPurchase": "Maximale bestelhoeveelheid",
                 "minDeliveryTime": "Minimale levertijd",
@@ -1617,18 +1702,18 @@
                 "option": "Optie",
                 "packUnit": "Verpakkingseenheid",
                 "packUnitPlural": "Verpakkingseenheid meervoud",
-                "cheapestPrice": "Prijs",
+                "price": "Prijs",
                 "product": "Product",
                 "productNumber": "Productnummer",
                 "purchasePrice": "Verkoopprijs",
                 "purchaseUnit": "Verkoopeenheid",
                 "referenceUnit": "Basiseenheid",
                 "releaseDate": "Verschijningsdatum",
-                "restockTime": "Duur van het aanvullen van de voorraad",
+                "restockTime": "Herbevoorrading tijd",
                 "sales": "Verkopen",
                 "salesChannel": "Verkoopkanaal",
-                "shippingFree": "Verzendkostenvrij",
-                "stock": "Magazijnvoorraad",
+                "shippingFree": "Gratis verzending",
+                "stock": "Voorraad",
                 "tags": "Tags",
                 "tax": "Belastingen",
                 "taxRate": "Belastingtarief",
@@ -1640,7 +1725,7 @@
                 "visible": "Zichtbaar",
                 "weight": "Gewicht",
                 "width": "Breedte",
-                "configuratorSettings": "Configuratie-instellingen",
+                "configuratorSettings": "Configuratie instellingen",
                 "options": "Opties",
                 "properties": "Eigenschappen",
                 "property_group": "Groep",
@@ -1649,23 +1734,23 @@
             }
         },
         "detail": {
-            "titleCard": "Informatie",
+            "titleCard": "Algemene informatie",
             "buttonCancel": "Annuleren",
             "buttonSave": "Opslaan",
             "labelName": "Naam",
-            "placeholderName": "Voer een naam in …",
+            "placeholderName": "Titel invoeren...",
             "labelDescription": "Beschrijving",
             "placeholderDescription": "Voer een beschrijving in …",
-            "textHeadline": "Nieuwe productgroep",
+            "textHeadline": "Nieuwe dynamsiche productgroep",
             "titleFilter": "Voorwaarden",
-            "titleResult": "Producten",
-            "messageSaveSuccess": "De productgroep \"{name}\" is succesvol opgeslagen.",
+            "titleResult": "Productgroep",
+            "messageSaveSuccess": "De productgroep \"{name}\" is opgeslagen.",
             "messageSaveError": "Dynamische product groep \"{name}\" kan niet worden opgeslagen.",
             "buttonOpenPreview": "Voorbeeld"
         },
         "previewModal": {
             "title": "Voorbeeld",
-            "empty": "Er werden geen producten gevonden.",
+            "empty": "Geen producten gevonden.",
             "close": "Sluiten"
         }
     },
@@ -1721,37 +1806,37 @@
         "general": {
             "mainMenuItemGeneral": "Shopware-account",
             "textHeadline": "Shopware-account",
-            "description": "Hier kunnen instellingen voor het Shopware-account worden aangepast.",
+            "description": "Wijzig uw Shopware-account instellingen hier.",
             "buttonSave": "Opslaan",
-            "messageSaveSuccess": "De gegevens van je Shopware-account zijn succesvol opgeslagen."
+            "messageSaveSuccess": "Uw Shopware-account informatie is opgeslagen."
         },
         "detail": {
             "titleCard": "Instellingen",
             "labelHost": "Licentiedomein",
-            "placeholderHost": "Voer hier het licentiedomein (Shopdomein) in, die in je Shopware-account is opgeslagen."
+            "placeholderHost": " het licentiedomein (Shopdomein) in, gespecificeerd in uw Shopware-account."
         }
     },
     "global": {
         "error-codes": {
-            "PROMOTION_VALID_UNTIL_VIOLATION": "De startdatum van de actie moet eerder zijn dan de einddatum.",
+            "PROMOTION_VALID_UNTIL_VIOLATION": "De vervaldatum van de promotie moet worden ingesteld na het begin van de promotie.",
             "PROMOTION_DISCOUNT_MAX_VALUE_VIOLATION": "De korting mag niet meer zijn dan {value}.",
             "PROMOTION_DISCOUNT_MIN_VALUE_VIOLATION": "De korting mag niet minder zijn dan {value}.",
-            "PROMOTION_DUPLICATED_CODE_VIOLATION": "Deze code is reeds gebruikt.",
+            "PROMOTION_DUPLICATED_CODE_VIOLATION": "Deze actiecode is reeds gebruikt.",
             "PROMOTION_CODE_WHITESPACE_VIOLATION": "Een actiecode mag niet beginnen of eindigen met een spatie.",
-            "PROMOTION_EMPTY_CODE_VIOLATION": "De actiecode mag niet leeg zijn.",
-            "PROMOTION_DUPLICATE_PATTERN_VIOLATION": "Het codeformaat is reeds in een andere actie gebruikt.",
-            "DELIVERY_TIME_MIN_INVALID": "De minimumwaarde mag niet meer zijn dan de maximumwaarde.",
+            "PROMOTION_EMPTY_CODE_VIOLATION": "Het actiecodeveld mag niet leeg zijn.",
+            "PROMOTION_DUPLICATE_PATTERN_VIOLATION": "Dit codeformaat is reeds in een andere actie gebruikt.",
+            "DELIVERY_TIME_MIN_INVALID": "De minimumwaarde zou niet meer moeten zijn dan de maximumwaarde.",
             "DUPLICATED_PRODUCT_EXPORT_FILE_NAME": "Deze bestandsnaam is al in gebruik. Kies a. u. b. een andere.",
             "DUPLICATED_SALUTATION_KEY": "Deze technische naam wordt al gebruikt. Kies een andere naam.",
-            "DUPLICATED_SNIPPET_KEY": "Er bestaan al tekstbouwstenen voor \"{key}\". Kies een andere naam.",
+            "DUPLICATED_SNIPPET_KEY": "Er bestaan al tekstfragmenten voor \"{key}\". Kies een andere naam.",
             "FRAMEWORK__MISSING_PRIVILEGE_ERROR": "Ontbrekende rechten",
             "FRAMEWORK__DELETE_RESTRICTED": "Verwijderen is mislukt",
             "c1051bb4-d103-4f74-8988-acbcafc7fdc3": "Dit veld mag niet leeg zijn.",
-            "INVALID_MEDIA_URL": "Voer een geldige URL in om een bestand te uploaden.",
+            "INVALID_MEDIA_URL": "Vul een geldige URL in om een bestand te uploaden.",
             "CONTENT__MISSING_RULE_TYPE_EXCEPTION": "Kies een type voor deze regel uit.",
             "CONTENT__INVALID_CATEGORY_TYPE_AS_ENTRY_POINT": "Het type kan niet worden toegewezen terwijl categorie een ingangspunt is.",
-            "SHOPWARE_INVALID_IP": "Voer een geldig IP-adres in",
-            "INVALID_URL": "Voer een geldige URL in"
+            "SHOPWARE_INVALID_IP": "Vul een geldig IP-adres in.",
+            "INVALID_URL": "Vul een geldige URL in."
         },
         "default": {
             "add": "Toevoegen",
@@ -1774,22 +1859,25 @@
             "xTimesIn": "{n} keer in",
             "close": "Sluiten",
             "from": "Van",
-            "to": "Naar"
+            "to": "Naar",
+            "bulkEdit": "Bulk bewerken",
+            "startBulkEdit": "Bulkbewerking starten",
+            "bulkEditModalTitle": "Bulk bewerken - {count} item geselecteerd | Bulk bewerken - {count} items geselecteerd"
         },
         "notification": {
             "notificationSaveErrorMessage": "Bij het opslaan van de entiteit \"{entityName}\" is een fout opgetreden.",
             "notificationSaveErrorMessageRequiredFieldsInvalid": "Vul alle verplichte velden in.",
             "unspecifiedSaveErrorMessage": "Er is een fout opgetreden.",
-            "notificationSaveSuccessMessage": "De entiteit \"{entityName}\" is succesvol opgeslagen.",
+            "notificationSaveSuccessMessage": "De entiteit \"{entityName}\" is opgeslagen.",
             "messageDeleteSuccess": "„{name}\" verwijderd.",
             "messageDeleteFailed": "De entiteit \"{entityName}\" is nog steeds in gebruik door de volgende modules: "
         },
         "notification-center": {
-            "title": "Berichten",
+            "title": "Notificaties",
             "emptyText": "Niks gebeurt de laatste tijd.",
             "deleteModal": {
-                "title": "Berichten verwijderen",
-                "textConfirm": "Wil je echt alle berichten verwijderen?"
+                "title": "Notificaties verwijderen",
+                "textConfirm": "Echt alle notificaties verwijderen?"
             },
             "worker-listener": {
                 "thumbnailGeneration": {
@@ -1803,7 +1891,7 @@
                 },
                 "dalIndexing": {
                     "message": "Alle data geïndexeerd. | Data wordt geïndexeerd.",
-                    "messageSuccess": "Indexering gegevens is beëindigd."
+                    "messageSuccess": "Indexering afgerond."
                 },
                 "warmupIndexing": {
                     "message": "Cache is geactiveerd. | Een pagina blijft over. | Circa {n} pagina's over.",
@@ -1812,57 +1900,57 @@
                 "productStream": {
                     "title": "Indexering dynamische productgroepen",
                     "message": "Dynamische productgroepen geïndexeerd. | Er is een dynamische productgroep over | Circa {n} dynamische productgroepen over",
-                    "messageSuccess": "Indexering dynamische productgroepen is beëindigd"
+                    "messageSuccess": "Dynamische productgroepen zijn geïndexeerd."
                 },
                 "category": {
-                    "title": "Categorie indexering",
+                    "title": "Categorieën worden geïndexeerd",
                     "message": "Categorieën geïndexeerd. | Een categorie over | Circa {n} categorieën over",
-                    "messageSuccess": "Categorie indexering is beëindigd"
+                    "messageSuccess": "Categorie zijn geïndexeerd."
                 },
                 "media": {
-                    "title": "Media-indexering",
+                    "title": "Media wordt geïndexeerd",
                     "message": "Media geïndexeerd. | Een medium over... | Circa {n} media over...",
-                    "messageSuccess": "Media-indexering is beëindigd"
+                    "messageSuccess": "Media is geïndexeerd."
                 },
                 "salesChannel": {
-                    "title": "Verkoopkanaal-indexering",
+                    "title": "Verkoopkanalen worden geïndexeerd",
                     "message": "Verkoopkanalen geïndexeerd. | Een verkoopkanaal over | Circa {n} verkoopkanalen over",
-                    "messageSuccess": "Verkoopkanalen-indexering is beëindigd"
+                    "messageSuccess": "Verkoopkanalen zijn geïndexeerd."
                 },
                 "rule": {
                     "title": "Regels worden geïndexeerd",
                     "message": "Regels geïndexeerd. | Een regel over... | Circa {n} regels over...",
-                    "messageSuccess": "Regel-indexering is beëindigd"
+                    "messageSuccess": "Regels zijn geïndexeerd."
                 },
                 "product": {
                     "title": "Producten worden geïndexeerd",
                     "message": "Producten geïndexeerd. | Een product over... | Circa {n} producten over...",
-                    "messageSuccess": "Product-indexering is beëindigd"
+                    "messageSuccess": "Producten zijn geïndexeerd."
                 },
                 "promotion": {
                     "title": "Promoties worden geïndexeerd",
                     "message": "Promoties geïndexeerd. | Een promotie over... | Circa {n} promoties over...",
-                    "messageSuccess": "Promotie-indexering is beëindigd"
+                    "messageSuccess": "Promoties zijn geïndexeerd."
                 }
             },
             "plugin-updates-listener": {
                 "updatesAvailableTitle": "Updates voor plug-ins beschikbaar.",
-                "updatesAvailableMessage": "Voor enkele plug-ins staan updates klaar."
+                "updatesAvailableMessage": "Download nu de nieuwste versies van uw extensies."
             },
             "shopware-updates-listener": {
-                "updatesAvailableTitle": "Er is een nieuwe Shopware-versie {version} beschikbaar",
-                "updatesAvailableMessage": "Start Auto update om de installatie te starten",
+                "updatesAvailableTitle": "Een nieuwe Shopware-versie {version} is beschikbaar",
+                "updatesAvailableMessage": "Start de auto-updater om de update te beginnen",
                 "updateNow": "Update openen"
             }
         },
         "sw-admin-menu": {
             "linkLogout": "Afmelden",
             "linkMinimizeMenu": "Menu Samenvouwen",
-            "textShopwareAdmin": "Shopware Administration",
+            "textShopwareAdmin": "Shopware administratie",
             "textProjectName": "Beheer",
             "administrator": "Beheerder",
             "navigation": {
-                "mainMenuItemCatalogue": "Catalogi",
+                "mainMenuItemCatalogue": "Catalogus",
                 "mainMenuItemContent": "Inhoud",
                 "mainMenuItemMarketing": "Marketing"
             }
@@ -1870,7 +1958,7 @@
         "entity-components": {
             "deleteMessage": "Moet het item echt worden verwijderd? | Moeten deze {count} items echt worden verwijderd?",
             "deleteTitle": "Item verwijderen",
-            "placeholderToManyAssociationCard": "Zoek naar associaties...",
+            "placeholderToManyAssociationCard": "Zoek naar toewijzingen...",
             "labelRemoveAssociation": "Toewijzing opheffen",
             "productStreamPreview": {
                 "emptyMessageNoStream": "Geen dynamische productgroep geselecteerd",
@@ -1901,7 +1989,7 @@
                     "message": "Het geselecteerde bestand \"{name}\" heeft een niet-ondersteund formaat. Gebruik a.u.b. een van de volgende formaten: {supportedTypes}."
                 },
                 "invalidFileSize": {
-                    "message": "Het geselecteerde bestand \"{name}\" is te groot voor de upload. Het maximale bestandsformaat is {limit}."
+                    "message": "Het geselecteerde bestand \"{name}\" is te groot voor de upload. De maximale bestandsgrootte is {limit}."
                 }
             },
             "caption": "Sleep een bestand naar hier om te uploaden"
@@ -1921,12 +2009,12 @@
             "labelListPriceNet": "Afgeprijsd van (netto)"
         },
         "sw-text-editor": {
-            "labelTextLength": "{count} teken | {count} tekens"
+            "labelTextLength": "{count} karakter | {count} karakters"
         },
         "sw-tag-field": {
             "title": "Tags",
             "listItemAdd": "\"{term}\" toevoegen",
-            "placeholder": "In tags zoeken …"
+            "placeholder": "In tags zoeken..."
         },
         "sw-snippet-field": {
             "tooltip": "Fragmenten bewerken en vertalen"
@@ -1954,17 +2042,17 @@
         "sw-media-field": {
             "labelToggleSearchExisting": "In media zoeken",
             "labelToggleUploadNew": "Nieuwe media uploaden",
-            "labelUnlink": "Link opheffen"
+            "labelUnlink": "Media link opheffen"
         },
         "sw-media-folder-item": {
-            "labelContextMenuRename": "Naam wijzigen",
+            "labelContextMenuRename": "Hernoemen",
             "labelContextMenuMove": "Verplaatsen",
             "labelContextMenuShowMedia": "Media tonen",
             "labelContextMenuShowSettings": "Instellingen",
             "labelContextMenuDissolve": "Opheffen",
             "notification": {
                 "errorBlankItemName": {
-                    "message": "De map kon niet worden opgeslagen. Voeg een mapnaam toe."
+                    "message": "De map kon niet worden opgeslagen: vul een naam in."
                 },
                 "renamingError": {
                     "message": "Fout bij het opslaan van de map."
@@ -1977,32 +2065,32 @@
         "sw-media-media-item": {
             "labelContextMenuCopyLink": "Link kopiëren",
             "labelContextMenuReplace": "Vervangen",
-            "labelContextMenuRename": "Naam wijzigen",
-            "labelContextMenuDetail": "Informatie",
+            "labelContextMenuRename": "Hernoemen",
+            "labelContextMenuDetail": "Details",
             "labelContextMenuMove": "Verplaatsen",
             "notification": {
                 "errorBlankItemName": {
-                    "message": "De naam van het medium kon niet worden gewijzigd. Voeg een bestandsnaam toe."
+                    "message": "Media item kan niet worden opgeslagen. Voeg een bestandsnaam toe."
                 },
                 "renamingSuccess": {
-                    "message": "Naam medium succesvol gewijzigd."
+                    "message": "Media item is hernoemd."
                 },
                 "renamingError": {
-                    "message": "Fout bij het wijzigen van de naam."
+                    "message": "Fout bij het opslaan van het bestand."
                 }
             },
-            "labelUploading": "Wordt geüpload …"
+            "labelUploading": "Wordt geüpload..."
         },
         "sw-media-modal-delete": {
             "titleModal": {
-                "media": "Media verwijderen",
+                "media": "Media bestanden verwijderen",
                 "folder": "Map verwijderen",
-                "mediaAndFolder": "Map en media verwijderen"
+                "mediaAndFolder": "Mappen en media bestanden verwijderen"
             },
             "deleteMessage": {
                 "media": "Het bestand \"{name}\" echt verwijderen? | Deze {count} bestanden echt verwijderen?",
-                "folder": "Wil je de map \"{name}\" echt verwijderen?<br/>Ook alle submappen en media in deze map worden verwijderd. | Wil je deze {count} mappen echt verwijderen?<br/>Ook alle submappen en media in deze mappen worden verwijderd.",
-                "mediaAndFolder": "Wil je deze {mediaCount} bestanden en {folderCount} mappen echt verwijderen?<br/>Ook alle submappen en bestanden in deze map worden verwijderd."
+                "folder": "De map \"{name}\" echt verwijderen?<br>Ook alle submappen en media in deze map worden verwijderd. | Deze {count} mappen echt verwijderen?<br>Ook alle submappen en media in deze mappen worden verwijderd.",
+                "mediaAndFolder": "Deze {mediaCount} bestanden en {folderCount} mappen echt verwijderen?<br>Ook alle submappen en bestanden in deze map worden verwijderd."
             },
             "mediaQuickInfoMessage": "Dit media bestand is nu in gebruik bij",
             "mediaInUsagesMessage": "De volgende mediabestanden zijn momenteel nog in gebruik",
@@ -2016,53 +2104,53 @@
                 "successOverall": {
                     "message": {
                         "media": "Er is geen bestand verwijderd. | Bestand is verwijderd. | {count} / {total} bestanden zijn verwijderd.",
-                        "folder": "Geen map succesvol verwijderd. | De map is succesvol verwijderd. | {count} / {total} mappen succesvol verwijderd.",
-                        "mediaAndFolder": "Geen bestanden of mappen succesvol verwijderd. | Een bestand of map succesvol verwijderd. | {count} / {total} bestanden of mappen succesvol verwijderd."
+                        "folder": "Geen map verwijderd. | De map is verwijderd. | {count} / {total} mappen verwijderd.",
+                        "mediaAndFolder": "Geen bestanden of mappen verwijderd. | Een bestand of map verwijderd. | {count} / {total} bestanden of mappen verwijderd."
                     }
                 },
                 "errorOverall": {
                     "message": {
-                        "media": "De bestanden konden niet worden verwijderd.",
-                        "folder": "De mappen konden niet worden verwijderd.",
-                        "mediaAndFolder": "De bestanden en mappen konden niet worden verwijderd."
+                        "media": "Fout bij verwijderen bestanden.",
+                        "folder": "Fout bij verwijderen mappen.",
+                        "mediaAndFolder": "Fout verwijderen bestanden en mappen."
                     }
                 }
             }
         },
         "sw-media-modal-folder-dissolve": {
-            "dissolveMessage": "Wil je \"{folderName}\" echt opheffen? | Wil je deze {count} mappen echt opheffen?",
+            "dissolveMessage": "De \"{folderName}\" echt opheffen? | Deze {count} mappen echt opheffen?",
             "buttonDissolve": "Opheffen",
             "notification": {
                 "successSingle": {
-                    "message": "Map \"{folderName}\" succesvol opgeheven."
+                    "message": "Map \"{folderName}\" opgeheven."
                 },
                 "errorSingle": {
                     "message": "Fout bij het opheffen van \"{folderName}\"."
                 },
                 "successOverall": {
-                    "message": "Map succesvol opgeheven."
+                    "message": "Mappen opgeheven."
                 },
                 "errorOverall": {
-                    "message": "De mappen konden niet worden opgeheven."
+                    "message": "Fout bij opheffebn van mappen."
                 }
             }
         },
         "sw-duplicated-media": {
             "titleModal": "Bestand bestaat al",
-            "description": "Er bestaat al een bestand met de naam \"{fileName}\".",
+            "description": "Een bestand met de naam \"{fileName}\" bestaat al.",
             "buttonReplace": "Bestand vervangen",
             "buttonRename": "Bestandsnaam wijzigen",
             "buttonSkip": "Bestand overslaan",
-            "labelSaveSelection": "Keuze onthouden en voor {count} volgende toepassen",
+            "labelSaveSelection": "Keuze onthouden en toepassenvoor nog {count} meer.",
             "labelOptionReplace": "Uploaden en vervangen",
             "labelOptionRename": "Uploaden en naam wijzigen",
             "labelOptionSkip": "Bestand overslaan",
-            "labelOldFile": "Al bestaand bestand",
-            "labelNewFile": "Te uploaden bestand"
+            "labelOldFile": "Bestaand bestand",
+            "labelNewFile": "Geüpload bestand"
         },
         "sw-duplicated-media-v2": {
             "titleModal": "Bestand bestaat al",
-            "description": "Er bestaat al een bestand met de naam \"{fileName}\".",
+            "description": "Een bestand met de naam \"{fileName}\" bestaat al.",
             "buttonReplace": "Bestand vervangen",
             "buttonRename": "Bestandsnaam wijzigen",
             "buttonSkip": "Bestand overslaan",
@@ -2071,23 +2159,23 @@
             "labelOptionRename": "Uploaden en naam wijzigen",
             "labelOptionSkip": "Bestand overslaan",
             "labelOldFile": "Al bestaand bestand",
-            "labelNewFile": "Te uploaden bestand"
+            "labelNewFile": "Geüpload bestand"
         },
         "sw-media-modal-move": {
-            "titleModal": "\"{mediaName}\" verplaatsen | {count} objecten verplaatsen",
+            "titleModal": "\"{mediaName}\" verplaatsen | {count} items verplaatsen",
             "buttonMove": "Verplaatsen",
             "notification": {
                 "successSingle": {
-                    "message": "\"{mediaName}\" succesvol verplaatst."
+                    "message": "Map \"{mediaName}\" is verplaatst."
                 },
                 "errorSingle": {
                     "message": "Fout bij het verplaatsen van \"{mediaName}\"."
                 },
                 "successOverall": {
-                    "message": "Objecten succesvol verplaatst."
+                    "message": "Media items zijn verplaatst."
                 },
                 "errorOverall": {
-                    "message": "Fout bij het verplaatsen."
+                    "message": "Fout verplaatsen items."
                 }
             }
         },
@@ -2100,22 +2188,22 @@
         "sw-media-preview": {
             "fallbackVideoTagSupport": "Uw browser ondersteunt deze videotag niet",
             "fallbackAudioTagSupport": "Uw browser ondersteunt deze audiotag niet",
-            "textNoMedia": "Geen medium beschikbaar"
+            "textNoMedia": "Geen media beschikbaar"
         },
         "sw-media-preview-v2": {
             "fallbackVideoTagSupport": "Uw browser ondersteunt deze videotag niet",
             "fallbackAudioTagSupport": "Uw browser ondersteunt deze audiotag niet",
-            "textNoMedia": "Geen medium beschikbaar"
+            "textNoMedia": "Geen media beschikbaar"
         },
         "sw-media-upload": {
             "buttonFileUpload": "Bestanden uploaden",
-            "buttonUrlUpload": "Via URL uploaden",
-            "buttonSwitchToFileUpload": "Bestand van je computer uploaden",
+            "buttonUrlUpload": "Bestand via URL uploaden",
+            "buttonSwitchToFileUpload": "Bestand van de computer uploaden",
             "buttonSwitchToUrlUpload": "Bestand van URL uploaden",
             "buttonOpenMedia": "Media openen",
             "notification": {
                 "success": {
-                    "message": "Geen bestand succesvol opgeslagen. | Een bestand succesvol opgeslagen. | {count} / {total} bestanden succesvol opgeslagen."
+                    "message": "Geen bestand opgeslagen. | Een bestand opgeslagen. | {count} / {total} bestanden opgeslagen."
                 },
                 "failure": {
                     "message": "Fout bij het uploaden."
@@ -2128,18 +2216,19 @@
                     "message": "Uploaden vanaf lokale URLs niet toegestaan."
                 }
             },
-            "caption": "Te uploaden bestand naar hier verplaatsen"
+            "caption": "Te uploaden bestand hierheen slepen"
         },
         "sw-media-upload-v2": {
             "buttonFileUpload": "Bestanden uploaden",
+            "buttonFilesUpload": "Bestanden uploaden",
             "buttonUrlUpload": "Via URL uploaden",
-            "buttonSwitchToFileUpload": "Bestand van je computer uploaden",
+            "buttonSwitchToFileUpload": "Bestand van de computer uploaden",
             "buttonSwitchToUrlUpload": "Bestand van URL uploaden",
             "buttonOpenMedia": "Media openen",
             "notification": {
                 "success": {
                     "title": "Media-upload",
-                    "message": "Geen bestand succesvol opgeslagen. | Een bestand succesvol opgeslagen. | {count} / {total} bestanden succesvol opgeslagen."
+                    "message": "Geen bestand opgeslagen. | Een bestand opgeslagen. | {count} / {total} bestanden opgeslagen."
                 },
                 "failure": {
                     "message": "Fout bij het uploaden."
@@ -2149,7 +2238,7 @@
                     "message": "De bestandsnaam \"{fileName}\" bevat ongeldige speciale tekens."
                 }
             },
-            "caption": "Te uploaden bestand naar hier verplaatsen"
+            "caption": "Te uploaden bestand hierheen verplaatsen"
         },
         "sw-media-url-form": {
             "title": "Bestand via URL uploaden",
@@ -2166,13 +2255,13 @@
             "labelInheritSettings": "Instellingen van bovenliggende map overnemen",
             "labelGenerateThumbnails": "Thumbnails voor deze map genereren",
             "labelThumbnailQuality": "Thumbnail-kwaliteit",
-            "labelThumbnailSize": "Thumbnailformaat",
+            "labelThumbnailSize": "Thumbnail grootte",
             "labelEditList": "Lijst bewerken",
             "labelStopEdit": "Bewerken beëindigen",
             "labelKeepProportions": "Hoogte-breedteverhouding bewaren",
             "notification": {
                 "success": {
-                    "message": "Instellingen succesvol opgeslagen."
+                    "message": "Instellingen opgeslagen."
                 },
                 "error": {
                     "message": "Fout bij het opslaan van de instellingen."
@@ -2186,8 +2275,8 @@
         },
         "sw-sidebar-media-item": {
             "title": "Media",
-            "placeholderSearch": "Zoeken …",
-            "labelLoadMore": "Meer laden"
+            "placeholderSearch": "Zoeken...",
+            "labelLoadMore": "Meer items laden"
         },
         "sw-media-list-selection-item": {
             "buttonRemove": "Verwijderen"
@@ -2196,21 +2285,21 @@
             "buttonRemove": "Verwijderen"
         },
         "sw-select": {
-            "messageNoResults": "Er werden geen resultaten voor \"{term}\" gevonden."
+            "messageNoResults": "Geen resultaten gevonden voor \"{term}\"."
         },
         "sw-select-result-list": {
-            "messageNoResults": "Er werden geen resultaten gevonden."
+            "messageNoResults": "Geen resultaten gevonden."
         },
         "sw-single-select": {
-            "messageNoResults": "Er werden geen resultaten voor \"{term}\" gevonden.",
-            "valuePlaceholder": "Maak uw keuze"
+            "messageNoResults": "Geen resultaten gevonden voor \"{term}\".",
+            "valuePlaceholder": "Selecteer..."
         },
         "sw-meteor-single-select": {
             "messageNoResults": "Geen resultaten gevonden voor \"{term}”.",
             "valuePlaceholder": "Selecteer..."
         },
         "sw-multi-select": {
-            "messageNoResults": "Er werden geen resultaten voor \"{term}\" gevonden."
+            "messageNoResults": "Geen resultaten gevonden voor \"{term}\"."
         },
         "sw-multi-tag-select": {
             "enterValidData": "Voer een geldige waarde in",
@@ -2218,41 +2307,37 @@
         },
         "sw-multi-tag-ip-select": {
             "enterValidIp": "Voer een geldig IPv4- of IPv6-adres in",
-            "addIpAdress": "IP-adres toevoegen",
+            "addIpAddress": "IP-adres toevoegen",
             "knownIps": {
                 "you": "Jij"
             }
         },
-        "sw-multi-ip-select": {
-            "enterValidIp": "Voer een geldig IPv4- of IPv6-adres in",
-            "addIpAdress": "IP-adres toevoegen"
-        },
         "sw-entity-multi-select": {
-            "messageNoResults": "Er werden geen resultaten voor \"{term}\" gevonden."
+            "messageNoResults": "Geen resultaten gevonden voor \"{term}\"."
         },
         "sw-entity-many-to-many-select": {
-            "messageNoResults": "Er werden geen resultaten voor \"{term}\" gevonden."
+            "messageNoResults": "Geen resultaten gevonden voor \"{term}\"."
         },
         "sw-label": {
             "buttonDismiss": "Verwijderen"
         },
         "sw-search-bar": {
-            "messageNoResults": "Er werden geen resultaten voor \"{term}\" gevonden.",
-            "messageNoTypeResults": "Er werd geen passend type gevonden.",
-            "placeholderSearchField": "Vind producten, klanten, bestellingen",
-            "placeholderTypeSearchField": "Zoek in alle {entity} ...",
+            "messageNoResults": "Geen resultaten gevonden voor \"{term}\".",
+            "messageNoTypeResults": "Geen type gevonden.",
+            "placeholderSearchField": "Vind producten, klanten, bestellingen...",
+            "placeholderTypeSearchField": "Zoek \"{entity}\"...",
             "placeholderShortcutInfo": "Tip: Met de F-toets kan de zoekfunctie sneller worden geopend."
         },
         "sw-search-bar-item": {
             "typeLabelCustomer": "Klant",
             "typeLabelProduct": "Product",
             "typeLabelOrder": "Bestelling",
-            "typeLabelMedia": "Medium",
+            "typeLabelMedia": "Media",
             "typeLabelCategory": "Categorie",
             "typeLabelCms": "CMS"
         },
         "sw-search-more-results": {
-            "labelShowResultsInModule": "Resultaten in de module tonen ({count})"
+            "labelShowResultsInModule": "Toon resultaten in de module ({count})"
         },
         "sw-tagged-field": {
             "text-default-placeholder": "Druk op de enter-toets om waarden toe te voegen."
@@ -2277,12 +2362,12 @@
                     "label": "Datumbereik",
                     "useTime": "Tijd gebruiken"
                 },
-                "placeholder": "Voorwaarde selecteren",
+                "placeholder": "Voorwaarde selecteren...",
                 "orderCountRule": "Aantal bestellingen",
                 "salesChannelRule": "Verkoopkanalen",
                 "currencyRule": "Valuta",
-                "billingCountryRule": "Factuurland",
-                "billingStreetRule": "Factuurstraat",
+                "billingCountryRule": "Factuuradres land",
+                "billingStreetRule": "Factuuradres straat",
                 "billingZipCodeRule": "Factuuradres postcode",
                 "customerGroupRule": "Klantgroep",
                 "customerTagRule": "Klant tag",
@@ -2292,9 +2377,10 @@
                 "lastNameRule": "Achternaam",
                 "isCompanyRule": "Zakelijke klant",
                 "daysSinceLastOrderRule": "Dagen sinds laatste bestelling",
-                "shippingCountryRule": "Afleverland",
-                "shippingStreetRule": "Afleverstraat",
+                "shippingCountryRule": "Verzendadres land",
+                "shippingStreetRule": "Verzendadres straat",
                 "shippingZipCodeRule": "Verzendadres postcode",
+                "customerLoggedInRule": "Klant ingelogd",
                 "cartAmountRule": "Waarde winkelmandje",
                 "goodsCountRule": "Aantal artikelen in winkelmandje",
                 "goodsPriceRule": "Prijs artikelen in winkelmandje",
@@ -2328,7 +2414,7 @@
                 "deleteAllConditions": "Alles verwijderen",
                 "createBefore": "Eerst aanmaken",
                 "createAfter": "Later aanmaken",
-                "hasDeliveryFreeItemRule": "Verzendkostenvrije artikelen",
+                "hasDeliveryFreeItemRule": "Gratis verzending",
                 "timeRangeRule": "Periode",
                 "weightOfCartRule": "Gewicht winkelmandje",
                 "dayOfWeekRule": "Weekdag",
@@ -2336,8 +2422,8 @@
                 "alwaysValidRule": "Altijd van toepassing",
                 "lineItemPropertyRule": "Posities met eigenschappen",
                 "lineItemNoveltyRule": "Nieuws",
-                "lineItemCustomFieldRule": "Posities met attribuut",
-                "lineItemIsNewRule": "Nieuws",
+                "lineItemCustomFieldRule": "Regel item met aangepast veld",
+                "lineItemIsNewRule": "Positie is nieuw",
                 "lineItemOfManufacturerRule": "Fabrikant",
                 "lineItemPurchasePriceRule": "Posities inkoopprijs",
                 "lineItemCreationDateRule": "Posities met aanmaakdatum",
@@ -2356,10 +2442,10 @@
                 "lineItemCustomField": {
                     "field": {
                         "fieldSetSelect": {
-                            "placeholder": "Fieldset selecteren..."
+                            "placeholder": "Veldset selecteren..."
                         },
                         "customFieldSelect": {
-                            "placeholder": "Extra veld selecteren…"
+                            "placeholder": "Vrije tekstveld selecteren..."
                         }
                     }
                 }
@@ -2368,17 +2454,18 @@
         "sw-product-image": {
             "context": {
                 "buttonAsCover": "Als cover gebruiken",
-                "buttonRemove": "Verwijderen"
+                "buttonRemove": "Verwijderen",
+                "buttonPreviewImage": "Voorbeeld van afbeelding"
             }
         },
         "sw-simple-search-field": {
-            "defaultPlaceholder": "Zoeken …"
+            "defaultPlaceholder": "Zoeken..."
         },
         "sw-tabs-item": {
             "tooltipTabHasErrors": "Deze pagina bevat fouten."
         },
         "entities": {
-            "custom_field": "Extra veld | Extra velden",
+            "custom_field": "Vrije tekstveld | Vrije tekstvelden",
             "cart": "Winkelmandje | Winkelmandjes",
             "category": "Categorie | Categorieën",
             "cms_page": "Lay-out | Lay-outs",
@@ -2391,13 +2478,13 @@
             "customer_group": "Klantgroep | Klantgroepen",
             "integration": "Integratie | Integraties",
             "language": "Taal | Talen",
-            "mail_header_footer": "Kop- en voettekst",
+            "mail_header_footer": "Kop- en voettekst | Kop- en voetteksten",
             "mail_template": "E-mailsjabloon | E-mailsjablonen",
-            "media": "Medium | Media",
+            "media": "Media | Media",
             "media_default_folder": "Standaard map",
-            "media_folder": "Map",
+            "media_folder": "Map | Mappen",
             "media_thumbnail": "Thumbnail | Thumbnails",
-            "media_thumbnail_size": "Thumbnailformaat | Thumbnailformaten",
+            "media_thumbnail_size": "Thumbnailgrootte | Thumbnailgroottes",
             "newsletter_recipient": "Nieuwsbrief ontvangers",
             "number_range": "Getalbereik | Getalbereiken",
             "order": "Bestelling | Bestellingen",
@@ -2406,15 +2493,15 @@
             "order_line_item": "Bestelpositie | Bestelposities",
             "order_state": "Bestelstatus | Bestelstatussen",
             "order_transaction": "Betaling | Betalingen",
-            "order_transaction_state": "Betalingsstatus | Betalingsstatussen",
+            "order_transaction_state": "Transactie status | Transactie statussen",
             "payment_method": "Betaalwijze | Betaalwijzen",
             "plugin_manager": "Plug-ins",
             "privacy": "Privacy",
             "product": "Product | Producten",
-            "product_manufacturer": "Fabrikant",
-            "product_media": "Productmedium | Productmedia",
+            "product_manufacturer": "Fabrikant | Fabrikanten",
+            "product_media": "Productmedia",
             "product_price": "Productprijs | Productprijzen",
-            "product_stream": "Productgroep | Productgroepen",
+            "product_stream": "Dynamische productgroep | Dynamische productgroepen",
             "product_variation": "Variant | Varianten",
             "product_review": "Beoordeling | Beoordelingen",
             "promotion": "Promotie | Promoties",
@@ -2426,19 +2513,21 @@
             "sales_channel": "Verkoopkanaal | Verkoopkanalen",
             "sales_channel_type": "Type verkoopkanaal | Typen verkoopkanalen",
             "salutation": "Aanhef | Aanheffen",
-            "seo_url": "SEO-URL | SEO-URL's",
+            "seo_url": "SEO URL | SEO URLs",
             "shipping_method": "Verzendwijze | Verzendwijzen",
-            "snippet": "Tekstbouwsteen | Tekstbouwstenen",
-            "tax": "Belastingen",
+            "snippet": "Tekstfragment | Tekstfragmenten",
+            "tax": "Belasting | Belastingen",
             "tax_rule": "Belastingregel | Taxe-regels",
             "theme": "Thema | Thema's",
             "unit": "Maateenheid | Maateenheden",
-            "user": "Gebruiker",
+            "user": "Gebruiker | Gebruikers",
             "landing_page": "Landingspagina | Landingspagina's",
             "delivery_time": "Levertijd | Levertijden",
             "import_export_profile": "Import/Export Profiel | Import/Export Profielen",
             "feature_set": "Sjabloon | Sjablonen",
-            "event_action": "Zakelijke evenementen"
+            "event_action": "Zakelijke evenementen",
+            "property_group": "Eigenschapsgroep | Eigenschapsgroepen",
+            "document_base_config": "Documentbasisconfiguratie | Documentbasis configureert"
         },
         "day-of-week": {
             "monday": "Maandag",
@@ -2469,6 +2558,7 @@
             "mail_sent": "E-mail verzonden",
             "newsletter_confirm": "Aanmelden voor nieuwsbrief bevestigd",
             "newsletter_register": "Nieuwsbrief aanmelden geregistreerd",
+            "newsletter_unsubscribe": "Nieuwsbrief uitgeschreven",
             "newsletter_update": "Aanmelden voor nieuwsbrief bijgewerkt",
             "product_export_log": "Export van het product",
             "state_enter_order_state_cancelled": "Bestelling voert status geannuleerd",
@@ -2524,19 +2614,19 @@
     "sw-promotion": {
         "setgroup": {
             "packager": {
-                "COUNT": "Aantal",
+                "COUNT": "Hoeveelheid",
                 "PRICE_UNIT_GROSS": "Waarde (bruto)",
                 "PRICE_UNIT_NET": "Waarde (netto)"
             },
             "sorter": {
-                "PRICE_ASC": "Prijs van laag naar hoog",
-                "PRICE_DESC": "Prijs van hoog naar laag"
+                "PRICE_ASC": "Prijs, aflopend",
+                "PRICE_DESC": "Prijs, oplopend"
             }
         },
         "filter": {
             "sorter": {
-                "PRICE_ASC": "Prijs van laag naar hoog",
-                "PRICE_DESC": "Prijs van hoog naar laag"
+                "PRICE_ASC": "Prijs, aflopend",
+                "PRICE_DESC": "Prijs, oplopend"
             },
             "applier": {
                 "ALL": "Alle items",
@@ -2552,16 +2642,16 @@
             }
         },
         "general": {
-            "mainMenuItemGeneral": "Kortingen &amp; acties",
-            "mainMenuItemList": "Kortingen &amp; acties",
-            "description": "Beheerde kortingsacties."
+            "mainMenuItemGeneral": "Promoties",
+            "mainMenuItemList": "Overzicht",
+            "description": "Beheer hier promoties."
         },
         "swPromotionRuleSelect": {
             "labelAddNewRule": "Nieuwe regel aanmaken"
         },
         "list": {
-            "textTitle": "Kortingen &amp; acties",
-            "buttonAddPromotion": "Actie aanmaken",
+            "textTitle": "Promoties",
+            "buttonAddPromotion": "Promotie toevoegen",
             "buttonCancel": "Annuleren",
             "buttonDelete": "Verwijderen",
             "columnActive": "Actief",
@@ -2571,18 +2661,18 @@
             "contextMenuDelete": "Verwijderen",
             "contextMenuDuplicate": "Dupliceren",
             "contextMenuEdit": "Bewerken",
-            "messageEmpty": "Nog geen kortingsacties",
-            "placeholderSearchBar": "Zoek in alle kortingsacties ...",
-            "textDeleteConfirm": "Wil je de kortingsactie \"{name}\" echt verwijderen?",
-            "titleSidebarItemRefresh": "Bijwerken"
+            "messageEmpty": "Nog geen promoties",
+            "placeholderSearchBar": "Zoek in alle promoties...",
+            "textDeleteConfirm": "De promotie \"{name}\" echt verwijderen?",
+            "titleSidebarItemRefresh": "Verversen"
         },
         "detail": {
             "header": {
-                "titleCreate": "Nieuwe actie",
-                "titleEdit": "Actie",
+                "titleCreate": "Nieuwe promotie",
+                "titleEdit": "Promotie",
                 "buttonCancel": "Annuleren",
                 "buttonSave": "Opslaan",
-                "messageSaveSuccess": "De kortingsactie \"{name}\" is opgeslagen."
+                "messageSaveSuccess": "De promotie \"{name}\" is opgeslagen."
             },
             "tabs": {
                 "tabGeneral": "Algemeen",
@@ -2594,7 +2684,7 @@
                     "cardTitlePromotionInfo": "Instellingen",
                     "cardTitleCode": "Actiecodes",
                     "labelTitle": "Naam",
-                    "placeholderName": "Voer een naam in …",
+                    "placeholderName": "Voer een naam in...",
                     "labelActive": "Actief",
                     "labelSalesChannels": "Verkoopkanalen",
                     "placeholderSalesChannels": "Verkoopkanaal toevoegen...",
@@ -2602,7 +2692,7 @@
                     "labelValidUntil": "Actief tot",
                     "labelMaxRedemptionsGlobal": "Gebruikslimiet per kortingsbon",
                     "placeholderMaxRedemptionsGlobal": "Waarde invoeren...",
-                    "helpTextMaxRedemptionsGlobal": "Voer '0' in om de actie voor iedere klant onbegrensd toe te laten.",
+                    "helpTextMaxRedemptionsGlobal": "Voer '0' in voor onbeperkt gebruik.",
                     "labelMaxRedemptionsPerCustomer": "Gebruikslimiet per klant",
                     "placeholderMaxRedemptionsPerCustomer": "Waarde invoeren...",
                     "helpTextMaxRedemptionsPerCustomer": "Voer '0' in voor onbeperkt gebruik per individuele klant.",
@@ -2612,13 +2702,13 @@
                         "card": "Actiecodes",
                         "labelCode": "Algemene actiecode",
                         "helpTextIndividual": "Een algemene actiecode kan niet gelijktijdig met individuele codes worden gebruikt.",
-                        "placeholderCode": "Voer een code in voor de kortingsactie in ...",
-                        "switchUseCodes": "Actiecodes gebruiken",
+                        "placeholderCode": "Voer actiecode in...",
+                        "switchUseCodes": "Actiecodes verplicht",
                         "switchUseIndividualCodes": "Individuele actiecodes gebruiken.",
                         "linkEditIndividualCodes": "Individuele actiecodes beheren.",
                         "individual": {
                             "title": "Individuele actiecodes",
-                            "labelPattern": "Formaat",
+                            "labelPattern": "Patroon",
                             "helpTextPattern": "Maak een aangepast codepatroon. Gebruik tijdelijke aanduidingen zoals \"%s\" voor tekens en \"%d\" voor cijfers. Voorbeeld: code-%s%s%d.",
                             "labelCount": "Aantal",
                             "buttonGenerate": "Opslaan en codes genereren.",
@@ -2629,12 +2719,12 @@
                             "buttonDeleteCode": "Verwijderen",
                             "buttonOpenCustomer": "Klant openen",
                             "alerts": {
-                                "errorNoPatternTitle": "Ontbrekend formaat",
-                                "errorNoPatternMessage": "Geef een formaat voor je code op.",
+                                "errorNoPatternTitle": "Ontbrekend patroon",
+                                "errorNoPatternMessage": "Wijs een codepatroon toe.",
                                 "successGeneratedTitle": "Succes.",
-                                "successGeneratedMessage": "{count} Nieuwe codes zijn gegenereerd.",
+                                "successGeneratedMessage": "{count} nieuwe codes zijn gegenereerd.",
                                 "successDeletedTitle": "Code gewist.",
-                                "errorDeletedTitle": "Fout bij het wissen.",
+                                "errorDeletedTitle": "Fout tijdens wissen code.",
                                 "warningFormatCodes": "Ongeldig codepatroon. Pas uw patroon aan en gebruik tijdelijke aanduidingen zoals \"%s\" voor tekens en \"%d\" voor cijfers.",
                                 "warningNotAllowPattern": "Het patroon dat u hebt ingevoerd staat niet toe om {generateCount} codes te genereren. Pas uw patroon aan om het gewenste aantal codes te genereren."
                             }
@@ -2647,10 +2737,10 @@
                     "persona": {
                         "card": "Doelgroep",
                         "title": "Welke klanten kunnen van deze kortingsactie profiteren?",
-                        "text": "Gebruik regels van de rule builder om het gebruik voor deze marketingactie te beperken. Zonder beperking kunnen al uw klanten onbeperkt gebruik maken van deze actie.",
+                        "text": "Gebruik regels van de regelmodule om het gebruik voor deze marketingactie te beperken. Zonder beperking kunnen alle klanten onbeperkt gebruik maken van deze actie.",
                         "labelRules": "Klantregels",
-                        "placeholderRules": "Regel toevoegen …",
-                        "switchAssignCustomers": "Actie individuele klanten toewijzen",
+                        "placeholderRules": "Klantregel toevoegen...",
+                        "switchAssignCustomers": "Toewijzen aan individuele klanten",
                         "placeholderAddCustomers": "In klantenlijst zoeken en toevoegen...",
                         "customers": {
                             "grid": {
@@ -2663,22 +2753,22 @@
                     "order": {
                         "card": "Gekwalificeerde bestellingen",
                         "title": "Definieer gekwalificeerde bestellingseigenschappen voor deze kortingsactie.",
-                        "text": "Gebruik de Rule Builder om te bepalen welke bestellingen geschikt zijn voor de promotie. Zonder beperking zal de promotie voor alle bestellingen gelden.",
+                        "text": "Gebruik de regelmodule om te bepalen welke bestellingen geschikt zijn voor de promotie. Zonder beperking zal de promotie voor alle bestellingen gelden.",
                         "rulesModuleLink": "Regelmodule openen",
                         "rulesCaption": "Bestelregels",
                         "rulesPlaceholder": "Bestelregel toewijzen …"
                     },
                     "cart": {
-                        "card": "Winkelmandjes",
+                        "card": "Gekwalificeerde inkelmandjes",
                         "title": "Definieer gekwalificeerde winkelmandjes voor deze kortingsactie.",
-                        "text": "Gebruik regels uit de Rule Builder om te definiëren over welke eigenschappen een winkelmandje moet beschikken om aan de actievoorwaarden te voldoen. Zonder een afbakening wordt de actie op alle winkelmandjes toegepast.",
+                        "text": "Gebruik regels uit de regelmodule om te definiëren over welke eigenschappen een winkelmandje moet beschikken om aan de actievoorwaarden te voldoen. Zonder een afbakening wordt de actie op alle winkelmandjes toegepast.",
                         "rulesModuleLink": "Regelmodule openen",
                         "rulesCaption": "Winkelmandregels",
                         "rulesPlaceholder": "Winkelmandregel toewijzen …",
                         "setgroups": {
                             "switchGroupsEnabled": "Actie toepassen op product-sets",
-                            "buttonAddGroup": "Set-groep toevoegen",
-                            "titleName": "Set-groep",
+                            "buttonAddGroup": "Productset toevoegen",
+                            "titleName": "Groep",
                             "labelMode": "Modus",
                             "labelValue": "Waarde",
                             "labelSorting": "Sortering",
@@ -2691,8 +2781,8 @@
                 "discounts": {
                     "card": "Korting",
                     "labelValue": "Waarde",
-                    "labelMaxValue": "Maximale korting",
-                    "helpTextMaxValueAdvancedPrices": "Het maximale bedrag omvat geavanceerde prijzen.",
+                    "labelMaxValue": "Maximale kortingswaarde",
+                    "helpTextMaxValueAdvancedPrices": "Grootst mogelijke korting (absolute geld waarde).",
                     "placeholderValue": "Voer een percentuele of absolute waarde in...",
                     "labelScope": "Toepassen op:",
                     "flagProductScopeLabel": "Alleen op geselecteerde producten toepassen",
@@ -2703,7 +2793,7 @@
                     "valueTypeAbsolute": "Absoluut",
                     "valueScopeDelivery": "Verzendkosten",
                     "valueScopeSet": "Totale set",
-                    "valueScopeSetGroup": "Set-groep",
+                    "valueScopeSetGroup": "Groepset",
                     "valueTypePercentage": "Procentueel",
                     "valueTypeFixed": "Vaste prijs",
                     "valueTypeFixedUnit": "Vaste item prijs",
@@ -2711,7 +2801,7 @@
                     "buttonDeleteDiscount": "Korting verwijderen",
                     "delete": {
                         "confirmTitle": "Korting verwijderen",
-                        "confirmText": "Wil je deze korting echt uit de kortingsactie verwijderen?",
+                        "confirmText": "Deze korting echt uit de kortingsactie verwijderen?",
                         "buttonCancel": "Annuleren",
                         "buttonDelete": "Korting verwijderen"
                     },
@@ -2736,7 +2826,7 @@
             "textHeadline": "Adressen",
             "description": "Beheer van adresinstellingen.",
             "buttonSave": "Opslaan",
-            "messageSaveSuccess": "De configuratie is succesvol opgeslagen."
+            "messageSaveSuccess": "De configuratie is opgeslagen."
         }
     },
     "sw-privilege-error": {
@@ -2752,7 +2842,7 @@
             "description": "Hier kun je instellingen van de sitemap aanpassen.",
             "textHeadline": "Sitemap",
             "buttonSave": "Opslaan",
-            "messageSaveSuccess": "De configuratie is succesvol opgeslagen."
+            "messageSaveSuccess": "De configuratie is opgeslagen."
         }
     },
     "sw-settings-number-range": {
@@ -2767,14 +2857,14 @@
         },
         "list": {
             "textHeadline": "Getalbereik",
-            "textDeleteConfirm": "Weet je zeker dat je het getalbereik \"{name}\" wilt verwijderen?",
+            "textDeleteConfirm": "Zeker weten om het getalbereik \"{name}\" te verwijderen?",
             "columnName": "Naam",
             "columnUsedIn": "Type",
             "columnAssignment": "Toewijzing",
             "buttonAddNumberRange": "Getalbereik aanmaken",
             "contextMenuEdit": "Bewerken",
             "contextMenuDelete": "Verwijderen",
-            "messageDeleteSuccess": "Het getalbereik \"{name}\" is succesvol verwijderd.",
+            "messageDeleteSuccess": "Het getalbereik \"{name}\" is verwijderd.",
             "buttonCancel": "Annuleren",
             "buttonDelete": "Verwijderen",
             "global": "Globaal"
@@ -2783,8 +2873,8 @@
             "textHeadline": "Nieuw getalbereik",
             "configCard": "Instellingen",
             "assignmentCard": "Toewijzing",
-            "messageSaveSuccess": "Het getalbereik \"{name}\" is succesvol opgeslagen.",
-            "messageSaveError": "Het getalbereik \"{name}\" is niet succesvol opgeslagen.",
+            "messageSaveSuccess": "Het getalbereik \"{name}\" is opgeslagen.",
+            "messageSaveError": "Het getalbereik \"{name}\" is niet opgeslagen.",
             "labelName": "Naam",
             "labelDescription": "Beschrijving",
             "labelPrefix": "Prefix",
@@ -2817,7 +2907,7 @@
             "textHeadline": "Winkelmandje",
             "description": "Beheer van winkelmandinstellingen.",
             "buttonSave": "Opslaan",
-            "messageSaveSuccess": "De configuratie is succesvol opgeslagen."
+            "messageSaveSuccess": "De configuratie is opgeslagen."
         }
     },
     "sw-settings-product-feature-sets": {
@@ -2900,10 +2990,11 @@
             "columnDescription": "Beschrijving",
             "columnActive": "Actief",
             "columnPosition": "Positie",
+            "columnExtension": "Extensie",
             "buttonAddPaymentMethod": "Betaalwijze aanmaken",
             "contextMenuEdit": "Bewerken",
             "contextMenuDelete": "Verwijderen",
-            "messageDeleteSuccess": "De betaalwijze \"{name}\" is succesvol verwijderd.",
+            "messageDeleteSuccess": "De betaalwijze \"{name}\" is verwijderd.",
             "buttonCancel": "Annuleren",
             "buttonDelete": "Verwijderen",
             "pluginDeleteTitleText": "Betaalwijzen van plug-ins kunnen niet worden verwijderd."
@@ -2911,7 +3002,7 @@
         "detail": {
             "textHeadline": "Nieuwe betaalwijze",
             "titleCard": "Betaalwijzen",
-            "messageSaveSuccess": "De betaalwijze \"{name}\" is succesvol opgeslagen.",
+            "messageSaveSuccess": "De betaalwijze \"{name}\" is opgeslagen.",
             "messageSaveError": "Betaalwijze \"{name}\" kan niet worden opgeslagen.",
             "labelName": "Naam",
             "labelPosition": "Positie",
@@ -2931,7 +3022,7 @@
         }
     },
     "sw-plugin-box": {
-        "buttonPluginSettings": "Plug-in instellingen"
+        "buttonPluginSettings": "Uitbreiding instellingen"
     },
     "sw-settings-country": {
         "general": {
@@ -2949,14 +3040,14 @@
             "buttonAddCountry": "Land aanmaken",
             "contextMenuEdit": "Bewerken",
             "contextMenuDelete": "Verwijderen",
-            "messageDeleteSuccess": "Het land \"{name}\" is succesvol verwijderd.",
+            "messageDeleteSuccess": "Het land \"{name}\" is verwijderd.",
             "buttonCancel": "Annuleren",
             "buttonDelete": "Verwijderen"
         },
         "detail": {
             "textHeadline": "Nieuw land",
             "titleCard": "Instellingen",
-            "messageSaveSuccess": "Het land \"{name}\" is succesvol opgeslagen.",
+            "messageSaveSuccess": "Het land \"{name}\" is opgeslagen.",
             "messageSaveError": "Het land \"{name}\" kon niet worden opgeslagen.",
             "labelName": "Naam",
             "labelPosition": "Positie",
@@ -2978,7 +3069,10 @@
             "buttonAddCountryState": "Provincie toevoegen",
             "editAction": "Bewerken",
             "columnStateNameLabel": "Naam",
-            "columnStateShortCodeLabel": "Afkorting"
+            "columnStateShortCodeLabel": "Afkorting",
+            "taxFreeFrom": "Belastingvrij van",
+            "taxFreeFromHelpText": "Als het totaal van de winkelwagen hoger is dan de waarde die is ingesteld in „Belastingvrij van”, zal het hele winkelwagentje belastingvrij zijn.",
+            "labelVatIdRequired": "Veld btw-ID vereist"
         }
     },
     "sw-country-state-detail": {
@@ -3008,16 +3102,16 @@
             "buttonAddCurrency": "Valuta aanmaken",
             "contextMenuEdit": "Bewerken",
             "contextMenuDelete": "Verwijderen",
-            "messageDeleteSuccess": "De valuta \"{name}\" is succesvol verwijderd.",
+            "messageDeleteSuccess": "De valuta \"{name}\" is verwijderd.",
             "buttonCancel": "Annuleren",
             "buttonDelete": "Verwijderen"
         },
         "detail": {
             "textHeadline": "Nieuwe valuta",
             "labelPrecision": "Decimalen",
-            "placeholderPrecision": "Aantal decimalen invoeren …",
+            "placeholderPrecision": "Aantal decimalen om te tonen invoeren...",
             "titleCard": "Instellingen",
-            "messageSaveSuccess": "De valuta \"{name}\" is succesvol opgeslagen.",
+            "messageSaveSuccess": "De valuta \"{name}\" is opgeslagen.",
             "labelName": "Naam",
             "labelIsoCode": "ISO-code",
             "labelShortName": "Korte naam",
@@ -3047,7 +3141,9 @@
             },
             "emptyCountryRoundings": "Voeg individuele decimalen en afrondingsfactoren toe voor verschillende landen.",
             "emptyCountryRoundingsNewCurrency": "Vul basisinformatie in, sla de valuta op - voeg vervolgens waarden toe",
-            "buttonAddCountry": "Land toevoegen"
+            "buttonAddCountry": "Land toevoegen",
+            "taxFreeFrom": "Belastingvrij van",
+            "taxFreeFromHelpText": "Als het totaal van de winkelwagen hoger is dan de waarde die is ingesteld in „Belastingvrij van”, zal het hele winkelwagentje belastingvrij zijn. Geldt alleen voor winkelwagentjes die in \"{currencyName}„worden betaald."
         },
         "currency-country-modal": {
             "labelCountrySelect": "Land",
@@ -3062,11 +3158,13 @@
             "labelRoundForNet": "Rond ook voor netto-klanten",
             "grandHeadline": "Grand totaal",
             "grandSubline": "Afronding is van toepassing op grote totalen",
+            "headerWarning": "Verschillende afrondingsintervallen - Zorg ervoor dat u contact opneemt met uw individuele dienstverleners om boekhoudkundige problemen te voorkomen.",
+            "headerInfo": "Belastingberekening is gebaseerd op onafgeronde totalen. Eventuele afrondingsverschillen zijn niet onderworpen aan belastingberekening.",
             "helpTextDecimals": "Decimalen geven het maximum aantal cijfers aan na het decimale scheidingsteken.",
-            "helpTextInterval": "Gebruik afrondingsintervallen om rekening te houden met markten waar de laagste fysieke coupures van de valuta zijn afgeschaft en contante afrondingen plaatsvinden. <br><br> Hint: Selecteer „Geen” als u geen contante afronding wilt toepassen. Bijvoorbeeld bij het gebruik van decimalen groter dan 2.",
+            "helpTextInterval": "Gebruik afrondingsintervallen om rekening te houden met markten waar de laagste fysieke coupures van de valuta zijn afgeschaft en contante afrondingen plaatsvinden. <br><br> Tip: Selecteer „Geen” als u geen prijsafronding wilt toepassen. Bijvoorbeeld bij het gebruik van decimalen groter dan 2.",
             "helpTextRoundForNet": "Activeer afronding voor netto-klantengroepen bovendien.",
             "labelIntervalNone": "Geen",
-            "tooltipIntervalDisabled": "Contante afronding wordt niet toegepast als decimalen groter zijn dan 2."
+            "tooltipIntervalDisabled": "Prijsafronding wordt niet toegepast als decimalen groter dan 2 zijn geconfigureerd."
         }
     },
     "sw-category": {
@@ -3079,7 +3177,7 @@
             "buttonCreate": "Categorie aanmaken",
             "buttonSafeCategory": "Opslaan",
             "descriptionLabel": "Beschrijving",
-            "messageSaveSuccess": "De categorie \"{name}\" is succesvol opgeslagen.",
+            "messageSaveSuccess": "De categorie \"{name}\" is opgeslagen.",
             "useAsLogo": "Als schermafbeelding gebruiken",
             "treeHeadline": "categorieën",
             "treeHeadSelected": "{count} geselecteerd",
@@ -3289,13 +3387,15 @@
         "visibility": {
             "textHeadline": "Zichtbaarheid per verkoopkanaal bepalen",
             "placeholderVisibility": "Wijs verkoopkanalen toe ...",
-            "columnAll": "Overal",
-            "columnSearchOnly": "Alleen in de zoekresultaten zichtbaar",
-            "columnLinkOnly": "Verborgen",
-            "linkAdvancedVisibility": "Geavanceerde zichtbaarheid configureren",
+            "columnAll": "zichtbaar",
+            "columnSearchOnly": "Verbergen in aanbiedingen",
+            "columnLinkOnly": "Verbergen in aanbiedingen en zoeken",
+            "visibilityModalDescription": "'Verbergen in aanbieding' sluit het product uit van productoverzichten, maar ook van productschuifregelaars en cross-selling lijsten. Als u de optie 'Verbergen in lijst en zoeken' selecteert, wordt het product ook uitgesloten van zoekacties. Producten zijn nog steeds bereikbaar via URL.",
+            "linkAdvancedVisibility": "Zichtbaarheid instellen voor geselecteerde verkoopkanalen",
             "labelVisibility": "Zichtbaarheid",
             "closeModal": "Toepassen",
-            "bodyVisibility": "Voeg verkoopkanalen toe waar het product moet worden weergegeven. Je kunt ook de zichtbaarheid van het product voor elk Storefront Sales Channel verder definiëren via de onderstaande link."
+            "bodyVisibility": "Voeg verkoopkanalen toe waarin dit product moet worden weergegeven. U kunt de zichtbaarheid van het product voor elk verkoopkanaal van Storefront verder definiëren via de onderstaande link.",
+            "errorMessage": "Kan standaardconfiguratie voor verkoopkanaal niet laden."
         },
         "general": {
             "mainMenuItemGeneral": "Producten",
@@ -3320,7 +3420,7 @@
             "labelManufacturer": "Fabrikant",
             "placeholderName": "Voer een productnaam in …",
             "placeholderDescriptionLong": "Voer een productbeschrijving in …",
-            "placeholderId": "Voer een productnummer in …",
+            "placeholderId": "Voer productnummer in...",
             "placeholderManufacturer": "Voer een productfabrikant in …",
             "productNumberHelpText": {
                 "label": "Productnummers helpen u bij het identificeren en beheren van uw producten. Probeer hiervoor een consistente structuur in uw productnummers te behouden. U kunt productnummersjablonen definiëren in {link}.",
@@ -3380,7 +3480,10 @@
             "placeholderMetaTitle": "Voer een meta title in ...",
             "placeholderMetaDescription": "Voer een meta description in ...",
             "placeholderKeywords": "Voer een of meer trefwoorden in...",
-            "placeholderCanonicalProduct": "Selecteer een variant..."
+            "placeholderCanonicalProduct": "Selecteer een variant...",
+            "helpTextMetaTitle": "De meta titel is het belangrijkste SEO element en moet uniek zijn voor elke pagina. Je moet jezelf in lengte beperken tot maximaal 56 tekens. Uw zoekwoord moet idealiter helemaal aan de voorkant worden geplaatst.",
+            "helpTextMetaDescription": "Met de metabeschrijving bevestigt u aan uw klanten dat ze op de juiste plaats in uw winkel zijn. Je creëert prikkels, bouwt vertrouwen op en nodigt uit tot een actie. Je moet jezelf beperken tot maximaal 155 tekens.",
+            "helpTextKeywords": "Hier kunt u optioneel drie tot vijf trefwoorden definiëren waaronder uw product moet worden gevonden."
         },
         "settingsForm": {
             "labelCreatedAt": "Aanmaakdatum",
@@ -3392,10 +3495,10 @@
             "labelMinPurchase": "Minimale bestelhoeveelheid",
             "labelMaxPurchase": "Maximale bestelhoeveelheid",
             "labelEan": "EAN",
-            "labelManufacturerNumber": "Fabrikantnummer",
+            "labelManufacturerNumber": "Fabrikant productnummer",
             "labelStock": "Magazijnvoorraad",
             "labelActive": "Actief voor alle geselecteerde verkoopkanalen",
-            "labelShippingFree": "Verzendkostenvrij",
+            "labelShippingFree": "Gratis verzending",
             "labelMarkAsTopseller": "Product markeren",
             "labelIsCloseout": "Uitverkoop",
             "isCloseoutHelpText": "Geen nabestellingen mogelijk.",
@@ -3413,7 +3516,7 @@
             "placeholderMaxPurchase": "Maximale bestelhoeveelheid …",
             "placeholderPurchaseSteps": "Verkoopinterval (aantal stuks) ...",
             "placeholderRestockTime": "Opvulinterval ...",
-            "placeholderEan": "Voer het EAN-nummer in …",
+            "placeholderEan": "Voer EAN-nummer in...",
             "placeholderManufacturerNumber": "Voer het fabrikantnummer in …",
             "labelAvailableStock": "Beschikbare voorraad",
             "labelPurchaseSteps": "Staffel"
@@ -3504,6 +3607,7 @@
             "columnInStock": "Magazijn",
             "columnAvailableStock": "Beschikbaar",
             "columnActions": "Actie(s)",
+            "columnMedia": "Media",
             "contextMenuEdit": "Bewerken",
             "contextMenuDelete": "Verwijderen",
             "contextMenuDuplicate": "Dupliceren",
@@ -3525,7 +3629,7 @@
             "messageEmpty": "Nog geen producten",
             "textDeleteConfirm": "Wil je het product \"{name}\" echt verwijderen? | Wil je deze {count} producten echt verwijderen?",
             "titleSidebarItemRefresh": "Bijwerken",
-            "messageSaveSuccess": "Het product \"{name}\" is succesvol opgeslagen."
+            "messageSaveSuccess": "Het product \"{name}\" is opgeslagen."
         },
         "detail": {
             "textHeadline": "Nieuw product",
@@ -3542,8 +3646,8 @@
             "tabCrossSelling": "Cross selling",
             "tabReviews": "Beoordelingen",
             "tabProperties": "Eigenschappen toewijzen",
-            "messageSaveSuccess": "Het product \"{name}\" is succesvol opgeslagen.",
-            "messageUploadSuccess": "{count} van {total} bestanden succesvol opgeslagen.",
+            "messageSaveSuccess": "Het product \"{name}\" is opgeslagen.",
+            "messageUploadSuccess": "{count} van {total} bestanden opgeslagen.",
             "messageSaveWarning": "Je hebt geen wijziging aangebracht.",
             "errorMinMaxPurchase": "Kon product niet opslaan, de minimale aankoophoeveelheid is groter dan de maximale aankoophoeveelheid."
         },
@@ -3604,6 +3708,7 @@
             "generatedListColumnVariation": "Variant",
             "generatedListColumnPrice": "Prijs (bruto / netto)",
             "generatedListColumnProductNumber": "Productnummer",
+            "generatedListColumnMedia": "Media",
             "generatedListColumnActive": "Actief",
             "generatedListColumnStock": "Magazijnvoorraad",
             "generatedListContextMenuEdit": "Bewerken",
@@ -3672,6 +3777,7 @@
         "crossselling": {
             "cardTitleCrossSelling": "Cross selling",
             "buttonAddCrossSelling": "Nieuwe kruisverkoop toevoegen",
+            "buttonAddCrossSellingLanguageWarning": "U kunt alleen nieuwe cross-sellings aanmaken in uw standaardtaal",
             "buttonDeleteCrossSelling": "Verwijderen",
             "inputCrossSellingTitle": "Naam",
             "inputCrossSellingActive": "Actief",
@@ -3783,10 +3889,10 @@
             "messageEmpty": "Nog geen verzendwijzen",
             "textDeleteConfirm": "Wil je de verzendwijze \"{name}\" echt verwijderen?",
             "titleSidebarItemRefresh": "Bijwerken",
-            "messageSaveSuccess": "De verzendwijze \"{name}\" is succesvol opgeslagen.",
+            "messageSaveSuccess": "De verzendwijze \"{name}\" is opgeslagen.",
             "messageSaveError": "De verzendwijze \"{name}\" kon niet worden opgeslagen.",
             "messageDeleteError": "De verzendwijze \"{name}\" kon niet worden verwijderd.",
-            "messageDeleteSuccess": "De verzendwijze \"{name}\" is succesvol verwijderd.",
+            "messageDeleteSuccess": "De verzendwijze \"{name}\" is verwijderd.",
             "columnTaxType": "Belastingberekening",
             "columnTaxRate": "Belastingtarief",
             "placeholderTaxType": "Selecteer btw-type"
@@ -3794,7 +3900,7 @@
         "detail": {
             "textHeadline": "Nieuwe verzendwijze",
             "titleCard": "Instellingen",
-            "messageSaveSuccess": "De verzendwijze \"{name}\" is succesvol opgeslagen.",
+            "messageSaveSuccess": "De verzendwijze \"{name}\" is opgeslagen.",
             "labelName": "Naam",
             "labelActive": "Actief",
             "labelDeliveryTime": "Levertijd",
@@ -3913,7 +4019,7 @@
             "placeholderName": "Geef deze regel een naam …",
             "placeholderDescription": "Geef deze regel een beschrijving …",
             "placeholderPriority": "Geef deze regel een prioriteit …",
-            "messageSaveSuccess": "De regel \"{name}\" is succesvol opgeslagen.",
+            "messageSaveSuccess": "De regel \"{name}\" is opgeslagen.",
             "ruleCard": "Voorwaarden",
             "messageSaveError": "Bij het opslaan van de regel \"{name}\" is een fout opgetreden.",
             "tabGeneral": "Generaal",
@@ -3956,7 +4062,7 @@
             "columnDefault": "Standaard",
             "buttonAddLanguage": "Taal aanmaken",
             "contextMenuEdit": "Bewerken",
-            "messageDeleteSuccess": "De taal \"{name}\" is succesvol verwijderd.",
+            "messageDeleteSuccess": "De taal \"{name}\" is verwijderd.",
             "buttonCancel": "Annuleren",
             "buttonDelete": "Verwijderen",
             "titleSidebarFilter": "Filter",
@@ -3967,7 +4073,7 @@
         "detail": {
             "textHeadline": "Nieuwe taal",
             "titleCard": "Instellingen",
-            "messageSaveSuccess": "De taal \"{name}\" is succesvol opgeslagen.",
+            "messageSaveSuccess": "De taal \"{name}\" is opgeslagen.",
             "labelName": "Naam",
             "labelLocale": "Lokalisatie",
             "labelParent": "Overnemen van",
@@ -4065,7 +4171,7 @@
     },
     "sw-newsletter-recipient": {
         "general": {
-            "description": "Beheer van nieuwsbriefontvangers",
+            "description": "Beheer van nieuwsbriefontvangers hier.",
             "information": "Informatie",
             "language": "Taal",
             "salutation": "Aanhef",
@@ -4076,12 +4182,12 @@
             "tags": "Tags"
         },
         "detail": {
-            "messageSaveSuccess": "De gegevens voor \"{key}\" zijn succesvol opgeslagen.",
+            "messageSaveSuccess": "De gegevens voor \"{key}\" zijn opgeslagen.",
             "messageSaveError": "De gegevens voor \"{key}\" konden niet worden opgeslagen."
         },
         "list": {
-            "titleSidebarItemRefresh": "Bijwerken",
-            "titleSidebarItemFilter": "Filter",
+            "titleSidebarItemRefresh": "Verversen",
+            "titleSidebarItemFilter": "Filters",
             "status": "Status",
             "textHeadline": "Nieuwsbriefontvanger",
             "email": "E-mailadres",
@@ -4190,12 +4296,15 @@
             "updateExcludedTermSuccess": "Uitgesloten zoekterm bijgewerkt.",
             "createExcludedTermSuccess": "Uitgesloten zoekterm aangemaakt.",
             "deleteExcludedTermSuccess": "Uitgesloten zoekterm verwijderd.",
+            "resetToDefaultExcludedTermSuccess": "Uitgesloten zoektermen zijn teruggezet naar de standaardwaarde.",
+            "resetToDefaultExcludedTermError": "Er is een fout opgetreden bij het opnieuw instellen van uitgesloten zoektermen.",
             "saveError": "Er is een fout opgetreden bij het opslaan van uw configuratie.",
             "index": {
                 "started": "Product-indexen bouwen.",
                 "success": "Product indexen gebouwd."
             },
-            "loadError": "Er is een fout opgetreden tijdens het laden van uw configuratie."
+            "loadError": "Er is een fout opgetreden tijdens het laden van uw configuratie.",
+            "notSupportedLanguageError": "De geselecteerde taal is niet beschikbaar in het geselecteerde verkoopkanaal"
         },
         "liveSearchTab": {
             "titleCard": "Sales Channel live zoeken",
@@ -4217,15 +4326,15 @@
         },
         "mailer-configuration": {
             "card-title": "Mail-configuratie",
-            "agent": "Gewenste e-maildienst",
+            "agent": "Voorkeur e-maildienst",
             "local-agent": "Lokale e-maildienst",
-            "local-helptext": "De standaard-maildienst (Sendmail) van je systeem wordt gebruikt. Controleer of Sendmail werkt en in je eigen hostingruimte principieel beschikbaar is.",
+            "local-helptext": "Deze optie gebruikt uw systeem standaard mailer (Sendmail). Zorg dat Sendmail werkt en beschikbaar is in uw eigen hostingomgeving.",
             "smtp-server": "SMTP-server",
             "env-file": "Gebruik omgevingsconfiguratie"
         },
         "first-configuration": {
             "headline": "E-mailcommunicatie inrichten",
-            "description": "De communicatie met klanten is een essentiële factor in de dagelijkse e-commerce. Daarom is het heel belangrijk zo snel mogelijk een mailsysteem in te richten."
+            "description": "De communicatie met klanten is een essentiële factor in de dagelijkse e-commerce. Daarom zou het opzetten van een mailsysteem zo snel mogelijk van uw lijst moeten worden geschrapt."
         },
         "sendmail": {
             "sync": "Synchrone mailverzending",
@@ -4234,23 +4343,23 @@
         "card-smtp": {
             "host": "Host",
             "host-placeholder": "Voer host-naam in...",
-            "port": "Port",
+            "port": "Poort",
             "port-placeholder": "Voer het poortnummer in...",
             "username": "Gebruikersnaam",
             "username-placeholder": "Voer je gebruikersnaam in...",
             "password": "Wachtwoord",
-            "password-placeholder": "Voer je wachtwoord in...",
-            "encryption": "Coderingsmethode",
-            "encryption-placeholder": "Selecteer een coderingsmethode ...",
-            "sender-address": "Adres afzender",
-            "sender-address-placeholder": "Geef een e-mailadres aan, waar je toegang tot hebt ...",
+            "password-placeholder": "Voer een wachtwoord in...",
+            "encryption": "Versleuteling",
+            "encryption-placeholder": "Selecteer een versleuteling...",
+            "sender-address": "Afzender adres",
+            "sender-address-placeholder": "Vul een e-mailadres in waar u toegang tot hebt...",
             "delivery-address": "E-mailadres ontvanger",
-            "delivery-address-placeholder": "Geef een e-mailadres aan voor testdoeleinden ...",
-            "delivery-address-helptext": "Alle uitgaande e-mails worden eveneens aan dit adres gestuurd. Deze functie is alleen voor testdoeleinden.",
+            "delivery-address-placeholder": "Vul een e-mailadres in voor testdoeleinden...",
+            "delivery-address-helptext": "Alle uitgaande e-mail wordt naar het beoogde adres van de ontvanger gestuurd en ook naar dit adres. Alleen voor testdoeleinden.",
             "disable-delivery": "Schakel e-mailbezorging uit"
         },
         "encryption": {
-            "no-encryption": "Geen codificering",
+            "no-encryption": "Geen encriptie",
             "ssl": "SSL",
             "tls": "TLS"
         },
@@ -4348,7 +4457,7 @@
             "label": "Nu beschikbaar",
             "activationDescriptionTitleFirst": "Ontdek en koop eenvoudig extensies -",
             "activationDescriptionTitleSecond": "rechtstreeks vanuit uw eigen Shopware shop.",
-            "activationDescriptionTitleDescription": "Activeer de geheel nieuwe Shopware Store en krijg toegang tot tal van handige extensies en moderne thema's die naadloos in uw winkel kunnen worden geïntegreerd - zonder programmeervaardigheden.",
+            "activationDescriptionTitleDescription": "Activeer de Shopware Store en krijg toegang tot tal van handige extensies en moderne thema's die naadloos in uw winkel kunnen worden geïntegreerd - zonder programmeervaardigheden.",
             "activate": "Activeren"
         },
         "title": "Winkel",
@@ -4501,6 +4610,9 @@
                     "permissions": "Rechten"
                 }
             },
+            "sw-extension-card-bought": {
+                "subscriptionExpiredAt": "Abonnement verloopt op {date}"
+            },
             "sw-extension-deactivation-modal": {
                 "deactivateExtensionLabel": "\"{extensionName}” deactiveren",
                 "description": "De \"{extensionName}\" extensie heeft een maandelijkse contributie.<br>Het deactiveren van de extensie zal het abonnement <b>niet</b> annuleren en de contributie zal geïnd blijven worden!",
@@ -4510,8 +4622,16 @@
             },
             "sw-extension-permissions-modal": {
                 "title": "{extensionLabel} machtigingen",
-                "description": "{extensionLabel} heeft toegang tot de volgende onderdelen. Klik op de koppeling naast de component om de details van de entiteit weer te geven.",
-                "textEntities": "Toestemming tonen"
+                "description": "{extensionLabel} krijgt toegang tot de onderstaande onderdelen. Klik op de koppeling naast de component om de details van de entiteit weer te geven.",
+                "domainHint": "Sommige gegevens worden ook gedeeld met andere domeinen. Klik op de koppeling naast domeinen voor meer informatie.",
+                "textEntities": "Toestemming tonen",
+                "domains": "domeinen",
+                "showDomains": "Domeinen tonen"
+            },
+            "sw-extension-domains-modal": {
+                "modalTitle": "{extensionLabel} - Domeinen",
+                "description": "Sommige gegevens worden gedeeld of overgebracht naar de onderstaande domeinen.",
+                "listTitle": "Domein"
             },
             "sw-extension-privacy-policy-extensions-modal": {
                 "title": "{extensionLabel}: uitbreidingen van het privacybeleid",
@@ -4940,7 +5060,6 @@
             "messageServerError": "Bij de verificatieserver is een algemene fout opgetreden.",
             "messageInvalidRefreshToken": "De opgegeven refresh token is ongeldig.",
             "messageAccessDenied": "De toegang werd geweigerd.",
-            "messageInvalidGrant": "Het grant-type of de refresh token zijn ongeldig.",
             "messageGeneralRequestError": "De aanvraag aan \"{url}\" is mislukt.",
             "forgottenPasswordLink": "Wachtwoord vergeten?"
         },
@@ -4989,13 +5108,13 @@
             "subline": "Beheer van maateenheden."
         },
         "notification": {
-            "successMessage": "De maateenheid is succesvol opgeslagen.",
+            "successMessage": "De maateenheid is opgeslagen.",
             "errorMessage": "De maateenheid kon niet worden opgeslagen. Controleer of alle velden ingevuld zijn."
         }
     },
     "sw-settings-cache": {
         "general": {
-            "mainMenuItemGeneral": "Caches & indices"
+            "mainMenuItemGeneral": "Caches en indexen"
         },
         "toolbar": {
             "environment": "Omgeving",
@@ -5011,30 +5130,30 @@
             "clearCachesText": "De cache wordt direct synchroon geleegd voor alle gebruikte adapters.",
             "clearCachesButton": "Caches legen",
             "clearAndWarmUpHeadline": "Caches wissen en activeren",
-            "clearAndWarmUpText": "Na het legen van de cache worden asynchroon nieuwe cache-items gegenereerd.",
-            "clearAndWarmUpButton": "Wissen en activeren",
-            "indexesHeadline": "Indices",
-            "indexesText": "Alle indices worden asynchroon bijgewerkt. Kijk voor de voortgang in het Notification center. Dit betreft onder andere de product- en categorie-indices en ook de SEO URL's.",
-            "indexesButton": "Indices bijwerken"
+            "clearAndWarmUpText": "Na het legen van de cache worden nieuwe cache-items asynchroon gegenereerd.",
+            "clearAndWarmUpButton": "Wis en activeer caches",
+            "indexesHeadline": "Indexen",
+            "indexesText": "Alle indexen worden asynchroon bijgewerkt. Hou de voortgang bij door het monitoren van de notificaties.",
+            "indexesButton": "Indexen bijwerken"
         },
         "notifications": {
             "clearCache": {
-                "started": "Cache wordt gewist.",
-                "success": "Cache is gewist.",
-                "error": "Bij het wissen van de cache is een onbekende fout opgetreden."
+                "started": "Legen caches.",
+                "success": "Alle cache gewist.",
+                "error": "Niet in staat caches te wissen."
             },
             "clearCacheAndWarmup": {
-                "started": "Alle caches zijn gewist. De cache wordt geactiveerd.",
-                "success": "Activeren succesvol voltooid."
+                "started": "Caches gewist - Nu aan het opstarten. Hint: Bekijk notificaties om de voortgang bij te houden.",
+                "success": "Activeren voltooid."
             },
             "index": {
-                "started": "Alle indices worden opgebouwd.",
-                "success": "Opbouw alle indicaties is geslaagd."
+                "started": "Bouwen indexen.",
+                "success": "Alle indexen gebouwd."
             }
         },
         "modal": {
             "title": "Cache wissen",
-            "message": "Weet je zeker, dat je alle caches wilt wissen?",
+            "message": "Weet u zeker dat u alle caches wilt wissen?",
             "actions": {
                 "cancel": "Annuleren",
                 "clear": "Verwijderen"
@@ -5106,7 +5225,7 @@
             "columnMessage": "Bericht",
             "columnLevel": "Prioriteit",
             "columnContent": "Inhoud",
-            "actionShowInfo": "Toon details …",
+            "actionShowInfo": "Toon details...",
             "levelDebug": "Debug",
             "levelInfo": "Info",
             "levelNotice": "Opmerking",
@@ -5118,12 +5237,12 @@
         },
         "entryInfo": {
             "title": "Log-informatie",
-            "tabRaw": "Brontekst",
+            "tabRaw": "Rauw",
             "actionClose": "Sluiten"
         },
         "mailInfo": {
             "tabHTML": "HTML",
-            "tabPlain": "Plain",
+            "tabPlain": "Eenvoudig",
             "recipientsTitle": "Ontvangers",
             "contentsTitle": "Inhoud"
         }
@@ -5166,8 +5285,8 @@
     "sw-media": {
         "general": {
             "mainMenuItemGeneral": "Media",
-            "descriptionTextModule": "Beheer van mediabestanden.",
-            "placeholderSearchBar": "Zoek in de huidige map …",
+            "descriptionTextModule": "Mediabestanden hier beheren.",
+            "placeholderSearchBar": "Zoek in de huidige map...",
             "notification": {
                 "urlCopied": {
                     "message": "URL naar het klembord gekopieerd."
@@ -5190,12 +5309,12 @@
                 "actions": "Acties",
                 "preview": "Voorbeeld",
                 "metadata": "Metagegevens",
-                "usage": "Wordt gebruikt in",
+                "usage": "Gebruikt in",
                 "selectedFiles": "Geselecteerde bestanden"
             },
             "infoMissingFile": {
                 "titleMissingFile": "Bestand niet gevonden",
-                "descriptionMissingFile": "Wij konden dit bestand niet vinden. Je kunt een nieuw bestand uploaden of dit verwijderen."
+                "descriptionMissingFile": "Opgevraagde bestand kan niet gevonden worden. Uploaden nieuw bestand(en) of verwijder plaatshouder."
             },
             "metadata": {
                 "name": "Naam",
@@ -5203,7 +5322,7 @@
                 "altText": "Alt-tekst",
                 "title": "Titel",
                 "mimeType": "MIME-type",
-                "fileSize": "Formaat",
+                "fileSize": "Omvang",
                 "createdAt": "Geüpload op",
                 "width": "Breedte",
                 "height": "Hoogte",
@@ -5218,8 +5337,8 @@
                 "tooltipFoundInUser": "Gevonden bij gebruikers",
                 "tooltipFoundInPayment": "Gevonden in betaalwijze",
                 "tooltipFoundShipping": "Gevonden in verzendwijze",
-                "titleMediaNotUsed": "Medium niet gebruikt",
-                "labelMediaNotUsed": "Het medium wordt momenteel niet gebruikt."
+                "titleMediaNotUsed": "Niet gebruikt medium",
+                "labelMediaNotUsed": "Het media item wordt momenteel niet gebruikt."
             }
         },
         "index": {
@@ -5229,14 +5348,14 @@
         "mediaLibrary": {
             "labelButtonLoadMore": "Andere laden",
             "titleEmptyState": "Nog geen media beschikbaar",
-            "descriptionEmptyState": "Beheer van media."
+            "descriptionEmptyState": "Beheer media item hier."
         },
         "sorting": {
             "labelSort": "Sorteren op:",
             "labelSortByNameAsc": "Naam, A-Z",
             "labelSortByNameDsc": "Naam, Z-A",
-            "labelSortBySizeAsc": "Formaat, oplopend",
-            "labelSortBySizeDsc": "Formaat, aflopend",
+            "labelSortBySizeAsc": "Omvang, oplopend",
+            "labelSortBySizeDsc": "Omvang, aflopend",
             "labelSortByCreatedAsc": "Aanmaakdatum, oplopend",
             "labelSortByCreatedDsc": "Aanmaakdatum, aflopend"
         },
@@ -5362,7 +5481,7 @@
             "description": "Communiceren met klanten is een sleutelfactor in de dagelijkse e-commerce. Daarom moet het opzetten van een e-mail schema zo snel mogelijk van uw lijst worden geschrapt.",
             "chooseSubline": "Kies uw favoriete e-maildienst.",
             "localOption": "Lokale e-maildienst gebruiken",
-            "localOptionHelptext": "Deze optie gebruikt de standaardmail van je systeem (Sendmail). Controleer of Sendmail werkt en in je eigen hosting-ruimte principieel beschikbaar is.",
+            "localOptionHelptext": "Deze optie gebruikt de standaardmail van je systeem (Sendmail). Zorg dat Sendmail werkt en beschikbaar is in uw eigen hostingsomgeving.",
             "localOptionSubline": "(Sendmail)",
             "smtpOption": "Configureer eigen SMTP-server",
             "configurationNote": "Alle mailing-configuraties kun je ook naderhand nog bewerken.",
@@ -5463,6 +5582,23 @@
             "markets": "Shopware Markten"
         }
     },
+    "sw-flow": {
+        "general": {
+            "mainMenuItemGeneral": "Flow-bouwer",
+            "descriptionTextModule": "Flow-bouwer"
+        },
+        "list": {
+            "textHeadline": "Flow Builder",
+            "buttonAddFlow": "Stroom toevoegen"
+        },
+        "detail": {
+            "textHeadline": "Nieuwe flow"
+        },
+        "page": {
+            "generalTab": "Generaal",
+            "flowTab": "Stroom"
+        }
+    },
     "sw-sales-channel": {
         "general": {
             "tooltipOpenStorefront": "Open etalage",
@@ -5486,7 +5622,7 @@
             "buttonSave": "Opslaan",
             "buttonCreateNewApiKeys": "Nieuwe API-toegangsgegevens genereren",
             "tabBase": "Algemeen",
-            "tabTheme": "Onderwerp",
+            "tabTheme": "Thema",
             "tabAnalytics": "Analytics",
             "tabProductComparison": "Template",
             "tabProducts": "Producten",
@@ -5514,7 +5650,7 @@
             "labelInputDefaultCountry": "Standaard land",
             "labelInputDefaultCurrency": "Standaard valuta",
             "labelInputDefaultLanguage": "Standaard taal",
-            "textDeleteInfo": "Let op: Hiermee verwijder je dit verkoopkanaal volledig! Het verkoopkanaal is daarna niet meer in het Shopware-beheer beschikbaar en kan ook niet worden teruggezet. Alle bestaande bestellingen blijven echter behouden. Ook afgelopen catalogi worden door deze actie niet veranderd.",
+            "textDeleteInfo": "Let op: Hiermee verwijder je dit verkoopkanaal volledig! Het verkoopkanaal is daarna niet meer in het Shopware-beheer beschikbaar en kan ook niet worden teruggezet. Alle bestaande bestellingen blijven echter behouden. Ook afgelopen catalogus worden door deze actie niet veranderd.",
             "buttonDelete": "Verkoopkanaal verwijderen",
             "deleteModalTitle": "Verkoopkanaal verwijderen",
             "textConfirmDelete": "Wil je dit verkoopkanaal echt verwijderen?",
@@ -5569,6 +5705,14 @@
             "ipAddressWhitleListHelpText": "Voeg IP adressen toe aan de goedgekeurde lijst om selectieve toegang aan de shop toe te staan. Er kunnen IPv4 en IPv6 addessen worden toegevoegd.",
             "basicinformationLink": "Wijzig de standaardlay-out van de onderhoudspagina's hier",
             "columnDomainCurrency": "Valuta",
+            "products": {
+                "titleEmptyState": "Nog geen producten toegevoegd",
+                "titleEmptyStateTable": "Geen overeenkomende producten gevonden",
+                "buttonAddProducts": "Producten toevoegen",
+                "columnProductName": "Naam van het product",
+                "columnActive": "Actief",
+                "columnProductNumber": "Product nummer"
+            },
             "productComparison": {
                 "inputHeaderLabel": "Koptekst",
                 "inputBodyLabel": "Productregel",
@@ -5690,6 +5834,12 @@
                 "verticalDescription": "BTW wordt berekend van de totale bestelling. Bij het afrekenen worden geen individuele BTW-waarden weergegeven.",
                 "horizontalName": "Regel voor regel (horizontaal) berekening",
                 "horizontalDescription": "BTW wordt berekend voor elke winkelwagen regel. Tijdens het afrekenen wordt de individuele BTW van elke regel weergegeven. Het totale BTW-bedrag wordt berekend door alle individuele BTW-waarden bij elkaar op te tellen."
+            },
+            "productAssigmentModal": {
+                "title": "Producten toevoegen",
+                "singleProducts": "Individuele producten",
+                "categories": "Filteren op categorieën",
+                "dynamicProductGroups": "Filteren op dynamische productgroepen"
             }
         },
         "sw-sales-channel-defaults-select": {
@@ -5703,7 +5853,7 @@
             "placeholderSearchBar": "Zoek in alle e-mailsjablonen...",
             "notificationTestMailSalesChannelErrorMessage": "Selecteer een verkoopkanaal",
             "notificationTestMailErrorMessage": "Bij het verzenden van de testmail is een fout opgetreden.",
-            "notificationTestMailSuccessMessage": "De testmail is succesvol verzonden."
+            "notificationTestMailSuccessMessage": "De testmail is verzonden."
         },
         "list": {
             "textMailTemplateOverview": "E-mailsjablonen",
@@ -5720,8 +5870,8 @@
             "textDeleteConfirm": "Wil je het e-mailsjabloon \"{subject}\" echt verwijderen?",
             "buttonCancel": "Annuleren",
             "buttonDelete": "Verwijderen",
-            "titleSidebarItemRefresh": "Bijwerken",
-            "errorMediaItemDuplicated": "Medium al gebruikt",
+            "titleSidebarItemRefresh": "Verversen",
+            "errorMediaItemDuplicated": "Media item al gebruikt",
             "columnFilename": "Bestandsnaam",
             "emptyStateTitle": "Nog geen e-mailsjablonen",
             "emptyStateSubTitle": "Voeg e-mailsjablonen toe door op de knop „Toevoegen” te klikken."
@@ -5733,7 +5883,7 @@
                 "labelDescription": "Beschrijving",
                 "labelSalesChannels": "Verkoopkanaal",
                 "placeholderMailType": "Selecteer een type...",
-                "placeholderDescription": "Voer een korte beschrijving in …",
+                "placeholderDescription": "Voer een e-mailsjabloon beschrijving in...",
                 "placeholderSalesChannels": "Selecteer verkoopkanaal..."
             },
             "options": {
@@ -5741,16 +5891,16 @@
                 "labelSenderMail": "E-mailadres afzender",
                 "labelSenderName": "Afzender",
                 "labelSubject": "Onderwerp",
-                "placeholderSenderMail": "shop@example.com",
+                "placeholderSenderMail": "shop@voorbeeld.com...",
                 "placeholderSenderName": "Voorbeeldshop",
-                "placeholderSubject": "Onderwerp invoeren …"
+                "placeholderSubject": "E-mailsjabloon onderwerp invoeren..."
             },
             "mailText": {
                 "titleCard": "Mailtekst",
-                "labelContentPlain": "Tekst",
+                "labelContentPlain": "Platte tekst",
                 "labelContentHtml": "HTML",
-                "placeholderPlain": "Voer de inhoud als tekst in …",
-                "placeholderHtml": "Voer de inhoud in HTML in …"
+                "placeholderPlain": "Voer e-mailsjabloon platte tekst in...",
+                "placeholderHtml": "Voer e-mailsjabloon HTML in..."
             },
             "media": {
                 "titleCard": "Bijlagen",
@@ -5760,24 +5910,28 @@
                 "labelContextMenuAddToMailTemplate": "Als bijlage toevoegen",
                 "placeholderTestMail": "shop@example.com",
                 "buttonTestMail": "Verzenden",
-                "labelTestMail": "E-mailadres ontvanger",
-                "titleTestMail": "Testmail verzenden"
+                "labelTestMail": "Ontvanger adres",
+                "titleTestMail": "Testmail verzenden",
+                "titleShowPreview": "Voorbeeld tonen",
+                "titleShowAvailableVariables": "variabele",
+                "copyTooltip": "Kopiëren naar klembord."
             },
+            "previewModalTitle": "voorsmaak",
             "buttonCancel": "Annuleren",
             "buttonSave": "Opslaan",
             "textHeadline": "Nieuw e-mailsjabloon",
             "textHeadlineEdit": "E-mailsjabloon bewerken",
             "titleResult": "E-mailsjablonen",
-            "messageSaveSuccess": "Het e-mailsjabloon \"{subject}\" is succesvol opgeslagen.",
+            "messageSaveSuccess": "Het e-mailsjabloon \"{subject}\" is opgeslagen.",
             "messageSaveError": "Het e-mailsjabloon \"{subject}\" kon niet worden opgeslagen.",
             "textErrorMessage": "Foutbericht"
         }
     },
     "sw-mail-header-footer": {
         "general": {
-            "mainMenuItemList": "Kop- en voettekst",
-            "placeholderSearchBar": "Zoeken naar kop- en voettekst",
-            "mainMenuItemGeneral": "Kop- en voettekst"
+            "mainMenuItemList": "Kop- en voetteksten",
+            "placeholderSearchBar": "Zoeken naar kop- en voetteksten...",
+            "mainMenuItemGeneral": "Kop- en voetteksten"
         },
         "list": {
             "textMailHeaderFooterOverview": "Kop- en voettekst",
@@ -5788,7 +5942,7 @@
             "contextMenuDelete": "Verwijderen",
             "contextMenuEdit": "Bewerken",
             "contextMenuDuplicate": "Dupliceren",
-            "textDeleteConfirm": "Wil je de kop-/voettekst \"{name}\" echt verwijderen?",
+            "textDeleteConfirm": "Zeker weten om de kop- en voettekst \"{name}\" echt te verwijderen?",
             "buttonCancel": "Annuleren",
             "buttonDelete": "Verwijderen",
             "titleSidebarItemRefresh": "Bijwerken",
@@ -5801,30 +5955,30 @@
                 "titleCard": "Informatie",
                 "labelName": "Naam",
                 "labelDescription": "Beschrijving",
-                "labelSalesChannels": "Verkoopkanalen",
-                "placeholderName": "Voer een naam in …",
-                "placeholderDescription": "Voer een beschrijving in …",
+                "labelSalesChannels": "Verkoop Kanalen",
+                "placeholderName": "Voer een naam in...",
+                "placeholderDescription": "Voer een beschrijving in...",
                 "placeholderSalesChannels": "Selecteer de betreffende verkoopkanalen..."
             },
             "header": {
                 "titleCard": "Koptekst e-mail",
-                "labelPlain": "Tekst",
+                "labelPlain": "Platte tekst",
                 "labelHtml": "HTML",
-                "placeholderPlain": "Voer de koptekst als tekst in …",
-                "placeholderHtml": "Voer de koptekst in HTML in …"
+                "placeholderPlain": "Voer de koptekst als platte tekst in...",
+                "placeholderHtml": "Voer de koptekst in HTML in..."
             },
             "footer": {
                 "titleCard": "Voettekst e-mail",
-                "labelPlain": "Tekst",
+                "labelPlain": "Platte tekst",
                 "labelHtml": "HTML",
-                "placeholderPlain": "Voer de voettekst als tekst in …",
-                "placeholderHtml": "Voer de voettekst in HTML in …"
+                "placeholderPlain": "Voer de voettekst als platte tekst in...",
+                "placeholderHtml": "Voer de voettekst in HTML in..."
             },
             "buttonCancel": "Annuleren",
             "buttonSave": "Opslaan",
-            "textHeadline": "Nieuwe kop-/voettekst e-mail",
-            "titleResult": "Kop-/voettekst e-mail",
-            "messageSaveSuccess": "De e-mail kop-/voettekst \"{name}\" is succesvol opgeslagen.",
+            "textHeadline": "Nieuwe e-mail kop- en voettekst",
+            "titleResult": "E-mail kop-/voettekst",
+            "messageSaveSuccess": "De e-mail kop-/voettekst \"{name}\" is opgeslagen.",
             "messageSaveError": "De e-mail kop-/voettekst \"{name}\" kon niet worden opgeslagen."
         }
     },
@@ -5836,40 +5990,40 @@
         "activity": {
             "invalidHelpText": "Onjuiste items zijn te downloaden via het contextmenu",
             "columns": {
-                "size": "Formaat",
+                "size": "Maat",
                 "profile": "Profiel",
                 "date": "Datum",
                 "user": "Gebruiker",
                 "state": "Status",
-                "records": "Items",
-                "invalidRecords": "Onjuiste items"
+                "records": "Records",
+                "invalidRecords": "Ongeldige records"
             },
             "contextMenu": {
                 "showLog": "Open logitem",
                 "downloadFile": "Bestand downloaden",
                 "showProfile": "Profiel tonen",
-                "downloadInvalidFile": "Onjuiste items downloaden"
+                "downloadInvalidFile": "Ongeldige records downloaden"
             },
             "detail": {
                 "modalTitle": "Loggegevens",
                 "labelClose": "Sluiten",
                 "labelFilename": "Bestandsnaam",
                 "labelType": "Type",
-                "labelImportRecords": "Met succes geïmporteerde items",
-                "labelExportRecords": "Met succes geëxporteerde items",
+                "labelImportRecords": "Met succes geïmporteerde records",
+                "labelExportRecords": "Met succes geëxporteerde records",
                 "labelFailedRecords": "Mislukte items",
-                "labelSize": "Bestandsvolume",
+                "labelSize": "Bestandsgrootte",
                 "labelUser": "Gebruiker",
                 "labelDate": "Datum / tijd",
                 "labelState": "Status",
                 "exportLabel": "Export",
                 "importLabel": "Import",
                 "labelDownloadFile": "Bestand downloaden",
-                "helpTextFailedRecords": "Onjuiste items kunnen gedownload, bewerkt en opnieuw geïmporteerd worden.",
-                "labelDownloadInvalidFile": "Onjuiste items downloaden"
+                "helpTextFailedRecords": "Onjuiste records kunnen gedownload, bewerkt en opnieuw geïmporteerd worden.",
+                "labelDownloadInvalidFile": "Ongeldige records downloaden"
             },
             "status": {
-                "progress": "Bezig met importeren",
+                "progress": "Verwerken",
                 "merging_files": "Bestanden samenvoegen",
                 "succeeded": "Succesvol",
                 "failed": "Mislukt",
@@ -5880,7 +6034,7 @@
             "messageSaveSuccess": "Het profiel is succesvol opgeslagen.",
             "messageSaveError": "Het profiel kon niet worden opgeslagen.",
             "messageDeleteSuccess": "Het profiel is succesvol gewist.",
-            "messageDeleteError": "Het profiel kon niet worden gewist. Controleer of er geen logs meer voor dit profiel bestaan.",
+            "messageDeleteError": "Het profiel kon niet worden opgeslagen. Zorg dat alle logs voor dit profiel zijn verwijderd.",
             "messageDuplicateSuccess": "Het profiel is succesvol gedupliceerd.",
             "messageDuplicateError": "Het profiel kon niet worden gedupliceerd.",
             "messageSearchParentProfileError": "Kan aanvraag niet verwerken",
@@ -5897,7 +6051,7 @@
             "editProfileLabel": "Profiel bewerken",
             "addProfileLabel": "Profiel toevoegen",
             "addNewProfileLabel": "Nieuw profiel toevoegen",
-            "openLabel": "Openen",
+            "openLabel": "Open",
             "duplicateLabel": "Dupliceren",
             "copyOfLabel": "Kopie van:",
             "saveProfileLabel": "Profiel opslaan",
@@ -5905,14 +6059,14 @@
             "generalTab": "Algemeen",
             "fieldIndicatorsTab": "Veldindicator",
             "profileNameFieldLabel": "Profielnaam",
-            "objectTypeFieldLabel": "Type object",
+            "objectTypeFieldLabel": "Object type",
             "separatorFieldLabel": "Scheidingsteken",
             "enclosureFieldLabel": "Markeringsteken",
             "addMappingTooltipText": "Leg eerst een objecttype vast.",
             "objectTypeFieldTooltipText": "Het objecttype kan niet worden gewijzigd als er al mappingopties voor bestaan.",
-            "descriptionBlock": "Objecttypes bepalen de import- en exportmodus en hebben invloed op de beschikbare opties in de tabel onderaan. Zodra je deze hebt geconfigureerd, kun je het objecttype niet meer wijzigen.",
+            "descriptionBlock": "Objecttypes bepalen de import- en exportmodus en hebben invloed op de beschikbare opties in de tabel onderaan. Zodra deze zijn geconfigureerd, kan het objecttype niet meer worden wijzigen.",
             "mappingDescriptionBlock": "Gebruik de tabel onderaan om de CSV-velden aan bepaalde databankitems toe te wijzen.",
-            "csvDescriptionBlock": "De afzonderlijke velden worden van elkaar gescheiden door middel van scheidingstekens. Markeringstekens worden gebruikt om gericht daarin opgenomen besturingstekens te negeren. Bijvoorbeeld als er in een lopende tekst een scheidingsteken staat.",
+            "csvDescriptionBlock": "De afzonderlijke velden worden van elkaar gescheiden door middel van scheidingstekens. Markeringstekens worden gebruikt om daarin opgenomen besturingstekens te negeren. Bijvoorbeeld als er in een lopende tekst een scheidingsteken staat.",
             "cancelLabel": "Annuleren",
             "addMappingLabel": "Nieuwe mapping toevoegen",
             "deleteLabel": "Verwijderen",
@@ -5926,9 +6080,9 @@
             "customTypeLabel": "Gebruikersspecifiek",
             "defaultTypeLabel": "Standaard",
             "propertyLabel": "Eigenschappen",
-            "configuratorSettingLabel": "Configuratie varianten",
+            "configuratorSettingLabel": "Variant configuratie instellingen",
             "closeViolation": "Sluiten",
-            "violationMessage": "Je profiel is nog niet geldig. Voeg toewijzingen aan de onderstaande verplichte velden toe om het profiel op te slaan:"
+            "violationMessage": "Het profiel is nog niet geldig. Voeg toewijzingen aan de onderstaande verplichte velden toe om het profiel op te slaan:"
         },
         "exporter": {
             "messageExportSuccess": "De export is geslaagd.",
@@ -5937,10 +6091,10 @@
             "exportActivityLabel": "Exportactiviteit",
             "exportActivityDescription": "Activiteiten ouder dan 30 dagen worden automatisch verwijderd.",
             "exportLabel": "Export",
-            "directExportVariantsLabel": "Varianteninstellingen exporteren",
+            "directExportVariantsLabel": "Varianten instellingen exporteren",
             "directExportPropertiesLabel": "Eigenschappen exporteren",
             "close": "Sluiten",
-            "variantsWarning": "<strong>Waarschuwing: </strong> Zorg ervoor dat de in het geëxporteerde CSV-bestand gekoppelde eigenschappen en varianten bij de producten in het nieuwe systeem bestaan. Mocht dit niet het geval zijn, dan kun je eigenschappen en varianten als losse CSV-bestanden met bepaalde profielen exporteren. Heb je beide niet, onderhoud de productvarianten dan na de export handmatig in het nieuwe systeem.",
+            "variantsWarning": "<strong>Waarschuwing:</strong> Zorg dat de eigenschappen en varianten gekoppeld aan de producten in het geëxporteerde CSV-bestand in het nieuwe systeem bestaan. Mocht dit niet het geval zijn, dan kunnen eigenschappen en varianten als losse CSV-bestanden met overeenkomstige profielen geëxporteerd worden. Heeft u beide mogelijkheden niet, zult u de productvarianten na de export handmatig in het nieuwe systeem moeten aanmaken.",
             "exportVariants": "Productvarianten exporteren"
         },
         "importer": {
@@ -5950,14 +6104,14 @@
             "startImportLabel": "Import starten",
             "selectProfileLabel": "Profiel selecteren",
             "profileLabel": "Profiel",
-            "warningBlock": "<strong>Waarschuwing: </strong>Zorg ervoor dat de eigenschappen en varianten in je geüploade CSV-bestand die zijn gekoppeld aan de producten in de shop, aanwezig zijn. Mocht dit niet het geval zijn, dan kun je eigenschappen en varianten als losse CSV-bestanden met bepaalde profielen importeren. Heb je beide niet, onderhoud de productvarianten dan na de import in de productmodule handmatig in het nieuwe systeem.",
-            "importActivityLabel": "Importactiviteit",
+            "warningBlock": "<strong>Waarschuwing:</strong> Zorg dat de eigenschappen en varianten gekoppeld aan de producten in het geüploade CSV-bestand beschikbaar zijn in de shop. Mocht dit niet het geval zijn, u heeft de mogelijkheid om de eigenschappen en varianten als losse CSV-bestanden met overeenkomstige profielen te importeren. Heeft u beide mogelijkheden niet, zult u de productvarianten na de import handmatig in het nieuwe systeem moeten aanmaken.",
+            "importActivityLabel": "Import activiteit",
             "importLabel": "Import",
-            "directImportVariantsLabel": "Varianteninstellingen importeren",
+            "directImportVariantsLabel": "Varianten instellingen importeren",
             "directImportPropertiesLabel": "Eigenschappen importeren",
             "close": "Sluiten",
             "labelUploadCaption": "Selecteer een bestand om te uploaden",
-            "variantsWarning": "<strong>Let op bij de import van varianten:</strong> Mochten de varianten direct volledig worden geïmporteerd, importeer deze dan ook. Gebruik daarvoor een profiel dat instellingen van varianten importeert.<br/>Doe je dit niet, dan moeten de varianten apart handmatig door de beheerder worden aangemaakt.",
+            "variantsWarning": "<strong>Let op bij de import van varianten:</strong> Mochten de varianten direct volledig worden geïmporteerd, importeer deze dan ook. Gebruik daarvoor een profiel dat instellingen van varianten importeert.<br/>Doet u dat niet, dan moeten de varianten handmatig door de beheerder worden aangemaakt.",
             "importVariants": "Productvarianten importeren",
             "messageExportSuccess": "De export is geslaagd.",
             "messageExportError": "Fouten zijn opgetreden tijdens het importeren."
@@ -5970,7 +6124,7 @@
         "progress": {
             "startImportLabel": "Import starten",
             "startExportLabel": "Export starten",
-            "entriesLabel": "Items",
+            "entriesLabel": "Invoer",
             "fileSizeLabel": "kB",
             "successTitle": "succesvol",
             "downloadFileLabel": "Bestand downloaden",
@@ -6196,7 +6350,7 @@
             "placeholderState": "Selecteer een deelstaat...",
             "placeholderAdditionalAddressLine1": "Vul eerste additionele adres regel in...",
             "placeholderAdditionalAddressLine2": "Vul tweede additionele adres regel in...",
-            "placeholderPhoneNumber": "Voer een telefoonnummer in...",
+            "placeholderPhoneNumber": "Voer telefoonnummer in...",
             "placeholderVatId": "Voer btw-reg.Nee in..."
         },
         "detail": {
@@ -6206,7 +6360,7 @@
             "tabGeneral": "Algemeen",
             "tabAddresses": "Adressen",
             "messageSaveError": "De klant kon niet worden opgeslagen.",
-            "messageSaveSuccess": "De klant \"{name}\" is succesvol opgeslagen.",
+            "messageSaveSuccess": "De klant \"{name}\" is opgeslagen.",
             "notificationPasswordErrorMessage": "De ingevoerde wachtwoorden komen niet overeen.",
             "notificationPasswordLengthErrorMessage": "Het ingediende wachtwoord voldoet niet aan de minimale lengtevereiste van acht tekens."
         },
@@ -6239,6 +6393,20 @@
                 "label": "Labels",
                 "placeholder": "Tags selecteren..."
             },
+            "affiliateCode": {
+                "label": "Affiliate code",
+                "placeholder": "Selecteer affiliate code..."
+            },
+            "campaignCode": {
+                "label": "Campagne code",
+                "placeholder": "Selecteer campagnecode..."
+            },
+            "customerGroupRequest": {
+                "label": "Verzoeken van klantgroep",
+                "placeholder": "Status aanvragen selecteren...",
+                "textHasCriteria": "Verzoeken van klantgroepen openen",
+                "textNoCriteria": "Geen aanvragen voor klantgroepen"
+            },
             "messageEmptyTitle": "Niets gevonden",
             "messageEmptySubline": "Bewerk uw filters om resultaten te vinden."
         }
@@ -6258,7 +6426,7 @@
             "columnAssignment": "Toewijzing",
             "buttonAddDocument": "Document aanmaken",
             "contextMenuEdit": "Bewerken",
-            "messageDeleteSuccess": "Het document \"{name}\" is succesvol verwijderd.",
+            "messageDeleteSuccess": "Het document \"{name}\" is verwijderd.",
             "buttonCancel": "Annuleren",
             "buttonDelete": "Verwijderen",
             "global": "Globaal"
@@ -6268,7 +6436,7 @@
             "configCard": "Instellingen",
             "companyCard": "Bedrijfsinstellingen",
             "assignmentCard": "Toewijzing",
-            "messageSaveSuccess": "Het document \"{name}\" is succesvol opgeslagen.",
+            "messageSaveSuccess": "Het document \"{name}\" is opgeslagen.",
             "labelName": "Naam",
             "labelFileNamePrefix": "Prefix bestandsnaam",
             "labelFileNameSuffix": "Suffix bestandsnaam",
@@ -6547,60 +6715,60 @@
     },
     "sw-settings-custom-field": {
         "general": {
-            "description": "Extra velden",
-            "mainMenuItemGeneral": "Extra velden",
-            "placeholderSearchBar": "Doorzoek alle extra velden ...",
-            "tooltipTechnicalName": "De technische naam moet uniek zijn en kan na het opslaan niet meer worden veranderd",
+            "description": "Beheer vrije tekstvelden hier.",
+            "mainMenuItemGeneral": "Vrije tekstvelden",
+            "placeholderSearchBar": "Doorzoek alle vrije tekstvelden...",
+            "tooltipTechnicalName": "Een technische naam moet uniek zijn en kan later niet meer worden veranderd.",
             "tooltipType": "Het type kan later niet gewijzigd worden."
         },
         "set": {
             "list": {
-                "textHeadline": "Extra velden",
-                "textDeleteConfirm": "Wil je de set \"{name}\" echt verwijderen?",
+                "textHeadline": "Vrije tekstvelden",
+                "textDeleteConfirm": "De set \"{name}\" echt verwijderen?",
                 "buttonCancel": "Annuleren",
                 "buttonAdd": "Set aanmaken",
                 "columnName": "Label",
                 "contextMenuEdit": "Bewerken",
                 "buttonDelete": "Verwijderen",
-                "messageDeleteSuccess": "De set \"{name}\" is succesvol verwijderd.",
-                "messageEmpty": "Nog geen extra velden",
+                "messageDeleteSuccess": "De set \"{name}\" verwijderd.",
+                "messageEmpty": "Nog geen vrije tekstvelden.",
                 "helpTextGlobalSet": "Deze set is globaal en kan niet worden bewerkt."
             },
             "detail": {
                 "labelTechnicalName": "Technische naam",
                 "labelPosition": "Positie",
-                "textHeadline": "Set extra velden",
+                "textHeadline": "Vrije tekstvelden set",
                 "buttonCancel": "Annuleren",
                 "buttonSave": "Opslaan",
-                "titleCardInformation": "Set gegevens",
+                "titleCardInformation": "Algemene informatie",
                 "labelName": "Setnaam",
-                "placeholderName": "Naam invoeren …",
-                "labelCheckboxTranslated": "In alle administratietalen bijhouden",
-                "messageSaveSuccess": "De set \"{name}\" is succesvol opgeslagen.",
-                "messageCustomFieldsEmpty": "Nog geen extra velden.",
-                "addCustomField": "Nieuw extra veld",
+                "placeholderName": "Naam invoeren...",
+                "labelCheckboxTranslated": "Beheer labels in alle administratietalen",
+                "messageSaveSuccess": "De set \"{name}\" is opgeslagen.",
+                "messageCustomFieldsEmpty": "Nog geen vrije tekstvelden.",
+                "addCustomField": "Nieuwe vrij tekstveld",
                 "buttonApply": "Opslaan",
-                "labelEntities": "Gebruiken voor:",
-                "placeholderEntities": "Gebruik toevoegen …",
-                "messageNameNotUnique": "De technische naam bestaat al.",
+                "labelEntities": "Toewijzen aan",
+                "placeholderEntities": "Selecteer modules...",
+                "messageNameNotUnique": "Die technische naam bestaat al.",
                 "entityTypeRequired": "Selecteer een entiteitstype.",
                 "emptyStateDescription": "Voordat een aangepast veld kan worden toegevoegd, eerst deze set opslaan."
             }
         },
         "customField": {
             "detail": {
-                "titleNewCustomField": "Nieuw extra veld aanmaken",
-                "titleEditCustomField": "Extra veld bewerken",
+                "titleNewCustomField": "Nieuw vrij tekstveld",
+                "titleEditCustomField": "Wijzig vrij tekstveld",
                 "buttonSaveApply": "Toevoegen",
                 "buttonEditApply": "Wijzigingen toepassen",
                 "buttonCancel": "Annuleren",
                 "labelCustomFieldType": "Type",
-                "placeholderCustomFieldType": "Selecteer ...",
+                "placeholderCustomFieldType": "Selecteer...",
                 "labelRequired": "Verplicht veld",
                 "labelTechnicalName": "Technische naam",
                 "labelLabel": "Label",
-                "buttonAddOption": "+optie toevoegen",
-                "labelDeleteOption": "verwijderen",
+                "buttonAddOption": "Optie toevoegen",
+                "labelDeleteOption": "Verwijderen",
                 "labelOption": "Optie {count}:",
                 "labelPlaceholder": "Plaatshouder",
                 "labelMax": "Maximum",
@@ -6608,7 +6776,7 @@
                 "labelStep": "Stappen",
                 "labelFloat": "Float-veld",
                 "labelInt": "Geheel getal veld",
-                "labelNumberType": "Getaltype",
+                "labelNumberType": "Nummertype",
                 "labelDatetime": "Datum/tijd veld",
                 "labelDate": "Datum",
                 "labelTime": "Tijd",
@@ -6618,12 +6786,12 @@
                 "labelYes": "Ja",
                 "labelNo": "Nee",
                 "labelCustomFieldPosition": "Positie",
-                "labelMultiSelect": "Meerdere keuzes mogelijk",
+                "labelMultiSelect": "Meervoudige keuze",
                 "helpTextMultiSelect": "De optie multi select kan niet worden geschakeld nadat het aangepaste veld is gemaakt.",
                 "labelEntityTypeSelect": "Soort entiteit",
                 "helpTextEntitySelect": "Het entiteitstype kan niet worden gewijzigd nadat het aangepaste veld is gemaakt.",
-                "tooltipCustomFieldPosition": "Bepaalt de positie van het extra veld op de detailpagina's.",
-                "tooltipRequired": "Maakt van dit extra veld een verplicht veld op de detailpagina's.",
+                "tooltipCustomFieldPosition": "Bepaalt de positie van het vrije tekstveld op de detailpagina's.",
+                "tooltipRequired": "Maakt van dit vrije tekstveld verplicht op de detailpagina's.",
                 "infoText": "Als er een aangepast veld wordt gemaakt, wordt ook het betreffende fragment voor al uw snippetsets gemaakt. Het fragment krijgt de naam „CustomFields.{name}”."
             },
             "list": {
@@ -6690,24 +6858,24 @@
     },
     "sw-property": {
         "general": {
-            "placeholderSearchBar": "Doorzoek alle eigenschappen ...",
-            "mainMenuItemGeneral": "Eigenschappen",
-            "descriptionTextModule": "Beheer van eigenschappen."
+            "placeholderSearchBar": "Doorzoek attributen...",
+            "mainMenuItemGeneral": "Attributen",
+            "descriptionTextModule": "Beheer van attribbuten."
         },
         "list": {
-            "textProperties": "Eigenschappen",
+            "textProperties": "Attributen",
             "buttonAddProperty": "Toevoegen",
-            "columnName": "Eigenschap",
-            "columnOptions": "Attribuuteigenschappen",
+            "columnName": "Attribuut",
+            "columnOptions": "Attribuut eigenschappen",
             "columnFilterable": "Toon in productfilter",
             "contextMenuView": "Bewerken",
             "contextMenuDelete": "Verwijderen",
-            "titleSidebarItemRefresh": "Bijwerken",
-            "messageEmpty": "Nog geen eigenschappen",
+            "titleSidebarItemRefresh": "Verversen",
+            "messageEmpty": "Nog geen attributen",
             "columnDescription": "Beschrijving",
             "buttonCancel": "Annuleren",
             "buttonDelete": "Verwijderen",
-            "textDeleteConfirm": "Wil je de eigenschap \"{name}\" echt verwijderen?"
+            "textDeleteConfirm": "De attribuut \"{name}\" echt verwijderen?"
         },
         "detail": {
             "mediaDisplayType": "Afbeelding",
@@ -6728,7 +6896,7 @@
             "labelOptionColor": "Kleur",
             "labelOptionMedia": "Afbeelding",
             "labelPosition": "Positie",
-            "placeholderPosition": "Voer een rang voor deze groep in...",
+            "placeholderPosition": "Sorteer deze groep...",
             "placeholderOptionName": "Naam invoeren",
             "labelOptionPosition": "Positie",
             "placeholderOptionPosition": "Sorteer deze waarde...",
@@ -6741,17 +6909,17 @@
             "buttonSave": "Opslaan",
             "labelDescription": "Beschrijving",
             "placeholderDescription": "Voer een beschrijving in …",
-            "placeholderOptionSearch": "Zoeken naar Attribuuteigenschappen...",
-            "cardTitle": "Attribuuteigenschappen",
+            "placeholderOptionSearch": "Zoeken naar Attribuut eigenschappen...",
+            "cardTitle": "Attribuut eigenschappen",
             "addOption": "Waarde toevoegen",
             "addOptionNotPossible": "Opties kunnen alleen in de standaard taal worden toegevoegd",
             "contextMenuOptionResetDelete": "Herstellen",
             "textOptionHeadline": "Nieuwe waarde",
-            "messageSaveSuccess": "Eigenschap succesvol opgeslagen.",
+            "messageSaveSuccess": "Eigenschap \"{name}\" is opgeslagen.",
             "messageSaveError": "Eigenschap kon niet worden opgeslagen.",
             "messageOptionsEmpty": "Nog geen eigenschappen",
             "messageOptionsEmptySubline": "Eigenschap toevoegen.",
-            "optionEmptyStateSubline": "Onderhoud de basisinformatie, sla de eigenschap op en voeg dan een individuele attributen toe.",
+            "optionEmptyStateSubline": "Vul de basisinformatie in, sla de eigenschap op en voeg dan individuele attributen toe.",
             "labelMediaUpload": "Standaardafbeelding"
         }
     },
@@ -6791,7 +6959,7 @@
             "permissions": "Rechten",
             "readAccessFieldLabel": "Lezen (standaard)",
             "writeAccessFieldLabel": "Schrijven (optioneel)",
-            "messageSaveSuccess": "Integratie succesvol opgeslagen.",
+            "messageSaveSuccess": "Integratie is opgeslagen.",
             "messageSaveError": "De integratie kon niet worden opgeslagen.",
             "messageCreateNewError": "De integratie kon niet worden aangemaakt."
         }
@@ -6799,89 +6967,89 @@
     "sw-settings-snippet": {
         "general": {
             "mainMenuItemGeneral": "Tekstfragmenten",
-            "description": "Beheer van tekstbouwstenen.",
+            "description": "Beheer van tekstfragmenten.",
             "copyName": "Kopie",
             "errorBackRoutingTitle": "Fout",
             "errorBackRoutingMessage": "De opgevraagde pagina kon niet worden verwerkt. Je werd teruggestuurd.",
-            "placeholderSearchBarSets": "Doorzoek alle sets met tekstbouwstenen ...",
-            "placeholderSearchBarSnippets": "Doorzoek alle tekstbouwstenen ...",
+            "placeholderSearchBarSets": "Doorzoek alle sets met tekstfragenten...",
+            "placeholderSearchBarSnippets": "Doorzoek alle tekstfragmenten...",
             "placeholderValue": "Inhoud definiëren",
-            "searchBarTitleSets": "Tekstbouwstenensets",
-            "searchBarTitleSnippets": "Tekstbouwstenen"
+            "searchBarTitleSets": "Tekstfragmenten sets",
+            "searchBarTitleSnippets": "Tekstfragmenten"
         },
         "detail": {
             "buttonCancel": "Annuleren",
             "buttonSave": "Opslaan",
             "cardGeneralTitle": "Informatie",
             "cardSnippetSetsTitle": "Vertalingen",
-            "labelContent": "Set tekstbouwstenen: {name}",
+            "labelContent": "Set tekstfragmenten: {name}",
             "labelName": "Naam",
             "labelNamePlaceholder": "Naam toevoegen...",
             "labelNamespace": "Bereik",
             "labelNamespacePlaceholder": "Bereik selecteren",
-            "messageSaveError": "De tekstbouwstenen voor \"{key}\" konden niet worden opgeslagen.",
-            "messageSaveSuccess": "De tekstbouwstenen voor \"{key}\" zijn succesvol opgeslagen.",
-            "textHeadline": "Nieuwe tekstbouwsteen"
+            "messageSaveError": "De tekstfragmenten voor \"{key}\" konden niet worden opgeslagen.",
+            "messageSaveSuccess": "De tekstfragmenten voor \"{key}\" zijn succesvol opgeslagen.",
+            "textHeadline": "Nieuwe tekstfragment"
         },
         "list": {
-            "identifier": "{setName} | Vergelijking tekstbouwstenensets",
+            "identifier": "{setName} | Vergelijking tekstfragmenten sets",
             "buttonAdd": "Nieuw tekstfragment",
             "buttonCancel": "Annuleren",
             "buttonDelete": "Verwijderen | Terugzetten",
-            "buttonEmpty": "Terug naar de standaard tekstbouwstenen",
+            "buttonEmpty": "Terug naar de standaard tekstfragmenten",
             "columnKey": "Naam",
             "columnValue": "Waarde",
             "contextMenuDelete": "Verwijderen | Terugzetten",
             "contextMenuEdit": "Bewerken",
-            "columnHeaderGridColumnTitleSet": "Tekstbouwstenenset",
+            "columnHeaderGridColumnTitleSet": "Tekstfragment set",
             "columnHeaderResetTo": "Origineel",
-            "emptyStateHeadLine": "Nog geen tekstbouwstenen.",
-            "messageDeleteSuccess": "De tekstbouwsteen \"{key}\" is succesvol teruggezet.",
-            "messageSaveError": "De tekstbouwsteen \"{key}\" kon niet worden opgeslagen. | De tekstbouwstenen voor \"{key}\" konden niet worden opgeslagen.",
-            "messageSaveSuccess": "De tekstbouwstenen \"{key}\" is succesvol opgeslagen. | De tekstbouwstenen voor \"{key}\" zijn succesvol opgeslagen.",
-            "textDeleteConfirm": "Wil je de tekstbouwstenen voor \"{key}\" echt verwijderen?",
-            "textResetConfirm": "Wil je de tekstbouwsteen \"{key}\" voor deze tekstbouwstenenset echt terugzetten? | Wil je de tekstbouwstenen voor \"{key}\" echt terugzetten?",
-            "textSnippetList": "Tekstbouwstenen van \"{setName}\" | Tekstbouwstenen",
-            "resetErrorMessage": "De tekstbouwsteen \"{key}\" kon niet worden teruggezet. | De tekstbouwsteen \"{key}\" kon niet worden verwijderd.",
+            "emptyStateHeadLine": "Nog geen tekstfragmenten set.",
+            "messageDeleteSuccess": "De tekstfragment \"{key}\" is teruggezet.",
+            "messageSaveError": "De tekstfragment \"{key}\" kon niet worden opgeslagen. | De tekstfragmenten voor \"{key}\" konden niet worden opgeslagen.",
+            "messageSaveSuccess": "De tekstbouwstenen \"{key}\" is opgeslagen. | De tekstbouwstenen voor \"{key}\" zijn opgeslagen.",
+            "textDeleteConfirm": "De tekstfragmenten voor \"{key}\" echt verwijderen?",
+            "textResetConfirm": "De tekstfragment \"{key}\" voor deze set echt terugzetten? | De tekstfragmenten voor \"{key}\" echt terugzetten?",
+            "textSnippetList": "Tekstfragmenten van \"{setName}\" | Tekstfragmenten",
+            "resetErrorMessage": "De tekstfragment \"{key}\" kon niet worden teruggezet. | De tekstfragment \"{key}\" kon niet worden verwijderd.",
             "resetSuccessMessage": "Fraggment \"{key}\" is teruggezet naar de standaardwaarde. | Fraggment \"{key}\" is verwijderd.",
-            "titleSidebarCustomItems": "Eigen tekstbouwstenen",
+            "titleSidebarCustomItems": "Eigen tekstfragmenten",
             "titleSidebarItemRefresh": "Bijwerken",
             "titleSidebarItemFilter": "Filteren"
         },
         "setList": {
-            "title": "Tekstbouwstenensets beheren en bewerken",
+            "title": "Tekstfragmenten sets beheren en bewerken",
             "description": "Dit is een overzicht van uw fragmentsets. Selecteer een set en bewerk individuele fragmenten naar wens.",
-            "cardTitle": "Tekstbouwstenensets",
-            "buttonAddSet": "Tekstbouwstenenset toevoegen",
+            "cardTitle": "Tekstfragmenten sets",
+            "buttonAddSet": "Tekstfragmenten set toevoegen",
             "buttonCancel": "Annuleren",
             "buttonClone": "Kopiëren",
             "buttonDelete": "Verwijderen",
-            "buttonEditSet": "Tekstbouwstenen bewerken",
+            "buttonEditSet": "Tekstfragmenten bewerken",
             "buttonExport": "Export",
             "buttonImport": "Import",
-            "cloneErrorMessage": "De kopie kon niet worden aangemaakt.",
-            "cloneSuccessMessage": "De kopie is succesvol aangemaakt.",
+            "cloneErrorMessage": "Fout tijdens kopiëren van een tekstfragment set.",
+            "cloneSuccessMessage": "De tekstfragment set is gekopieerd.",
             "columnBaseFile": "Basisbestand",
             "columnChangedAt": "Laatste wijziging",
             "columnName": "Naam",
             "contextMenuClone": "Dupliceren",
             "contextMenuDelete": "Verwijderen",
             "contextMenuEdit": "Bewerken",
-            "deleteNoteErrorMessage": "De tekstbouwstenenset kon niet worden verwijderd.",
-            "deleteNoteSuccessMessage": "De tekstbouwstenenset is succesvol verwijderd.",
-            "inlineEditErrorMessage": "De tekstbouwsteen kon niet worden opgeslagen. | De tekstbouwstenenset voor \"{name}\" kon niet worden opgeslagen.",
-            "inlineEditSuccessMessage": "De tekstbouwstenenset \"{name}\" is succesvol aangemaakt.",
-            "modalTitleClone": "Tekstbouwstenenset kopiëren",
-            "notEditableNoteErrorMessage": "De tekstbouwstenen konden niet worden bewerkt.",
-            "placeholderName": "Set naam geven",
+            "deleteNoteErrorMessage": "De tekstfragment set kon niet worden verwijderd.",
+            "deleteNoteSuccessMessage": "De tekstbouwstenenset is verwijderd.",
+            "inlineEditErrorMessage": "De tekstfragment kon niet worden opgeslagen. | De tekstfragment set voor \"{name}\" kon niet worden opgeslagen.",
+            "inlineEditSuccessMessage": "De tekstfragment set \"{name}\" is opgeslagen.",
+            "modalTitleClone": "Tekstfragment set kopiëren",
+            "notEditableNoteErrorMessage": "Een fout trad op tijdens bewerken van tekstfragment sets.",
+            "placeholderName": "Vul tekstfragment setnaam in...",
             "splitButtonDuplicateContent": "Dupliceren van",
-            "textCloneConfirm": "Wil je van de tekstbouwstenenset \"{name}\" een kopie maken?",
-            "textDeleteConfirm": "Wil je de tekstbouwstenenset \"{name}\" echt verwijderen?"
+            "textCloneConfirm": "Van de tekstfragment set \"{name}\" een kopie maken?",
+            "textDeleteConfirm": "De tekstfragment set \"{name}\" echt verwijderen?"
         },
         "filter": {
-            "showOnlyEmpty": "Alleen lege tekstbouwstenen tonen",
-            "showOnlyCustom": "Alleen aangepaste tekstbouwstenen tonen",
-            "showOnlyAdded": "Alleen toegevoegde tekstbouwstenen tonen",
+            "showOnlyEmpty": "Alleen lege tekstfragmenten tonen",
+            "showOnlyCustom": "Alleen aangepaste tekstfragmenten tonen",
+            "showOnlyAdded": "Alleen toegevoegde tekstfragmenten tonen",
             "author": "Auteur",
             "more": "Andere filters"
         }
@@ -7073,7 +7241,7 @@
             "placeholderName": "Voer een fabrikantnaam in …",
             "placeholderDescription": "Voer een beschrijving van de fabrikant in …",
             "placeholderLink": "Voer een website van de fabrikant in …",
-            "messageSaveSuccess": "De fabrikant \"{name}\" is succesvol opgeslagen.",
+            "messageSaveSuccess": "De fabrikant \"{name}\" is opgeslagen.",
             "labelLogo": "Logo",
             "labelUseAsLogo": "Als logo gebruiken"
         }
@@ -7198,9 +7366,9 @@
         "infoTextInheritedField": "{moduleName} heeft overgenomen velden. Dat betekent dat zolang de overgenomen toestand actief is, de inhoud wordt overgenomen. Overgenomen velden kunnen met een klik op het link-symbool worden opgeheven. Door nogmaals op het symbool te klikken, wordt de overgenomen toestand hersteld."
     },
     "sw-license-violation": {
-        "title": "Waarschuwing (s) voor uitbreiding",
+        "title": "Uitbreiding waarschuwing",
         "reload": "Opnieuw laden",
-        "alertText": "We hebben een licentieschending ontdekt voor ten minste één van uw extensies in deze installatie. Om de schending van de licentie op te lossen en juridische gevolgen te vermijden, boekt u een extensieabonnement of koopt u de extensie (volgens het type overtreding). U gebruikt de extensie niet meer? Verwijder het vervolgens via de Mijn extensies. Als geen van deze maatregelen wordt genomen, behoudt shopware AG zich het recht voor om boetes in rekening te brengen voor elke schending van de licentie.",
+        "alertText": "We hebben een licentieschending ontdekt voor ten minste één van uw extensies in deze installatie. Om de schending van de licentie op te lossen en juridische gevolgen te vermijden, boekt u een abonnement of koopt u de extensie (volgens het type overtreding). U gebruikt de extensie niet meer? Verwijder het vervolgens via de knop „Extensie permanent verwijderen” of via Mijn extensies. Als geen van deze maatregelen wordt genomen, behoudt shopware AG zich het recht voor om boetes in rekening te brengen voor elke schending van de licentie.",
         "deletePlugin": "Extensie permanent verwijderen",
         "messageDeleteConfirm": "Wilt u de extensie \"{pluginName}\" volledig verwijderen?",
         "checkboxMessage": "Ik heb kennis genomen van dit bericht en draag uiteindelijk de gevolgen ervan.",
@@ -7243,7 +7411,7 @@
         "placeholderName": "Geef deze regel een naam …",
         "labelPriority": "Prioriteit",
         "placeholderPriority": "Geef deze regel een prioriteit …",
-        "messageSaveSuccess": "De regel \"{name}\" is succesvol opgeslagen.",
+        "messageSaveSuccess": "De regel \"{name}\" is opgeslagen.",
         "messageSaveError": "Bij het opslaan van de regel \"{name}\" is een fout opgetreden.",
         "ruleCard": "Voorwaarden"
     },
@@ -7301,7 +7469,7 @@
         "keyboardShortcutGoToNewsletterRecipients": "G N",
         "functionGoToSettingsListing": "Ga naar Instellingen",
         "keyboardShortcutGoToSettingsListing": "G S",
-        "functionGoToSnippets": "Ga naar tekstbouwstenen",
+        "functionGoToSnippets": "Ga naar tekstfragmenten",
         "keyboardShortcutGoToSnippets": "G S N",
         "functionGoToPayment": "Ga naar betaalwijzen",
         "keyboardShortcutGoToPayment": "G S P",
@@ -7364,7 +7532,7 @@
                 },
                 "reinstall-apps": {
                     "name": "Apps kopiëren naar het huidige domein",
-                    "description": "Als u uw apps op beide domeinen wilt laten werken, worden alle apps op uw nieuwe domein opnieuw geïnstalleerd. Opmerking: App-gegevens op uw oude domein zijn nog steeds beschikbaar, niet-vrije apps kunnen extra kosten voor elk domein vereisen."
+                    "description": "Als u uw apps in beide domeinen wilt laten werken, worden alle apps op uw nieuwe domein opnieuw geïnstalleerd. Opmerking: App-gegevens op uw oude domein zijn nog steeds beschikbaar, niet-vrije apps kunnen extra kosten voor elk domein vereisen."
                 },
                 "uninstall-apps": {
                     "name": "Apps verwijderen",

@@ -43,7 +43,7 @@
                     "availableVersionHeadline": "Stöds:",
                     "installedHint": "Installerad",
                     "installationButton": "Installera",
-                    "shopwareProfileHeadline": "Shoppare 5 - Profil",
+                    "shopwareProfileHeadline": "Shopware - Profil",
                     "magentoProfileHeadline": "Magento - Profil",
                     "profileManufacturer": "butiksware AG"
                 },
@@ -79,6 +79,12 @@
                         "contentTitle": "Plugin krävs",
                         "contentInformation": "Den nödvändiga plugin ”Migration Connector” är gratis och kan hittas i din Shopware 5-serverdel under Plugin Manager > Tillägg > Migreringsverktyg. Installera och aktivera insticksprogrammet för att fortsätta.",
                         "pluginLink": "Mer information om insticksprogrammet"
+                    },
+                    "shopware6Api": {
+                        "contentTitle": "Integrering krävs",
+                        "contentInformation": "Det är nödvändigt att skapa en integration i källsystemet via Inställningar > System > Integrationer.",
+                        "pluginLink": "Mer information om integrationer",
+                        "link": "https://docs.shopware.com/en/shopware-6-en/settings/system/integrationen"
                     }
                 },
                 "credentials": {
@@ -110,6 +116,20 @@
                             "dbPasswordPlaceholder": "Ange lösenord",
                             "installationRoot": "Handla installationskatalog",
                             "installationRootPlaceholder": "Ange installationsroten"
+                        }
+                    },
+                    "shopware6": {
+                        "api": {
+                            "contentInformation": "Du behöver giltiga API-autentiseringsuppgifter för att upprätta en anslutning mellan din källa och målet Shopware 6-instans. Du får dessa när du skapar en integration i ditt källsystem.",
+                            "apiPasswordLabel": "Hemlig åtkomstnyckel",
+                            "apiPasswordTooltip": "Den hemliga åtkomstnyckeln används för säkerhet och identifiering.",
+                            "apiPasswordPlaceholder": "Ange hemlig åtkomstnyckel",
+                            "apiUserLabel": "Åtkomstnyckel ID",
+                            "apiUserTooltip": "Få tillgång till nyckel-ID för din integration.",
+                            "apiUserPlaceholder": "Ange åtkomstnyckel-ID",
+                            "endpointLabel": "Handla domän",
+                            "endpointPlaceholder": "www.demoshop.com",
+                            "endpointSSLLabel": "Min butik använder en säker anslutning (SSL)"
                         }
                     },
                     "statusTitle": "Kontroll av anslutning",
@@ -236,12 +256,15 @@
                     "newsletterRecipient": "Mottagare av nyhetsbrev",
                     "productReviews": "Produktrecensioner",
                     "seoUrls": "Seo webbadresser",
-                    "promotions": "kampanjer"
+                    "promotions": "kampanjer",
+                    "cms": "Layouter",
+                    "customerWishlists": "Önskelistor"
                 },
                 "entities": {
                     "category": "Kategorier:",
                     "product": "Produkter:",
                     "customer": "Kunder:",
+                    "delivery_time": "Leveranstider:",
                     "order": "Beställningar:",
                     "media": "Media:",
                     "translation": "Översättningar:",
@@ -251,14 +274,44 @@
                     "property_group_option": "Egenskaper:",
                     "number_range": "Antal intervall:",
                     "order_document": "Beställ dokument:",
+                    "order_document_base_config": "Dokumentkonfiguration:",
+                    "order_document_inheritance": "Order dokument relationer:",
                     "shipping_method": "Leveransmetoder:",
                     "currency": "Valutor:",
                     "sales_channel": "Försäljningskanaler:",
+                    "sales_channel_domain": "Domäner:",
                     "product_review": "Recensioner:",
-                    "seo_url": "SEO webbadresser:",
+                    "seo_url": "SEO-webbadresser:",
+                    "seo_url_template": "SEO-URL-mallar:",
                     "product_cross_selling": "Korsförsäljning:",
+                    "promotion": "Kampanjer:",
+                    "language": "Språk:",
+                    "category_association": "Kategori föreningar:",
+                    "category_cms_page_association": "Kategori layout associationer:",
+                    "tax": "Skattesatser",
+                    "tax_rule": "Skatteregler:",
+                    "property_group": "Fastighetsgrupper:",
+                    "product_manufacturer": "Tillverkare av produkter:",
                     "main_variant_relation": "De viktigaste varianterna:",
-                    "promotion": "Kampanjer:"
+                    "customer_wishlist": "Önskelistor:",
+                    "unit": "Skala enheter:",
+                    "media_folder": "Mediekappar:",
+                    "media_folder_inheritance": "Arv av mediekatalog:",
+                    "salutation": "Hälsningsfras:",
+                    "rule": "Regler:",
+                    "country": "Länder:",
+                    "custom_field_set": "Anpassade fältuppsättningar:",
+                    "snippet": "Skuttar:",
+                    "snippet_set": "Utdrag set:",
+                    "mail_template": "E-postmallar:",
+                    "product_feature_set": "Väsentliga egenskaper",
+                    "product_sorting": "Sortering av produkter:",
+                    "system_config": "Grundläggande information:",
+                    "page_system_config": "Sidans grundläggande information:",
+                    "cms_page": "Layouter:",
+                    "product_stream": "Dynamiska produktgrupper:",
+                    "product_stream_filter_inheritance": "Filter för dynamiska produktgrupper:",
+                    "country_state": "Lantstater:"
                 },
                 "noData": "Inget funnet att migrera."
             },

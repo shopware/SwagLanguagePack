@@ -43,7 +43,7 @@
                     "availableVersionHeadline": "Understøttet:",
                     "installedHint": "Installeret",
                     "installationButton": "Installér",
-                    "shopwareProfileHeadline": "Butikk 5 - Profil",
+                    "shopwareProfileHeadline": "Butikk - Profil",
                     "magentoProfileHeadline": "Magento - Profil",
                     "profileManufacturer": "Shop AG"
                 },
@@ -79,6 +79,12 @@
                         "contentTitle": "Plugin påkrævet",
                         "contentInformation": "Det nødvendige plugin „Migration Connector“ er gratis og kan findes i din Shopware 5-motor under Plugin Manager > Udvidelser > Overførselsværktøjer. Installer og aktiver plugin'et for at fortsætte.",
                         "pluginLink": "Mere information om plugin'et"
+                    },
+                    "shopware6Api": {
+                        "contentTitle": "Integration påkrævet",
+                        "contentInformation": "Det er nødvendigt at oprette en integration i kildesystemet via Indstillinger > System > Integrationer.",
+                        "pluginLink": "Mere information om integrationer",
+                        "link": "https://docs.shopware.com/en/shopware-6-en/settings/system/integrationen"
                     }
                 },
                 "credentials": {
@@ -110,6 +116,20 @@
                             "dbPasswordPlaceholder": "Indtast adgangskode",
                             "installationRoot": "Butiks-installationsmappe",
                             "installationRootPlaceholder": "Indtast installationsrod"
+                        }
+                    },
+                    "shopware6": {
+                        "api": {
+                            "contentInformation": "Du skal bruge gyldige API-legitimationsoplysninger for at etablere en forbindelse mellem din kilde og din destinationsshopware 6-forekomst. Du får disse, når du opretter en integration i dit kildesystem.",
+                            "apiPasswordLabel": "Hemmelig adgangsnøgle",
+                            "apiPasswordTooltip": "Den hemmelige adgangsnøgle bruges til sikkerhed og identifikation.",
+                            "apiPasswordPlaceholder": "Indtast hemmelig adgangsnøgle",
+                            "apiUserLabel": "ID for adgangsnøgle",
+                            "apiUserTooltip": "Få adgang til nøgle-id for din integration.",
+                            "apiUserPlaceholder": "Indtast adgangsnøgle-id",
+                            "endpointLabel": "Shop domæne",
+                            "endpointPlaceholder": "www.demoshop.com",
+                            "endpointSSLLabel": "Min butik bruger en sikker forbindelse (SSL)"
                         }
                     },
                     "statusTitle": "Kontrol af forbindelse",
@@ -237,12 +257,15 @@
                     "newsletterRecipient": "Modtager af nyhedsbrev",
                     "productReviews": "Produkt anmeldelser",
                     "seoUrls": "Seo webadresser",
-                    "promotions": "Kampagner"
+                    "promotions": "Kampagner",
+                    "cms": "Layouts",
+                    "customerWishlists": "Ønskelister"
                 },
                 "entities": {
                     "category": "Kategorier:",
                     "product": "Produkter:",
                     "customer": "Kunder:",
+                    "delivery_time": "Leveringstider:",
                     "order": "Ordrer:",
                     "media": "Medier:",
                     "translation": "Oversættelser:",
@@ -252,14 +275,44 @@
                     "property_group_option": "Egenskaber:",
                     "number_range": "Nummerområder:",
                     "order_document": "Bestil dokumenter:",
+                    "order_document_base_config": "Dokumentets konfiguration:",
+                    "order_document_inheritance": "Ordre dokument relationer:",
                     "shipping_method": "Forsendelsesmetoder:",
                     "currency": "Valutaer:",
                     "sales_channel": "Salgskanaler:",
+                    "sales_channel_domain": "Domæner:",
                     "product_review": "Anmeldelser:",
-                    "seo_url": "Seo webadresser:",
+                    "seo_url": "SEO-URL-adresser:",
+                    "seo_url_template": "SEO URL-skabeloner:",
                     "product_cross_selling": "Cross Selling:",
+                    "promotion": "Kampagner:",
+                    "language": "Sprog:",
+                    "category_association": "Kategori foreninger:",
+                    "category_cms_page_association": "Kategorilayout foreninger:",
+                    "tax": "Skattesatser:",
+                    "tax_rule": "Skattebestemmelser:",
+                    "property_group": "Ejendomsgrupper:",
+                    "product_manufacturer": "Producenter:",
                     "main_variant_relation": "De vigtigste varianter af forbindelserne:",
-                    "promotion": "Kampagner:"
+                    "customer_wishlist": "Ønskelister:",
+                    "unit": "Skala enheder:",
+                    "media_folder": "Mediemapper:",
+                    "media_folder_inheritance": "Mediemappenedarver:",
+                    "salutation": "Salutationer:",
+                    "rule": "Regler:",
+                    "country": "Lande:",
+                    "custom_field_set": "Brugerdefinerede feltsæt:",
+                    "snippet": "Snippets:",
+                    "snippet_set": "Snippet sæt:",
+                    "mail_template": "Email skabeloner:",
+                    "product_feature_set": "Væsentlige egenskaber:",
+                    "product_sorting": "Sortering af produkter:",
+                    "system_config": "Grundlæggende oplysninger:",
+                    "page_system_config": "Grundlæggende oplysninger om side:",
+                    "cms_page": "Layouts:",
+                    "product_stream": "Dynamiske produktgrupper:",
+                    "product_stream_filter_inheritance": "Dynamiske produktgruppefiltre:",
+                    "country_state": "Land angiver:"
                 },
                 "noData": "Intet fundet at migrere."
             },
@@ -486,7 +539,8 @@
                     "description": "{entity} af objekttype „{objectType}„med kilde- id „{sourceId}„kunne ikke konverteres."
                 },
                 "SWAG_MIGRATION__SHOPWARE_INVALID_UNSERIALIZED_DATA": {
-                    "title": "Ugyldige ikke-serialiserede data"
+                    "title": "Ugyldige ikke-serialiserede data",
+                    "description": "Enheden {entity} med kilde id \"{sourceId}\" kunne ikke bliver konventeret på grund af forkert userialiseret objekt data fra enheden \"{unserializedEntity}\" og det rå data er: {serializedData}"
                 },
                 "SWAG_MIGRATION__SHOPWARE_CANNOT_COPY_DATA": {
                     "title": "Kildefilen blev ikke fundet",
@@ -525,7 +579,8 @@
                     "description": "Processor til profil \"{profileName}„, gateway\"{gatewayName}\"og enhed\"{entity}\"ikke fundet."
                 },
                 "SWAG_MIGRATION_ENTITY_UNKNOWN": {
-                    "title": "Kan ikke finde {entity}"
+                    "title": "Kan ikke finde {entity}",
+                    "description": "Enheden {requiredForEntity} med kilde id \"{requiredForSourceId}\" can ikke finde den afhængige enhed {entity} med kilde id \"{sourceId}\"."
                 },
                 "SWAG_MIGRATION__INVALID_EMAIL_ADDRESS": {
                     "title": "Ugyldig e- mail- adresse",

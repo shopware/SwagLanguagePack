@@ -62,7 +62,6 @@
         "CHECKOUT__UNKNOWN_PAYMENT_METHOD": "Valittua maksutapaa ei ole olemassa.",
         "productNotFound": "Tuotetta \"%number%\" ei löydy.",
         "payment-method-blocked": "Maksu kautta %name% ei ole käytettävissä.",
-        "shipping-method-blocked": "%name% merenkulku ei ole käytettävissä.",
         "shipping-address-blocked": "Toimitus valittuun osoitteeseen ei ole mahdollista.",
         "shipping-address-invalid": "Valittu toimitusosoite ei ole kelvollinen tai puutteellinen. Ole hyvä ja tarkista merkinnät.",
         "billing-address-blocked": "Laskutus valittuun osoitteeseen ei ole mahdollista.",
@@ -72,7 +71,10 @@
         "message-403-ajax": "Istuntosi on vanhentunut. Lataa sivu uudelleen ja yritä uudelleen.",
         "message-403": "Istuntosi on vanhentunut. Palaa viimeiselle sivulle ja yritä uudelleen.",
         "product-out-of-stock": "%name% ei ole käytettävissä tällä hetkellä.",
-        "auto-promotion-not-found": "Promointi \"%name%\" ei ollut enää voimassa!"
+        "auto-promotion-not-found": "Promointi \"%name%\" ei enää kelpaa!",
+        "captcha": {
+            "basic-captcha-invalid": "Captcha ei kelpaa. Ole hyvä ja tarkista merkinnät."
+        }
     },
     "account": {
         "externalPaymentCanceled": "Saimme tilauksesi, mutta maksu keskeytettiin. Vaihda maksutapaa tai yritä uudelleen",
@@ -538,7 +540,8 @@
         "noLongerAvailableTooltip": "Tuotetta ei ole enää saatavilla.",
         "wishlistMergeHint": "Toivelistasi saattaa sisältää tuotteita, jotka on lisätty ja tallennettu edellisen käynnin aikana.",
         "wishlistEmptyHeader": "Toivelistasi on tyhjä",
-        "wishlistEmptyDescription": "Pidä silmällä haluamasi tuotteita lisäämällä ne toivelistaasi."
+        "wishlistEmptyDescription": "Pidä silmällä haluamasi tuotteita lisäämällä ne toivelistaasi.",
+        "deliveryTimeRestock": "{1} Saatavilla 1 päivä, toimitusaika %name%|] 1, Inf [Saatavilla %restockTime% päivää, toimitusaika %name%"
     },
     "footer": {
         "serviceHotlineHeadline": "Palvelun hotline",
@@ -553,6 +556,12 @@
         "excludeVat": "* Kaikki hinnat paitsi. ALV plus <a data-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">toimituskulut</a> ja mahdolliset toimituskulut, jos ei toisin mainita.",
         "copyrightInfo": "Toteutettu Shopwarella"
     },
+    "captcha": {
+        "googleReCaptcha": {
+            "dataProtectionInformation": "Tämä sivusto on suojattu ReCAPTCHAlla, ja Google\n<a href=\"https://policies.google.com/privacy\">Tietosuojakäytäntö</a> ja\n<a href=\"https://policies.google.com/terms\">Käyttöehdot</a> ovat voimassa."
+        },
+        "basicCaptchaLabel": "Ole hyvä ja syötä yllä näkyvät merkkejä*"
+    },
     "cookie": {
         "message": "Tämä sivusto käyttää evästeitä varmistaakseen parhaan mahdollisen käyttökokemuksen. <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"More information\">Lisätietoja...</a>",
         "deny": "Kiellä",
@@ -566,7 +575,7 @@
         "groupRequiredSession": "istunto",
         "groupRequiredCsrf": "CSRF-suojaus",
         "groupRequiredTimezone": "Aikavyöhyke",
-        "groupRequiredGoogleReCaptcha": "Google ReCAPTCHA",
+        "groupRequiredCaptcha": "Captcha-integraatio",
         "groupStatistical": "Tilastot",
         "groupStatisticalDescription": "Evästeitä käytetään tilastoihin ja myymälöiden suorituskyvyn mittareihin.",
         "groupStatisticalGoogleAnalytics": "Google Analytics",

@@ -36,8 +36,6 @@
         },
         "detail": {
             "buttonCancel": "Hủy bỏ các thay đổi",
-            "buttonSave": "Lưu",
-            "buttonEdit": "Chỉnh sửa",
             "tabOrderDetails": "Chi tiết đơn hàng",
             "tabDeliveries": "Giao hàng",
             "textHeadline": "Đơn hàng",
@@ -148,7 +146,7 @@
         "detailBase": {
             "cardTitleDetails": "Thông tin chi tiết",
             "cardTitleLineItems": "Các mục",
-            "columnProductName": "Mục",
+            "columnProductName": "Tên",
             "columnQuantity": "Số lượng",
             "columnPriceNet": "Giá (ròng)",
             "columnPriceGross": "Giá (tổng)",
@@ -181,6 +179,7 @@
             "buttonAddBlankProduct": "Thêm mục tùy chỉnh",
             "buttonAddCredit": "Thêm tín dụng",
             "buttonEditAddress": "Chỉnh sửa",
+            "tooltipNestedLineItemsButton": "Mục dòng này chứa các mục phụ.",
             "labelNoPhoneNumber": "Chưa có số điện thoại",
             "labelNoEmail": "Chưa có email",
             "labelCustomerPhoneNumber": "Số điện thoại",
@@ -207,6 +206,14 @@
             "enterValidTrackingCode": "Nhập mã theo dõi",
             "textCreditTax": "tự động",
             "taxDetail": "{taxRate}%: {tax}"
+        },
+        "nestedLineItemsModal": {
+            "titlePrefix": "Item: {lineItemLabel} - {price}",
+            "headerLabel": "Tên",
+            "headerUnitPrice": "Giá (tổng)",
+            "headerQuantity": "Số lượng",
+            "headerTotalPrice": "Tổng phụ",
+            "headerTax": "VAT"
         },
         "detailDeliveries": {
             "cardTitleItems": "Lô hàng {count}",
@@ -380,6 +387,14 @@
                 "label": "Sản Phẩm",
                 "placeholder": "Chọn sản phẩm..."
             },
+            "affiliateCodeFilter": {
+                "label": "Mã liên kết",
+                "placeholder": "Chọn mã liên kết..."
+            },
+            "campaignCodeFilter": {
+                "label": "Mã chiến dịch",
+                "placeholder": "Chọn mã chiến dịch..."
+            },
             "messageEmptyTitle": "Không tìm thấy gì",
             "messageEmptySubline": "Chỉnh sửa bộ lọc của bạn để tìm kết quả."
         }
@@ -457,6 +472,9 @@
             },
             "customer_groups": {
                 "label": "Nhóm khách hàng"
+            },
+            "flow": {
+                "label": "Bộ dựng dòng"
             },
             "sales_channel": {
                 "label": "Kênh bán hàng"
@@ -616,7 +634,16 @@
         },
         "captcha": {
             "label": {
-                "honeypot": "Honeypot Captcha"
+                "honeypot": "Honeypot CAPTCHA",
+                "basicCaptcha": "Captcha cơ bản",
+                "googleReCaptchaV2": "Google ReCAPTCHA v2",
+                "googleReCaptchaV2SiteKey": "Khóa trang web Google reCAPTCHA v2",
+                "googleReCaptchaV2SecretKey": "Khóa bí mật của Google reCAPTCHA v2",
+                "googleReCaptchaV2Invisible": "Google ReCAPTCHA v2 vô hình",
+                "googleReCaptchaV3": "Google Recaptcha v3",
+                "googleReCaptchaV3SiteKey": "Khóa trang web Google reCAPTCHA v3",
+                "googleReCaptchaV3SecretKey": "Khóa bí mật Google reCAPTCHA v3",
+                "googleReCaptchaV3ThresholdScore": "Điểm ngưỡng Google reCAPTCHA v3"
             }
         }
     },
@@ -751,7 +778,7 @@
                 "messageMissingBlockFields": "Yêu cầu cấu hình. Vui lòng điền vào dữ liệu trong tất cả các yếu tố.",
                 "messageMissingProductListing": "Không thể lưu. Vui lòng thêm ít nhất một khối danh sách sản phẩm hoặc thay đổi kiểu bố trí này.",
                 "messageMissingSections": "Bạn không thể lưu một trang trống. Vui lòng thêm một phần trước.",
-                "messageMissingBlocks": "Bạn không thể lưu một trang trống. Vui lòng thêm một số khối trước.",
+                "messageMissingBlocks": "Bạn không thể lưu một trang trống. Vui lòng thêm ít nhất một khối trước.",
                 "messageMissingElements": "Yêu cầu cấu hình. Vui lòng cấu hình tất cả các yếu tố của bố cục của bạn.",
                 "messageRedundantElements": "Bố cục không được chứa nhiều hơn một phần tử {name} ."
             },
@@ -778,7 +805,7 @@
             "tooltip": {
                 "blockNameField": "Đặt tên từng khối riêng lẻ để theo dõi công việc của bạn.",
                 "sectionNameField": "Đặt tên từng phần riêng lẻ để theo dõi công việc của bạn.",
-                "cannotSelectProductPageLayout": "Bạn không thể thay đổi bố trí trang sản phẩm kiểu sang kiểu bố trí khác."
+                "cannotSelectProductPageLayout": "Bạn không thể thay đổi kiểu bố trí của trang sản phẩm."
             }
         },
         "elements": {
@@ -1123,6 +1150,9 @@
                         "productDetailElement": "Dữ liệu sản phẩm của phần tử này được tự động tải bởi sản phẩm được liên kết với bố trí này. Nội dung chỉ hiển thị một bản xem trước mẫu."
                     }
                 }
+            },
+            "productName": {
+                "label": "Tên sản phẩm"
             }
         },
         "blocks": {
@@ -1378,6 +1408,11 @@
             }
         },
         "index": {
+            "defaultSalesChannel": {
+                "title": "Kênh bán hàng mặc định",
+                "description": "Chọn Kênh bán hàng mặc định được tự động gán cho các sản phẩm mới được tạo.",
+                "linkAdvancedVisibility": "Đặt khả năng hiển thị cho các kênh bán hàng đã chọn"
+            },
             "productSorting": {
                 "title": "Tùy chọn sắp xếp",
                 "addButton": "Thêm tùy chọn",
@@ -1430,16 +1465,64 @@
             "descriptionTextModule": "Trang nhất của chính quyền, hiển thị thống kê và thông tin hệ thống"
         },
         "introduction": {
-            "headline": "Chào mừng bạn đến với Shopware 6",
-            "enduserDocumentation": "Tài liệu người dùng",
-            "enduserDocumentationLink": "https://docs.shopware.com/en/shopware-6-en",
-            "developerDocumentation": "Tài liệu về nhà phát triển",
-            "developerDocumentationLink": "https://docs.shopware.com/en/shopware-platform-dev-en",
-            "migrationDocumentation": "Tài liệu di chuyển",
-            "migrationDocumentationLink": "https://docs.shopware.com/en/migration-en",
-            "roadmap": "Lộ trình cửa hàng",
-            "roadmapLink": "https://www.shopware.com/en/roadmap/",
-            "feedback": "Phản hồi",
+            "headlineUnkownUser": "Chào mừng đến với Shopware.",
+            "daytimeHeadline": {
+                "5h": {
+                    "0": "Chào buổi sáng, {greetingName}.",
+                    "1": "Chào, {greetingName}!"
+                },
+                "11h": {
+                    "0": "Xin chào, {greetingName}.",
+                    "1": "Chúc một ngày tốt lành, {greetingName}.",
+                    "2": "Howdy, {greetingName}!"
+                },
+                "18h": {
+                    "0": "Chào buổi tối, {greetingName}.",
+                    "1": "Chào, {greetingName}!"
+                },
+                "23h": {
+                    "0": "Rất vui được gặp anh, {greetingName}.",
+                    "1": "Vẫn chưa, {greetingName}?"
+                }
+            },
+            "daytimeWelcomeText": {
+                "5h": {
+                    "0": "Đến giờ uống cà phê phải không?",
+                    "1": "Bạn đang đi đến một khởi đầu tuyệt vời!",
+                    "2": "Quá nhiều việc phải làm hôm nay? Tập trung vào những nhiệm vụ mà sẽ có hầu hết các tác động.",
+                    "3": "Hôm nay bạn trông tuyệt đẹp!"
+                },
+                "11h": {
+                    "0": "Một ngày khác, một cơ hội để phát triển doanh nghiệp của bạn.",
+                    "1": "Bạn có thể tác động đến cuộc sống của ai đó ngày hôm nay.",
+                    "2": "Hôm nay bạn trông tuyệt vời!",
+                    "3": "Hôm nay bạn có cơ hội để định hình ngày mai bạn muốn."
+                },
+                "18h": {
+                    "0": "Ngày gần xong, thời gian để kiểm tra các hoạt động mới nhất của cửa hàng của bạn.",
+                    "1": "Thời gian để đánh giá - Hãy xem cách cửa hàng của bạn đã làm ngày hôm nay.",
+                    "2": "Hành động hôm nay là kết quả của ngày mai."
+                },
+                "23h": {
+                    "0": "Tìm vẻ đẹp trong mọi thứ để truyền cảm hứng cho chính mình.",
+                    "1": "Nhìn kìa, bên ngoài ai đó đã bật chế độ tối.",
+                    "2": "Hầu như mọi thứ sẽ hoạt động trở lại, nếu bạn rút phích cắm nó trong vài phút - bao gồm bạn. Nghỉ một chút đi."
+                }
+            }
+        },
+        "helpcard": {
+            "headline": "Hãy sẵn sàng để bán sản phẩm của bạn.",
+            "helpcenter": "Trung tâm trợ giúp của cửa hàng",
+            "helpcenterLink": "https://docs.shopware.com/en/shopware-6-en",
+            "takeOffTip": "Tìm hiểu cách thực hiện bán hàng đầu tiên của bạn",
+            "takeOffTipLink": "https://www.shopware.com/en/news/take-off-in-ecommerce-10-tips-for-your-initial-sales/",
+            "getToKnowSales": "Tìm hiểu các kênh bán hàng",
+            "getToKnowSalesLink": "https://www.youtube.com/watch?v=RsEeersOgIo"
+        },
+        "feedbackCard": {
+            "headline": "Lần hiển thị đầu tiên được tính.",
+            "text": "Chia sẻ những ấn tượng đầu tiên của bạn và giúp chúng tôi cải thiện trải nghiệm tổng thể của Shopware.",
+            "feedback": "Đưa ra phản hồi",
             "feedbackLink": "https://issues.shopware.com"
         },
         "todayStats": {
@@ -1592,6 +1675,7 @@
                 "category": "Thể loại",
                 "categories": "Danh mục",
                 "categoriesRo": "Danh mục",
+                "cheapestPrice": "Giá",
                 "choose": "Chọn",
                 "description": "Mô tả",
                 "descriptionLong": "Mô tả dài",
@@ -1605,6 +1689,7 @@
                 "length": "Chiều dài",
                 "linked": "Liên kết",
                 "manufacturerId": "Nhà sản xuất",
+                "manufacturer": "Nhà sản xuất",
                 "manufacturerNumber": "Mã nhà sản xuất",
                 "markAsTopseller": "Đánh dấu làm sản phẩm bán chạy nhất",
                 "maxDeliveryTime": "Thời gian giao hàng tối đa",
@@ -1617,7 +1702,7 @@
                 "option": "Tùy chọn",
                 "packUnit": "Đơn vị gói",
                 "packUnitPlural": "Gói đơn vị số nhiều",
-                "cheapestPrice": "Giá",
+                "price": "Giá",
                 "product": "Sản Phẩm",
                 "productNumber": "Số sản phẩm",
                 "purchasePrice": "Giá mua",
@@ -1774,7 +1859,10 @@
             "xTimesIn": "{n} lần trong",
             "close": "Đóng",
             "from": "Từ",
-            "to": "Đến"
+            "to": "Đến",
+            "bulkEdit": "Sửa hàng loạt",
+            "startBulkEdit": "Bắt đầu chỉnh sửa hàng loạt",
+            "bulkEditModalTitle": "Sửa hàng loạt - {count} mục được chọn | Sửa hàng loạt - {count} mục được chọn"
         },
         "notification": {
             "notificationSaveErrorMessage": "Lỗi xảy ra trong khi lưu thực thể \"{entityName}”.",
@@ -1847,7 +1935,7 @@
             },
             "plugin-updates-listener": {
                 "updatesAvailableTitle": "Bản cập nhật có sẵn",
-                "updatesAvailableMessage": "Tải xuống các phiên bản mới nhất của plugin của bạn ngay bây giờ."
+                "updatesAvailableMessage": "Tải xuống các phiên bản mới nhất của tiện ích mở rộng của bạn ngay bây giờ."
             },
             "shopware-updates-listener": {
                 "updatesAvailableTitle": "Một phiên bản Shopware mới {version} có sẵn",
@@ -2132,6 +2220,7 @@
         },
         "sw-media-upload-v2": {
             "buttonFileUpload": "Tải lên tệp",
+            "buttonFilesUpload": "Tải lên tệp",
             "buttonUrlUpload": "Tải tệp lên từ URL",
             "buttonSwitchToFileUpload": "Tải tệp lên từ máy tính của bạn",
             "buttonSwitchToUrlUpload": "Tải tệp lên từ url",
@@ -2218,14 +2307,10 @@
         },
         "sw-multi-tag-ip-select": {
             "enterValidIp": "Vui lòng nhập địa chỉ IPv4 hoặc IPv6 hợp lệ",
-            "addIpAdress": "Thêm địa chỉ IP",
+            "addIpAddress": "Thêm địa chỉ IP",
             "knownIps": {
                 "you": "Bạn"
             }
-        },
-        "sw-multi-ip-select": {
-            "enterValidIp": "Vui lòng nhập địa chỉ IPv4 hoặc IPv6 hợp lệ",
-            "addIpAdress": "Thêm địa chỉ IP"
         },
         "sw-entity-multi-select": {
             "messageNoResults": "Không tìm thấy kết quả cho \"{term}”."
@@ -2295,6 +2380,7 @@
                 "shippingCountryRule": "Quốc gia vận chuyển",
                 "shippingStreetRule": "Đường vận chuyển",
                 "shippingZipCodeRule": "Mã bưu chính vận chuyển",
+                "customerLoggedInRule": "Khách hàng đã đăng nhập",
                 "cartAmountRule": "Số tiền giỏ hàng",
                 "goodsCountRule": "Số lượng hàng hóa",
                 "goodsPriceRule": "Giá hàng hóa",
@@ -2336,7 +2422,7 @@
                 "alwaysValidRule": "Luôn hợp lệ",
                 "lineItemPropertyRule": "Thuộc tính mục dòng",
                 "lineItemNoveltyRule": "Tính mới",
-                "lineItemCustomFieldRule": "Mục dòng với thuộc tính",
+                "lineItemCustomFieldRule": "Mục dòng với trường tùy chỉnh",
                 "lineItemIsNewRule": "Mục dòng là mới",
                 "lineItemOfManufacturerRule": "Nhà sản xuất",
                 "lineItemPurchasePriceRule": "Giá mua hàng hàng",
@@ -2368,7 +2454,8 @@
         "sw-product-image": {
             "context": {
                 "buttonAsCover": "Sử dụng làm bìa",
-                "buttonRemove": "Loại bỏ"
+                "buttonRemove": "Loại bỏ",
+                "buttonPreviewImage": "Xem trước ảnh"
             }
         },
         "sw-simple-search-field": {
@@ -2438,7 +2525,9 @@
             "delivery_time": "Thời gian giao hàng | Thời gian giao hàng",
             "import_export_profile": "Hồ sơ Nhập/Xuất | Hồ sơ Nhập/Xuất",
             "feature_set": "Mẫu | Mẫu",
-            "event_action": "Sự kiện kinh doanh"
+            "event_action": "Sự kiện kinh doanh",
+            "property_group": "Nhóm thuộc tính | Nhóm thuộc tính",
+            "document_base_config": "Cấu hình cơ sở tài liệu | Cấu hình cơ sở tài liệu"
         },
         "day-of-week": {
             "monday": "Thứ hai",
@@ -2469,6 +2558,7 @@
             "mail_sent": "Email đã gửi",
             "newsletter_confirm": "Xác nhận đăng ký bản tin",
             "newsletter_register": "Đăng ký bản tin",
+            "newsletter_unsubscribe": "Bản tin đã hủy đăng ký",
             "newsletter_update": "Cập nhật bản tin đăng ký",
             "product_export_log": "Xuất khẩu sản phẩm được thực hiện",
             "state_enter_order_state_cancelled": "Lệnh vào trạng thái bị hủy",
@@ -2900,6 +2990,7 @@
             "columnDescription": "Mô tả",
             "columnActive": "Đang hoạt động",
             "columnPosition": "Vị trí",
+            "columnExtension": "Phần mở rộng",
             "buttonAddPaymentMethod": "Thêm phương thức thanh toán",
             "contextMenuEdit": "Chỉnh sửa",
             "contextMenuDelete": "Xoá",
@@ -2931,7 +3022,7 @@
         }
     },
     "sw-plugin-box": {
-        "buttonPluginSettings": "Cài đặt plugin"
+        "buttonPluginSettings": "Cài đặt phần mở rộng"
     },
     "sw-settings-country": {
         "general": {
@@ -2978,7 +3069,10 @@
             "buttonAddCountryState": "Thêm tiểu bang/tỉnh",
             "editAction": "Chỉnh sửa",
             "columnStateNameLabel": "Tên",
-            "columnStateShortCodeLabel": "Shorthand"
+            "columnStateShortCodeLabel": "Shorthand",
+            "taxFreeFrom": "Thuế miễn",
+            "taxFreeFromHelpText": "Nếu tổng số giỏ hàng cao hơn giá trị đặt trong “Miễn thuế từ”, toàn bộ giỏ hàng sẽ được miễn thuế.",
+            "labelVatIdRequired": "Bắt buộc trường ID VAT"
         }
     },
     "sw-country-state-detail": {
@@ -3047,7 +3141,9 @@
             },
             "emptyCountryRoundings": "Thêm số thập phân riêng lẻ và số làm tròn cho các quốc gia khác nhau.",
             "emptyCountryRoundingsNewCurrency": "Điền thông tin cơ bản, lưu tiền tệ - sau đó thêm giá trị",
-            "buttonAddCountry": "Thêm quốc gia"
+            "buttonAddCountry": "Thêm quốc gia",
+            "taxFreeFrom": "Thuế miễn",
+            "taxFreeFromHelpText": "Nếu tổng số giỏ hàng cao hơn giá trị đặt trong “Miễn thuế từ”, toàn bộ giỏ hàng sẽ được miễn thuế. Áp dụng cho xe mua sắm trả trong \"{currencyName}“, chỉ."
         },
         "currency-country-modal": {
             "labelCountrySelect": "Quốc gia",
@@ -3062,11 +3158,13 @@
             "labelRoundForNet": "Vòng cho khách hàng ròng quá",
             "grandHeadline": "Tổng số lớn",
             "grandSubline": "Làm tròn áp dụng cho tổng số",
+            "headerWarning": "Khoảng cách làm tròn khác nhau - Hãy chắc chắn kiểm tra lại với các nhà cung cấp dịch vụ cá nhân của bạn để tránh các vấn đề về kế toán.",
+            "headerInfo": "Tính thuế dựa trên tổng số chưa được làm tròn. Sự khác biệt làm tròn xảy ra không phải tính thuế.",
             "helpTextDecimals": "Số thập phân cho biết số chữ số tối đa sau dấu tách thập phân.",
-            "helpTextInterval": "Sử dụng khoảng cách làm tròn để tính cho các thị trường mà các mệnh giá vật lý thấp nhất của đồng tiền đã được bãi bỏ và làm tròn tiền mặt được đặt ra. <br><br> Gợi ý: Chọn “Không” nếu bạn không muốn áp dụng bất kỳ làm tròn tiền mặt. Ví dụ: khi sử dụng số thập phân lớn hơn 2.",
+            "helpTextInterval": "Sử dụng khoảng cách làm tròn để tính cho các thị trường mà các mệnh giá vật lý thấp nhất của đồng tiền đã được bãi bỏ và làm tròn tiền mặt được đặt ra. <br><br> Gợi ý: Chọn “Không” nếu bạn không muốn áp dụng bất kỳ làm tròn giá nào. Ví dụ: khi sử dụng số thập phân lớn hơn 2.",
             "helpTextRoundForNet": "Kích hoạt làm tròn cho các nhóm khách hàng ròng bổ sung.",
             "labelIntervalNone": "Không có",
-            "tooltipIntervalDisabled": "Làm tròn tiền mặt không được áp dụng nếu số thập phân lớn hơn 2."
+            "tooltipIntervalDisabled": "Làm tròn giá không được áp dụng nếu số thập phân lớn hơn 2 được cấu hình."
         }
     },
     "sw-category": {
@@ -3289,13 +3387,15 @@
         "visibility": {
             "textHeadline": "Chế độ hiển thị sản phẩm trên mỗi kênh bán hàng",
             "placeholderVisibility": "Chọn kênh bán hàng...",
-            "columnAll": "Universal",
-            "columnSearchOnly": "Chỉ kết quả tìm kiếm",
-            "columnLinkOnly": "Ẩn",
-            "linkAdvancedVisibility": "Tùy chọn gán nâng cao",
+            "columnAll": "Có thể nhìn thấy",
+            "columnSearchOnly": "Ẩn trong Danh sách",
+            "columnLinkOnly": "Ẩn trong Danh sách và tìm kiếm",
+            "visibilityModalDescription": "“Ẩn trong danh sách” sẽ loại trừ sản phẩm khỏi danh sách tổng quan về sản phẩm nhưng cũng từ thanh trượt sản phẩm và danh sách bán chéo. Chọn tùy chọn “Ẩn trong danh sách và tìm kiếm” cũng sẽ loại trừ sản phẩm khỏi hành động tìm kiếm. Sản phẩm vẫn có thể được truy cập qua URL.",
+            "linkAdvancedVisibility": "Đặt khả năng hiển thị cho các kênh bán hàng đã chọn",
             "labelVisibility": "Kênh bán hàng",
             "closeModal": "Nộp đơn",
-            "bodyVisibility": "Thêm kênh bán hàng nơi là sản phẩm sẽ được hiển thị. Bạn cũng có thể xác định thêm khả năng hiển thị của sản phẩm cho mỗi kênh bán hàng cửa hàng thông qua liên kết bên dưới."
+            "bodyVisibility": "Thêm kênh bán hàng trong đó sản phẩm này sẽ được hiển thị. Bạn có thể xác định thêm khả năng hiển thị sản phẩm cho mỗi kênh bán hàng cửa hàng thông qua liên kết bên dưới.",
+            "errorMessage": "Không thể tải cấu hình kênh bán hàng mặc định."
         },
         "general": {
             "mainMenuItemGeneral": "Sản Phẩm",
@@ -3380,7 +3480,10 @@
             "placeholderMetaTitle": "Nhập meta title...",
             "placeholderMetaDescription": "Nhập meta description...",
             "placeholderKeywords": "Nhập một hoặc nhiều từ khóa...",
-            "placeholderCanonicalProduct": "Chọn một biến thể..."
+            "placeholderCanonicalProduct": "Chọn một biến thể...",
+            "helpTextMetaTitle": "Tiêu đề meta là yếu tố SEO quan trọng nhất và phải là duy nhất cho mỗi trang. Bạn nên giới hạn độ dài tối đa là 56 ký tự. Từ khóa của bạn lý tưởng nên được đặt ở phía trước.",
+            "helpTextMetaDescription": "Với mô tả meta, bạn xác nhận với khách hàng của bạn rằng họ đang ở đúng nơi trong cửa hàng của bạn. Bạn tạo các ưu đãi, xây dựng niềm tin và mời tham gia một hành động. Bạn nên giới hạn mình tối đa là 155 ký tự.",
+            "helpTextKeywords": "Ở đây bạn có thể xác định tùy chọn từ ba đến năm từ khóa mà theo đó sản phẩm của bạn sẽ được tìm thấy."
         },
         "settingsForm": {
             "labelCreatedAt": "Ngày tạo",
@@ -3504,6 +3607,7 @@
             "columnInStock": "Trong kho",
             "columnAvailableStock": "Có sẵn",
             "columnActions": "Action (s)",
+            "columnMedia": "Phương tiện truyền thông",
             "contextMenuEdit": "Chỉnh sửa",
             "contextMenuDelete": "Xoá",
             "contextMenuDuplicate": "Lặp lại",
@@ -3604,6 +3708,7 @@
             "generatedListColumnVariation": "Tên",
             "generatedListColumnPrice": "Giá (gộp/ròng)",
             "generatedListColumnProductNumber": "Số sản phẩm",
+            "generatedListColumnMedia": "Phương tiện truyền thông",
             "generatedListColumnActive": "Đang hoạt động",
             "generatedListColumnStock": "Cổ phiếu",
             "generatedListContextMenuEdit": "Chỉnh sửa",
@@ -3672,6 +3777,7 @@
         "crossselling": {
             "cardTitleCrossSelling": "Bán chéo",
             "buttonAddCrossSelling": "Thêm Bán chéo mới",
+            "buttonAddCrossSellingLanguageWarning": "Bạn chỉ có thể tạo mới bán chéo bằng ngôn ngữ mặc định của bạn",
             "buttonDeleteCrossSelling": "Xoá",
             "inputCrossSellingTitle": "Tên",
             "inputCrossSellingActive": "Đang hoạt động",
@@ -4190,12 +4296,15 @@
             "updateExcludedTermSuccess": "Đã cập nhật thuật ngữ tìm kiếm bị loại trừ.",
             "createExcludedTermSuccess": "Đã tạo thuật ngữ tìm kiếm bị loại trừ.",
             "deleteExcludedTermSuccess": "Đã xóa cụm từ tìm kiếm bị loại trừ.",
+            "resetToDefaultExcludedTermSuccess": "Các cụm từ tìm kiếm bị loại trừ đã được đặt lại thành mặc định.",
+            "resetToDefaultExcludedTermError": "Đã xảy ra lỗi trong khi đặt lại các cụm từ tìm kiếm bị loại trừ.",
             "saveError": "Đã xảy ra lỗi trong khi lưu cấu hình của bạn.",
             "index": {
                 "started": "Xây dựng chỉ số sản phẩm.",
                 "success": "Chỉ số sản phẩm được xây dựng."
             },
-            "loadError": "Đã xảy ra lỗi khi tải cấu hình của bạn."
+            "loadError": "Đã xảy ra lỗi khi tải cấu hình của bạn.",
+            "notSupportedLanguageError": "Ngôn ngữ đã chọn không khả dụng trong Kênh bán hàng đã chọn"
         },
         "liveSearchTab": {
             "titleCard": "Tìm kiếm trực tiếp của kênh bán hàng",
@@ -4348,7 +4457,7 @@
             "label": "Hiện đã có",
             "activationDescriptionTitleFirst": "Khám phá và mua tiện ích mở rộng một cách dễ dàng -",
             "activationDescriptionTitleSecond": "ngay từ bên trong cửa hàng của riêng bạn.",
-            "activationDescriptionTitleDescription": "Kích hoạt tất cả cửa hàng Shopware mới và nhận được quyền truy cập vào hàng loạt các tiện ích mở rộng hữu ích và chủ đề hiện đại có thể được tích hợp vào Cửa hàng của bạn dường như không có bất kỳ kỹ năng lập trình nào.",
+            "activationDescriptionTitleDescription": "Kích hoạt Cửa hàng Shopware và nhận được quyền truy cập vào hàng loạt các Tiện ích mở rộng hữu ích và Chủ đề hiện đại có thể được tích hợp vào Cửa hàng của bạn dường như không có bất kỳ kỹ năng lập trình nào.",
             "activate": "Kích hoạt"
         },
         "title": "Cửa hàng",
@@ -4501,6 +4610,9 @@
                     "permissions": "Quyền"
                 }
             },
+            "sw-extension-card-bought": {
+                "subscriptionExpiredAt": "Đăng ký hết hạn ở {date}"
+            },
             "sw-extension-deactivation-modal": {
                 "deactivateExtensionLabel": "Hủy kích hoạt \"{extensionName}”",
                 "description": "Phần mở rộng \"{extensionName}\" có phí đăng ký hàng tháng.<br>Hủy kích hoạt phần mở rộng <b>sẽ không</b> hủy đăng ký và lệ phí sẽ tiếp tục được thu thập!",
@@ -4510,8 +4622,16 @@
             },
             "sw-extension-permissions-modal": {
                 "title": "{extensionLabel} quyền",
-                "description": "{extensionLabel} sẽ có quyền truy cập vào các thành phần sau. Bấm vào liên kết bên cạnh thành phần để hiển thị chi tiết thực thể.",
-                "textEntities": "Hiển thị quyền"
+                "description": "{extensionLabel} sẽ có quyền truy cập vào các thành phần bên dưới. Bấm vào liên kết bên cạnh thành phần để hiển thị chi tiết thực thể.",
+                "domainHint": "Một số dữ liệu cũng sẽ được chia sẻ với các miền khác. Nhấp vào liên kết bên cạnh tên miền để biết thêm chi tiết.",
+                "textEntities": "Hiển thị quyền",
+                "domains": "Tên miền",
+                "showDomains": "Hiển thị tên miền"
+            },
+            "sw-extension-domains-modal": {
+                "modalTitle": "{extensionLabel} - Domains",
+                "description": "Một số dữ liệu sẽ được chia sẻ/chuyển đến các tên miền được liệt kê dưới đây.",
+                "listTitle": "Tên miền"
             },
             "sw-extension-privacy-policy-extensions-modal": {
                 "title": "{extensionLabel}: phần mở rộng chính sách bảo mật",
@@ -4940,7 +5060,6 @@
             "messageServerError": "Máy chủ ủy quyền gặp phải một điều kiện bất ngờ.",
             "messageInvalidRefreshToken": "Mã làm mới không hợp lệ.",
             "messageAccessDenied": "Yêu cầu bị từ chối bởi máy chủ ủy quyền.",
-            "messageInvalidGrant": "Cấp ủy quyền hoặc làm mới mã thông báo không hợp lệ.",
             "messageGeneralRequestError": "Có gì đó sai yêu cầu \"{url}”.",
             "forgottenPasswordLink": "Bạn đã quên mật khẩu của mình?"
         },
@@ -5463,6 +5582,23 @@
             "markets": "Thị trường sản phẩm"
         }
     },
+    "sw-flow": {
+        "general": {
+            "mainMenuItemGeneral": "Trình tạo dòng chảy",
+            "descriptionTextModule": "Trình tạo dòng chảy"
+        },
+        "list": {
+            "textHeadline": "Bộ dựng dòng",
+            "buttonAddFlow": "Thêm dòng"
+        },
+        "detail": {
+            "textHeadline": "Dòng chảy mới"
+        },
+        "page": {
+            "generalTab": "Chung",
+            "flowTab": "Dòng chảy"
+        }
+    },
     "sw-sales-channel": {
         "general": {
             "tooltipOpenStorefront": "Cửa hàng mở",
@@ -5569,6 +5705,14 @@
             "ipAddressWhitleListHelpText": "Thêm địa chỉ IP vào danh sách trắng để cho phép truy cập chọn lọc vào cửa hàng của bạn. Bạn có thể thêm địa chỉ IPv4 và IPv6 khi cần thiết.",
             "basicinformationLink": "Thay đổi bố cục bảo trì mặc định tại đây",
             "columnDomainCurrency": "Tiền tệ",
+            "products": {
+                "titleEmptyState": "Chưa có sản phẩm nào được thêm",
+                "titleEmptyStateTable": "Không tìm thấy sản phẩm phù hợp",
+                "buttonAddProducts": "Thêm sản phẩm",
+                "columnProductName": "Tên sản phẩm",
+                "columnActive": "Đang hoạt động",
+                "columnProductNumber": "Số sản phẩm"
+            },
             "productComparison": {
                 "inputHeaderLabel": "Hàng tiêu đề",
                 "inputBodyLabel": "Hàng sản phẩm",
@@ -5690,6 +5834,12 @@
                 "verticalDescription": "VAT được tính từ tổng đơn đặt hàng. Không có giá trị VAT cá nhân nào được hiển thị trong quá trình thanh toán.",
                 "horizontalName": "Tính toán theo từng dòng (ngang)",
                 "horizontalDescription": "VAT được tính cho mỗi vị trí giỏ hàng. Trong quá trình thanh toán thuế GTGT cá nhân của mỗi vị trí được hiển thị. Tổng số thuế VAT được tính bằng cách cộng tất cả các giá trị VAT riêng lẻ."
+            },
+            "productAssigmentModal": {
+                "title": "Thêm sản phẩm",
+                "singleProducts": "Sản phẩm cá nhân",
+                "categories": "Lọc theo danh mục",
+                "dynamicProductGroups": "Lọc theo nhóm sản phẩm động"
             }
         },
         "sw-sales-channel-defaults-select": {
@@ -5761,8 +5911,12 @@
                 "placeholderTestMail": "shop@example.com",
                 "buttonTestMail": "Gửi",
                 "labelTestMail": "Địa chỉ người nhận",
-                "titleTestMail": "Gửi email kiểm tra"
+                "titleTestMail": "Gửi email kiểm tra",
+                "titleShowPreview": "Hiển thị bản xem trước",
+                "titleShowAvailableVariables": "Biến",
+                "copyTooltip": "Sao chép vào bảng tạm."
             },
+            "previewModalTitle": "Xem trước",
             "buttonCancel": "Hủy",
             "buttonSave": "Lưu",
             "textHeadline": "Mẫu email mới",
@@ -6238,6 +6392,20 @@
             "tags": {
                 "label": "Thẻ",
                 "placeholder": "Chọn thẻ..."
+            },
+            "affiliateCode": {
+                "label": "Mã liên kết",
+                "placeholder": "Chọn mã liên kết..."
+            },
+            "campaignCode": {
+                "label": "Mã chiến dịch",
+                "placeholder": "Chọn mã chiến dịch..."
+            },
+            "customerGroupRequest": {
+                "label": "Yêu cầu nhóm khách hàng",
+                "placeholder": "Chọn trạng thái yêu cầu...",
+                "textHasCriteria": "Mở yêu cầu nhóm khách hàng",
+                "textNoCriteria": "Không có yêu cầu nhóm khách hàng"
             },
             "messageEmptyTitle": "Không tìm thấy gì",
             "messageEmptySubline": "Chỉnh sửa bộ lọc của bạn để tìm kết quả."
@@ -7198,9 +7366,9 @@
         "infoTextInheritedField": "{moduleName} đã thừa kế các trường. Nghĩa là miễn là trạng thái kế thừa hoạt động thì nội dung sẽ được kế thừa. Trường thừa kế có thể được bỏ liên kết bằng cách bấm vào biểu tượng nối kết. Nhấp vào biểu tượng một lần nữa sẽ đặt trạng thái thừa kế trở lại."
     },
     "sw-license-violation": {
-        "title": "Cảnh báo phần mở rộng",
+        "title": "Cảnh báo phần mở rộng",
         "reload": "Nạp lại",
-        "alertText": "Chúng tôi đã phát hiện vi phạm giấy phép cho ít nhất một trong các phần mở rộng của bạn trong cài đặt này. Để khắc phục sự vi phạm giấy phép và tránh hậu quả pháp lý, hãy đăng ký gia hạn hoặc mua/thuê gia hạn (theo loại vi phạm gây ra). Bạn không sử dụng phần mở rộng nữa? Sau đó xóa nó qua phần mở rộng của tôi. Nếu không có biện pháp nào trong số các biện pháp này được thực hiện, cửa hàng AG có quyền tính phí phạt đối với bất kỳ vi phạm giấy phép nào.",
+        "alertText": "Chúng tôi đã phát hiện vi phạm giấy phép cho ít nhất một trong các phần mở rộng của bạn trong cài đặt này. Để khắc phục sự vi phạm giấy phép và tránh hậu quả pháp lý, hãy đăng ký thuê bao hoặc mua/thuê phần mở rộng (theo loại vi phạm gây ra). Bạn không sử dụng phần mở rộng nữa? Sau đó xóa nó thông qua nút “Xóa tiện ích mở rộng vĩnh viễn” hoặc thông qua Tiện ích mở rộng của tôi. Nếu không có biện pháp nào trong số các biện pháp này được thực hiện, cửa hàng AG có quyền tính phí phạt đối với bất kỳ vi phạm giấy phép nào.",
         "deletePlugin": "Xóa phần mở rộng vĩnh viễn",
         "messageDeleteConfirm": "Bạn có muốn xóa phần mở rộng \"{pluginName}\" hoàn toàn không?",
         "checkboxMessage": "Tôi đã nhận thấy thông điệp này và cuối cùng tích lũy hậu quả.",
@@ -7364,7 +7532,7 @@
                 },
                 "reinstall-apps": {
                     "name": "Sao chép ứng dụng vào miền hiện tại",
-                    "description": "Nếu bạn muốn giữ cho ứng dụng của mình hoạt động trên cả hai miền, thao tác này sẽ cài đặt lại tất cả các ứng dụng trên miền mới của bạn. Lưu ý: Dữ liệu ứng dụng trên miền cũ của bạn vẫn sẽ khả dụng, các ứng dụng không miễn phí có thể yêu cầu phụ phí cho mỗi miền."
+                    "description": "Nếu bạn muốn giữ cho các ứng dụng của mình hoạt động trên cả hai miền, thao tác này sẽ cài đặt lại tất cả các ứng dụng trên miền mới của bạn. Lưu ý: Dữ liệu ứng dụng trên miền cũ của bạn vẫn sẽ khả dụng, các ứng dụng không miễn phí có thể yêu cầu phụ phí cho mỗi miền."
                 },
                 "uninstall-apps": {
                     "name": "Gỡ cài đặt ứng dụng",

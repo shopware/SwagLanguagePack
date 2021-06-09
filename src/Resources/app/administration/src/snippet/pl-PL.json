@@ -36,8 +36,6 @@
         },
         "detail": {
             "buttonCancel": "Porzuć zmiany",
-            "buttonSave": "Zapisz",
-            "buttonEdit": "Edytuj",
             "tabOrderDetails": "Szczegóły zamówienia",
             "tabDeliveries": "Dostawy",
             "textHeadline": "Zamówienie",
@@ -181,6 +179,7 @@
             "buttonAddBlankProduct": "Dodaj pustą pozycję",
             "buttonAddCredit": "Dodaj notę uznaniową",
             "buttonEditAddress": "Edytuj",
+            "tooltipNestedLineItemsButton": "Ten element wiersza zawiera elementy podrzędne.",
             "labelNoPhoneNumber": "Brak",
             "labelNoEmail": "Brak",
             "labelCustomerPhoneNumber": "Numer telefonu",
@@ -207,6 +206,14 @@
             "enterValidTrackingCode": "Wprowadź kod śledzenia",
             "textCreditTax": "auto",
             "taxDetail": "{taxRate}%: {tax}"
+        },
+        "nestedLineItemsModal": {
+            "titlePrefix": "Pozycja: {lineItemLabel} - {price}",
+            "headerLabel": "Nazwa",
+            "headerUnitPrice": "Cena (brutto)",
+            "headerQuantity": "Ilość",
+            "headerTotalPrice": "Suma częściowa",
+            "headerTax": "VAT"
         },
         "detailDeliveries": {
             "cardTitleItems": "Dostawa {count}",
@@ -380,6 +387,14 @@
                 "label": "Produkty",
                 "placeholder": "Wybierz produkty..."
             },
+            "affiliateCodeFilter": {
+                "label": "Kod partnerski",
+                "placeholder": "Wybierz kod partnerski..."
+            },
+            "campaignCodeFilter": {
+                "label": "Kod kampanii",
+                "placeholder": "Wybierz kod kampanii..."
+            },
             "messageEmptyTitle": "Nic nie znaleziono",
             "messageEmptySubline": "Edytuj filtry, aby znaleźć wyniki."
         }
@@ -457,6 +472,9 @@
             },
             "customer_groups": {
                 "label": "Grupy klientów"
+            },
+            "flow": {
+                "label": "Konstruktor przepływu"
             },
             "sales_channel": {
                 "label": "Kanały sprzedaży"
@@ -616,7 +634,16 @@
         },
         "captcha": {
             "label": {
-                "honeypot": "Honeypot Captcha"
+                "honeypot": "Miód CAPTCHA",
+                "basicCaptcha": "Podstawowy Captcha",
+                "googleReCaptchaV2": "Google reCAPTCHA v2",
+                "googleReCaptchaV2SiteKey": "Klucz witryny Google reCAPTCHA v2",
+                "googleReCaptchaV2SecretKey": "Google reCAPTCHA v2 tajny klucz",
+                "googleReCaptchaV2Invisible": "Google reCAPTCHA v2 niewidoczny",
+                "googleReCaptchaV3": "Google ReCAPTCHA v3",
+                "googleReCaptchaV3SiteKey": "Klucz witryny Google reCAPTCHA v3",
+                "googleReCaptchaV3SecretKey": "Google reCAPTCHA v3 tajny klucz",
+                "googleReCaptchaV3ThresholdScore": "Wynik progowy Google reCAPTCHA v3"
             }
         }
     },
@@ -750,8 +777,8 @@
                 "messageMissingFields": "Wypełnij wszystkie niezbędne pola konfiguracji.",
                 "messageMissingBlockFields": "Wymagana konfiguracja. Prosimy o wypełnienie danych we wszystkich elementach.",
                 "messageMissingProductListing": "Nie można zapisać. Dodaj co najmniej jeden blok aukcji produktów lub zmień typ tego układu.",
-                "messageMissingSections": "Nie można zapisywać pustych stron. Dodaj najpierw sekcję.",
-                "messageMissingBlocks": "Nie możesz zapisać pustej strony. Dodaj bloki.",
+                "messageMissingSections": "Nie można zapisać pustej strony. Proszę najpierw dodać sekcję.",
+                "messageMissingBlocks": "Nie można zapisać pustej strony. Proszę najpierw dodać co najmniej jeden blok.",
                 "messageMissingElements": "Wymagana konfiguracja. Skonfiguruj wszystkie elementy układu.",
                 "messageRedundantElements": "Układy nie mogą zawierać więcej niż jednego elementu {name}."
             },
@@ -778,7 +805,7 @@
             "tooltip": {
                 "blockNameField": "Nazwij każdy blok indywidualnie i jednoznacznie, aby mieć dobry przegląd swojej pracy.",
                 "sectionNameField": "Nazwij każdą sekcję indywidualnie i jednoznacznie, aby mieć dobry przegląd swojej pracy.",
-                "cannotSelectProductPageLayout": "Nie można zmienić układu strony produktu typu na inny typ układu."
+                "cannotSelectProductPageLayout": "Nie można zmienić typu układu strony produktu."
             }
         },
         "elements": {
@@ -1123,6 +1150,9 @@
                         "productDetailElement": "Dane produktu tego elementu są automatycznie ładowane przez produkt skojarzony z tym układem. Zawartość pokazuje tylko przykładowy podgląd."
                     }
                 }
+            },
+            "productName": {
+                "label": "Nazwa produktu"
             }
         },
         "blocks": {
@@ -1378,6 +1408,11 @@
             }
         },
         "index": {
+            "defaultSalesChannel": {
+                "title": "Domyślny kanał sprzedaży",
+                "description": "Wybierz domyślne kanały sprzedaży, które są automatycznie przypisane do nowo utworzonych produktów.",
+                "linkAdvancedVisibility": "Ustawianie widoczności dla wybranych kanałów sprzedaży"
+            },
             "productSorting": {
                 "title": "Opcje sortowania",
                 "addButton": "Dodaj opcję",
@@ -1430,16 +1465,64 @@
             "descriptionTextModule": "Strona startowa, statystyki i informacje systemowe"
         },
         "introduction": {
-            "headline": "Witaj w Shopware 6",
-            "enduserDocumentation": "Dokumentacja użytkownika końcowego",
-            "enduserDocumentationLink": "https://docs.shopware.com/en/shopware-6-en",
-            "developerDocumentation": "Dokumentacja programisty",
-            "developerDocumentationLink": "https://docs.shopware.com/en/shopware-platform-dev-en",
-            "migrationDocumentation": "Dokumentacja migracji",
-            "migrationDocumentationLink": "https://docs.shopware.com/en/migration-en",
-            "roadmap": "Mapa Shopware",
-            "roadmapLink": "https://www.shopware.com/en/roadmap/",
-            "feedback": "Opinia",
+            "headlineUnkownUser": "Witamy w Shopware.",
+            "daytimeHeadline": {
+                "5h": {
+                    "0": "Dzień dobry, {greetingName}.",
+                    "1": "Cześć, {greetingName}!"
+                },
+                "11h": {
+                    "0": "Cześć, {greetingName}.",
+                    "1": "Dobrego dnia, {greetingName}.",
+                    "2": "Siemka, {greetingName}!"
+                },
+                "18h": {
+                    "0": "Dobry wieczór, {greetingName}.",
+                    "1": "Cześć, {greetingName}!"
+                },
+                "23h": {
+                    "0": "Dobrze cię widzieć, {greetingName}.",
+                    "1": "Nadal w górze, {greetingName}?"
+                }
+            },
+            "daytimeWelcomeText": {
+                "5h": {
+                    "0": "Czas na kawę, prawda?",
+                    "1": "Idziesz na dobry początek!",
+                    "2": "Za dużo do zrobienia dzisiaj? Skoncentruj się na tych zadaniach, które będą miały większość wpływu.",
+                    "3": "Wyglądasz dziś oszałamiająco!"
+                },
+                "11h": {
+                    "0": "Kolejny dzień, kolejna szansa na rozwój biznesu.",
+                    "1": "Możesz dziś wpłynąć na czyjeś życie.",
+                    "2": "Wyglądasz dziś bajecznie!",
+                    "3": "Dzisiaj masz szansę ukształtować jutra, jakiego chcesz."
+                },
+                "18h": {
+                    "0": "Dzień jest prawie skończony, czas, aby sprawdzić najnowsze działania Twojego sklepu.",
+                    "1": "Czas na ocenę - Zobacz, jak Twój sklep robi się dzisiaj.",
+                    "2": "Dzisiejsze działania są jutrzejszym wynikiem."
+                },
+                "23h": {
+                    "0": "Znajdź piękno we wszystkim, aby zainspirować siebie.",
+                    "1": "Słuchaj, na zewnątrz ktoś włączył tryb ciemności.",
+                    "2": "Prawie wszystko zadziała ponownie, jeśli odłączysz go na kilka minut - w tym również ciebie. Zrób sobie przerwę."
+                }
+            }
+        },
+        "helpcard": {
+            "headline": "Przygotuj się na sprzedaż swoich produktów.",
+            "helpcenter": "Centrum pomocy Shopware",
+            "helpcenterLink": "https://docs.shopware.com/en/shopware-6-en",
+            "takeOffTip": "Dowiedz się, jak dokonać pierwszej sprzedaży",
+            "takeOffTipLink": "https://www.shopware.com/en/news/take-off-in-ecommerce-10-tips-for-your-initial-sales/",
+            "getToKnowSales": "Poznaj kanały sprzedaży",
+            "getToKnowSalesLink": "https://www.youtube.com/watch?v=RsEeersOgIo"
+        },
+        "feedbackCard": {
+            "headline": "Pierwsze wrażenia się liczą.",
+            "text": "Podziel się swoimi pierwszymi wrażeniami i pomóż nam poprawić ogólną jakość Shopware.",
+            "feedback": "Przekaż opinię",
             "feedbackLink": "https://issues.shopware.com"
         },
         "todayStats": {
@@ -1592,6 +1675,7 @@
                 "category": "Kategoria",
                 "categories": "Kategorie",
                 "categoriesRo": "Kategorie",
+                "cheapestPrice": "Cena",
                 "choose": "Wybór",
                 "description": "Opis",
                 "descriptionLong": "Długi opis",
@@ -1605,6 +1689,7 @@
                 "length": "Długość",
                 "linked": "Oznaczony",
                 "manufacturerId": "Producent",
+                "manufacturer": "Producent",
                 "manufacturerNumber": "Numer producenta",
                 "markAsTopseller": "Oznacz jako najlepszego sprzedawcę",
                 "maxDeliveryTime": "Maksymalny czas dostawy",
@@ -1617,7 +1702,7 @@
                 "option": "Opcja",
                 "packUnit": "Jednostka opakowaniowa",
                 "packUnitPlural": "Jednostka opakowaniowa – opakowanie wielokrotne",
-                "cheapestPrice": "Cena",
+                "price": "Cena",
                 "product": "Produkt",
                 "productNumber": "Numer produktu",
                 "purchasePrice": "Cena sprzedaży",
@@ -1774,7 +1859,10 @@
             "xTimesIn": "{n} razy w",
             "close": "Zamknij",
             "from": "Od",
-            "to": "Do"
+            "to": "Do",
+            "bulkEdit": "Edycja zbiorcza",
+            "startBulkEdit": "Uruchom edycję zbiorczą",
+            "bulkEditModalTitle": "Edycja zbiorcza - Wybrano {count} pozycji | Edycja zbiorcza - Wybrano {count} przedmioty"
         },
         "notification": {
             "notificationSaveErrorMessage": "Wystąpił błąd podczas zapisywania obiektu \"{entityName}\".",
@@ -1847,7 +1935,7 @@
             },
             "plugin-updates-listener": {
                 "updatesAvailableTitle": "Dostępne aktualizacje.",
-                "updatesAvailableMessage": "Dla niektórych wtyczek są dostępne aktualizacje."
+                "updatesAvailableMessage": "Pobierz teraz najnowsze wersje rozszerzeń."
             },
             "shopware-updates-listener": {
                 "updatesAvailableTitle": "Dostępna jest nowa wersja Shopware {version}",
@@ -2132,6 +2220,7 @@
         },
         "sw-media-upload-v2": {
             "buttonFileUpload": "Załaduj pliki",
+            "buttonFilesUpload": "Prześlij pliki",
             "buttonUrlUpload": "Załaduj za pośrednictwem URL",
             "buttonSwitchToFileUpload": "Załaduj pliki z Twojego komputera",
             "buttonSwitchToUrlUpload": "Załaduj pliki z URL",
@@ -2218,14 +2307,10 @@
         },
         "sw-multi-tag-ip-select": {
             "enterValidIp": "Wprowadź prawidłowy adres IPv4 lub IPv6",
-            "addIpAdress": "Dodaj adres IP",
+            "addIpAddress": "Dodaj adres IP",
             "knownIps": {
                 "you": "Ty"
             }
-        },
-        "sw-multi-ip-select": {
-            "enterValidIp": "Wprowadź prawidłowy adres IPv4 lub IPv6",
-            "addIpAdress": "Dodaj adres IP"
         },
         "sw-entity-multi-select": {
             "messageNoResults": "Nie znaleziono wyników dla \"{term}\"."
@@ -2295,6 +2380,7 @@
                 "shippingCountryRule": "Kraj dostawy",
                 "shippingStreetRule": "Ulica adresu dostawy",
                 "shippingZipCodeRule": "Adres dostawy – kod pocztowy",
+                "customerLoggedInRule": "Zalogowany klient",
                 "cartAmountRule": "Wartość koszyka",
                 "goodsCountRule": "Liczba produktów w koszyku",
                 "goodsPriceRule": "Cena za produkty w koszyku",
@@ -2336,7 +2422,7 @@
                 "alwaysValidRule": "Zawsze precyzyjny",
                 "lineItemPropertyRule": "Pozycje z właściwościami",
                 "lineItemNoveltyRule": "Nowości",
-                "lineItemCustomFieldRule": "Pozycje z atrybutem",
+                "lineItemCustomFieldRule": "Element wiersza z polem niestandar",
                 "lineItemIsNewRule": "Nowości",
                 "lineItemOfManufacturerRule": "Producent",
                 "lineItemPurchasePriceRule": "Pozycje cena kupna",
@@ -2368,7 +2454,8 @@
         "sw-product-image": {
             "context": {
                 "buttonAsCover": "Wykorzystaj jako cover",
-                "buttonRemove": "Usuń"
+                "buttonRemove": "Usuń",
+                "buttonPreviewImage": "Podgląd obrazu"
             }
         },
         "sw-simple-search-field": {
@@ -2438,7 +2525,9 @@
             "delivery_time": "Czas dostawy | Czasy dostawy",
             "import_export_profile": "Import/eksport profilu | Import/eksport profili",
             "feature_set": "Szablon | Szablony",
-            "event_action": "Wydarzenia biznesowe"
+            "event_action": "Wydarzenia biznesowe",
+            "property_group": "Grupa nieruchomości | Grupy nieruchomości",
+            "document_base_config": "Konfiguracja bazy dokumentów | Konfiguracja bazy dokumentów"
         },
         "day-of-week": {
             "monday": "Poniedziałek",
@@ -2469,6 +2558,7 @@
             "mail_sent": "E-mail wysłany",
             "newsletter_confirm": "Rejestracja newslettera potwierdzona",
             "newsletter_register": "Rejestracja newslettera",
+            "newsletter_unsubscribe": "Wycofanie subskrypcji newslettera",
             "newsletter_update": "Zaktualizowano rejestrację newslettera",
             "product_export_log": "Eksport produktu zrealizowany",
             "state_enter_order_state_cancelled": "Zamówienie wprowadza stan anulowany",
@@ -2900,6 +2990,7 @@
             "columnDescription": "Opis",
             "columnActive": "Aktywny",
             "columnPosition": "Pozycja",
+            "columnExtension": "Rozszerzenie",
             "buttonAddPaymentMethod": "Utwórz metodę płatności",
             "contextMenuEdit": "Edytuj",
             "contextMenuDelete": "Usuń",
@@ -2931,7 +3022,7 @@
         }
     },
     "sw-plugin-box": {
-        "buttonPluginSettings": "Ustawienia wtyczki"
+        "buttonPluginSettings": "Ustawienia rozszerzenia"
     },
     "sw-settings-country": {
         "general": {
@@ -2978,7 +3069,10 @@
             "buttonAddCountryState": "Dodaj kraj związkowy",
             "editAction": "Edytuj",
             "columnStateNameLabel": "Nazwa",
-            "columnStateShortCodeLabel": "Skrót"
+            "columnStateShortCodeLabel": "Skrót",
+            "taxFreeFrom": "Podatek wolny od",
+            "taxFreeFromHelpText": "Jeśli suma koszyka jest wyższa niż wartość ustalona w polu „Tax free from”, cały koszyk będzie wolny od podatku.",
+            "labelVatIdRequired": "Wymagane pole identyfikatora VAT"
         }
     },
     "sw-country-state-detail": {
@@ -3047,7 +3141,9 @@
             },
             "emptyCountryRoundings": "Dodaj poszczególne miejsca po przecinku i współczynniki zaokrąglenia dla różnych krajów.",
             "emptyCountryRoundingsNewCurrency": "Wypełnij podstawowe informacje, zapisz walutę - następnie dodaj wartości",
-            "buttonAddCountry": "Dodaj kraj"
+            "buttonAddCountry": "Dodaj kraj",
+            "taxFreeFrom": "Podatek wolny od",
+            "taxFreeFromHelpText": "Jeśli suma koszyka jest wyższa niż wartość ustalona w polu „Tax free from”, cały koszyk będzie wolny od podatku. Dotyczy tylko koszyków handlowych płaconych w \"{currencyName}„, tylko."
         },
         "currency-country-modal": {
             "labelCountrySelect": "Kraj",
@@ -3062,11 +3158,13 @@
             "labelRoundForNet": "Runda dla klientów netto",
             "grandHeadline": "Całkowita suma",
             "grandSubline": "Zaokrąglenie dotyczy sumy całkowitych",
+            "headerWarning": "Różne interwały zaokrąglania - Pamiętaj, aby skontaktować się z poszczególnymi dostawcami usług, aby uniknąć problemów z rachunkowością.",
+            "headerInfo": "Obliczanie podatku opiera się na niezaokrąglonych sumy. Występujące różnice zaokrąglenia nie podlegają obliczeniom podatkowym.",
             "helpTextDecimals": "Liczba miejsc po przecinku wskazuje maksymalną liczbę cyfr po separatorze dziesiętnym.",
-            "helpTextInterval": "Należy stosować interwały zaokrąglania, aby rozliczać rynki, na których zniesiono najniższe fizyczne nominały waluty oraz w ramach zaokrąglania środków pieniężnych. <br><br> Podpowiedź: Wybierz „Brak”, jeśli nie chcesz stosować zaokrąglenia gotówki. Np. przy użyciu miejsc po przecinku większych niż 2.",
+            "helpTextInterval": "Należy stosować interwały zaokrąglania, aby rozliczać rynki, na których zniesiono najniższe fizyczne nominały waluty oraz w ramach zaokrąglania środków pieniężnych. <br><br> Podpowiedź: Wybierz „Brak”, jeśli nie chcesz stosować zaokrąglenia ceny. Np. przy użyciu miejsc po przecinku większych niż 2.",
             "helpTextRoundForNet": "Aktywuj zaokrąglanie dla grup klientów netto dodatkowo.",
             "labelIntervalNone": "Żaden",
-            "tooltipIntervalDisabled": "Zaokrąglanie środków pieniężnych nie jest stosowane, jeśli liczba miejsc po przecinku jest większa niż 2."
+            "tooltipIntervalDisabled": "Zaokrąglanie cen nie jest stosowane, jeśli skonfigurowane są liczby dziesiętne większe niż 2."
         }
     },
     "sw-category": {
@@ -3289,13 +3387,15 @@
         "visibility": {
             "textHeadline": "Określ zasięg widoczności na kanał sprzedaży",
             "placeholderVisibility": "Przypisz kanały sprzedaży...",
-            "columnAll": "Wszędzie",
-            "columnSearchOnly": "Widoczne tylko w wyszukiwaniu",
-            "columnLinkOnly": "Ukryte",
-            "linkAdvancedVisibility": "Skonfiguruj rozszerzony zasięg widoczności",
+            "columnAll": "Widoczne",
+            "columnSearchOnly": "Ukryj w aukcjach",
+            "columnLinkOnly": "Ukryj w aukcjach i wyszukaj",
+            "visibilityModalDescription": "Opcja „Ukryj w aukcji” wyklucza produkt z listy produktów, ale także z suwaków produktów i list sprzedaży krzyżowej. Wybranie opcji „Ukryj w aukcji i wyszukiwania” spowoduje również wykluczenie produktu z akcji wyszukiwania. Produkty mogą być nadal osiągane za pośrednictwem adresu URL.",
+            "linkAdvancedVisibility": "Ustawianie widoczności dla wybranych kanałów sprzedaży",
             "labelVisibility": "Zasięg widoczności",
             "closeModal": "Przejmij",
-            "bodyVisibility": "Dodaj kanały sprzedaży, gdzie jest produkt powinny być wyświetlane. Możesz także dalej zdefiniować widoczność produktu dla każdego kanału sprzedaży Storefront za pomocą poniższego łącza."
+            "bodyVisibility": "Dodaj kanały sprzedaży, w których ten produkt powinien być wyświetlany. Możesz dodatkowo zdefiniować widoczność produktów dla każdego kanału sprzedaży Sklepu, korzystając z poniższego łącza.",
+            "errorMessage": "Nie można załadować domyślnej konfiguracji kanału sprzedaży."
         },
         "general": {
             "mainMenuItemGeneral": "Produkty",
@@ -3380,7 +3480,10 @@
             "placeholderMetaTitle": "Wprowadź meta-tytuł...",
             "placeholderMetaDescription": "Wprowadź meta opis...",
             "placeholderKeywords": "Wprowadź jedno lub więcej słów kluczowych...",
-            "placeholderCanonicalProduct": "Wybierz wariant..."
+            "placeholderCanonicalProduct": "Wybierz wariant...",
+            "helpTextMetaTitle": "Meta tytuł jest najważniejszym elementem SEO i powinien być unikalny dla każdej strony. Należy ograniczyć długość do maksymalnie 56 znaków. Twoje słowo kluczowe powinno być idealnie umieszczone na samym froncie.",
+            "helpTextMetaDescription": "Dzięki meta opisie potwierdzasz swoim klientom, że znajdują się we właściwym miejscu w Twoim sklepie. Tworzysz zachęty, budujesz zaufanie i zapraszasz do akcji. Powinieneś ograniczyć się do maksimum 155 znaków.",
+            "helpTextKeywords": "Tutaj można zdefiniować opcjonalnie od trzech do pięciu słów kluczowych, pod którymi produkt powinien być znaleziony."
         },
         "settingsForm": {
             "labelCreatedAt": "Data utworzenia",
@@ -3504,6 +3607,7 @@
             "columnInStock": "Dostępność na magazynie",
             "columnAvailableStock": "Produkt wciąż dostępny",
             "columnActions": "Promocja (promocje)",
+            "columnMedia": "Media",
             "contextMenuEdit": "Edytuj",
             "contextMenuDelete": "Usuń",
             "contextMenuDuplicate": "Powiel",
@@ -3604,6 +3708,7 @@
             "generatedListColumnVariation": "Wariant",
             "generatedListColumnPrice": "Cena (brutto / netto)",
             "generatedListColumnProductNumber": "Numer produktu",
+            "generatedListColumnMedia": "Media",
             "generatedListColumnActive": "Aktywny",
             "generatedListColumnStock": "Dostępność na magazynie",
             "generatedListContextMenuEdit": "Edytuj",
@@ -3672,6 +3777,7 @@
         "crossselling": {
             "cardTitleCrossSelling": "Cross Selling",
             "buttonAddCrossSelling": "Dodaj nowy Cross Selling",
+            "buttonAddCrossSellingLanguageWarning": "Możesz tworzyć nowe krzyżowe sprzedaje tylko w domyślnym języku",
             "buttonDeleteCrossSelling": "Usuń",
             "inputCrossSellingTitle": "Tytuł",
             "inputCrossSellingActive": "Aktywny",
@@ -4190,12 +4296,15 @@
             "updateExcludedTermSuccess": "Wykluczony termin wyszukiwania zaktualizowano.",
             "createExcludedTermSuccess": "Wykluczony wyszukiwany termin.",
             "deleteExcludedTermSuccess": "Wykluczony termin wyszukiwania usunięty.",
+            "resetToDefaultExcludedTermSuccess": "Wykluczone wyszukiwane hasła zostały zresetowane do domyślnych.",
+            "resetToDefaultExcludedTermError": "Wystąpił błąd podczas resetowania wykluczonych wyszukiwanych terminów.",
             "saveError": "Wystąpił błąd podczas zapisywania konfiguracji.",
             "index": {
                 "started": "Budowa indeksów produktów.",
                 "success": "Wbudowane indeksy produktów."
             },
-            "loadError": "Wystąpił błąd podczas ładowania konfiguracji."
+            "loadError": "Wystąpił błąd podczas ładowania konfiguracji.",
+            "notSupportedLanguageError": "Wybrany język nie jest dostępny w wybranym kanale sprzedaży"
         },
         "liveSearchTab": {
             "titleCard": "Wyszukiwanie na żywo kanału sprzedaży",
@@ -4239,7 +4348,7 @@
             "username": "Nazwa użytkownika",
             "username-placeholder": "Wprowadź nazwę użytkownika...",
             "password": "Hasło",
-            "password-placeholder": "Podaj hasło...",
+            "password-placeholder": "Wprowadź hasło...",
             "encryption": "Metoda szyfrowania",
             "encryption-placeholder": "Wybierz metodę szyfrowania...",
             "sender-address": "Adres nadawcy",
@@ -4348,7 +4457,7 @@
             "label": "Teraz dostępne",
             "activationDescriptionTitleFirst": "Eksploruj i kupuj rozszerzenia z łatwością -",
             "activationDescriptionTitleSecond": "bezpośrednio z własnego sklepu Shopware.",
-            "activationDescriptionTitleDescription": "Aktywuj nowy sklep Shopware Store i uzyskaj dostęp do mnóstwem przydatnych rozszerzeń i nowoczesnych motywów, które mogą być zintegrowane z Twoim Sklepem bez żadnych umiejętności programowania.",
+            "activationDescriptionTitleDescription": "Aktywuj sklep Shopware Store i uzyskaj dostęp do mnóstwem przydatnych rozszerzeń i nowoczesnych motywów, które mogą być zintegrowane z Twoim Sklepem bez żadnych umiejętności programowania.",
             "activate": "Aktywuj"
         },
         "title": "Sklep",
@@ -4501,6 +4610,9 @@
                     "permissions": "Uprawnienia"
                 }
             },
+            "sw-extension-card-bought": {
+                "subscriptionExpiredAt": "Subskrypcja wygasa o {date}"
+            },
             "sw-extension-deactivation-modal": {
                 "deactivateExtensionLabel": "Dezaktywuj \"{extensionName}”",
                 "description": "Rozszerzenie „{extensionName}” ma miesięczną opłatę abonamentową.<br>Dezaktywacja rozszerzenia <b>nie spowoduje</b> anulowania subskrypcji i opłaty będą nadal pobierane!",
@@ -4510,8 +4622,16 @@
             },
             "sw-extension-permissions-modal": {
                 "title": "{extensionLabel} uprawnień",
-                "description": "{extensionLabel} będzie miał dostęp do następujących składników. Kliknij łącze obok komponentu, aby wyświetlić szczegóły elementu.",
-                "textEntities": "Pokaż uprawnienia"
+                "description": "{extensionLabel} ustanie dostęp do poniższych komponentów. Kliknij łącze obok komponentu, aby wyświetlić szczegóły elementu.",
+                "domainHint": "Niektóre dane będą również udostępniane innym domenom. Kliknij łącze obok domen, aby uzyskać więcej informacji.",
+                "textEntities": "Pokaż uprawnienia",
+                "domains": "Domeny",
+                "showDomains": "Pokaż domeny"
+            },
+            "sw-extension-domains-modal": {
+                "modalTitle": "{extensionLabel} - Domeny",
+                "description": "Niektóre dane zostaną udostępnione lub przeniesione do domen wymienionych poniżej.",
+                "listTitle": "Domena"
             },
             "sw-extension-privacy-policy-extensions-modal": {
                 "title": "{extensionLabel}: rozszerzenia polityki prywatności",
@@ -4940,7 +5060,6 @@
             "messageServerError": "Na serwerze autoryzacji wystąpił ogólny błąd.",
             "messageInvalidRefreshToken": "Podany Refresh Token jest nieważny.",
             "messageAccessDenied": "Odmówiono dostępu.",
-            "messageInvalidGrant": "Typ Grant lub Refresh Token są nieważne.",
             "messageGeneralRequestError": "Żądanie \"{url}\" nie powiodło się.",
             "forgottenPasswordLink": "Zapomniałeś swojego hasła?"
         },
@@ -5010,9 +5129,9 @@
             "clearCachesHeadline": "Wyczyść pamięć podręczną",
             "clearCachesText": "Pamięć podręczna jest natychmiast usuwana synchronicznie dla wszystkich używanych adapterów.",
             "clearCachesButton": "Wyczyść pamięć podręczną",
-            "clearAndWarmUpHeadline": "Usuń i podgrzej pamięć podręczną",
+            "clearAndWarmUpHeadline": "Usuń i rozgrzej pamięć podręczną",
             "clearAndWarmUpText": "Po wyczyszczeniu pamięci podręcznej nowe wpisy w pamięci podręcznej są generowane asynchronicznie.",
-            "clearAndWarmUpButton": "Usuń i podgrzej",
+            "clearAndWarmUpButton": "Usuń i rozgrzej",
             "indexesHeadline": "Indeksy",
             "indexesText": "Wszystkie indeksy są aktualizowane asynchronicznie. Postęp można sprawdzić w informacjach. Dotyczy to m.in. indeksów produktów i kategorii lub adresów URL SEO.",
             "indexesButton": "Aktualizuj indeksy"
@@ -5463,6 +5582,23 @@
             "markets": "Shopware Rynki"
         }
     },
+    "sw-flow": {
+        "general": {
+            "mainMenuItemGeneral": "Konstruktor przepływu",
+            "descriptionTextModule": "Konstruktor przepływu"
+        },
+        "list": {
+            "textHeadline": "Konstruktor przepływu",
+            "buttonAddFlow": "Dodaj przepływ"
+        },
+        "detail": {
+            "textHeadline": "Nowy przepływ"
+        },
+        "page": {
+            "generalTab": "Generał",
+            "flowTab": "Przepływ"
+        }
+    },
     "sw-sales-channel": {
         "general": {
             "tooltipOpenStorefront": "Otwarty sklep",
@@ -5569,6 +5705,14 @@
             "ipAddressWhitleListHelpText": "Dodaj adresy IP do białej listy, aby umożliwić selektywny dostęp do sklepu. W razie potrzeby można dodać adresy IPv4 i IPv6.",
             "basicinformationLink": "Zmień domyślny układ strony konserwacji",
             "columnDomainCurrency": "Waluta",
+            "products": {
+                "titleEmptyState": "Nie dodano jeszcze produktów",
+                "titleEmptyStateTable": "Nie znaleziono pasujących produktów",
+                "buttonAddProducts": "Dodaj produkty",
+                "columnProductName": "Nazwa produktu",
+                "columnActive": "Aktywny",
+                "columnProductNumber": "Numer produktu"
+            },
             "productComparison": {
                 "inputHeaderLabel": "Nagłówek",
                 "inputBodyLabel": "Wiersz produktu",
@@ -5690,6 +5834,12 @@
                 "verticalDescription": "Kwota podatku VAT jest obliczana na podstawie całkowitej kwoty zamówienia. W kasie nie są wyświetlane części podatku VAT dla poszczególnych pozycji. ",
                 "horizontalName": "Obliczanie wers po wersie (poziomo)",
                 "horizontalDescription": "Podatek VAT jest naliczany od każdej pozycji w koszyku. Część podatku VAT każdej pozycji w koszyku jest wyświetlana w kasie. Suma podatku VAT jest obliczana na podstawie udziałów w podatku VAT poszczególnych pozycji."
+            },
+            "productAssigmentModal": {
+                "title": "Dodaj produkty",
+                "singleProducts": "Indywidualne produkty",
+                "categories": "Filtruj według kategorii",
+                "dynamicProductGroups": "Filtrowanie według dynamicznych grup produktów"
             }
         },
         "sw-sales-channel-defaults-select": {
@@ -5761,8 +5911,12 @@
                 "placeholderTestMail": "shop@example.com",
                 "buttonTestMail": "Wyślij",
                 "labelTestMail": "Adres adresata",
-                "titleTestMail": "Wyślij testowego e-maila"
+                "titleTestMail": "Wyślij testowego e-maila",
+                "titleShowPreview": "Pokaż podgląd",
+                "titleShowAvailableVariables": "zmienne",
+                "copyTooltip": "Kopiuj do schowka."
             },
+            "previewModalTitle": "Podgląd",
             "buttonCancel": "Anuluj",
             "buttonSave": "Zapisz",
             "textHeadline": "Nowy szablon e-mail",
@@ -6238,6 +6392,20 @@
             "tags": {
                 "label": "Tagi",
                 "placeholder": "Wybierz znaczniki..."
+            },
+            "affiliateCode": {
+                "label": "Kod partnerski",
+                "placeholder": "Wybierz kod partnerski..."
+            },
+            "campaignCode": {
+                "label": "Kod kampanii",
+                "placeholder": "Wybierz kod kampanii..."
+            },
+            "customerGroupRequest": {
+                "label": "Żądania grup klientów",
+                "placeholder": "Wybierz stan żądania...",
+                "textHasCriteria": "Otwarte żądania grup klientów",
+                "textNoCriteria": "Brak żądań grupy klientów"
             },
             "messageEmptyTitle": "Nic nie znaleziono",
             "messageEmptySubline": "Edytuj filtry, aby znaleźć wyniki."
@@ -7198,9 +7366,9 @@
         "infoTextInheritedField": "{moduleName} ma odziedziczone pola. Oznacza to, że dopóki dziedziczony stan jest aktywny, zawartość jest dziedziczona. Dziedziczone pola można przenosić do folderu nadrzędnego, klikając ikonę linku. Ponowne kliknięcie ikony przywraca stan odziedziczony."
     },
     "sw-license-violation": {
-        "title": "Ostrzeżenie o rozszerzeniu",
+        "title": "Ostrzeżenie rozszerzenia",
         "reload": "Załaduj ponownie",
-        "alertText": "Wykryliśmy naruszenie licencji dla co najmniej jednego z rozszerzeń w tej instalacji. Aby naprawić naruszenie licencji i uniknąć konsekwencji prawnych, zarezerwuj subskrypcję rozszerzenia lub kupić/wypożyczyć rozszerzenie (zgodnie z typem naruszenia). Nie używasz już rozszerzenia? Następnie usuń go za pomocą opcji Moje rozszerzenia. Jeśli żaden z tych środków nie zostanie podjęty, shopware AG zastrzega sobie prawo do pobierania opłat karnych za jakiekolwiek naruszenie licencji.",
+        "alertText": "Wykryliśmy naruszenie licencji dla co najmniej jednego z rozszerzeń w tej instalacji. Aby naprawić naruszenie licencji i uniknąć konsekwencji prawnych, zarezerwuj subskrypcję lub kupić/wynająć rozszerzenie (zgodnie z typem naruszenia). Nie używasz już rozszerzenia? Następnie usuń go za pomocą przycisku „Usuń rozszerzenie trwale” lub poprzez Moje rozszerzenia. Jeśli żaden z tych środków nie zostanie podjęty, shopware AG zastrzega sobie prawo do pobierania opłat karnych za jakiekolwiek naruszenie licencji.",
         "deletePlugin": "Trwale usuń rozszerzenie",
         "messageDeleteConfirm": "Czy chcesz całkowicie usunąć rozszerzenie \"{pluginName}\"?",
         "checkboxMessage": "Przeczytałem ostrzeżenie i rozumiem możliwe konsekwencje.",

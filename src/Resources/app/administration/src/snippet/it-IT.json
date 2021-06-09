@@ -36,8 +36,6 @@
         },
         "detail": {
             "buttonCancel": "Rifiuta modifiche",
-            "buttonSave": "Salva",
-            "buttonEdit": "Modifica",
             "tabOrderDetails": "Dettagli dell'ordine",
             "tabDeliveries": "Consegne",
             "textHeadline": "Ordine",
@@ -181,6 +179,7 @@
             "buttonAddBlankProduct": "Aggiungi voce vuota",
             "buttonAddCredit": "Aggiungi accredito",
             "buttonEditAddress": "Modifica",
+            "tooltipNestedLineItemsButton": "Questa voce contiene voci secondarie.",
             "labelNoPhoneNumber": "Nessuna",
             "labelNoEmail": "Nessuna",
             "labelCustomerPhoneNumber": "Numero di telefono",
@@ -207,6 +206,14 @@
             "enterValidTrackingCode": "Inserisci codice di tracking",
             "textCreditTax": "auto",
             "taxDetail": "{taxRate}%: {tax}"
+        },
+        "nestedLineItemsModal": {
+            "titlePrefix": "Articolo: {lineItemLabel} - {price}",
+            "headerLabel": "Nome",
+            "headerUnitPrice": "Prezzo (lordo)",
+            "headerQuantity": "Quantità",
+            "headerTotalPrice": "Subtotale",
+            "headerTax": "IVA"
         },
         "detailDeliveries": {
             "cardTitleItems": "Consegna {count}",
@@ -380,6 +387,14 @@
                 "label": "Prodotti",
                 "placeholder": "Seleziona prodotti..."
             },
+            "affiliateCodeFilter": {
+                "label": "Codice affiliato",
+                "placeholder": "Seleziona codice affiliato..."
+            },
+            "campaignCodeFilter": {
+                "label": "Codice della campagna",
+                "placeholder": "Seleziona il codice della campagna..."
+            },
             "messageEmptyTitle": "Nulla trovato",
             "messageEmptySubline": "Modificare i filtri per trovare i risultati."
         }
@@ -457,6 +472,9 @@
             },
             "customer_groups": {
                 "label": "Gruppi di clienti"
+            },
+            "flow": {
+                "label": "Flow Builder"
             },
             "sales_channel": {
                 "label": "Canali di vendita"
@@ -616,7 +634,16 @@
         },
         "captcha": {
             "label": {
-                "honeypot": "Honeypot Captcha"
+                "honeypot": "Honeypot CAPTCHA",
+                "basicCaptcha": "Captcha di base",
+                "googleReCaptchaV2": "Google reCAPTCHA v2",
+                "googleReCaptchaV2SiteKey": "Chiave del sito Google reCAPTCHA v2",
+                "googleReCaptchaV2SecretKey": "Chiave segreta Google reCAPTCHA v2",
+                "googleReCaptchaV2Invisible": "Google reCAPTCHA v2 invisibile",
+                "googleReCaptchaV3": "Google reCAPTCHA v3",
+                "googleReCaptchaV3SiteKey": "Chiave del sito Google reCAPTCHA v3",
+                "googleReCaptchaV3SecretKey": "Chiave segreta di Google reCAPTCHA v3",
+                "googleReCaptchaV3ThresholdScore": "Punteggio soglia di Google reCAPTCHA v3"
             }
         }
     },
@@ -750,8 +777,8 @@
                 "messageMissingFields": "Ti preghiamo di compilare tutti i campi di configurazione richiesti.",
                 "messageMissingBlockFields": "Configurazione richiesta. Si prega di compilare i dati in tutti gli elementi.",
                 "messageMissingProductListing": "Impossibile salvare. Aggiungi almeno un blocco di offerte di prodotti o modifica il tipo di layout.",
-                "messageMissingSections": "Non puoi salvare pagine vuote. Ti preghiamo di aggiungere dapprima una sezione.",
-                "messageMissingBlocks": "Non puoi salvare alcuna pagina vuota. Ti preghiamo di aggiungere blocchi.",
+                "messageMissingSections": "Non è possibile salvare una pagina vuota. Per favore aggiungi prima una sezione.",
+                "messageMissingBlocks": "Non è possibile salvare una pagina vuota. Si prega di aggiungere almeno un blocco prima.",
                 "messageMissingElements": "Configurazione richiesta. Configurare tutti gli elementi del layout.",
                 "messageRedundantElements": "I layout non devono contenere più di un elemento {name}."
             },
@@ -767,7 +794,7 @@
                 "titleNavigator": "Navigatore",
                 "titleSectionSettings": "Impostazioni sezione",
                 "titleLayoutAssignment": "Assegnazione layout",
-                "mobile": "Comportamento della sidebar mobile",
+                "mobile": "Comportamento della barra laterale mobile",
                 "mobileOptionHidden": "Non visualizzato",
                 "mobileOptionWrap": "Vai a capo"
             },
@@ -778,7 +805,7 @@
             "tooltip": {
                 "blockNameField": "Nomina ciascun blocco con un proprio nome univoco per mantenere una buona panoramica sul tuo lavoro.",
                 "sectionNameField": "Nomina ciascuna sezione con un proprio nome univoco per mantenere una buona panoramica sul tuo lavoro.",
-                "cannotSelectProductPageLayout": "Non è possibile modificare un layout di tipo pagina prodotto con un altro tipo di layout."
+                "cannotSelectProductPageLayout": "Non è possibile modificare il tipo di layout di una pagina prodotto."
             }
         },
         "elements": {
@@ -1123,6 +1150,9 @@
                         "productDetailElement": "I dati del prodotto di questo elemento vengono caricati automaticamente dal prodotto associato a questo layout. Il contenuto mostra solo un'anteprima di esempio."
                     }
                 }
+            },
+            "productName": {
+                "label": "Nome del prodotto"
             }
         },
         "blocks": {
@@ -1378,6 +1408,11 @@
             }
         },
         "index": {
+            "defaultSalesChannel": {
+                "title": "Canale di vendita predefinito",
+                "description": "Seleziona i canali di vendita predefiniti assegnati automaticamente ai nuovi prodotti creati.",
+                "linkAdvancedVisibility": "Imposta visibilità per i canali di vendita selezionati"
+            },
             "productSorting": {
                 "title": "Opzioni di ordinamento",
                 "addButton": "Aggiungi opzione",
@@ -1430,16 +1465,64 @@
             "descriptionTextModule": "Pagina iniziale, statistiche e informazioni di sistema"
         },
         "introduction": {
-            "headline": "Benvenuto in Shopware 6",
-            "enduserDocumentation": "Documentazione utente finale",
-            "enduserDocumentationLink": "https://docs.shopware.com/en/shopware-6-en",
-            "developerDocumentation": "Documentazione sviluppatore",
-            "developerDocumentationLink": "https://docs.shopware.com/en/shopware-platform-dev-en",
-            "migrationDocumentation": "Documentazione migrazione",
-            "migrationDocumentationLink": "https://docs.shopware.com/en/migration-en",
-            "roadmap": "Roadmap Shopware",
-            "roadmapLink": "https://www.shopware.com/en/roadmap/",
-            "feedback": "Feedback",
+            "headlineUnkownUser": "Benvenuto a Shopware.",
+            "daytimeHeadline": {
+                "5h": {
+                    "0": "Buongiorno, {greetingName}.",
+                    "1": "Ciao, {greetingName}!"
+                },
+                "11h": {
+                    "0": "Ciao, {greetingName}.",
+                    "1": "Buona giornata, {greetingName}.",
+                    "2": "Salve, {greetingName}!"
+                },
+                "18h": {
+                    "0": "Buonasera, {greetingName}.",
+                    "1": "Ciao, {greetingName}!"
+                },
+                "23h": {
+                    "0": "E' bello vederti, {greetingName}.",
+                    "1": "Ancora sveglio, {greetingName}?"
+                }
+            },
+            "daytimeWelcomeText": {
+                "5h": {
+                    "0": "E' ora del caffe', giusto?",
+                    "1": "Sei fuori per un ottimo inizio!",
+                    "2": "Troppo da fare oggi? Concentrati su quei compiti che avranno la maggior parte dell'impatto.",
+                    "3": "Hai un aspetto stupendo oggi!"
+                },
+                "11h": {
+                    "0": "Un altro giorno, un'altra occasione per far crescere il tuo business.",
+                    "1": "Puoi avere un impatto sulla vita di qualcuno oggi.",
+                    "2": "Hai un aspetto favoloso oggi!",
+                    "3": "Oggi hai la possibilità di plasmare il domani che vuoi."
+                },
+                "18h": {
+                    "0": "La giornata è quasi finita, è ora di controllare le ultime attività del tuo negozio.",
+                    "1": "È ora di valutare - Dai un'occhiata a come sta andando il tuo negozio oggi.",
+                    "2": "Le azioni di oggi sono il risultato di domani."
+                },
+                "23h": {
+                    "0": "Trova la bellezza in tutto per ispirare te stesso.",
+                    "1": "Senti, fuori qualcuno ha attivato la modalità oscura.",
+                    "2": "Quasi tutto funzionerà di nuovo, se lo scolleghi per alcuni minuti - questo include te. Prenditi una pausa."
+                }
+            }
+        },
+        "helpcard": {
+            "headline": "Preparati a vendere i tuoi prodotti.",
+            "helpcenter": "Centro assistenza Shopware",
+            "helpcenterLink": "https://docs.shopware.com/en/shopware-6-en",
+            "takeOffTip": "Scopri come effettuare la tua prima vendita",
+            "takeOffTipLink": "https://www.shopware.com/en/news/take-off-in-ecommerce-10-tips-for-your-initial-sales/",
+            "getToKnowSales": "Conosci i canali di vendita",
+            "getToKnowSalesLink": "https://www.youtube.com/watch?v=RsEeersOgIo"
+        },
+        "feedbackCard": {
+            "headline": "Le prime impressioni contano.",
+            "text": "Condividi le tue prime impressioni e aiutaci a migliorare l'esperienza complessiva di Shopware.",
+            "feedback": "Dare un feedback",
             "feedbackLink": "https://issues.shopware.com"
         },
         "todayStats": {
@@ -1592,6 +1675,7 @@
                 "category": "Categoria",
                 "categories": "Categorie",
                 "categoriesRo": "Categorie",
+                "cheapestPrice": "Prezzo",
                 "choose": "Selezione",
                 "description": "Descrizione",
                 "descriptionLong": "Descrizione lunga",
@@ -1605,6 +1689,7 @@
                 "length": "Lunghezza",
                 "linked": "Linkato",
                 "manufacturerId": "Produttore",
+                "manufacturer": "Produttore",
                 "manufacturerNumber": "Codice di produzione",
                 "markAsTopseller": "Selezionato come topseller",
                 "maxDeliveryTime": "Tempo di consegna massimo",
@@ -1617,7 +1702,7 @@
                 "option": "Opzione",
                 "packUnit": "Unità di imballaggio",
                 "packUnitPlural": "Unità di imballaggio plurale",
-                "cheapestPrice": "Prezzo",
+                "price": "Prezzo",
                 "product": "Prodotto",
                 "productNumber": "Codice prodotto",
                 "purchasePrice": "Prezzo di vendita",
@@ -1774,7 +1859,10 @@
             "xTimesIn": "{n} volte in",
             "close": "Chiudi",
             "from": "Da",
-            "to": "A"
+            "to": "A",
+            "bulkEdit": "Modifica in blocco",
+            "startBulkEdit": "Avvia modifica in blocco",
+            "bulkEditModalTitle": "Modifica in blocco - {count} elemento selezionato | Modifica in blocco - {count} elementi selezionati"
         },
         "notification": {
             "notificationSaveErrorMessage": "Si è verificato un errore durante il salvataggio dell'entità \"{entityName}\".",
@@ -1847,7 +1935,7 @@
             },
             "plugin-updates-listener": {
                 "updatesAvailableTitle": "Aggiornamenti disponibili.",
-                "updatesAvailableMessage": "Per alcuni plugin sono disponibili aggiornamenti."
+                "updatesAvailableMessage": "Scarica subito le versioni più recenti delle tue estensioni."
             },
             "shopware-updates-listener": {
                 "updatesAvailableTitle": "È disponibile una nuova versione {version} di Shopware",
@@ -2132,6 +2220,7 @@
         },
         "sw-media-upload-v2": {
             "buttonFileUpload": "Carica file",
+            "buttonFilesUpload": "Caricare file",
             "buttonUrlUpload": "Carica mediante URL",
             "buttonSwitchToFileUpload": "Carica file dal tuo computer",
             "buttonSwitchToUrlUpload": "Carica file dall'URL",
@@ -2218,14 +2307,10 @@
         },
         "sw-multi-tag-ip-select": {
             "enterValidIp": "Ti preghiamo di inserire un indirizzo IPv4 o IPv6 valido",
-            "addIpAdress": "Aggiungi indirizzo IP",
+            "addIpAddress": "Aggiungi indirizzo IP",
             "knownIps": {
                 "you": "Tu"
             }
-        },
-        "sw-multi-ip-select": {
-            "enterValidIp": "Ti preghiamo di inserire un indirizzo IPv4 o IPv6 valido",
-            "addIpAdress": "Aggiungi indirizzo IP"
         },
         "sw-entity-multi-select": {
             "messageNoResults": "Non è stato trovato alcun risultato per \"{term}\"."
@@ -2295,6 +2380,7 @@
                 "shippingCountryRule": "Paese di consegna",
                 "shippingStreetRule": "Indirizzo di consegna",
                 "shippingZipCodeRule": "CAP indirizzo consegna",
+                "customerLoggedInRule": "Il cliente ha effettuato l'accesso",
                 "cartAmountRule": "Valore carrello degli acquisti",
                 "goodsCountRule": "Numero di articoli nel carrello degli acquisti",
                 "goodsPriceRule": "Prezzo degli articoli nel carrello degli acquisti",
@@ -2336,7 +2422,7 @@
                 "alwaysValidRule": "Sempre pertinente",
                 "lineItemPropertyRule": "Voci con proprietà",
                 "lineItemNoveltyRule": "Novità",
-                "lineItemCustomFieldRule": "Voci con attributo",
+                "lineItemCustomFieldRule": "Elemento riga con campo personalizzato",
                 "lineItemIsNewRule": "Novità",
                 "lineItemOfManufacturerRule": "Produttore",
                 "lineItemPurchasePriceRule": "Voci prezzo di acquisto",
@@ -2368,7 +2454,8 @@
         "sw-product-image": {
             "context": {
                 "buttonAsCover": "Utilizza come cover",
-                "buttonRemove": "Rimuovi"
+                "buttonRemove": "Rimuovi",
+                "buttonPreviewImage": "Anteprima immagine"
             }
         },
         "sw-simple-search-field": {
@@ -2438,7 +2525,9 @@
             "delivery_time": "Tempo di consegna | Tempi di consegna",
             "import_export_profile": "Profilo import/export | Profili import/export",
             "feature_set": "Modello | Modelli",
-            "event_action": "Eventi aziendali"
+            "event_action": "Eventi aziendali",
+            "property_group": "Gruppo di proprietà | Gruppi di proprietà",
+            "document_base_config": "Config base documento | Configs di base di documenti"
         },
         "day-of-week": {
             "monday": "Lunedì",
@@ -2469,6 +2558,7 @@
             "mail_sent": "Email inviata",
             "newsletter_confirm": "Iscrizione alla newsletter confermata",
             "newsletter_register": "Iscrizione Newsletter registrata",
+            "newsletter_unsubscribe": "Newsletter annullata",
             "newsletter_update": "Iscrizione alla newsletter aggiornata",
             "product_export_log": "Esportazione del prodotto eseguita",
             "state_enter_order_state_cancelled": "L'ordine inserisce lo stato annullato",
@@ -2900,6 +2990,7 @@
             "columnDescription": "Descrizione",
             "columnActive": "Attivo",
             "columnPosition": "Voce",
+            "columnExtension": "Estensione",
             "buttonAddPaymentMethod": "Crea modalità di pagamento",
             "contextMenuEdit": "Modifica",
             "contextMenuDelete": "Cancella",
@@ -2931,7 +3022,7 @@
         }
     },
     "sw-plugin-box": {
-        "buttonPluginSettings": "Impostazioni plugin"
+        "buttonPluginSettings": "Impostazioni estensione"
     },
     "sw-settings-country": {
         "general": {
@@ -2978,7 +3069,10 @@
             "buttonAddCountryState": "Aggiungi regione",
             "editAction": "Edita",
             "columnStateNameLabel": "Nome",
-            "columnStateShortCodeLabel": "Abbreviazione"
+            "columnStateShortCodeLabel": "Abbreviazione",
+            "taxFreeFrom": "Tasse esenti da",
+            "taxFreeFromHelpText": "Se il totale del carrello è superiore al valore impostato in «Tax free from», l'intero carrello sarà esentasse.",
+            "labelVatIdRequired": "Campo Partita IVA obbligatorio"
         }
     },
     "sw-country-state-detail": {
@@ -3047,7 +3141,9 @@
             },
             "emptyCountryRoundings": "Aggiungere singoli decimali e fattori di arrotondamento per diversi paesi.",
             "emptyCountryRoundingsNewCurrency": "Inserisci le informazioni di base, salva la valuta, quindi aggiungi valori",
-            "buttonAddCountry": "Aggiungi paese"
+            "buttonAddCountry": "Aggiungi paese",
+            "taxFreeFrom": "Tasse esenti da",
+            "taxFreeFromHelpText": "Se il totale del carrello è superiore al valore impostato in «Tax free from», l'intero carrello sarà esentasse. Si applica solo ai carrelli della spesa pagati in \"{currencyName}«, solo."
         },
         "currency-country-modal": {
             "labelCountrySelect": "Paese",
@@ -3062,11 +3158,13 @@
             "labelRoundForNet": "Rotondo anche per clienti netti",
             "grandHeadline": "Totale",
             "grandSubline": "L'arrotondamento si applica ai totali complessivi",
+            "headerWarning": "Intervalli di arrotondamento diversi: assicurati di controllare con i tuoi singoli fornitori di servizi per evitare problemi di contabilità.",
+            "headerInfo": "Il calcolo delle imposte si basa sui totali non arrotondati. Le differenze di arrotondamento che si verificano non sono soggette al calcolo delle imposte.",
             "helpTextDecimals": "I decimali indicano il numero massimo di cifre dopo il separatore decimale.",
-            "helpTextInterval": "Utilizzare gli intervalli di arrotondamento per contabilizzare i mercati in cui i tagli fisici più bassi della valuta sono stati aboliti e sono in vigore arrotondamenti di cassa. <br><br> Suggerimento: selezionare «Nessuno» se non si desidera applicare alcun arrotondamento di cassa. Ad esempio, quando si utilizzano decimali superiori a 2.",
+            "helpTextInterval": "Utilizzare gli intervalli di arrotondamento per contabilizzare i mercati in cui i tagli fisici più bassi della valuta sono stati aboliti e sono in vigore arrotondamenti di cassa. <br><br> Suggerimento: selezionare «Nessuno» se non si desidera applicare alcun arrotondamento prezzo. Ad esempio, quando si utilizzano decimali superiori a 2.",
             "helpTextRoundForNet": "Attivare inoltre l'arrotondamento per i gruppi di clienti netti.",
             "labelIntervalNone": "Nessuno",
-            "tooltipIntervalDisabled": "L'arrotondamento di cassa non viene applicato se i decimali sono superiori a 2."
+            "tooltipIntervalDisabled": "L'arrotondamento dei prezzi non viene applicato se sono configurati decimali superiori a 2."
         }
     },
     "sw-category": {
@@ -3289,13 +3387,15 @@
         "visibility": {
             "textHeadline": "Stabilisci la visibilità per canale di vendita",
             "placeholderVisibility": "Assegna canali di vendita...",
-            "columnAll": "Ovunque",
-            "columnSearchOnly": "Visibile solo nella ricerca",
-            "columnLinkOnly": "Nascosto",
-            "linkAdvancedVisibility": "Configura visibilità estesa",
+            "columnAll": "Visibile",
+            "columnSearchOnly": "Nascondi nelle inserzioni",
+            "columnLinkOnly": "Nascondi nelle inserzioni e cerca",
+            "visibilityModalDescription": "«Nascondi nell'offerta» escluderà il prodotto dalle offerte di panoramica dei prodotti, ma anche dai cursori dei prodotti e dalle liste di vendita incrociata. Selezionando l'opzione «Nascondi nell'offerta e ricerca» si escluderà anche il prodotto dalle azioni di ricerca. I prodotti possono ancora essere raggiunti tramite URL.",
+            "linkAdvancedVisibility": "Imposta visibilità per i canali di vendita selezionati",
             "labelVisibility": "Visibilità",
             "closeModal": "Acquisisci",
-            "bodyVisibility": "Aggiungi canali di vendita dove è prodotto deve essere visualizzato. Puoi anche definire ulteriormente la visibilità del prodotto per ogni canale di vendita Storefront tramite il link qui sotto."
+            "bodyVisibility": "Aggiungi canali di vendita in cui questo prodotto deve essere visualizzato. È possibile definire ulteriormente la visibilità del prodotto per ciascun canale di vendita Storefront tramite il link sottostante.",
+            "errorMessage": "Impossibile caricare la configurazione predefinita del canale di vendita."
         },
         "general": {
             "mainMenuItemGeneral": "Prodotti",
@@ -3380,7 +3480,10 @@
             "placeholderMetaTitle": "Inserisci un meta titolo...",
             "placeholderMetaDescription": "Inserisci una meta descrizione...",
             "placeholderKeywords": "Inserisci una o più parole chiave...",
-            "placeholderCanonicalProduct": "Seleziona una variante..."
+            "placeholderCanonicalProduct": "Seleziona una variante...",
+            "helpTextMetaTitle": "Il meta titolo è l'elemento SEO più importante e dovrebbe essere unico per ogni pagina. Si dovrebbe limitare la lunghezza a un massimo di 56 caratteri. La tua parola chiave dovrebbe idealmente essere posizionata in primo piano.",
+            "helpTextMetaDescription": "Con la meta descrizione, confermi ai tuoi clienti che si trovano nel posto giusto nel tuo negozio. Crei incentivi, costruisci fiducia e inviti a un'azione. Dovreste limitarvi a un massimo di 155 caratteri.",
+            "helpTextKeywords": "Qui puoi definire facoltativamente da tre a cinque parole chiave in base alle quali il tuo prodotto deve essere trovato."
         },
         "settingsForm": {
             "labelCreatedAt": "Data creazione",
@@ -3504,6 +3607,7 @@
             "columnInStock": "Scorta disponibile",
             "columnAvailableStock": "Ancora disponibile",
             "columnActions": "Promozione(i)",
+            "columnMedia": "Media",
             "contextMenuEdit": "Modifica",
             "contextMenuDelete": "Cancella",
             "contextMenuDuplicate": "Duplica",
@@ -3604,6 +3708,7 @@
             "generatedListColumnVariation": "Variante",
             "generatedListColumnPrice": "Prezzo (lordo / netto)",
             "generatedListColumnProductNumber": "Codice prodotto",
+            "generatedListColumnMedia": "Media",
             "generatedListColumnActive": "Attivo",
             "generatedListColumnStock": "Scorta disponibile",
             "generatedListContextMenuEdit": "Modifica",
@@ -3672,6 +3777,7 @@
         "crossselling": {
             "cardTitleCrossSelling": "Cross selling",
             "buttonAddCrossSelling": "Aggiungi nuovo cross selling",
+            "buttonAddCrossSellingLanguageWarning": "Puoi creare nuove vendite incrociate solo nella tua lingua predefinita",
             "buttonDeleteCrossSelling": "Cancella",
             "inputCrossSellingTitle": "Titolo",
             "inputCrossSellingActive": "Attivo",
@@ -4190,12 +4296,15 @@
             "updateExcludedTermSuccess": "Termine di ricerca escluso aggiornato.",
             "createExcludedTermSuccess": "Termine di ricerca escluso creato.",
             "deleteExcludedTermSuccess": "Termine di ricerca escluso eliminato.",
+            "resetToDefaultExcludedTermSuccess": "I termini di ricerca esclusi sono stati reimpostati ai valori predefiniti.",
+            "resetToDefaultExcludedTermError": "Si è verificato un errore durante la reimpostazione dei termini di ricerca esclusi.",
             "saveError": "Si è verificato un errore durante il salvataggio della configurazione.",
             "index": {
                 "started": "Indici dei prodotti per la costruzione.",
                 "success": "Indici di prodotto costruiti."
             },
-            "loadError": "Si è verificato un errore durante il caricamento della configurazione."
+            "loadError": "Si è verificato un errore durante il caricamento della configurazione.",
+            "notSupportedLanguageError": "La lingua selezionata non è disponibile nel canale di vendita selezionato"
         },
         "liveSearchTab": {
             "titleCard": "Ricerca dal vivo nel canale di vendita",
@@ -4348,7 +4457,7 @@
             "label": "Ora disponibile",
             "activationDescriptionTitleFirst": "Esplora e acquista facilmente le estensioni -",
             "activationDescriptionTitleSecond": "direttamente dall'interno del tuo negozio Shopware.",
-            "activationDescriptionTitleDescription": "Attiva il nuovo Shopware Store e accedi a un sacco di utili Estensioni e Temi moderni che possono essere integrati nel tuo Negozio senza alcuna abilità di programmazione.",
+            "activationDescriptionTitleDescription": "Attiva Shopware Store e accedi a un sacco di utili Estensioni e Temi moderni che possono essere integrati nel tuo Negozio senza alcuna abilità di programmazione.",
             "activate": "Attivare"
         },
         "title": "Negozio",
@@ -4501,6 +4610,9 @@
                     "permissions": "Autorizzazioni"
                 }
             },
+            "sw-extension-card-bought": {
+                "subscriptionExpiredAt": "L'abbonamento scade a {date}"
+            },
             "sw-extension-deactivation-modal": {
                 "deactivateExtensionLabel": "Disattiva \"{extensionName}»",
                 "description": "L'estensione \"{extensionName}\" ha una quota di abbonamento mensile.<br>Disattivazione dell'estensione <b>non</b> annulla l'abbonamento e le spese continueranno ad essere riscosse!",
@@ -4510,8 +4622,16 @@
             },
             "sw-extension-permissions-modal": {
                 "title": "{extensionLabel} autorizzazioni",
-                "description": "{extensionLabel} avrà accesso ai seguenti componenti. Fare clic sul collegamento accanto al componente per visualizzare i dettagli dell'entità.",
-                "textEntities": "Mostra autorizzazioni"
+                "description": "{extensionLabel} otterrà l'accesso ai componenti sottostanti. Fare clic sul collegamento accanto al componente per visualizzare i dettagli dell'entità.",
+                "domainHint": "Alcuni dati saranno condivisi con altri domini. Fare clic sul collegamento accanto ai domini per ulteriori dettagli.",
+                "textEntities": "Mostra autorizzazioni",
+                "domains": "Domini",
+                "showDomains": "Mostra domini"
+            },
+            "sw-extension-domains-modal": {
+                "modalTitle": "{extensionLabel} - Domini",
+                "description": "Alcuni dati verranno condivisi/trasferiti ai domini elencati di seguito.",
+                "listTitle": "Dominio"
             },
             "sw-extension-privacy-policy-extensions-modal": {
                 "title": "{extensionLabel}: estensioni dell'informativa sulla privacy",
@@ -4940,7 +5060,6 @@
             "messageServerError": "Si è verificato un errore generico nel server di autenticazione.",
             "messageInvalidRefreshToken": "Il refresh token indicato non è valido.",
             "messageAccessDenied": "L'accesso è stato negato.",
-            "messageInvalidGrant": "Il grant type o il refresh token non sono validi.",
             "messageGeneralRequestError": "La richiesta a \"{url}\" è fallita.",
             "forgottenPasswordLink": "Hai dimenticato la tua password?"
         },
@@ -5463,6 +5582,23 @@
             "markets": "Mercati Shopware"
         }
     },
+    "sw-flow": {
+        "general": {
+            "mainMenuItemGeneral": "Costruttore flusso",
+            "descriptionTextModule": "Costruttore flusso"
+        },
+        "list": {
+            "textHeadline": "Flow Builder",
+            "buttonAddFlow": "Aggiungi flusso"
+        },
+        "detail": {
+            "textHeadline": "Nuovo flusso"
+        },
+        "page": {
+            "generalTab": "Generale",
+            "flowTab": "Flusso"
+        }
+    },
     "sw-sales-channel": {
         "general": {
             "tooltipOpenStorefront": "Apri vetrina",
@@ -5569,6 +5705,14 @@
             "ipAddressWhitleListHelpText": "Aggiungi indirizzi IP alla whitelist, per consentire un accesso selettivo allo Shop. Se necessario, puoi aggiungere indirizzi IPv4 e IPv6.",
             "basicinformationLink": "Modifica layout pagine di manutenzione standard",
             "columnDomainCurrency": "Valuta",
+            "products": {
+                "titleEmptyState": "Nessun prodotto ancora aggiunto",
+                "titleEmptyStateTable": "Nessun prodotto corrispondente trovato",
+                "buttonAddProducts": "Aggiungi prodotti",
+                "columnProductName": "Nome del prodotto",
+                "columnActive": "Attivo",
+                "columnProductNumber": "Numero prodotto"
+            },
             "productComparison": {
                 "inputHeaderLabel": "Riga di intestazione",
                 "inputBodyLabel": "Riga prodotto",
@@ -5690,6 +5834,12 @@
                 "verticalDescription": "Il totale dell’imposta sul valore aggiunto viene calcolato sulla base dell’importo totale dell’ordine. Gli importi IVA delle singole voci non vengono visualizzati al checkout. ",
                 "horizontalName": "Calcolo a righe (orizzontale)",
                 "horizontalDescription": "L’imposta sul valore aggiunto viene calcolata per ciascuna voce del carrello degli acquisti. Gli importi IVA di ciascuna voce del carrello degli acquisti non vengono visualizzati durante il checkout. Il totale dell’imposta sul valore aggiunto si ottiene dagli importi IVA delle singole voci."
+            },
+            "productAssigmentModal": {
+                "title": "Aggiungi prodotti",
+                "singleProducts": "Prodotti individuali",
+                "categories": "Filtra per categorie",
+                "dynamicProductGroups": "Filtra per gruppi di prodotti dinamici"
             }
         },
         "sw-sales-channel-defaults-select": {
@@ -5761,8 +5911,12 @@
                 "placeholderTestMail": "shop@esempio.it",
                 "buttonTestMail": "Invia",
                 "labelTestMail": "Indirizzo destinatario",
-                "titleTestMail": "Invia e-mail di prova"
+                "titleTestMail": "Invia e-mail di prova",
+                "titleShowPreview": "Mostra anteprima",
+                "titleShowAvailableVariables": "Variabili",
+                "copyTooltip": "Copia negli appunti."
             },
+            "previewModalTitle": "Anteprima",
             "buttonCancel": "Interrompi",
             "buttonSave": "Salva",
             "textHeadline": "Nuovi template e-mail",
@@ -6238,6 +6392,20 @@
             "tags": {
                 "label": "Tag",
                 "placeholder": "Seleziona tag..."
+            },
+            "affiliateCode": {
+                "label": "Codice di affiliazione",
+                "placeholder": "Seleziona codice affiliato..."
+            },
+            "campaignCode": {
+                "label": "Codice campagna",
+                "placeholder": "Seleziona codice campagna..."
+            },
+            "customerGroupRequest": {
+                "label": "Richieste di gruppo di clienti",
+                "placeholder": "Seleziona stato richiesta...",
+                "textHasCriteria": "Richieste di gruppi di clienti aperti",
+                "textNoCriteria": "Nessuna richiesta di gruppi di clienti"
             },
             "messageEmptyTitle": "Nulla trovato",
             "messageEmptySubline": "Modificare i filtri per trovare i risultati."
@@ -7198,9 +7366,9 @@
         "infoTextInheritedField": "{moduleName} ha campi ereditati. Ciò significa che finché lo stato ereditato è attivo, il contenuto viene ereditato. I campi ereditati possono essere risolti cliccando sul simbolo link. Facendo nuovamente clic sul simbolo si resetta lo stato ereditato."
     },
     "sw-license-violation": {
-        "title": "Avvertenze di estensione",
+        "title": "Avviso estensione",
         "reload": "Carica di nuovo",
-        "alertText": "Abbiamo rilevato una violazione della licenza per almeno una delle estensioni dell'utente in questa installazione. Per correggere la violazione della licenza ed evitare conseguenze legali, prenotare un abbonamento di estensione o acquistare/noleggiare l'estensione (in base al tipo di violazione inflitta). Non usi più l'estensione? Quindi eliminalo tramite le estensioni personali. Se nessuna di queste misure viene adottata, shopware AG si riserva il diritto di addebitare penali per qualsiasi violazione della licenza.",
+        "alertText": "Abbiamo rilevato una violazione della licenza per almeno una delle estensioni dell'utente in questa installazione. Per correggere la violazione della licenza ed evitare conseguenze legali, prenotare un abbonamento o acquistare/noleggiare l'estensione (in base al tipo di violazione inflitta). Non usi più l'estensione? Quindi eliminalo tramite il pulsante «Elimina l'estensione permanentemente» o tramite Le mie estensioni. Se nessuna di queste misure viene adottata, shopware AG si riserva il diritto di addebitare penali per qualsiasi violazione della licenza.",
         "deletePlugin": "Elimina l'estensione definitivamente",
         "messageDeleteConfirm": "Eliminare completamente l'estensione \"{pluginName}\"?",
         "checkboxMessage": "Ho letto l’avviso e comprendo le possibili conseguenze.",
@@ -7364,7 +7532,7 @@
                 },
                 "reinstall-apps": {
                     "name": "Copiare le app nel dominio corrente",
-                    "description": "Se vuoi che le tue app funzionino su entrambi i domini, reinstalla tutte le app nel nuovo dominio. Nota: i dati delle app sul tuo vecchio dominio saranno ancora disponibili, le app non gratuite potrebbero richiedere costi aggiuntivi per ciascun dominio."
+                    "description": "Se vuoi che le tue app funzionino su entrambi i domini, questa reinstalla tutte le app nel nuovo dominio. Nota: i dati delle app sul tuo vecchio dominio saranno ancora disponibili, le app non gratuite potrebbero richiedere costi aggiuntivi per ciascun dominio."
                 },
                 "uninstall-apps": {
                     "name": "Disinstallare app",

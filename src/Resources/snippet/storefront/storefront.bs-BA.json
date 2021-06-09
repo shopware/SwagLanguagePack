@@ -63,7 +63,6 @@
         "CHECKOUT__UNKNOWN_PAYMENT_METHOD": "Odabrani način plaćanja ne postoji.",
         "productNotFound": "Proizvod \"%number%\" nije pronađen.",
         "payment-method-blocked": "Plaćanje putem %name% nije dostupno.",
-        "shipping-method-blocked": "%name% dostava nije dostupna.",
         "shipping-address-blocked": "Dostava na odabranu adresu nije moguća.",
         "shipping-address-invalid": "Odabrana adresa za dostavu nije valjana ili nepotpuna. Molimo provjerite svoje unose.",
         "billing-address-blocked": "Naplata na odabranu adresu nije moguća.",
@@ -73,7 +72,10 @@
         "message-403-ajax": "Vaša sesija je istekla. Molimo da ponovo učitate stranicu i pokušate ponovo.",
         "message-403": "Vaša sesija je istekla. Molimo da se vratite na zadnju stranicu i pokušate ponovo.",
         "product-out-of-stock": "%name% trenutno nije dostupno.",
-        "auto-promotion-not-found": "Promocija \"%name%\" više nije važeća!"
+        "auto-promotion-not-found": "Promocija \"%name%\" više nije važeća!",
+        "captcha": {
+            "basic-captcha-invalid": "Captcha je nevažeća. Molimo provjerite svoje unose."
+        }
     },
     "account": {
         "externalPaymentCanceled": "Primili smo vašu narudžbu, ali plaćanje je prekinuto. Promijenite način plaćanja ili pokušajte ponovno",
@@ -503,7 +505,7 @@
         "reviewFormContentLabel": "Vaša recenzija",
         "reviewFormSubmitText": "Pošalji",
         "reviewFormCancelText": "Poništi",
-        "reviewFormErrorAlert": "Došlo je do greške. Molimo provjerite da li ste tačno popunili sva polja.",
+        "reviewFormErrorAlert": "Došlo je do greške. Provjerite jeste li ispravno popunili sva polja.",
         "reviewFormSuccessAlert": "Hvala vam što ste poslali vašu recenziju. Pregledat ćemo pregled i na kraju ga otključati, budite strpljivi.",
         "reviewFormSuccessUpdateAlert": "Hvala vam što ste uredili vašu recenziju. Promjene će biti vidljive čim ih otključamo.",
         "reviewTeaserTitle": "Ostavite recenziju!",
@@ -540,7 +542,8 @@
         "noLongerAvailableTooltip": "Proizvod više nije dostupan.",
         "wishlistMergeHint": "Vaša lista želja može sadržavati proizvode koji su dodani i spremljeni tijekom prethodne posjete.",
         "wishlistEmptyHeader": "Vaša lista želja je prazna",
-        "wishlistEmptyDescription": "Pripazite na proizvode koji vam se sviđaju tako da ih dodate na listu želja."
+        "wishlistEmptyDescription": "Pripazite na proizvode koji vam se sviđaju tako da ih dodate na listu želja.",
+        "deliveryTimeRestock": "{1} Dostupno u 1 dan, vrijeme isporuke %name%|] 1, Inf [Dostupno u %restockTime% dana, vrijeme isporuke %name%"
     },
     "footer": {
         "serviceHotlineHeadline": "Uslužna linija",
@@ -555,6 +558,12 @@
         "excludeVat": "* Sve cijene osim PDV plus <a data-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">troškovi dostave</a> i moguće troškove isporuke, ukoliko nije drugačije navedeno.",
         "copyrightInfo": "Realizirano sa Shopware-om"
     },
+    "captcha": {
+        "googleReCaptcha": {
+            "dataProtectionInformation": "Ova stranica je zaštićena reCAPTCHA i primjenjuju se Google\n<a href=\"https://policies.google.com/privacy\">Pravila o privatnosti</a> i\n<a href=\"https://policies.google.com/terms\">Uvjeti pružanja usluge</a>."
+        },
+        "basicCaptchaLabel": "Molimo unesite znakove prikazane iznad*"
+    },
     "cookie": {
         "message": "Ova web stranica koristi kolačiće kako bi osigurala najbolje moguće iskustvo. <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"More information\">Više informacija...</a>",
         "deny": "Odbij",
@@ -568,7 +577,7 @@
         "groupRequiredSession": "Sesija",
         "groupRequiredCsrf": "Zaštita CSRF-a",
         "groupRequiredTimezone": "Vremenska zona",
-        "groupRequiredGoogleReCaptcha": "Google reCAPTCHA",
+        "groupRequiredCaptcha": "Integracija Captcha",
         "groupStatistical": "Statistike",
         "groupStatisticalDescription": "Kolačići koji se koriste za statistiku i metriku učinka trgovine.",
         "groupStatisticalGoogleAnalytics": "Google Analytics",

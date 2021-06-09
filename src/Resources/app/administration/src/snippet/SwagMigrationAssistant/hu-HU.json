@@ -43,7 +43,7 @@
                     "availableVersionHeadline": "Támogatott:",
                     "installedHint": "Telepítve",
                     "installationButton": "Telepítés",
-                    "shopwareProfileHeadline": "Shopware 5 - Profil",
+                    "shopwareProfileHeadline": "Shopware - Profil",
                     "magentoProfileHeadline": "Magento - Profil",
                     "profileManufacturer": "shopware AG"
                 },
@@ -79,6 +79,12 @@
                         "contentTitle": "Plugin szükséges",
                         "contentInformation": "A szükséges „Migration Connector” bővítmény ingyenes, és megtalálható a Shopware 5 backendben a Plugin Manager > Bővítmények > Migration tools alatt. Kérjük, telepítse és aktiválja a bővítményt a folytatáshoz.",
                         "pluginLink": "További információ a beépülő modulról"
+                    },
+                    "shopware6Api": {
+                        "contentTitle": "Integráció szükséges",
+                        "contentInformation": "A Settings > System > Integrations segítségével integrálni kell a forrásrendszerbe.",
+                        "pluginLink": "További információk az integrációról",
+                        "link": "https://docs.shopware.com/en/shopware-6-en/settings/system/integrationen"
                     }
                 },
                 "credentials": {
@@ -110,6 +116,20 @@
                             "dbPasswordPlaceholder": "Adja meg a jelszót",
                             "installationRoot": "Üzlet telepítési mappája",
                             "installationRootPlaceholder": "Adja meg a telepítési gyökér"
+                        }
+                    },
+                    "shopware6": {
+                        "api": {
+                            "contentInformation": "Érvényes API hitelesítő adatokra van szükség a forrás és a cél Shopware 6 példány közötti kapcsolat létrehozásához. Ezeket akkor kapod meg, ha integrációt hozol létre a forrásrendszeredben.",
+                            "apiPasswordLabel": "Titkos hozzáférési kulcs",
+                            "apiPasswordTooltip": "A titkos hozzáférési kulcsot a biztonság és az azonosítás érdekében használják.",
+                            "apiPasswordPlaceholder": "Adja meg a titkos hozzáférési kulcsot",
+                            "apiUserLabel": "Hozzáférési kulcs azonosító",
+                            "apiUserTooltip": "Hozzáférés az integráció kulcsazonosítójához.",
+                            "apiUserPlaceholder": "Hozzáférési kulcs azonosítója",
+                            "endpointLabel": "Shop domain",
+                            "endpointPlaceholder": "www.demoshop.com",
+                            "endpointSSLLabel": "Üzletem biztonságos kapcsolatot (SSL) használ"
                         }
                     },
                     "statusTitle": "Csatlakozás ellenőrzése",
@@ -236,12 +256,15 @@
                     "newsletterRecipient": "Hírlevél címzett",
                     "productReviews": "Termék vélemények",
                     "seoUrls": "Seo URL-ek",
-                    "promotions": "Akciók"
+                    "promotions": "Akciók",
+                    "cms": "Elrendezések",
+                    "customerWishlists": "Kívánságlisták"
                 },
                 "entities": {
                     "category": "Kategóriák:",
                     "product": "Termékek:",
                     "customer": "Ügyfelek:",
+                    "delivery_time": "Szállítási idők:",
                     "order": "Megrendelések:",
                     "media": "Média:",
                     "translation": "Fordítások:",
@@ -251,14 +274,44 @@
                     "property_group_option": "Tulajdonságok:",
                     "number_range": "Számtartományok:",
                     "order_document": "Megrendelési dokumentumok:",
+                    "order_document_base_config": "Dokumentum konfigurálása:",
+                    "order_document_inheritance": "Dokumentumkapcsolatok megrendelése:",
                     "shipping_method": "Szállítási módok:",
                     "currency": "Pénznem:",
                     "sales_channel": "Értékesítési csatornák:",
+                    "sales_channel_domain": "Tartományok:",
                     "product_review": "Vélemények:",
-                    "seo_url": "Seo URL-ek:",
+                    "seo_url": "SEO URL-ek:",
+                    "seo_url_template": "SEO URL-sablonok:",
                     "product_cross_selling": "Keresztértékesítés:",
+                    "promotion": "Akciók:",
+                    "language": "Nyelvek:",
+                    "category_association": "Kategória egyesületek",
+                    "category_cms_page_association": "Kategóriaelrendezés társítások:",
+                    "tax": "Adókulcsok:",
+                    "tax_rule": "Adószabályok:",
+                    "property_group": "Tulajdonság csoportok:",
+                    "product_manufacturer": "Termékgyártók:",
                     "main_variant_relation": "Fő variáns kapcsolatok:",
-                    "promotion": "Akciók:"
+                    "customer_wishlist": "Kívánságlisták:",
+                    "unit": "Léptékegységek:",
+                    "media_folder": "Média mappák:",
+                    "media_folder_inheritance": "Médiafappa öröklése:",
+                    "salutation": "Üdvözlések:",
+                    "rule": "Szabályok:",
+                    "country": "Országok:",
+                    "custom_field_set": "Egyéni mezőkészletek:",
+                    "snippet": "Kódrészletek:",
+                    "snippet_set": "Kódrészlet készletek:",
+                    "mail_template": "E-mail sablonok:",
+                    "product_feature_set": "Alapvető jellemzők:",
+                    "product_sorting": "Termék válogatás:",
+                    "system_config": "Alapvető információk:",
+                    "page_system_config": "Az oldal alapvető információi:",
+                    "cms_page": "Elrendezések:",
+                    "product_stream": "Dinamikus termékcsoportok:",
+                    "product_stream_filter_inheritance": "Dinamikus termékcsoport szűrők:",
+                    "country_state": "Országos államok:"
                 },
                 "noData": "Nem találtak semmit, ami átvándorolna."
             },

@@ -43,7 +43,7 @@
                     "availableVersionHeadline": "Поддерживается:",
                     "installedHint": "Установлено",
                     "installationButton": "Установить",
-                    "shopwareProfileHeadline": "Shopware 5 - Профиль",
+                    "shopwareProfileHeadline": "Shopware - Профиль",
                     "magentoProfileHeadline": "Magento - Профиль",
                     "profileManufacturer": "shopware AG"
                 },
@@ -79,6 +79,12 @@
                         "contentTitle": "Требуется плагин",
                         "contentInformation": "Необходимый плагин «Migration Connector» является бесплатным и может быть найден в вашем бэкенде Shopware 5 в разделе Plugin Manager > Расширения > Инструменты миграции. Пожалуйста, установите и активируйте плагин, чтобы продолжить.",
                         "pluginLink": "Более подробная информация о плагине"
+                    },
+                    "shopware6Api": {
+                        "contentTitle": "Требуется интеграция",
+                        "contentInformation": "Необходимо создать интеграцию в исходную систему через Настройки > Система > Интеграции.",
+                        "pluginLink": "Дополнительная информация об интеграции",
+                        "link": "https://docs.shopware.com/en/shopware-6-en/settings/system/integrationen"
                     }
                 },
                 "credentials": {
@@ -110,6 +116,20 @@
                             "dbPasswordPlaceholder": "Введите пароль",
                             "installationRoot": "Папка установки магазина",
                             "installationRootPlaceholder": "Введите корень установки"
+                        }
+                    },
+                    "shopware6": {
+                        "api": {
+                            "contentInformation": "Для установления соединения между исходным и целевым экземпляром Shopware 6 необходимы действительные учетные данные API. Вы получаете их при создании интеграции в исходной системе.",
+                            "apiPasswordLabel": "Секретный ключ доступа",
+                            "apiPasswordTooltip": "Секретный ключ доступа используется для обеспечения безопасности и идентификации.",
+                            "apiPasswordPlaceholder": "Введите секретный ключ доступа",
+                            "apiUserLabel": "Идентификатор ключа доступа",
+                            "apiUserTooltip": "Идентификатор ключа доступа вашей интеграции.",
+                            "apiUserPlaceholder": "Введите идентификатор ключа доступа",
+                            "endpointLabel": "Домен магазина",
+                            "endpointPlaceholder": "www.demoshop.com",
+                            "endpointSSLLabel": "Мой магазин использует безопасное соединение (SSL)"
                         }
                     },
                     "statusTitle": "Проверка подключения",
@@ -237,12 +257,15 @@
                     "newsletterRecipient": "Получатель рассылки",
                     "productReviews": "Отзывы о товарах",
                     "seoUrls": "Seo URL-адреса",
-                    "promotions": "Акции"
+                    "promotions": "Акции",
+                    "cms": "Макеты",
+                    "customerWishlists": "Списки желаний"
                 },
                 "entities": {
                     "category": "Категории:",
                     "product": "Продукты:",
                     "customer": "Клиенты:",
+                    "delivery_time": "Сроки доставки:",
                     "order": "Заказы:",
                     "media": "Медиа:",
                     "translation": "Переводы:",
@@ -252,14 +275,44 @@
                     "property_group_option": "Свойства:",
                     "number_range": "Диапазоны номеров:",
                     "order_document": "Заказать документы:",
+                    "order_document_base_config": "Конфигурация документа:",
+                    "order_document_inheritance": "Отношения документов заказа:",
                     "shipping_method": "Способы доставки:",
                     "currency": "Валюты:",
                     "sales_channel": "Каналы продаж:",
+                    "sales_channel_domain": "Домены:",
                     "product_review": "Отзывы:",
-                    "seo_url": "Seo URL-адреса:",
+                    "seo_url": "SEO URL-адреса:",
+                    "seo_url_template": "Шаблоны SEO URL:",
                     "product_cross_selling": "Кросс-продажа:",
+                    "promotion": "Акции:",
+                    "language": "Языки:",
+                    "category_association": "Категории ассоциаций:",
+                    "category_cms_page_association": "Связи макетов категорий:",
+                    "tax": "Налоговые ставки:",
+                    "tax_rule": "Налоговые правила:",
+                    "property_group": "Группы недвижимости:",
+                    "product_manufacturer": "Производители продукции:",
                     "main_variant_relation": "Основные варианты отношений:",
-                    "promotion": "Акции:"
+                    "customer_wishlist": "Списки желаний:",
+                    "unit": "Единицы масштаба:",
+                    "media_folder": "Папки мультимедиа:",
+                    "media_folder_inheritance": "Наследование папок мультимедиа:",
+                    "salutation": "Приветствия:",
+                    "rule": "Правила:",
+                    "country": "Страны:",
+                    "custom_field_set": "Настраиваемые наборы полей:",
+                    "snippet": "Фрагменты:",
+                    "snippet_set": "Наборы фрагментов:",
+                    "mail_template": "Шаблоны электронной почты:",
+                    "product_feature_set": "Основные характеристики:",
+                    "product_sorting": "Сортировка продукта:",
+                    "system_config": "Основная информация:",
+                    "page_system_config": "Основная информация о странице:",
+                    "cms_page": "Макеты:",
+                    "product_stream": "Динамические группы продуктов:",
+                    "product_stream_filter_inheritance": "Динамические фильтры групп продуктов:",
+                    "country_state": "Страновые государства:"
                 },
                 "noData": "Ничего не найдено для миграции."
             },
@@ -462,7 +515,8 @@
                 "unknownError": "Неизвестная ошибка. Вы можете проверить таблицу ведения журнала вашей базы данных для получения дополнительной информации.",
                 "mediaProcessConnectionError": "Произошла ошибка подключения при копировании данных носителя. Пожалуйста, проверьте подключение.",
                 "SWAG_MIGRATION__WRITER_NOT_FOUND": {
-                    "title": "Устройство записи файлов не найдено"
+                    "title": "Устройство записи файлов не найдено",
+                    "description": "Модуль записи файлов для объекта \"{entity}\" не найден."
                 },
                 "SWAG_MIGRATION__SHOPWARE_CANNOT_DOWNLOAD_DATA": {
                     "title": "Не удается загрузить носитель",
@@ -493,6 +547,7 @@
                     "description": "Исходный файл не может быть скопирован. Файл: {path}"
                 },
                 "SWAG_MIGRATION_CANNOT_CONVERT_CHILD_ENTITY": {
+                    "title": "Дочерний объект {entity} не может быть преобразован",
                     "description": "Не удалось преобразовать дочернюю сущность {entity} из родительской сущности {parentEntity} с идентификатором «{parentSourceId}»."
                 },
                 "SWAG_MIGRATION_CANNOT_CONVERT_ENTITY": {

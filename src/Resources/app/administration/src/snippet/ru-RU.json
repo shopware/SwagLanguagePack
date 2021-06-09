@@ -36,8 +36,6 @@
         },
         "detail": {
             "buttonCancel": "Отменить изменения",
-            "buttonSave": "Сохранить",
-            "buttonEdit": "Редактировать",
             "tabOrderDetails": "Детали заказа",
             "tabDeliveries": "Доставки",
             "textHeadline": "Заказ",
@@ -148,7 +146,7 @@
         "detailBase": {
             "cardTitleDetails": "Детали",
             "cardTitleLineItems": "Предметы",
-            "columnProductName": "Предмет",
+            "columnProductName": "Имя",
             "columnQuantity": "Количество",
             "columnPriceNet": "Цена (нетто)",
             "columnPriceGross": "Цена (брутто)",
@@ -181,6 +179,7 @@
             "buttonAddBlankProduct": "Добавить пользовательский элемент",
             "buttonAddCredit": "Добавить кредит",
             "buttonEditAddress": "Редактировать",
+            "tooltipNestedLineItemsButton": "Этот элемент строки содержит подпункты.",
             "labelNoPhoneNumber": "Пока нет номера телефона",
             "labelNoEmail": "Нет писем",
             "labelCustomerPhoneNumber": "Номер телефона",
@@ -207,6 +206,14 @@
             "enterValidTrackingCode": "Введите код отслеживания",
             "textCreditTax": "авто",
             "taxDetail": "{taxRate}%: {tax}"
+        },
+        "nestedLineItemsModal": {
+            "titlePrefix": "Предмет: {lineItemLabel} - {price}",
+            "headerLabel": "Имя",
+            "headerUnitPrice": "Цена (брутто)",
+            "headerQuantity": "Количество",
+            "headerTotalPrice": "Промежуточный итог",
+            "headerTax": "ЧАН"
         },
         "detailDeliveries": {
             "cardTitleItems": "Отправка {count}",
@@ -380,6 +387,14 @@
                 "label": "Продукты",
                 "placeholder": "Выберите продукты..."
             },
+            "affiliateCodeFilter": {
+                "label": "Партнерский код",
+                "placeholder": "Выберите партнерский код..."
+            },
+            "campaignCodeFilter": {
+                "label": "Код кампании",
+                "placeholder": "Выберите код кампании..."
+            },
             "messageEmptyTitle": "Ничего не найдено",
             "messageEmptySubline": "Отредактируйте фильтры, чтобы найти результаты."
         }
@@ -457,6 +472,9 @@
             },
             "customer_groups": {
                 "label": "Группы клиентов"
+            },
+            "flow": {
+                "label": "Конструктор потока"
             },
             "sales_channel": {
                 "label": "Каналы продаж"
@@ -616,7 +634,16 @@
         },
         "captcha": {
             "label": {
-                "honeypot": "Honeypot Captcha"
+                "honeypot": "Медовый горшок капча",
+                "basicCaptcha": "Базовая капча",
+                "googleReCaptchaV2": "Google reCAPTCHA v2",
+                "googleReCaptchaV2SiteKey": "Ключ сайта Google reCAPTCHA v2",
+                "googleReCaptchaV2SecretKey": "Секретный ключ Google reCaptcha v2",
+                "googleReCaptchaV2Invisible": "Google reCaptcha v2 невидимый",
+                "googleReCaptchaV3": "Google reCAPTCHA v3",
+                "googleReCaptchaV3SiteKey": "Ключ сайта Google reCAPTCHA v3",
+                "googleReCaptchaV3SecretKey": "Секретный ключ Google reCaptcha v3",
+                "googleReCaptchaV3ThresholdScore": "Пороговый балл Google reCaptcha v3"
             }
         }
     },
@@ -750,8 +777,8 @@
                 "messageMissingFields": "Требуется настройка. Пожалуйста, заполните все обязательные поля.",
                 "messageMissingBlockFields": "Требуется конфигурация. Пожалуйста, заполните данные во всех элементах.",
                 "messageMissingProductListing": "Не удается сохранить. Добавьте хотя бы один блок списка продуктов или измените тип этого макета.",
-                "messageMissingSections": "Вы не можете сохранить пустую страницу. Пожалуйста, сначала добавьте раздел.",
-                "messageMissingBlocks": "Вы не можете сохранить пустую страницу. Пожалуйста, добавьте несколько блоков.",
+                "messageMissingSections": "Вы не можете сохранить пустую страницу. Сначала добавьте раздел.",
+                "messageMissingBlocks": "Вы не можете сохранить пустую страницу. Сначала добавьте хотя бы один блок.",
                 "messageMissingElements": "Требуется конфигурация. Пожалуйста, настройте все элементы вашего макета.",
                 "messageRedundantElements": "Макеты не должны содержать более одного элемента {name}."
             },
@@ -767,7 +794,7 @@
                 "titleNavigator": "Навигатор",
                 "titleSectionSettings": "Настройки раздела",
                 "titleLayoutAssignment": "Назначение макета",
-                "mobile": "Режим мобильной боковой панели",
+                "mobile": "Поведение мобильной боковой панели",
                 "mobileOptionHidden": "Скрытый",
                 "mobileOptionWrap": "Заворачивание"
             },
@@ -778,7 +805,7 @@
             "tooltip": {
                 "blockNameField": "Назовите каждый блок индивидуально, чтобы отслеживать вашу работу.",
                 "sectionNameField": "Назовите каждый блок индивидуально, чтобы отслеживать вашу работу.",
-                "cannotSelectProductPageLayout": "Вы не можете изменить макет страницы типа продукта на другой тип макета."
+                "cannotSelectProductPageLayout": "Вы не можете изменить тип макета страницы продукта."
             }
         },
         "elements": {
@@ -1123,6 +1150,9 @@
                         "productDetailElement": "Данные продукта этого элемента автоматически загружаются продуктом, связанным с этим макетом. Содержимое просто показывает образец предварительного просмотра."
                     }
                 }
+            },
+            "productName": {
+                "label": "Наименование продукта"
             }
         },
         "blocks": {
@@ -1378,6 +1408,11 @@
             }
         },
         "index": {
+            "defaultSalesChannel": {
+                "title": "Канал продаж по умолчанию",
+                "description": "Выберите каналы продаж по умолчанию, которые автоматически назначаются вновь созданным продуктам.",
+                "linkAdvancedVisibility": "Установка видимости для выбранных каналов продаж"
+            },
             "productSorting": {
                 "title": "Настройки сортировки",
                 "addButton": "Добавить опцию",
@@ -1410,7 +1445,8 @@
                 "labelActive": "Активный"
             },
             "notification": {
-                "saveSuccess": "Параметр сортировки «{sortingOptionName}» сохранен."
+                "saveSuccess": "Параметр сортировки «{sortingOptionName}» сохранен.",
+                "saveError": "Параметр сортировки \"{sortingOptionName}\" не может быть сохранен."
             },
             "criteria": {
                 "title": "Критерии сортировки",
@@ -1429,16 +1465,64 @@
             "descriptionTextModule": "Главная страница Администрации, отображающая статистику и системную информацию"
         },
         "introduction": {
-            "headline": "Добро пожаловать в Shopware 6",
-            "enduserDocumentation": "Документация пользователя",
-            "enduserDocumentationLink": "https://docs.shopware.com/en/shopware-6-en",
-            "developerDocumentation": "Документация разработчика",
-            "developerDocumentationLink": "https://docs.shopware.com/en/shopware-platform-dev-en",
-            "migrationDocumentation": "Документация по миграции",
-            "migrationDocumentationLink": "https://docs.shopware.com/en/migration-en",
-            "roadmap": "Дорожная карта Shopware",
-            "roadmapLink": "https://www.shopware.com/en/roadmap/",
-            "feedback": "Обратная связь",
+            "headlineUnkownUser": "Добро пожаловать в Shopware.",
+            "daytimeHeadline": {
+                "5h": {
+                    "0": "Доброе утро, {greetingName}.",
+                    "1": "Привет, {greetingName}!"
+                },
+                "11h": {
+                    "0": "Привет, {greetingName}.",
+                    "1": "Добрый день, {greetingName}.",
+                    "2": "Хауди, {greetingName}!"
+                },
+                "18h": {
+                    "0": "Добрый вечер, {greetingName}.",
+                    "1": "Привет, {greetingName}!"
+                },
+                "23h": {
+                    "0": "Рад тебя видеть, {greetingName}.",
+                    "1": "Все еще вверх, {greetingName}?"
+                }
+            },
+            "daytimeWelcomeText": {
+                "5h": {
+                    "0": "Пора кофе, верно?",
+                    "1": "Ты идешь с отличным началом!",
+                    "2": "Слишком много, чтобы сделать сегодня? Сосредоточьтесь на тех задачах, которые будут иметь большую часть воздействия.",
+                    "3": "Ты выглядишь потрясающе сегодня!"
+                },
+                "11h": {
+                    "0": "Еще один день, еще один шанс развивать свой бизнес.",
+                    "1": "Ты можешь повлиять на чью-то жизнь сегодня.",
+                    "2": "Ты выглядишь потрясающе сегодня!",
+                    "3": "Сегодня у тебя есть шанс сформировать завтрашнее время, которое вы хотите."
+                },
+                "18h": {
+                    "0": "День почти закончен, время, чтобы проверить последние мероприятия вашего магазина.",
+                    "1": "Время оценить - Взгляните на то, как ваш магазин делает сегодня.",
+                    "2": "Сегодняшние действия являются результатом завтрашнего дня."
+                },
+                "23h": {
+                    "0": "Найдите красоту во всем, чтобы вдохновить себя.",
+                    "1": "Смотри, снаружи кто-то переключил темный режим.",
+                    "2": "Почти все будет работать снова, если отключить его на несколько минут - это включает в себя вас. Сделайте перерыв."
+                }
+            }
+        },
+        "helpcard": {
+            "headline": "Приготовьтесь продавать свою продукцию.",
+            "helpcenter": "Справочный центр Shopware",
+            "helpcenterLink": "https://docs.shopware.com/en/shopware-6-en",
+            "takeOffTip": "Узнайте, как сделать свою первую продажу",
+            "takeOffTipLink": "https://www.shopware.com/en/news/take-off-in-ecommerce-10-tips-for-your-initial-sales/",
+            "getToKnowSales": "Познакомьтесь с каналами продаж",
+            "getToKnowSalesLink": "https://www.youtube.com/watch?v=RsEeersOgIo"
+        },
+        "feedbackCard": {
+            "headline": "Первые впечатления считаются.",
+            "text": "Поделитесь своими первыми впечатлениями и помогите нам улучшить общий опыт Shopware.",
+            "feedback": "Оставить отзыв",
             "feedbackLink": "https://issues.shopware.com"
         },
         "todayStats": {
@@ -1591,6 +1675,7 @@
                 "category": "Категория",
                 "categories": "Категории",
                 "categoriesRo": "Категории",
+                "cheapestPrice": "Цена",
                 "choose": "Выбрать",
                 "description": "Описание",
                 "descriptionLong": "Длинное описание",
@@ -1604,6 +1689,7 @@
                 "length": "Длина",
                 "linked": "Связанные",
                 "manufacturerId": "Производитель",
+                "manufacturer": "Производитель",
                 "manufacturerNumber": "Номер производителя",
                 "markAsTopseller": "Отмечено как топ-продавец",
                 "maxDeliveryTime": "Макс. срок поставки",
@@ -1616,7 +1702,7 @@
                 "option": "Опция",
                 "packUnit": "Единица упаковки",
                 "packUnitPlural": "Единица упаковки",
-                "cheapestPrice": "Цена",
+                "price": "Цена",
                 "product": "Товар",
                 "productNumber": "Номер товара",
                 "purchasePrice": "Цена покупки",
@@ -1773,7 +1859,10 @@
             "xTimesIn": "{n} раз в",
             "close": "Закрыть",
             "from": "От",
-            "to": "К"
+            "to": "К",
+            "bulkEdit": "Массовое редактирование",
+            "startBulkEdit": "Начать массовое редактирование",
+            "bulkEditModalTitle": "Массовое редактирование - выбрано {count} элемента | Массовое редактирование - выбрано {count} элемент"
         },
         "notification": {
             "notificationSaveErrorMessage": "Произошла ошибка при сохранении сущности \"{entityName}\".",
@@ -1846,7 +1935,7 @@
             },
             "plugin-updates-listener": {
                 "updatesAvailableTitle": "Доступно обновление",
-                "updatesAvailableMessage": "Скачайте последнюю версию плагинов прямо сейчас."
+                "updatesAvailableMessage": "Загрузите последние версии ваших расширений прямо сейчас."
             },
             "shopware-updates-listener": {
                 "updatesAvailableTitle": "Доступна новая версия Shopware {version}",
@@ -2131,6 +2220,7 @@
         },
         "sw-media-upload-v2": {
             "buttonFileUpload": "Загрузить файл",
+            "buttonFilesUpload": "Загрузить файлы",
             "buttonUrlUpload": "Загрузить файл из URL",
             "buttonSwitchToFileUpload": "Загрузить файл с компьютера",
             "buttonSwitchToUrlUpload": "Загрузить файл из URL",
@@ -2217,14 +2307,10 @@
         },
         "sw-multi-tag-ip-select": {
             "enterValidIp": "Пожалуйста введите действительный IPv4 или IPv6 адрес",
-            "addIpAdress": "Добавить IP-адрес",
+            "addIpAddress": "Добавить IP-адрес",
             "knownIps": {
                 "you": "Вы"
             }
-        },
-        "sw-multi-ip-select": {
-            "enterValidIp": "Пожалуйста введите действительный IPv4 или IPv6 адрес",
-            "addIpAdress": "Добавить IP-адрес"
         },
         "sw-entity-multi-select": {
             "messageNoResults": "Ничего не найдено для \"{term}\"."
@@ -2294,6 +2380,7 @@
                 "shippingCountryRule": "Страна доставки",
                 "shippingStreetRule": "Адрес доставки",
                 "shippingZipCodeRule": "Почтовый индекс доставки",
+                "customerLoggedInRule": "Клиент вошел в систему",
                 "cartAmountRule": "Сумма корзины",
                 "goodsCountRule": "Количество товаров",
                 "goodsPriceRule": "Цена товаров",
@@ -2335,7 +2422,7 @@
                 "alwaysValidRule": "Всегда действителен",
                 "lineItemPropertyRule": "Свойство позиции",
                 "lineItemNoveltyRule": "Новинки",
-                "lineItemCustomFieldRule": "Позиция с атрибутом",
+                "lineItemCustomFieldRule": "Элемент строки с настраиваемым полем",
                 "lineItemIsNewRule": "Новая позиция",
                 "lineItemOfManufacturerRule": "Производитель",
                 "lineItemPurchasePriceRule": "Цена покупки позиции",
@@ -2367,7 +2454,8 @@
         "sw-product-image": {
             "context": {
                 "buttonAsCover": "Использовать как обложку",
-                "buttonRemove": "Удалить"
+                "buttonRemove": "Удалить",
+                "buttonPreviewImage": "Предварительный просмотр изображения"
             }
         },
         "sw-simple-search-field": {
@@ -2437,7 +2525,9 @@
             "delivery_time": "Время доставки | Время доставки",
             "import_export_profile": "Профиль импорта/экспорта | Импорт/экспорт профилей",
             "feature_set": "Шаблон | Шаблоны",
-            "event_action": "Деловые мероприятия"
+            "event_action": "Деловые мероприятия",
+            "property_group": "Группа свойств | Группы свойств",
+            "document_base_config": "Конфигурация базы документов | Конфигурации базы документов"
         },
         "day-of-week": {
             "monday": "Понедельник",
@@ -2468,6 +2558,7 @@
             "mail_sent": "Отправлено электронное письмо",
             "newsletter_confirm": "Подписаться на рассылку подтверждена",
             "newsletter_register": "Регистрация на новостную рассылку зарегистрирована",
+            "newsletter_unsubscribe": "Отписана новостная рассылка",
             "newsletter_update": "Обновлена подписка на рассылку",
             "product_export_log": "Выполнен экспорт продукции",
             "state_enter_order_state_cancelled": "Заказ вводит статус отменен",
@@ -2899,6 +2990,7 @@
             "columnDescription": "Описание",
             "columnActive": "Активный",
             "columnPosition": "Позиция",
+            "columnExtension": "Расширение",
             "buttonAddPaymentMethod": "Добавить способ оплаты",
             "contextMenuEdit": "Редактировать",
             "contextMenuDelete": "Удалить",
@@ -2930,7 +3022,7 @@
         }
     },
     "sw-plugin-box": {
-        "buttonPluginSettings": "Настройки плагинов"
+        "buttonPluginSettings": "Настройки расширения"
     },
     "sw-settings-country": {
         "general": {
@@ -2977,7 +3069,10 @@
             "buttonAddCountryState": "Добавить область/область",
             "editAction": "Редактировать",
             "columnStateNameLabel": "Название",
-            "columnStateShortCodeLabel": "Краткая запись"
+            "columnStateShortCodeLabel": "Краткая запись",
+            "taxFreeFrom": "Tax Free от",
+            "taxFreeFromHelpText": "Если общая сумма корзины превышает значение, установленное в поле «Tax free from», вся корзина будет облагаться налогом.",
+            "labelVatIdRequired": "Обязательное поле НДС"
         }
     },
     "sw-country-state-detail": {
@@ -3046,7 +3141,9 @@
             },
             "emptyCountryRoundings": "Добавьте отдельные десятичные знаки и коэффициенты округления для разных стран.",
             "emptyCountryRoundingsNewCurrency": "Заполните основную информацию, сохраните валюту - затем добавьте значения",
-            "buttonAddCountry": "Добавить страну"
+            "buttonAddCountry": "Добавить страну",
+            "taxFreeFrom": "Tax Free от",
+            "taxFreeFromHelpText": "Если общая сумма корзины превышает значение, установленное в поле «Tax free from», вся корзина будет облагаться налогом. Применяется только к корзкам, оплачиваемым в «{currencyName}»."
         },
         "currency-country-modal": {
             "labelCountrySelect": "Страна",
@@ -3061,11 +3158,13 @@
             "labelRoundForNet": "Раунд для чистых клиентов тоже",
             "grandHeadline": "Общий итог",
             "grandSubline": "Округление применяется к суммарным итогам",
+            "headerWarning": "Различные интервалы округления - Обязательно обратитесь к вашим индивидуальным поставщикам услуг, чтобы избежать проблем с бухгалтерским учетом.",
+            "headerInfo": "Расчет налогов основан на неокругленных итогах. Происходящие различия округления не подлежат налоговому расчету.",
             "helpTextDecimals": "Десятичные знаки указывают максимальное количество цифр после десятичного разделителя.",
-            "helpTextInterval": "Используйте интервалы округления для учета рынков, на которых были отменены самые низкие физические номиналы валюты и созданы округления денежных средств. <br><br> Подсказка: Выберите «Нет», если вы не хотите применять округление денежных средств. Например, при использовании десятичных знаков больше 2.",
+            "helpTextInterval": "Используйте интервалы округления для учета рынков, на которых были отменены самые низкие физические номиналы валюты и созданы округления денежных средств. <br><br> Подсказка: Выберите «Нет», если вы не хотите применять округление цены. Например, при использовании десятичных знаков больше 2.",
             "helpTextRoundForNet": "Активируйте округление для сетевых групп клиентов дополнительно.",
             "labelIntervalNone": "Нет",
-            "tooltipIntervalDisabled": "Округление денежных средств не применяется, если десятичные знаки больше 2."
+            "tooltipIntervalDisabled": "Округление цен не применяется, если настроены десятичные знаки больше 2."
         }
     },
     "sw-category": {
@@ -3288,13 +3387,15 @@
         "visibility": {
             "textHeadline": "Режимы показа товаров по каналам продаж",
             "placeholderVisibility": "Выберите канал продаж...",
-            "columnAll": "Универсальный",
-            "columnSearchOnly": "Только результаты поиска",
-            "columnLinkOnly": "Скрытый",
-            "linkAdvancedVisibility": "Расширенные настройки назначения",
+            "columnAll": "Видимый",
+            "columnSearchOnly": "Скрыть в объявлениях",
+            "columnLinkOnly": "Скрыть в объявлениях и поиск",
+            "visibilityModalDescription": "«Скрыть в листинге» исключает продукт из обзорных списков продуктов, а также из ползунков продуктов и списков перекрестных продаж. Выбор опции «Скрыть в листинге и поиске» также исключит товар из поисковых действий. Продукты все еще могут быть доступны по URL-адресу.",
+            "linkAdvancedVisibility": "Установка видимости для выбранных каналов продаж",
             "labelVisibility": "Каналы продаж",
             "closeModal": "Применить",
-            "bodyVisibility": "Добавьте каналы продаж, где должен отображаться продукт. Вы также можете дополнительно определить видимость продукта для каждого канала продаж Storefront по ссылке ниже."
+            "bodyVisibility": "Добавьте каналы продаж, в которых этот продукт должен отображаться. Вы можете дополнительно определить видимость продукта для каждого канала продаж Storefront по ссылке ниже.",
+            "errorMessage": "Не удается загрузить конфигурацию канала продаж по умолчанию."
         },
         "general": {
             "mainMenuItemGeneral": "Товары",
@@ -3379,7 +3480,10 @@
             "placeholderMetaTitle": "Введите мета заголовок...",
             "placeholderMetaDescription": "Введите метаописание...",
             "placeholderKeywords": "Введите одно или несколько ключевых слов...",
-            "placeholderCanonicalProduct": "Выберите вариант..."
+            "placeholderCanonicalProduct": "Выберите вариант...",
+            "helpTextMetaTitle": "Мета-название является наиболее важным элементом SEO и должно быть уникальным для каждой страницы. Вы должны ограничить себя по длине максимум 56 символами. Ваше ключевое слово в идеале должно быть размещено на самом фронте.",
+            "helpTextMetaDescription": "С мета-описанием вы подтверждаете своим клиентам, что они находятся в правильном месте в вашем магазине. Вы создаете стимулы, укрепляете доверие и приглашаете к действию. Вы должны ограничить себя максимум 155 символами.",
+            "helpTextKeywords": "Здесь вы можете определить дополнительно от трех до пяти ключевых слов, по которым ваш продукт должен быть найден."
         },
         "settingsForm": {
             "labelCreatedAt": "Дата создания",
@@ -3503,6 +3607,7 @@
             "columnInStock": "Есть в наличии",
             "columnAvailableStock": "Доступно",
             "columnActions": "Действие(-я)",
+            "columnMedia": "Медиа",
             "contextMenuEdit": "Редактировать",
             "contextMenuDelete": "Удалить",
             "contextMenuDuplicate": "Дублировать",
@@ -3603,6 +3708,7 @@
             "generatedListColumnVariation": "Название",
             "generatedListColumnPrice": "Цена (брутто / нетто)",
             "generatedListColumnProductNumber": "Номер продукта",
+            "generatedListColumnMedia": "Медиа",
             "generatedListColumnActive": "Активный",
             "generatedListColumnStock": "В наличии",
             "generatedListContextMenuEdit": "Редактировать",
@@ -3671,6 +3777,7 @@
         "crossselling": {
             "cardTitleCrossSelling": "Кросс-продажи",
             "buttonAddCrossSelling": "Добавить кросс-продажи",
+            "buttonAddCrossSellingLanguageWarning": "Вы можете создавать новые кросс-продажи только на языке по умолчанию",
             "buttonDeleteCrossSelling": "Удалить",
             "inputCrossSellingTitle": "Название",
             "inputCrossSellingActive": "Активный",
@@ -3816,7 +3923,8 @@
                 "labelTaxType": "Тип",
                 "labelTaxRate": "Оценить",
                 "placeholderTaxType": "Выберите тип налога...",
-                "placeholderTaxRate": "Выберите налоговую ставку..."
+                "placeholderTaxRate": "Выберите налоговую ставку...",
+                "helpText": "Выберите один из различных режимов расчета налогов на стоимость доставки:<ul style='margin-left: 15px'><li>Авто - расчет на основе всех налоговых ставок, имеющихся в корзине покупок.</li><li>Самый высокий - на основе расчета по самой высокой налоговой ставке, имеющейся в корзине покупок. </li><li>Фиксированный - расчет на основе выбранной вручную налоговой ставки</li></ul>"
             }
         },
         "constants": {
@@ -4188,12 +4296,15 @@
             "updateExcludedTermSuccess": "Исключенный поисковый запрос обновлен.",
             "createExcludedTermSuccess": "Создан исключенный поисковый запрос.",
             "deleteExcludedTermSuccess": "Исключенный поисковый запрос удален.",
+            "resetToDefaultExcludedTermSuccess": "Исключенные условия поиска были сброшены до значения по умолчанию.",
+            "resetToDefaultExcludedTermError": "Произошла ошибка при сбросе исключенных условий поиска.",
             "saveError": "Произошла ошибка при сохранении конфигурации.",
             "index": {
                 "started": "Построение индексов продукции.",
                 "success": "Построены индексы продуктов."
             },
-            "loadError": "Произошла ошибка при загрузке конфигурации."
+            "loadError": "Произошла ошибка при загрузке конфигурации.",
+            "notSupportedLanguageError": "Выбранный язык недоступен в выбранном канале продаж"
         },
         "liveSearchTab": {
             "titleCard": "Поиск канала продаж в реальном времени",
@@ -4346,11 +4457,15 @@
             "label": "Теперь доступно",
             "activationDescriptionTitleFirst": "Изучайте и покупайте расширения легко -",
             "activationDescriptionTitleSecond": "прямо из вашего собственного магазина Shopware.",
-            "activationDescriptionTitleDescription": "Активируйте новый Shopware Store и получите доступ к множеству полезных расширений и современных тем, которые могут быть интегрированы в ваш магазин без каких-либо навыков программирования.",
+            "activationDescriptionTitleDescription": "Активируйте Shopware Store и получите доступ к множеству полезных расширений и современных тем, которые могут быть интегрированы в ваш магазин без каких-либо навыков программирования.",
             "activate": "Активировать"
         },
         "title": "Магазин",
         "descriptionTextModule": "Управление расширениями",
+        "general": {
+            "labelPrice": "Бесплатно | {price} / месяц | {price}",
+            "labelDiscountedPrice": "Бесплатно | <strong>{discountedPrice}</strong> <s>{price}</s> / месяц | <strong>{discountedPrice}</strong> <s>{price}</s>"
+        },
         "listing": {
             "tabs": {
                 "extensions": "Расширения",
@@ -4495,6 +4610,9 @@
                     "permissions": "Разрешения"
                 }
             },
+            "sw-extension-card-bought": {
+                "subscriptionExpiredAt": "Срок действия подписки истекает в {date}"
+            },
             "sw-extension-deactivation-modal": {
                 "deactivateExtensionLabel": "Деактивировать «{extensionName}»",
                 "description": "Расширение «{extensionName}» имеет ежемесячную абонентскую плату.<br>Деактивация расширения <b>не приведет к</b> отмене подписки и сборы будут продолжать взиматься!",
@@ -4504,8 +4622,16 @@
             },
             "sw-extension-permissions-modal": {
                 "title": "{extensionLabel} разрешений",
-                "description": "{extensionLabel} будет иметь доступ к следующим компонентам. Щелкните ссылку рядом с компонентом, чтобы отобразить сведения об объекте.",
-                "textEntities": "Показать разрешения"
+                "description": "{extensionLabel} получит доступ к компонентам ниже. Щелкните ссылку рядом с компонентом, чтобы отобразить сведения об объекте.",
+                "domainHint": "Некоторые данные также будут переданы другим доменам. Для получения более подробной информации щелкните ссылку рядом с доменами.",
+                "textEntities": "Показать разрешения",
+                "domains": "Домены",
+                "showDomains": "Показать домены"
+            },
+            "sw-extension-domains-modal": {
+                "modalTitle": "{extensionLabel} - Домены",
+                "description": "Некоторые данные будут передаваются/переданы в домены, перечисленные ниже.",
+                "listTitle": "Домен"
             },
             "sw-extension-privacy-policy-extensions-modal": {
                 "title": "{extensionLabel}: расширения политики конфиденциальности",
@@ -4934,7 +5060,6 @@
             "messageServerError": "Сервер авторизации обнаружил непредвиденное условие.",
             "messageInvalidRefreshToken": "Неверный токен обновления.",
             "messageAccessDenied": "Запрос отклонен сервером авторизации.",
-            "messageInvalidGrant": "Неверное разрешение авторизации или токен обновления.",
             "messageGeneralRequestError": "Что-то пошло не так при запросе \"{url}\".",
             "forgottenPasswordLink": "Вы забыли свой пароль?"
         },
@@ -5457,6 +5582,23 @@
             "markets": "Рынки магазинов"
         }
     },
+    "sw-flow": {
+        "general": {
+            "mainMenuItemGeneral": "Строитель потока",
+            "descriptionTextModule": "Строитель потока"
+        },
+        "list": {
+            "textHeadline": "Конструктор потока",
+            "buttonAddFlow": "Добавить поток"
+        },
+        "detail": {
+            "textHeadline": "Новый поток"
+        },
+        "page": {
+            "generalTab": "Генеральной",
+            "flowTab": "Поток"
+        }
+    },
     "sw-sales-channel": {
         "general": {
             "tooltipOpenStorefront": "Открытая витрина",
@@ -5563,6 +5705,14 @@
             "ipAddressWhitleListHelpText": "Добавьте IP-адреса в белый список, чтобы разрешить селективный доступ к магазину. Вы можете добавлять IPv4 и IPv6 адреса, при необходимости.",
             "basicinformationLink": "Изменить макет по умолчанию",
             "columnDomainCurrency": "Валюта",
+            "products": {
+                "titleEmptyState": "Продукты еще не добавлены",
+                "titleEmptyStateTable": "Совпадающие продукты не найдены",
+                "buttonAddProducts": "Добавить продукты",
+                "columnProductName": "Наименование продукта",
+                "columnActive": "Активный",
+                "columnProductNumber": "Номер продукта"
+            },
             "productComparison": {
                 "inputHeaderLabel": "Строка заголовка",
                 "inputBodyLabel": "Строка товара",
@@ -5684,6 +5834,12 @@
                 "verticalDescription": "НДС рассчитывается от суммы заказа. При оформлении заказа отдельные значения НДС не отображаются.",
                 "horizontalName": "Построчное (горизонтальное) вычисление",
                 "horizontalDescription": "НДС рассчитывается для каждой позиции корзины покупок. Во время оформления заказа отображается индивидуальный НДС каждой позиции. Общая сумма НДС рассчитывается путем сложения всех индивидуальных значений НДС."
+            },
+            "productAssigmentModal": {
+                "title": "Добавить продукты",
+                "singleProducts": "Индивидуальные продукты",
+                "categories": "Фильтровать по категориям",
+                "dynamicProductGroups": "Фильтровать по динамическим группам продуктов"
             }
         },
         "sw-sales-channel-defaults-select": {
@@ -5755,8 +5911,12 @@
                 "placeholderTestMail": "shop@example.com",
                 "buttonTestMail": "Отправить",
                 "labelTestMail": "Адрес получателя",
-                "titleTestMail": "Отправить тестовое письмо"
+                "titleTestMail": "Отправить тестовое письмо",
+                "titleShowPreview": "Показать предварительный просмотр",
+                "titleShowAvailableVariables": "Переменные",
+                "copyTooltip": "Копировать в буфер обмена."
             },
+            "previewModalTitle": "Предварительный просмотр",
             "buttonCancel": "Отмена",
             "buttonSave": "Сохранить",
             "textHeadline": "Новый шаблон письма",
@@ -5795,7 +5955,7 @@
                 "titleCard": "Информация",
                 "labelName": "Название",
                 "labelDescription": "Описание",
-                "labelSalesChannels": "Канал продаж",
+                "labelSalesChannels": "Каналы продаж",
                 "placeholderName": "Введите название...",
                 "placeholderDescription": "Введите описание...",
                 "placeholderSalesChannels": "Выберите связанные каналы продаж..."
@@ -6232,6 +6392,20 @@
             "tags": {
                 "label": "Теги",
                 "placeholder": "Выбрать теги..."
+            },
+            "affiliateCode": {
+                "label": "Партнерский код",
+                "placeholder": "Выберите партнерский код..."
+            },
+            "campaignCode": {
+                "label": "Код кампании",
+                "placeholder": "Выберите код кампании..."
+            },
+            "customerGroupRequest": {
+                "label": "Запросы групп клиентов",
+                "placeholder": "Выберите статус запроса...",
+                "textHasCriteria": "Открытые запросы групп клиентов",
+                "textNoCriteria": "Нет запросов группы клиентов"
             },
             "messageEmptyTitle": "Ничего не найдено",
             "messageEmptySubline": "Отредактируйте фильтры, чтобы найти результаты."
@@ -6899,7 +7073,15 @@
                 "titleModalDelete": "Удалить роль",
                 "textModalDelete": "Вы действительно хотите удалить правило \"{name}\"?",
                 "labelButtonCancel": "Отменить",
-                "labelButtonDelete": "Удалить"
+                "labelButtonDelete": "Удалить",
+                "notification": {
+                    "deleteSuccess": {
+                        "message": "Роль \"{name}\" удалена."
+                    },
+                    "deleteError": {
+                        "message": "Роль \"{name}\" не может быть удалена."
+                    }
+                }
             },
             "detail": {
                 "role": "Роль",
@@ -6952,6 +7134,9 @@
                 "notification": {
                     "deleteSuccess": {
                         "message": "Пользователь «{name}» удален."
+                    },
+                    "deleteError": {
+                        "message": "Не удалось удалить пользователя \"{name}\"."
                     },
                     "deleteUserLoggedInError": {
                         "message": "Пользователи не могут удалить себя."
@@ -7181,9 +7366,9 @@
         "infoTextInheritedField": "{moduleName} унаследовал поля. Это значит, что до тех пор, пока унаследованное состояние является активным, контент будет наследован. Унаследованные поля могут быть удалены, нажав на символ ссылки. Нажав на символ снова установит обратное унаследованное состояние."
     },
     "sw-license-violation": {
-        "title": "Предупреждение (ы) расширения",
+        "title": "Предупреждение расширения",
         "reload": "Перезагрузить",
-        "alertText": "Мы обнаружили нарушение лицензии по крайней мере для одного из ваших расширений в этой установке. Чтобы исправить нарушение лицензии и избежать юридических последствий, забронируйте подписку на продление или купите/арендуйте расширение (в соответствии с типом нанесенного нарушения). Вы больше не используете расширение? Затем удалите его через Мои расширения. Если ни одна из этих мер не будет принята, shopware AG оставляет за собой право взимать штрафные сборы за любое нарушение лицензии.",
+        "alertText": "Мы обнаружили нарушение лицензии по крайней мере для одного из ваших расширений в этой установке. Чтобы исправить нарушение лицензии и избежать юридических последствий, забронируйте подписку или купите/арендуйте расширение (в соответствии с типом нанесенного нарушения). Вы больше не используете расширение? Затем удалите его с помощью кнопки «Удалить расширение навсегда» или через Мои расширения. Если ни одна из этих мер не будет принята, shopware AG оставляет за собой право взимать штрафные сборы за любое нарушение лицензии.",
         "deletePlugin": "Удалить расширение навсегда",
         "messageDeleteConfirm": "Вы хотите полностью удалить расширение «{pluginName}»?",
         "checkboxMessage": "Я обратил внимание на это сообщение и на его последствия.",
@@ -7210,6 +7395,9 @@
     "locale": {
         "de-DE": "Немецкий",
         "en-GB": "Английский"
+    },
+    "sw-image-slider": {
+        "imageAlt": "Изображение {index} / {total}"
     },
     "sw-confirm-modal": {
         "defaultText": "Вы уверены, что хотите продолжить?"

@@ -36,8 +36,6 @@
         },
         "detail": {
             "buttonCancel": "Perubahan dibuang",
-            "buttonSave": "Simpan",
-            "buttonEdit": "Edit/sunting",
             "tabOrderDetails": "Detil pesanan",
             "tabDeliveries": "Pengiriman",
             "textHeadline": "Pesanan",
@@ -148,7 +146,7 @@
         "detailBase": {
             "cardTitleDetails": "Detil",
             "cardTitleLineItems": "Item",
-            "columnProductName": "Item",
+            "columnProductName": "Nama",
             "columnQuantity": "Kuantitas",
             "columnPriceNet": "Harga (bersih)",
             "columnPriceGross": "Harga (kotor)",
@@ -181,6 +179,7 @@
             "buttonAddBlankProduct": "Tambah barang khusus",
             "buttonAddCredit": "Tambah kredit",
             "buttonEditAddress": "Edit/sunting",
+            "tooltipNestedLineItemsButton": "Item baris ini berisi sub-item.",
             "labelNoPhoneNumber": "Belum ada nomor telepon",
             "labelNoEmail": "Belum ađa email",
             "labelCustomerPhoneNumber": "Nomor telepon",
@@ -207,6 +206,14 @@
             "enterValidTrackingCode": "Masukkan kode pelacakan",
             "textCreditTax": "otomatis",
             "taxDetail": "{taxRate}%: {tax}"
+        },
+        "nestedLineItemsModal": {
+            "titlePrefix": "Barang: {lineItemLabel} - {price}",
+            "headerLabel": "Nama",
+            "headerUnitPrice": "Harga (kotor)",
+            "headerQuantity": "Kuantitas",
+            "headerTotalPrice": "Subtotal",
+            "headerTax": "PPN"
         },
         "detailDeliveries": {
             "cardTitleItems": "Pengiriman {count}",
@@ -380,6 +387,14 @@
                 "label": "Produk",
                 "placeholder": "Pilih produk..."
             },
+            "affiliateCodeFilter": {
+                "label": "Kode afiliasi",
+                "placeholder": "Pilih kode afiliasi..."
+            },
+            "campaignCodeFilter": {
+                "label": "Kode kampanye",
+                "placeholder": "Pilih kode kampanye..."
+            },
             "messageEmptyTitle": "Tidak ditemukan",
             "messageEmptySubline": "Edit filter Anda untuk menemukan hasil."
         }
@@ -457,6 +472,9 @@
             },
             "customer_groups": {
                 "label": "Grup pelanggan"
+            },
+            "flow": {
+                "label": "Pembangun Aliran"
             },
             "sales_channel": {
                 "label": "Saluran Penjualan"
@@ -616,7 +634,16 @@
         },
         "captcha": {
             "label": {
-                "honeypot": "Captcha"
+                "honeypot": "CAPTCHA Honeypot",
+                "basicCaptcha": "Captcha Dasar",
+                "googleReCaptchaV2": "Google reCAPTCHA v2",
+                "googleReCaptchaV2SiteKey": "Kunci situs Google reCAPTCHA v2",
+                "googleReCaptchaV2SecretKey": "Kunci rahasia Google reCAPTCHA v2",
+                "googleReCaptchaV2Invisible": "Google reCAPTCHA v2 tak terlihat",
+                "googleReCaptchaV3": "Google reCAPTCHA v3",
+                "googleReCaptchaV3SiteKey": "Kunci situs Google reCAPTCHA v3",
+                "googleReCaptchaV3SecretKey": "Kunci rahasia Google reCAPTCHA v3",
+                "googleReCaptchaV3ThresholdScore": "Skor batas akhir Google reCAPTCHA v3"
             }
         }
     },
@@ -750,8 +777,8 @@
                 "messageMissingFields": "Konfigurasi diperlukan. Silahkan isi semua bagian yang diperlukan.",
                 "messageMissingBlockFields": "Konfigurasi diperlukan. Silahkan isi data di semua elemen.",
                 "messageMissingProductListing": "Tidak dapat menyimpan. Harap tambahkan setidaknya satu blok daftar produk atau ubah jenis tata letak ini.",
-                "messageMissingSections": "Anda tidak bisa menyimpan halaman kosong. Silahkan tambah bagian sebelumnya.",
-                "messageMissingBlocks": "Anda tidak bisa menyimpan halaman kosong. Silahkan tambah beberapa blok sebelumnya.",
+                "messageMissingSections": "Anda tidak dapat menyimpan halaman kosong. Silakan tambahkan bagian terlebih dahulu.",
+                "messageMissingBlocks": "Anda tidak dapat menyimpan sebuah halaman kosong. Harap tambahkan setidaknya satu blok terlebih dahulu.",
                 "messageMissingElements": "Konfigurasi diperlukan. Silakan konfigurasikan semua elemen tata letak Anda.",
                 "messageRedundantElements": "Tata letak tidak harus mengandung lebih dari satu {name} elemen."
             },
@@ -767,7 +794,7 @@
                 "titleNavigator": "Navigator",
                 "titleSectionSettings": "Pengaturan bagian",
                 "titleLayoutAssignment": "Penugasan tata letak",
-                "mobile": "Perilaku bilah samping selular",
+                "mobile": "Perilaku bilah samping seluler",
                 "mobileOptionHidden": "Tersembunyi",
                 "mobileOptionWrap": "Membungkus"
             },
@@ -778,7 +805,7 @@
             "tooltip": {
                 "blockNameField": "Namai setiap blok secara individual untuk menjaga jejak kerja anda.",
                 "sectionNameField": "Namai setiap bagian secara individual untuk menyimpan jejak kerja anda.",
-                "cannotSelectProductPageLayout": "Anda tidak dapat mengubah tata letak jenis halaman produk untuk jenis tata letak lain."
+                "cannotSelectProductPageLayout": "Anda tidak dapat mengubah jenis tata letak sebuah halaman produk."
             }
         },
         "elements": {
@@ -1123,6 +1150,9 @@
                         "productDetailElement": "Data produk elemen ini secara otomatis dimuat oleh produk yang terkait dengan tata letak ini. Konten hanya menampilkan pratinjau sampel."
                     }
                 }
+            },
+            "productName": {
+                "label": "Nama Produk"
             }
         },
         "blocks": {
@@ -1378,6 +1408,11 @@
             }
         },
         "index": {
+            "defaultSalesChannel": {
+                "title": "Jalur Penjualan Bawaan",
+                "description": "Pilih Jalur Penjualan bawaan yang secara otomatis ditetapkan ke produk yang baru dibuat.",
+                "linkAdvancedVisibility": "Atur visibilitas untuk Jalur Penjualan yang dipilih"
+            },
             "productSorting": {
                 "title": "Urutan opsi",
                 "addButton": "Tambahkan opsi",
@@ -1430,17 +1465,65 @@
             "descriptionTextModule": "Halaman utama administrasi, menampilkan informasi statistik dan sistem"
         },
         "introduction": {
-            "headline": "Selamat datang di Shopware 6",
-            "enduserDocumentation": "Dokumentasi pengguna",
-            "enduserDocumentationLink": "https://docs.shopware.com/en/shopware 6-en",
-            "developerDocumentation": "Dokumentasi pengembang",
-            "developerDocumentationLink": "https://docs.shopware.com/en/shopware platform-dev-en",
-            "migrationDocumentation": "Dokumentasi migrasi",
-            "migrationDocumentationLink": "https://docs.shopware.com/en/migration-en",
-            "roadmap": "Peta Jalan Shopware",
-            "roadmapLink": "https://www.shopware.com/en/roadmap/",
-            "feedback": "Umpan balik",
-            "feedbackLink": "https://issue.shopware.com"
+            "headlineUnkownUser": "Selamat datang di Shopware.",
+            "daytimeHeadline": {
+                "5h": {
+                    "0": "Selamat pagi, {greetingName}.",
+                    "1": "Hai, {greetingName}!"
+                },
+                "11h": {
+                    "0": "Halo, {greetingName}.",
+                    "1": "Hari yang baik, {greetingName}.",
+                    "2": "Apa kabar, {greetingName}!"
+                },
+                "18h": {
+                    "0": "Selamat malam, {greetingName}.",
+                    "1": "Hai, {greetingName}!"
+                },
+                "23h": {
+                    "0": "Senang untuk melihat Anda, {greetingName}.",
+                    "1": "Masih bangun, {greetingName}?"
+                }
+            },
+            "daytimeWelcomeText": {
+                "5h": {
+                    "0": "Waktunya minum kopi, kan?",
+                    "1": "Anda pergi ke sebuah awal yang bagus!",
+                    "2": "Terlalu banyak yang harus dilakukan hari ini? Fokuslah pada tugas-tugas yang akan memiliki paling banyak dampak.",
+                    "3": "Anda terlihat menakjubkan hari ini!"
+                },
+                "11h": {
+                    "0": "Di hari lain, terdapat kesempatan lain untuk mengembangkan bisnis Anda.",
+                    "1": "Anda dapat memberikan dampak pada kehidupan seseorang hari ini.",
+                    "2": "Anda terlihat luar biasa hari ini!",
+                    "3": "Hari ini Anda mempunyai kesempatan untuk membentuk hari esok yang Anda inginkan."
+                },
+                "18h": {
+                    "0": "Hari ini hampir selesai, waktunya untuk memeriksa aktivitas terbaru toko Anda.",
+                    "1": "Waktunya untuk evaluasi - Silahkan lihat bagaimana toko Anda telah capai hari ini.",
+                    "2": "Tindakan hari ini adalah hasil besok."
+                },
+                "23h": {
+                    "0": "Temukan keindahan dalam segala hal untuk menginspirasi diri Anda sendiri.",
+                    "1": "Lihat, di luar seseorang telah beralih modus gelap.",
+                    "2": "Hampir semuanya akan bekerja lagi, jika Anda mencabutnya selama beberapa menit - itu termasuk Anda. Istirahat."
+                }
+            }
+        },
+        "helpcard": {
+            "headline": "Bersiaplah untuk menjual produk Anda.",
+            "helpcenter": "Pusat Bantuan Shopware",
+            "helpcenterLink": "https://docs.shopware.com/en/shopware-6-en",
+            "takeOffTip": "Pelajari cara membuat penjualan pertama Anda",
+            "takeOffTipLink": "https://www.shopware.com/en/news/take-off-in-ecommerce-10-tips-for-your-initial-sales/",
+            "getToKnowSales": "Kenali Sales Channels",
+            "getToKnowSalesLink": "https://www.youtube.com/watch?v=RsEeersOgIo"
+        },
+        "feedbackCard": {
+            "headline": "Kesan pertama dihitung.",
+            "text": "Bagikan tayangan pertama Anda dan bantu kami meningkatkan keseluruhan pengalaman Shopware.",
+            "feedback": "Berikan umpan balik",
+            "feedbackLink": "https://issues.shopware.com"
         },
         "todayStats": {
             "headline": "Statistik hari ini",
@@ -1592,6 +1675,7 @@
                 "category": "Kategori",
                 "categories": "Kategori",
                 "categoriesRo": "Kategori",
+                "cheapestPrice": "Harga",
                 "choose": "Pilih",
                 "description": "Deslripsi",
                 "descriptionLong": "Deskripsi",
@@ -1605,6 +1689,7 @@
                 "length": "Panjang",
                 "linked": "Ditautkan",
                 "manufacturerId": "Pabrikan",
+                "manufacturer": "Pabrikan",
                 "manufacturerNumber": "Nomor manufaktur",
                 "markAsTopseller": "Tandai sebagai penjual terbaik",
                 "maxDeliveryTime": "Maks. waktu pengiriman",
@@ -1617,7 +1702,7 @@
                 "option": "Opsi",
                 "packUnit": "Satuan kemasan",
                 "packUnitPlural": "Paket unit jamak",
-                "cheapestPrice": "Harga",
+                "price": "Harga",
                 "product": "Produk",
                 "productNumber": "Nomor produk",
                 "purchasePrice": "Harga pembelian",
@@ -1774,7 +1859,10 @@
             "xTimesIn": "{n} kali dalam",
             "close": "Tutup",
             "from": "Dari",
-            "to": "Untuk"
+            "to": "Untuk",
+            "bulkEdit": "Edit massal",
+            "startBulkEdit": "Mulai edit massal",
+            "bulkEditModalTitle": "Massal edit - {count} item yang dipilih | Massal edit - {count} item yang dipilih"
         },
         "notification": {
             "notificationSaveErrorMessage": "Kesalahan terjadi ketika menyimpan entitas \"{entityName}\".",
@@ -1847,7 +1935,7 @@
             },
             "plugin-updates-listener": {
                 "updatesAvailableTitle": "Pembaruan tersedia",
-                "updatesAvailableMessage": "Unduh versi terbaru dari plugin anda sekarang."
+                "updatesAvailableMessage": "Unduh versi terbaru ekstensi Anda sekarang."
             },
             "shopware-updates-listener": {
                 "updatesAvailableTitle": "Sebuah versi Shopware baru {version} telah tersedia",
@@ -2132,6 +2220,7 @@
         },
         "sw-media-upload-v2": {
             "buttonFileUpload": "Unggah berkas",
+            "buttonFilesUpload": "Unggah berkas",
             "buttonUrlUpload": "Unggah berkas dari URL",
             "buttonSwitchToFileUpload": "Unggah berkas dari komputer anda",
             "buttonSwitchToUrlUpload": "Unggah berkas dari url",
@@ -2218,14 +2307,10 @@
         },
         "sw-multi-tag-ip-select": {
             "enterValidIp": "Harap masukkan alamat IPv4 atau IPv6 yang valid",
-            "addIpAdress": "Tambahkan alamat IP",
+            "addIpAddress": "Tambah alamat IP",
             "knownIps": {
                 "you": "Anda"
             }
-        },
-        "sw-multi-ip-select": {
-            "enterValidIp": "Harap masukkan alamat IPv4 atau IPv6 yang valid",
-            "addIpAdress": "Tambahkan alamat IP"
         },
         "sw-entity-multi-select": {
             "messageNoResults": "Tidak ada hasil ditemukan untuk\"{term}\"."
@@ -2295,6 +2380,7 @@
                 "shippingCountryRule": "Negara pengirim",
                 "shippingStreetRule": "Jalan pengiriman",
                 "shippingZipCodeRule": "Kode pos pengiriman",
+                "customerLoggedInRule": "Pelanggan masuk",
                 "cartAmountRule": "Jumlah keranjang",
                 "goodsCountRule": "Hitung barang",
                 "goodsPriceRule": "Harga bagus",
@@ -2336,7 +2422,7 @@
                 "alwaysValidRule": "Selalu valid",
                 "lineItemPropertyRule": "Properti butir baris",
                 "lineItemNoveltyRule": "Hal baru",
-                "lineItemCustomFieldRule": "Baris item dengan atribut",
+                "lineItemCustomFieldRule": "Baris item dengan bidang kustom",
                 "lineItemIsNewRule": "Baris item baru",
                 "lineItemOfManufacturerRule": "Manufaktur",
                 "lineItemPurchasePriceRule": "Harga pembelian item baris",
@@ -2368,7 +2454,8 @@
         "sw-product-image": {
             "context": {
                 "buttonAsCover": "Gunakan sebagai sampul",
-                "buttonRemove": "Hapus"
+                "buttonRemove": "Hapus",
+                "buttonPreviewImage": "Pratinjau gambar"
             }
         },
         "sw-simple-search-field": {
@@ -2438,7 +2525,9 @@
             "delivery_time": "Waktu pengiriman",
             "import_export_profile": "Impor/Ekspor Profil | Impor/Ekspor Profil",
             "feature_set": "Template | Template",
-            "event_action": "Acara bisnis"
+            "event_action": "Acara bisnis",
+            "property_group": "Kelompok properti | Grup properti",
+            "document_base_config": "Konfigurasi dasar dokumen | Konfigurasi basis dokumen"
         },
         "day-of-week": {
             "monday": "Senin",
@@ -2469,6 +2558,7 @@
             "mail_sent": "Email dikirim",
             "newsletter_confirm": "Pendaftaran buletin dikonfirmasi",
             "newsletter_register": "Pendaftaran buletin terdaftar",
+            "newsletter_unsubscribe": "Newsletter berhenti berlangganan",
             "newsletter_update": "Pendaftaran buletin diperbarui",
             "product_export_log": "Ekspor produk dijalankan",
             "state_enter_order_state_cancelled": "Pesanan memasuki status dibatalkan",
@@ -2900,6 +2990,7 @@
             "columnDescription": "Deskripsi",
             "columnActive": "Aktif",
             "columnPosition": "Posisi",
+            "columnExtension": "Ekstensi",
             "buttonAddPaymentMethod": "Tambah metode pembayaran",
             "contextMenuEdit": "Edit/sunting",
             "contextMenuDelete": "Hapus",
@@ -2931,7 +3022,7 @@
         }
     },
     "sw-plugin-box": {
-        "buttonPluginSettings": "Pengaturan plugin"
+        "buttonPluginSettings": "Pengaturan ekstensi"
     },
     "sw-settings-country": {
         "general": {
@@ -2978,7 +3069,10 @@
             "buttonAddCountryState": "Tambah negara/provinsi",
             "editAction": "Edit/sunting",
             "columnStateNameLabel": "Nama",
-            "columnStateShortCodeLabel": "Tulisan cepat"
+            "columnStateShortCodeLabel": "Tulisan cepat",
+            "taxFreeFrom": "Bebas pajak dari",
+            "taxFreeFromHelpText": "Jika total keranjang belanja lebih tinggi dari nilai yang ditetapkan dalam “Tax free from”, seluruh keranjang belanja akan bebas pajak.",
+            "labelVatIdRequired": "Bidang ID PPN diperlukan"
         }
     },
     "sw-country-state-detail": {
@@ -3047,7 +3141,9 @@
             },
             "emptyCountryRoundings": "Tambahkan desimal individu dan faktor pembulatan untuk berbagai negara.",
             "emptyCountryRoundingsNewCurrency": "Isi informasi dasar, simpan mata uang - lalu tambahkan nilai",
-            "buttonAddCountry": "Tambah negara"
+            "buttonAddCountry": "Tambah negara",
+            "taxFreeFrom": "Bebas pajak dari",
+            "taxFreeFromHelpText": "Jika total keranjang belanja lebih tinggi dari nilai yang ditetapkan dalam “Tax free from”, seluruh keranjang belanja akan bebas pajak. Berlaku untuk gerobak belanja yang dibayarkan di \"{currencyName}“, saja."
         },
         "currency-country-modal": {
             "labelCountrySelect": "Negara",
@@ -3062,11 +3158,13 @@
             "labelRoundForNet": "Round untuk pelanggan bersih juga",
             "grandHeadline": "Total besar",
             "grandSubline": "Pembulatan berlaku untuk total besar",
+            "headerWarning": "Interval pembulatan yang berbeda - Pastikan untuk memeriksa kembali dengan penyedia layanan individual Anda untuk menghindari masalah akuntansi.",
+            "headerInfo": "Perhitungan pajak didasarkan pada total yang tidak dibulatkan. Perbedaan pembulatan yang terjadi tidak dikenakan perhitungan pajak.",
             "helpTextDecimals": "Desimal menunjukkan jumlah maksimum digit setelah pemisah desimal.",
-            "helpTextInterval": "Gunakan interval pembulatan untuk memperhitungkan pasar di mana denominasi fisik terendah dari mata uang telah dihapuskan dan pembulatan kas di tempat. <br><br> Petunjuk: Pilih “Tidak Ada” jika Anda tidak ingin menerapkan pembulatan uang tunai. Misalnya saat menggunakan desimal yang lebih besar dari 2.",
+            "helpTextInterval": "Gunakan interval pembulatan untuk memperhitungkan pasar di mana denominasi fisik terendah dari mata uang telah dihapuskan dan pembulatan kas di tempat. <br><br> Petunjuk: Pilih “Tidak Ada” jika Anda tidak ingin menerapkan pembulatan harga apa pun. Misalnya saat menggunakan desimal yang lebih besar dari 2.",
             "helpTextRoundForNet": "Aktifkan pembulatan untuk kelompok pelanggan bersih tambahan.",
             "labelIntervalNone": "Tidak ada",
-            "tooltipIntervalDisabled": "Pembulatan uang tunai tidak berlaku jika desimal lebih besar dari 2."
+            "tooltipIntervalDisabled": "Pembulatan harga tidak diterapkan jika desimal lebih besar dari 2 dikonfigurasi."
         }
     },
     "sw-category": {
@@ -3289,13 +3387,15 @@
         "visibility": {
             "textHeadline": "Mode tampilan produk pe jalur penjualan",
             "placeholderVisibility": "Pilih jalur penjualan...",
-            "columnAll": "Universal",
-            "columnSearchOnly": "Mencari hanya hasil",
-            "columnLinkOnly": "Tersembunyi",
-            "linkAdvancedVisibility": "Opsi penetapan lanjutan",
+            "columnAll": "Terlihat",
+            "columnSearchOnly": "Sembunyikan di Daftar",
+            "columnLinkOnly": "Sembunyikan di Daftar dan pencarian",
+            "visibilityModalDescription": "“Sembunyikan dalam daftar” akan mengecualikan produk dari daftar ikhtisar produk tetapi juga dari slider produk dan daftar penjualan silang. Memilih opsi “Sembunyikan dalam daftar dan pencarian” juga akan mengecualikan produk dari tindakan pencarian. Produk masih dapat dihubungi melalui URL.",
+            "linkAdvancedVisibility": "Tetapkan visibilitas untuk Saluran Penjualan yang dipilih",
             "labelVisibility": "Jalur penjualan",
             "closeModal": "Terapkan",
-            "bodyVisibility": "Tambahkan saluran Penjualan di mana produk harus ditampilkan. Anda juga dapat menentukan lebih jauh visibilitas produk untuk setiap Saluran Penjualan Storefront melalui de link di bawah ini."
+            "bodyVisibility": "Tambahkan Sales Channels di mana produk ini harus ditampilkan. Anda dapat menentukan lebih lanjut visibilitas produk untuk setiap Saluran Penjualan Storefront melalui link di bawah ini.",
+            "errorMessage": "Tidak dapat memuat konfigurasi saluran penjualan default."
         },
         "general": {
             "mainMenuItemGeneral": "Produk",
@@ -3380,7 +3480,10 @@
             "placeholderMetaTitle": "Masukkan judul meta...",
             "placeholderMetaDescription": "Masukkan deskripsi meta...",
             "placeholderKeywords": "Masukkan satu atau lebih kata kunci...",
-            "placeholderCanonicalProduct": "Pilih varian..."
+            "placeholderCanonicalProduct": "Pilih varian...",
+            "helpTextMetaTitle": "Judul meta adalah elemen SEO yang paling penting dan harus unik untuk setiap halaman. Anda harus membatasi diri Anda panjangnya hingga maksimal 56 karakter. Kata kunci Anda idealnya harus ditempatkan di bagian paling depan.",
+            "helpTextMetaDescription": "Dengan deskripsi meta, Anda mengkonfirmasi kepada pelanggan Anda bahwa mereka berada di tempat yang tepat di toko Anda. Anda menciptakan insentif, membangun kepercayaan dan mengundang untuk tindakan. Anda harus membatasi diri Anda maksimal 155 karakter.",
+            "helpTextKeywords": "Di sini Anda dapat menentukan opsional tiga sampai lima kata kunci di mana produk Anda harus ditemukan."
         },
         "settingsForm": {
             "labelCreatedAt": "Tanggal pembuatan",
@@ -3504,6 +3607,7 @@
             "columnInStock": "Persediaan",
             "columnAvailableStock": "Tersedia",
             "columnActions": "Tindakan(s)",
+            "columnMedia": "Media",
             "contextMenuEdit": "Edit/sunting",
             "contextMenuDelete": "Hapus",
             "contextMenuDuplicate": "Duplikat",
@@ -3604,6 +3708,7 @@
             "generatedListColumnVariation": "Nama",
             "generatedListColumnPrice": "Harga (kotor/ bersih)",
             "generatedListColumnProductNumber": "Nomor produk",
+            "generatedListColumnMedia": "Media",
             "generatedListColumnActive": "Aktif",
             "generatedListColumnStock": "Persediaan",
             "generatedListContextMenuEdit": "Edit/sunting",
@@ -3672,6 +3777,7 @@
         "crossselling": {
             "cardTitleCrossSelling": "Salib Jual",
             "buttonAddCrossSelling": "Tambahkan Cross Selling baru",
+            "buttonAddCrossSellingLanguageWarning": "Anda hanya dapat membuat penjualan lintas baru dalam bahasa default",
             "buttonDeleteCrossSelling": "Hapus",
             "inputCrossSellingTitle": "Nama",
             "inputCrossSellingActive": "Aktif",
@@ -4190,12 +4296,15 @@
             "updateExcludedTermSuccess": "Istilah pencarian dikecualikan diperbarui.",
             "createExcludedTermSuccess": "Istilah pencarian dikecualikan dibuat.",
             "deleteExcludedTermSuccess": "Istilah pencarian dikecualikan dihapus.",
+            "resetToDefaultExcludedTermSuccess": "Istilah pencarian yang dikecualikan telah diatur ulang ke default.",
+            "resetToDefaultExcludedTermError": "Terjadi galat saat menyetel ulang istilah pencarian yang dikecualikan.",
             "saveError": "Terjadi galat saat menyimpan konfigurasi Anda.",
             "index": {
                 "started": "Membangun indeks produk.",
                 "success": "Indeks produk dibangun."
             },
-            "loadError": "Terjadi galat saat memuat konfigurasi Anda."
+            "loadError": "Terjadi galat saat memuat konfigurasi Anda.",
+            "notSupportedLanguageError": "Bahasa yang dipilih tidak tersedia di Sales Channel yang dipilih"
         },
         "liveSearchTab": {
             "titleCard": "Pencarian langsung Saluran Penjualan",
@@ -4239,7 +4348,7 @@
             "username": "Nama pengguna",
             "username-placeholder": "Masukkan nama pengguna Anda...",
             "password": "Kata sandi",
-            "password-placeholder": "Masukkan kata sandi...",
+            "password-placeholder": "Masukkan sandi...",
             "encryption": "Enkripsi",
             "encryption-placeholder": "Pilih metode enkripsi...",
             "sender-address": "Alamat pengirim",
@@ -4348,7 +4457,7 @@
             "label": "Sekarang tersedia",
             "activationDescriptionTitleFirst": "Jelajahi dan beli ekstensi dengan mudah -",
             "activationDescriptionTitleSecond": "langsung dari dalam toko Shopware Anda sendiri.",
-            "activationDescriptionTitleDescription": "Aktifkan semua Toko Shopware baru dan dapatkan akses ke banyak Ekstensi yang bermanfaat dan Tema modern yang dapat diintegrasikan ke dalam Toko Anda tanpa keterampilan pemrograman.",
+            "activationDescriptionTitleDescription": "Aktifkan Toko Shopware dan dapatkan akses ke banyak Ekstensi yang bermanfaat dan Tema modern yang dapat diintegrasikan ke dalam Toko Anda tanpa keterampilan pemrograman.",
             "activate": "Aktifkan"
         },
         "title": "Toko",
@@ -4501,6 +4610,9 @@
                     "permissions": "Izin"
                 }
             },
+            "sw-extension-card-bought": {
+                "subscriptionExpiredAt": "Langganan berakhir pada {date}"
+            },
             "sw-extension-deactivation-modal": {
                 "deactivateExtensionLabel": "Nonaktifkan \"{extensionName}”",
                 "description": "Ekstensi \"{extensionName}\" memiliki biaya berlangganan bulanan.<br>Menonaktifkan ekstensi <b>tidak akan</b> membatalkan langganan dan biaya akan terus dikumpulkan!",
@@ -4510,8 +4622,16 @@
             },
             "sw-extension-permissions-modal": {
                 "title": "{extensionLabel} izin",
-                "description": "{extensionLabel} akan memiliki akses ke komponen berikut. Klik tautan di samping komponen untuk menampilkan rincian entitas.",
-                "textEntities": "Tampilkan izin"
+                "description": "{extensionLabel} akan mendapatkan akses ke komponen di bawah ini. Klik tautan di samping komponen untuk menampilkan rincian entitas.",
+                "domainHint": "Beberapa data juga akan dibagikan dengan domain lain. Klik tautan di samping domain untuk rincian lebih lanjut.",
+                "textEntities": "Tampilkan izin",
+                "domains": "Domain",
+                "showDomains": "Tampilkan Domain"
+            },
+            "sw-extension-domains-modal": {
+                "modalTitle": "{extensionLabel} - Domain",
+                "description": "Beberapa data akan dibagikan/ditransfer ke domain yang tercantum di bawah ini.",
+                "listTitle": "Domain"
             },
             "sw-extension-privacy-policy-extensions-modal": {
                 "title": "{extensionLabel}: ekstensi kebijakan privasi",
@@ -4940,7 +5060,6 @@
             "messageServerError": "Otorisasi server menemukan sebuah kondisi tidak diharapkan.",
             "messageInvalidRefreshToken": "Token penyegaran tidak valid.",
             "messageAccessDenied": "Permintaan ditolak oleh otorisasi server.",
-            "messageInvalidGrant": "Otorisasi hibah atau penyegaran token tidak valid.",
             "messageGeneralRequestError": "Sesuatu permintaan yang salah {url}.",
             "forgottenPasswordLink": "Lupa kata sandi?"
         },
@@ -5463,6 +5582,23 @@
             "markets": "Pasar Shopware"
         }
     },
+    "sw-flow": {
+        "general": {
+            "mainMenuItemGeneral": "Pembangun aliran",
+            "descriptionTextModule": "Pembangun aliran"
+        },
+        "list": {
+            "textHeadline": "Pembangun Aliran",
+            "buttonAddFlow": "Tambahkan aliran"
+        },
+        "detail": {
+            "textHeadline": "Aliran baru"
+        },
+        "page": {
+            "generalTab": "Umum",
+            "flowTab": "Flow"
+        }
+    },
     "sw-sales-channel": {
         "general": {
             "tooltipOpenStorefront": "Buka etalase",
@@ -5569,6 +5705,14 @@
             "ipAddressWhitleListHelpText": "Tambahkan alamat IP ke daftar putih untuk memungkinkan akses selektif ke toko Anda. Anda dapat menambahkan alamat IPv4 dan IPv6 sesuai kebutuhan.",
             "basicinformationLink": "Ubah layout pemeliharaan default di sini",
             "columnDomainCurrency": "Mata uang",
+            "products": {
+                "titleEmptyState": "Belum ada produk yang ditambahkan",
+                "titleEmptyStateTable": "Tidak ditemukan produk yang cocok",
+                "buttonAddProducts": "Tambahkan produk",
+                "columnProductName": "Nama produk",
+                "columnActive": "Aktif",
+                "columnProductNumber": "Nomor produk"
+            },
             "productComparison": {
                 "inputHeaderLabel": "Baris judul",
                 "inputBodyLabel": "Baris produk",
@@ -5690,6 +5834,12 @@
                 "verticalDescription": "PPN dihitung dari total pesanan. Tidak ada nilai PPN individual yang ditampilkan saat checkout.",
                 "horizontalName": "Perhitungan tiap baris (horizontal)",
                 "horizontalDescription": "PPN dihitung untuk setiap posisi keranjang belanja. Selama checkout setiap posisi PPN individu ditampilkan. Jumlah PPN total dihitung dengan menambahkan semua nilai PPN individu."
+            },
+            "productAssigmentModal": {
+                "title": "Tambahkan produk",
+                "singleProducts": "Produk individu",
+                "categories": "Filter berdasarkan kategori",
+                "dynamicProductGroups": "Filter berdasarkan grup produk dinamis"
             }
         },
         "sw-sales-channel-defaults-select": {
@@ -5761,8 +5911,12 @@
                 "placeholderTestMail": "shop@example.com",
                 "buttonTestMail": "Kirim",
                 "labelTestMail": "Alamat penerima",
-                "titleTestMail": "Kirim email tes"
+                "titleTestMail": "Kirim email tes",
+                "titleShowPreview": "Tampilkan pratinjau",
+                "titleShowAvailableVariables": "Variabel",
+                "copyTooltip": "Salin ke clipboard."
             },
+            "previewModalTitle": "Pratinjau",
             "buttonCancel": "Batal",
             "buttonSave": "Simpan",
             "textHeadline": "Template email baru",
@@ -5801,7 +5955,7 @@
                 "titleCard": "Informasi",
                 "labelName": "Nama",
                 "labelDescription": "Deskripsi",
-                "labelSalesChannels": "Jalur penjualan",
+                "labelSalesChannels": "Saluran Penjualan",
                 "placeholderName": "Masukkan sebuah nama...",
                 "placeholderDescription": "Masukkan deskripsi...",
                 "placeholderSalesChannels": "Pilih Saluran Penjualan terkait..."
@@ -6238,6 +6392,20 @@
             "tags": {
                 "label": "Tags",
                 "placeholder": "Pilih tag..."
+            },
+            "affiliateCode": {
+                "label": "Kode afiliasi",
+                "placeholder": "Pilih kode afiliasi..."
+            },
+            "campaignCode": {
+                "label": "Kode kampanye",
+                "placeholder": "Pilih kode kampanye..."
+            },
+            "customerGroupRequest": {
+                "label": "Permintaan grup pelanggan",
+                "placeholder": "Pilih status permintaan...",
+                "textHasCriteria": "Membuka permintaan grup pelanggan",
+                "textNoCriteria": "Tidak ada permintaan grup pelanggan"
             },
             "messageEmptyTitle": "Tidak ditemukan",
             "messageEmptySubline": "Edit filter Anda untuk menemukan hasil."
@@ -7200,7 +7368,7 @@
     "sw-license-violation": {
         "title": "Peringatan ekstensi",
         "reload": "Muat ulang",
-        "alertText": "Kami telah mendeteksi pelanggaran lisensi untuk setidaknya satu ekstensi Anda dalam instalasi ini. Untuk memperbaiki pelanggaran lisensi dan menghindari konsekuensi hukum, pesan langganan ekstensi atau membeli/menyewa ekstensi (sesuai dengan jenis pelanggaran yang ditimbulkan). Anda tidak menggunakan ekstensi lagi? Kemudian padamkannya melalui Sambungan Saya. Jika tidak ada tindakan ini yang diambil, shopware AG berhak untuk membebankan biaya penalti atas pelanggaran lisensi.",
+        "alertText": "Kami telah mendeteksi pelanggaran lisensi untuk setidaknya satu ekstensi Anda dalam instalasi ini. Untuk memperbaiki pelanggaran lisensi dan menghindari konsekuensi hukum, pesan langganan atau membeli/menyewa ekstensi (sesuai dengan jenis pelanggaran yang ditimbulkan). Anda tidak menggunakan ekstensi lagi? Kemudian padamkannya melalui butang “Padam sambungan secara kekal” atau melalui Sambungan Saya. Jika tidak ada tindakan ini yang diambil, shopware AG berhak untuk membebankan biaya penalti atas pelanggaran lisensi.",
         "deletePlugin": "Hapus ekstensi secara permanen",
         "messageDeleteConfirm": "Apakah Anda ingin menghapus ekstensi \"{pluginName}\" sepenuhnya?",
         "checkboxMessage": "Saya telah melihat pesan ini dan sadar akan adanya konsekuensi.",

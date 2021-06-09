@@ -63,7 +63,6 @@
         "CHECKOUT__UNKNOWN_PAYMENT_METHOD": "Den valgte betalingsmetode er ikke gyldig.",
         "productNotFound": "Produkt \"%number%\" blev ikke fundet.",
         "payment-method-blocked": "Betaling med %name% er ikke tilgængelig.",
-        "shipping-method-blocked": "%name% er ikke tilgængelig.",
         "shipping-address-blocked": "Forsendelse til den valgte adresse er ikke muligt.",
         "shipping-address-invalid": "Den valgte forsendelsesadresse er ikke gyldig eller ufuldstændig. Tjek venligst dine indgange.",
         "billing-address-blocked": "Fakturering til den valgte adresse er ikke mulig.",
@@ -73,7 +72,10 @@
         "message-403-ajax": "Din session er udløbet. Opdater siden og prøv igen.",
         "message-403": "Din session er udløbet. Vælg venligst tilbage til forrige side og prøv igen.",
         "product-out-of-stock": "%name% er ikke tilgængelig i øjeblikket.",
-        "auto-promotion-not-found": "Kampagnen \"%name%\" var ikke længere gyldig!"
+        "auto-promotion-not-found": "Kampagnen \"%name%\" er ikke længere gyldig!",
+        "captcha": {
+            "basic-captcha-invalid": "Captchaen er ugyldig. Tjek venligst dine indgange."
+        }
     },
     "account": {
         "externalPaymentCanceled": "Vi modtog din ordre, men betalingen blev afbrudt. Skift din betalingsmetode, eller prøv igen",
@@ -503,7 +505,7 @@
         "reviewFormContentLabel": "Din anmeldelse",
         "reviewFormSubmitText": "Gem",
         "reviewFormCancelText": "Annuller",
-        "reviewFormErrorAlert": "En fejl opstod. Sørg for, at du udfylder alle felter korrekt.",
+        "reviewFormErrorAlert": "Der opstod en fejl. Sørg for, at du har udfyldt alle felter korrekt.",
         "reviewFormSuccessAlert": "Tak, fordi du indsendte din anmeldelse. Vi vil undersøge anmeldelsen og til sidst låse den op, vær tålmodig.",
         "reviewFormSuccessUpdateAlert": "Tak for at redigere din bedømmelse. Dine ændringer vil være synlige så snart de er blevet godkendt.",
         "reviewTeaserTitle": "Skriv en anmeldelse!",
@@ -540,7 +542,8 @@
         "noLongerAvailableTooltip": "Produktet er ikke længere tilgængeligt.",
         "wishlistMergeHint": "Din ønskeliste kan indeholde produkter, der er blevet tilføjet og gemt under et tidligere besøg.",
         "wishlistEmptyHeader": "Din ønskeliste er tom",
-        "wishlistEmptyDescription": "Hold øje med produkter, du kan lide, ved at tilføje dem til din ønskeliste."
+        "wishlistEmptyDescription": "Hold øje med produkter, du kan lide, ved at tilføje dem til din ønskeliste.",
+        "deliveryTimeRestock": "{1} Tilgængelig i 1 dag, leveringstid %name%|] 1, Inf [Tilgængelig i %restockTime% dage, leveringstid %name%"
     },
     "footer": {
         "serviceHotlineHeadline": "Kontaktinformationer",
@@ -555,6 +558,12 @@
         "excludeVat": "* Alle priser er excl moms og <a data-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">fragt</a>.",
         "copyrightInfo": "Udviklet på Shopware"
     },
+    "captcha": {
+        "googleReCaptcha": {
+            "dataProtectionInformation": "Dette websted er beskyttet af reCAPTCHA, og Google\n<a href=\"https://policies.google.com/privacy\">Privacy Policy</a> og\n<a href=\"https://policies.google.com/terms\">Servicevilkår</a> gælder."
+        },
+        "basicCaptchaLabel": "Indtast venligst de tegn, der er vist ovenfor*"
+    },
     "cookie": {
         "message": "Dette websted bruger cookies for at sikre den bedst mulige oplevelse. <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Mere information\">Mere information...</a>",
         "deny": "Afvis",
@@ -568,7 +577,7 @@
         "groupRequiredSession": "Session",
         "groupRequiredCsrf": "CSRF-beskyttelse",
         "groupRequiredTimezone": "Tidszone",
-        "groupRequiredGoogleReCaptcha": "Google reCAPTCHA",
+        "groupRequiredCaptcha": "Integration af Captcha",
         "groupStatistical": "Statistik",
         "groupStatisticalDescription": "Cookies brugt til statistik og performance målinger.",
         "groupStatisticalGoogleAnalytics": "Google Analytics",

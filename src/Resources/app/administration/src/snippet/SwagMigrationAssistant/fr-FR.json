@@ -43,7 +43,7 @@
                     "availableVersionHeadline": "Prise en charge :",
                     "installedHint": "Installé",
                     "installationButton": "Installer",
-                    "shopwareProfileHeadline": "Shopware 5 - Profil",
+                    "shopwareProfileHeadline": "Shopware - Profil",
                     "magentoProfileHeadline": "Magento - Profil",
                     "profileManufacturer": "shopware AG"
                 },
@@ -79,6 +79,12 @@
                         "contentTitle": "Plugin requis",
                         "contentInformation": "Le plugin requis « Migration Connector » est gratuit et peut être trouvé dans votre backend Shopware 5 sous Plugin Manager > Extensions > Outils de migration. Veuillez installer et activer le plugin pour continuer.",
                         "pluginLink": "Plus d'informations sur le plugin"
+                    },
+                    "shopware6Api": {
+                        "contentTitle": "Intégration requise",
+                        "contentInformation": "Il est nécessaire de créer une intégration dans le système source via Paramètres > Système > Intégrations.",
+                        "pluginLink": "Plus d'informations sur les intégrations",
+                        "link": "https://docs.shopware.com/en/shopware-6-en/settings/system/integrationen"
                     }
                 },
                 "credentials": {
@@ -110,6 +116,20 @@
                             "dbPasswordPlaceholder": "Saisir le mot",
                             "installationRoot": "Dossier d'installation",
                             "installationRootPlaceholder": "Entrez la racine d'installation"
+                        }
+                    },
+                    "shopware6": {
+                        "api": {
+                            "contentInformation": "Vous avez besoin d'informations d'identification API valides pour établir une connexion entre votre instance Shopware 6 source et cible. Vous les obtenez lorsque vous créez une intégration dans votre système source.",
+                            "apiPasswordLabel": "Clé d'accès secret",
+                            "apiPasswordTooltip": "La clé d'accès secrète est utilisée pour la sécurité et l'identification.",
+                            "apiPasswordPlaceholder": "Entrez la clé d'accès secrète",
+                            "apiUserLabel": "ID de clé d'accès",
+                            "apiUserTooltip": "Accédez à l'ID de clé de votre intégration.",
+                            "apiUserPlaceholder": "Saisissez l'ID de clé d'accès",
+                            "endpointLabel": "Shop domaine",
+                            "endpointPlaceholder": "www.demoshop.com",
+                            "endpointSSLLabel": "Ma boutique utilise une connexion sécurisée (SSL)"
                         }
                     },
                     "statusTitle": "Vérification de connexion",
@@ -237,12 +257,15 @@
                     "newsletterRecipient": "Destinataire de",
                     "productReviews": "Avis sur les produits",
                     "seoUrls": "URL de référencement",
-                    "promotions": "Promotions"
+                    "promotions": "Promotions",
+                    "cms": "Mises en page",
+                    "customerWishlists": "Listes de souhaits"
                 },
                 "entities": {
                     "category": "Catégories :",
                     "product": "Produits :",
                     "customer": "Clients :",
+                    "delivery_time": "Délais de livraison :",
                     "order": "Commandes :",
                     "media": "Médias :",
                     "translation": "Traductions :",
@@ -252,14 +275,44 @@
                     "property_group_option": "Propriétés :",
                     "number_range": "Nombre de plages :",
                     "order_document": "Documents de commande :",
+                    "order_document_base_config": "Config du document :",
+                    "order_document_inheritance": "Relations de document de commande :",
                     "shipping_method": "Modes d'expédition :",
                     "currency": "Devises :",
                     "sales_channel": "Canaux de vente :",
+                    "sales_channel_domain": "Domaines :",
                     "product_review": "Avis :",
-                    "seo_url": "URL de référencement :",
+                    "seo_url": "URL SEO :",
+                    "seo_url_template": "Modèles d'URL SEO :",
                     "product_cross_selling": "Vente croisée :",
+                    "promotion": "Promotions :",
+                    "language": "Langues :",
+                    "category_association": "Associations de catégorie :",
+                    "category_cms_page_association": "Associations de disposition de catégorie :",
+                    "tax": "Taux d'imposition :",
+                    "tax_rule": "Règles fiscales :",
+                    "property_group": "Groupes de propriétés :",
+                    "product_manufacturer": "Fabricants de produits :",
                     "main_variant_relation": "Relations de variantes principales :",
-                    "promotion": "Promotions :"
+                    "customer_wishlist": "Listes de souhaits :",
+                    "unit": "Unités d'échelle :",
+                    "media_folder": "Dossiers médias :",
+                    "media_folder_inheritance": "Héritage des dossiers multimédias :",
+                    "salutation": "Salutations :",
+                    "rule": "Règles :",
+                    "country": "Pays :",
+                    "custom_field_set": "Jeux de champs personnalisés :",
+                    "snippet": "Extraits de code :",
+                    "snippet_set": "Ensembles d'extraits :",
+                    "mail_template": "Modèles d'e-mail :",
+                    "product_feature_set": "Caractéristiques essentielles :",
+                    "product_sorting": "Tri des produits :",
+                    "system_config": "Informations de base :",
+                    "page_system_config": "Informations de base de la page :",
+                    "cms_page": "Mises en page :",
+                    "product_stream": "Groupes de produits dynamiques :",
+                    "product_stream_filter_inheritance": "Filtres dynamiques des groupes de produits :",
+                    "country_state": "Pays Etats :"
                 },
                 "noData": "Rien n'a été trouvé pour migrer."
             },

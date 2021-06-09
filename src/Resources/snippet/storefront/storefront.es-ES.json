@@ -63,7 +63,6 @@
         "CHECKOUT__UNKNOWN_PAYMENT_METHOD": "No se encuentra la modalidad de pago elegida.",
         "productNotFound": "No se ha encontrado el producto \"%number%\".",
         "payment-method-blocked": "La modalidad de pago elegida %name% no está disponible.",
-        "shipping-method-blocked": "El modo de envío elegido %name% no está disponible.",
         "shipping-address-blocked": "Las entregas a la dirección de entrega no son posibles.",
         "shipping-address-invalid": "La dirección de envío seleccionada no es válida o incompleta. Por favor, compruebe sus entradas.",
         "billing-address-blocked": "No es posible facturar a la dirección seleccionada.",
@@ -73,7 +72,10 @@
         "message-403-ajax": "La sesión ha caducado. Vuelva a cargar la página e inténtelo de nuevo.",
         "message-403": "La sesión ha caducado. Vuelva a la última página e inténtelo de nuevo.",
         "product-out-of-stock": "%name% no está disponible actualmente.",
-        "auto-promotion-not-found": "¡La promoción \"%name%\" ya no era válida!"
+        "auto-promotion-not-found": "¡La promoción \"%name%\" ya no es válida!",
+        "captcha": {
+            "basic-captcha-invalid": "El captcha no es válido. Por favor, compruebe sus entradas."
+        }
     },
     "account": {
         "externalPaymentCanceled": "Recibimos su pedido, pero el pago se canceló. Cambia tu método de pago o vuelve a intentarlo",
@@ -503,7 +505,7 @@
         "reviewFormContentLabel": "Su comentario",
         "reviewFormSubmitText": "Enviar",
         "reviewFormCancelText": "Cancelar",
-        "reviewFormErrorAlert": "Se ha producido un error. Compruebe si todos los campos están rellenados correctamente.",
+        "reviewFormErrorAlert": "Se ha producido un error. Asegúrate de rellenar todos los campos correctamente.",
         "reviewFormSuccessAlert": "Gracias por enviar su opinión. Examinaremos la revisión y eventualmente la desbloquearemos, por favor sea paciente.",
         "reviewFormSuccessUpdateAlert": "Muchas gracias por la edición de su valoración. La valoración volverá a estar visible una vez que la hayamos desbloqueado de nuevo.",
         "reviewTeaserTitle": "¡Emita una valoración!",
@@ -540,7 +542,8 @@
         "noLongerAvailableTooltip": "El producto ya no está disponible.",
         "wishlistMergeHint": "Tu lista de deseos puede contener productos que se han añadido y guardado durante una visita anterior.",
         "wishlistEmptyHeader": "Tu lista de deseos está vacía",
-        "wishlistEmptyDescription": "Mantén un ojo en los productos que te gustan agregándolos a tu lista de deseos."
+        "wishlistEmptyDescription": "Mantén un ojo en los productos que te gustan agregándolos a tu lista de deseos.",
+        "deliveryTimeRestock": "{1} Disponible en 1 día, tiempo de entrega %name%|] 1, Inf [Disponible en %restockTime% días, plazo de entrega %name%"
     },
     "footer": {
         "serviceHotlineHeadline": "Línea de asistencia",
@@ -555,6 +558,12 @@
         "excludeVat": "* Salvo indicación contraria, todos los precios se incrementan con el IVA aplicable, los <a data-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">gastos de envío</a> y posibles tasas de reembolso.  ",
         "copyrightInfo": "Realizado con Shopware"
     },
+    "captcha": {
+        "googleReCaptcha": {
+            "dataProtectionInformation": "Este sitio está protegido por reCAPTCHA y se aplican las Políticas de Privacidad de Google\n<a href=\"https://policies.google.com/privacy\"></a> y\n<a href=\"https://policies.google.com/terms\">Términos de Servicio</a>."
+        },
+        "basicCaptchaLabel": "Por favor, introduzca los caracteres mostrados anterior*"
+    },
     "cookie": {
         "message": "Este sitio web utiliza cookies para poder ofrecerle una experiencia óptima. <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Más información\">Más información…</a>",
         "deny": "Rechazar",
@@ -568,7 +577,7 @@
         "groupRequiredSession": "Sesión",
         "groupRequiredCsrf": "Protección CSRF",
         "groupRequiredTimezone": "Zona horaria",
-        "groupRequiredGoogleReCaptcha": "Google reCAPTCHA",
+        "groupRequiredCaptcha": "Integración con Captcha",
         "groupStatistical": "Estadísticas",
         "groupStatisticalDescription": "Cookies utilizadas para estadísticas y métricas de rendimiento de la tienda.",
         "groupStatisticalGoogleAnalytics": "Google Analytics",

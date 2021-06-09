@@ -63,7 +63,6 @@
         "CHECKOUT__UNKNOWN_PAYMENT_METHOD": "Vybraný způsob platby nelze najít.",
         "productNotFound": "Výrobek \"%number%\" nenalezen.",
         "payment-method-blocked": "Zvolený způsob platby %name% není k dispozici.",
-        "shipping-method-blocked": "Zvolený způsob dopravy %name% není k dispozici.",
         "shipping-address-blocked": "Dodávky na zvolenou dodací adresu nejsou možné.",
         "shipping-address-invalid": "Vybraná dodací adresa není platná nebo neúplná. Zkontrolujte prosím své záznamy.",
         "billing-address-blocked": "Fakturace na vybranou adresu není možná.",
@@ -73,7 +72,10 @@
         "message-403-ajax": "Platnost relace skončila. Načtěte znovu stránku a zkuste to znovu.",
         "message-403": "Platnost relace skončila. Znovu se vraťte na poslední stránku a zkuste to znovu.",
         "product-out-of-stock": "%name% momentálně není k dispozici.",
-        "auto-promotion-not-found": "Propagace \"%name%\" již nebyla platná!"
+        "auto-promotion-not-found": "Propagace \"%name%\" již není platná!",
+        "captcha": {
+            "basic-captcha-invalid": "Captcha je neplatná. Zkontrolujte prosím své záznamy."
+        }
     },
     "account": {
         "externalPaymentCanceled": "Obdrželi jsme vaši objednávku, ale platba byla přerušena. Změňte způsob platby nebo zkuste to znovu",
@@ -503,7 +505,7 @@
         "reviewFormContentLabel": "Váš komentář",
         "reviewFormSubmitText": "Odeslat",
         "reviewFormCancelText": "Přerušit",
-        "reviewFormErrorAlert": "Došlo k chybě. Zkontrolujte, zda byla všechna pole vyplněna správně.",
+        "reviewFormErrorAlert": "Došlo k chybě. Ujistěte se, že jste vyplnili všechna pole správně.",
         "reviewFormSuccessAlert": "Děkujeme, že jste předložili recenzi. Prozkoumáme recenzi a nakonec ji odemkneme, prosím, buďte trpěliví.",
         "reviewFormSuccessUpdateAlert": "Děkujeme za zpracování vašeho hodnocení. Hodnocení bude opět vidět, jakmile ho znovu zpřístupníme.",
         "reviewTeaserTitle": "Zadejte své hodnocení!",
@@ -540,7 +542,8 @@
         "noLongerAvailableTooltip": "Produkt již není k dispozici.",
         "wishlistMergeHint": "Váš seznam přání může obsahovat produkty, které byly přidány a uloženy během předchozí návštěvy.",
         "wishlistEmptyHeader": "Váš seznam přání je prázdný",
-        "wishlistEmptyDescription": "Dávejte pozor na produkty, které se vám líbí, přidáte je do svého seznamu přání."
+        "wishlistEmptyDescription": "Dávejte pozor na produkty, které se vám líbí, přidáte je do svého seznamu přání.",
+        "deliveryTimeRestock": "{1} K dispozici za 1 den, dodací lhůta %name%|] 1, Inf [Dostupné za %restockTime% dny, dodací lhůta %name%"
     },
     "footer": {
         "serviceHotlineHeadline": "Servisní hotline",
@@ -555,6 +558,12 @@
         "excludeVat": "* Všechny ceny vč. zákonné DPH plus <a data-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">zasilatelských nákladů</a> a případných poplatků za dobírku, není-li uvedeno jinak.",
         "copyrightInfo": "Realizováno pomocí softwaru Shopware"
     },
+    "captcha": {
+        "googleReCaptcha": {
+            "dataProtectionInformation": "Tato stránka je chráněna reCAPTCHA a platí podmínky služby</a> Google\n<a href=\"https://policies.google.com/privacy\">Privacy Policy</a> a\n<a href=\"https://policies.google.com/terms\">."
+        },
+        "basicCaptchaLabel": "Zadejte znaky uvedené vyšší*"
+    },
     "cookie": {
         "message": "Aby vám mohly tyto webové stránky nabídnout co nejlepší uživatelský zážitek, používají Cookies. <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Více informací\">Více informací...</a>",
         "deny": "Odmítnout",
@@ -568,7 +577,7 @@
         "groupRequiredSession": "Relace",
         "groupRequiredCsrf": "Ochrana CSRF",
         "groupRequiredTimezone": "Časové pásmo",
-        "groupRequiredGoogleReCaptcha": "Google reCAPTCHA",
+        "groupRequiredCaptcha": "Integrace Captcha",
         "groupStatistical": "Statistiky",
         "groupStatisticalDescription": "Cookies používané pro statistiky a metriky výkonnosti obchodu.",
         "groupStatisticalGoogleAnalytics": "Google Analytics",

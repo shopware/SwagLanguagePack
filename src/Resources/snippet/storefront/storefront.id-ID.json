@@ -63,7 +63,6 @@
         "CHECKOUT__UNKNOWN_PAYMENT_METHOD": "Metode pembayaran yang dipilih tidak ada.",
         "productNotFound": "Produk %number% tidak ditemukan.",
         "payment-method-blocked": "Pembayaran melalui %name% tidak tersedia.",
-        "shipping-method-blocked": "Pengiriman %name% tidak tersedia.",
         "shipping-address-blocked": "Pengiriman ke alamat yang dipilih tidak tersedia.",
         "shipping-address-invalid": "Alamat pengiriman yang dipilih tidak valid atau tidak lengkap. Silakan periksa entri Anda.",
         "billing-address-blocked": "Penagihan ke alamat yang dipilih tidak mungkin.",
@@ -73,7 +72,10 @@
         "message-403-ajax": "Sesi anda telah kadaluarsa. Silahkan muat ulang halaman dan coba lagi.",
         "message-403": "Sesi anda telah kadaluarsa. Silahkan kembali ke halaman terakhir dan coba lagi.",
         "product-out-of-stock": "%name% sedang tidak tersedia saat ini.",
-        "auto-promotion-not-found": "Promosi \"%name%\" sudah tidak berlaku lagi!"
+        "auto-promotion-not-found": "Promosi \"%name%\" tidak berlaku lagi!",
+        "captcha": {
+            "basic-captcha-invalid": "Captcha tidak valid. Silakan periksa entri Anda."
+        }
     },
     "account": {
         "externalPaymentCanceled": "Kami menerima pesananmu, tapi pembayarannya dibatalkan. Silahkan ubah metode pembayaran Anda atau coba lagi",
@@ -503,7 +505,7 @@
         "reviewFormContentLabel": "Ulasan anda",
         "reviewFormSubmitText": "Kirim",
         "reviewFormCancelText": "Batal",
-        "reviewFormErrorAlert": "Telah terjadi eror. Sila pastikan anda mengisi seluruh bagian dengan benar.",
+        "reviewFormErrorAlert": "Terjadi galat. Pastikan Anda mengisi semua bidang dengan benar.",
         "reviewFormSuccessAlert": "Terima kasih telah mengirimkan ulasan Anda. Kami akan memeriksa review dan akhirnya membukanya, mohon bersabar.",
         "reviewFormSuccessUpdateAlert": "Terimakasih telah menyunting ulasan anda. Perubahan akan terlihat segera setelah kami membukanya.",
         "reviewTeaserTitle": "Tinggalkan ulasan!",
@@ -540,7 +542,8 @@
         "noLongerAvailableTooltip": "Produk ini tidak lagi tersedia.",
         "wishlistMergeHint": "Daftar keinginan Anda mungkin berisi produk yang telah ditambahkan dan disimpan selama kunjungan sebelumnya.",
         "wishlistEmptyHeader": "Wishlist Anda kosong",
-        "wishlistEmptyDescription": "Awasi produk yang Anda suka dengan menambahkannya ke daftar keinginan Anda."
+        "wishlistEmptyDescription": "Awasi produk yang Anda suka dengan menambahkannya ke daftar keinginan Anda.",
+        "deliveryTimeRestock": "{1} Tersedia dalam 1 hari, waktu pengiriman %name%|] 1, Inf [Tersedia dalam %restockTime% hari, waktu pengiriman %name%"
     },
     "footer": {
         "serviceHotlineHeadline": "Hotline servis",
@@ -555,6 +558,12 @@
         "excludeVat": "* Semua harga excl. PPN ditambah <a data-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">biaya pengiriman</a> dan biaya pengiriman mungkin, jika tidak dinyatakan sebaliknya.",
         "copyrightInfo": "Wujudkan dengan Shopware"
     },
+    "captcha": {
+        "googleReCaptcha": {
+            "dataProtectionInformation": "Situs ini dilindungi oleh reCAPTCHA dan Kebijakan Privasi Google\n<a href=\"https://policies.google.com/privacy\"></a> dan\n<a href=\"https://policies.google.com/terms\">Persyaratan Layanan</a> berlaku."
+        },
+        "basicCaptchaLabel": "Harap masukkan karakter yang ditunjukkan di atas*"
+    },
     "cookie": {
         "message": "Situs web ini menggunakan cookie untuk memastikan pengalaman yang terbaik. <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Informasi lainnya\">Informasi lainnya...</a>",
         "deny": "Tolak",
@@ -568,7 +577,7 @@
         "groupRequiredSession": "Sesi",
         "groupRequiredCsrf": "Perlindungan CSRF",
         "groupRequiredTimezone": "Zona waktu",
-        "groupRequiredGoogleReCaptcha": "Google reCAPTCHA",
+        "groupRequiredCaptcha": "Integrasi Captcha",
         "groupStatistical": "Statistik",
         "groupStatisticalDescription": "Cookie digunakan untuk statistik dan metrik performa toko.",
         "groupStatisticalGoogleAnalytics": "Google Analytics",

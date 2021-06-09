@@ -43,7 +43,7 @@
                     "availableVersionHeadline": "Obsługiwane:",
                     "installedHint": "Instalowane",
                     "installationButton": "Instalowanie",
-                    "shopwareProfileHeadline": "Shopware 5 - Profil",
+                    "shopwareProfileHeadline": "Shopware - Profil",
                     "magentoProfileHeadline": "Magento - Profil",
                     "profileManufacturer": "shopware AG"
                 },
@@ -79,6 +79,12 @@
                         "contentTitle": "Wymagana wtyczka",
                         "contentInformation": "Wymagana wtyczka „Migration Connector” jest bezpłatna i można ją znaleźć w zapleczu Shopware 5 w menu Menedżer Plugin Manager > Rozszerzenia > Narzędzia migracji. Zainstaluj i aktywuj wtyczkę, aby kontynuować.",
                         "pluginLink": "Więcej informacji o wtyczce"
+                    },
+                    "shopware6Api": {
+                        "contentTitle": "Wymagana integracja",
+                        "contentInformation": "Wymagane jest utworzenie integracji w systemie źródłowym poprzez Ustawienia > System > Integracje.",
+                        "pluginLink": "Więcej informacji na temat integracji",
+                        "link": "https://docs.shopware.com/en/shopware-6-en/settings/system/integrationen"
                     }
                 },
                 "credentials": {
@@ -110,6 +116,20 @@
                             "dbPasswordPlaceholder": "Wprowadź hasło",
                             "installationRoot": "Folder instalacyjny sklepu",
                             "installationRootPlaceholder": "Wprowadź katalog główny instalacji"
+                        }
+                    },
+                    "shopware6": {
+                        "api": {
+                            "contentInformation": "Aby nawiązać połączenie między instancją źródłową i docelową Shopware 6, potrzebne są prawidłowe poświadczenia interfejsu API. Otrzymasz je, gdy tworzysz integrację w systemie źródłowym.",
+                            "apiPasswordLabel": "Tajny klucz dostępu",
+                            "apiPasswordTooltip": "Tajny klucz dostępu służy do bezpieczeństwa i identyfikacji.",
+                            "apiPasswordPlaceholder": "Wprowadź tajny klucz dostępu",
+                            "apiUserLabel": "ID klucza dostępu",
+                            "apiUserTooltip": "Identyfikator klucza dostępu do Twojej integracji.",
+                            "apiUserPlaceholder": "Wprowadź identyfikator klucza dostępu",
+                            "endpointLabel": "Domena sklepu",
+                            "endpointPlaceholder": "www.demoshop.com",
+                            "endpointSSLLabel": "Mój sklep korzysta z bezpiecznego połączenia (SSL)"
                         }
                     },
                     "statusTitle": "Sprawdzanie połączenia",
@@ -236,12 +256,15 @@
                     "newsletterRecipient": "Odbiorca newslettera",
                     "productReviews": "Opinie o produkcie",
                     "seoUrls": "Adresy URL Seo",
-                    "promotions": "Promocje"
+                    "promotions": "Promocje",
+                    "cms": "Układy",
+                    "customerWishlists": "Listy życzeń"
                 },
                 "entities": {
                     "category": "Kategorie:",
                     "product": "Produkty:",
                     "customer": "Klienci:",
+                    "delivery_time": "Termin dostawy:",
                     "order": "Zamówienia:",
                     "media": "Media:",
                     "translation": "Tłumaczenia:",
@@ -251,14 +274,44 @@
                     "property_group_option": "Właściwości:",
                     "number_range": "Zakresy numerów:",
                     "order_document": "Dokumenty zamówienia:",
+                    "order_document_base_config": "Konfiguracja dokumentu:",
+                    "order_document_inheritance": "Relacje z dokumentami zamówienia:",
                     "shipping_method": "Metody wysyłki:",
                     "currency": "Waluty:",
                     "sales_channel": "Kanały sprzedaży:",
+                    "sales_channel_domain": "Domeny:",
                     "product_review": "Recenzje:",
-                    "seo_url": "Adresy Seo:",
+                    "seo_url": "Adresy URL SEO:",
+                    "seo_url_template": "Szablony adresów URL SEO:",
                     "product_cross_selling": "Sprzedaż krzyżowa:",
+                    "promotion": "Promocje:",
+                    "language": "Języki:",
+                    "category_association": "Kategoria stowarzyszeń:",
+                    "category_cms_page_association": "Skojarzenia układu kategorii:",
+                    "tax": "Stawki podatkowe:",
+                    "tax_rule": "Przepisy podatkowe:",
+                    "property_group": "Grupy nieruchomości:",
+                    "product_manufacturer": "Producenci produktów:",
                     "main_variant_relation": "Główne relacje wariantowe:",
-                    "promotion": "Promocje:"
+                    "customer_wishlist": "Listy życzeń:",
+                    "unit": "Jednostki skali:",
+                    "media_folder": "Foldery multimediów:",
+                    "media_folder_inheritance": "Dziedziczenia folderów multimedialnych:",
+                    "salutation": "Pozdrowienia:",
+                    "rule": "Reguły:",
+                    "country": "Kraje:",
+                    "custom_field_set": "Niestandardowe zestawy pól:",
+                    "snippet": "Fragmenty:",
+                    "snippet_set": "Zestawy urywków:",
+                    "mail_template": "Szablony wiadomości e-mail:",
+                    "product_feature_set": "Podstawowe cechy charakterystyczne:",
+                    "product_sorting": "Sortowanie produktu:",
+                    "system_config": "Podstawowe informacje:",
+                    "page_system_config": "Podstawowe informacje na stronie:",
+                    "cms_page": "Układy:",
+                    "product_stream": "Dynamiczne grupy produktów:",
+                    "product_stream_filter_inheritance": "Dynamiczne filtry grupy produktów:",
+                    "country_state": "Państwa:"
                 },
                 "noData": "Nic nie znalazło się do migrowania."
             },

@@ -36,8 +36,6 @@
         },
         "detail": {
             "buttonCancel": "Atcelt izmaiņas",
-            "buttonSave": "Saglabāt",
-            "buttonEdit": "Labot",
             "tabOrderDetails": "Pasūtījuma detaļas",
             "tabDeliveries": "Piegādes",
             "textHeadline": "Pasūtījums",
@@ -148,7 +146,7 @@
         "detailBase": {
             "cardTitleDetails": "Informācija",
             "cardTitleLineItems": "Vienības",
-            "columnProductName": "Vienība",
+            "columnProductName": "Nosaukums",
             "columnQuantity": "Skaits",
             "columnPriceNet": "Cena (neto)",
             "columnPriceGross": "Cena (bruto)",
@@ -181,6 +179,7 @@
             "buttonAddBlankProduct": "Pievienojiet pielāgotu vienumu",
             "buttonAddCredit": "Pievienot kredītu",
             "buttonEditAddress": "Labot",
+            "tooltipNestedLineItemsButton": "Šajā rindiņas vienumā ir apakšvienumi.",
             "labelNoPhoneNumber": "Nav tālruņa numura",
             "labelNoEmail": "Nav epastu",
             "labelCustomerPhoneNumber": "Tālruņa numurs",
@@ -207,6 +206,14 @@
             "enterValidTrackingCode": "Ievadiet izsekošanas kodu",
             "textCreditTax": "auto",
             "taxDetail": "{taxRate}%: {tax}"
+        },
+        "nestedLineItemsModal": {
+            "titlePrefix": "Vienība: {lineItemLabel} - {price}",
+            "headerLabel": "Nosaukums",
+            "headerUnitPrice": "Cena (bruto)",
+            "headerQuantity": "Daudzums",
+            "headerTotalPrice": "Starpsumma",
+            "headerTax": "PVN"
         },
         "detailDeliveries": {
             "cardTitleItems": "Sūtījums {count}",
@@ -380,6 +387,14 @@
                 "label": "Produkti",
                 "placeholder": "Izvēlēties produktus..."
             },
+            "affiliateCodeFilter": {
+                "label": "Filiāles kods",
+                "placeholder": "Izvēlieties filiāles kodu..."
+            },
+            "campaignCodeFilter": {
+                "label": "Kampaņas kods",
+                "placeholder": "Izvēlēties kampaņas kodu..."
+            },
             "messageEmptyTitle": "Nekas nav atrasts",
             "messageEmptySubline": "Rediģējiet filtrus, lai atrastu rezultātus."
         }
@@ -457,6 +472,9 @@
             },
             "customer_groups": {
                 "label": "Klientu grupas"
+            },
+            "flow": {
+                "label": "Plūsmas veidotājs"
             },
             "sales_channel": {
                 "label": "Pārdošanas kanāli"
@@ -616,7 +634,16 @@
         },
         "captcha": {
             "label": {
-                "honeypot": "Honeypot Captcha"
+                "honeypot": "Meduspods CAPTCHA",
+                "basicCaptcha": "Pamata Captcha",
+                "googleReCaptchaV2": "Google ReCAPTCHA v2",
+                "googleReCaptchaV2SiteKey": "Google ReCAPTCHA v2 vietnes atslēga",
+                "googleReCaptchaV2SecretKey": "Google ReCaptcha v2 slepenā atslēga",
+                "googleReCaptchaV2Invisible": "Google ReCAPTCHA v2 neredzams",
+                "googleReCaptchaV3": "Google ReCAPTCHA v3",
+                "googleReCaptchaV3SiteKey": "Google ReCAPTCHA v3 vietnes atslēga",
+                "googleReCaptchaV3SecretKey": "Google ReCaptcha v3 slepenā atslēga",
+                "googleReCaptchaV3ThresholdScore": "Google ReCAPTCHA v3 sliekšņa rādītājs"
             }
         }
     },
@@ -750,8 +777,8 @@
                 "messageMissingFields": "Nepieciešama konfigurācija. Lūdzu aizpildiet nepieciešamos laukus.",
                 "messageMissingBlockFields": "Nepieciešama konfigurācija. Lūdzu, aizpildiet datus visos elementos.",
                 "messageMissingProductListing": "Nespēj saglabāt. Lūdzu, pievienojiet vismaz vienu produktu saraksta bloku vai mainiet šī izkārtojuma veidu.",
-                "messageMissingSections": "Tukšu lapu nevar saglabāt. Lūdzu vispirms pievienojiet sadaļu.",
-                "messageMissingBlocks": "Tukšu lapu nevar saglabāt. Lūdzu pievienojiet dažus blokus.",
+                "messageMissingSections": "Jūs nevarat saglabāt tukšu lapu. Lūdzu, vispirms pievienojiet sadaļu.",
+                "messageMissingBlocks": "Jūs nevarat saglabāt tukšu lapu. Lūdzu, vispirms pievienojiet vismaz vienu bloku.",
                 "messageMissingElements": "Nepieciešama konfigurācija. Lūdzu, konfigurējiet visus sava izkārtojuma elementus.",
                 "messageRedundantElements": "Izkārtojumos nedrīkst būt vairāk par vienu {name} elementu."
             },
@@ -767,7 +794,7 @@
                 "titleNavigator": "Navigators",
                 "titleSectionSettings": "Sadaļas iestatījumi",
                 "titleLayoutAssignment": "Izkārtojuma piešķiršana",
-                "mobile": "Mobīlā sānu paneļa režīms",
+                "mobile": "Mobilās sānjoslas uzvedība",
                 "mobileOptionHidden": "Paslēpts",
                 "mobileOptionWrap": "Iekļaut"
             },
@@ -778,7 +805,7 @@
             "tooltip": {
                 "blockNameField": "Nosauciet katru bloku atsevišķi, lai sekotu jūsu darbam.",
                 "sectionNameField": "Nosauciet katru sadaļu atsevišķi, lai sekotu savam darbam.",
-                "cannotSelectProductPageLayout": "Produkta tipa izkārtojumu nevar mainīt uz citu izkārtojuma tipu."
+                "cannotSelectProductPageLayout": "Produkta lapas izkārtojuma tipu nevar mainīt."
             }
         },
         "elements": {
@@ -1123,6 +1150,9 @@
                         "productDetailElement": "Šī elementa produkta datus automātiski ielādē produkts, kas saistīts ar šo izkārtojumu. Saturs tikai parāda parauga priekšskatījumu."
                     }
                 }
+            },
+            "productName": {
+                "label": "Produkta nosaukums"
             }
         },
         "blocks": {
@@ -1378,6 +1408,11 @@
             }
         },
         "index": {
+            "defaultSalesChannel": {
+                "title": "Noklusētais pārdošanas kanāls",
+                "description": "Atlasiet noklusējuma pārdošanas kanālus, kas tiek automātiski piešķirti jaunizveidotajiem produktiem.",
+                "linkAdvancedVisibility": "Atlasīto pārdošanas kanālu redzamības iestatīšana"
+            },
             "productSorting": {
                 "title": "Kārtošanas iespējas",
                 "addButton": "Pievienot opciju",
@@ -1430,16 +1465,64 @@
             "descriptionTextModule": "Administrācijas sākumlapa, kurā parādīta statistika un sistēmas informācija"
         },
         "introduction": {
-            "headline": "Sveicināti Shopware 6",
-            "enduserDocumentation": "Lietotāja dokumentācija",
-            "enduserDocumentationLink": "https://docs.shopware.com/en/shopware-6-en",
-            "developerDocumentation": "Izstrādātāju dokumentācija",
-            "developerDocumentationLink": "https://docs.shopware.com/en/shopware-platform-dev-en",
-            "migrationDocumentation": "Migrācijas dokumentācija",
-            "migrationDocumentationLink": "https://docs.shopware.com/en/migration-en",
-            "roadmap": "Shopware ceļvedis",
-            "roadmapLink": "https://www.shopware.com/en/roadmap/",
-            "feedback": "Atsauksmes",
+            "headlineUnkownUser": "Laipni lūdzam Shopware.",
+            "daytimeHeadline": {
+                "5h": {
+                    "0": "Labrīt, {greetingName}.",
+                    "1": "Sveiki, {greetingName}!"
+                },
+                "11h": {
+                    "0": "Sveiki, {greetingName}.",
+                    "1": "Laba diena, {greetingName}.",
+                    "2": "Howdy, {greetingName}!"
+                },
+                "18h": {
+                    "0": "Labvakar, {greetingName}.",
+                    "1": "Sveiki, {greetingName}!"
+                },
+                "23h": {
+                    "0": "Labi, lai jūs redzētu, {greetingName}.",
+                    "1": "Vēl uz augšu, {greetingName}?"
+                }
+            },
+            "daytimeWelcomeText": {
+                "5h": {
+                    "0": "Laiks kafijai, vai ne?",
+                    "1": "Jūs esat off uz lielisku sākumu!",
+                    "2": "Pārāk daudz ko darīt šodien? Koncentrējieties uz tiem uzdevumiem, kuriem būs lielākā daļa ietekmes.",
+                    "3": "Jūs šodien izskatāties satriecoši!"
+                },
+                "11h": {
+                    "0": "Vēl viena diena, vēl viena iespēja augt savu biznesu.",
+                    "1": "Jūs varat ietekmēt kāda cilvēka dzīvi šodien.",
+                    "2": "Jūs šodien izskatāties pasakains!",
+                    "3": "Šodien jums ir iespēja veidot rīt vēlaties."
+                },
+                "18h": {
+                    "0": "Diena ir gandrīz pabeigta, laiks, lai pārbaudītu jūsu veikala jaunākās aktivitātes.",
+                    "1": "Laiks, lai novērtētu - Apskatiet, kā jūsu veikals ir darījis šodien.",
+                    "2": "Šodienas darbības ir rītdienas rezultāts."
+                },
+                "23h": {
+                    "0": "Atrodiet skaistumu visur, lai iedvesmotu sevi.",
+                    "1": "Paskaties, ārpus kāds ir pārslēdzis tumšo režīmu.",
+                    "2": "Gandrīz viss atkal darbosies, ja jūs atvienojiet to uz dažām minūtēm - tas ietver jūs. Veikt pārtraukumu."
+                }
+            }
+        },
+        "helpcard": {
+            "headline": "Gatavojieties pārdot savus produktus.",
+            "helpcenter": "Shopware palīdzības centrs",
+            "helpcenterLink": "https://docs.shopware.com/en/shopware-6-en",
+            "takeOffTip": "Uzziniet, kā padarīt savu pirmo pārdošanu",
+            "takeOffTipLink": "https://www.shopware.com/en/news/take-off-in-ecommerce-10-tips-for-your-initial-sales/",
+            "getToKnowSales": "Iepazīstiet pārdošanas kanālus",
+            "getToKnowSalesLink": "https://www.youtube.com/watch?v=RsEeersOgIo"
+        },
+        "feedbackCard": {
+            "headline": "Pirmo seansu skaits.",
+            "text": "Kopīgojiet savus pirmos iespaidus un palīdziet mums uzlabot vispārējo Shopware pieredzi.",
+            "feedback": "Sniegt atsauksmes",
             "feedbackLink": "https://issues.shopware.com"
         },
         "todayStats": {
@@ -1592,6 +1675,7 @@
                 "category": "Kategorija",
                 "categories": "Kategorijas",
                 "categoriesRo": "Kategorijas",
+                "cheapestPrice": "Cena",
                 "choose": "Izvēlēties",
                 "description": "Apraksts",
                 "descriptionLong": "Garais apraksts",
@@ -1605,6 +1689,7 @@
                 "length": "Garums",
                 "linked": "Saistītie",
                 "manufacturerId": "Ražotājs",
+                "manufacturer": "Ražotājs",
                 "manufacturerNumber": "Ražotāja numurs",
                 "markAsTopseller": "Atzīmēts kā populārākais",
                 "maxDeliveryTime": "Maks. piegādes termiņš",
@@ -1617,7 +1702,7 @@
                 "option": "Opcija",
                 "packUnit": "Iepakojuma vienība",
                 "packUnitPlural": "Iepakojuma vienība",
-                "cheapestPrice": "Cena",
+                "price": "Cena",
                 "product": "Produkts",
                 "productNumber": "Produkta numurs",
                 "purchasePrice": "Iepirkuma cena",
@@ -1774,7 +1859,9 @@
             "xTimesIn": "{n} reizes",
             "close": "Aizvērt",
             "from": "No",
-            "to": "Lai"
+            "to": "Lai",
+            "bulkEdit": "Bulk rediģēt",
+            "startBulkEdit": "Sākt lielapjoma"
         },
         "notification": {
             "notificationSaveErrorMessage": "Saglabājot vienību \"{entityName}\", radās kļūda.",
@@ -1847,7 +1934,7 @@
             },
             "plugin-updates-listener": {
                 "updatesAvailableTitle": "Pieejams atjauninājums",
-                "updatesAvailableMessage": "Lejupielādējiet jaunākās spraudņu versijas tūlīt."
+                "updatesAvailableMessage": "Lejupielādējiet jaunākās paplašinājumu versijas tūlīt."
             },
             "shopware-updates-listener": {
                 "updatesAvailableTitle": "Pieejama jauna Shopware {version} versija",
@@ -2132,6 +2219,7 @@
         },
         "sw-media-upload-v2": {
             "buttonFileUpload": "Augšupielādēt failu",
+            "buttonFilesUpload": "Augšupielādēt failus",
             "buttonUrlUpload": "Augšupielādēt failus no URL",
             "buttonSwitchToFileUpload": "Augšupielādēt failu no Jūsu datora",
             "buttonSwitchToUrlUpload": "Augšupielādēt failu no URL",
@@ -2218,14 +2306,10 @@
         },
         "sw-multi-tag-ip-select": {
             "enterValidIp": "Lūdzu ievadiet derīgu IPv4 vai IPv6 adresi",
-            "addIpAdress": "Pievienot IP adresi",
+            "addIpAddress": "Pievienot IP adresi",
             "knownIps": {
                 "you": "Jūs"
             }
-        },
-        "sw-multi-ip-select": {
-            "enterValidIp": "Lūdzu ievadiet derīgu IPv4 vai IPv6 adresi",
-            "addIpAdress": "Pievienot IP adresi"
         },
         "sw-entity-multi-select": {
             "messageNoResults": "Nekas netika atrasts ar \"{term}\"."
@@ -2295,6 +2379,7 @@
                 "shippingCountryRule": "Piegādes valsts",
                 "shippingStreetRule": "Piegādes adrese",
                 "shippingZipCodeRule": "Piegādes pasta indekss",
+                "customerLoggedInRule": "Klients pieteicies",
                 "cartAmountRule": "Groza summa",
                 "goodsCountRule": "Preču skaits",
                 "goodsPriceRule": "Preču cena",
@@ -2336,7 +2421,7 @@
                 "alwaysValidRule": "Vienmēr derīgs",
                 "lineItemPropertyRule": "Pozīcijas īpašība",
                 "lineItemNoveltyRule": "Jaunums",
-                "lineItemCustomFieldRule": "Rindas vienība ar atribūtu",
+                "lineItemCustomFieldRule": "Līnijas vienums ar pielāgotu lauku",
                 "lineItemIsNewRule": "Jauna rindas vienība",
                 "lineItemOfManufacturerRule": "Ražotājs",
                 "lineItemPurchasePriceRule": "Rindas vienības iepirkuma cena",
@@ -2368,7 +2453,8 @@
         "sw-product-image": {
             "context": {
                 "buttonAsCover": "Izmantot kā vāku",
-                "buttonRemove": "Izdzēst"
+                "buttonRemove": "Izdzēst",
+                "buttonPreviewImage": "Priekšskatījuma attēls"
             }
         },
         "sw-simple-search-field": {
@@ -2438,7 +2524,9 @@
             "delivery_time": "Piegādes laiks | Piegādes laiki",
             "import_export_profile": "Importa/Eksporta profils | Importēt/Eksportēt profilus",
             "feature_set": "Veidne | Veidnes",
-            "event_action": "Biznesa pasākumi"
+            "event_action": "Biznesa pasākumi",
+            "property_group": "Īpašumu grupa | Īpašumu grupas",
+            "document_base_config": "Dokumenta bāzes konfigurācija | Dokumentu bāzes konfigurācijas"
         },
         "day-of-week": {
             "monday": "Pirmdiena",
@@ -2469,6 +2557,7 @@
             "mail_sent": "E-pasts nosūtīts",
             "newsletter_confirm": "Pierakstīšanās biļetenā apstiprināta",
             "newsletter_register": "Reģistrēta biļetena reģistrācija",
+            "newsletter_unsubscribe": "Newsletter anulēta abonēšana",
             "newsletter_update": "Atjaunināta biļetena reģistrācija",
             "product_export_log": "Izpildīts produkta eksports",
             "state_enter_order_state_cancelled": "Pasūtījums ievada statusu atcelts",
@@ -2900,6 +2989,7 @@
             "columnDescription": "Apraksts",
             "columnActive": "Aktīvs",
             "columnPosition": "Pozīcija",
+            "columnExtension": "Paplašinājums",
             "buttonAddPaymentMethod": "Pievienot maksājuma veidu",
             "contextMenuEdit": "Labot",
             "contextMenuDelete": "Dzēst",
@@ -2931,7 +3021,7 @@
         }
     },
     "sw-plugin-box": {
-        "buttonPluginSettings": "Spraudņa iestatījumi"
+        "buttonPluginSettings": "Paplašinājuma iestatījumi"
     },
     "sw-settings-country": {
         "general": {
@@ -2978,7 +3068,10 @@
             "buttonAddCountryState": "Pievienot apgabalu/provinci",
             "editAction": "Labot",
             "columnStateNameLabel": "Nosaukums",
-            "columnStateShortCodeLabel": "Saīsinājums"
+            "columnStateShortCodeLabel": "Saīsinājums",
+            "taxFreeFrom": "Nodokļu atbrīvots no",
+            "taxFreeFromHelpText": "Ja iepirkumu grozs ir lielāks par vērtību, kas noteikta sadaļā “Nodokļi bez”, viss iepirkumu grozs būs beznodokļu.",
+            "labelVatIdRequired": "Obligāts PVN ID lauks"
         }
     },
     "sw-country-state-detail": {
@@ -3047,7 +3140,9 @@
             },
             "emptyCountryRoundings": "Pievienojiet atsevišķas decimāldaļas un noapaļošanas koeficientus dažādām valstīm.",
             "emptyCountryRoundingsNewCurrency": "Aizpildiet pamatinformāciju, saglabājiet valūtu - pēc tam pievienojiet vērtības",
-            "buttonAddCountry": "Pievienot valsti"
+            "buttonAddCountry": "Pievienot valsti",
+            "taxFreeFrom": "Nodokļu atbrīvots no",
+            "taxFreeFromHelpText": "Ja iepirkumu grozs ir lielāks par vērtību, kas noteikta sadaļā “Nodokļi bez”, viss iepirkumu grozs būs beznodokļu. Attiecas uz iepirkšanās ratiņiem maksā \"{currencyName}“, tikai."
         },
         "currency-country-modal": {
             "labelCountrySelect": "Valsts",
@@ -3062,11 +3157,13 @@
             "labelRoundForNet": "Kārta arī neto klientiem",
             "grandHeadline": "Kopā kopā",
             "grandSubline": "Noapaļošana attiecas uz lielajām summām",
+            "headerWarning": "Dažādi noapaļošanas intervāli - Noteikti pārbaudiet savu individuālo pakalpojumu sniedzēju, lai izvairītos no grāmatvedības problēmām.",
+            "headerInfo": "Nodokļu aprēķins balstās uz nenoapaļotām kopsummām. Nodokļu aprēķins neattiecas uz notiekošajām noapaļošanas atšķirībām.",
             "helpTextDecimals": "Decimāldaļas norāda maksimālo ciparu skaitu aiz komata atdalītāja.",
-            "helpTextInterval": "Izmantojiet noapaļošanas intervālus, lai ņemtu vērā tirgus, kur ir atceltas viszemākās valūtas fiziskās nominālvērtības un ir ieviesti skaidras naudas noapaļošanas veidi. <br><br> Padoms: Izvēlieties “Nav”, ja nevēlaties piemērot naudas noapaļošanu. Piemēram, izmantojot decimāldaļas, kas lielākas par 2.",
+            "helpTextInterval": "Izmantojiet noapaļošanas intervālus, lai ņemtu vērā tirgus, kur ir atceltas viszemākās valūtas fiziskās nominālvērtības un ir ieviesti skaidras naudas noapaļošanas veidi. <br><br> Padoms: Izvēlieties “Nav”, ja nevēlaties piemērot cenu noapaļošanu. Piemēram, izmantojot decimāldaļas, kas lielākas par 2.",
             "helpTextRoundForNet": "Aktivizējiet noapaļošanu neto klientu grupām papildus.",
             "labelIntervalNone": "Nav",
-            "tooltipIntervalDisabled": "Skaidras naudas noapaļošanu nepiemēro, ja decimāldaļas ir lielākas par 2."
+            "tooltipIntervalDisabled": "Cenu noapaļošana netiek piemērota, ja ir konfigurētas decimāldaļas, kas ir lielākas par 2."
         }
     },
     "sw-category": {
@@ -3289,13 +3386,15 @@
         "visibility": {
             "textHeadline": "Produktu parādīšanas režīmi katrā tirdzniecības kanālā",
             "placeholderVisibility": "Izvēlieties pārdošanas kanālu...",
-            "columnAll": "Universāls",
-            "columnSearchOnly": "Tikai meklēšanas rezultāti",
-            "columnLinkOnly": "Paslēpts",
-            "linkAdvancedVisibility": "Papildu piešķiršanas iespējas",
+            "columnAll": "Redzams",
+            "columnSearchOnly": "Paslēpt sarakstos",
+            "columnLinkOnly": "Paslēpt sarakstos un meklēšanā",
+            "visibilityModalDescription": "“Paslēpt sarakstā” izslēdz produktu no produktu pārskata sarakstiem, kā arī no produktu slīdņiem un krusttirdzniecības sarakstiem. Izvēloties opciju “Paslēpt sarakstā un meklēšanā”, produkts tiks izslēgts arī no meklēšanas darbībām. Produktus joprojām var sasniegt, izmantojot URL.",
+            "linkAdvancedVisibility": "Atlasīto pārdošanas kanālu redzamības iestatīšana",
             "labelVisibility": "Pārdošanas kanāli",
             "closeModal": "Pielietot",
-            "bodyVisibility": "Pievienot pārdošanas kanālus, kur produkts ir jāparāda. Jūs varat arī sīkāk definēt produkta redzamību katram veikala pārdošanas kanālam, izmantojot tālāk norādīto saiti."
+            "bodyVisibility": "Pievienot pārdošanas kanālus, kuros šis produkts ir jāparāda. Jūs varat vēl vairāk definēt produkta redzamību katram veikala pārdošanas kanālam, izmantojot tālāk redzamo saiti.",
+            "errorMessage": "Nespēj ielādēt noklusējuma pārdošanas kanāla konfigurāciju."
         },
         "general": {
             "mainMenuItemGeneral": "Produkti",
@@ -3380,7 +3479,10 @@
             "placeholderMetaTitle": "Ievadiet meta virsrakstu...",
             "placeholderMetaDescription": "Ievadiet meta aprakstu...",
             "placeholderKeywords": "Ievadiet vienu vai vairākus atslēgvārdus...",
-            "placeholderCanonicalProduct": "Izvēlieties variantu..."
+            "placeholderCanonicalProduct": "Izvēlieties variantu...",
+            "helpTextMetaTitle": "Meta virsraksts ir vissvarīgākais SEO elements, un tam jābūt unikālam katrai lapai. Jums vajadzētu ierobežot sevi garumā līdz ne vairāk kā 56 rakstzīmēm. Ideālā gadījumā jūsu atslēgvārdu vajadzētu novietot pašā priekšpusē.",
+            "helpTextMetaDescription": "Ar meta aprakstu jūs apstiprināt saviem klientiem, ka viņi atrodas īstajā vietā jūsu veikalā. Jūs izveidojat stimulus, veidojat uzticību un uzaicināt uz darbību. Jums vajadzētu ierobežot sevi ne vairāk kā 155 rakstzīmes.",
+            "helpTextKeywords": "Šeit jūs varat definēt pēc izvēles trīs līdz piecus atslēgvārdus, saskaņā ar kuriem jūsu produkts ir jāatrod."
         },
         "settingsForm": {
             "labelCreatedAt": "Izveides datums",
@@ -3504,6 +3606,7 @@
             "columnInStock": "Ir krājumā",
             "columnAvailableStock": "Pieejams",
             "columnActions": "Darbība(s)",
+            "columnMedia": "Mediji",
             "contextMenuEdit": "Labot",
             "contextMenuDelete": "Dzēst",
             "contextMenuDuplicate": "Dublēt",
@@ -3604,6 +3707,7 @@
             "generatedListColumnVariation": "Nosaukums",
             "generatedListColumnPrice": "Cena (bruto / neto)",
             "generatedListColumnProductNumber": "Produkta numurs",
+            "generatedListColumnMedia": "Mediji",
             "generatedListColumnActive": "Aktīvs",
             "generatedListColumnStock": "Krājums",
             "generatedListContextMenuEdit": "Labot",
@@ -3672,6 +3776,7 @@
         "crossselling": {
             "cardTitleCrossSelling": "Saistītā pārdošana",
             "buttonAddCrossSelling": "Pievienojiet jaunu saistīto pārdošanu",
+            "buttonAddCrossSellingLanguageWarning": "Noklusējuma valodā varat izveidot tikai jaunas savstarpējās pārdošanas",
             "buttonDeleteCrossSelling": "Dzēst",
             "inputCrossSellingTitle": "Nosaukums",
             "inputCrossSellingActive": "Aktīvs",
@@ -4190,12 +4295,15 @@
             "updateExcludedTermSuccess": "Atjaunināts meklējamais termins.",
             "createExcludedTermSuccess": "Izslēgts meklējamais termins.",
             "deleteExcludedTermSuccess": "Izslēgts meklējamais termins.",
+            "resetToDefaultExcludedTermSuccess": "Izslēgtie meklēšanas termini ir atiestatīti uz noklusējumu.",
+            "resetToDefaultExcludedTermError": "Radās kļūda, atiestatot izslēgtos meklējamos terminus.",
             "saveError": "Saglabājot konfigurāciju, radās kļūda.",
             "index": {
                 "started": "Būvizstrādājumu indeksi.",
                 "success": "Produktu indeksi būvēti."
             },
-            "loadError": "Ielādējot konfigurāciju, radās kļūda."
+            "loadError": "Ielādējot konfigurāciju, radās kļūda.",
+            "notSupportedLanguageError": "Izvēlētā valoda nav pieejama atlasītajā pārdošanas kanālā"
         },
         "liveSearchTab": {
             "titleCard": "Pārdošanas kanāla tiešraidē meklēšana",
@@ -4348,7 +4456,7 @@
             "label": "Tagad ir pieejams",
             "activationDescriptionTitleFirst": "Izpētiet un iegādājieties paplašinājumus viegli -",
             "activationDescriptionTitleSecond": "tieši no savas Shopware veikalā.",
-            "activationDescriptionTitleDescription": "Aktivizējiet visu jauno Shopware Store un iegūstiet piekļuvi noderīgu paplašinājumu un modernu tēmu slodzēm, kuras var integrēt jūsu veikalā šķietami - bez programmēšanas iemaņām.",
+            "activationDescriptionTitleDescription": "Aktivizējiet Shopware Store un iegūstiet piekļuvi noderīgu paplašinājumu un modernu tēmu slodzēm, kuras var integrēt jūsu veikalā šķietami - bez programmēšanas iemaņām.",
             "activate": "Aktivizēt"
         },
         "title": "Veikals",
@@ -4501,16 +4609,28 @@
                     "permissions": "Atļaujas"
                 }
             },
+            "sw-extension-card-bought": {
+                "subscriptionExpiredAt": "Abonementa derīguma termiņš beidzas {date}"
+            },
             "sw-extension-deactivation-modal": {
                 "deactivateExtensionLabel": "Deaktivizēt \"{extensionName}”",
+                "description": "Paplašinājumam \"{extensionName}\" ir ikmēneša abonēšanas maksa.<br>Deaktivizējot paplašinājumu, <b>abonements netiks atcelts</b> un maksa joprojām tiks iekasēta!",
                 "descriptionCancel": "Ja vēlaties atcelt abonementu, to var noņemt konteksta izvēlnē, izmantojot \"{removeLabel}\".",
                 "alertDeactivate": "Vai jūs joprojām vēlaties deaktivizēt paplašinājumu?",
                 "deactivateLabel": "Deaktivizēt"
             },
             "sw-extension-permissions-modal": {
                 "title": "{extensionLabel} atļaujas",
-                "description": "{extensionLabel} būs piekļuve šādiem komponentiem. Noklikšķiniet uz saites blakus komponentam, lai parādītu informāciju par entītiju.",
-                "textEntities": "Rādīt atļaujas"
+                "description": "{extensionLabel} saņems piekļuvi zemāk esošajām sastāvdaļām. Noklikšķiniet uz saites blakus komponentam, lai parādītu informāciju par entītiju.",
+                "domainHint": "Daži dati tiks koplietoti arī ar citiem domēniem. Lai iegūtu papildinformāciju, noklikšķiniet uz saites blakus domēniem.",
+                "textEntities": "Rādīt atļaujas",
+                "domains": "Domēni",
+                "showDomains": "Rādīt domēnus"
+            },
+            "sw-extension-domains-modal": {
+                "modalTitle": "{extensionLabel} - Domēni",
+                "description": "Daži dati tiks kopīgot/pārsūtīti uz tālāk uzskaitītajiem domēniem.",
+                "listTitle": "Domēna"
             },
             "sw-extension-privacy-policy-extensions-modal": {
                 "title": "{extensionLabel}: privātuma politikas paplašinājumi",
@@ -4939,7 +5059,6 @@
             "messageServerError": "Autorizācijas serveris saskārās ar neparedzētu stāvokli.",
             "messageInvalidRefreshToken": "Nederīga atjaunināšanas atslēga.",
             "messageAccessDenied": "Pieprasījumu noraidījis autorizācijas serveris.",
-            "messageInvalidGrant": "Nederīga autorizācijas atļauja vai atjaunojiet atslēgu.",
             "messageGeneralRequestError": "Radās kļūda pieprasot \"{url}\".",
             "forgottenPasswordLink": "Vai aizmirsāt paroli?"
         },
@@ -5462,6 +5581,23 @@
             "markets": "Shopware Markets"
         }
     },
+    "sw-flow": {
+        "general": {
+            "mainMenuItemGeneral": "Plūsmas veidotājs",
+            "descriptionTextModule": "Plūsmas veidotājs"
+        },
+        "list": {
+            "textHeadline": "Plūsmas veidotājs",
+            "buttonAddFlow": "Pievienot plūsmu"
+        },
+        "detail": {
+            "textHeadline": "Jauna plūsma"
+        },
+        "page": {
+            "generalTab": "Vispārīgi",
+            "flowTab": "Plūsma"
+        }
+    },
     "sw-sales-channel": {
         "general": {
             "tooltipOpenStorefront": "Atvērta veikala",
@@ -5568,6 +5704,14 @@
             "ipAddressWhitleListHelpText": "Pievienojiet baltajam sarakstam IP adreses, lai no tām varētu piekļūt veikalam. Pēc nepieciešamības varat pievienot IPv4 un IPv6 adreses.",
             "basicinformationLink": "Mainīt uzturēšanas šablona dizainu",
             "columnDomainCurrency": "Valūta",
+            "products": {
+                "titleEmptyState": "Vēl nav pievienoti produkti",
+                "titleEmptyStateTable": "Nav atrasts atbilstošs produkts",
+                "buttonAddProducts": "Pievienot produktus",
+                "columnProductName": "Produkta nosaukums",
+                "columnActive": "Aktīvs",
+                "columnProductNumber": "Produkta numurs"
+            },
             "productComparison": {
                 "inputHeaderLabel": "Virsraksta rinda",
                 "inputBodyLabel": "Produkta rinda",
@@ -5689,6 +5833,12 @@
                 "verticalDescription": "PVN tiek aprēķināts no pasūtījuma kopsummas. Izrakstīšanās laikā netiek parādītas atsevišķas PVN vērtības.",
                 "horizontalName": "Rinda pēc rindas (horizontāli) aprēķins",
                 "horizontalDescription": "PVN tiek aprēķināts par katru iepirkumu groza pozīciju. Izrakstīšanās laikā tiek parādīts katras pozīcijas individuālais PVN. Kopējo PVN summu aprēķina, saskaitot visas individuālās PVN vērtības."
+            },
+            "productAssigmentModal": {
+                "title": "Pievienot produktus",
+                "singleProducts": "Atsevišķi produkti",
+                "categories": "Filtrēt pēc kategorijām",
+                "dynamicProductGroups": "Filtrēt pēc dinamiskām produktu grupām"
             }
         },
         "sw-sales-channel-defaults-select": {
@@ -5760,8 +5910,12 @@
                 "placeholderTestMail": "shop@example.com",
                 "buttonTestMail": "Sūtīt",
                 "labelTestMail": "Saņēmēja adrese",
-                "titleTestMail": "Sūtīt testa e-pastu"
+                "titleTestMail": "Sūtīt testa e-pastu",
+                "titleShowPreview": "Rādīt priekšskatījumu",
+                "titleShowAvailableVariables": "Mainīgie lielumi",
+                "copyTooltip": "Kopēt starpliktuvē."
             },
+            "previewModalTitle": "Priekšskatījums",
             "buttonCancel": "Atcelt",
             "buttonSave": "Saglabāt",
             "textHeadline": "Jauns e-pasta makets",
@@ -6237,6 +6391,20 @@
             "tags": {
                 "label": "Tagi",
                 "placeholder": "Izvēlēties tagus..."
+            },
+            "affiliateCode": {
+                "label": "Filiāles kods",
+                "placeholder": "Izvēlieties filiāles kodu..."
+            },
+            "campaignCode": {
+                "label": "Kampaņas kods",
+                "placeholder": "Izvēlēties kampaņas kodu..."
+            },
+            "customerGroupRequest": {
+                "label": "Klientu grupas pieprasījumi",
+                "placeholder": "Izvēlēties pieprasījuma statusu...",
+                "textHasCriteria": "Atvērt klientu grupu pieprasījumus",
+                "textNoCriteria": "Klientu grupas pieprasījumu nav"
             },
             "messageEmptyTitle": "Nekas nav atrasts",
             "messageEmptySubline": "Rediģējiet filtrus, lai atrastu rezultātus."
@@ -7197,9 +7365,9 @@
         "infoTextInheritedField": "{moduleName} ir saistīti lauki. Tas nozīmē, ka saistitais stāvoklis būs aktīvs tik ilgi, kamēr saturs tiks mantots. Mantotos laukus var atsaistīt, noklikšķinot uz saites simbola. Vēlreiz noklikšķinot uz simbola, saistitais stāvoklis tiks atjaunots."
     },
     "sw-license-violation": {
-        "title": "Paplašinājuma brīdinājums (-i)",
+        "title": "Pagarinājuma brīdinājums",
         "reload": "Pārlādēt",
-        "alertText": "Mēs esam atklājuši licences pārkāpumu vismaz vienam no jūsu paplašinājumiem šajā instalācijā. Lai novērstu licences pārkāpumu un izvairītos no juridiskām sekām, rezervēt pagarinājuma abonementu vai iegādāties/iznomāt pagarinājumu (atbilstoši nodarītajam pārkāpuma veidam). Jūs vairs neizmantojat paplašinājumu? Pēc tam izdzēsiet to, izmantojot Mani paplašinājumi. Ja neviens no šiem pasākumiem netiek veikts, shopware AG patur sev tiesības iekasēt soda naudu par jebkuru licences pārkāpumu.",
+        "alertText": "Mēs esam atklājuši licences pārkāpumu vismaz vienam no jūsu paplašinājumiem šajā instalācijā. Lai novērstu licences pārkāpumu un izvairītos no juridiskām sekām, rezervēt abonementu vai pirkt/iznomāt pagarinājumu (atkarībā no nodarītā pārkāpuma veida). Jūs vairs neizmantojat paplašinājumu? Pēc tam izdzēsiet to, izmantojot pogu “Dzēst paplašinājumu pastāvīgi” vai izmantojot Manus paplašinājumus. Ja neviens no šiem pasākumiem netiek veikts, shopware AG patur tiesības iekasēt soda naudu par jebkuru licences pārkāpumu.",
         "deletePlugin": "Paplašinājuma dzēšana pastāvīgi",
         "messageDeleteConfirm": "Vai vēlaties pilnībā izdzēst paplašinājumu \"{pluginName}\"?",
         "checkboxMessage": "Es esmu ievērojis šo vēstījumu, un galu galā tam ir sekas.",
@@ -7363,7 +7531,7 @@
                 },
                 "reinstall-apps": {
                     "name": "Programmu kopēšana pašreizējā domēnā",
-                    "description": "Ja vēlaties, lai jūsu programmas darbotos abos domēnos, tas atkārtoti instalē visas jaunā domēna programmas. Piezīme.: Programmas dati par jūsu veco domēnu joprojām būs pieejami, bet ne bezmaksas lietotnēm var būt nepieciešama papildu maksa par katru domēnu."
+                    "description": "Ja vēlaties, lai jūsu programmas darbotos abos domēnos, tas atkārtoti instalē visas programmas jaunajā domēnā. Piezīme.: Programmas dati par jūsu veco domēnu joprojām būs pieejami, bet ne bezmaksas lietotnēm var būt nepieciešama papildu maksa par katru domēnu."
                 },
                 "uninstall-apps": {
                     "name": "Programmu atinstalēšana",

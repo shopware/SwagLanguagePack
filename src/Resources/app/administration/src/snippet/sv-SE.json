@@ -36,8 +36,6 @@
         },
         "detail": {
             "buttonCancel": "Förkasta ändringar",
-            "buttonSave": "Spara",
-            "buttonEdit": "Redigera",
             "tabOrderDetails": "Orderdetaljer",
             "tabDeliveries": "Leveranser",
             "textHeadline": "Beställning",
@@ -181,6 +179,7 @@
             "buttonAddBlankProduct": "Lägg till tom position",
             "buttonAddCredit": "Lägg till kredit",
             "buttonEditAddress": "Redigera",
+            "tooltipNestedLineItemsButton": "Denna radpost innehåller underposter.",
             "labelNoPhoneNumber": "Ingen",
             "labelNoEmail": "Ingen",
             "labelCustomerPhoneNumber": "Telefonnummer",
@@ -207,6 +206,14 @@
             "enterValidTrackingCode": "Ange spårningskod",
             "textCreditTax": "auto",
             "taxDetail": "{taxRate}%: {tax}"
+        },
+        "nestedLineItemsModal": {
+            "titlePrefix": "Punkt: {lineItemLabel} - {price}",
+            "headerLabel": "Namn",
+            "headerUnitPrice": "Pris (brutto)",
+            "headerQuantity": "Mängd",
+            "headerTotalPrice": "Delsumma",
+            "headerTax": "VAT"
         },
         "detailDeliveries": {
             "cardTitleItems": "Leverans {count}",
@@ -380,6 +387,14 @@
                 "label": "Produkter",
                 "placeholder": "Välj produkter..."
             },
+            "affiliateCodeFilter": {
+                "label": "Affiliate kod",
+                "placeholder": "Välj affiliate-kod..."
+            },
+            "campaignCodeFilter": {
+                "label": "Kampanjkod",
+                "placeholder": "Välj kampanjkod..."
+            },
             "messageEmptyTitle": "Ingenting hittades",
             "messageEmptySubline": "Redigera dina filter för att hitta resultat."
         }
@@ -457,6 +472,9 @@
             },
             "customer_groups": {
                 "label": "Kundgrupper"
+            },
+            "flow": {
+                "label": "Flödesbyggare"
             },
             "sales_channel": {
                 "label": "Försäljningskanaler"
@@ -616,7 +634,16 @@
         },
         "captcha": {
             "label": {
-                "honeypot": "Honeypot Captcha"
+                "honeypot": "Honeypot CAPTCHA",
+                "basicCaptcha": "Grundläggande Captcha",
+                "googleReCaptchaV2": "Google reCAPTCHA v2",
+                "googleReCaptchaV2SiteKey": "Webbplatsnyckel för Google reCAPTCHA",
+                "googleReCaptchaV2SecretKey": "Google reCAPTCHA v2 hemlig nyckel",
+                "googleReCaptchaV2Invisible": "Google reCAPTCHA v2 osynlig",
+                "googleReCaptchaV3": "Google reCAPTCHA v3",
+                "googleReCaptchaV3SiteKey": "Webbplatsnyckel för Google reCAPTCHA",
+                "googleReCaptchaV3SecretKey": "Google reCAPTCHA v3 hemlig nyckel",
+                "googleReCaptchaV3ThresholdScore": "Google reCAPTCHA v3 tröskelpoäng"
             }
         }
     },
@@ -750,8 +777,8 @@
                 "messageMissingFields": "Vänligen fyll i alla nödvändiga konfigurationsfält.",
                 "messageMissingBlockFields": "Konfiguration krävs. Fyll i data i alla element.",
                 "messageMissingProductListing": "Det gick inte att spara. Lägg till minst ett produktlistningsblock eller ändra layoutens typ.",
-                "messageMissingSections": "Du kan inte spara tomma sidor. Lägg först till en sektion.",
-                "messageMissingBlocks": "Du kan inte spara en tom sida. Lägg till block.",
+                "messageMissingSections": "Du kan inte spara en tom sida. Lägg till ett avsnitt först.",
+                "messageMissingBlocks": "Du kan inte spara en tom sida. Lägg till minst ett block först.",
                 "messageMissingElements": "Konfiguration krävs. Konfigurera alla element i layouten."
             },
             "placeholder": {
@@ -766,7 +793,7 @@
                 "titleNavigator": "Navigator",
                 "titleSectionSettings": "Inställningar för sektioner",
                 "titleLayoutAssignment": "Layouttilldelning",
-                "mobile": "Mobilt sidofält/förhållande",
+                "mobile": "Mobil sidopanelens beteende",
                 "mobileOptionHidden": "Visas inte",
                 "mobileOptionWrap": "Radbryt"
             },
@@ -777,7 +804,7 @@
             "tooltip": {
                 "blockNameField": "Namnge varje block individuellt och tydligt för att kunna hålla en bra överblick över ditt arbete.",
                 "sectionNameField": "Namnge varje sektion individuellt och tydligt för att kunna hålla en bra överblick över ditt arbete.",
-                "cannotSelectProductPageLayout": "Du kan inte ändra en layout av typen produktsida till en annan layouttyp."
+                "cannotSelectProductPageLayout": "Du kan inte ändra layouttypen för en produktsida."
             }
         },
         "elements": {
@@ -1122,6 +1149,9 @@
                         "productDetailElement": "Det här elementets produktdata läses in automatiskt av den produkt som är kopplad till den här layouten. Innehållet visar bara en exempelförhandsgranskning."
                     }
                 }
+            },
+            "productName": {
+                "label": "Produktens namn"
             }
         },
         "blocks": {
@@ -1377,6 +1407,11 @@
             }
         },
         "index": {
+            "defaultSalesChannel": {
+                "title": "Standardförsäljningskanal",
+                "description": "Välj standardförsäljningskanaler som automatiskt tilldelas nyskapade produkter.",
+                "linkAdvancedVisibility": "Ange synlighet för valda försäljningskanaler"
+            },
             "productSorting": {
                 "title": "Alternativ för sortering",
                 "addButton": "Lägg till alternativ",
@@ -1429,16 +1464,64 @@
             "descriptionTextModule": "Startsida, statistik och systeminformation"
         },
         "introduction": {
-            "headline": "Välkommen till Shopware 6",
-            "enduserDocumentation": "Dokumentation för slutanvändare",
-            "enduserDocumentationLink": "https://docs.shopware.com/en/shopware-6-en",
-            "developerDocumentation": "Dokumentation för utvecklare",
-            "developerDocumentationLink": "https://docs.shopware.com/en/shopware-platform-dev-en",
-            "migrationDocumentation": "Dokumentation för migrering",
-            "migrationDocumentationLink": "https://docs.shopware.com/en/migration-en",
-            "roadmap": "Shopware Roadmap",
-            "roadmapLink": "https://www.shopware.com/en/roadmap/",
-            "feedback": "Feedback",
+            "headlineUnkownUser": "Välkommen till Shopware.",
+            "daytimeHeadline": {
+                "5h": {
+                    "0": "God morgon, {greetingName}.",
+                    "1": "Hej, {greetingName}!"
+                },
+                "11h": {
+                    "0": "Hej, {greetingName}.",
+                    "1": "God dag, {greetingName}.",
+                    "2": "Tjena, {greetingName}!"
+                },
+                "18h": {
+                    "0": "God kväll, {greetingName}.",
+                    "1": "Hej, {greetingName}!"
+                },
+                "23h": {
+                    "0": "Kul att se dig, {greetingName}.",
+                    "1": "Fortfarande uppe, {greetingName}?"
+                }
+            },
+            "daytimeWelcomeText": {
+                "5h": {
+                    "0": "Dags för kaffe, va?",
+                    "1": "Du får en bra start!",
+                    "2": "För mycket att göra idag? Fokusera på de uppgifter som kommer att få större delen av effekten.",
+                    "3": "Du ser fantastisk ut idag!"
+                },
+                "11h": {
+                    "0": "Ännu en dag, ännu en chans att få din verksamhet att växa.",
+                    "1": "Du kan påverka någons liv idag.",
+                    "2": "Du ser fantastisk ut idag!",
+                    "3": "Idag har du chansen att forma morgondagen du vill ha."
+                },
+                "18h": {
+                    "0": "Dagen är nästan klar, dags att kolla din butiks senaste aktiviteter.",
+                    "1": "Dags att utvärdera - Ta en titt på hur din butik har fungerat idag.",
+                    "2": "Dagens åtgärder är morgondagens resultat."
+                },
+                "23h": {
+                    "0": "Hitta skönhet i allt för att inspirera dig själv.",
+                    "1": "Titta, utanför någon har bytt det mörka läget.",
+                    "2": "Nästan allt kommer att fungera igen, om du kopplar ur det i några minuter - det inkluderar dig. Ta en paus."
+                }
+            }
+        },
+        "helpcard": {
+            "headline": "Gör dig redo att sälja dina produkter.",
+            "helpcenter": "Hjälpcenter för butiksprogram",
+            "helpcenterLink": "https://docs.shopware.com/en/shopware-6-en",
+            "takeOffTip": "Lär dig hur du gör din första försäljning",
+            "takeOffTipLink": "https://www.shopware.com/en/news/take-off-in-ecommerce-10-tips-for-your-initial-sales/",
+            "getToKnowSales": "Lär känna försäljningskanaler",
+            "getToKnowSalesLink": "https://www.youtube.com/watch?v=RsEeersOgIo"
+        },
+        "feedbackCard": {
+            "headline": "Första visningar räknas.",
+            "text": "Dela dina första intryck och hjälp oss att förbättra den övergripande Shopware-upplevelsen.",
+            "feedback": "Ge feedback",
             "feedbackLink": "https://issues.shopware.com"
         },
         "todayStats": {
@@ -1591,6 +1674,7 @@
                 "category": "Kategori",
                 "categories": "Kategorier",
                 "categoriesRo": "Kategori",
+                "cheapestPrice": "Pris",
                 "choose": "Urval",
                 "description": "Beskrivning",
                 "descriptionLong": "Lång beskrivning",
@@ -1604,6 +1688,7 @@
                 "length": "Längd",
                 "linked": "Länkad",
                 "manufacturerId": "Tillverkare",
+                "manufacturer": "Tillverkare",
                 "manufacturerNumber": "Tillverkningsnummer",
                 "markAsTopseller": "Markerad som toppsäljare",
                 "maxDeliveryTime": "Maximal leveranstid",
@@ -1616,7 +1701,7 @@
                 "option": "Alternativ",
                 "packUnit": "Förpackningsenhet",
                 "packUnitPlural": "Förpackningsenhet flertal",
-                "cheapestPrice": "Pris",
+                "price": "Pris",
                 "product": "Produkt",
                 "productNumber": "Produktnummer",
                 "purchasePrice": "Försäljningspris",
@@ -1773,7 +1858,10 @@
             "xTimesIn": "{n} gånger i",
             "close": "Stäng",
             "from": "Från",
-            "to": "Till"
+            "to": "Till",
+            "bulkEdit": "Massredigering",
+            "startBulkEdit": "Starta massredigering",
+            "bulkEditModalTitle": "Bulkredigering - {count} objekt valt | Bulkredigering - {count} markerade objekt"
         },
         "notification": {
             "notificationSaveErrorMessage": "Vid sparande av enheten \"{entityName}\" uppstod ett fel.",
@@ -1846,7 +1934,7 @@
             },
             "plugin-updates-listener": {
                 "updatesAvailableTitle": "Uppdateringar tillgängliga.",
-                "updatesAvailableMessage": "För vissa plugins finns uppdateringar tillgängliga."
+                "updatesAvailableMessage": "Hämta de senaste versionerna av dina tillägg nu."
             },
             "shopware-updates-listener": {
                 "updatesAvailableTitle": "En ny version av Shopware {version} finns tillgänglig",
@@ -2131,6 +2219,7 @@
         },
         "sw-media-upload-v2": {
             "buttonFileUpload": "Ladda upp filer",
+            "buttonFilesUpload": "Ladda upp filer",
             "buttonUrlUpload": "Ladda upp från URL",
             "buttonSwitchToFileUpload": "Ladda upp fil från din dator",
             "buttonSwitchToUrlUpload": "Ladda upp fil från URL",
@@ -2217,14 +2306,10 @@
         },
         "sw-multi-tag-ip-select": {
             "enterValidIp": "Ange en giltig IPv4- eller IPv6-adress",
-            "addIpAdress": "Lägg till IP-adress",
+            "addIpAddress": "Lägg till IP-adress",
             "knownIps": {
                 "you": "Du"
             }
-        },
-        "sw-multi-ip-select": {
-            "enterValidIp": "Ange en giltig IPv4- eller IPv6-adress",
-            "addIpAdress": "Lägg till IP-adress"
         },
         "sw-entity-multi-select": {
             "messageNoResults": "Inga resultat funna för \"{term}\"."
@@ -2294,6 +2379,7 @@
                 "shippingCountryRule": "Leveransland",
                 "shippingStreetRule": "Leveransadress",
                 "shippingZipCodeRule": "Leveransadress, postnummer",
+                "customerLoggedInRule": "Kunden inloggad",
                 "cartAmountRule": "Beställningens värde",
                 "goodsCountRule": "Antal kundvagnar/produkter",
                 "goodsPriceRule": "Pris kundvagn/produkter",
@@ -2335,7 +2421,7 @@
                 "alwaysValidRule": "Alltid sant",
                 "lineItemPropertyRule": "Positioner med egenskaper",
                 "lineItemNoveltyRule": "Nyheter",
-                "lineItemCustomFieldRule": "Positioner med attribut",
+                "lineItemCustomFieldRule": "Radartikel med anpassat fält",
                 "lineItemIsNewRule": "Nyheter",
                 "lineItemOfManufacturerRule": "Tillverkare",
                 "lineItemPurchasePriceRule": "Positioner, inköpspris",
@@ -2367,7 +2453,8 @@
         "sw-product-image": {
             "context": {
                 "buttonAsCover": "Använd som omslag",
-                "buttonRemove": "Ta bort"
+                "buttonRemove": "Ta bort",
+                "buttonPreviewImage": "Förhandsgranska bild"
             }
         },
         "sw-simple-search-field": {
@@ -2437,7 +2524,9 @@
             "delivery_time": "Leveranstid | Leveranstider",
             "import_export_profile": "Import/Export profil | Import/Export profil",
             "feature_set": "Mall | Mallar",
-            "event_action": "Företagsevenemang"
+            "event_action": "Företagsevenemang",
+            "property_group": "Fastighetsgrupp | Fastighetsgrupper",
+            "document_base_config": "Konfiguration för dokumentbas | Konfigurationer för dokumentbas"
         },
         "day-of-week": {
             "monday": "Måndag",
@@ -2468,6 +2557,7 @@
             "mail_sent": "E-post skickad",
             "newsletter_confirm": "Anmälning av nyhetsbrev bekräftad",
             "newsletter_register": "Registrera dig för nyhetsbrevet",
+            "newsletter_unsubscribe": "Nyhetsbrevet avregistrerat",
             "newsletter_update": "Registrera dig för nyhetsbrevet uppdaterat",
             "product_export_log": "Produktexport utförd",
             "state_enter_order_state_cancelled": "Order anger status annullerad",
@@ -2899,6 +2989,7 @@
             "columnDescription": "Beskrivning",
             "columnActive": "Aktiv",
             "columnPosition": "Position",
+            "columnExtension": "Utökning",
             "buttonAddPaymentMethod": "Skapa betalningsmetod",
             "contextMenuEdit": "Redigera",
             "contextMenuDelete": "Radera",
@@ -2930,7 +3021,7 @@
         }
     },
     "sw-plugin-box": {
-        "buttonPluginSettings": "Inställningar för plugin"
+        "buttonPluginSettings": "Inställningar för tillägg"
     },
     "sw-settings-country": {
         "general": {
@@ -2977,7 +3068,10 @@
             "buttonAddCountryState": "Lägg till region",
             "editAction": "Redigera",
             "columnStateNameLabel": "Namn",
-            "columnStateShortCodeLabel": "Förkortning"
+            "columnStateShortCodeLabel": "Förkortning",
+            "taxFreeFrom": "Skattefri från",
+            "taxFreeFromHelpText": "Om kundvagnen är högre än värdet som anges i ”Skattefria från”, kommer hela kundvagnen att vara skattefria.",
+            "labelVatIdRequired": "Momsregistreringsnummer krävs"
         }
     },
     "sw-country-state-detail": {
@@ -3046,7 +3140,9 @@
             },
             "emptyCountryRoundings": "Lägg till enskilda decimaler och avrundningsfaktorer för olika länder.",
             "emptyCountryRoundingsNewCurrency": "Fyll i grundläggande information, spara valuta - lägg sedan till värden",
-            "buttonAddCountry": "Lägg till land"
+            "buttonAddCountry": "Lägg till land",
+            "taxFreeFrom": "Skattefri från",
+            "taxFreeFromHelpText": "Om kundvagnen är högre än värdet som anges i ”Skattefria från”, kommer hela kundvagnen att vara skattefria. Gäller endast kundvagnar som betalas i \"{currencyName}”."
         },
         "currency-country-modal": {
             "labelCountrySelect": "Land",
@@ -3061,11 +3157,13 @@
             "labelRoundForNet": "Runda för nätkunder också",
             "grandHeadline": "Totalt totalbelopp",
             "grandSubline": "Avrundning gäller totalsummor",
+            "headerWarning": "Olika avrundningsintervaller - Se till att kolla tillbaka med dina enskilda tjänsteleverantörer för att undvika redovisningsproblem.",
+            "headerInfo": "Skatteberäkningen baseras på oavrundade summor. Förekomst avrundningsskillnader är inte föremål för skatteberäkning.",
             "helpTextDecimals": "Decimaler anger det maximala antalet siffror efter decimalavgränsaren.",
-            "helpTextInterval": "Använd avrundningsintervaller för att redovisa marknader där de lägsta fysiska valörerna i valutan har avskaffats och kassavrundningar har genomförts. <br><br> Tips: Välj ”Ingen” om du inte vill använda någon avrundning av kontanter. T.ex. vid användning av decimaler större än 2.",
+            "helpTextInterval": "Använd avrundningsintervaller för att redovisa marknader där de lägsta fysiska valörerna i valutan har avskaffats och kassavrundningar har genomförts. <br><br> Tips: Välj ”Ingen” om du inte vill använda någon prisavrundning. T.ex. vid användning av decimaler större än 2.",
             "helpTextRoundForNet": "Aktivera avrundning för nettokundgrupper dessutom.",
             "labelIntervalNone": "Ingen",
-            "tooltipIntervalDisabled": "Avrundning av kontanter tillämpas inte om decimaler är större än 2."
+            "tooltipIntervalDisabled": "Prisavrundning tillämpas inte om decimaler större än 2 är konfigurerade."
         }
     },
     "sw-category": {
@@ -3288,13 +3386,15 @@
         "visibility": {
             "textHeadline": "Ange synlighet per försäljningskanal",
             "placeholderVisibility": "Tilldela försäljningskanaler",
-            "columnAll": "Överallt",
-            "columnSearchOnly": "Endast synlig i sökningen",
-            "columnLinkOnly": "Dolt",
-            "linkAdvancedVisibility": "Konfigurera avancerad synlighet",
+            "columnAll": "Synlig",
+            "columnSearchOnly": "Dölj i # Listningar",
+            "columnLinkOnly": "Dölj i Annonser och sök",
+            "visibilityModalDescription": "”Dölj i listning” utesluter produkten från produktöversiktslistor men också från produktreglage och korsförsäljningslistor. Om du väljer alternativet ”Dölj i listning och sökning” utesluts även produkten från sökåtgärder. Produkter kan fortfarande nås via URL.",
+            "linkAdvancedVisibility": "Ange synlighet för valda försäljningskanaler",
             "labelVisibility": "Synlighet",
             "closeModal": "Ta över",
-            "bodyVisibility": "Lägg till försäljningskanaler där är produkten ska visas. Du kan också ytterligare definiera produktens synlighet för varje Storefront Sales Channel via de länk nedan."
+            "bodyVisibility": "Lägg till försäljningskanaler där produkten ska visas. Du kan ytterligare definiera produktsynligheten för varje Storefront Sales Channel via länken nedan.",
+            "errorMessage": "Det gick inte att ladda standardkonfigurationen för försäljningskanal"
         },
         "general": {
             "mainMenuItemGeneral": "Produkter",
@@ -3379,7 +3479,10 @@
             "placeholderMetaTitle": "Ange en Meta-Title...",
             "placeholderMetaDescription": "Ange en Metabeskrivning...",
             "placeholderKeywords": "Skriv in ett eller flera nyckelord...",
-            "placeholderCanonicalProduct": "Välj en variant..."
+            "placeholderCanonicalProduct": "Välj en variant...",
+            "helpTextMetaTitle": "Metatiteln är det viktigaste SEO-elementet och ska vara unikt för varje sida. Du bör begränsa dig själv i längd till högst 56 tecken. Ditt sökord bör helst placeras längst fram.",
+            "helpTextMetaDescription": "Med metabeskrivningen bekräftar du för dina kunder att de befinner sig på rätt plats i din butik. Du skapar incitament, skapar förtroende och bjuder in till en åtgärd. Du bör begränsa dig till högst 155 tecken.",
+            "helpTextKeywords": "Här kan du välja att definiera tre till fem nyckelord under vilka produkten ska hittas."
         },
         "settingsForm": {
             "labelCreatedAt": "Tillverkningsdatum",
@@ -3503,6 +3606,7 @@
             "columnInStock": "Aktuellt lager",
             "columnAvailableStock": "Fortfarande tillgänglig",
             "columnActions": "Kampanj-(er)",
+            "columnMedia": "Media",
             "contextMenuEdit": "Redigera",
             "contextMenuDelete": "Radera",
             "contextMenuDuplicate": "Duplicera",
@@ -3603,6 +3707,7 @@
             "generatedListColumnVariation": "Variant",
             "generatedListColumnPrice": "Pris (brutto/netto)",
             "generatedListColumnProductNumber": "Produktnummer",
+            "generatedListColumnMedia": "Media",
             "generatedListColumnActive": "Aktiv",
             "generatedListColumnStock": "Aktuellt lager",
             "generatedListContextMenuEdit": "Redigera",
@@ -3671,6 +3776,7 @@
         "crossselling": {
             "cardTitleCrossSelling": "Cross Selling",
             "buttonAddCrossSelling": "Lägg till ny cross selling",
+            "buttonAddCrossSellingLanguageWarning": "Du kan bara skapa nya korsförsäljningar på ditt standardspråk",
             "buttonDeleteCrossSelling": "Radera",
             "inputCrossSellingTitle": "Titel",
             "inputCrossSellingActive": "Aktiv",
@@ -4189,12 +4295,15 @@
             "updateExcludedTermSuccess": "Utesluten sökterm uppdaterad.",
             "createExcludedTermSuccess": "Utesluten sökterm skapad.",
             "deleteExcludedTermSuccess": "Utesluten sökterm borttagen.",
+            "resetToDefaultExcludedTermSuccess": "Uteslutna söktermer har återställts till standard.",
+            "resetToDefaultExcludedTermError": "Ett fel uppstod vid återställning av uteslutna söktermer.",
             "saveError": "Ett fel uppstod när konfigurationen sparades.",
             "index": {
                 "started": "Bygga produktindex.",
                 "success": "Produktindex byggda."
             },
-            "loadError": "Ett fel uppstod när konfigurationen lästes in."
+            "loadError": "Ett fel uppstod när konfigurationen lästes in.",
+            "notSupportedLanguageError": "Det valda språket är inte tillgängligt i vald försäljningskanal"
         },
         "liveSearchTab": {
             "titleCard": "Sökning på försäljningskanal",
@@ -4347,7 +4456,7 @@
             "label": "Nu tillgänglig",
             "activationDescriptionTitleFirst": "Utforska och köp enkelt tillägg -",
             "activationDescriptionTitleSecond": "direkt från din egen Shopware-butik.",
-            "activationDescriptionTitleDescription": "Aktivera den helt nya Shopware Store och få tillgång till massor av användbara tillägg och moderna teman som kan integreras i din butik utan några programmeringskunskaper.",
+            "activationDescriptionTitleDescription": "Aktivera Shopware Store och få tillgång till massor av användbara tillägg och moderna teman som kan integreras i din butik utan några programmeringskunskaper.",
             "activate": "Aktivera"
         },
         "title": "Butik",
@@ -4499,6 +4608,9 @@
                     "permissions": "behörigheter"
                 }
             },
+            "sw-extension-card-bought": {
+                "subscriptionExpiredAt": "Prenumerationen löper ut vid {date}"
+            },
             "sw-extension-deactivation-modal": {
                 "deactivateExtensionLabel": "Inaktivera \"{extensionName}”",
                 "description": "Tillägget \"{extensionName}\" har en månadsavgift.<br>Inaktivering av tillägget <b>kommer inte</b> att avbryta prenumerationen och avgifter kommer att fortsätta att samlas in!",
@@ -4508,8 +4620,16 @@
             },
             "sw-extension-permissions-modal": {
                 "title": "{extensionLabel} behörigheter",
-                "description": "{extensionLabel} kommer att ha tillgång till följande komponenter. Klicka på länken bredvid komponenten för att visa entitetsinformationen.",
-                "textEntities": "Visa behörigheter"
+                "description": "{extensionLabel} kommer att få tillgång till komponenterna nedan. Klicka på länken bredvid komponenten för att visa entitetsinformationen.",
+                "domainHint": "Vissa data kommer också att delas med andra domäner. Klicka på länken bredvid domäner för mer information.",
+                "textEntities": "Visa behörigheter",
+                "domains": "Domäner",
+                "showDomains": "Visa domäner"
+            },
+            "sw-extension-domains-modal": {
+                "modalTitle": "{extensionLabel} - Domäner",
+                "description": "Vissa data kommer att delas eller överföras till de domäner som anges nedan.",
+                "listTitle": "Domän"
             },
             "sw-extension-privacy-policy-extensions-modal": {
                 "title": "{extensionLabel}: tillägg till sekretesspolicyn",
@@ -4938,7 +5058,6 @@
             "messageServerError": "Ett allmänt fel har uppstått i autentiseringsservern.",
             "messageInvalidRefreshToken": "Den angivna uppdateringstoken är ogiltig.",
             "messageAccessDenied": "Åtkomst nekad.",
-            "messageInvalidGrant": "Grant-Type eller uppdateringstoken är ogiltig.",
             "messageGeneralRequestError": "Förfrågan för \"{url}\" misslyckades.",
             "forgottenPasswordLink": "Har du glömt ditt lösenord?"
         },
@@ -5461,6 +5580,23 @@
             "markets": "Marknader för butiksprogram"
         }
     },
+    "sw-flow": {
+        "general": {
+            "mainMenuItemGeneral": "Flödesbyggare",
+            "descriptionTextModule": "Flödesbyggare"
+        },
+        "list": {
+            "textHeadline": "Flödesbyggare",
+            "buttonAddFlow": "Lägg till flöde"
+        },
+        "detail": {
+            "textHeadline": "Nytt flöde"
+        },
+        "page": {
+            "generalTab": "General",
+            "flowTab": "Flow"
+        }
+    },
     "sw-sales-channel": {
         "general": {
             "tooltipOpenStorefront": "Öppet skyltfönster",
@@ -5567,6 +5703,14 @@
             "ipAddressWhitleListHelpText": "Lägg till IP-adresser i vitlistan för att möjliggöra selektiv åtkomst till butiken. Du kan lägga till IPv4- och IPv6-adresser vid behov.",
             "basicinformationLink": "Ändra layout för underhållssidan",
             "columnDomainCurrency": "Valuta",
+            "products": {
+                "titleEmptyState": "Inga produkter har lagts till ännu",
+                "titleEmptyStateTable": "Inga matchande produkter hittades",
+                "buttonAddProducts": "Lägg till produkter",
+                "columnProductName": "Produktens namn",
+                "columnActive": "Aktiv",
+                "columnProductNumber": "Produktens nummer"
+            },
             "productComparison": {
                 "inputHeaderLabel": "Rubrik",
                 "inputBodyLabel": "Produktlinje",
@@ -5688,6 +5832,12 @@
                 "verticalDescription": "Momsbeloppet beräknas baserat på beställningssumman. Momsandelen för de enskilda artiklarna visas inte i kassan. ",
                 "horizontalName": "Rad-för-rad (horisontell) beräkning",
                 "horizontalDescription": "Momsen beräknas per varukorg. Momsandelen för varje enskild varukorgsartikel visas under kassan. Momsumman beräknas utifrån momsandelarna för de enskilda artiklarna."
+            },
+            "productAssigmentModal": {
+                "title": "Lägg till produkter",
+                "singleProducts": "Individuella produkter",
+                "categories": "Filtrera efter kategorier",
+                "dynamicProductGroups": "Filtrera efter dynamiska produktgrupper"
             }
         },
         "sw-sales-channel-defaults-select": {
@@ -5759,8 +5909,12 @@
                 "placeholderTestMail": "shop@exempel.se",
                 "buttonTestMail": "Skicka",
                 "labelTestMail": "Mottagaradress",
-                "titleTestMail": "Skicka testmeddelande"
+                "titleTestMail": "Skicka testmeddelande",
+                "titleShowPreview": "Visa förhandsgranskning",
+                "titleShowAvailableVariables": "Variabler",
+                "copyTooltip": "Kopiera till Urklipp."
             },
+            "previewModalTitle": "Förhandsvisning",
             "buttonCancel": "Avbryt",
             "buttonSave": "Spara",
             "textHeadline": "Ny e-postmall",
@@ -6236,6 +6390,20 @@
             "tags": {
                 "label": "Tags",
                 "placeholder": "Markera taggar..."
+            },
+            "affiliateCode": {
+                "label": "Affiliate kod",
+                "placeholder": "Välj affiliate-kod..."
+            },
+            "campaignCode": {
+                "label": "Kampanjkod",
+                "placeholder": "Välj kampanjkod..."
+            },
+            "customerGroupRequest": {
+                "label": "Begäran om kundgrupp",
+                "placeholder": "Välj status för begäran...",
+                "textHasCriteria": "Öppna förfrågningar om kundgrupper",
+                "textNoCriteria": "Inga förfrågningar från kundgruppen"
             },
             "messageEmptyTitle": "Ingenting hittades",
             "messageEmptySubline": "Redigera dina filter för att hitta resultat."
@@ -7195,9 +7363,9 @@
         "infoTextInheritedField": "{moduleName} har ärvda/förinställda fält. Detta innebär att så länge som den ärvda tillståndet är aktivt, förblir innehållet som i förinställningarna. Förinställda fält kan lösas genom att klicka på länkikonen. Genom att klicka på ikonen återställs det förinställda tillståndet igen."
     },
     "sw-license-violation": {
-        "title": "Varningar för förlängning",
+        "title": "Varning för förlängning",
         "reload": "Ladda igen",
-        "alertText": "Vi har upptäckt en licensöverträdelse för minst ett av dina tillägg i den här installationen. För att åtgärda licensöverträdelsen och undvika rättsliga konsekvenser, boka en förlängningsprenumeration eller köpa/hyra tillägget (enligt tillfogad överträdelse typ). Du använder inte förlängningen längre? Ta sedan bort det via Mina tillägg. Om ingen av dessa åtgärder vidtas förbehåller sig butiksprogrammet AG rätten att ta ut straffavgifter för eventuella licensbrott.",
+        "alertText": "Vi har upptäckt en licensöverträdelse för minst ett av dina tillägg i den här installationen. För att åtgärda licensöverträdelsen och undvika rättsliga konsekvenser, boka en prenumeration eller köpa/hyra tillägget (enligt tillfogad överträdelse typ). Du använder inte förlängningen längre? Ta sedan bort det via knappen ”Ta bort tillägg permanent” eller via Mina tillägg. Om ingen av dessa åtgärder vidtas förbehåller sig butiksware AG rätten att ta ut straffavgifter för eventuella licensbrott.",
         "deletePlugin": "Ta bort tillägg permanent",
         "messageDeleteConfirm": "Vill du ta bort tillägget \"{pluginName}\" helt?",
         "checkboxMessage": "Jag har läst och tagit del av varningen och förstår de möjliga konsekvenserna.",

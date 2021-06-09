@@ -63,7 +63,6 @@
         "CHECKOUT__UNKNOWN_PAYMENT_METHOD": "Nie znaleziono wybranej metody płatności.",
         "productNotFound": "Nie znaleziono produktu \"%number%\".",
         "payment-method-blocked": "Wybrana metoda płatności %name% nie jest dostępna.",
-        "shipping-method-blocked": "Wybrany sposób wysyłki %name% nie jest dostępny.",
         "shipping-address-blocked": "Dostawy na wybrany adres nie są możliwe.",
         "shipping-address-invalid": "Wybrany adres wysyłki jest nieprawidłowy lub niekompletny. Proszę sprawdzić swoje wpisy.",
         "billing-address-blocked": "Rozliczenie na wybrany adres nie jest możliwe.",
@@ -73,7 +72,10 @@
         "message-403-ajax": "Sesja wygasła. Odśwież stronę i spróbuj ponownie.",
         "message-403": "Sesja wygasła. Wróć do ostatniej strony i spróbuj ponownie.",
         "product-out-of-stock": "%name% nie jest obecnie dostępna.",
-        "auto-promotion-not-found": "Promocja \"%name%\" nie była już ważna!"
+        "auto-promotion-not-found": "Promocja \"%name%\" nie jest już ważna!",
+        "captcha": {
+            "basic-captcha-invalid": "Captcha jest nieprawidłowa. Proszę sprawdzić swoje wpisy."
+        }
     },
     "account": {
         "externalPaymentCanceled": "Otrzymaliśmy zamówienie, ale płatność została przerwana. Zmień metodę płatności lub spróbuj ponownie",
@@ -503,7 +505,7 @@
         "reviewFormContentLabel": "Twój komentarz",
         "reviewFormSubmitText": "Wyślij",
         "reviewFormCancelText": "Anuluj",
-        "reviewFormErrorAlert": "Wystąpił błąd. Sprawdź, czy wszystkie pola zostały wypełnione poprawnie.",
+        "reviewFormErrorAlert": "Wystąpił błąd. Upewnij się, że wszystkie pola zostały poprawnie wypełnione.",
         "reviewFormSuccessAlert": "Dziękujemy za przesłanie recenzji. Zbadamy recenzję i ostatecznie ją odblokujemy, proszę o cierpliwość.",
         "reviewFormSuccessUpdateAlert": "Dziękujemy za zmianę oceny. Ocena będzie znowu widoczna, gdy ją ponownie zatwierdzimy.",
         "reviewTeaserTitle": "Wprowadź ocenę!",
@@ -540,7 +542,8 @@
         "noLongerAvailableTooltip": "Produkt nie jest już dostępny.",
         "wishlistMergeHint": "Twoja lista życzeń może zawierać produkty, które zostały dodane i zapisane podczas poprzedniej wizyty.",
         "wishlistEmptyHeader": "Twoja lista życzeń jest pusta",
-        "wishlistEmptyDescription": "Miej oko na produkty, które lubisz, dodając je do listy życzeń."
+        "wishlistEmptyDescription": "Miej oko na produkty, które lubisz, dodając je do listy życzeń.",
+        "deliveryTimeRestock": "{1} Dostępne w 1 dzień, czas dostawy %name%|] 1, Inf [Dostępne w %restockTime% dni, czas dostawy %name%"
     },
     "footer": {
         "serviceHotlineHeadline": "Serwisowa linia hotline",
@@ -555,6 +558,12 @@
         "excludeVat": "* Wszystkie ceny bez Podatek VAT plus <a data-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">koszty wysyłki</a> oraz ewentualnie opłaty za pobranie, jeżeli nie podano inaczej.",
         "copyrightInfo": "Zrealizowane za pomocą Shopware"
     },
+    "captcha": {
+        "googleReCaptcha": {
+            "dataProtectionInformation": "Ta strona jest chroniona przez reCAPTCHA i Google\n<a href=\"https://policies.google.com/privacy\">Polityka prywatności</a> i\n<a href=\"https://policies.google.com/terms\">Warunki korzystania z usługi</a> mają zastosowanie."
+        },
+        "basicCaptchaLabel": "Wprowadź znaki pokazane powyżej*"
+    },
     "cookie": {
         "message": "Ta strona internetowa stosuje pliki cookie, aby zapewnić użytkownikom jak najlepsze doświadczenia. <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Więcej informacji\">Więcej informacji...</a>",
         "deny": "Odrzuć",
@@ -568,7 +577,7 @@
         "groupRequiredSession": "Sesja",
         "groupRequiredCsrf": "Ochrona CSRF",
         "groupRequiredTimezone": "Strefa czasowa",
-        "groupRequiredGoogleReCaptcha": "Google reCAPTCHA",
+        "groupRequiredCaptcha": "Integracja Captcha",
         "groupStatistical": "Statystyki",
         "groupStatisticalDescription": "Pliki cookie używane do celów statystycznych i pomiaru wydajności sklepu.",
         "groupStatisticalGoogleAnalytics": "Google Analytics",

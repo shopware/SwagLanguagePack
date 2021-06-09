@@ -63,7 +63,6 @@
         "CHECKOUT__UNKNOWN_PAYMENT_METHOD": "Выбранный способ оплаты не существует.",
         "productNotFound": "Товар \"%number%\" не найден.",
         "payment-method-blocked": "Способ оплаты %name% не доступен.",
-        "shipping-method-blocked": "%name% доставкa не доступна.",
         "shipping-address-blocked": "Доставка на выбранный адрес доставки в настоящее время невозможна.",
         "shipping-address-invalid": "Выбранный адрес доставки недействителен или незавершен. Пожалуйста, проверьте свои записи.",
         "billing-address-blocked": "Выставление счетов по выбранному адресу невозможно.",
@@ -73,7 +72,10 @@
         "message-403-ajax": "Ваша сессия истекла. Пожалуйста, перезагрузите страницу и повторите попытку.",
         "message-403": "Ваша сессия истекла. Вернитесь на последнюю страницу и повторите попытку.",
         "product-out-of-stock": "%name% недоступно в данный момент.",
-        "auto-promotion-not-found": "Акция «%name%» больше не действительна!"
+        "auto-promotion-not-found": "Акция «%name%» больше не действительна!",
+        "captcha": {
+            "basic-captcha-invalid": "Недопустимая капча. Пожалуйста, проверьте свои записи."
+        }
     },
     "account": {
         "externalPaymentCanceled": "Мы получили ваш заказ, но оплата была прервана. Измените способ оплаты или повторите попытку",
@@ -423,6 +425,7 @@
         "filterRatingActiveLabelStart": "мин.",
         "filterRatingActiveLabelEndSingular": "звездочка",
         "filterRatingActiveLabelEnd": "звезды",
+        "filterRatingAndMore": "мин. %points%/%maxPoints%",
         "filterRangeMinLabel": "Минимум",
         "filterRangeMaxLabel": "Максимум",
         "filterRangeActiveMinLabel": "Цена от",
@@ -479,7 +482,7 @@
         "priceUnitName": "Содержимое:",
         "priceDataInfoUntil": "Кому",
         "priceDataInfoFrom": "От",
-        "listPricePercentage": "(%price%% сохранена)",
+        "listPricePercentage": "(%price%% сохранено)",
         "dataColumnQuantity": "Количество",
         "dataColumnPrice": "Цена за единицу",
         "dataColumnReferencePrice": "Базовая цена",
@@ -502,7 +505,7 @@
         "reviewFormContentLabel": "Ваш отзыв",
         "reviewFormSubmitText": "Подтвердить",
         "reviewFormCancelText": "Отменить",
-        "reviewFormErrorAlert": "Произошла ошибка. Пожалуйста, убедитесь, что вы правильно заполнили форму.",
+        "reviewFormErrorAlert": "Произошла ошибка. Пожалуйста, убедитесь, что вы правильно заполнили все поля.",
         "reviewFormSuccessAlert": "Благодарим вас за отправку вашего отзыва. Мы изучим обзор и в конечном итоге разблокируем его, пожалуйста, будьте терпеливы.",
         "reviewFormSuccessUpdateAlert": "Спасибо за редактирование отзыва. Изменения будут видны, как только мы разблокируем их.",
         "reviewTeaserTitle": "Оставьте отзыв!",
@@ -539,7 +542,8 @@
         "noLongerAvailableTooltip": "Продукт больше не доступен.",
         "wishlistMergeHint": "Ваш список желаний может содержать продукты, которые были добавлены и сохранены во время предыдущего посещения.",
         "wishlistEmptyHeader": "Ваш список желаний пуст",
-        "wishlistEmptyDescription": "Следите за продуктами, которые вам нравятся, добавляя их в свой список желаний."
+        "wishlistEmptyDescription": "Следите за продуктами, которые вам нравятся, добавляя их в свой список желаний.",
+        "deliveryTimeRestock": "{1} Доступно в течение 1 дня, время доставки %name%|] 1, Inf [Доступно через %restockTime% дня, время доставки %name%"
     },
     "footer": {
         "serviceHotlineHeadline": "Горячая линия обслуживания",
@@ -554,6 +558,12 @@
         "excludeVat": "* Все цены не включают НДС плюс <a data-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">стоимость доставки</a> и возможные расходы на доставку, если не указано иное.",
         "copyrightInfo": "Реализован с помощью Shopware"
     },
+    "captcha": {
+        "googleReCaptcha": {
+            "dataProtectionInformation": "Этот сайт защищен reCAPTCHA и Google\n<a href=\"https://policies.google.com/privacy\">Политика конфиденциальности</a> и\n<a href=\"https://policies.google.com/terms\">Условия обслуживания</a> применяются."
+        },
+        "basicCaptchaLabel": "Пожалуйста, введите символы, показанные выше*"
+    },
     "cookie": {
         "message": "Этот веб-сайт использует файлы cookie для обеспечения наилучшего взаимодействия. <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Дополнительная информация\">Дополнительная информация...</a>",
         "deny": "Запретить",
@@ -567,7 +577,7 @@
         "groupRequiredSession": "Сессия",
         "groupRequiredCsrf": "Защита CSRF",
         "groupRequiredTimezone": "Часовой пояс",
-        "groupRequiredGoogleReCaptcha": "Google reCAPTCHA",
+        "groupRequiredCaptcha": "Интеграция капчи",
         "groupStatistical": "Статистика",
         "groupStatisticalDescription": "Файлы cookie используемые для статистики и показателей эффективности магазина.",
         "groupStatisticalGoogleAnalytics": "Google Analytics",

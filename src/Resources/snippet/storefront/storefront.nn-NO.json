@@ -63,7 +63,6 @@
         "CHECKOUT__UNKNOWN_PAYMENT_METHOD": "Den valgte betalingsmåten finnes ikke.",
         "productNotFound": "Produkt \"%number%\" ikke funnet.",
         "payment-method-blocked": "Betaling via %name% ikke tilgjengelig.",
-        "shipping-method-blocked": "%name% frakt er ikke tilgjengelig.",
         "shipping-address-blocked": "Frakt til den valgte adressen er ikke mulig.",
         "shipping-address-invalid": "Den valgte leveringsadressen er ikke gyldig eller ufullstendig. Vennligst sjekk oppføringene dine.",
         "billing-address-blocked": "Fakturering til den valgte adresse er ikke mulig.",
@@ -73,7 +72,10 @@
         "message-403-ajax": "Økten din er utløpt. Last inn siden på nytt, og prøv på nytt.",
         "message-403": "Økten din er utløpt. Gå tilbake til siste side og prøv på nytt.",
         "product-out-of-stock": "%name% er ikke tilgjengelig for øyeblikket.",
-        "auto-promotion-not-found": "Kampanjen \"%name%\" var ikke lenger gyldig!"
+        "auto-promotion-not-found": "Kampanjen \"%name%\" er ikke lenger gyldig!",
+        "captcha": {
+            "basic-captcha-invalid": "Captchaen er ugyldig. Vennligst sjekk oppføringene dine."
+        }
     },
     "account": {
         "externalPaymentCanceled": "Vi mottok bestillingen din, men betalingen ble avbrutt. Endre betalingsmåten eller prøv på nytt",
@@ -540,7 +542,8 @@
         "noLongerAvailableTooltip": "Produktet er ikke lenger tilgjengelig.",
         "wishlistMergeHint": "Ønskelisten din kan inneholde produkter som er lagt til og lagret under et tidligere besøk.",
         "wishlistEmptyHeader": "Din ønskeliste er tom",
-        "wishlistEmptyDescription": "Hold et øye med produkter du liker ved å legge dem til i ønskelisten din."
+        "wishlistEmptyDescription": "Hold et øye med produkter du liker ved å legge dem til i ønskelisten din.",
+        "deliveryTimeRestock": "{1} Tilgjengelig i 1 dag, leveringstid %name%|] 1, Inf [Tilgjengelig i %restockTime% dager, leveringstid %name%"
     },
     "footer": {
         "serviceHotlineHeadline": "Service hotline",
@@ -555,6 +558,12 @@
         "excludeVat": "* Alle priser ekskl. MVA pluss <a data-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">fraktkostnader</a> og mulige leveringskostnader, hvis ikke annet er oppgitt.",
         "copyrightInfo": "Realisert med butikkvare"
     },
+    "captcha": {
+        "googleReCaptcha": {
+            "dataProtectionInformation": "Dette nettstedet er beskyttet av reCAPTCHA, og Google\n<a href=\"https://policies.google.com/privacy\">Privacy Policy</a> og\n<a href=\"https://policies.google.com/terms\">Vilkår for bruk</a> gjelder."
+        },
+        "basicCaptchaLabel": "Skriv inn tegnene som er vist ovenfor*"
+    },
     "cookie": {
         "message": "Dette nettstedet bruker informasjonskapsler for å sikre en best mulig opplevelse. <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"More information\">Mer informasjon...</a>",
         "deny": "Nekt",
@@ -568,7 +577,7 @@
         "groupRequiredSession": "Økt",
         "groupRequiredCsrf": "CSRF-beskyttelse",
         "groupRequiredTimezone": "Tidssone",
-        "groupRequiredGoogleReCaptcha": "Google reCAPTCHA",
+        "groupRequiredCaptcha": "Captcha-integrering",
         "groupStatistical": "Statistikk",
         "groupStatisticalDescription": "Informasjonskapsler som brukes til statistikk og butikkytelsesmålinger.",
         "groupStatisticalGoogleAnalytics": "Google Analytics",

@@ -43,7 +43,7 @@
                     "availableVersionHeadline": "Ondersteund:",
                     "installedHint": "Geïnstalleerd",
                     "installationButton": "Installeren",
-                    "shopwareProfileHeadline": "Shopware 5 - Profiel",
+                    "shopwareProfileHeadline": "Shopware - Profiel",
                     "magentoProfileHeadline": "Magento - Profiel",
                     "profileManufacturer": "shopware AG"
                 },
@@ -79,6 +79,12 @@
                         "contentTitle": "Plugin benodigd",
                         "contentInformation": "De vereiste plug-in \"Migration Connector\" is gratis en is te vinden in uw Shopware 5-backend onder Plugin Manager> Extensies> Migratietools. Installeer en activeer de plug-in om door te gaan.",
                         "pluginLink": "Meer informatie over de plug-in"
+                    },
+                    "shopware6Api": {
+                        "contentTitle": "Vereist integratie",
+                        "contentInformation": "Het is vereist om een integratie in het bronsysteem te creëren via Instellingen > Systeem > Integraties.",
+                        "pluginLink": "Meer informatie over integraties",
+                        "link": "https://docs.shopware.com/en/shopware-6-en/settings/system/integrationen"
                     }
                 },
                 "credentials": {
@@ -110,6 +116,20 @@
                             "dbPasswordPlaceholder": "Wachtwoord invullen",
                             "installationRoot": "Winkel installatiemap",
                             "installationRootPlaceholder": "Vul installatie root in"
+                        }
+                    },
+                    "shopware6": {
+                        "api": {
+                            "contentInformation": "U hebt geldige API-referenties nodig om een verbinding tot stand te brengen tussen uw bron- en doelexemplaar van Shopware 6. Deze krijg je als je een integratie in je bronsysteem creëert.",
+                            "apiPasswordLabel": "Geheime toegangssleutel",
+                            "apiPasswordTooltip": "De geheime toegangssleutel wordt gebruikt voor beveiliging en identificatie.",
+                            "apiPasswordPlaceholder": "Geheime toegangssleutel invoeren",
+                            "apiUserLabel": "Toegangs-sleutel ID",
+                            "apiUserTooltip": "Toegang sleutel-ID van uw integratie.",
+                            "apiUserPlaceholder": "Voer toegangs-sleutel-ID in",
+                            "endpointLabel": "Shop domein",
+                            "endpointPlaceholder": "www.demoshop.com",
+                            "endpointSSLLabel": "Mijn winkel maakt gebruik van een beveiligde verbinding (SSL)"
                         }
                     },
                     "statusTitle": "Verbindingscontrole",
@@ -237,12 +257,15 @@
                     "newsletterRecipient": "Nieuwsbriefontvanger",
                     "productReviews": "Productbeoordelingen",
                     "seoUrls": "SEO URLs",
-                    "promotions": "Aanbiedingen"
+                    "promotions": "Aanbiedingen",
+                    "cms": "Lay-outs",
+                    "customerWishlists": "Verlanglijsten"
                 },
                 "entities": {
                     "category": "Categorieën:",
                     "product": "Producten:",
                     "customer": "Klanten:",
+                    "delivery_time": "Levertijden:",
                     "order": "Bestellingen:",
                     "media": "Media:",
                     "translation": "Vertalingen:",
@@ -252,14 +275,44 @@
                     "property_group_option": "Eigenschappen:",
                     "number_range": "Numeriek bereik:",
                     "order_document": "Besteldocumenten:",
+                    "order_document_base_config": "Documentconfiguratie:",
+                    "order_document_inheritance": "Bestellen document relaties:",
                     "shipping_method": "Verzendwijzen:",
                     "currency": "Valuta's:",
                     "sales_channel": "Verkoopkanalen:",
+                    "sales_channel_domain": "Domeinen:",
                     "product_review": "Beoordelingen:",
-                    "seo_url": "SEO URLs:",
+                    "seo_url": "SEO-URL's:",
+                    "seo_url_template": "SEO URL-sjablonen:",
                     "product_cross_selling": "Kruisverkoop:",
+                    "promotion": "Promoties:",
+                    "language": "Talen:",
+                    "category_association": "Categorie verenigingen:",
+                    "category_cms_page_association": "Categorie lay-outkoppelingen:",
+                    "tax": "Belastingtarieven:",
+                    "tax_rule": "Belastingregels:",
+                    "property_group": "Property groepen:",
+                    "product_manufacturer": "Productfabrikanten:",
                     "main_variant_relation": "Belangrijkste variant relaties:",
-                    "promotion": "Promoties:"
+                    "customer_wishlist": "Verlanglijsten:",
+                    "unit": "Schaal eenheden:",
+                    "media_folder": "Media mappen:",
+                    "media_folder_inheritance": "Mediamap overerven:",
+                    "salutation": "Aangroet:",
+                    "rule": "Regels:",
+                    "country": "Landen:",
+                    "custom_field_set": "Aangepaste veldsets:",
+                    "snippet": "Fragmenten:",
+                    "snippet_set": "Sets van fragmenten:",
+                    "mail_template": "E-mailsjablonen:",
+                    "product_feature_set": "Essentiële kenmerken:",
+                    "product_sorting": "Product sortering:",
+                    "system_config": "Basisinformatie:",
+                    "page_system_config": "Pagina basisinformatie:",
+                    "cms_page": "Lay-outs:",
+                    "product_stream": "Dynamische productgroepen:",
+                    "product_stream_filter_inheritance": "Dynamische productgroep filters:",
+                    "country_state": "Land staten:"
                 },
                 "noData": "Niets gevonden om te migreren."
             },

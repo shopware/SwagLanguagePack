@@ -36,8 +36,6 @@
         },
         "detail": {
             "buttonCancel": "Odbaciti promjene",
-            "buttonSave": "Spremi",
-            "buttonEdit": "Uredi",
             "tabOrderDetails": "Detalji narudžbe",
             "tabDeliveries": "Dostave",
             "textHeadline": "Narudžba",
@@ -148,7 +146,7 @@
         "detailBase": {
             "cardTitleDetails": "Detalji",
             "cardTitleLineItems": "Stavke",
-            "columnProductName": "Stavka",
+            "columnProductName": "Ime",
             "columnQuantity": "Količina",
             "columnPriceNet": "Cijena (neto)",
             "columnPriceGross": "Cijena (bruto)",
@@ -181,6 +179,7 @@
             "buttonAddBlankProduct": "Dodajte prilagođenu stavku",
             "buttonAddCredit": "Dodajte kredit",
             "buttonEditAddress": "Uredi",
+            "tooltipNestedLineItemsButton": "Ova stavka retka sadrži podstavke.",
             "labelNoPhoneNumber": "Još uvijek nema telefonskog broja",
             "labelNoEmail": "Još nema e-mailova",
             "labelCustomerPhoneNumber": "Broj telefona",
@@ -207,6 +206,14 @@
             "enterValidTrackingCode": "Unesite kod za praćenje",
             "textCreditTax": "automatski",
             "taxDetail": "{taxRate}%:{tax}"
+        },
+        "nestedLineItemsModal": {
+            "titlePrefix": "Artikl: {lineItemLabel} - {price}",
+            "headerLabel": "Ime",
+            "headerUnitPrice": "Cijena (bruto)",
+            "headerQuantity": "Količina",
+            "headerTotalPrice": "Podzbroj",
+            "headerTax": "PDV"
         },
         "detailDeliveries": {
             "cardTitleItems": "Pošiljka {count}",
@@ -380,6 +387,14 @@
                 "label": "Proizvodi",
                 "placeholder": "Odaberi proizvode..."
             },
+            "affiliateCodeFilter": {
+                "label": "Affiliate kod",
+                "placeholder": "Odaberite affiliate kôd..."
+            },
+            "campaignCodeFilter": {
+                "label": "Kôd kampanje",
+                "placeholder": "Odaberite kôd kampanje..."
+            },
             "messageEmptyTitle": "Ništa pronađeno",
             "messageEmptySubline": "Uredite filtre za pronalaženje rezultata."
         }
@@ -457,6 +472,9 @@
             },
             "customer_groups": {
                 "label": "Grupe kupaca"
+            },
+            "flow": {
+                "label": "Graditelj protoka"
             },
             "sales_channel": {
                 "label": "Prodajni Kanali"
@@ -616,7 +634,16 @@
         },
         "captcha": {
             "label": {
-                "honeypot": "Honeypot Captcha"
+                "honeypot": "Honeypot CAPTCHA",
+                "basicCaptcha": "Osnovni Captcha",
+                "googleReCaptchaV2": "Google reCAPTCHA v2",
+                "googleReCaptchaV2SiteKey": "Google reCAPTCHA v2 ključ web-mjesta",
+                "googleReCaptchaV2SecretKey": "Google reCAPTCHA v2 tajni ključ",
+                "googleReCaptchaV2Invisible": "Google reCaptcha v2 nevidljiv",
+                "googleReCaptchaV3": "Google reCAPTCHA v3",
+                "googleReCaptchaV3SiteKey": "Ključ web-mjesta Google reCAPTCHA v3",
+                "googleReCaptchaV3SecretKey": "Google reCAPTCHA v3 tajni ključ",
+                "googleReCaptchaV3ThresholdScore": "Google reCaptcha v3 prag"
             }
         }
     },
@@ -750,8 +777,8 @@
                 "messageMissingFields": "Potrebna je konfiguracija. Molimo vas da ispunite sva obavezna polja.",
                 "messageMissingBlockFields": "Potrebna je konfiguracija. Molimo ispunite podatke u svim elementima.",
                 "messageMissingProductListing": "Nije moguće spasiti. Dodajte barem jedan blok unosa proizvoda ili promijenite vrstu izgleda.",
-                "messageMissingSections": "Ne možete sačuvati praznu stranicu. Molimo da prvo dodate odjeljak.",
-                "messageMissingBlocks": "Ne možete sačuvati praznu stranicu. Molimo da prvo dodate blokove.",
+                "messageMissingSections": "Ne možete spremiti praznu stranicu. Prvo dodajte odjeljak.",
+                "messageMissingBlocks": "Ne možete spremiti praznu stranicu. Prvo dodajte barem jedan blok.",
                 "messageMissingElements": "Potrebna je konfiguracija. Molimo Vas da konfigurišete sve elemente vašeg izgleda.",
                 "messageRedundantElements": "Izgledi ne smiju sadržavati više od jednog {name} elementa."
             },
@@ -778,7 +805,7 @@
             "tooltip": {
                 "blockNameField": "Dodijelite naziv svakom bloku pojedinačno kako biste pratili svoj rad.",
                 "sectionNameField": "Dodijelite naziv svakom odjeljku pojedinačno kako biste pratili svoj rad.",
-                "cannotSelectProductPageLayout": "Ne možete promijeniti izgled stranice proizvoda tipa na drugu vrstu izgleda."
+                "cannotSelectProductPageLayout": "Ne možete promijeniti vrstu izgleda stranice proizvoda."
             }
         },
         "elements": {
@@ -1123,6 +1150,9 @@
                         "productDetailElement": "Proizvod koji je povezan s ovim izgledom automatski učitava podatke o proizvodu ovog elementa. Sadržaj prikazuje samo pregled uzorka."
                     }
                 }
+            },
+            "productName": {
+                "label": "Naziv proizvoda"
             }
         },
         "blocks": {
@@ -1378,6 +1408,11 @@
             }
         },
         "index": {
+            "defaultSalesChannel": {
+                "title": "Zadani prodajni kanal",
+                "description": "Odaberite zadane prodajne kanale koji se automatski dodjeljuju novostvorenim proizvodima.",
+                "linkAdvancedVisibility": "Postavljanje vidljivosti za odabrane prodajne kanale"
+            },
             "productSorting": {
                 "title": "Opcija sortiranja",
                 "addButton": "Dodaj opciju",
@@ -1430,16 +1465,64 @@
             "descriptionTextModule": "Naslovnica administracije, koja prikazuje statistike i podatke o sustavu"
         },
         "introduction": {
-            "headline": "Dobrodošli u Shopware 6",
-            "enduserDocumentation": "Korisnička dokumentacija",
-            "enduserDocumentationLink": "https://docs.shopware.com/en/shopware-6-en",
-            "developerDocumentation": "Dokumentacija za programere",
-            "developerDocumentationLink": "https://docs.shopware.com/en/shopware-platform-dev-en",
-            "migrationDocumentation": "Migraciona dokumentacija",
-            "migrationDocumentationLink": "https://docs.shopware.com/en/migration-en",
-            "roadmap": "Shopware uputstva",
-            "roadmapLink": "https://www.shopware.com/en/roadmap/",
-            "feedback": "Povratne informacije",
+            "headlineUnkownUser": "Dobrodošli u Shopware.",
+            "daytimeHeadline": {
+                "5h": {
+                    "0": "Dobro jutro, {greetingName}.",
+                    "1": "Bok, {greetingName}!"
+                },
+                "11h": {
+                    "0": "Zdravo, {greetingName}.",
+                    "1": "Dobar dan, {greetingName}.",
+                    "2": "Howdy, {greetingName}!"
+                },
+                "18h": {
+                    "0": "Dobra večer, {greetingName}.",
+                    "1": "Bok, {greetingName}!"
+                },
+                "23h": {
+                    "0": "Dobro je vidjeti te, {greetingName}.",
+                    "1": "Još uvijek gore, {greetingName}?"
+                }
+            },
+            "daytimeWelcomeText": {
+                "5h": {
+                    "0": "Vrijeme je za kafu, zar ne?",
+                    "1": "Vi ste off na veliki početak!",
+                    "2": "Previše toga za uraditi danas? Usredotočite se na one zadatke koji će imati većinu utjecaja.",
+                    "3": "Izgledaš zapanjujuće danas!"
+                },
+                "11h": {
+                    "0": "Još jedan dan, još jedna prilika za rast vašeg poslovanja.",
+                    "1": "Danas možete uticati na nečiji život.",
+                    "2": "Izgledaš fantastično danas!",
+                    "3": "Danas imate priliku da oblikujete sutra koju želite."
+                },
+                "18h": {
+                    "0": "Dan je gotovo gotov, vrijeme je da provjerite najnovije aktivnosti vašeg dućana.",
+                    "1": "Vrijeme je za procjenu - Pogledajte kako vaš dućan radi danas.",
+                    "2": "Današnje akcije su sutrašnji rezultat."
+                },
+                "23h": {
+                    "0": "Pronađite ljepotu u svemu da se inspirišete.",
+                    "1": "Gledajte, izvan nekog je prebacio tamni način rada.",
+                    "2": "Gotovo sve će ponovno raditi, ako ga isključite nekoliko minuta - to uključuje vas. Uzmi pauzu."
+                }
+            }
+        },
+        "helpcard": {
+            "headline": "Pripremite se za prodaju svojih proizvoda.",
+            "helpcenter": "Centar za pomoć Shopware",
+            "helpcenterLink": "https://docs.shopware.com/en/shopware-6-en",
+            "takeOffTip": "Saznajte kako napraviti svoju prvu prodaju",
+            "takeOffTipLink": "https://www.shopware.com/en/news/take-off-in-ecommerce-10-tips-for-your-initial-sales/",
+            "getToKnowSales": "Upoznajte prodajne kanale",
+            "getToKnowSalesLink": "https://www.youtube.com/watch?v=RsEeersOgIo"
+        },
+        "feedbackCard": {
+            "headline": "Prvi utisci se računaju.",
+            "text": "Podijelite svoje prve dojmove i pomozite nam da poboljšamo cjelokupno iskustvo Shopwarea.",
+            "feedback": "Dajte povratnu informaciju",
             "feedbackLink": "https://issues.shopware.com"
         },
         "todayStats": {
@@ -1592,6 +1675,7 @@
                 "category": "Kategorija",
                 "categories": "Kategorije",
                 "categoriesRo": "kategorije",
+                "cheapestPrice": "Cijena",
                 "choose": "Odaberite",
                 "description": "Opis",
                 "descriptionLong": "Duži opis",
@@ -1605,6 +1689,7 @@
                 "length": "Dužina",
                 "linked": "Povezano",
                 "manufacturerId": "Proizvođač",
+                "manufacturer": "Proizvođač",
                 "manufacturerNumber": "Broj proizvođača",
                 "markAsTopseller": "Označen kao bestseller",
                 "maxDeliveryTime": "Maks. vrijeme isporuke",
@@ -1617,7 +1702,7 @@
                 "option": "Opcija",
                 "packUnit": "Jedinica pakiranja",
                 "packUnitPlural": "Jedinica pakovanja množina",
-                "cheapestPrice": "Cijena",
+                "price": "Cijena",
                 "product": "Proizvod",
                 "productNumber": "Broj proizvoda",
                 "purchasePrice": "Kupovna cijena",
@@ -1774,7 +1859,10 @@
             "xTimesIn": "{n} puta u",
             "close": "Zatvori",
             "from": "Od",
-            "to": "u"
+            "to": "u",
+            "bulkEdit": "Skupno uređivanje",
+            "startBulkEdit": "Pokrenite skupno uređivanje",
+            "bulkEditModalTitle": "Skupno uređivanje - odabrana {count} stavka | Skupno uređivanje - odabrano {count} stavke"
         },
         "notification": {
             "notificationSaveErrorMessage": "Došlo je do pogreške prilikom spremanja entiteta \"{entityName}\".",
@@ -1847,7 +1935,7 @@
             },
             "plugin-updates-listener": {
                 "updatesAvailableTitle": "Ažuriranje dostupno",
-                "updatesAvailableMessage": "Preuzmite najnovije verzije vaših dodataka odmah."
+                "updatesAvailableMessage": "Preuzmite najnovije verzije proširenja sada."
             },
             "shopware-updates-listener": {
                 "updatesAvailableTitle": "Nova verzija Shopware-a {version} je dostupna",
@@ -2132,6 +2220,7 @@
         },
         "sw-media-upload-v2": {
             "buttonFileUpload": "Prenesi datoteku",
+            "buttonFilesUpload": "Upload datoteka",
             "buttonUrlUpload": "Prenesite datoteku s URL-a",
             "buttonSwitchToFileUpload": "Prenesite datoteku sa vašeg kompjutera",
             "buttonSwitchToUrlUpload": "Prenesite datoteku s url-a",
@@ -2218,14 +2307,10 @@
         },
         "sw-multi-tag-ip-select": {
             "enterValidIp": "Molimo unesite valjanu IPv4 ili IPv6 adresu",
-            "addIpAdress": "Dodajte IP adresu",
+            "addIpAddress": "Dodavanje IP adrese",
             "knownIps": {
                 "you": "Vi"
             }
-        },
-        "sw-multi-ip-select": {
-            "enterValidIp": "Molimo unesite valjanu IPv4 ili IPv6 adresu",
-            "addIpAdress": "Dodajte IP adresu"
         },
         "sw-entity-multi-select": {
             "messageNoResults": "Nema pronađenih rezultata za \"{term}\"."
@@ -2295,6 +2380,7 @@
                 "shippingCountryRule": "Zemlja za dostavu",
                 "shippingStreetRule": "Adresa za dostavu",
                 "shippingZipCodeRule": "Poštanski broj za dostavu",
+                "customerLoggedInRule": "Kupac prijavljen",
                 "cartAmountRule": "Količina u košarici",
                 "goodsCountRule": "Broj robe",
                 "goodsPriceRule": "Cijena robe",
@@ -2336,7 +2422,7 @@
                 "alwaysValidRule": "Svojstvo stavke retka",
                 "lineItemPropertyRule": "Novosti",
                 "lineItemNoveltyRule": "Stavka retka s atributom",
-                "lineItemCustomFieldRule": "Stavka retka je nova",
+                "lineItemCustomFieldRule": "Stavka linije s prilagođenim poljem",
                 "lineItemIsNewRule": "Proizvođač",
                 "lineItemOfManufacturerRule": "Kupovna cijena stavke retka",
                 "lineItemPurchasePriceRule": "Stavka retka s datumom izrade",
@@ -2368,7 +2454,8 @@
         "sw-product-image": {
             "context": {
                 "buttonAsCover": "Koristi kao naslovnicu",
-                "buttonRemove": "Ukloni"
+                "buttonRemove": "Ukloni",
+                "buttonPreviewImage": "Pregled slike"
             }
         },
         "sw-simple-search-field": {
@@ -2438,7 +2525,9 @@
             "delivery_time": "Vrijeme isporuke | Vrijeme isporuka",
             "import_export_profile": "Profil za uvoz / izvoz | Uvoz / Izvoz profila",
             "feature_set": "Predložak | Predlošci",
-            "event_action": "Poslovna događanja"
+            "event_action": "Poslovna događanja",
+            "property_group": "Grupa nekretnina | Grupe nekretnina",
+            "document_base_config": "Konfiguracija baze dokumenata | Postavljanje baze dokumenata"
         },
         "day-of-week": {
             "monday": "Ponedjeljak",
@@ -2469,6 +2558,7 @@
             "mail_sent": "E-pošta poslana",
             "newsletter_confirm": "Potvrđena prijava biltena",
             "newsletter_register": "Prijavljivanje biltena registrovano",
+            "newsletter_unsubscribe": "Newsletter otkazan",
             "newsletter_update": "Prijava na bilten ažurirana",
             "product_export_log": "Izvoz proizvoda izvršen",
             "state_enter_order_state_cancelled": "Narudžba unosi status otkazan",
@@ -2900,6 +2990,7 @@
             "columnDescription": "Opis",
             "columnActive": "Aktivan",
             "columnPosition": "Pozicija",
+            "columnExtension": "Proširenje",
             "buttonAddPaymentMethod": "Dodaj način plaćanja",
             "contextMenuEdit": "Uredi",
             "contextMenuDelete": "Izbriši",
@@ -2931,7 +3022,7 @@
         }
     },
     "sw-plugin-box": {
-        "buttonPluginSettings": "Postavke dodataka"
+        "buttonPluginSettings": "Postavke proširenja"
     },
     "sw-settings-country": {
         "general": {
@@ -2978,7 +3069,10 @@
             "buttonAddCountryState": "Dodajte državu / pokrajinu",
             "editAction": "Uredi",
             "columnStateNameLabel": "Ime",
-            "columnStateShortCodeLabel": "Skraćenica"
+            "columnStateShortCodeLabel": "Skraćenica",
+            "taxFreeFrom": "Bez poreza",
+            "taxFreeFromHelpText": "Ako je ukupni iznos košarice veći od vrijednosti postavljene u “Bez poreza”, cijela košarica će biti bez poreza.",
+            "labelVatIdRequired": "Obavezno polje PDV ID"
         }
     },
     "sw-country-state-detail": {
@@ -3047,7 +3141,9 @@
             },
             "emptyCountryRoundings": "Dodajte pojedinačne decimale i faktore zaokruživanja za različite zemlje.",
             "emptyCountryRoundingsNewCurrency": "Ispunite osnovne informacije, spremite valutu - a zatim dodajte vrijednosti",
-            "buttonAddCountry": "Dodaj zemlju"
+            "buttonAddCountry": "Dodaj zemlju",
+            "taxFreeFrom": "Bez poreza",
+            "taxFreeFromHelpText": "Ako je ukupni iznos košarice veći od vrijednosti postavljene u “Bez poreza”, cijela košarica će biti bez poreza. Primjenjuje se na kolica za kupovinu plaćene u \"{currencyName}“, samo."
         },
         "currency-country-modal": {
             "labelCountrySelect": "Zemlja",
@@ -3062,11 +3158,13 @@
             "labelRoundForNet": "Okrugli i za neto kupce",
             "grandHeadline": "Ukupan ukupno",
             "grandSubline": "Zaokruživanje se odnosi na velike zbrojeve",
+            "headerWarning": "Različiti intervali zaokruživanja - Obavezno provjerite sa svojim pojedinačnim pružateljima usluga kako biste izbjegli računovodstvene probleme.",
+            "headerInfo": "Obračun poreza se zasniva na nezaokruženim ukupnim ukupnim. Pojavljuju se zaokruživanje razlike ne podliježu obračunu poreza.",
             "helpTextDecimals": "Decimale označavaju maksimalni broj znamenki nakon decimalnog separatora.",
-            "helpTextInterval": "Upotrijebite intervale zaokruživanja kako biste obračunali tržišta na kojima su ukinute najniže fizičke denominacije valute i na snazi su zaokruživanja novca. <br><br> Savjet: Odaberite “None” ako ne želite primijeniti bilo kakvo zaokruživanje novca. Npr. kada koristite decimale veće od 2.",
+            "helpTextInterval": "Upotrijebite intervale zaokruživanja kako biste obračunali tržišta na kojima su ukinute najniže fizičke denominacije valute i na snazi su zaokruživanja novca. <br><br> Savjet: Odaberite “None” ako ne želite primijeniti bilo koje zaokruživanje cijena. Npr. kada koristite decimale veće od 2.",
             "helpTextRoundForNet": "Aktivirajte zaokruživanje za neto grupe kupaca dodatno.",
             "labelIntervalNone": "Niti jedan",
-            "tooltipIntervalDisabled": "Zaokruživanje novca se ne primjenjuje ako su decimale veće od 2."
+            "tooltipIntervalDisabled": "Zaokruživanje cijena se ne primjenjuje ako su konfigurirane decimale veće od 2."
         }
     },
     "sw-category": {
@@ -3289,13 +3387,15 @@
         "visibility": {
             "textHeadline": "Načini prikaza proizvoda po prodajnom kanalu",
             "placeholderVisibility": "Odaberite kanal prodaje...",
-            "columnAll": "Univerzalno",
-            "columnSearchOnly": "Samo rezultati pretraživanja",
-            "columnLinkOnly": "Skriveno",
-            "linkAdvancedVisibility": "Napredne opcije zadataka",
+            "columnAll": "Vidljivo",
+            "columnSearchOnly": "Sakrij u oglasima",
+            "columnLinkOnly": "Sakrij u oglasima i pretraživanje",
+            "visibilityModalDescription": "“Sakrij u popisu” isključit će proizvod iz oglasa pregleda proizvoda, ali i iz klizača proizvoda i popisa za unakrsne prodaje. Odabir opcije “Sakrij u popisu i pretraživanju” također će isključiti proizvod iz radnji pretraživanja. Proizvodi se i dalje mogu doći putem URL-a.",
+            "linkAdvancedVisibility": "Postavljanje vidljivosti za odabrane prodajne kanale",
             "labelVisibility": "Prodajni Kanali",
             "closeModal": "Primjeni",
-            "bodyVisibility": "Dodaj prodajne kanale u kojima je proizvod trebao biti prikazan. Također možete dodatno definirati vidljivost proizvoda za svaki prodajni kanal trgovine putem de link ispod."
+            "bodyVisibility": "Dodajte prodajne kanale u kojima bi ovaj proizvod trebao biti prikazan. Možete dodatno definirati vidljivost proizvoda za svaki prodajni kanal Storefront putem linka ispod.",
+            "errorMessage": "Nije moguće učitati zadanu konfiguraciju prodajnog kanala."
         },
         "general": {
             "mainMenuItemGeneral": "Proizvodi",
@@ -3380,7 +3480,10 @@
             "placeholderMetaTitle": "Unesite meta naslov...",
             "placeholderMetaDescription": "Unesite meta opis...",
             "placeholderKeywords": "Unesite jednu ili više ključnih riječi...",
-            "placeholderCanonicalProduct": "Odaberite varijantu..."
+            "placeholderCanonicalProduct": "Odaberite varijantu...",
+            "helpTextMetaTitle": "Naslov meta je najvažniji SEO element i trebao bi biti jedinstven za svaku stranicu. Trebali biste se ograničiti u dužini do maksimalno 56 znakova. Vaša ključna riječ idealno bi trebala biti postavljena na samom prednjem dijelu.",
+            "helpTextMetaDescription": "Pomoću meta opisa potvrđujete svojim klijentima da su na pravom mjestu u vašoj prodavnici. Stvorite poticaje, izgradite povjerenje i pozivate na akciju. Trebali biste se ograničiti na maksimalno 155 znakova.",
+            "helpTextKeywords": "Ovdje možete definirati po želji tri do pet ključnih riječi pod kojima se proizvod treba pronaći."
         },
         "settingsForm": {
             "labelCreatedAt": "Datum kreiranja",
@@ -3504,6 +3607,7 @@
             "columnInStock": "Na skladištu",
             "columnAvailableStock": "Dostupan",
             "columnActions": "Radnje",
+            "columnMedia": "Mediji",
             "contextMenuEdit": "Uredi",
             "contextMenuDelete": "Izbriši",
             "contextMenuDuplicate": "Dupliciraj",
@@ -3604,6 +3708,7 @@
             "generatedListColumnVariation": "Ime",
             "generatedListColumnPrice": "Cijene (bruto / neto)",
             "generatedListColumnProductNumber": "Broj proizvoda",
+            "generatedListColumnMedia": "Mediji",
             "generatedListColumnActive": "Aktivan",
             "generatedListColumnStock": "Zaliha",
             "generatedListContextMenuEdit": "Uredi",
@@ -3672,6 +3777,7 @@
         "crossselling": {
             "cardTitleCrossSelling": "Poprečna prodaja",
             "buttonAddCrossSelling": "Dodaj novu poprečnu prodaju",
+            "buttonAddCrossSellingLanguageWarning": "Nove unakrsne prodaje možete stvoriti samo na zadanom jeziku",
             "buttonDeleteCrossSelling": "Izbriši",
             "inputCrossSellingTitle": "Ime",
             "inputCrossSellingActive": "Aktivan",
@@ -4190,12 +4296,15 @@
             "updateExcludedTermSuccess": "Izuzete pojam za pretraživanje ažuriran.",
             "createExcludedTermSuccess": "Izuzeta pojam za pretraživanje stvoren.",
             "deleteExcludedTermSuccess": "Izuzeta pojam za pretraživanje izbrisan.",
+            "resetToDefaultExcludedTermSuccess": "Izuzeti pojmovi za pretraživanje vraćeni su na zadano.",
+            "resetToDefaultExcludedTermError": "Došlo je do greške prilikom vraćanja isključenih pojmova za pretraživanje.",
             "saveError": "Došlo je do greške prilikom spremanja konfiguracije.",
             "index": {
                 "started": "Indeks građevinskih proizvoda.",
                 "success": "Indeks proizvoda izgrađen."
             },
-            "loadError": "Došlo je do greške prilikom učitavanja konfiguracije."
+            "loadError": "Došlo je do greške prilikom učitavanja konfiguracije.",
+            "notSupportedLanguageError": "Odabrani jezik nije dostupan u odabranom prodajnom kanalu"
         },
         "liveSearchTab": {
             "titleCard": "Prodajni kanal uživo pretraživanje",
@@ -4239,7 +4348,7 @@
             "username": "Korisničko ime",
             "username-placeholder": "Unesite svoje korisničko ime...",
             "password": "Lozinka",
-            "password-placeholder": "Unesite svoju lozinku...",
+            "password-placeholder": "Unesite lozinku...",
             "encryption": "Enkripcija",
             "encryption-placeholder": "Odaberite način šifriranja...",
             "sender-address": "Adresa pošiljatelja",
@@ -4348,7 +4457,7 @@
             "label": "Sada je dostupan",
             "activationDescriptionTitleFirst": "Istražite i kupite ekstenzije lako -",
             "activationDescriptionTitleSecond": "pravo iz vlastitog Shopware shop.",
-            "activationDescriptionTitleDescription": "Aktivirajte sve nove Shopware Store i dobiti pristup hrpe korisnih proširenja i modernih tema koje se mogu integrirati u vašu Shop naizgled - bez ikakvih programskih vještina.",
+            "activationDescriptionTitleDescription": "Aktivirajte Shopware Store i dobiti pristup hrpe korisnih proširenja i modernih tema koje se mogu integrirati u vašu Shop naizgled - bez ikakvih programskih vještina.",
             "activate": "Aktiviraj"
         },
         "title": "prodavnica",
@@ -4501,6 +4610,9 @@
                     "permissions": "Dozvole"
                 }
             },
+            "sw-extension-card-bought": {
+                "subscriptionExpiredAt": "Pretplata istječe na {date}"
+            },
             "sw-extension-deactivation-modal": {
                 "deactivateExtensionLabel": "Deaktiviraj \"{extensionName}”",
                 "description": "Proširenje \"{extensionName}\" ima mjesečnu pretplatu.<br>Deaktiviranje proširenja <b>neće otkazati pretplatu</b> i naknade će se nastaviti prikupljati!",
@@ -4510,8 +4622,16 @@
             },
             "sw-extension-permissions-modal": {
                 "title": "{extensionLabel} dozvola",
-                "description": "{extensionLabel} će imati pristup sljedećim komponentama. Kliknite vezu pored komponente da biste prikazali pojedinosti entiteta.",
-                "textEntities": "Prikaz dozvola"
+                "description": "{extensionLabel} će dobiti pristup komponentama u nastavku. Kliknite vezu pored komponente da biste prikazali pojedinosti entiteta.",
+                "domainHint": "Neki će se podaci također dijeliti s drugim domenama. Kliknite vezu pored domena za više detalja.",
+                "textEntities": "Prikaz dozvola",
+                "domains": "Domene",
+                "showDomains": "Prikaži domene"
+            },
+            "sw-extension-domains-modal": {
+                "modalTitle": "{extensionLabel} - Domene",
+                "description": "Neki podaci će se dijeliti/prenijeti na domene navedene u nastavku.",
+                "listTitle": "domena"
             },
             "sw-extension-privacy-policy-extensions-modal": {
                 "title": "{extensionLabel}: proširenja pravila o privatnosti",
@@ -4940,7 +5060,6 @@
             "messageServerError": "Poslužitelj autorizacije naišao je na neočekivano stanje.",
             "messageInvalidRefreshToken": "Nevažeći token za osvježavanje.",
             "messageAccessDenied": "Zahtjev odbijen od strane poslužitelja autorizacije.",
-            "messageInvalidGrant": "Nevažeće odobrenje za autorizaciju ili osvježenje token.",
             "messageGeneralRequestError": "Došlo je do pogreške prilikom zahtjeva za \"{url}\".",
             "forgottenPasswordLink": "Da li ste zaboravili lozinku?"
         },
@@ -5463,6 +5582,23 @@
             "markets": "Shopware Tržišta"
         }
     },
+    "sw-flow": {
+        "general": {
+            "mainMenuItemGeneral": "Graditelj protoka",
+            "descriptionTextModule": "Graditelj protoka"
+        },
+        "list": {
+            "textHeadline": "Graditelj protoka",
+            "buttonAddFlow": "Dodavanje protoka"
+        },
+        "detail": {
+            "textHeadline": "Novi protok"
+        },
+        "page": {
+            "generalTab": "Opšte",
+            "flowTab": "Protok"
+        }
+    },
     "sw-sales-channel": {
         "general": {
             "tooltipOpenStorefront": "Otvoreni izlog",
@@ -5569,6 +5705,14 @@
             "ipAddressWhitleListHelpText": "Dodajte IP adrese na bijelu listu kako biste omogućili selektivni pristup vašoj trgovini. Po potrebi možete dodati IPv4 i IPv6 adrese.",
             "basicinformationLink": "Promijeni zadani izgled održavanja ovdje",
             "columnDomainCurrency": "Valuta",
+            "products": {
+                "titleEmptyState": "Još nema dodanih proizvoda",
+                "titleEmptyStateTable": "Nema pronađenih odgovarajućih proizvoda",
+                "buttonAddProducts": "Dodavanje proizvoda",
+                "columnProductName": "Naziv proizvoda",
+                "columnActive": "Aktivno",
+                "columnProductNumber": "Broj proizvoda"
+            },
             "productComparison": {
                 "inputHeaderLabel": "Zaglavlje reda",
                 "inputBodyLabel": "Red proizvoda",
@@ -5690,6 +5834,12 @@
                 "verticalDescription": "PDV se obračunava od ukupnog broja narudžbe. Prilikom plaćanja ne prikazuju se pojedinačne vrijednosti PDV-a.",
                 "horizontalName": "Izračun po linijama (vodoravno)",
                 "horizontalDescription": "PDV se obračunava za svaku poziciju u košarici. Tijekom plaćanja prikazuje se pojedinačni PDV za svaku poziciju. Ukupan iznos PDV-a izračunava se zbrajanjem svih pojedinačnih vrijednosti PDV-a."
+            },
+            "productAssigmentModal": {
+                "title": "Dodavanje proizvoda",
+                "singleProducts": "Pojedinačni proizvodi",
+                "categories": "Filtriranje prema kategorijama",
+                "dynamicProductGroups": "Filtriranje prema dinamičkim grupama proizvoda"
             }
         },
         "sw-sales-channel-defaults-select": {
@@ -5761,8 +5911,12 @@
                 "placeholderTestMail": "shop@example.com",
                 "buttonTestMail": "Pošalji",
                 "labelTestMail": "Adresa primatelja",
-                "titleTestMail": "Pošaljite testni e-mail"
+                "titleTestMail": "Pošaljite testni e-mail",
+                "titleShowPreview": "Prikaži pregled",
+                "titleShowAvailableVariables": "Varijable",
+                "copyTooltip": "Kopiraj u međuspremnik."
             },
+            "previewModalTitle": "Pregled",
             "buttonCancel": "Poništi",
             "buttonSave": "Spremi",
             "textHeadline": "Novi E-mail predložak",
@@ -5801,7 +5955,7 @@
                 "titleCard": "Informacije",
                 "labelName": "Ime",
                 "labelDescription": "Opis",
-                "labelSalesChannels": "Prodajni kanal",
+                "labelSalesChannels": "Prodajni kanali",
                 "placeholderName": "Unesite ime...",
                 "placeholderDescription": "Unesite opis...",
                 "placeholderSalesChannels": "Odaberite povezane prodajne kanale..."
@@ -6238,6 +6392,20 @@
             "tags": {
                 "label": "oznake",
                 "placeholder": "Odaberite oznake..."
+            },
+            "affiliateCode": {
+                "label": "Affiliate kod",
+                "placeholder": "Odaberite affiliate kôd..."
+            },
+            "campaignCode": {
+                "label": "Kôd kampanje",
+                "placeholder": "Odaberite kôd kampanje..."
+            },
+            "customerGroupRequest": {
+                "label": "Zahtjevi grupe korisnika",
+                "placeholder": "Odaberite status zahtjeva...",
+                "textHasCriteria": "Otvaranje zahtjeva za grupe korisnika",
+                "textNoCriteria": "Nema zahtjeva grupe korisnika"
             },
             "messageEmptyTitle": "Ništa pronađeno",
             "messageEmptySubline": "Uredite filtre za pronalaženje rezultata."
@@ -7198,9 +7366,9 @@
         "infoTextInheritedField": "{moduleName} naslijedio je polja. Znači da, sve dok je nasljeđeno stanje aktivno, sadržaj će se naslijediti. Klikom na simbol poveznice možete prekinuti vezu naslijeđenih polja. Ponovnim klikom na simbol vratit ćete naslijeđeno sanje natrag."
     },
     "sw-license-violation": {
-        "title": "Upozorenje o proširenju",
+        "title": "Upozorenje proširenja",
         "reload": "Ponovno učitaj",
-        "alertText": "Otkrili smo kršenje licence za barem jedan od vaših proširenja u ovoj instalaciji. Da biste popravili kršenje licence i izbjegli pravne posljedice, rezervirajte pretplatu za proširenje ili kupiti/iznajmite proširenje (prema nanesenoj vrsti kršenja). Više ne koristite produžetak? Zatim ga izbrišite putem Moje ekstenzije. Ukoliko se nijedna od ovih mjera ne poduzme, shopware AG zadržava pravo naplate kazne za bilo kakvu povredu licence.",
+        "alertText": "Otkrili smo kršenje licence za barem jedan od vaših proširenja u ovoj instalaciji. Da biste popravili kršenje licence i izbjegli pravne posljedice, rezervirajte pretplatu ili kupiti/iznajmite proširenje (prema nanesenoj vrsti kršenja). Više ne koristite produžetak? Zatim ga izbrišite putem dugmeta “Izbriši ekstenziju trajno” ili putem Moje ekstenzije. Ukoliko se nijedna od ovih mjera ne poduzme, shopware AG zadržava pravo naplate kazne za bilo kakvu povredu licence.",
         "deletePlugin": "Trajno brisanje ekstenzije",
         "messageDeleteConfirm": "Da li želite da izbrišete ekstenziju”{pluginName}“u potpunosti?",
         "checkboxMessage": "Ova poruka je primljena k znanju, kao i moguće posljedice.",

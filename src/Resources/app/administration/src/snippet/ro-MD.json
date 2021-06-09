@@ -36,8 +36,6 @@
         },
         "detail": {
             "buttonCancel": "Abandonează modificările",
-            "buttonSave": "Salvează",
-            "buttonEdit": "Editare",
             "tabOrderDetails": "Detaliile comenzii",
             "tabDeliveries": "Livrări",
             "textHeadline": "Comanda",
@@ -148,7 +146,7 @@
         "detailBase": {
             "cardTitleDetails": "Detalii",
             "cardTitleLineItems": "Articole",
-            "columnProductName": "Articol",
+            "columnProductName": "Nume",
             "columnQuantity": "Cantitate",
             "columnPriceNet": "Preț (net)",
             "columnPriceGross": "Preț (brut)",
@@ -181,6 +179,7 @@
             "buttonAddBlankProduct": "Adaugă element personalizat",
             "buttonAddCredit": "Adaugă credit",
             "buttonEditAddress": "Editare",
+            "tooltipNestedLineItemsButton": "Acest element de linie conține subelemente.",
             "labelNoPhoneNumber": "Nici un număr de telefon încă",
             "labelNoEmail": "Nu există e-mailuri încă",
             "labelCustomerPhoneNumber": "Număr de telefon",
@@ -207,6 +206,14 @@
             "enterValidTrackingCode": "Introduceți codul de urmărire",
             "textCreditTax": "auto",
             "taxDetail": "{taxRate}%: {tax}"
+        },
+        "nestedLineItemsModal": {
+            "titlePrefix": "Articol: {lineItemLabel} - {price}",
+            "headerLabel": "Nume",
+            "headerUnitPrice": "Preț (brut)",
+            "headerQuantity": "Cantitate",
+            "headerTotalPrice": "Subtotal",
+            "headerTax": "TVA"
         },
         "detailDeliveries": {
             "cardTitleItems": "Expediere {count}",
@@ -380,6 +387,14 @@
                 "label": "Produse",
                 "placeholder": "Selectaţi produse..."
             },
+            "affiliateCodeFilter": {
+                "label": "Codul de afiliere",
+                "placeholder": "Selectează codul de afiliere..."
+            },
+            "campaignCodeFilter": {
+                "label": "Codul campaniei",
+                "placeholder": "Selectează codul campaniei..."
+            },
             "messageEmptyTitle": "Nimic găsit",
             "messageEmptySubline": "Editați filtrele pentru a găsi rezultate."
         }
@@ -457,6 +472,9 @@
             },
             "customer_groups": {
                 "label": "Grupuri de clienți"
+            },
+            "flow": {
+                "label": "Constructor de flux"
             },
             "sales_channel": {
                 "label": "Canale de vânzări"
@@ -616,7 +634,16 @@
         },
         "captcha": {
             "label": {
-                "honeypot": "Honeypot Captcha"
+                "honeypot": "Ghiveci CAPTCHA",
+                "basicCaptcha": "Captcha de bază",
+                "googleReCaptchaV2": "Google reCAPTCHA v2",
+                "googleReCaptchaV2SiteKey": "Cheia site-ului Google reCAPTCHA v2",
+                "googleReCaptchaV2SecretKey": "Cheie secretă Google reCAPTCHA v2",
+                "googleReCaptchaV2Invisible": "Google reCAPTCHA v2 invizibil",
+                "googleReCaptchaV3": "Google reCAPTCHA v3",
+                "googleReCaptchaV3SiteKey": "Cheia site-ului Google reCAPTCHA v3",
+                "googleReCaptchaV3SecretKey": "Cheie secretă Google reCAPTCHA v3",
+                "googleReCaptchaV3ThresholdScore": "Scorul pragului Google reCAPTCHA v3"
             }
         }
     },
@@ -751,7 +778,7 @@
                 "messageMissingBlockFields": "Configuraţia necesară. Vă rugăm să completați datele în toate elementele.",
                 "messageMissingProductListing": "Imposibil de salvat. Adăugați cel puțin un bloc de listare a produselor sau modificați tipul acestui aspect.",
                 "messageMissingSections": "Nu puteți salva o pagină goală. Vă rugăm să adăugați o secțiune mai întâi.",
-                "messageMissingBlocks": "Nu puteți salva o pagină goală. Vă rugăm să adăugați câteva blocuri mai întâi.",
+                "messageMissingBlocks": "Nu puteți salva o pagină goală. Vă rugăm să adăugați cel puțin un bloc mai întâi.",
                 "messageMissingElements": "Configuraţia necesară. Vă rugăm să configurați toate elementele de aspect.",
                 "messageRedundantElements": "Aspecte nu trebuie să conțină mai mult de un element {name}."
             },
@@ -778,7 +805,7 @@
             "tooltip": {
                 "blockNameField": "Denumiți fiecare bloc individual pentru a ține evidența muncii dvs.",
                 "sectionNameField": "Denumiți fiecare secțiune în mod individual pentru a ține evidența muncii dvs.",
-                "cannotSelectProductPageLayout": "Nu puteți modifica un aspect de pagină de produs tip la un alt tip de aspect."
+                "cannotSelectProductPageLayout": "Nu puteți modifica tipul de aspect al unei pagini de produs."
             }
         },
         "elements": {
@@ -1123,6 +1150,9 @@
                         "productDetailElement": "Datele produsului acestui element sunt încărcate automat de produsul asociat cu acest aspect. Conținutul afișează doar o examinare eșantion."
                     }
                 }
+            },
+            "productName": {
+                "label": "Denumirea produsului"
             }
         },
         "blocks": {
@@ -1378,6 +1408,11 @@
             }
         },
         "index": {
+            "defaultSalesChannel": {
+                "title": "Canal de vânzări implicit",
+                "description": "Selectați canale de vânzări implicite care sunt atribuite automat produselor nou create.",
+                "linkAdvancedVisibility": "Setați vizibilitatea pentru canalele de vânzări selectate"
+            },
             "productSorting": {
                 "title": "Opțiuni de sortare",
                 "addButton": "Adăugare opțiune",
@@ -1430,16 +1465,64 @@
             "descriptionTextModule": "Prima pagină a Administraţiei, afişând statistici şi informaţii despre sistem"
         },
         "introduction": {
-            "headline": "Bine ati venit la Shopware 6",
-            "enduserDocumentation": "Documentația utilizatorului",
-            "enduserDocumentationLink": "https://docs.shopware.com/en/shopware-6-en",
-            "developerDocumentation": "Documentația pentru",
-            "developerDocumentationLink": "https://docs.shopware.com/en/shopware-platform-dev-en",
-            "migrationDocumentation": "Documentația de",
-            "migrationDocumentationLink": "https://docs.shopware.com/en/migration-en",
-            "roadmap": "Foaie de parcurs pentru cumpărături",
-            "roadmapLink": "https://www.shopware.com/en/roadmap/",
-            "feedback": "feedback",
+            "headlineUnkownUser": "Bine aţi venit la Shopware.",
+            "daytimeHeadline": {
+                "5h": {
+                    "0": "Bună dimineaţa, {greetingName}.",
+                    "1": "Bună, {greetingName}!"
+                },
+                "11h": {
+                    "0": "Bună ziua, {greetingName}.",
+                    "1": "Bună ziua, {greetingName}.",
+                    "2": "Salutare, {greetingName}!"
+                },
+                "18h": {
+                    "0": "Bună seara, {greetingName}.",
+                    "1": "Bună, {greetingName}!"
+                },
+                "23h": {
+                    "0": "Mă bucur să te văd, {greetingName}.",
+                    "1": "Încă sus, {greetingName}?"
+                }
+            },
+            "daytimeWelcomeText": {
+                "5h": {
+                    "0": "E timpul pentru cafea, nu?",
+                    "1": "Ai început cu un început grozav!",
+                    "2": "Prea multe de făcut azi? Concentrați-vă pe acele activități care vor avea cea mai mare parte a impactului.",
+                    "3": "Arăţi uimitor azi!"
+                },
+                "11h": {
+                    "0": "O altă zi, o altă şansă să-ţi dezvolţi afacerea.",
+                    "1": "Poţi să influenţezi viaţa cuiva astăzi.",
+                    "2": "Arăţi fabulos azi!",
+                    "3": "Astăzi ai ocazia să modelezi ziua de mâine pe care o vrei."
+                },
+                "18h": {
+                    "0": "Ziua este aproape gata, timp pentru a verifica cele mai recente activități magazin.",
+                    "1": "Timp pentru a evalua - Aruncati o privire la modul în care magazinul dvs. a fost de a face astăzi.",
+                    "2": "Acţiunile de astăzi sunt rezultatul de mâine."
+                },
+                "23h": {
+                    "0": "Găsiți frumusețe în tot ceea ce pentru a vă inspira.",
+                    "1": "Uite, afară cineva a schimbat modul întunecat.",
+                    "2": "Aproape totul va funcționa din nou, dacă îl deconectați pentru câteva minute - care vă include. Ia o pauză."
+                }
+            }
+        },
+        "helpcard": {
+            "headline": "Pregătiți-vă să vindeți produsele.",
+            "helpcenter": "Centru de ajutor Shopware",
+            "helpcenterLink": "https://docs.shopware.com/en/shopware-6-en",
+            "takeOffTip": "Aflați cum să faceți prima vânzare",
+            "takeOffTipLink": "https://www.shopware.com/en/news/take-off-in-ecommerce-10-tips-for-your-initial-sales/",
+            "getToKnowSales": "Cunoașteți Canalele de Vânzări",
+            "getToKnowSalesLink": "https://www.youtube.com/watch?v=RsEeersOgIo"
+        },
+        "feedbackCard": {
+            "headline": "Primele impresii contează.",
+            "text": "Împărtășiți primele impresii și ajutați-ne să îmbunătățim experiența generală a Shopware.",
+            "feedback": "Oferiți feedback",
             "feedbackLink": "https://issues.shopware.com"
         },
         "todayStats": {
@@ -1592,6 +1675,7 @@
                 "category": "Categorie",
                 "categories": "Categorii",
                 "categoriesRo": "Categorii",
+                "cheapestPrice": "Preț",
                 "choose": "Alege",
                 "description": "Descriere",
                 "descriptionLong": "Descriere lungă",
@@ -1605,6 +1689,7 @@
                 "length": "Lungimea",
                 "linked": "Legat",
                 "manufacturerId": "Producător",
+                "manufacturer": "Producător",
                 "manufacturerNumber": "Numărul producătorului",
                 "markAsTopseller": "Marcat ca topseller",
                 "maxDeliveryTime": "Timp maxim de livrare",
@@ -1617,7 +1702,7 @@
                 "option": "Opțiune",
                 "packUnit": "Unitate de ambalaj",
                 "packUnitPlural": "Pachet unitate plural",
-                "cheapestPrice": "Preț",
+                "price": "Preț",
                 "product": "Produs",
                 "productNumber": "Numărul produsului",
                 "purchasePrice": "Prețul de achiziție",
@@ -1774,7 +1859,10 @@
             "xTimesIn": "{n} ori în",
             "close": "Închide",
             "from": "De la",
-            "to": "Pentru a"
+            "to": "Pentru a",
+            "bulkEdit": "Editare în masă",
+            "startBulkEdit": "Începe editarea în masă",
+            "bulkEditModalTitle": "Editare în masă - {count} element selectat | Editare în masă - {count} articole selectate"
         },
         "notification": {
             "notificationSaveErrorMessage": "A apărut o eroare la salvarea entității \"{entityName}”.",
@@ -1847,7 +1935,7 @@
             },
             "plugin-updates-listener": {
                 "updatesAvailableTitle": "Actualizări disponibile",
-                "updatesAvailableMessage": "Descărcați acum cele mai recente versiuni ale pluginurilor dvs."
+                "updatesAvailableMessage": "Descărcați acum cele mai recente versiuni ale extensiilor dvs."
             },
             "shopware-updates-listener": {
                 "updatesAvailableTitle": "O nouă versiune {version} Shopware este disponibilă",
@@ -2132,6 +2220,7 @@
         },
         "sw-media-upload-v2": {
             "buttonFileUpload": "Încărcați fișierul",
+            "buttonFilesUpload": "Încărcați fișiere",
             "buttonUrlUpload": "Încărcați fișierul de pe URL",
             "buttonSwitchToFileUpload": "Încărcarea fișierului de pe computer",
             "buttonSwitchToUrlUpload": "Încărcați fișierul de pe URL",
@@ -2218,14 +2307,10 @@
         },
         "sw-multi-tag-ip-select": {
             "enterValidIp": "Introduceți o adresă IPv4 sau IPv6 validă",
-            "addIpAdress": "Adaugă adresa IP",
+            "addIpAddress": "Adaugă adresa IP",
             "knownIps": {
                 "you": "Tu"
             }
-        },
-        "sw-multi-ip-select": {
-            "enterValidIp": "Introduceți o adresă IPv4 sau IPv6 validă",
-            "addIpAdress": "Adaugă adresa IP"
         },
         "sw-entity-multi-select": {
             "messageNoResults": "Nu a fost gasit nici un rezultat dupa \"{term}”."
@@ -2295,6 +2380,7 @@
                 "shippingCountryRule": "Țara de transport",
                 "shippingStreetRule": "Expediere stradă",
                 "shippingZipCodeRule": "Cod poștal de expediere",
+                "customerLoggedInRule": "Clientul autentificat",
                 "cartAmountRule": "Cantitatea coșului",
                 "goodsCountRule": "Numărătoarea mărfurilor",
                 "goodsPriceRule": "Prețul bunurilor",
@@ -2336,7 +2422,7 @@
                 "alwaysValidRule": "Întotdeauna validă",
                 "lineItemPropertyRule": "Proprietatea elementului Linie",
                 "lineItemNoveltyRule": "Noutăți",
-                "lineItemCustomFieldRule": "Element de linie cu atribut",
+                "lineItemCustomFieldRule": "Element de linie cu câmp particularizat",
                 "lineItemIsNewRule": "Elementul de linie este nou",
                 "lineItemOfManufacturerRule": "Producător",
                 "lineItemPurchasePriceRule": "Prețul de achiziție a articolelor de linie",
@@ -2368,7 +2454,8 @@
         "sw-product-image": {
             "context": {
                 "buttonAsCover": "Utilizare ca acoperire",
-                "buttonRemove": "Elimină"
+                "buttonRemove": "Elimină",
+                "buttonPreviewImage": "Previzualizare imagine"
             }
         },
         "sw-simple-search-field": {
@@ -2438,7 +2525,9 @@
             "delivery_time": "Timp de livrare | Timpuri de",
             "import_export_profile": "Profil import/export | Profiluri import/export",
             "feature_set": "Șablon | Șabloane",
-            "event_action": "Evenimente de afaceri"
+            "event_action": "Evenimente de afaceri",
+            "property_group": "Grup de proprietăți | Grupuri imobiliare",
+            "document_base_config": "Configurare bază document | Configuri de bază pentru documente"
         },
         "day-of-week": {
             "monday": "Luni",
@@ -2469,6 +2558,7 @@
             "mail_sent": "E-mail trimis",
             "newsletter_confirm": "Înscrierea la buletinul informativ confirmată",
             "newsletter_register": "Înregistrare la buletinul informativ",
+            "newsletter_unsubscribe": "Newsletter dezabonat",
             "newsletter_update": "Înregistrați-vă la buletinul informativ actualizat",
             "product_export_log": "Export produs executat",
             "state_enter_order_state_cancelled": "Comanda intră în stare anulată",
@@ -2900,6 +2990,7 @@
             "columnDescription": "Descriere",
             "columnActive": "Activ",
             "columnPosition": "Poziție",
+            "columnExtension": "Extensie",
             "buttonAddPaymentMethod": "Adăugare metodă de plată",
             "contextMenuEdit": "Editare",
             "contextMenuDelete": "Șterge",
@@ -2931,7 +3022,7 @@
         }
     },
     "sw-plugin-box": {
-        "buttonPluginSettings": "Setări plugin"
+        "buttonPluginSettings": "Setări extensie"
     },
     "sw-settings-country": {
         "general": {
@@ -2978,7 +3069,10 @@
             "buttonAddCountryState": "Adaugă stat/provincie",
             "editAction": "Editare",
             "columnStateNameLabel": "Nume",
-            "columnStateShortCodeLabel": "stenografie"
+            "columnStateShortCodeLabel": "stenografie",
+            "taxFreeFrom": "Gratuit de la",
+            "taxFreeFromHelpText": "În cazul în care totalul coșului de cumpărături este mai mare decât valoarea stabilită în „Fără taxe”, întregul coș de cumpărături va fi duty-free.",
+            "labelVatIdRequired": "Câmpul ID TVA necesar"
         }
     },
     "sw-country-state-detail": {
@@ -3047,7 +3141,9 @@
             },
             "emptyCountryRoundings": "Adăugați zecimale individuale și factori de rotunjire pentru diferite țări.",
             "emptyCountryRoundingsNewCurrency": "Completați informațiile de bază, salvați moneda - apoi adăugați valori",
-            "buttonAddCountry": "Adaugă țara"
+            "buttonAddCountry": "Adaugă țara",
+            "taxFreeFrom": "Gratuit de la",
+            "taxFreeFromHelpText": "În cazul în care totalul coșului de cumpărături este mai mare decât valoarea stabilită în „Fără taxe”, întregul coș de cumpărături va fi duty-free. Se aplică doar pentru cărucioarele de cumpărături plătite în „{currencyName}”."
         },
         "currency-country-modal": {
             "labelCountrySelect": "Țară",
@@ -3062,11 +3158,13 @@
             "labelRoundForNet": "Rotund şi pentru clienţii neţi",
             "grandHeadline": "Total total total",
             "grandSubline": "Rotunjirea se aplică totalurilor generale",
+            "headerWarning": "Diferite intervale de rotunjire - Asigurați-vă că verificați din nou cu furnizorii individuali de servicii pentru a evita problemele contabile.",
+            "headerInfo": "Calculul fiscal se bazează pe totaluri nerotunjite. Diferențele de rotunjire care apar nu sunt supuse calculării impozitului.",
             "helpTextDecimals": "Decimalele indică numărul maxim de cifre după separatorul zecimal.",
-            "helpTextInterval": "Utilizați intervalele de rotunjire pentru a ține cont de piețele în care au fost eliminate cele mai scăzute valori nominale fizice ale monedei și rotunjirile în numerar sunt în vigoare. <br><br> Sugestie: Selectați „Niciunul” dacă nu doriți să aplicați nicio rotunjire în numerar. De exemplu, atunci când se utilizează zecimale mai mari de 2.",
+            "helpTextInterval": "Utilizați intervalele de rotunjire pentru a ține cont de piețele în care au fost eliminate cele mai scăzute valori nominale fizice ale monedei și rotunjirile în numerar sunt în vigoare. <br><br> Sugestie: Selectați „Niciunul” dacă nu doriți să aplicați rotunjirea prețului. De exemplu, atunci când se utilizează zecimale mai mari de 2.",
             "helpTextRoundForNet": "Activați rotunjirea suplimentar pentru grupurile de clienți nete.",
             "labelIntervalNone": "Nici unul",
-            "tooltipIntervalDisabled": "Rotunjirea în numerar nu se aplică dacă zecimalele sunt mai mari de 2."
+            "tooltipIntervalDisabled": "Rotunjirea prețului nu se aplică dacă sunt configurate zecimale mai mari de 2."
         }
     },
     "sw-category": {
@@ -3289,13 +3387,15 @@
         "visibility": {
             "textHeadline": "Moduri de afișare a produsului pe Canal",
             "placeholderVisibility": "Selectează canalul de vânzări...",
-            "columnAll": "Universal",
-            "columnSearchOnly": "Numai rezultatele căutării",
-            "columnLinkOnly": "Ascuns",
-            "linkAdvancedVisibility": "Opţiuni de atribuire",
+            "columnAll": "vizibil",
+            "columnSearchOnly": "Ascunde în Listări",
+            "columnLinkOnly": "Ascundeți în Listări și căutați",
+            "visibilityModalDescription": "„Ascundeți în listare” va exclude produsul din listele de prezentare a produsului, dar și din glisoarele produselor și listele de vânzare încrucișată. Selectarea opțiunii „Ascundeți în listare și căutare” va exclude, de asemenea, produsul din acțiunile de căutare. Produsele pot fi accesate în continuare prin URL.",
+            "linkAdvancedVisibility": "Setați vizibilitatea pentru canalele de vânzări selectate",
             "labelVisibility": "Canale de vânzări",
             "closeModal": "Aplica",
-            "bodyVisibility": "Adăugați canale de vânzări în cazul în care este produs ar trebui să fie afișate. De asemenea, puteți defini în continuare vizibilitatea produsului pentru fiecare canal de vânzări Storefront prin intermediul linkului de mai jos."
+            "bodyVisibility": "Adăugați canale de vânzări în care acest produs ar trebui să fie afișat. Puteți defini în continuare vizibilitatea produsului pentru fiecare canal de vânzări Storefront prin linkul de mai jos.",
+            "errorMessage": "Imposibil de încărcat configurația implicită a canalului de vânzări."
         },
         "general": {
             "mainMenuItemGeneral": "Produse",
@@ -3380,7 +3480,10 @@
             "placeholderMetaTitle": "Introduceţi meta title...",
             "placeholderMetaDescription": "Introduceți meta descriere...",
             "placeholderKeywords": "Introduceți unul sau mai multe cuvinte cheie...",
-            "placeholderCanonicalProduct": "Selectaţi o variantă..."
+            "placeholderCanonicalProduct": "Selectaţi o variantă...",
+            "helpTextMetaTitle": "Titlul meta este cel mai important element SEO și ar trebui să fie unic pentru fiecare pagină. Ar trebui să vă limitați în lungime la maximum 56 de caractere. Cuvântul dvs. cheie ar trebui să fie plasat în mod ideal chiar în față.",
+            "helpTextMetaDescription": "Cu descrierea meta, confirmați clienților dvs. că se află în locul potrivit în magazinul dvs. Creați stimulente, construiți încredere și invitați la o acțiune. Ar trebui să vă limitați la maximum 155 de caractere.",
+            "helpTextKeywords": "Aici puteți defini opțional trei până la cinci cuvinte cheie sub care produsul dvs. ar trebui să fie găsit."
         },
         "settingsForm": {
             "labelCreatedAt": "Data creării",
@@ -3504,6 +3607,7 @@
             "columnInStock": "În stoc",
             "columnAvailableStock": "Disponibil",
             "columnActions": "Acțiune (acțiuni)",
+            "columnMedia": "Media",
             "contextMenuEdit": "Editare",
             "contextMenuDelete": "Șterge",
             "contextMenuDuplicate": "Duplicat",
@@ -3604,6 +3708,7 @@
             "generatedListColumnVariation": "Nume",
             "generatedListColumnPrice": "Preț (brut/net)",
             "generatedListColumnProductNumber": "Numărul produsului",
+            "generatedListColumnMedia": "Media",
             "generatedListColumnActive": "Activ",
             "generatedListColumnStock": "Stoc",
             "generatedListContextMenuEdit": "Editare",
@@ -3672,6 +3777,7 @@
         "crossselling": {
             "cardTitleCrossSelling": "Vânzare încruciș",
             "buttonAddCrossSelling": "Adăugați o nouă vânzare încrucișată",
+            "buttonAddCrossSellingLanguageWarning": "Puteți crea noi vânzări încrucișate doar în limba implicită",
             "buttonDeleteCrossSelling": "Șterge",
             "inputCrossSellingTitle": "Nume",
             "inputCrossSellingActive": "Activ",
@@ -4190,12 +4296,15 @@
             "updateExcludedTermSuccess": "Termenul de căutare exclus actualizat.",
             "createExcludedTermSuccess": "Termenul de căutare exclus creat.",
             "deleteExcludedTermSuccess": "Termenul de căutare exclus eliminat.",
+            "resetToDefaultExcludedTermSuccess": "Termenii de căutare excluși au fost resetați la implicit.",
+            "resetToDefaultExcludedTermError": "A apărut o eroare la resetarea termenilor de căutare excluși.",
             "saveError": "A apărut o eroare la salvarea configurației.",
             "index": {
                 "started": "Indici de produse pentru construcţii.",
                 "success": "Indici de produse construite."
             },
-            "loadError": "A apărut o eroare la încărcarea configurației."
+            "loadError": "A apărut o eroare la încărcarea configurației.",
+            "notSupportedLanguageError": "Limba selectată nu este disponibilă în canalul de vânzări selectat"
         },
         "liveSearchTab": {
             "titleCard": "Sales Channel căutare live",
@@ -4239,7 +4348,7 @@
             "username": "Nume utilizator",
             "username-placeholder": "Introduceți un nume de utilizator...",
             "password": "Parole",
-            "password-placeholder": "Introduceţi o parolă...",
+            "password-placeholder": "Introduceți o parolă...",
             "encryption": "Criptare",
             "encryption-placeholder": "Selectați metoda de criptare...",
             "sender-address": "Adresa expeditorului",
@@ -4348,7 +4457,7 @@
             "label": "Acum disponibil",
             "activationDescriptionTitleFirst": "Explorați și cumpărați extensii cu ușurință -",
             "activationDescriptionTitleSecond": "direct din propriul magazin de articole de cumpărături.",
-            "activationDescriptionTitleDescription": "Activați noul magazin Shopware și obțineți acces la o mulțime de extensii utile și teme moderne care pot fi integrate în Magazinul dvs. aparent fără abilități de programare.",
+            "activationDescriptionTitleDescription": "Activați Magazinul Shopware și obțineți acces la o mulțime de extensii utile și teme moderne care pot fi integrate în Magazinul dvs. aparent fără abilități de programare.",
             "activate": "Activează"
         },
         "title": "Magazin",
@@ -4501,16 +4610,28 @@
                     "permissions": "Permisiuni"
                 }
             },
+            "sw-extension-card-bought": {
+                "subscriptionExpiredAt": "Abonamentul expiră la {date}"
+            },
             "sw-extension-deactivation-modal": {
                 "deactivateExtensionLabel": "Dezactivează \"{extensionName}”",
+                "description": "Extensia {extensionName} este pe baza de abonament lunar.<br />Dezactivând extensia <b>nu</b> se va anula abonamentul iar valoarea abonamentului o veți plati în continuare!",
                 "descriptionCancel": "Dacă doriți să anulați abonamentul, îl puteți elimina prin \"{removeLabel}” din meniul contextual.",
                 "alertDeactivate": "Încă mai doriți să dezactivați extensia?",
                 "deactivateLabel": "Dezactivare"
             },
             "sw-extension-permissions-modal": {
                 "title": "{extensionLabel} permisiuni",
-                "description": "{extensionLabel} va avea acces la următoarele componente. Faceți clic pe linkul de lângă componenta pentru a afișa detaliile entității.",
-                "textEntities": "Afișarea permisiunilor"
+                "description": "{extensionLabel} va avea acces la componentele de mai jos. Faceți clic pe linkul de lângă componenta pentru a afișa detaliile entității.",
+                "domainHint": "Unele date vor fi, de asemenea, partajate cu alte domenii. Faceți clic pe linkul de lângă domenii pentru mai multe detalii.",
+                "textEntities": "Afișarea permisiunilor",
+                "domains": "Domenii",
+                "showDomains": "Arată domenii"
+            },
+            "sw-extension-domains-modal": {
+                "modalTitle": "{extensionLabel} - Domenii",
+                "description": "Unele date vor fi partajate/transferate în domeniile enumerate mai jos.",
+                "listTitle": "Domeniu"
             },
             "sw-extension-privacy-policy-extensions-modal": {
                 "title": "{extensionLabel}: extensii ale politicii de confidențialitate",
@@ -4939,7 +5060,6 @@
             "messageServerError": "Serverul de autorizare a întâmpinat o condiție neașteptată.",
             "messageInvalidRefreshToken": "Indicativ de reîmprospătare nevalidă",
             "messageAccessDenied": "Solicitare refuzată de serverul de autorizare.",
-            "messageInvalidGrant": "Acordare autorizație nevalidă sau reîmprospătare token.",
             "messageGeneralRequestError": "Ceva nu a mers bine solicitând \"{url}”.",
             "forgottenPasswordLink": "Ţi-ai uitat parola?"
         },
@@ -5462,6 +5582,23 @@
             "markets": "Pieţe de magazine"
         }
     },
+    "sw-flow": {
+        "general": {
+            "mainMenuItemGeneral": "Constructor de flux",
+            "descriptionTextModule": "Constructor de flux"
+        },
+        "list": {
+            "textHeadline": "Constructor de flux",
+            "buttonAddFlow": "Adaugă flux"
+        },
+        "detail": {
+            "textHeadline": "Flux nou"
+        },
+        "page": {
+            "generalTab": "General",
+            "flowTab": "Debit"
+        }
+    },
     "sw-sales-channel": {
         "general": {
             "tooltipOpenStorefront": "Deschideţi vitraliul",
@@ -5568,6 +5705,14 @@
             "ipAddressWhitleListHelpText": "Adăugați adrese IP în lista albă pentru a permite accesul selectiv la magazinul dvs. Puteţi adăuga adrese IPv4 şi IPv6 după cum este necesar.",
             "basicinformationLink": "Modificați aspectul implicit de întreținere aici",
             "columnDomainCurrency": "Valuta",
+            "products": {
+                "titleEmptyState": "Nu există produse adăugate încă",
+                "titleEmptyStateTable": "Nu s-au găsit produse potrivite",
+                "buttonAddProducts": "Adaugă produse",
+                "columnProductName": "Denumirea produsului",
+                "columnActive": "Activ",
+                "columnProductNumber": "Numărul produsului"
+            },
             "productComparison": {
                 "inputHeaderLabel": "Rândul antet",
                 "inputBodyLabel": "Rândul produselor",
@@ -5689,6 +5834,12 @@
                 "verticalDescription": "TVA se calculează din totalul comenzii. Nu sunt afișate valori individuale ale TVA la finalizarea comenzii.",
                 "horizontalName": "Calculul liniei cu linie (orizontală)",
                 "horizontalDescription": "TVA se calculează pentru fiecare poziție a coșului de cumpărături. La finalizarea comenzii se afişează TVA-ul individual al fiecărei poziţii. Valoarea totală a TVA se calculează prin adăugarea tuturor valorilor individuale ale TVA."
+            },
+            "productAssigmentModal": {
+                "title": "Adaugă produse",
+                "singleProducts": "Produse individuale",
+                "categories": "Filtrează după categorii",
+                "dynamicProductGroups": "Filtrare după grupuri dinamice de"
             }
         },
         "sw-sales-channel-defaults-select": {
@@ -5760,8 +5911,12 @@
                 "placeholderTestMail": "shop@example.com",
                 "buttonTestMail": "Trimite",
                 "labelTestMail": "Adresa destinatarului",
-                "titleTestMail": "Trimitere e-mail de test"
+                "titleTestMail": "Trimitere e-mail de test",
+                "titleShowPreview": "Afișare previzualizare",
+                "titleShowAvailableVariables": "Variabile",
+                "copyTooltip": "Copiază în clipboard."
             },
+            "previewModalTitle": "previzualizare",
             "buttonCancel": "Anulare",
             "buttonSave": "Salvează",
             "textHeadline": "Șablon nou e-mail",
@@ -6237,6 +6392,20 @@
             "tags": {
                 "label": "Etichetele",
                 "placeholder": "Selectați etichete..."
+            },
+            "affiliateCode": {
+                "label": "Codul de afiliere",
+                "placeholder": "Selectează codul de afiliere..."
+            },
+            "campaignCode": {
+                "label": "Codul campaniei",
+                "placeholder": "Selectează codul campaniei..."
+            },
+            "customerGroupRequest": {
+                "label": "Solicitări de grup",
+                "placeholder": "Selectează starea solicitării...",
+                "textHasCriteria": "Deschiderea solicitărilor grupurilor de clienți",
+                "textNoCriteria": "Nu există cereri de grup de clienți"
             },
             "messageEmptyTitle": "Nimic găsit",
             "messageEmptySubline": "Editați filtrele pentru a găsi rezultate."
@@ -7197,9 +7366,9 @@
         "infoTextInheritedField": "{moduleName} a moștenit câmpuri. Ceea ce înseamnă că, atâta timp cât starea moștenită este activă, conținutul va fi moștenit. Câmpurile moștenite pot fi deconectate făcând clic pe simbolul linkului. Dacă faceți clic din nou pe simbol, starea moștenită va reveni."
     },
     "sw-license-violation": {
-        "title": "Avertizare de prelungire",
+        "title": "Avertizare extensie",
         "reload": "Reîncarcă",
-        "alertText": "Am detectat o încălcare a licenței pentru cel puțin una dintre extensiile dvs. în această instalare. Pentru a remedia încălcarea licenței și pentru a evita consecințele juridice, rezervați un abonament prelungitor sau cumpărați/închiriați extensia (în funcție de tipul de încălcare cauzată). Nu mai folosiți extensia? Apoi ștergeți-l prin Extensiile mele. În cazul în care niciuna dintre aceste măsuri nu este luată, shopware AG își rezervă dreptul de a percepe taxe de penalizare pentru orice încălcare a licenței.",
+        "alertText": "Am detectat o încălcare a licenței pentru cel puțin una dintre extensiile dvs. în această instalare. Pentru a remedia încălcarea licenței și pentru a evita consecințele juridice, rezervați un abonament sau cumpărați/închiriați extensia (în funcție de tipul încălcării cauzate). Nu mai folosiți extensia? Apoi ștergeți-l prin butonul „Ștergeți permanent extensia” sau prin Extensiile mele. În cazul în care niciuna dintre aceste măsuri nu este luată, shopware AG își rezervă dreptul de a percepe taxe de penalizare pentru orice încălcare a licenței.",
         "deletePlugin": "Șterge permanent extensia",
         "messageDeleteConfirm": "Doriți să ștergeți complet extensia „{pluginName}”?",
         "checkboxMessage": "Am luat act de acest mesaj şi, în cele din urmă, am acumulat consecinţe.",

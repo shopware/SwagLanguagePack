@@ -43,7 +43,7 @@
                     "availableVersionHeadline": "Supportati:",
                     "installedHint": "Installato",
                     "installationButton": "Installa",
-                    "shopwareProfileHeadline": "Shopware 5 - Profil",
+                    "shopwareProfileHeadline": "Shopware - Profil",
                     "magentoProfileHeadline": "Magento - Profil",
                     "profileManufacturer": "shopware AG"
                 },
@@ -79,6 +79,12 @@
                         "contentTitle": "Plugin richiesto",
                         "contentInformation": "Il plugin richiesto «Migration Connector» è gratuito e può essere trovato nel backend di Shopware 5 in Plugin Manager > Estensioni > Strumenti di migrazione. Si prega di installare e attivare il plugin per procedere.",
                         "pluginLink": "Maggiori informazioni sul plugin"
+                    },
+                    "shopware6Api": {
+                        "contentTitle": "Integrazione richiesta",
+                        "contentInformation": "È necessario creare un'integrazione nel sistema sorgente tramite Impostazioni > Sistema > Integrazioni.",
+                        "pluginLink": "Ulteriori informazioni sulle integrazioni",
+                        "link": "https://docs.shopware.com/en/shopware-6-en/settings/system/integrationen"
                     }
                 },
                 "credentials": {
@@ -110,6 +116,20 @@
                             "dbPasswordPlaceholder": "Immettere la password",
                             "installationRoot": "Cartella di installazione negozio",
                             "installationRootPlaceholder": "Immettere la radice di installazione"
+                        }
+                    },
+                    "shopware6": {
+                        "api": {
+                            "contentInformation": "Per stabilire una connessione tra l'istanza di Shopware 6 di origine e quella di destinazione, sono necessarie credenziali API valide. Questi si ottengono quando si crea un'integrazione nel sistema di origine.",
+                            "apiPasswordLabel": "Chiave di accesso segreto",
+                            "apiPasswordTooltip": "La chiave di accesso segreto viene utilizzata per la sicurezza e l'identificazione.",
+                            "apiPasswordPlaceholder": "Immettere la chiave di accesso segreto",
+                            "apiUserLabel": "ID chiave di accesso",
+                            "apiUserTooltip": "ID chiave di accesso della tua integrazione.",
+                            "apiUserPlaceholder": "Immettere l'ID chiave di accesso",
+                            "endpointLabel": "Negozio dominio",
+                            "endpointPlaceholder": "www.demoshop.com",
+                            "endpointSSLLabel": "Il mio negozio utilizza una connessione sicura (SSL)"
                         }
                     },
                     "statusTitle": "Controllo connessione",
@@ -237,12 +257,15 @@
                     "newsletterRecipient": "Destinatario",
                     "productReviews": "Recensioni dei prodotti",
                     "seoUrls": "URL Seo",
-                    "promotions": "Promozioni"
+                    "promotions": "Promozioni",
+                    "cms": "Layout",
+                    "customerWishlists": "Liste dei desideri"
                 },
                 "entities": {
                     "category": "Categorie:",
                     "product": "Prodotti:",
                     "customer": "Clienti:",
+                    "delivery_time": "Tempi di consegna:",
                     "order": "Ordini:",
                     "media": "Supporti:",
                     "translation": "Traduzioni:",
@@ -252,14 +275,44 @@
                     "property_group_option": "Proprietà:",
                     "number_range": "Intervalli numerico:",
                     "order_document": "Ordinare documenti:",
+                    "order_document_base_config": "Config documento:",
+                    "order_document_inheritance": "Ordinare relazioni documento:",
                     "shipping_method": "Metodi di spedizione:",
                     "currency": "Valute:",
                     "sales_channel": "Canali di vendita:",
+                    "sales_channel_domain": "Domini:",
                     "product_review": "Recensioni:",
-                    "seo_url": "URL Seo:",
+                    "seo_url": "URL SEO:",
+                    "seo_url_template": "Modelli URL SEO:",
                     "product_cross_selling": "Cross Selling:",
+                    "promotion": "Promozioni:",
+                    "language": "Lingue:",
+                    "category_association": "Associazioni di categoria:",
+                    "category_cms_page_association": "Associazioni di layout di categoria:",
+                    "tax": "Aliquote fiscali:",
+                    "tax_rule": "Regole fiscali:",
+                    "property_group": "Gruppi di proprietà:",
+                    "product_manufacturer": "Produttori di prodotti:",
                     "main_variant_relation": "Relazioni principali delle varianti:",
-                    "promotion": "Promozioni:"
+                    "customer_wishlist": "Liste dei desideri:",
+                    "unit": "Unità di scala:",
+                    "media_folder": "Cartelle multimediali:",
+                    "media_folder_inheritance": "Eredità delle cartelle multimediali:",
+                    "salutation": "Saluti:",
+                    "rule": "Regole:",
+                    "country": "Paesi:",
+                    "custom_field_set": "Set di campi personalizzati:",
+                    "snippet": "Snippet:",
+                    "snippet_set": "Set di snippet:",
+                    "mail_template": "Modelli e-mail:",
+                    "product_feature_set": "Caratteristiche essenziali:",
+                    "product_sorting": "Smistamento dei prodotti:",
+                    "system_config": "Informazioni di base:",
+                    "page_system_config": "Informazioni di base della pagina:",
+                    "cms_page": "Layout:",
+                    "product_stream": "Gruppi di prodotti dinamici",
+                    "product_stream_filter_inheritance": "Filtri dinamici per gruppi di prodotti:",
+                    "country_state": "Stati del paese:"
                 },
                 "noData": "Niente trovato per migrare."
             },
@@ -470,54 +523,64 @@
                     "description": "Impossibile scaricare i contenuti multimediali. File interessato: {uri}"
                 },
                 "SWAG_MIGRATION__SHOPWARE_PARENT_ENTITY_NOT_FOUND": {
-                    "title": "Entità padre non trovata"
+                    "title": "Entità padre non trovata",
+                    "description": "Entità padre per l'elemento figlio \"{entity}\" non trovata."
                 },
                 "SWAG_MIGRATION__SHOPWARE_ASSOCIATION_REQUIRED_MISSING": {
                     "title": "Associato {entity} non trovato",
                     "description": "Lo {missingEntity} con l'id sorgente \"{sourceId}\" non può essere trovato ma è richiesto per {requiredFor}."
                 },
                 "SWAG_MIGRATION__SHOPWARE_EMPTY_NECESSARY_DATA_FIELDS": {
-                    "title": "L'entità {entity} ha un campo necessario vuoto"
+                    "title": "L'entità {entity} ha un campo necessario vuoto",
+                    "description": "L'entità {entity} con l'id di origine \"{sourceId}\" non ha i dati necessari per il campo \"{emptyField}\""
                 },
                 "SWAG_MIGRATION__SHOPWARE_UNSUPPORTED_OBJECT_TYPE": {
                     "title": "Tipo di oggetto non supportato",
                     "description": "{entity} del tipo di oggetto «{objectType}«con ID sorgente «{sourceId}«non può essere convertito."
                 },
                 "SWAG_MIGRATION__SHOPWARE_INVALID_UNSERIALIZED_DATA": {
-                    "title": "Dati non serializzati non validi"
+                    "title": "Dati non serializzati non validi",
+                    "description": "Impossibile convertire l'entità {entity} con id sorgente \"{sourceId}\" a causa di dati oggetto non serializzati e non validi per l'entità \"{unserializedEntity}\" e i dati grezzi sono: {serializedData}"
                 },
                 "SWAG_MIGRATION__SHOPWARE_CANNOT_COPY_DATA": {
                     "title": "File di origine non trovato",
                     "description": "Impossibile copiare il file di origine. File: {path}"
                 },
                 "SWAG_MIGRATION_CANNOT_CONVERT_CHILD_ENTITY": {
-                    "title": "Impossibile convertire l'entità figlio {entity}"
+                    "title": "Impossibile convertire l'entità figlio {entity}",
+                    "description": "Impossibile convertire l'entità figlio {entity} dall'entità padre {parentEntity} con l'id \"{parentSourceId}\"."
                 },
                 "SWAG_MIGRATION_CANNOT_CONVERT_ENTITY": {
-                    "title": "Impossibile convertire l'entità {entity}"
+                    "title": "Impossibile convertire l'entità {entity}",
+                    "description": "Impossibile convertire l'entità {entity} con l'id di origine \"{sourceId}\"."
                 },
                 "SWAG_MIGRATION_CANNOT_GET_FILE": {
                     "title": "Il file {entity} non può essere scaricato/copiato",
                     "description": "Il file {entity} con uri \"{uri}\" e id supporto \"{sourceId}\" non può essere scaricato/copiato."
                 },
                 "SWAG_MIGRATION__COULD_NOT_READ_ENTITY_COUNT": {
-                    "title": "Impossibile leggere il conteggio delle entità"
+                    "title": "Impossibile leggere il conteggio delle entità",
+                    "description": "Impossibile leggere il conteggio totale per l'entità {entity}. Assicurati che la tabella \"{table}\" esista nel tuo sistema di origine e che la condizione facoltativa \"{condition}\" sia valida. Messaggio di eccezione: {exceptionMessage}"
                 },
                 "SWAG_MIGRATION__DATASET_NOT_FOUND": {
-                    "title": "DataSet non trovato"
+                    "title": "DataSet non trovato",
+                    "description": "DataSet per il profilo \"{profileName}\" e l'entità \"{entity}\" non trovato. Impossibile elaborare l'entità con id \"{sourceId}\"."
                 },
                 "SWAG_MIGRATION_ENTITY_ALREADY_EXISTS": {
-                    "title": "L'entità {entity} esiste già"
+                    "title": "L'entità {entity} esiste già",
+                    "description": "L'entità {entity} con id sorgente \"{sourceId}\" esiste già e non può essere scritta."
                 },
                 "SWAG_MIGRATION_ENTITY_FIELD_REASSIGNED": {
-                    "title": "L'entità {entity} ha un campo che è stato riassegnato"
+                    "title": "L'entità {entity} ha un campo che è stato riassegnato",
+                    "description": "L'entità {entity} con l'id di origine \"{sourceId}\" ha ottenuto il campo \"{emptyField}\" sostituito con \"{replacementField}\"."
                 },
                 "SWAG_MIGRATION__PROCESSOR_NOT_FOUND": {
                     "title": "Processore non trovato",
                     "description": "Processore per il profilo \"{profileName}«, gateway\"{gatewayName}\"ed entità\"{entity}\"non trovato."
                 },
                 "SWAG_MIGRATION_ENTITY_UNKNOWN": {
-                    "title": "Impossibile trovare {entity}"
+                    "title": "Impossibile trovare {entity}",
+                    "description": "L'entità {requiredForEntity} con l'id di origine \"{requiredForSourceId}\" non riesce a trovare l'entità {entity} dipendente con l'id di origine \"{sourceId}\"."
                 },
                 "SWAG_MIGRATION__INVALID_EMAIL_ADDRESS": {
                     "title": "Indirizzo e-mail non valido",
@@ -528,7 +591,8 @@
                     "description": "NumberRange-entità con id di origine \"{sourceId}\" non può essere convertito a causa del tipo non supportato: {type}."
                 },
                 "SWAG_MIGRATION__SHOPWARE_UNSUPPORTED_SHIPPING_PRICE": {
-                    "title": "Calcolo del prezzo del fattore di spedizione non supportato"
+                    "title": "Calcolo del prezzo del fattore di spedizione non supportato",
+                    "description": "Impossibile convertire l'entità del prezzo di spedizione con l'id di origine \"{sourceId}\" del metodo di spedizione \"{shippingMethodId}\" a causa di un calcolo del prezzo dei fattori non supportato."
                 },
                 "SWAG_MIGRATION__SHOPWARE_UNSUPPORTED_SHIPPING_CALCULATION_TYPE": {
                     "title": "Tipo di calcolo della spedizione non supportato",
@@ -547,7 +611,8 @@
                     "description": "{logData}"
                 },
                 "SWAG_MIGRATION__DOCUMENT_TYPE_NOT_SUPPORTED": {
-                    "title": "Il tipo di documento non è supportato"
+                    "title": "Il tipo di documento non è supportato",
+                    "description": "Il documento con l'id di origine \"{sourceId}\" non può essere convertito perché il tipo di documento \"{type}\" non è supportato."
                 },
                 "SWAG_MIGRATION__WRITE_EXCEPTION_OCCURRED": {
                     "title": "Si è verificata un'eccezione di scrittura",

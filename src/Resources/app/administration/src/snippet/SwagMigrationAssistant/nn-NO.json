@@ -43,7 +43,7 @@
                     "availableVersionHeadline": "Støttet:",
                     "installedHint": "Installert",
                     "installationButton": "Installere",
-                    "shopwareProfileHeadline": "Shopware 5 - Profil",
+                    "shopwareProfileHeadline": "Shopware - Profil",
                     "magentoProfileHeadline": "Magento - Profil",
                     "profileManufacturer": "butikkvise AG"
                 },
@@ -79,6 +79,12 @@
                         "contentTitle": "Plugin kreves",
                         "contentInformation": "Den nødvendige plugin «Migration Connector» er gratis og finnes i Shopware 5-serverdelen under Plugin Manager > Utvidelser > Migreringsverktøy. Vennligst installer og aktiver pluginet for å fortsette.",
                         "pluginLink": "Mer information om plugin"
+                    },
+                    "shopware6Api": {
+                        "contentTitle": "Krever integrasjon",
+                        "contentInformation": "Det kreves å opprette en integrasjon i kildesystemet via Innstillinger > System > Integrasjoner.",
+                        "pluginLink": "Mer informasjon om integrasjoner",
+                        "link": "https://docs.shopware.com/en/shopware-6-en/settings/system/integrationen"
                     }
                 },
                 "credentials": {
@@ -110,6 +116,20 @@
                             "dbPasswordPlaceholder": "Skriv inn passord",
                             "installationRoot": "Butikk installasjonsmappe",
                             "installationRootPlaceholder": "Skriv inn installasjonsrot"
+                        }
+                    },
+                    "shopware6": {
+                        "api": {
+                            "contentInformation": "Du trenger gyldig API-legitimasjon for å opprette en forbindelse mellom kilde- og målforekomsten for Shopware 6. Du får disse, når du opretter en integration i dit kildesystem.",
+                            "apiPasswordLabel": "Nøkkel for hemmelig tilgang",
+                            "apiPasswordTooltip": "Den hemmelige tilgangsnøkkelen brukes til sikkerhet og identifikasjon.",
+                            "apiPasswordPlaceholder": "Skriv inn hemmelig tilgangsnøkkel",
+                            "apiUserLabel": "Tilgangsnøkkel ID",
+                            "apiUserTooltip": "Få tilgang til nøkkel-ID for integrasjonen.",
+                            "apiUserPlaceholder": "Angi tilgangsnøkkel-ID",
+                            "endpointLabel": "Shop domene",
+                            "endpointPlaceholder": "www.demoshop.com",
+                            "endpointSSLLabel": "Butikken min bruker en sikker tilkobling (SSL)"
                         }
                     },
                     "statusTitle": "Kontrollér for tilkobling",
@@ -237,12 +257,15 @@
                     "newsletterRecipient": "Nyhetsbrev-mottaker",
                     "productReviews": "Produktanmeldelser",
                     "seoUrls": "Seo-nettadresser",
-                    "promotions": "Kampanjer"
+                    "promotions": "Kampanjer",
+                    "cms": "Oppsett",
+                    "customerWishlists": "Ønskelister"
                 },
                 "entities": {
                     "category": "Kategorier:",
                     "product": "Produkter:",
                     "customer": "Kunder:",
+                    "delivery_time": "Leveringstider:",
                     "order": "Ordre:",
                     "media": "Medier:",
                     "translation": "Oversettelser:",
@@ -252,14 +275,44 @@
                     "property_group_option": "Egenskaper:",
                     "number_range": "Antall områder:",
                     "order_document": "Bestill dokumenter:",
+                    "order_document_base_config": "Konfigurasjon av dokument:",
+                    "order_document_inheritance": "Bestill dokumentrelasjoner:",
                     "shipping_method": "Forsendelsesmetoder:",
                     "currency": "Valutaer:",
                     "sales_channel": "Salgskanaler:",
+                    "sales_channel_domain": "Domener:",
                     "product_review": "Vurderinger:",
-                    "seo_url": "Seo-URLer:",
+                    "seo_url": "SEO URL-adresser:",
+                    "seo_url_template": "SEO URL-maler:",
                     "product_cross_selling": "Cross Selger:",
+                    "promotion": "Kampanjer:",
+                    "language": "Språk:",
+                    "category_association": "Kategoriforeninger:",
+                    "category_cms_page_association": "Kategori layout foreninger:",
+                    "tax": "Avgiftspriser:",
+                    "tax_rule": "Skatteregler:",
+                    "property_group": "Egenskapsgrupper:",
+                    "product_manufacturer": "Produktprodusenter:",
                     "main_variant_relation": "Hovedvariant relasjoner:",
-                    "promotion": "Kampanjer:"
+                    "customer_wishlist": "Ønskelister:",
+                    "unit": "Skaleringsenheter:",
+                    "media_folder": "Mediemapper:",
+                    "media_folder_inheritance": "Arv av mediemappen:",
+                    "salutation": "Salutasjoner:",
+                    "rule": "Regler:",
+                    "country": "Land:",
+                    "custom_field_set": "Egendefinerte feltsett:",
+                    "snippet": "Snippeter:",
+                    "snippet_set": "Snippetsett:",
+                    "mail_template": "E-postmaler:",
+                    "product_feature_set": "Viktige egenskaper:",
+                    "product_sorting": "Produktsortering:",
+                    "system_config": "Grunnleggende informasjon:",
+                    "page_system_config": "Grunnleggende informasjon om siden:",
+                    "cms_page": "Oppsett:",
+                    "product_stream": "Dynamiske produktgrupper:",
+                    "product_stream_filter_inheritance": "Dynamiske produktgruppe-filtre:",
+                    "country_state": "Landstater:"
                 },
                 "noData": "Ingenting funnet å migrere."
             },

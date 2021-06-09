@@ -36,8 +36,6 @@
         },
         "detail": {
             "buttonCancel": "Forkast endringer",
-            "buttonSave": "Spar",
-            "buttonEdit": "Rediger",
             "tabOrderDetails": "Bestillingsdetaljer",
             "tabDeliveries": "Leveranser",
             "textHeadline": "Orden",
@@ -148,7 +146,7 @@
         "detailBase": {
             "cardTitleDetails": "Detaljer",
             "cardTitleLineItems": "Elementer",
-            "columnProductName": "Element",
+            "columnProductName": "Navn",
             "columnQuantity": "Mengde",
             "columnPriceNet": "Pris (netto)",
             "columnPriceGross": "Pris (brutto)",
@@ -181,6 +179,7 @@
             "buttonAddBlankProduct": "Legg til egendefinert element",
             "buttonAddCredit": "Legg til kreditt",
             "buttonEditAddress": "Rediger",
+            "tooltipNestedLineItemsButton": "Dette linjeelementet inneholder underelementer.",
             "labelNoPhoneNumber": "Ikke noe telefonnummer ennå",
             "labelNoEmail": "Ingen e-poster ennå",
             "labelCustomerPhoneNumber": "Telefonnummer",
@@ -207,6 +206,14 @@
             "enterValidTrackingCode": "Skriv inn sporingskode",
             "textCreditTax": "automatisk",
             "taxDetail": "{taxRate}%: {tax}"
+        },
+        "nestedLineItemsModal": {
+            "titlePrefix": "Artikkel: {lineItemLabel} - {price}",
+            "headerLabel": "Navn",
+            "headerUnitPrice": "Pris (brutto)",
+            "headerQuantity": "Mengde",
+            "headerTotalPrice": "delsum",
+            "headerTax": "MVA"
         },
         "detailDeliveries": {
             "cardTitleItems": "Forsendelse {count}",
@@ -380,6 +387,14 @@
                 "label": "Produkter",
                 "placeholder": "Velg produkter..."
             },
+            "affiliateCodeFilter": {
+                "label": "Affiliate kode",
+                "placeholder": "Velg affiliate kode..."
+            },
+            "campaignCodeFilter": {
+                "label": "Kampanjekode",
+                "placeholder": "Velg kampanjekode..."
+            },
             "messageEmptyTitle": "Ingenting funnet",
             "messageEmptySubline": "Rediger filtrene dine for å finne resultater."
         }
@@ -457,6 +472,9 @@
             },
             "customer_groups": {
                 "label": "Kundegrupper"
+            },
+            "flow": {
+                "label": "Flow-bygger"
             },
             "sales_channel": {
                 "label": "Salgskanaler"
@@ -615,7 +633,16 @@
         },
         "captcha": {
             "label": {
-                "honeypot": "Honeypot Captcha"
+                "honeypot": "Honeypot CAPTCHA",
+                "basicCaptcha": "Grunnleggende Captcha",
+                "googleReCaptchaV2": "Google reCAPTCHA v2",
+                "googleReCaptchaV2SiteKey": "Google reCAPTCHA v2-nettstedsnøkkel",
+                "googleReCaptchaV2SecretKey": "Google reCAPTCHA v2 hemmelig nøkkel",
+                "googleReCaptchaV2Invisible": "Google reCAPTCHA v2 usynlig",
+                "googleReCaptchaV3": "Google reCAPTCHA v3",
+                "googleReCaptchaV3SiteKey": "Google reCAPTCHA v3-nettstedsnøkkel",
+                "googleReCaptchaV3SecretKey": "Google reCAPTCHA v3 hemmelig nøkkel",
+                "googleReCaptchaV3ThresholdScore": "Google reCAPTCHA v3 terskelscore"
             }
         }
     },
@@ -749,8 +776,8 @@
                 "messageMissingFields": "Konfigurasjon kreves. Fyll ut alle obligatoriske felt.",
                 "messageMissingBlockFields": "Konfigurasjon kreves. Fyll ut data i alle elementer.",
                 "messageMissingProductListing": "Kan ikke lagre. Legg til minst én produktoppføringsblokk eller endre denne layoutens type.",
-                "messageMissingSections": "Du kan ikke gemme en tom side. Legg til en seksjon først.",
-                "messageMissingBlocks": "Du kan ikke gemme en tom side. Legg til noen blokker først.",
+                "messageMissingSections": "Du kan ikke lagre en tom side. Legg til en seksjon først.",
+                "messageMissingBlocks": "Du kan ikke lagre en tom side. Legg til minst én blokk først.",
                 "messageMissingElements": "Konfigurasjon kreves. Konfigurer alle elementene i layouten."
             },
             "placeholder": {
@@ -765,7 +792,7 @@
                 "titleNavigator": "Navigator",
                 "titleSectionSettings": "Innstillinger for seksjon",
                 "titleLayoutAssignment": "Oppdeling av layout",
-                "mobile": "Oppførsel av mobil sidepanel",
+                "mobile": "Mobil sidestolpe atferd",
                 "mobileOptionHidden": "Skjult",
                 "mobileOptionWrap": "Wrap"
             },
@@ -776,7 +803,7 @@
             "tooltip": {
                 "blockNameField": "Gi hver blokk et navn individuelt for å holde oversikt over arbeidet ditt.",
                 "sectionNameField": "Gi hver seksjon et navn individuelt for å holde oversikt over arbeidet ditt.",
-                "cannotSelectProductPageLayout": "Du kan ikke endre en layout av typen produktside til en annen layouttype."
+                "cannotSelectProductPageLayout": "Du kan ikke endre layouttypen til en produktside."
             }
         },
         "elements": {
@@ -1120,6 +1147,9 @@
                         "productDetailElement": "Produktdataene til dette elementet lastes automatisk inn av produktet som er knyttet til denne layouten. Innholdet viser bare en prøveforhåndsvisning."
                     }
                 }
+            },
+            "productName": {
+                "label": "Produktnavn"
             }
         },
         "blocks": {
@@ -1375,6 +1405,11 @@
             }
         },
         "index": {
+            "defaultSalesChannel": {
+                "title": "Standard salgskanal",
+                "description": "Velg standard salgskanaler som tilordnes automatisk til nyopprettede produkter.",
+                "linkAdvancedVisibility": "Angi synlighet for valgte salgskanaler"
+            },
             "productSorting": {
                 "title": "Sorteringsalternativer",
                 "addButton": "Legg til alternativ",
@@ -1427,16 +1462,64 @@
             "descriptionTextModule": "Administrasjonens forside, viser statistikk og systeminformasjon"
         },
         "introduction": {
-            "headline": "Velkommen til Shopware 6",
-            "enduserDocumentation": "Brukerdokumentasjon",
-            "enduserDocumentationLink": "https://docs.shopware.com/en/shopware-6-en",
-            "developerDocumentation": "Utviklerdokumentasjon",
-            "developerDocumentationLink": "https://docs.shopware.com/en/shopware-platform-dev-en",
-            "migrationDocumentation": "Dokumentasjon for",
-            "migrationDocumentationLink": "https://docs.shopware.com/en/migration-en",
-            "roadmap": "Kjøpware veikart",
-            "roadmapLink": "https://www.shopware.com/en/roadmap/",
-            "feedback": "tilbakemelding",
+            "headlineUnkownUser": "Velkommen til Shopware.",
+            "daytimeHeadline": {
+                "5h": {
+                    "0": "God morgen, {greetingName}.",
+                    "1": "Hei, {greetingName}!"
+                },
+                "11h": {
+                    "0": "Hallo, {greetingName}.",
+                    "1": "God dag, {greetingName}.",
+                    "2": "Morn, {greetingName}!"
+                },
+                "18h": {
+                    "0": "God kveld, {greetingName}.",
+                    "1": "Hei, {greetingName}!"
+                },
+                "23h": {
+                    "0": "Godt å se deg, {greetingName}.",
+                    "1": "Fortsatt oppe, {greetingName}?"
+                }
+            },
+            "daytimeWelcomeText": {
+                "5h": {
+                    "0": "Tid for kaffe, ikke sant?",
+                    "1": "Du har en god start!",
+                    "2": "For mye å gjøre i dag? Fokuser på de oppgavene som vil ha mesteparten av effekten.",
+                    "3": "Du ser fantastisk ut i dag!"
+                },
+                "11h": {
+                    "0": "En annen dag, en ny sjanse til å vokse virksomheten din.",
+                    "1": "Du kan påvirke noens liv i dag.",
+                    "2": "Du ser fantastisk ut i dag!",
+                    "3": "I dag har du sjansen til å forme morgendagen du vil."
+                },
+                "18h": {
+                    "0": "Dagen er nesten ferdig, på tide å sjekke butikkens nyeste aktiviteter.",
+                    "1": "Tid til å evaluere - Ta en titt på hvordan butikken din har gjort i dag.",
+                    "2": "Dagens handlinger er morgendagens resultat."
+                },
+                "23h": {
+                    "0": "Finn skjønnhet i alt for å inspirere deg selv.",
+                    "1": "Utenfor har noen slått på den mørke modusen.",
+                    "2": "Nesten alt vil fungere igjen, hvis du kobler det fra i noen minutter - det inkluderer deg. Ta en pause."
+                }
+            }
+        },
+        "helpcard": {
+            "headline": "Gjør deg klar til å selge produktene dine.",
+            "helpcenter": "Shopware Hjelpesenter",
+            "helpcenterLink": "https://docs.shopware.com/en/shopware-6-en",
+            "takeOffTip": "Finn ut hvordan du gjør ditt første salg",
+            "takeOffTipLink": "https://www.shopware.com/en/news/take-off-in-ecommerce-10-tips-for-your-initial-sales/",
+            "getToKnowSales": "Bli kjent med salgskanaler",
+            "getToKnowSalesLink": "https://www.youtube.com/watch?v=RsEeersOgIo"
+        },
+        "feedbackCard": {
+            "headline": "Førsteinntrykkene teller.",
+            "text": "Del dine første inntrykk og hjelp oss med å forbedre den generelle Shopware-opplevelsen.",
+            "feedback": "Gi tilbakemelding",
             "feedbackLink": "https://issues.shopware.com"
         },
         "todayStats": {
@@ -1589,6 +1672,7 @@
                 "category": "Kategori",
                 "categories": "Kategorier",
                 "categoriesRo": "Kategorier",
+                "cheapestPrice": "Pris",
                 "choose": "Velg",
                 "description": "Beskrivelse",
                 "descriptionLong": "Beskrivelse lang",
@@ -1602,6 +1686,7 @@
                 "length": "Lengde",
                 "linked": "Koblet",
                 "manufacturerId": "Produsent",
+                "manufacturer": "Produsent",
                 "manufacturerNumber": "Produsent nummer",
                 "markAsTopseller": "Merket som toppteller",
                 "maxDeliveryTime": "Maks. leveringstid",
@@ -1614,7 +1699,7 @@
                 "option": "Alternativ",
                 "packUnit": "Pakke enhet",
                 "packUnitPlural": "Pakkeenhet flertall",
-                "cheapestPrice": "Pris",
+                "price": "Pris",
                 "product": "Produkt",
                 "productNumber": "Produktnummer",
                 "purchasePrice": "Kjøpesum",
@@ -1771,7 +1856,10 @@
             "xTimesIn": "{n} ganger i",
             "close": "Lukk",
             "from": "Fra",
-            "to": "Til"
+            "to": "Til",
+            "bulkEdit": "Bulk redigering",
+            "startBulkEdit": "Start bulk redigering",
+            "bulkEditModalTitle": "Bulk edit - {count} element valgt | Bulk edit - {count} elementer valgt"
         },
         "notification": {
             "notificationSaveErrorMessageRequiredFieldsInvalid": "Fyll ut alle obligatoriske felt.",
@@ -1843,7 +1931,7 @@
             },
             "plugin-updates-listener": {
                 "updatesAvailableTitle": "Oppdatering (er) tilgjengelig",
-                "updatesAvailableMessage": "Last ned de nyeste versjonene av plugins nå."
+                "updatesAvailableMessage": "Last ned de nyeste versjonene av utvidelsene dine nå."
             },
             "shopware-updates-listener": {
                 "updatesAvailableTitle": "En ny Shopware versjon {version} er tilgjengelig",
@@ -2128,6 +2216,7 @@
         },
         "sw-media-upload-v2": {
             "buttonFileUpload": "Last opp fil",
+            "buttonFilesUpload": "Last opp filer",
             "buttonUrlUpload": "Last opp fil fra URL",
             "buttonSwitchToFileUpload": "Last opp fil fra datamaskinen",
             "buttonSwitchToUrlUpload": "Last opp fil fra url",
@@ -2214,14 +2303,10 @@
         },
         "sw-multi-tag-ip-select": {
             "enterValidIp": "Angi en gyldig IPv4- eller IPv6-adresse",
-            "addIpAdress": "Legg til IP-adresse",
+            "addIpAddress": "Legg til IP-adresse",
             "knownIps": {
                 "you": "Du"
             }
-        },
-        "sw-multi-ip-select": {
-            "enterValidIp": "Angi en gyldig IPv4- eller IPv6-adresse",
-            "addIpAdress": "Legg til IP-adresse"
         },
         "sw-entity-multi-select": {
             "messageNoResults": "Ingen resultater funnet for \"{term}»."
@@ -2291,6 +2376,7 @@
                 "shippingCountryRule": "Frakt land",
                 "shippingStreetRule": "Frakt gate",
                 "shippingZipCodeRule": "Frakt postnummer",
+                "customerLoggedInRule": "Kunden logget inn",
                 "cartAmountRule": "Handlekurv beløp",
                 "goodsCountRule": "Antall varer",
                 "goodsPriceRule": "Pris for varer",
@@ -2332,7 +2418,7 @@
                 "alwaysValidRule": "Alltid gyldig",
                 "lineItemPropertyRule": "Egenskap for linje element",
                 "lineItemNoveltyRule": "Nyheter",
-                "lineItemCustomFieldRule": "Linjeelement med attributt",
+                "lineItemCustomFieldRule": "Linjeelement med egendefinert felt",
                 "lineItemIsNewRule": "Linjeelementet er nytt",
                 "lineItemOfManufacturerRule": "Produsent",
                 "lineItemPurchasePriceRule": "Kjøpesum for linje element",
@@ -2364,7 +2450,8 @@
         "sw-product-image": {
             "context": {
                 "buttonAsCover": "Bruk som cover",
-                "buttonRemove": "Fjern"
+                "buttonRemove": "Fjern",
+                "buttonPreviewImage": "Forhåndsvis bilde"
             }
         },
         "sw-simple-search-field": {
@@ -2434,7 +2521,9 @@
             "delivery_time": "Leveringstid | Levering ganger",
             "import_export_profile": "Import/eksportprofil | Import/eksport profiler",
             "feature_set": "Mal | Maler",
-            "event_action": "Forretningsarrangementer"
+            "event_action": "Forretningsarrangementer",
+            "property_group": "Egenskapsgruppe | Eiendomsgrupper",
+            "document_base_config": "Konfigurasjon av dokumentbase | Konfigurasjon av dokumentbaser"
         },
         "day-of-week": {
             "monday": "mandag",
@@ -2465,6 +2554,7 @@
             "mail_sent": "E-post sendt",
             "newsletter_confirm": "Registrering av nyhetsbrev bekreftet",
             "newsletter_register": "Registrert nyhetsbrev-registrering",
+            "newsletter_unsubscribe": "Nyhetsbrev meldt av abonnement",
             "newsletter_update": "Registrering av nyhetsbrev oppdatert",
             "product_export_log": "Produkteksport utført",
             "state_enter_order_state_cancelled": "Ordre angir status annullert",
@@ -2896,6 +2986,7 @@
             "columnDescription": "Beskrivelse",
             "columnActive": "Aktiv",
             "columnPosition": "Posisjon",
+            "columnExtension": "Utvidelse",
             "buttonAddPaymentMethod": "Legg til betalingsmåte",
             "contextMenuEdit": "Rediger",
             "contextMenuDelete": "Slett",
@@ -2927,7 +3018,7 @@
         }
     },
     "sw-plugin-box": {
-        "buttonPluginSettings": "Innstillinger for plugin"
+        "buttonPluginSettings": "Innstillinger for utvidelse"
     },
     "sw-settings-country": {
         "general": {
@@ -2974,7 +3065,10 @@
             "buttonAddCountryState": "Legg til stat/provins",
             "editAction": "Rediger",
             "columnStateNameLabel": "Navn",
-            "columnStateShortCodeLabel": "Stenografi"
+            "columnStateShortCodeLabel": "Stenografi",
+            "taxFreeFrom": "Skatt fri fra",
+            "taxFreeFromHelpText": "Dersom handlekurven totalt er høyere enn verdien som er satt i «Skattefri fra», vil hele handlekurven være skattefri.",
+            "labelVatIdRequired": "MVA-ID-feltet kreves"
         }
     },
     "sw-country-state-detail": {
@@ -3043,7 +3137,9 @@
             },
             "emptyCountryRoundings": "Legg til individuelle desimaler og avrundingsfaktorer for ulike land.",
             "emptyCountryRoundingsNewCurrency": "Fyll ut grunnleggende informasjon, lagre valutaen - og legg deretter til verdier",
-            "buttonAddCountry": "Legg til land"
+            "buttonAddCountry": "Legg til land",
+            "taxFreeFrom": "Skatt fri fra",
+            "taxFreeFromHelpText": "Dersom handlekurven totalt er høyere enn verdien som er satt i «Skattefri fra», vil hele handlekurven være skattefri. Gjelder kun handlekurver som betales i \"{currencyName}«."
         },
         "currency-country-modal": {
             "labelCountrySelect": "Land",
@@ -3058,11 +3154,13 @@
             "labelRoundForNet": "Runde for netto kunder også",
             "grandHeadline": "Grand totalt",
             "grandSubline": "Avrunding gjelder for store totalsummer",
+            "headerWarning": "Ulike avrundingsintervaller - Sørg for å sjekke tilbake med dine individuelle tjenesteleverandører for å unngå regnskapsproblemer.",
+            "headerInfo": "Skatteberegningen er basert på uavrundede totalsummer. Avrundingsforskjeller er ikke gjenstand for mva-beregning.",
             "helpTextDecimals": "Desimaler angir maksimalt antall sifre etter desimalskilletegnet.",
-            "helpTextInterval": "Bruk avrundingsintervaller for å ta hensyn til markeder der de laveste fysiske valørene i valutaen er avskaffet og kontantavrundinger er på plass. <br><br> Hint: Velg «Ingen» hvis du ikke vil bruke kontantavrunding. F.eks. ved bruk av desimaler som er større enn 2.",
+            "helpTextInterval": "Bruk avrundingsintervaller for å ta hensyn til markeder der de laveste fysiske valørene i valutaen er avskaffet og kontantavrundinger er på plass. <br><br> Hint: Velg «Ingen» hvis du ikke vil bruke prisavrunding. F.eks. ved bruk av desimaler som er større enn 2.",
             "helpTextRoundForNet": "Aktiver avrunding for netto kundegrupper i tillegg.",
             "labelIntervalNone": "Ingen",
-            "tooltipIntervalDisabled": "Kontantavrunding brukes ikke hvis desimaler er større enn 2."
+            "tooltipIntervalDisabled": "Prisavrunding brukes ikke hvis desimaler større enn 2 er konfigurert."
         }
     },
     "sw-category": {
@@ -3284,13 +3382,15 @@
         "visibility": {
             "textHeadline": "Vise produktmoduser per salgskanal",
             "placeholderVisibility": "Velg Salgskanal...",
-            "columnAll": "Universal",
-            "columnSearchOnly": "Kun søkeresultater",
-            "columnLinkOnly": "Skjult",
-            "linkAdvancedVisibility": "Avanserte alternativer for oppgaver",
+            "columnAll": "Synlig",
+            "columnSearchOnly": "Skjul i oppføringer",
+            "columnLinkOnly": "Skjul i oppføringer og søk",
+            "visibilityModalDescription": "«Skjul i oppføring» vil ekskludere produktet fra produktoversikt, men også fra produktskyvekontrollene og kryssallistene. Hvis du velger alternativet «Skjul i oppføring og søk», utelukker også produktet fra søkehandlinger. Produkter kan stadig nås via URL.",
+            "linkAdvancedVisibility": "Angi synlighet for valgte salgskanaler",
             "labelVisibility": "Salgskanaler",
             "closeModal": "Påfør",
-            "bodyVisibility": "Legg til salgskanaler der produktet skal vises. Du kan også videre definere synligheten til produktet for hver Storefront Salgskanal via de link nedenfor."
+            "bodyVisibility": "Legg til salgskanaler der dette produktet skal vises. Du kan videre definere produktsynligheten for hver Storefront-salgskanal via koblingen nedenfor.",
+            "errorMessage": "Kan ikke laste inn standard konfigurasjon for salgskanal."
         },
         "general": {
             "mainMenuItemGeneral": "Produkter",
@@ -3374,7 +3474,10 @@
             "placeholderMetaTitle": "Skriv inn meta tittel...",
             "placeholderMetaDescription": "Skriv inn meta beskrivelse...",
             "placeholderKeywords": "Skriv inn ett eller flere nøkkelord...",
-            "placeholderCanonicalProduct": "Velg en variant..."
+            "placeholderCanonicalProduct": "Velg en variant...",
+            "helpTextMetaTitle": "Meta tittelen er det viktigste SEO elementet og bør være unikt for hver side. Du bør begrense deg i lengden til maksimalt 56 tegn. Søkeordet ditt bør ideelt sett plasseres helt foran.",
+            "helpTextMetaDescription": "Med metabeskrivelsen bekrefter du overfor kundene at de er på rett sted i butikken din. Du oppretter insentiver, bygger tillit og inviterer til en handling. Du bør begrense deg til maksimalt 155 tegn.",
+            "helpTextKeywords": "Her kan du definere tre til fem søkeord som produktet ditt skal bli funnet under."
         },
         "settingsForm": {
             "labelCreatedAt": "Opprettelsesdato",
@@ -3498,6 +3601,7 @@
             "columnInStock": "På lager",
             "columnAvailableStock": "Tilgjengelig",
             "columnActions": "Handling (er)",
+            "columnMedia": "Medier",
             "contextMenuEdit": "Rediger",
             "contextMenuDelete": "Slett",
             "contextMenuDuplicate": "Duplikat",
@@ -3598,6 +3702,7 @@
             "generatedListColumnVariation": "Navn",
             "generatedListColumnPrice": "Pris (brutto/netto)",
             "generatedListColumnProductNumber": "Produktnummer",
+            "generatedListColumnMedia": "Medier",
             "generatedListColumnActive": "Aktiv",
             "generatedListColumnStock": "Lager",
             "generatedListContextMenuEdit": "Rediger",
@@ -3666,6 +3771,7 @@
         "crossselling": {
             "cardTitleCrossSelling": "Krysssalg",
             "buttonAddCrossSelling": "Legg til ny Cross Selling",
+            "buttonAddCrossSellingLanguageWarning": "Du kan bare opprette nye krysssalg på standardspråket",
             "buttonDeleteCrossSelling": "Slett",
             "inputCrossSellingTitle": "Navn",
             "inputCrossSellingActive": "Aktiv",
@@ -4183,12 +4289,15 @@
             "updateExcludedTermSuccess": "Utelukket søkeord oppdatert.",
             "createExcludedTermSuccess": "Utelukket søkeord opprettet.",
             "deleteExcludedTermSuccess": "Utelukket søkeord slettet.",
+            "resetToDefaultExcludedTermSuccess": "Utelukkede søkeord er tilbakestilt til standard.",
+            "resetToDefaultExcludedTermError": "Det oppstod en feil under tilbakestilling av utelatte søkeord.",
             "saveError": "Det oppstod en feil under lagring av konfigurasjonen.",
             "index": {
                 "started": "Bygge produktindekser.",
                 "success": "Produktindekser bygget."
             },
-            "loadError": "Det oppstod en feil under lasting av konfigurasjonen."
+            "loadError": "Det oppstod en feil under lasting av konfigurasjonen.",
+            "notSupportedLanguageError": "Det valgte språket er ikke tilgjengelig i den valgte salgskanalen"
         },
         "liveSearchTab": {
             "titleCard": "Sales Channel live søk",
@@ -4341,7 +4450,7 @@
             "label": "Nå tilgjengelig",
             "activationDescriptionTitleFirst": "Utforsk og kjøp utvidelser enkelt -",
             "activationDescriptionTitleSecond": "rett fra din egen Shopware butikk.",
-            "activationDescriptionTitleDescription": "Aktiver den helt nye Shopware Store og få tilgang til massevis av nyttige utvidelser og moderne temaer som kan integreres i butikken din tilsynelatende - uten programmeringsevner.",
+            "activationDescriptionTitleDescription": "Aktiver Shopware Store og få tilgang til massevis av nyttige utvidelser og moderne temaer som kan integreres i butikken din tilsynelatende - uten programmeringsferdigheter.",
             "activate": "Aktiver"
         },
         "title": "Butikken",
@@ -4494,6 +4603,9 @@
                     "permissions": "tillatelser"
                 }
             },
+            "sw-extension-card-bought": {
+                "subscriptionExpiredAt": "Abonnementet utløper ved {date}"
+            },
             "sw-extension-deactivation-modal": {
                 "deactivateExtensionLabel": "Deaktiver \"{extensionName}»",
                 "description": "«{extensionName}» -utvidelsen har et månedlig abonnementsavgift.<br>Deaktivering av utvidelsen <b>vil ikke</b> kansellere abonnementet, og gebyrene vil fortsette å bli samlet inn!",
@@ -4503,8 +4615,16 @@
             },
             "sw-extension-permissions-modal": {
                 "title": "{extensionLabel} tillatelser",
-                "description": "{extensionLabel} vil ha tilgang til følgende komponenter. Klikk koblingen ved siden av komponenten for å vise enhetsdetaljene.",
-                "textEntities": "Vis tillatelser"
+                "description": "{extensionLabel} vil få tilgang til komponentene nedenfor. Klikk koblingen ved siden av komponenten for å vise enhetsdetaljene.",
+                "domainHint": "Noen data vil også bli delt til med andre domener. Klikk på koblingen ved siden av domener for mer informasjon.",
+                "textEntities": "Vis tillatelser",
+                "domains": "Domener",
+                "showDomains": "Vis domener"
+            },
+            "sw-extension-domains-modal": {
+                "modalTitle": "{extensionLabel} - Domener",
+                "description": "Enkelte data vil bli delt/overført til domenene som er oppført nedenfor.",
+                "listTitle": "Domene"
             },
             "sw-extension-privacy-policy-extensions-modal": {
                 "title": "{extensionLabel}: Utvidelser av retningslinjer for personvern",
@@ -4933,7 +5053,6 @@
             "messageServerError": "Autorisasjonsserveren oppdaget en uventet betingelse.",
             "messageInvalidRefreshToken": "Ugyldig oppdateringstoken.",
             "messageAccessDenied": "Forespørsel nektet av autorisasjonsserver.",
-            "messageInvalidGrant": "Ugyldig autorisasjonsbevilgning eller oppdateringstoken.",
             "messageGeneralRequestError": "Noe gikk galt å be \"{url}».",
             "forgottenPasswordLink": "Har du glemt passordet ditt?"
         },
@@ -5456,6 +5575,23 @@
             "markets": "Shopware Markets"
         }
     },
+    "sw-flow": {
+        "general": {
+            "mainMenuItemGeneral": "Flow builder",
+            "descriptionTextModule": "Flow builder"
+        },
+        "list": {
+            "textHeadline": "Flow-bygger",
+            "buttonAddFlow": "Legg til flyt"
+        },
+        "detail": {
+            "textHeadline": "Ny flyt"
+        },
+        "page": {
+            "generalTab": "Generell",
+            "flowTab": "Strømmen"
+        }
+    },
     "sw-sales-channel": {
         "general": {
             "tooltipOpenStorefront": "Åpen butikkfront",
@@ -5562,6 +5698,14 @@
             "ipAddressWhitleListHelpText": "Legg til IP-adresser i den hvite listen for å tillate selektiv tilgang til butikken din. Du kan legge til IPv4- og IPv6-adresser etter behov.",
             "basicinformationLink": "Endre standard vedlikeholdslayout her",
             "columnDomainCurrency": "Valuta",
+            "products": {
+                "titleEmptyState": "Ingen produkter lagt til ennå",
+                "titleEmptyStateTable": "Finner ingen matchende produkter",
+                "buttonAddProducts": "Legg til produkter",
+                "columnProductName": "Produktnavn",
+                "columnActive": "Aktiv",
+                "columnProductNumber": "Produktnummer"
+            },
             "productComparison": {
                 "inputHeaderLabel": "Topptekst rad",
                 "inputBodyLabel": "Produktrad",
@@ -5683,6 +5827,12 @@
                 "verticalDescription": "MVA beregnes ut fra ordresummen. Ingen individuelle mva-verdier vises under kassen.",
                 "horizontalName": "Linje for linje (horisontal) beregning",
                 "horizontalDescription": "MVA beregnes for hver handlekurv posisjon. Under kassen vises hver position individuelle moms. Det totale mva-beløpet beregnes ved å legge opp alle individuelle mva-verdier."
+            },
+            "productAssigmentModal": {
+                "title": "Legg til produkter",
+                "singleProducts": "Enkeltprodukter",
+                "categories": "Filtrer etter kategorier",
+                "dynamicProductGroups": "Filtrer etter dynamiske produktgrupper"
             }
         }
     },
@@ -5751,8 +5901,12 @@
                 "placeholderTestMail": "shop@example.com",
                 "buttonTestMail": "Send",
                 "labelTestMail": "Mottakers adresse",
-                "titleTestMail": "Send test e-post"
+                "titleTestMail": "Send test e-post",
+                "titleShowPreview": "Vis forhåndsvisning",
+                "titleShowAvailableVariables": "Variabler",
+                "copyTooltip": "Kopier til utklippstavlen."
             },
+            "previewModalTitle": "Forhåndsvisning",
             "buttonCancel": "Avbryte",
             "buttonSave": "Spar",
             "textHeadline": "Ny e-postmal",
@@ -6228,6 +6382,20 @@
             "tags": {
                 "label": "Merker",
                 "placeholder": "Velg tagger..."
+            },
+            "affiliateCode": {
+                "label": "Affiliate kode",
+                "placeholder": "Velg affiliate kode..."
+            },
+            "campaignCode": {
+                "label": "Kampanjekode",
+                "placeholder": "Velg kampanjekode..."
+            },
+            "customerGroupRequest": {
+                "label": "Kundegruppe-forespørsler",
+                "placeholder": "Velg status for forespørselen...",
+                "textHasCriteria": "Åpne forespørsler om kundegrupper",
+                "textNoCriteria": "Ingen forespørsler om kundegruppe"
             },
             "messageEmptyTitle": "Ingenting funnet",
             "messageEmptySubline": "Rediger filtrene dine for å finne resultater."
@@ -7187,9 +7355,9 @@
         "infoTextInheritedField": "{moduleName} har arvet felt. Det betyr at så lenge den arvede tilstanden er aktiv, vil innholdet bli arvet. Arvede felt kan kobles fra ved å klikke på koblingssymbolet. Hvis du klikker på symbolet igjen, settes den arvede tilstanden tilbake."
     },
     "sw-license-violation": {
-        "title": "Advarsel for utvidelse (er)",
+        "title": "Advarsel om utvidelse",
         "reload": "Oppdater",
-        "alertText": "Vi har oppdaget et lisensbrudd for minst én av utvidelsene dine i denne installasjonen. For å fikse lisensbrudd og unngå juridiske konsekvenser, bestill et forlengelsesabonnement eller kjøpe/leie utvidelsen (i henhold til påført overtredelsestype). Du bruker ikke utvidelsen lenger? Slett den deretter via Mine utvidelser. Hvis ingen av disse tiltakene tas, forbeholder butikkvare AG seg retten til å kreve straffegebyrer for eventuelle lisensbrudd.",
+        "alertText": "Vi har oppdaget et lisensbrudd for minst én av utvidelsene dine i denne installasjonen. For å fikse lisensbrudd og unngå juridiske konsekvenser, bestill et abonnement eller kjøpe/leie utvidelsen (i henhold til påført overtredelsestype). Du bruker ikke utvidelsen lenger? Slett deretter den via «Slett utvidelse permanent» -knappen eller via Mine utvidelser. Hvis ingen av disse tiltakene tas, forbeholder butikkvare AG seg retten til å kreve straffegebyrer for eventuelle brudd på lisensen.",
         "deletePlugin": "Slett utvidelse permanent",
         "messageDeleteConfirm": "Vil du slette utvidelsen \"{pluginName}\" helt?",
         "checkboxMessage": "Jeg har lagt merke til dette budskapet og til slutt pådratt meg konsekvenser.",
@@ -7352,7 +7520,7 @@
                 },
                 "reinstall-apps": {
                     "name": "Kopiere apper til gjeldende domene",
-                    "description": "Hvis du vil at appene skal fungere på begge domenene, installeres alle appene på nytt på det nye domenet. Merk: Appdata på det gamle domenet vil fortsatt være tilgjengelige, ikke-gratis apper kan kreve ekstra kostnader for hvert domene."
+                    "description": "Hvis du vil at appene dine skal fungere på begge domenene, installeres alle appene på det nye domenet på nytt. Merk: Appdata på det gamle domenet vil fortsatt være tilgjengelige, ikke-gratis apper kan kreve ekstra kostnader for hvert domene."
                 },
                 "uninstall-apps": {
                     "name": "Avinstaller apper",

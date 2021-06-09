@@ -43,7 +43,7 @@
                     "availableVersionHeadline": "Được hỗ trợ:",
                     "installedHint": "Đã cài đặt",
                     "installationButton": "Cài đặt",
-                    "shopwareProfileHeadline": "Hồ sơ Shopware 5",
+                    "shopwareProfileHeadline": "Hồ sơ Shopware",
                     "magentoProfileHeadline": "Hồ sơ Magento",
                     "profileManufacturer": "shopware AG"
                 },
@@ -79,6 +79,12 @@
                         "contentTitle": "Plugin cần thiết",
                         "contentInformation": "Plugin yêu cầu phải có “Migration Connector” là miễn phí và có thể được tìm thấy trong phần backend Shopware 5 của bạn trong Trình quản lý Plugin > Phần mở rộng > Công cụ di chuyển. Vui lòng cài đặt và kích hoạt plugin để tiếp tục.",
                         "pluginLink": "Thông tin thêm về plugin"
+                    },
+                    "shopware6Api": {
+                        "contentTitle": "Yêu cầu tích hợp",
+                        "contentInformation": "Nó là cần thiết để tạo một tích hợp trong hệ thống nguồn thông qua Cài đặt > Hệ thống > Tích hợp.",
+                        "pluginLink": "Thông tin thêm về tích hợp",
+                        "link": "https://docs.shopware.com/en/shopware-6-en/settings/system/integrationen"
                     }
                 },
                 "credentials": {
@@ -110,6 +116,20 @@
                             "dbPasswordPlaceholder": "Nhập mật khẩu",
                             "installationRoot": "Thư mục cài đặt cửa hàng",
                             "installationRootPlaceholder": "Nhập thư mục cài đặt gốc"
+                        }
+                    },
+                    "shopware6": {
+                        "api": {
+                            "contentInformation": "Bạn cần thông tin xác thực API hợp lệ để thiết lập kết nối giữa nguồn và phiên bản Shopware 6 mục tiêu của bạn. Bạn nhận được những điều này khi bạn tạo một tích hợp trong hệ thống nguồn của bạn.",
+                            "apiPasswordLabel": "Khóa truy cập bí mật",
+                            "apiPasswordTooltip": "Khóa truy cập bí mật được sử dụng để bảo mật và nhận dạng.",
+                            "apiPasswordPlaceholder": "Nhập khóa truy cập bí mật",
+                            "apiUserLabel": "ID khóa truy cập",
+                            "apiUserTooltip": "ID khóa truy cập của tích hợp của bạn.",
+                            "apiUserPlaceholder": "Nhập ID khóa truy cập",
+                            "endpointLabel": "Tên miền cửa hàng",
+                            "endpointPlaceholder": "www.demoshop.com",
+                            "endpointSSLLabel": "Cửa hàng của tôi sử dụng một kết nối an toàn (SSL)"
                         }
                     },
                     "statusTitle": "Kiểm tra kết nối",
@@ -237,12 +257,15 @@
                     "newsletterRecipient": "Người nhận bản tin",
                     "productReviews": "Đánh giá sản phẩm",
                     "seoUrls": "Các đường dẫn SEO",
-                    "promotions": "Khuyến mãi"
+                    "promotions": "Khuyến mãi",
+                    "cms": "Bố cục",
+                    "customerWishlists": "Danh sách mong muốn"
                 },
                 "entities": {
                     "category": "Danh mục:",
                     "product": "Sản phẩm:",
                     "customer": "Khách hàng:",
+                    "delivery_time": "Thời gian giao hàng:",
                     "order": "Đơn đặt hàng:",
                     "media": "Phương tiện truyền thông:",
                     "translation": "Bản dịch:",
@@ -252,14 +275,44 @@
                     "property_group_option": "Thuộc tính:",
                     "number_range": "Phạm vi số:",
                     "order_document": "Tài liệu đơn hàng:",
+                    "order_document_base_config": "Cấu hình tài liệu:",
+                    "order_document_inheritance": "Quan hệ tài liệu đơn hàng:",
                     "shipping_method": "Phương thức vận chuyển:",
                     "currency": "Các loại tiền tệ:",
                     "sales_channel": "Các kênh bán hàng:",
+                    "sales_channel_domain": "Tên miền:",
                     "product_review": "Đánh giá:",
-                    "seo_url": "Các đường dẫn SEO:",
+                    "seo_url": "URL SEO:",
+                    "seo_url_template": "Các mẫu URL SEO:",
                     "product_cross_selling": "Bán chéo:",
+                    "promotion": "Khuyến mãi:",
+                    "language": "Ngôn ngữ:",
+                    "category_association": "Các hiệp hội thể loại:",
+                    "category_cms_page_association": "Các hiệp hội bố trí thể loại:",
+                    "tax": "Thuế suất:",
+                    "tax_rule": "Quy tắc thuế:",
+                    "property_group": "Nhóm thuộc tính:",
+                    "product_manufacturer": "Các nhà sản xuất sản phẩm:",
                     "main_variant_relation": "Quan hệ biến thể chính:",
-                    "promotion": "Khuyến mãi:"
+                    "customer_wishlist": "Danh sách mong muốn:",
+                    "unit": "Các đơn vị quy mô:",
+                    "media_folder": "Thư mục phương tiện:",
+                    "media_folder_inheritance": "Phương tiện thư mục kế thừa:",
+                    "salutation": "Lời chào:",
+                    "rule": "Quy tắc:",
+                    "country": "Các quốc gia:",
+                    "custom_field_set": "Bộ trường tùy chỉnh:",
+                    "snippet": "Đoạn:",
+                    "snippet_set": "Bộ đoạn:",
+                    "mail_template": "Mẫu email:",
+                    "product_feature_set": "Các đặc điểm thiết yếu:",
+                    "product_sorting": "Phân loại sản phẩm:",
+                    "system_config": "Thông tin cơ bản:",
+                    "page_system_config": "Trang thông tin cơ bản:",
+                    "cms_page": "Bố cục:",
+                    "product_stream": "Nhóm sản phẩm động:",
+                    "product_stream_filter_inheritance": "Bộ lọc nhóm sản phẩm động:",
+                    "country_state": "Quốc gia ghi:"
                 },
                 "noData": "Không tìm thấy dữ cần để di chuyển."
             },

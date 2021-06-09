@@ -61,7 +61,6 @@
         "FRAMEWORK__INVALID_UUID": "A kiválasztott fizetési mód nem létezik.",
         "CHECKOUT__UNKNOWN_PAYMENT_METHOD": "A kiválasztott fizetési mód nem létezik.",
         "productNotFound": "A termék \"%number%\" nem található.",
-        "shipping-method-blocked": "A kiválasztott szállítási mód (%name%) nem lehetséges.",
         "shipping-address-blocked": "Kiszállítás a megadott címre nem lehetséges.",
         "shipping-address-invalid": "A kiválasztott szállítási cím érvénytelen vagy hiányos. Kérjük, ellenőrizze a bejegyzéseit.",
         "billing-address-blocked": "A kiválasztott címre történő számlázás nem lehetséges.",
@@ -71,7 +70,10 @@
         "message-403-ajax": "A munkamenet lejárt. Kérjük, töltse be újra az oldalt, és próbálja újra.",
         "message-403": "A munkamenet lejárt. Kérjük, térjen vissza az utolsó oldalra, és próbálkozzon újra.",
         "product-out-of-stock": "%name% jelenleg nem áll rendelkezésre.",
-        "auto-promotion-not-found": "A \"%name%\" promóció már nem volt érvényes!"
+        "auto-promotion-not-found": "A „%name%” promóció már nem érvényes!",
+        "captcha": {
+            "basic-captcha-invalid": "A captcha érvénytelen. Kérjük, ellenőrizze a bejegyzéseit."
+        }
     },
     "account": {
         "externalPaymentCanceled": "Megkaptuk a rendelését, de a fizetést megszakították. Kérjük, módosítsa a fizetési módot, vagy próbálkozzon újra",
@@ -535,7 +537,8 @@
         "noLongerAvailableTooltip": "A termék már nem áll rendelkezésre.",
         "wishlistMergeHint": "A kívánságlista tartalmazhat olyan termékeket, amelyeket egy korábbi látogatás során adtak hozzá és mentettek.",
         "wishlistEmptyHeader": "A kívánságlistád üres",
-        "wishlistEmptyDescription": "Tartsa szemmel a kívánt termékeket, ha hozzáadja őket a kívánságlistához."
+        "wishlistEmptyDescription": "Tartsa szemmel a kívánt termékeket, ha hozzáadja őket a kívánságlistához.",
+        "deliveryTimeRestock": "{1} Elérhető 1 nap alatt, szállítási idő %name%|] 1, Inf [Elérhető %restockTime% napon belül, szállítási idő %name%"
     },
     "footer": {
         "serviceHotlineHeadline": "Ügyfélszolgálati telefonszám",
@@ -550,6 +553,12 @@
         "excludeVat": "* Minden ár áfá nélkül értendő <a data-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">szállítási költségek</a> és esetleges további díjak nélkül, amennyiben nincs másként megadva.",
         "copyrightInfo": "Látrehozva Shopware rendszerrel"
     },
+    "captcha": {
+        "googleReCaptcha": {
+            "dataProtectionInformation": "Ezt a webhelyet a reCAPTCHA védi, és a Google\n<a href=\"https://policies.google.com/privacy\">Adatvédelmi irányelvei</a> és\n<a href=\"https://policies.google.com/terms\">Általános Szerződési Feltételek</a> érvényesek."
+        },
+        "basicCaptchaLabel": "Kérjük, írja be a fent látható karaktereket*"
+    },
     "cookie": {
         "message": "Ez a weboldal sütiket használ a legjobb felhasználói élmény nyújtásához. <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"További információk\">További információk</a>",
         "deny": "Tiltás",
@@ -563,7 +572,7 @@
         "groupRequiredSession": "Munkamenet",
         "groupRequiredCsrf": "CSRF védelem",
         "groupRequiredTimezone": "Időzóna",
-        "groupRequiredGoogleReCaptcha": "Google reCAPTCHA",
+        "groupRequiredCaptcha": "Captcha integráció",
         "groupStatistical": "Statisztikák",
         "groupStatisticalDescription": "Statisztikákhoz és teljesítményméréshez szükséges sütik.",
         "groupStatisticalGoogleAnalytics": "Google Analytics",

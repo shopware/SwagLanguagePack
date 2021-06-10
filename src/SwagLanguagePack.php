@@ -87,6 +87,7 @@ class SwagLanguagePack extends Plugin
                 'language:read',
             ],
             'language.editor' => [
+                'swag_language_pack_language:read',
                 'swag_language_pack_language:update',
             ],
         ];

@@ -1,3 +1,6 @@
+# REPLACE-GLOBALLY-WITH-NEXT-VERSION
+- LAN-62 - Behebt einige Fehler im Bezug auf Sprach-Zugriffsrechten
+
 # 2.1.0
 - LAN-74 - Übersetzungen für Shopware 6.4.1.0 aktualisiert
 - LAN-74 - Koreanische Sprache hinzugefügt

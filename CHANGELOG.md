@@ -1,3 +1,6 @@
+# REPLACE-GLOBALLY-WITH-NEXT-VERSION
+- LAN-62 - Fixed language ACL issues
+
 # 2.1.0
 - LAN-74 - Update translations for Shopware 6.4.1.0
 - LAN-74 - Added Korean language support

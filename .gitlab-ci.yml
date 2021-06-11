@@ -6,8 +6,8 @@ variables:
     WEB_DOCUMENT_ROOT: $CI_PROJECT_DIR/development/public
     DEVELOPMENT_BRANCH: 'trunk'
     PLATFORM_BRANCH: 'trunk'
-    DEVELOPMENT_MIN_VERSION: 'trunk'
-    PLATFORM_MIN_VERSION: 'trunk'
+    DEVELOPMENT_MIN_VERSION: 'v6.4.0.0'
+    PLATFORM_MIN_VERSION: 'v6.4.0.0'
     RUN_IN_MR: 'true'
 
 stages:
@@ -81,12 +81,11 @@ Static analyze:
             - DEV_IMAGE:
                 - shopware/development:7.4-composer-2
                 - shopware/development:8.0-composer-2
-#            ToDo LAN-45 reactivate job matrix
-#            - PLATFORM_BRANCH: $PLATFORM_MIN_VERSION
-#              DEVELOPMENT_BRANCH: $DEVELOPMENT_MIN_VERSION
-#              DEV_IMAGE:
-#                - shopware/development:7.4-composer-2
-#                - shopware/development:8.0-composer-2
+            - PLATFORM_BRANCH: $PLATFORM_MIN_VERSION
+              DEVELOPMENT_BRANCH: $DEVELOPMENT_MIN_VERSION
+              DEV_IMAGE:
+                - shopware/development:7.4-composer-2
+                - shopware/development:8.0-composer-2
 
 ToDos resolved:
     only:
@@ -133,9 +132,8 @@ PHPUnit:
             - DEV_IMAGE:
                 - shopware/development:7.4-composer-2
                 - shopware/development:8.0-composer-2
-#            ToDo LAN-45 reactivate job matrix
-#            - PLATFORM_BRANCH: $PLATFORM_MIN_VERSION
-#              DEVELOPMENT_BRANCH: $DEVELOPMENT_MIN_VERSION
-#              DEV_IMAGE:
-#                - shopware/development:7.4-composer-2
-#                - shopware/development:8.0-composer-2
+            - PLATFORM_BRANCH: $PLATFORM_MIN_VERSION
+              DEVELOPMENT_BRANCH: $DEVELOPMENT_MIN_VERSION
+              DEV_IMAGE:
+                - shopware/development:7.4-composer-2
+                - shopware/development:8.0-composer-2

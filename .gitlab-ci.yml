@@ -93,7 +93,6 @@ ToDos resolved:
             - merge_requests
             - master
     stage: Static validation
-    allow_failure: true
     script:
         - cd $CI_PROJECT_DIR/development/custom/plugins/SwagLanguagePack
         - if [[ -n $CI_COMMIT_BRANCH ]]; then bin/check-todos.sh $CI_COMMIT_BRANCH; else bin/check-todos.sh $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME; fi

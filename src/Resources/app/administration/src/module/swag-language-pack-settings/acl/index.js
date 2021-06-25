@@ -6,15 +6,15 @@ Shopware.Service('privileges').addPrivilegeMappingEntry({
         viewer: {
             privileges: [
                 'sales_channel:read',
-                'sales_channel_domain:read'
-            ]
+                'sales_channel_domain:read',
+            ],
         },
         editor: {
             privileges: [
                 'swag_language_pack_language:update',
                 'user:read',
-                'user:update'
-            ]
-        }
-    }
+                'user:update',
+            ],
+        },
+    },
 });

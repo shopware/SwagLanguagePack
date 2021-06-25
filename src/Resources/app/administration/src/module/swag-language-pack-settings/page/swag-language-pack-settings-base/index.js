@@ -7,18 +7,18 @@ Component.register('swag-language-pack-settings-base', {
     template,
 
     inject: [
-        'acl'
+        'acl',
     ],
 
     props: {
         isLoading: {
             type: Boolean,
-            required: true
+            required: true,
         },
 
         packLanguages: {
             type: Array,
-            required: true
+            required: true,
         },
 
         settingsType: {
@@ -26,8 +26,8 @@ Component.register('swag-language-pack-settings-base', {
             required: true,
             validator(value) {
                 return ['administration', 'salesChannel'].includes(value);
-            }
-        }
+            },
+        },
     },
 
     computed: {
@@ -37,8 +37,8 @@ Component.register('swag-language-pack-settings-base', {
             </a>`;
 
             return this.$tc(`swag-language-pack.settings.card.${this.settingsType}.description`, 0, {
-                userInterfaceLanguageLink
+                userInterfaceLanguageLink,
             });
-        }
-    }
+        },
+    },
 });

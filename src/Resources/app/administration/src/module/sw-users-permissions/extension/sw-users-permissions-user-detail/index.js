@@ -8,10 +8,10 @@ Component.override('sw-users-permissions-user-detail', {
             criteria.addFilter(Criteria.multi('OR', [
                 Criteria.equals('extensions.swagLanguagePackLanguage.id', null),
                 Criteria.equals('extensions.swagLanguagePackLanguage.administrationActive', true),
-                Criteria.equals('id', Shopware.Defaults.systemLanguageId)
+                Criteria.equals('id', Shopware.Defaults.systemLanguageId),
             ]));
 
             return criteria;
-        }
-    }
+        },
+    },
 });

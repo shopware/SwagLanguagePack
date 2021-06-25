@@ -25,11 +25,11 @@ Module.register('swag-language-pack', {
             component: 'swag-language-pack-settings',
             path: 'index',
             redirect: {
-                name: 'swag.language.pack.index.administration'
+                name: 'swag.language.pack.index.administration',
             },
             meta: {
                 parentPath: 'sw.settings.index',
-                privilege: 'language.viewer'
+                privilege: 'language.viewer',
             },
             children: {
                 administration: {
@@ -37,19 +37,19 @@ Module.register('swag-language-pack', {
                     path: 'administration',
                     meta: {
                         parentPath: 'sw.settings.index',
-                        privilege: 'language.viewer'
-                    }
+                        privilege: 'language.viewer',
+                    },
                 },
                 salesChannel: {
                     component: 'swag-language-pack-settings-sales-channel',
                     path: 'sales-channel',
                     meta: {
                         parentPath: 'sw.settings.index',
-                        privilege: 'language.viewer'
-                    }
-                }
-            }
-        }
+                        privilege: 'language.viewer',
+                    },
+                },
+            },
+        },
     },
 
     settingsItem: {
@@ -57,6 +57,6 @@ Module.register('swag-language-pack', {
         to: 'swag.language.pack.index',
         iconComponent: 'swag-language-pack-settings-icon',
         backgroundEnabled: true,
-        privilege: 'language.viewer'
-    }
+        privilege: 'language.viewer',
+    },
 });

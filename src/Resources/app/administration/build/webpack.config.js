@@ -8,7 +8,7 @@ module.exports = ({ config }) => {
 
     // Add our svg flags
     urlLoaderRule.exclude.push(
-        resolve(join(__dirname, '../src/assets/flags'))
+        resolve(join(__dirname, '../src/assets/flags')),
     );
 
     return {
@@ -16,10 +16,10 @@ module.exports = ({ config }) => {
             rules: [{
                 test: /\.svg$/,
                 include: [
-                    resolve(join(__dirname, '../src/assets/flags'))
+                    resolve(join(__dirname, '../src/assets/flags')),
                 ],
-                loader: resolve(join(__dirname, '..', 'node_modules', 'raw-loader'))
-            }]
-        }
+                loader: resolve(join(__dirname, '..', 'node_modules', 'raw-loader')),
+            }],
+        },
     };
 };

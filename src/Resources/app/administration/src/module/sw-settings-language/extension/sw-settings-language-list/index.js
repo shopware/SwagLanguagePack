@@ -8,7 +8,7 @@ Component.override('sw-settings-language-list', {
 
     data() {
         return {
-            packLanguageLanguageIds: []
+            packLanguageLanguageIds: [],
         };
     },
 
@@ -16,10 +16,10 @@ Component.override('sw-settings-language-list', {
         packLanguageCriteria() {
             return (new Criteria(1, 50)).addFilter(
                 Criteria.not('and', [
-                    Criteria.equals('swagLanguagePackLanguage.id', null)
-                ])
+                    Criteria.equals('swagLanguagePackLanguage.id', null),
+                ]),
             );
-        }
+        },
     },
 
     created() {
@@ -39,6 +39,6 @@ Component.override('sw-settings-language-list', {
 
         isPackLanguage(languageId) {
             return this.packLanguageLanguageIds.includes(languageId);
-        }
-    }
+        },
+    },
 });

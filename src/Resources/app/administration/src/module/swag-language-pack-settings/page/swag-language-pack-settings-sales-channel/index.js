@@ -8,12 +8,12 @@ Component.register('swag-language-pack-settings-sales-channel', {
     props: {
         isLoading: {
             type: Boolean,
-            required: true
+            required: true,
         },
 
         packLanguages: {
             type: Array,
-            required: true
-        }
-    }
+            required: true,
+        },
+    },
 });

@@ -12,7 +12,7 @@ Component.extend('swag-sales-channel-defaults-select-filterable', 'sw-sales-chan
             required: false,
             default() {
                 return new Criteria(1, 25);
-            }
-        }
-    }
+            },
+        },
+    },
 });

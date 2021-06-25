@@ -9,11 +9,11 @@ Component.register('swag-language-pack-settings', {
     inject: [
         'repositoryFactory',
         'userService',
-        'acl'
+        'acl',
     ],
 
     mixins: [
-        'notification'
+        'notification',
     ],
 
     data() {
@@ -23,13 +23,13 @@ Component.register('swag-language-pack-settings', {
             hasChanges: false,
             packLanguages: [],
             fallbackLocaleId: null,
-            confirmPasswordModal: false
+            confirmPasswordModal: false,
         };
     },
 
     metaInfo() {
         return {
-            title: this.$createTitle()
+            title: this.$createTitle(),
         };
     },
 
@@ -51,7 +51,7 @@ Component.register('swag-language-pack-settings', {
                 .addSorting(Criteria.sort('language.name', 'ASC'))
                 .addAssociation('language.salesChannels.domains')
                 .setLimit(null);
-        }
+        },
     },
 
     created() {
@@ -102,7 +102,7 @@ Component.register('swag-language-pack-settings', {
                     return this.resetInvalidUserLanguages();
                 }).catch(() => {
                     this.createNotificationError({
-                        message: this.$tc('swag-language-pack.settings.card.messageSaveError')
+                        message: this.$tc('swag-language-pack.settings.card.messageSaveError'),
                     });
                 });
             }).catch((invalidLanguages) => {
@@ -111,9 +111,9 @@ Component.register('swag-language-pack-settings', {
 
                 this.createNotificationError({
                     message: this.$tc('swag-language-pack.settings.card.messageSalesChannelActiveError', 0, {
-                        languages
+                        languages,
                     }),
-                    autoClose: false
+                    autoClose: false,
                 });
             }).finally(() => {
                 this.isLoading = false;
@@ -143,7 +143,7 @@ Component.register('swag-language-pack-settings', {
 
             if (invalidLocales && invalidLocales.length > 0) {
                 invalidUserCriteria.addFilter(
-                    Criteria.equalsAny('localeId', invalidLocales)
+                    Criteria.equalsAny('localeId', invalidLocales),
                 );
             }
 
@@ -169,7 +169,7 @@ Component.register('swag-language-pack-settings', {
                 .addFilter(Criteria.equals('extensions.swagLanguagePackLanguage.administrationActive', false));
             const invalidAdminLanguages = await this.languageRepository.search(
                 invalidAdminLanguagesCriteria,
-                Shopware.Context.api
+                Shopware.Context.api,
             );
 
             const fallbackLanguageCriteria = (new Criteria()).setIds([Defaults.systemLanguageId]);
@@ -177,6 +177,6 @@ Component.register('swag-language-pack-settings', {
             this.fallbackLocaleId = fallbackLanguage.first().localeId;
 
             return invalidAdminLanguages.map(language => language.localeId);
-        }
-    }
+        },
+    },
 });

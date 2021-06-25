@@ -10,8 +10,8 @@ Component.register('swag-language-pack-flag', {
         locale: {
             type: String,
             required: false,
-            default: ''
-        }
+            default: '',
+        },
     },
 
     computed: {
@@ -19,6 +19,6 @@ Component.register('swag-language-pack-flag', {
             const prefix = 'swag-language-pack-flag-';
             const countryCode = this.locale.split('-')[1].toLowerCase();
             return `${prefix}${countryCode}`;
-        }
-    }
+        },
+    },
 });

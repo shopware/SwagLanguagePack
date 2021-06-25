@@ -5,6 +5,6 @@ Component.override('sw-sales-channel-detail', {
         getLoadSalesChannelCriteria() {
             return this.$super('getLoadSalesChannelCriteria')
                 .addAssociation('languages.locale');
-        }
-    }
+        },
+    },
 });

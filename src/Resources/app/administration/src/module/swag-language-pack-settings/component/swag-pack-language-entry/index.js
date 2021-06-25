@@ -7,41 +7,41 @@ Component.register('swag-pack-language-entry', {
     template,
 
     inject: [
-        'acl'
+        'acl',
     ],
 
     props: {
         value: {
             type: Object,
-            required: true
+            required: true,
         },
 
         field: {
             type: String,
-            required: true
+            required: true,
         },
 
         label: {
             type: String,
-            required: true
+            required: true,
         },
 
         disabled: {
             type: Boolean,
             required: true,
-            default: false
+            default: false,
         },
 
         description: {
             type: String,
             required: false,
-            default: ''
+            default: '',
         },
 
         flagLocale: {
             type: String,
             required: false,
-            default: ''
-        }
-    }
+            default: '',
+        },
+    },
 });

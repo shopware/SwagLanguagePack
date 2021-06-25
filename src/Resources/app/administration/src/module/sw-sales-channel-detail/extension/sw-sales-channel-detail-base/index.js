@@ -14,8 +14,8 @@ Component.override('sw-sales-channel-detail-base', {
                 .addFilter(Criteria.multi('OR', [
                     Criteria.equals('extensions.swagLanguagePackLanguage.id', null),
                     Criteria.equals('extensions.swagLanguagePackLanguage.salesChannelActive', true),
-                    Criteria.equals('id', Defaults.systemLanguageId)
+                    Criteria.equals('id', Defaults.systemLanguageId),
                 ]));
-        }
-    }
+        },
+    },
 });

@@ -8,6 +8,6 @@ Component.override('sw-sales-channel-detail-domains', {
 
             return this.$super('snippetSetCriteria')
                 .addFilter(Criteria.equalsAny('iso', locales));
-        }
-    }
+        },
+    },
 });

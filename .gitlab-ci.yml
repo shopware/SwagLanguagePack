@@ -79,13 +79,14 @@ Static analyze:
     parallel:
         matrix:
             - DEV_IMAGE:
-                - shopware/development:7.4-composer-2
-                - shopware/development:8.0-composer-2
-            - PLATFORM_BRANCH: $PLATFORM_MIN_VERSION
-              DEVELOPMENT_BRANCH: $DEVELOPMENT_MIN_VERSION
-              DEV_IMAGE:
-                - shopware/development:7.4-composer-2
-                - shopware/development:8.0-composer-2
+                  - shopware/development:7.4-composer-2
+                  - shopware/development:8.0-composer-2
+            # ToDo Re-enable when Core MinVersion is 6.4.2.0
+#            - PLATFORM_BRANCH: $PLATFORM_MIN_VERSION
+#              DEVELOPMENT_BRANCH: $DEVELOPMENT_MIN_VERSION
+#              DEV_IMAGE:
+#                  - shopware/development:7.4-composer-2
+#                  - shopware/development:8.0-composer-2
 
 ToDos resolved:
     only:
@@ -110,13 +111,13 @@ PHPUnit:
         - touch vendor/composer/InstalledVersions.php
         - cd $CI_PROJECT_DIR/development
         - php -d pcov.enabled=1 -d pcov.directory=$CI_PROJECT_DIR
-          vendor/bin/phpunit
-          --configuration custom/plugins/SwagLanguagePack/phpunit.xml.dist
-          --log-junit build/artifacts/phpunit.junit.xml
-          --colors=never
-          --coverage-clover build/artifacts/phpunit.clover.xml
-          --coverage-html build/artifacts/phpunit-coverage-html
-          --coverage-text
+            vendor/bin/phpunit
+            --configuration custom/plugins/SwagLanguagePack/phpunit.xml.dist
+            --log-junit build/artifacts/phpunit.junit.xml
+            --colors=never
+            --coverage-clover build/artifacts/phpunit.clover.xml
+            --coverage-html build/artifacts/phpunit-coverage-html
+            --coverage-text
     coverage: '/^\s*Lines:\s*(\d+(?:\.\d+)?%)/'
     artifacts:
         paths:
@@ -129,10 +130,10 @@ PHPUnit:
     parallel:
         matrix:
             - DEV_IMAGE:
-                - shopware/development:7.4-composer-2
-                - shopware/development:8.0-composer-2
+                  - shopware/development:7.4-composer-2
+                  - shopware/development:8.0-composer-2
             - PLATFORM_BRANCH: $PLATFORM_MIN_VERSION
               DEVELOPMENT_BRANCH: $DEVELOPMENT_MIN_VERSION
               DEV_IMAGE:
-                - shopware/development:7.4-composer-2
-                - shopware/development:8.0-composer-2
+                  - shopware/development:7.4-composer-2
+                  - shopware/development:8.0-composer-2

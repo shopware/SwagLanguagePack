@@ -10,9 +10,9 @@ Component.override('sw-first-run-wizard-welcome', {
                 .addFilter(Criteria.multi('OR', [
                     Criteria.equals('extensions.swagLanguagePackLanguage.id', null),
                     Criteria.equals('extensions.swagLanguagePackLanguage.administrationActive', true),
-                    Criteria.equals('id', Defaults.systemLanguageId)
+                    Criteria.equals('id', Defaults.systemLanguageId),
                 ]))
                 .setLimit(null);
-        }
-    }
+        },
+    },
 });

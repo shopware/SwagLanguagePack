@@ -10,6 +10,7 @@ Component.override('sw-sales-channel-detail-base', {
         languageCriteria() {
             return (new Criteria())
                 .addAssociation('swagLanguagePackLanguage')
+                .addAssociation('locale')
                 .addSorting(Criteria.sort('name', 'ASC'))
                 .addFilter(Criteria.multi('OR', [
                     Criteria.equals('extensions.swagLanguagePackLanguage.id', null),

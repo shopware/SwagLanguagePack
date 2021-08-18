@@ -81,7 +81,7 @@ Static analyze:
             - DEV_IMAGE:
                   - shopware/development:7.4-composer-2
                   - shopware/development:8.0-composer-2
-            # ToDo Re-enable when Core MinVersion is 6.4.2.0
+            # ToDo - Re-enable when Core MinVersion is 6.4.2.0
 #            - PLATFORM_BRANCH: $PLATFORM_MIN_VERSION
 #              DEVELOPMENT_BRANCH: $DEVELOPMENT_MIN_VERSION
 #              DEV_IMAGE:
@@ -107,7 +107,7 @@ PHPUnit:
     script:
         - cd $CI_PROJECT_DIR/development/custom/plugins/SwagLanguagePack
         - make init
-        - composer dump-autoload
+        - composer dump-autoload --dev
         - touch vendor/composer/InstalledVersions.php
         - cd $CI_PROJECT_DIR/development
         - php -d pcov.enabled=1 -d pcov.directory=$CI_PROJECT_DIR

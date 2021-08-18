@@ -1,5 +1,6 @@
 # REPLACE-GLOBALLY-WITH-NEXT-VERSION
 - LAN-62 - Behebt einige Fehler im Bezug auf Sprach-Zugriffsrechten
+- LAN-82 - Behebt Aufruf des Verkaufskanal-Domain-Modals, wenn der Verkaufskanal nach Hinzufügen einer neuen Sprache nicht zuvor gespeichert wurde
 
 # 2.1.0
 - LAN-74 - Übersetzungen für Shopware 6.4.1.0 aktualisiert

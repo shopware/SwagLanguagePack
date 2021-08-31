@@ -1,6 +1,7 @@
 # REPLACE-GLOBALLY-WITH-NEXT-VERSION
 - LAN-62 - Fixed language ACL issues
 - LAN-82 - Fixed sales channel domain modal after adding a new language, when sales channel has not been saved before
+- LAN-83 - Fixed a problem where the administration language would unnecessarily switch
 
 # 2.1.0
 - LAN-74 - Update translations for Shopware 6.4.1.0

@@ -1,4 +1,4 @@
-# REPLACE-GLOBALLY-WITH-NEXT-VERSION
+# 2.1.1
 - LAN-62 - Behebt einige Fehler im Bezug auf Sprach-Zugriffsrechten
 - LAN-82 - Behebt Aufruf des Verkaufskanal-Domain-Modals, wenn der Verkaufskanal nach Hinzufügen einer neuen Sprache nicht zuvor gespeichert wurde
 - LAN-83 - Behebt ein Problem, bei dem die Administrationssprache unnötigerweise geändert wurde

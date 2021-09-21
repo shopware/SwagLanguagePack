@@ -1,3 +1,6 @@
+# 2.1.2
+- NTR - Compatibility for Shopware 6.4.5.0
+
 # 2.1.1
 - LAN-62 - Fixed language ACL issues
 - LAN-82 - Fixed sales channel domain modal after adding a new language, when sales channel has not been saved before

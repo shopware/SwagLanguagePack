@@ -50,7 +50,7 @@ psalm: ## Run vimeo psalm
 .PHONY: psalm
 
 phpunit: ## Run phpunit; Accepts an additional argument "FILTER='search term'"
-	composer dump-autoload \
+	composer --dev dump-autoload \
         && ./../../../vendor/bin/phpunit --filter "$(FILTER)"
 .PHONY: phpunit
 

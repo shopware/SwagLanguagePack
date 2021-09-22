@@ -21,10 +21,7 @@ class SalesChannelDomainValidatorTest extends TestCase
 {
     use ServicesTrait;
 
-    /**
-     * @var EntityRepositoryInterface
-     */
-    private $salesChannelDomainRepository;
+    private EntityRepositoryInterface $salesChannelDomainRepository;
 
     protected function setUp(): void
     {

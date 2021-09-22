@@ -18,10 +18,7 @@ class SalesChannelLanguageValidatorTest extends TestCase
 {
     use ServicesTrait;
 
-    /**
-     * @var EntityRepositoryInterface
-     */
-    private $salesChannelLanguageRepository;
+    private EntityRepositoryInterface $salesChannelLanguageRepository;
 
     protected function setUp(): void
     {

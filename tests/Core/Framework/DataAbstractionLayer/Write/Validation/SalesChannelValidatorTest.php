@@ -21,10 +21,7 @@ class SalesChannelValidatorTest extends TestCase
 {
     use ServicesTrait;
 
-    /**
-     * @var EntityRepositoryInterface
-     */
-    private $salesChannelRepository;
+    private EntityRepositoryInterface $salesChannelRepository;
 
     protected function setUp(): void
     {
@@ -64,6 +61,7 @@ class SalesChannelValidatorTest extends TestCase
             [
                 'id' => $salesChannelId,
                 'languageId' => $disabledLanguageId,
+                'languages' => [['id' => $disabledLanguageId]],
             ],
         ], $context);
     }
@@ -74,6 +72,7 @@ class SalesChannelValidatorTest extends TestCase
             [
                 'id' => $salesChannelId,
                 'languageId' => $languageId,
+                'languages' => [['id' => $languageId]],
                 'typeId' => Defaults::SALES_CHANNEL_TYPE_STOREFRONT,
                 'customerGroupId' => Defaults::FALLBACK_CUSTOMER_GROUP,
                 'currencyId' => Defaults::CURRENCY,

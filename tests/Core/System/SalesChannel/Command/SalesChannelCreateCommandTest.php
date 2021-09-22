@@ -21,6 +21,7 @@ use Shopware\Core\Framework\Test\TestCaseBase\IntegrationTestBehaviour;
 use Shopware\Core\System\Country\CountryDefinition;
 use Shopware\Core\System\Language\LanguageDefinition;
 use Shopware\Core\System\Language\LanguageEntity;
+use Shopware\Core\System\SalesChannel\Command\SalesChannelCreateCommand as InheritedSalesChannelCreateCommand;
 use Shopware\Core\System\SalesChannel\SalesChannelDefinition;
 use Shopware\Core\System\SalesChannel\SalesChannelEntity;
 use Shopware\Core\System\Snippet\Aggregate\SnippetSet\SnippetSetDefinition;
@@ -35,35 +36,17 @@ class SalesChannelCreateCommandTest extends TestCase
     use IntegrationTestBehaviour;
     use CommandTestBehaviour;
 
-    /**
-     * @var \Shopware\Core\System\SalesChannel\Command\SalesChannelCreateCommand
-     */
-    protected $originalSalesChannelCreateCommand;
+    protected InheritedSalesChannelCreateCommand $originalSalesChannelCreateCommand;
 
-    /**
-     * @var SalesChannelCreateCommand
-     */
-    protected $overrideSalesChannelCreateCommand;
+    protected SalesChannelCreateCommand $overrideSalesChannelCreateCommand;
 
-    /**
-     * @var EntityRepositoryInterface
-     */
-    protected $salesChannelRepository;
+    protected EntityRepositoryInterface $salesChannelRepository;
 
-    /**
-     * @var EntityRepositoryInterface
-     */
-    protected $languageRepository;
+    protected EntityRepositoryInterface $languageRepository;
 
-    /**
-     * @var EntityRepositoryInterface
-     */
-    protected $languagePackRepository;
+    protected EntityRepositoryInterface $languagePackRepository;
 
-    /**
-     * @var Context
-     */
-    private $context;
+    private Context $context;
 
     protected function setUp(): void
     {
@@ -94,7 +77,7 @@ class SalesChannelCreateCommandTest extends TestCase
         /** @var EntityRepositoryInterface $categoryRepository */
         $categoryRepository = $this->getContainer()->get(\sprintf('%s.repository', CategoryDefinition::ENTITY_NAME));
 
-        $this->originalSalesChannelCreateCommand = new \Shopware\Core\System\SalesChannel\Command\SalesChannelCreateCommand(
+        $this->originalSalesChannelCreateCommand = new InheritedSalesChannelCreateCommand(
             $definitionRegistry,
             $this->salesChannelRepository,
             $paymentMethodRepository,
@@ -107,7 +90,7 @@ class SalesChannelCreateCommandTest extends TestCase
         // this should get the replaced / new command. The old one should not be in the container anymore.
         /** @var SalesChannelCreateCommand $overrideSalesChannelCommand */
         $overrideSalesChannelCommand = $this->getContainer()->get(
-            \Shopware\Core\System\SalesChannel\Command\SalesChannelCreateCommand::class
+            InheritedSalesChannelCreateCommand::class
         );
         $this->overrideSalesChannelCreateCommand = $overrideSalesChannelCommand;
     }

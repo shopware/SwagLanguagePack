@@ -19,10 +19,7 @@ use Shopware\Core\Framework\DataAbstractionLayer\Write\CloneBehavior;
 
 class PackLanguageRepositoryDecorator implements EntityRepositoryInterface
 {
-    /**
-     * @var EntityRepositoryInterface
-     */
-    private $inner;
+    private EntityRepositoryInterface $inner;
 
     public function __construct(EntityRepositoryInterface $inner)
     {

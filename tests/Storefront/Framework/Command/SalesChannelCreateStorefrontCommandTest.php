@@ -9,14 +9,15 @@ namespace Swag\LanguagePack\Test\Storefront\Framework\Command;
 
 use PHPUnit\Framework\TestCase;
 use Shopware\Core\Framework\Context;
+use Shopware\Core\Framework\DataAbstractionLayer\DefinitionInstanceRegistry;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
 use Shopware\Core\Framework\Test\TestCaseBase\IntegrationTestBehaviour;
 use Shopware\Core\Framework\Uuid\Uuid;
+use Shopware\Core\Maintenance\SalesChannel\Service\SalesChannelCreator;
 use Shopware\Core\System\Language\LanguageCollection;
 use Shopware\Core\System\SalesChannel\SalesChannelEntity;
-use Shopware\Storefront\Framework\Command\SalesChannelCreateStorefrontCommand as StorefrontSalesChannelCreateCommand;
 use Shopware\Storefront\Storefront;
 use Swag\LanguagePack\Extension\LanguageExtension;
 use Swag\LanguagePack\Storefront\Framework\Command\SalesChannelCreateStorefrontCommand;
@@ -27,30 +28,15 @@ class SalesChannelCreateStorefrontCommandTest extends TestCase
 {
     use IntegrationTestBehaviour;
 
-    /**
-     * @var EntityRepositoryInterface
-     */
-    private $salesChannelRepository;
+    private EntityRepositoryInterface $salesChannelRepository;
 
-    /**
-     * @var EntityRepositoryInterface
-     */
-    private $languagePackLanguageRepository;
+    private EntityRepositoryInterface $languagePackLanguageRepository;
 
-    /**
-     * @var EntityRepositoryInterface
-     */
-    private $languageRepository;
+    private EntityRepositoryInterface $languageRepository;
 
-    /**
-     * @var Context
-     */
-    private $context;
+    private Context $context;
 
-    /**
-     * @var Command
-     */
-    private $command;
+    private Command $command;
 
     /**
      * @psalm-suppress PropertyTypeCoercion
@@ -61,10 +47,31 @@ class SalesChannelCreateStorefrontCommandTest extends TestCase
             static::markTestSkipped('Skip test: Storefront bundle is not installed');
         }
 
+        /** @var DefinitionInstanceRegistry $definitionRegistry */
+        $definitionRegistry = $this->getContainer()->get(DefinitionInstanceRegistry::class);
+
+        /** @var SalesChannelCreator $salesChannelCreator */
+        $salesChannelCreator = $this->getContainer()->get(SalesChannelCreator::class);
+
+        /** @var EntityRepositoryInterface $snippetSetRepository */
+        $snippetSetRepository = $this->getContainer()->get('snippet_set.repository');
+
         $this->salesChannelRepository = $this->getContainer()->get('sales_channel.repository');
-        $this->languagePackLanguageRepository = $this->getContainer()->get('swag_language_pack_language.repository');
-        $this->languageRepository = $this->getContainer()->get('language.repository');
-        $this->command = $this->getContainer()->get(StorefrontSalesChannelCreateCommand::class);
+
+        /** @var EntityRepositoryInterface $languageRepository */
+        $languageRepository = $this->getContainer()->get('language.repository');
+        $this->languageRepository = $languageRepository;
+
+        /** @var EntityRepositoryInterface $languagePackLanguageRepository */
+        $languagePackLanguageRepository = $this->getContainer()->get('swag_language_pack_language.repository');
+        $this->languagePackLanguageRepository = $languagePackLanguageRepository;
+
+        $this->command = new SalesChannelCreateStorefrontCommand(
+            $definitionRegistry,
+            $this->languageRepository,
+            $salesChannelCreator,
+            $snippetSetRepository
+        );
 
         $this->context = Context::createDefaultContext();
     }
@@ -77,14 +84,16 @@ class SalesChannelCreateStorefrontCommandTest extends TestCase
     public function testItCreatesStorefrontWithDefaultLanguagesIfAllLanguagesAreDisabled(): void
     {
         $this->setLanguagesActive(false);
+        $navigationCategoryId = $this->getValidCategoryId();
 
-        $storefrontId = Uuid::randomHex();
+        $storefrontId = 'f37e50e6e2c8461dab552bdbc50e4566';
 
         $tester = new CommandTester($this->command);
 
         $tester->execute([
             '--id' => $storefrontId,
             '--url' => '"http://test.shop"',
+            '--navigationCategoryId' => $navigationCategoryId,
         ]);
 
         $storefront = $this->salesChannelRepository->search($this->getStorefrontCriteria($storefrontId), $this->context)
@@ -119,6 +128,7 @@ class SalesChannelCreateStorefrontCommandTest extends TestCase
     public function testItCreatesStorefrontWithEnabledLanguages(): void
     {
         $this->setLanguagesActive(true);
+        $navigationCategoryId = $this->getValidCategoryId();
 
         $storefrontId = Uuid::randomHex();
 
@@ -127,6 +137,7 @@ class SalesChannelCreateStorefrontCommandTest extends TestCase
         $tester->execute([
             '--id' => $storefrontId,
             '--url' => '"http://test.shop"',
+            '--navigationCategoryId' => $navigationCategoryId,
         ]);
 
         /** @var SalesChannelEntity $storefront */

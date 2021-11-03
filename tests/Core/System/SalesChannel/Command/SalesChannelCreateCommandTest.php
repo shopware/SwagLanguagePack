@@ -8,9 +8,6 @@
 namespace Swag\LanguagePack\Test\Core\System\SalesChannel\Command;
 
 use PHPUnit\Framework\TestCase;
-use Shopware\Core\Checkout\Payment\PaymentMethodDefinition;
-use Shopware\Core\Checkout\Shipping\ShippingMethodDefinition;
-use Shopware\Core\Content\Category\CategoryDefinition;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\DefinitionInstanceRegistry;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
@@ -18,15 +15,12 @@ use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
 use Shopware\Core\Framework\Test\TestCaseBase\CommandTestBehaviour;
 use Shopware\Core\Framework\Test\TestCaseBase\IntegrationTestBehaviour;
-use Shopware\Core\System\Country\CountryDefinition;
+use Shopware\Core\Maintenance\SalesChannel\Service\SalesChannelCreator;
 use Shopware\Core\System\Language\LanguageDefinition;
 use Shopware\Core\System\Language\LanguageEntity;
-use Shopware\Core\System\SalesChannel\Command\SalesChannelCreateCommand as InheritedSalesChannelCreateCommand;
 use Shopware\Core\System\SalesChannel\SalesChannelDefinition;
 use Shopware\Core\System\SalesChannel\SalesChannelEntity;
-use Shopware\Core\System\Snippet\Aggregate\SnippetSet\SnippetSetDefinition;
 use Swag\LanguagePack\Core\System\SalesChannel\Command\SalesChannelCreateCommand;
-use Swag\LanguagePack\PackLanguage\PackLanguageDefinition;
 use Swag\LanguagePack\PackLanguage\PackLanguageEntity;
 use Symfony\Component\Console\Input\StringInput;
 use Symfony\Component\Console\Output\BufferedOutput;
@@ -36,7 +30,7 @@ class SalesChannelCreateCommandTest extends TestCase
     use IntegrationTestBehaviour;
     use CommandTestBehaviour;
 
-    protected InheritedSalesChannelCreateCommand $originalSalesChannelCreateCommand;
+    protected SalesChannelCreateCommand $salesChannelCreateCommand;
 
     protected SalesChannelCreateCommand $overrideSalesChannelCreateCommand;
 
@@ -59,61 +53,33 @@ class SalesChannelCreateCommandTest extends TestCase
         $this->languageRepository = $languageRepository;
 
         /** @var EntityRepositoryInterface $languagePackRepository */
-        $languagePackRepository = $this->getContainer()->get(\sprintf('%s.repository', PackLanguageDefinition::ENTITY_NAME));
+        $languagePackRepository = $this->getContainer()->get('swag_language_pack_language.repository');
         $this->languagePackRepository = $languagePackRepository;
 
         $this->context = Context::createDefaultContext();
 
         /** @var DefinitionInstanceRegistry $definitionRegistry */
         $definitionRegistry = $this->getContainer()->get(DefinitionInstanceRegistry::class);
-        /** @var EntityRepositoryInterface $paymentMethodRepository */
-        $paymentMethodRepository = $this->getContainer()->get(\sprintf('%s.repository', PaymentMethodDefinition::ENTITY_NAME));
-        /** @var EntityRepositoryInterface $shippingMethodRepository */
-        $shippingMethodRepository = $this->getContainer()->get(\sprintf('%s.repository', ShippingMethodDefinition::ENTITY_NAME));
-        /** @var EntityRepositoryInterface $countryRepository */
-        $countryRepository = $this->getContainer()->get(\sprintf('%s.repository', CountryDefinition::ENTITY_NAME));
-        /** @var EntityRepositoryInterface $snippetSetRepository */
-        $snippetSetRepository = $this->getContainer()->get(\sprintf('%s.repository', SnippetSetDefinition::ENTITY_NAME));
-        /** @var EntityRepositoryInterface $categoryRepository */
-        $categoryRepository = $this->getContainer()->get(\sprintf('%s.repository', CategoryDefinition::ENTITY_NAME));
 
-        $this->originalSalesChannelCreateCommand = new InheritedSalesChannelCreateCommand(
+        /** @var SalesChannelCreator $salesChannelCreator */
+        $salesChannelCreator = $this->getContainer()->get(SalesChannelCreator::class);
+
+        $this->salesChannelCreateCommand = new SalesChannelCreateCommand(
             $definitionRegistry,
-            $this->salesChannelRepository,
-            $paymentMethodRepository,
-            $shippingMethodRepository,
-            $countryRepository,
-            $snippetSetRepository,
-            $categoryRepository
+            $languageRepository,
+            $salesChannelCreator
         );
-
-        // this should get the replaced / new command. The old one should not be in the container anymore.
-        /** @var SalesChannelCreateCommand $overrideSalesChannelCommand */
-        $overrideSalesChannelCommand = $this->getContainer()->get(
-            InheritedSalesChannelCreateCommand::class
-        );
-        $this->overrideSalesChannelCreateCommand = $overrideSalesChannelCommand;
-    }
-
-    public function testIfOriginalCommandFails(): void
-    {
-        $input = new StringInput('');
-        $output = new BufferedOutput();
-
-        $this->runCommand($this->originalSalesChannelCreateCommand, $input, $output);
-
-        $outputString = $output->fetch();
-
-        static::assertStringContainsString('[ERROR]', $outputString);
     }
 
     public function testIfNewCommandSucceeds(): void
     {
         $salesChannelId = 'ad1028c2a8ed46d2a24f189812b1a23c';
-        $input = new StringInput("--id=$salesChannelId");
+        $navigationCategoryId = $this->getValidCategoryId();
+
+        $input = new StringInput("--id=$salesChannelId --navigationCategoryId=$navigationCategoryId");
         $output = new BufferedOutput();
 
-        $this->runCommand($this->overrideSalesChannelCreateCommand, $input, $output);
+        $this->runCommand($this->salesChannelCreateCommand, $input, $output);
 
         $outputString = $output->fetch();
 
@@ -131,10 +97,14 @@ class SalesChannelCreateCommandTest extends TestCase
         $this->activateLanguageForSalesChannelUsage('fr-FR');
 
         $salesChannelId = 'ad1028c2a8ed46d2a24f189812b1a23b';
-        $input = new StringInput("--id=$salesChannelId");
+
+        $navigationCategoryId = $this->getValidCategoryId();
+
+        $input = new StringInput("--id=$salesChannelId --navigationCategoryId=$navigationCategoryId");
+
         $output = new BufferedOutput();
 
-        $this->runCommand($this->overrideSalesChannelCreateCommand, $input, $output);
+        $this->runCommand($this->salesChannelCreateCommand, $input, $output);
 
         $outputString = $output->fetch();
 

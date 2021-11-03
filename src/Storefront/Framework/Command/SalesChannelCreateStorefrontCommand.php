@@ -8,8 +8,12 @@
 namespace Swag\LanguagePack\Storefront\Framework\Command;
 
 use Shopware\Core\Defaults;
+use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\DefinitionInstanceRegistry;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
+use Shopware\Core\Maintenance\SalesChannel\Service\SalesChannelCreator;
 use Swag\LanguagePack\Core\System\SalesChannel\Command\SalesChannelCreateCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -19,32 +23,21 @@ class SalesChannelCreateStorefrontCommand extends SalesChannelCreateCommand
 {
     protected static $defaultName = 'sales-channel:create:storefront';
 
-    /**
-     * @var EntityRepositoryInterface
-     */
-    private $categoryRepository;
+    private EntityRepositoryInterface $snippetSetRepository;
 
     public function __construct(
         DefinitionInstanceRegistry $definitionRegistry,
-        EntityRepositoryInterface $salesChannelRepository,
-        EntityRepositoryInterface $paymentMethodRepository,
-        EntityRepositoryInterface $shippingMethodRepository,
-        EntityRepositoryInterface $countryRepository,
-        EntityRepositoryInterface $snippetSetRepository,
-        EntityRepositoryInterface $categoryRepository,
-        EntityRepositoryInterface $languageRepository
+        EntityRepositoryInterface $languageRepository,
+        SalesChannelCreator $salesChannelCreator,
+        EntityRepositoryInterface $snippetSetRepository
     ) {
+        $this->snippetSetRepository = $snippetSetRepository;
+
         parent::__construct(
             $definitionRegistry,
-            $salesChannelRepository,
-            $paymentMethodRepository,
-            $shippingMethodRepository,
-            $countryRepository,
-            $snippetSetRepository,
-            $categoryRepository,
-            $languageRepository
+            $languageRepository,
+            $salesChannelCreator
         );
-        $this->categoryRepository = $categoryRepository;
     }
 
     protected function configure(): void
@@ -53,7 +46,7 @@ class SalesChannelCreateStorefrontCommand extends SalesChannelCreateCommand
 
         $this
             ->addOption('url', null, InputOption::VALUE_REQUIRED, 'App URL for storefront')
-        ;
+            ->addOption('snippetSetId', null, InputOption::VALUE_OPTIONAL, 'Snippet set ID for translation');
     }
 
     protected function getTypeId(): string
@@ -61,20 +54,34 @@ class SalesChannelCreateStorefrontCommand extends SalesChannelCreateCommand
         return Defaults::SALES_CHANNEL_TYPE_STOREFRONT;
     }
 
+    protected function getSnippetSetId(): string
+    {
+        $criteria = (new Criteria())
+            ->setLimit(1)
+            ->addFilter(new EqualsFilter('iso', 'en-GB'));
+
+        /** @var string|null $id */
+        $id = $this->snippetSetRepository->searchIds($criteria, Context::createDefaultContext())->getIds()[0] ?? null;
+
+        if ($id === null) {
+            throw new \InvalidArgumentException('Unable to get default SnippetSet. Please provide a valid SnippetSetId.');
+        }
+
+        return $id;
+    }
+
     protected function getSalesChannelConfiguration(InputInterface $input, OutputInterface $output): array
     {
-        $snippetSet = $input->getOption('snippetSetId') ?? $this->getSnippetSetId();
-
         return [
             'domains' => [
                 [
                     'url' => $input->getOption('url'),
                     'languageId' => $input->getOption('languageId'),
-                    'snippetSetId' => $snippetSet,
+                    'snippetSetId' => $input->getOption('snippetSetId') ?? $this->getSnippetSetId(),
                     'currencyId' => $input->getOption('currencyId'),
                 ],
             ],
-            'navigationCategoryId' => $this->getRootCategoryId(),
+            'navigationCategoryId' => $input->getOption('navigationCategoryId'),
             'name' => $input->getOption('name') ?? 'Storefront',
         ];
     }

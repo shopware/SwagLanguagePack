@@ -7,10 +7,8 @@
 
 namespace Swag\LanguagePack\Core\System\SalesChannel\Command;
 
-use Shopware\Core\Checkout\Customer\Aggregate\CustomerGroup\CustomerGroupDefinition;
 use Shopware\Core\Defaults;
 use Shopware\Core\Framework\Adapter\Console\ShopwareStyle;
-use Shopware\Core\Framework\Api\Util\AccessKeyHelper;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\DefinitionInstanceRegistry;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
@@ -18,10 +16,13 @@ use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\OrFilter;
 use Shopware\Core\Framework\DataAbstractionLayer\Write\WriteException;
+use Shopware\Core\Framework\Uuid\Uuid;
 use Shopware\Core\Framework\Validation\WriteConstraintViolationException;
-use Shopware\Core\System\SalesChannel\Command\SalesChannelCreateCommand as InheritedSalesChannelCreateCommand;
+use Shopware\Core\Maintenance\SalesChannel\Service\SalesChannelCreator;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
@@ -34,85 +35,68 @@ use Symfony\Component\Console\Output\OutputInterface;
  * in a meaningful way (the `getAllIdsOf(...)` function was private). Also the version requirement of the core
  * could not be raised to make that function protected.
  */
-class SalesChannelCreateCommand extends InheritedSalesChannelCreateCommand
+class SalesChannelCreateCommand extends Command
 {
-    private EntityRepositoryInterface $salesChannelRepository;
+    protected static $defaultName = 'sales-channel:create';
 
     private DefinitionInstanceRegistry $definitionRegistry;
 
     private EntityRepositoryInterface $languageRepository;
 
+    private SalesChannelCreator $salesChannelCreator;
+
     public function __construct(
         DefinitionInstanceRegistry $definitionRegistry,
-        EntityRepositoryInterface $salesChannelRepository,
-        EntityRepositoryInterface $paymentMethodRepository,
-        EntityRepositoryInterface $shippingMethodRepository,
-        EntityRepositoryInterface $countryRepository,
-        EntityRepositoryInterface $snippetSetRepository,
-        EntityRepositoryInterface $categoryRepository,
-        EntityRepositoryInterface $languageRepository
+        EntityRepositoryInterface $languageRepository,
+        SalesChannelCreator $salesChannelCreator
     ) {
         $this->definitionRegistry = $definitionRegistry;
-        $this->salesChannelRepository = $salesChannelRepository;
         $this->languageRepository = $languageRepository;
+        $this->salesChannelCreator = $salesChannelCreator;
 
-        parent::__construct(
-            $definitionRegistry,
-            $salesChannelRepository,
-            $paymentMethodRepository,
-            $shippingMethodRepository,
-            $countryRepository,
-            $snippetSetRepository,
-            $categoryRepository
-        );
+        parent::__construct(self::$defaultName);
+    }
+
+    protected function configure(): void
+    {
+        $this
+            ->addOption('id', null, InputOption::VALUE_REQUIRED, 'Id for the sales channel', Uuid::randomHex())
+            ->addOption('name', null, InputOption::VALUE_REQUIRED, 'Name for the application')
+            ->addOption('typeId', null, InputOption::VALUE_OPTIONAL, 'Sales channel type id')
+            ->addOption('languageId', null, InputOption::VALUE_OPTIONAL, 'Default language', Defaults::LANGUAGE_SYSTEM)
+            ->addOption('currencyId', null, InputOption::VALUE_OPTIONAL, 'Default currency', Defaults::CURRENCY)
+            ->addOption('paymentMethodId', null, InputOption::VALUE_OPTIONAL, 'Default payment method')
+            ->addOption('shippingMethodId', null, InputOption::VALUE_OPTIONAL, 'Default shipping method')
+            ->addOption('countryId', null, InputOption::VALUE_OPTIONAL, 'Default country')
+            ->addOption('customerGroupId', null, InputOption::VALUE_OPTIONAL, 'Default customer group')
+            ->addOption('navigationCategoryId', null, InputOption::VALUE_OPTIONAL, 'Default Navigation Category');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $id = $input->getOption('id');
-        $typeId = $input->getOption('typeId');
-
         $io = new ShopwareStyle($input, $output);
 
-        $paymentMethod = $input->getOption('paymentMethodId') ?? $this->getFirstActivePaymentMethodId();
-        $shippingMethod = $input->getOption('shippingMethodId') ?? $this->getFirstActiveShippingMethodId();
-        $countryId = $input->getOption('countryId') ?? $this->getFirstActiveCountryId();
-        $snippetSet = $input->getOption('snippetSetId') ?? $this->getSnippetSetId();
-        $customerGroupId = $input->getOption('customerGroupId') ?? $this->getCustomerGroupId();
         $context = Context::createDefaultContext();
 
-        $data = [
-            'id' => $id,
-            'name' => $input->getOption('name') ?? 'Headless',
-            'typeId' => $typeId ?? $this->getTypeId(),
-            'accessKey' => AccessKeyHelper::generateAccessKey('sales-channel'),
-
-            // default selection
-            'languageId' => $input->getOption('languageId'),
-            'snippetSetId' => $snippetSet,
-            'currencyId' => $input->getOption('currencyId'),
-            'currencyVersionId' => Defaults::LIVE_VERSION,
-            'paymentMethodId' => $paymentMethod,
-            'paymentMethodVersionId' => Defaults::LIVE_VERSION,
-            'shippingMethodId' => $shippingMethod,
-            'shippingMethodVersionId' => Defaults::LIVE_VERSION,
-            'countryId' => $countryId,
-            'countryVersionId' => Defaults::LIVE_VERSION,
-            'customerGroupId' => $customerGroupId,
-            'navigationCategoryId' => $input->getOption('navigationCategoryId'),
-
-            // available mappings
-            'currencies' => $this->getAllIdsOf('currency', $context),
-            'languages' => $this->getAllActiveLanguageIds($context),
-            'shippingMethods' => $this->getAllIdsOf('shipping_method', $context),
-            'paymentMethods' => $this->getAllIdsOf('payment_method', $context),
-            'countries' => $this->getAllIdsOf('country', $context),
-        ];
-
-        $data = \array_replace_recursive($data, $this->getSalesChannelConfiguration($input, $output));
-
         try {
-            $this->salesChannelRepository->create([$data], Context::createDefaultContext());
+            $accessKey = $this->salesChannelCreator->createSalesChannel(
+                $input->getOption('id'),
+                $input->getOption('name') ?? 'Headless',
+                $input->getOption('typeId') ?? $this->getTypeId(),
+                $input->getOption('languageId'),
+                $input->getOption('currencyId'),
+                $input->getOption('paymentMethodId'),
+                $input->getOption('shippingMethodId'),
+                $input->getOption('countryId'),
+                $input->getOption('customerGroupId'),
+                $input->getOption('navigationCategoryId'),
+                null,
+                $this->getAllActiveLanguageIds($context),
+                $input->getOption('shippingMethodId'),
+                $this->getAllIdsOf('payment_method', $context),
+                $this->getAllIdsOf('country', $context),
+                $this->getSalesChannelConfiguration($input, $output),
+            );
 
             $io->success('Sales channel has been created successfully.');
         } catch (WriteException $exception) {
@@ -138,7 +122,7 @@ class SalesChannelCreateCommand extends InheritedSalesChannelCreateCommand
         $table->setHeaders(['Key', 'Value']);
 
         $table->addRows([
-            ['Access key', $data['accessKey']],
+            ['Access key', $accessKey],
         ]);
 
         $table->render();
@@ -146,20 +130,22 @@ class SalesChannelCreateCommand extends InheritedSalesChannelCreateCommand
         return 0;
     }
 
+    protected function getTypeId(): string
+    {
+        return Defaults::SALES_CHANNEL_TYPE_API;
+    }
+
+    protected function getSalesChannelConfiguration(InputInterface $input, OutputInterface $output): array
+    {
+        return [];
+    }
+
     protected function getAllIdsOf(string $entity, Context $context): array
     {
         $repository = $this->definitionRegistry->getRepository($entity);
         $ids = $repository->searchIds(new Criteria(), $context);
 
-        return \array_map(
-            /**
-             * @psalm-suppress MissingClosureParamType
-             */
-            function ($id) {
-                return ['id' => $id];
-            },
-            $ids->getIds()
-        );
+        return $ids->getIds();
     }
 
     protected function getAllActiveLanguageIds(Context $context): array
@@ -170,32 +156,6 @@ class SalesChannelCreateCommand extends InheritedSalesChannelCreateCommand
             new EqualsFilter('swagLanguagePackLanguage.salesChannelActive', null),
         ]));
 
-        $ids = $this->languageRepository->searchIds($criteria, $context);
-
-        return \array_map(
-            /**
-             * @psalm-suppress MissingClosureParamType
-             */
-            function ($id) {
-                return ['id' => $id];
-            },
-            $ids->getIds()
-        );
-    }
-
-    private function getCustomerGroupId(): string
-    {
-        $criteria = (new Criteria())
-            ->setLimit(1);
-
-        $repository = $this->definitionRegistry->getRepository(CustomerGroupDefinition::ENTITY_NAME);
-
-        $id = $repository->searchIds($criteria, Context::createDefaultContext())->firstId();
-
-        if ($id === null) {
-            throw new \RuntimeException('Cannot find a customer group to assign it to the sales channel');
-        }
-
-        return $id;
+        return $this->languageRepository->searchIds($criteria, $context)->getIds();
     }
 }

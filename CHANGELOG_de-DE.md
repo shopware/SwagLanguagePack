@@ -1,3 +1,7 @@
+# 2.2.0
+- LAN-91 - Kompatibilität für Shopware 6.4.6.0
+- LAN-91 - Shopware Versionsanforderung auf ~6.4.6 erhöht
+
 # 2.1.2
 - NTR - Kompatibilität für Shopware 6.4.5.0
 

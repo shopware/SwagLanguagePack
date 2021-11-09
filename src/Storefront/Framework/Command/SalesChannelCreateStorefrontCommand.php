@@ -72,7 +72,7 @@ class SalesChannelCreateStorefrontCommand extends SalesChannelCreateCommand
 
     protected function getSalesChannelConfiguration(InputInterface $input, OutputInterface $output): array
     {
-        return [
+        return array_filter([
             'domains' => [
                 [
                     'url' => $input->getOption('url'),
@@ -83,6 +83,6 @@ class SalesChannelCreateStorefrontCommand extends SalesChannelCreateCommand
             ],
             'navigationCategoryId' => $input->getOption('navigationCategoryId'),
             'name' => $input->getOption('name') ?? 'Storefront',
-        ];
+        ]);
     }
 }

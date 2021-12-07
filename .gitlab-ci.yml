@@ -56,6 +56,8 @@ Check built JS files:
 
 Static analyze:
     stage: Static validation
+    tags:
+        - t3.medium
     services:
         -   name: mysql:5.7
             alias: mysql
@@ -102,6 +104,8 @@ ToDos resolved:
 # Stage: Unit Testing
 PHPUnit:
     stage: Unit
+    tags:
+        - m5.large
     services:
         -   name: mariadb:10.3.28
             alias: mysql

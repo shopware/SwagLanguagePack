@@ -1,3 +1,6 @@
+# NEXT-VERSION
+- LAN-90 - Updated extension description
+
 # 2.2.0
 - LAN-91 - Fixed compatibility for Shopware 6.4.6.0
 - LAN-91 - Bumped minimum Shopware version to ~6.4.6

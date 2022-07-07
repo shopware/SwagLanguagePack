@@ -70,9 +70,12 @@ class SalesChannelCreateStorefrontCommand extends SalesChannelCreateCommand
         return $id;
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     protected function getSalesChannelConfiguration(InputInterface $input, OutputInterface $output): array
     {
-        return array_filter([
+        return \array_filter([
             'domains' => [
                 [
                     'url' => $input->getOption('url'),

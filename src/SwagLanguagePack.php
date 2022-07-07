@@ -79,6 +79,9 @@ class SwagLanguagePack extends Plugin
         'vi-VN',
     ];
 
+    /**
+     * @return array<string, array<string>>
+     */
     public function enrichPrivileges(): array
     {
         return [

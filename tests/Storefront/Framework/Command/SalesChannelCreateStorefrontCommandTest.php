@@ -158,6 +158,7 @@ class SalesChannelCreateStorefrontCommandTest extends TestCase
 
     public function setLanguagesActive(bool $active): void
     {
+        /** @var string[] $ids */
         $ids = $this->languagePackLanguageRepository->searchIds(new Criteria(), $this->context)->getIds();
 
         $updateCommands = \array_map(function (string $id) use ($active): array {

@@ -92,7 +92,7 @@ class SalesChannelCreateCommand extends Command
                 $input->getOption('navigationCategoryId'),
                 null,
                 $this->getAllActiveLanguageIds($context),
-                $input->getOption('shippingMethodId'),
+                $input->getOption('shippingMethodId') ? [$input->getOption('shippingMethodId')] : null,
                 $this->getAllIdsOf('payment_method', $context),
                 $this->getAllIdsOf('country', $context),
                 $this->getSalesChannelConfiguration($input, $output),
@@ -135,11 +135,18 @@ class SalesChannelCreateCommand extends Command
         return Defaults::SALES_CHANNEL_TYPE_API;
     }
 
+    /**
+     *
+     * @return array<null>
+     */
     protected function getSalesChannelConfiguration(InputInterface $input, OutputInterface $output): array
     {
         return [];
     }
 
+    /**
+     * @return array<mixed>
+     */
     protected function getAllIdsOf(string $entity, Context $context): array
     {
         $repository = $this->definitionRegistry->getRepository($entity);
@@ -148,6 +155,9 @@ class SalesChannelCreateCommand extends Command
         return $ids->getIds();
     }
 
+    /**
+     * @return array<mixed>
+     */
     protected function getAllActiveLanguageIds(Context $context): array
     {
         $criteria = new Criteria();

@@ -10,11 +10,25 @@
         }
     ],
     "require": {
-        "shopware/core": "~6.4.8"
+        "shopware/core": "6.4.*@dev",
+        "shopware/storefront": "6.4.*@dev",
+        "shopware/administration": "6.4.*@dev",
+        "shopware/elasticsearch": "6.4.*@dev"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~9.5.17",
+        "symfony/phpunit-bridge": "~5.4.0",
+        "phpstan/extension-installer": "^1.1.0",
+        "phpstan/phpstan": "~1.6.8",
+        "phpstan/phpstan-doctrine": "~1.3.4",
+        "phpstan/phpstan-phpunit": "~1.1.1",
+        "phpstan/phpstan-symfony": "~1.1.8",
+        "kubawerlos/php-cs-fixer-custom-fixers": "2.5.0",
+        "symplify/easy-coding-standard": "9.3.15"
     },
     "conflict": {
-        "shopware/storefront": "<6,>=7",
-        "shopware/administration": "<6,>=7",
+        "shopware/storefront": "<6.3.5.0,>=7",
+        "shopware/administration": "<6.3.5.0,>=7",
         "swag/i18n-bosnian": "*",
         "swag/i18n-czech": "*",
         "swag/i18n-danish": "*",
@@ -62,5 +76,25 @@
     "suggest": {
         "shopware/administration": "Allows you to to set up the extension easily",
         "shopware/storefront": "This extension also offers translations for the Shopware Storefront"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/package-versions-deprecated": true,
+            "bamarni/composer-bin-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "scripts": {
+        "phpstan": [
+            "@php tests/TestBootstrap.php",
+            "phpstan"
+        ]
+    },
+    "repositories": {
+        "platform-packages": {
+            "type": "path",
+            "url": "../../../src/*",
+            "canonical": true
+        }
     }
 }

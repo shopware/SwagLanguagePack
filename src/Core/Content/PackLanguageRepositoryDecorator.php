@@ -60,21 +60,33 @@ class PackLanguageRepositoryDecorator implements EntityRepositoryInterface
         return $this->inner->clone($id, $context, $newId, $behavior);
     }
 
+    /**
+     * @param array<mixed> $data
+     */
     public function update(array $data, Context $context): EntityWrittenContainerEvent
     {
         return $this->inner->update($data, $context);
     }
 
+    /**
+     * @param array<mixed> $data
+     */
     public function upsert(array $data, Context $context): EntityWrittenContainerEvent
     {
         return $this->inner->upsert($data, $context);
     }
 
+    /**
+     * @param array<mixed> $data
+     */
     public function create(array $data, Context $context): EntityWrittenContainerEvent
     {
         return $this->inner->create($data, $context);
     }
 
+    /**
+     * @param array<mixed> $ids
+     */
     public function delete(array $ids, Context $context): EntityWrittenContainerEvent
     {
         return $this->inner->delete($ids, $context);

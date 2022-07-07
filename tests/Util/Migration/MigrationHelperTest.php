@@ -193,6 +193,11 @@ SQL;
         return (bool) $this->connection->executeQuery($sql)->fetch();
     }
 
+    /**
+     * @param array<int, string> $tables
+     * @return array<string, int>
+     * @throws \Doctrine\DBAL\Exception
+     */
     private function getTableCounts(array $tables): array
     {
         $results = [];
@@ -211,7 +216,8 @@ SQL;
     }
 
     /**
-     * @return MockObject|Connection
+     * @param array<string, string> $locales
+     * @return Connection|MockObject
      */
     private function prepareLocaleConnectionMock(array $locales)
     {

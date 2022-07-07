@@ -28,6 +28,9 @@ class PackLanguageDefinition extends EntityDefinition
         return self::ENTITY_NAME;
     }
 
+    /**
+     * @return array<string, bool>
+     */
     public function getDefaults(): array
     {
         return [

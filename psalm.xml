@@ -1,82 +1,50 @@
 <?xml version="1.0"?>
 <psalm
-        cacheDirectory="var/cache/psalm"
-        autoloader="../../../vendor/autoload.php"
-        findUnusedVariablesAndParams="true"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns="https://getpsalm.org/schema/config"
-        xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd">
+    cacheDirectory="var/cache/psalm"
+    findUnusedVariablesAndParams="true"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="https://getpsalm.org/schema/config"
+    xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
+    autoloader="vendor/shopware/core/DevOps/StaticAnalyze/PHPStan/phpstan-bootstrap.php"
+>
     <projectFiles>
         <directory name="src"/>
         <directory name="tests"/>
         <ignoreFiles>
-            <directory name="../../../platform"/> <!-- prevents to check shopware -->
-            <directory name="../../../vendor"/> <!-- prevents to check vendors -->
+            <directory name="vendor"/> <!-- would otherwise inspect vendor -->
+            <directory name="../../../src/"/> <!-- platform/src -->
+            <file name="tests/TestBootstrapper.php" />
         </ignoreFiles>
     </projectFiles>
 
+    <plugins>
+        <pluginClass class="Psalm\SymfonyPsalmPlugin\Plugin"/>
+        <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>
+    </plugins>
+
+    <forbiddenFunctions>
+        <function name="dump"/>
+        <function name="dd"/>
+        <function name="var_dump"/>
+        <function name="error_log"/>
+    </forbiddenFunctions>
+
     <issueHandlers>
-        <DeprecatedClass>
-            <errorLevel type="info">
-                <referencedClass name="Doctrine\DBAL\FetchMode"/>
-            </errorLevel>
-        </DeprecatedClass>
-
-        <DeprecatedMethod>
-            <errorLevel type="info">
-                <referencedMethod name="Doctrine\DBAL\Connection::fetchColumn"/>
-                <referencedMethod name="Doctrine\DBAL\Driver\ResultStatement::fetchColumn"/>
-                <referencedMethod name="Doctrine\DBAL\Driver\ResultStatement::fetch"/>
-                <referencedMethod name="Doctrine\DBAL\Driver\ResultStatement::fetchAll"/>
-            </errorLevel>
-        </DeprecatedMethod>
-
-        <DeprecatedConstant>
-            <errorLevel type="info">
-                <!-- <deprecated> tag:v3.0.0 - remove with min Version of Shopware 6.5.0 -->
-                <file name="tests/Core/Framework/DataAbstractionLayer/Write/Validation/SalesChannel*ValidatorTest.php"/>
-            </errorLevel>
-        </DeprecatedConstant>
-
-        <MoreSpecificImplementedParamType>
-            <errorLevel type="info">
-                <file name="src/**/*Collection.php"/>
-            </errorLevel>
-        </MoreSpecificImplementedParamType>
-
-        <MissingConstructor>
-            <errorLevel type="info">
-                <file name="src/**/*Entity.php"/>
-            </errorLevel>
-        </MissingConstructor>
-
-        <InternalMethod>
-            <errorLevel type="info">
-                <referencedMethod name="Shopware\Core\Framework\Context::createDefaultContext"/>
-                <referencedMethod name="PHPUnit\Framework\MockObject\Builder\InvocationMocker::willReturn"/>
-                <referencedMethod name="PHPUnit\Framework\MockObject\Builder\InvocationMocker::withConsecutive"/>
-                <referencedMethod name="PHPUnit\Framework\MockObject\Builder\InvocationMocker::method"/>
-            </errorLevel>
-        </InternalMethod>
-
-        <PossiblyInvalidArgument>
-            <errorLevel type="info">
-                <directory name="tests/"/>
-            </errorLevel>
-        </PossiblyInvalidArgument>
-
-        <PossiblyUndefinedMethod>
-            <errorLevel type="info">
-                <directory name="tests/"/>
-            </errorLevel>
-        </PossiblyUndefinedMethod>
-
-        <UnresolvableInclude>
+        <PropertyNotSetInConstructor errorLevel="info" />
+        <MissingFile>
             <errorLevel type="info">
                 <file name="tests/TestBootstrap.php"/>
             </errorLevel>
-        </UnresolvableInclude>
-
-        <PropertyNotSetInConstructor errorLevel="info"/>
+        </MissingFile>
+        <UnimplementedInterfaceMethod errorLevel="info">
+            <errorLevel type="info">
+                <file name="tests/ShopwarePluginClassTest.php" />
+            </errorLevel>
+        </UnimplementedInterfaceMethod>
+        <UndefinedDocblockClass>
+            <errorLevel type="suppress">
+                <referencedClass name="UnitEnum" />
+            </errorLevel>
+        </UndefinedDocblockClass>
     </issueHandlers>
 </psalm>

@@ -203,6 +203,10 @@ SQL;
         return (bool) $result->fetch();
     }
 
+    /**
+     * @return array<mixed>
+     * @throws \Doctrine\DBAL\Exception
+     */
     private function getLocales(): array
     {
         $sql = <<<SQL
@@ -232,6 +236,10 @@ SQL;
         return $enhancedLocales;
     }
 
+    /**
+     * @param array<mixed> $locales
+     * @return array<mixed>
+     */
     private function getMissingLocales(array $locales): array
     {
         $supportedLanguages = SwagLanguagePack::SUPPORTED_LANGUAGES;
@@ -243,6 +251,11 @@ SQL;
         );
     }
 
+    /**
+     * @param array<mixed> $locales
+     * @return array<mixed>
+     * @throws \Doctrine\DBAL\Exception
+     */
     private function createPackLanguageData(array $locales): array
     {
         $sql = <<<SQL

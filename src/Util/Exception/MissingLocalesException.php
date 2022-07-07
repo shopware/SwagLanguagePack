@@ -11,6 +11,9 @@ use Shopware\Core\Framework\ShopwareHttpException;
 
 class MissingLocalesException extends ShopwareHttpException
 {
+    /**
+     * @param array<mixed> $localeCodes
+     */
     public function __construct(array $localeCodes)
     {
         parent::__construct(

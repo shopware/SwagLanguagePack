@@ -25,7 +25,7 @@
         "required": "*",
         "requiredFields": "Polja označena zvjezdicama (*) su obavezna.",
         "privacyTitle": "Privatnost",
-        "privacyNotice": "Pročitao/la sam <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Data protection information\">informacije o zaštiti podataka</a>.",
+        "privacyNotice": "Odabirom nastavka potvrđujete da ste pročitali naše <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%privacyUrl%\" href=\"%privacyUrl%\" title=\"Data protection information\">informacije o zaštiti podataka</a> i prihvatili naša <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%tosUrl%\" href=\"%tosUrl%\" title=\"general terms and conditions\">opća pravila i odredbe</a>.",
         "privacyLink": "Pravila o privatnosti",
         "imprintLink": "Otisak",
         "404ErrorPageHeader": "Stranica nije pronađena",
@@ -62,24 +62,15 @@
         "FRAMEWORK__INVALID_UUID": "Odabrani način plaćanja ne postoji.",
         "CHECKOUT__UNKNOWN_PAYMENT_METHOD": "Odabrani način plaćanja ne postoji.",
         "productNotFound": "Proizvod \"%number%\" nije pronađen.",
-        "payment-method-blocked": "Plaćanje putem %name% nije dostupno.",
-        "shipping-address-blocked": "Dostava na odabranu adresu nije moguća.",
-        "shipping-address-invalid": "Odabrana adresa za dostavu nije valjana ili nepotpuna. Molimo provjerite svoje unose.",
-        "billing-address-blocked": "Naplata na odabranu adresu nije moguća.",
-        "billing-address-invalid": "Odabrana adresa za naplatu nije valjana ili nepotpuna. Molimo provjerite svoje unose.",
         "VIOLATION::TOO_SHORT_ERROR": "%field% je prekratak.",
         "product-not-found": "Proizvod nije pronađen.",
         "message-403-ajax": "Vaša sesija je istekla. Molimo da ponovo učitate stranicu i pokušate ponovo.",
         "message-403": "Vaša sesija je istekla. Molimo da se vratite na zadnju stranicu i pokušate ponovo.",
         "product-out-of-stock": "%name% trenutno nije dostupno.",
         "auto-promotion-not-found": "Promocija \"%name%\" više nije važeća!",
-        "captcha": {
-            "basic-captcha-invalid": "Captcha je nevažeća. Molimo provjerite svoje unose."
-        }
+        "rateLimitExceeded": "Previše zahtjeva. Pričekajte %seconds% sekundi prije nego što pokušate ponovo."
     },
     "account": {
-        "externalPaymentCanceled": "Primili smo vašu narudžbu, ali plaćanje je prekinuto. Promijenite način plaćanja ili pokušajte ponovno",
-        "externalPaymentFailure": "Primili smo vašu narudžbu, ali nismo bili u mogućnosti obraditi vašu uplatu, molimo vas da promijenite način plaćanja ili pokušajte ponovo",
         "confirmationIsAlreadyDone": "Ili je adresa e-pošte već potvrđena ili je URL nevažeći.",
         "doubleOptInMailConfirmationSuccessfully": "Hvala vam što ste potvrdili svoju adresu e-pošte! Sada možete dovršiti vašu narudžbu.",
         "doubleOptInRegistrationSuccessfully": "Hvala što ste se registrovali! Vaš račun je uspješno otključan.",
@@ -186,7 +177,6 @@
         "profileRecoverPasswordInfo": "Poslat ćemo vam potvrdni e-mail. Kliknite na link koji ćete dobiti putem e-maila da biste promijenili vašu lozinku.",
         "profileRecoverPasswordSubmit": "Pošalji e-mail",
         "profileSaveChanges": "Spremi promjene",
-        "profileDelete": "<a href=\"%target%\" data-toggle=\"modal\" data-target=\"%target%\">Kliknite ovdje</a> da biste izbrisali sve vaše osobne podatke",
         "profileDeleteAlert": "Nakon brisanja ličnih podataka o korisničkom računu, unosi biltena i recenzije više vam neće biti dostupni. Imajte na umu da će evidencija o svim nalozima biti zadržana, međutim, kako bi se ispunili zakonski propisi.",
         "profileDeleteConfirm": "Da li zaista želite da izbrišete svoj korisnički račun?",
         "profileDeleteModalTitle": "Korisnički račun",
@@ -244,7 +234,6 @@
         "editOrderCancelOrderModalBodyQuestion": "Jeste li sigurni da ipak želite otkazati narudžbu?",
         "editOrderCancelOrderModalFooterButton": "Otkazati narudžbu",
         "editOrderCancelOrderModalFooterButtonBack": "Nazad",
-        "editOrderPaymentNotChangeable": "Nije moguće promijeniti trenutni način plaćanja! Postoji rabat ili slična promotivna pogodnost vezana za način plaćanja koji bi se gubio promjenom. Otkažite narudžbu i ponovo naručite.",
         "orderNumber": "Broj narudžbe:",
         "orderItemColumnNumber": "Broj narudžbe:",
         "orderItemColumnPaymentMethod": "Način plaćanja",
@@ -366,8 +355,6 @@
         "confirmSubmit": "Naručite",
         "confirmTermsHeader": "Uvjeti, odredbe i pravila otkazivanja narudžbe",
         "confirmRevocationNotice": "Molimo da imate na umu našu politiku otkazivanja narudžbe.",
-        "confirmTerms": "Pročitao sam i prihvatio <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"general terms and conditions\">opći uvjeti</a>.",
-        "confirmTermsReminder": "Već ste prihvatili <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"general terms and conditions\">općih uvjeta</a>.",
         "finishInfoPayment": "Način plaćanja:",
         "finishInfoShipping": "Način dostave:",
         "finishHeader": "Hvala vam za vašu narudžbu na %shop%!",
@@ -428,9 +415,6 @@
         "filterRatingAndMore": "min. %points%/%maxPoints%",
         "filterRangeMinLabel": "Minimalno",
         "filterRangeMaxLabel": "Maksimalno",
-        "filterRangeActiveMinLabel": "Cijena od",
-        "filterRangeActiveMaxLabel": "Cijena do",
-        "filterRangeErrorMessage": "Minimalna cijena ne smije biti veća od maksimalne cijene.",
         "filterSubmitText": "Filter",
         "defaultProductSortingLabel": "Ime, uzlazno",
         "disabledFilterTooltip": "Ovaj filter ne prikazuje nikakve daljnje rezultate u kombinaciji s odabranim filterima.",
@@ -551,21 +535,14 @@
         "informationHeadline": "Informacije",
         "newsletterHeadline": "Bilten",
         "serviceHotline": "Podrška i savjetovanje putem: <a href=\"tel:+49180000000\">0180 - 000000</a> Pon-Pet, 09:00-17:00",
-        "serviceContactLink": "Ili putem našeg <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"kontakt obrazac\">kontakt obrazac</a>.",
         "newsletterInput": "Vaša e-mail adresa",
         "newsletter": "Pretplatite se na naš redovni bilten i budite uvijek u tijeku s najnovijim proizvodima i posebnim ponudama.",
-        "includeVat": "* Sve cijene uklj. PDV plus <a data-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">troškovi dostave</a> i moguće troškove isporuke, ukoliko nije drugačije navedeno.",
-        "excludeVat": "* Sve cijene osim PDV plus <a data-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">troškovi dostave</a> i moguće troškove isporuke, ukoliko nije drugačije navedeno.",
         "copyrightInfo": "Realizirano sa Shopware-om"
     },
     "captcha": {
-        "googleReCaptcha": {
-            "dataProtectionInformation": "Ova stranica je zaštićena reCAPTCHA i primjenjuju se Google\n<a href=\"https://policies.google.com/privacy\">Pravila o privatnosti</a> i\n<a href=\"https://policies.google.com/terms\">Uvjeti pružanja usluge</a>."
-        },
         "basicCaptchaLabel": "Molimo unesite znakove prikazane iznad*"
     },
     "cookie": {
-        "message": "Ova web stranica koristi kolačiće kako bi osigurala najbolje moguće iskustvo. <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"More information\">Više informacija...</a>",
         "deny": "Odbij",
         "configure": "Podesi",
         "configuration": "Postavke",
@@ -577,7 +554,6 @@
         "groupRequiredSession": "Sesija",
         "groupRequiredCsrf": "Zaštita CSRF-a",
         "groupRequiredTimezone": "Vremenska zona",
-        "groupRequiredCaptcha": "Integracija Captcha",
         "groupStatistical": "Statistike",
         "groupStatisticalDescription": "Kolačići koji se koriste za statistiku i metriku učinka trgovine.",
         "groupStatisticalGoogleAnalytics": "Google Analytics",
@@ -593,7 +569,6 @@
             "feature": {
                 "label": {
                     "manufacturerNumber": "Broj proizvođača:",
-                    "ean": "EAN:",
                     "weight": "Težina:",
                     "width": "Širina:",
                     "height": "Visina:",
@@ -610,7 +585,6 @@
         },
         "cms": {
             "vimeo": {
-                "privacyNotice": "Pregledom videozapisa slažete se da će vaši podaci biti preneseni na %platform% i da ste pročitali <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Privacy policy\">Pravila o privatnosti</a>.",
                 "acceptButtonLabel": "Prihvati"
             }
         }

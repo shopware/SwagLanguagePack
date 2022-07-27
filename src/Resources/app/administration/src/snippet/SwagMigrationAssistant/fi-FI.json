@@ -232,7 +232,8 @@
                     "content": "Valitse siirrettävät tiedot. On mahdollista sisällyttää myös plugin tiedot, jos plugin on jo saatavilla Shopware 6. Tarkista liitännäisen saatavuus Shopware-tililläsi."
                 },
                 "migrationOverview": {
-                    "title": "Siirron vaiheet"
+                    "title": "Siirron vaiheet",
+                    "content": "1. Automaattinen prosessi tarkistaa valitut tiedot puuttuvien tehtävien varalta. Valmistaudu suorittamaan automaattinen prosessi lisäämällä manuaalisia tehtäviä.{linebreak}2. Kauppasi tiedot luetaan ja osoitetaan.{linebreak}3. Kaikki valitut ja oikein määritetyt tiedot siirretään Shopware 6: een.{linebreak}4. Mediatuotteita ladataan."
                 }
             },
             "selectDataCard": {
@@ -255,7 +256,7 @@
                     "basicSettings": "Perustiedot",
                     "newsletterRecipient": "Uutiskirjeen vastaanottaja",
                     "productReviews": "Tuotearvostelut",
-                    "seoUrls": "Seo-urlit",
+                    "seoUrls": "SEO-URL-osoitteet",
                     "promotions": "kampanjat",
                     "cms": "Asettelut",
                     "customerWishlists": "Toivelistat"
@@ -555,6 +556,9 @@
                     "title": "DataSet ei löytynyt",
                     "description": "Profiilin \"{profileName}\" ja entiteetin \"{entity}\" tietojoukkoa ei löydy. Yksikköä, jonka tunnus on \"{sourceId}\", ei voitu käsitellä."
                 },
+                "SWAG_MIGRATION_ENTITY_ALREADY_EXISTS": {
+                    "title": "{entity} yhteisö on jo olemassa"
+                },
                 "SWAG_MIGRATION_ENTITY_FIELD_REASSIGNED": {
                     "description": "{entity} entiteetti, jonka lähdetunnus on \"{sourceId}\", sai kentän \"{emptyField}\" korvattua sanoilla \"{replacementField}”."
                 },
@@ -656,7 +660,8 @@
     "global": {
         "error-codes": {
             "SWAG_MIGRATION_CONNECTION_NAME_ALREADY_EXISTS": "Yhteyden nimi on jo olemassa.",
-            "SWAG_MIGRATION_CONNECTION_NAME_TO_SHORT": "Yhteyden nimen on oltava vähintään 6 merkkiä pitkä."
+            "SWAG_MIGRATION_CONNECTION_NAME_TO_SHORT": "Yhteyden nimen on oltava vähintään 6 merkkiä pitkä.",
+            "SWAG_MIGRATION_INVALID_API_KEY": "API-avaimella ei ole oikeaa pituutta ({length}/40 merkkiä)."
         }
     }
 }

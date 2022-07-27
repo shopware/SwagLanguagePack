@@ -8,18 +8,27 @@
                 "storefrontDomain": "Butiks domæne",
                 "storefrontDomainCurrency": "Butiks valuta",
                 "productStream": "Dynamisk produktgruppe",
-                "noDynamicProductGroupFound": "Du er nødt til at oprette en dynamisk produktgruppe for at kunne bruge salgskanalen til social shopping. Opret en dynamisk produktgruppe.",
+                "noDynamicProductGroupFound": "Du skal oprette en dynamisk produktgruppe for at kunne bruge Social Shopping Sales Channel. Opret en dynamisk produktgruppe.",
                 "createDynamicProductGroup": "Opret en dynamisk produktgruppe",
                 "tabErrors": "Ikke-offentliggjorte produkter",
                 "tabIntegration": "Integration",
-                "intervalHelpText": "Intervallet er begrænset af kørselsintervallet for den planlagte opgave „ProductExportGenerateTask“. Dette er som standard indstillet til én gang om dagen."
+                "intervalHelpText": "Intervallet er begrænset af kørselsintervallet for den planlagte opgave „ProductExportGenerateTask“. Dette er som standard indstillet til én gang om dagen.",
+                "template": {
+                    "tabTemplate": "Skabelon",
+                    "inputHeaderLabel": "Overskriftsrække",
+                    "inputBodyLabel": "Produktrække",
+                    "inputFooterLabel": "Footer række",
+                    "buttonTestLabel": "Test skabelon",
+                    "buttonPreviewLabel": "Opret forhåndsvisning",
+                    "buttonResetLabel": "Nulstil skabelon"
+                }
             },
             "facebook": {
                 "titleFacebookSettings": "Yderligere indstillinger",
                 "name": "Facebook",
                 "description": "Sælg dine produkter på Facebook",
-                "googleProductDefaultCategory": "Standard Google produkt kategori Id",
-                "helpTextGoogleProductDefaultCategory": "Facebook bruger Google-produktkategori-id til at kategorisere produkterne. Angiv Google-produktkategorien, der skal bruges, hvis der ikke er indstillet nogen Google-produktkategori for produktkategorien.",
+                "googleProductDefaultCategory": "Standard Google-produktkategori-id",
+                "helpTextGoogleProductDefaultCategory": "Facebook bruger Google-produktkategori-id'et til at kategorisere sine produkter. Angiv den Google-produktkategori, der skal bruges, hvis der ikke er angivet nogen Google-produktkategori for produktkategorien.",
                 "includeVariants": "Importer varianter som enkeltstående produkter",
                 "interval": "Interval",
                 "generateByCronjob": "Generer via scheduler",
@@ -31,8 +40,8 @@
                 "titleInstagramSettings": "Yderligere indstillinger",
                 "name": "Instagram",
                 "description": "Sælg produkter på Instagram",
-                "googleProductDefaultCategory": "Standard Google produkt kategori Id",
-                "helpTextGoogleProductDefaultCategory": "Instagram bruger Google produktkategori-id til at kategorisere produkterne. Angiv Google-produktkategorien, der skal bruges, hvis der ikke er indstillet nogen Google-produktkategori for produktkategorien.",
+                "googleProductDefaultCategory": "Standard Google-produktkategori-id",
+                "helpTextGoogleProductDefaultCategory": "Instagram bruger Google-produktkategori-id'et til at kategorisere sine produkter. Angiv den Google-produktkategori, der skal bruges, hvis der ikke er angivet nogen Google-produktkategori for produktkategorien.",
                 "includeVariants": "Importer varianter som enkeltstående produkter",
                 "interval": "Interval",
                 "generateByCronjob": "Generer via planlægsningsfunktion",
@@ -45,9 +54,9 @@
                 "description": "Sælg dine produkter på Google Shopping",
                 "titleGoogleShoppingSettings": "Yderligere indstillinger",
                 "titleGoogleShoppingGuide": "Integration guide",
-                "googleProductDefaultCategory": "Standard Google produkt kategori Id",
+                "googleProductDefaultCategory": "Standard Google-produktkategori-id",
                 "googleProductCategoryLinkLabel": "Support side til Google produktkategorier",
-                "helpTextGoogleProductDefaultCategory": "Google bruger Google produktkategori-id til at kategorisere produkterne. Angiv Google-produktkategorien, der skal bruges, hvis der ikke er indstillet nogen Google-produktkategori for produktkategorien.",
+                "helpTextGoogleProductDefaultCategory": "Google bruger Google-produktkategori-id'et til at kategorisere sine produkter. Angiv den Google-produktkategori, der skal bruges, hvis der ikke er angivet nogen Google-produktkategori for produktkategorien.",
                 "includeVariants": "Importer varianter som enkeltstående produkter",
                 "interval": "Interval",
                 "generateByCronjob": "Generer via planlægsningsfunktion",
@@ -82,25 +91,23 @@
         },
         "integration": {
             "stepByStepTitle": "Trin for trin",
-            "accessUrlChangeTitle": "URL-adressen er ændret",
-            "accessUrlChangeContent": "URL-adressen er ændret med version 2.0.0 af Social Shopping. En permanent omdirigering vil være tilgængelig indtil næste større version udgivelse. Kontroller, om du har brug for at opdatere URL-adressen, uanset hvor du har indtastet den.",
             "facebook": {
                 "cardTitle": "Facebook-forbindelse",
                 "introduction": {
                     "title": "Sådan gør du: Opsætning og tilslutning",
                     "description": "For at få vist produkter på en Instagram-virksomhedsside skal du først oprette en Instagram-forretningskonto. Alt andet forklares i trinvis vejledning nedenfor."
                 },
-                "stepByStep": "<li>Opret en konto på <a href=\"https://facebook.com\">Facebook</a></li><li>Opret en virksomhedskonto på <a href=\"https://business.facebook.com\">business.facebook.com</a></li><li>Naviger til katalogadministrator</li><li>Tilføj et nyt katalog til din butik</li><li>Konfiguration af kataloget: Vælg produkt i information til datafeed</li><li>Skift til datakilde</li><li>Tilføj produkter</li><li>Vælg datafeed</li><li>Konfigurer datafeed. Kopier og indsæt URL'en til datafeed (nedenfor)</li>",
-                "dataFeedLabel": "Data feed"
+                "stepByStep": "<li>Opret en konto på <a href=\"https://facebook.com\">Facebook</a></li><li>Opret en virksomhedskonto på <a href=\"https://business.facebook.com\">business.facebook.com</a></li><li>Naviger til kataloget manager</li><li>Tilføj et nyt katalog til din butik</li><li>Katalogets konfiguration: Vælg produkt i information til datafedet</li><li>Skift til datakilde</li><li>Tilføj produkter</li><li>Vælg datafeed</li><li>Konfigurer datafedet. Kopier og indsæt datafeedets URL (nedenfor)</li>",
+                "dataFeedLabel": "Data-feed"
             },
             "google-shopping": {
                 "cardTitle": "Google-forbindelse",
                 "introduction": {
                     "title": "Sådan gør du: Opsætning og tilslutning",
-                    "description": "Denne salgskanal genererer et XML-feed, som du kan bruge på Google til automatisk at synkronisere produkter i dit katalog. For at gøre dette skal du indsætte feed-URL'en på Google og definere, hvor ofte Google skal downloade feedet. Alt andet forklares i trinvis vejledning nedenfor"
+                    "description": "Denne salgskanal genererer et XML-feed, som du kan bruge på Google til automatisk at synkronisere produkter i dit katalog. For at gøre dette skal du deponere feed-URL'en på Google og definere, hvor ofte Google skal downloade feedet. Alt andet er forklaret i trin for trin guide nedenfor"
                 },
-                "stepByStep": "<li>Åbn <a href=\"https://merchants.google.com\">Google Merchant Center</a></li><li>Opret et nyt feed under produkter>Feeds</li><li>Vælg et land og et sprog</li><li>Navngiv dit feed og vælg \"planlagte hentninger\"</li><li>Navngiv din feedfil, og indsæt eksport url (nedenfor)</li><li>Åbn derefter feedet og klik på \"hent nu\"</li>",
-                "dataFeedLabel": "Data feed"
+                "stepByStep": "<li>Åbn <a href=\"https://merchants.google.com\">Google Merchant Center</a></li><li>Opret et nyt feed i Produkter > Feeds</li><li>Vælg et land og et sprog</li><li>Navngiv dit feed og vælg „planlagte henter“</li><li>Navngiv din feed-fil og indsæt eksportens URL (nedenfor)</li><li>Derefter skal du åbne foderet og klikke på „hente nu“</li>",
+                "dataFeedLabel": "Data-feed"
             },
             "instagram": {
                 "cardTitle": "Instagram-forbindelse",
@@ -108,17 +115,17 @@
                     "title": "Sådan gør du: Opsætning og tilslutning",
                     "description": "For at få vist produkter på en facebook-virksomhedsside skal du først oprette en facebook-forretningskonto. Alt andet forklares i trinvis vejledning nedenfor."
                 },
-                "stepByStep": "<li>Opret en virksomhedskonto på <a href=\"https://business.facebook.com\">business.facebook.com</a></li><li>Naviger til katalogadministrator</li><li>Tilføj et nyt katalog til din butik</li><li>Konfiguration af kataloget: Vælg produkt i information til datafeed</li><li>Skift til datakilde</li><li>Tilføj produkter</li><li>Vælg datafeed</li><li>Konfigurer datafeed. Kopier og indsæt URL'en til datafeed (nedenfor)</li><li>Opret om nødvendigt en <a href=\"https://instagram.com\">Instagram</a>-konto</li><li>Åbn dine Instagram-indstillinger og klik på \"Skift til professionel profil\" og vælg \"Forretning\"</li><li>Følg instruktionerne for at forbinde dig Facebook Salgskanaler</li>\n",
-                "dataFeedLabel": "Data feed"
+                "stepByStep": "<li>Opret en virksomhedskonto på <a href=\"https://business.facebook.com\">business.facebook.com</a></li><li>Naviger til katalogadministration</li><li>Tilføj et nyt katalog til din butik</li><li>Konfiguration af kataloget: Vælg produkt i information til datafeedet</li><li>Skift til datakilde</li><li>Tilføj produkter</li><li>Vælg datafeed</li><li>Konfigurer datafeedet. Kopiér og indsæt datafeedets URL (nedenfor)</li><li>Opret om nødvendigt en <a href=\"https://instagram.com\">Instagram</a>-konto</li><li>Åbn dine Instagram-indstillinger og klik på \"Skift til professionel profil\" og vælg \"Virksomhed\"</li><li>Følg instruktionerne for at forbinde dine facebook-salgskanaler</li>\n",
+                "dataFeedLabel": "Data-feed"
             },
             "pinterest": {
-                "cardTitle": "Pinterest forbindelse",
+                "cardTitle": "Pinterest-forbindelse",
                 "introduction": {
                     "title": "Sådan gør du: Opsætning og tilslutning",
                     "description": "Denne salgskanal genererer metadata, der giver dig mulighed for at vise dine produkter som en pin på Pinterest. Du kan finde mere information om dette emne i trinvis vejledning nedenfor."
                 },
                 "stepByStep": "<li>Klik på \"Valider på Pinterest\"</li><li>Log ind eller opret en konto på <a href=\"https://pinterest.com\">Pinterest</a></li><li>Indtast hvilken som helst produkt-URL fra butiksområdet og klik på \"Valider\"</li>",
-                "dataFeedLabel": "Data feed"
+                "dataFeedLabel": "Data-feed"
             }
         }
     }

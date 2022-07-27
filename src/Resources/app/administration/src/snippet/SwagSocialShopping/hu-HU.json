@@ -8,18 +8,27 @@
                 "storefrontDomain": "Storefront domain",
                 "storefrontDomainCurrency": "Storefront pénznem",
                 "productStream": "Dinamikus termékcsoport",
-                "noDynamicProductGroupFound": "Dinamikus termékcsoportot kell létrehoznia a közösségi vásárlási értékesítési csatorna használatához. Hozzon létre egy dinamikus termékcsoportot.",
+                "noDynamicProductGroupFound": "A Social Shopping Sales Channel használatához dinamikus termékcsoportot kell létrehoznia. Kérjük, hozzon létre egy dinamikus termékcsoportot.",
                 "createDynamicProductGroup": "Dinamikus termékcsoport létrehozása",
                 "tabErrors": "Nem publikált termékek",
                 "tabIntegration": "integráció",
-                "intervalHelpText": "Az intervallumot a „ProductExportGenerateTask” ütemezett feladat futási intervalluma korlátozza. Ez alapértelmezés szerint napi egyszeri értékre van állítva."
+                "intervalHelpText": "Az intervallumot a „ProductExportGenerateTask” ütemezett feladat futási intervalluma korlátozza. Ez alapértelmezés szerint napi egyszeri értékre van állítva.",
+                "template": {
+                    "tabTemplate": "Template",
+                    "inputHeaderLabel": "Fejlécsor",
+                    "inputBodyLabel": "Terméksor",
+                    "inputFooterLabel": "Lábléc sor",
+                    "buttonTestLabel": "Tesztsablon",
+                    "buttonPreviewLabel": "Előnézet generálása",
+                    "buttonResetLabel": "Sablon visszaállítása"
+                }
             },
             "facebook": {
                 "titleFacebookSettings": "További beállítások",
                 "name": "Facebook",
                 "description": "Termékek eladása Facebook-oldalon",
-                "googleProductDefaultCategory": "Google termékkategória alapértelmezett azonosító",
-                "helpTextGoogleProductDefaultCategory": "A Facebook a Google termékkategória azonosítóját használja termékei kategorizálására. Kérjük, adja meg a használni kívánt Google-termékkategóriát, ha a termékkategóriához nincs megadva Google termékkategória.",
+                "googleProductDefaultCategory": "Alapértelmezett Google termékkategória-azonosító",
+                "helpTextGoogleProductDefaultCategory": "A Facebook a Google termékkategória-azonosítóját használja termékeinek kategorizálásához. Kérjük, adja meg a használni kívánt Google termékkategóriát, ha a termékkategóriához nem állítottak be Google termékkategóriát.",
                 "includeVariants": "Variációk importálása dedikált",
                 "interval": "Időköz",
                 "generateByCronjob": "Létrehozás ütemezővel",
@@ -31,8 +40,8 @@
                 "titleInstagramSettings": "További beállítások",
                 "name": "Instagram",
                 "description": "Termékek értékesítése Instagram-csatornán",
-                "googleProductDefaultCategory": "Google termékkategória alapértelmezett azonosító",
-                "helpTextGoogleProductDefaultCategory": "Az Instagram a Google termékkategória azonosítóját használja termékei kategorizálására. Kérjük, adja meg a használni kívánt Google-termékkategóriát, ha a termékkategóriához nincs megadva Google termékkategória.",
+                "googleProductDefaultCategory": "Alapértelmezett Google termékkategória-azonosító",
+                "helpTextGoogleProductDefaultCategory": "Az Instagram a Google termékkategória-azonosítóját használja termékeinek kategorizálásához. Kérjük, adja meg a használni kívánt Google termékkategóriát, ha a termékkategóriához nem állítottak be Google termékkategóriát.",
                 "includeVariants": "Variációk importálása dedikált",
                 "interval": "Időköz",
                 "generateByCronjob": "Létrehozás ütemezővel",
@@ -45,9 +54,9 @@
                 "description": "Termékek értékesítése a Google Shopping segítségével",
                 "titleGoogleShoppingSettings": "További beállítások",
                 "titleGoogleShoppingGuide": "Integrációs útmutató",
-                "googleProductDefaultCategory": "Google termékkategória alapértelmezett azonosító",
+                "googleProductDefaultCategory": "Alapértelmezett Google termékkategória-azonosító",
                 "googleProductCategoryLinkLabel": "Támogatási oldal a google termékkategóriákhoz",
-                "helpTextGoogleProductDefaultCategory": "A Google a Google termékkategória azonosítóját használja termékei kategorizálására. Kérjük, adja meg a használni kívánt Google-termékkategóriát, ha a termékkategóriához nincs megadva Google termékkategória.",
+                "helpTextGoogleProductDefaultCategory": "A Google a Google termékkategória-azonosítóját használja termékeinek kategorizálásához. Kérjük, adja meg a használni kívánt Google termékkategóriát, ha a termékkategóriához nem állítottak be Google termékkategóriát.",
                 "includeVariants": "Variációk importálása dedikált",
                 "interval": "Időköz",
                 "generateByCronjob": "Létrehozás ütemezővel",
@@ -71,6 +80,7 @@
                 "product": "Termék",
                 "errors": "hibák"
             },
+            "noErrorsFound": "Az összes terméket hiba nélkül érvényesítették {validationDate}",
             "notValidatedYet": "A termékeket még nem validálták. Kérjük, indítsa el az érvényesítést, hogy ellenőrizze, hogy az összes termék érvényes-e.",
             "validationShowedErrors": "Az utolsó érvényesítés hibákat eredményezett. Ellenőrizze és javítsa ki az alábbi hibákat, és indítsa újra az érvényesítést. Utolsó érvényesítés: {validationDate}",
             "validationRunning": "Az érvényesítés jelenleg fut. A napló automatikusan frissül. Várja meg, amíg az érvényesítés befejeződik.",
@@ -81,32 +91,29 @@
         },
         "integration": {
             "stepByStepTitle": "Lépésről lépésre",
-            "accessUrlChangeTitle": "Az URL megváltozott",
-            "accessUrlChangeContent": "Az URL megváltozott a Social Shopping 2.0.0 verziójával. Az állandó átirányítás a következő főverzió kiadásáig lesz elérhető. Ellenőrizze, hogy frissítenie kell-e az URL-címet bárhol is megadta.",
             "facebook": {
                 "cardTitle": "Facebook kapcsolat",
                 "introduction": {
                     "title": "Hogyan: Beállítás és kapcsolat",
                     "description": "Annak érdekében, hogy termékeket jelenítsen meg egy Instagram üzleti oldalon, először létre kell hoznia egy Instagram üzleti fiókot. Minden mást az alábbi lépésről lépésre ismertetünk."
                 },
-                "stepByStep": "<li>Hozzon létre egy fiókot <a href=\"https://facebook.com\">Facebook</a></li><li>Hozzon létre egy üzleti fiókot az <a href=\"https://business.facebook.com\">business.facebook.com oldalon</a></li><li>Navigáljon a katalóguskezelőhöz</li><li>Új katalógus hozzáadása a Shop</li><li>A katalógus konfigurációja: Válassza ki a terméket az adatfolyamhoz tartozó információkban</li><li>Váltás az adatforrásra</li><li>Termékek hozzáadása</li><li>Válassza ki az adatcsatornát</li><li>Állítsa be az adatcsatornát. Másolja és illessze be az adatcsatorna URL-jét (alább)</li>",
                 "dataFeedLabel": "Adatcsatorna"
             },
             "google-shopping": {
                 "cardTitle": "Google-kapcsolat",
                 "introduction": {
                     "title": "Hogyan: Beállítás és kapcsolat",
-                    "description": "Ez az értékesítési csatorna olyan XML-hírcsatornát generál, amelyet a Google segítségével automatikusan szinkronizálhatja a termékeket a katalógusba. Ehhez be kell helyeznie a hírcsatorna URL-jét a Google-ra, és meg kell határoznia, hogy a Google milyen gyakran töltse le a hírcsatornát. Minden mást az alábbi lépésenkénti útmutatóban magyarázzuk"
+                    "description": "Ez az értékesítési csatorna létrehoz egy XML-hírcsatornát, amelyet a Google-on használhat a termékek automatikus szinkronizálásához a katalógusba. Ehhez be kell fizetnie a hírcsatorna URL-jét a Google-ba, és meg kell határoznia, hogy a Google milyen gyakran töltse le a hírcsatornát. Minden mást az alábbi lépésről lépésre ismertetünk"
                 },
                 "dataFeedLabel": "Adatcsatorna"
             },
             "instagram": {
-                "cardTitle": "Instagram-kapcsolat",
+                "cardTitle": "Instagram kapcsolat",
                 "introduction": {
                     "title": "Hogyan: Beállítás és kapcsolat",
                     "description": "Annak érdekében, hogy termékeket jelenítsen meg egy facebook üzleti oldalon, először létre kell hoznia egy facebook üzleti fiókot. Minden mást az alábbi lépésről lépésre ismertetünk."
                 },
-                "stepByStep": "<li>Hozzon létre üzleti fiókot az <a href=\"https://business.facebook.com\">business.facebook.com</a></li><li>Keresse meg a katalóguskezelőt</li><li>Új katalógus hozzáadása a Shop</li><li>A katalógus konfigurációja: Válassza ki a terméket az adatfolyamhoz tartozó információkban</li><li>Váltás az adatforrásra</li><li>Termékek hozzáadása</li><li>Válassza ki az adatcsatornát</li><li>Állítsa be az adatcsatornát. Másolja és illessze be az adatcsatorna URL-jét (alább)</li><li>Ha szükséges, hozzon létre egy <a href=\"https://instagram.com\">Instagram</a> fiókot</li><li>Nyissa meg a Instagram beállításait, majd kattintson a „Váltás a szakma profilra”, és válassza a „Business”</li><li>Kövesse az utasításokat a facebook értékesítési csatornák</li>\n",
+                "stepByStep": "<li>Hozzon létre üzleti fiókot az <a href=\"https://business.facebook.com\">business.facebook.com oldalon</a></li><li>Keresse meg a katalóguskezelőt</li><li>Új katalógus hozzáadása az üzletéhez</li><li>A katalógus konfigurációja: Válasszon terméket az adatcsatornához</li><li>Váltás adatforrásra</li><li>Termékek hozzáadása</li><li>Adatcsatorna kiválasztása</li><li>Konfigurálja az adatcsatornát. Másolja és illessze be az adatcsatorna URL-jét (lent)</li><li>Ha szükséges, hozzon létre egy <a href=\"https://instagram.com\">Instagram</a> fiókot</li><li>Nyissa meg Instagram beállítások és kattintson a „Váltás professzionális profilra” elemre, és válassza az „Üzleti” lehetőséget</li><li>Kövesse az utasításokat, hogy csatlakozzon facebook értékesítési csatornák</li>\n",
                 "dataFeedLabel": "Adatcsatorna"
             },
             "pinterest": {

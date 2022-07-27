@@ -25,7 +25,7 @@
         "required": "*",
         "requiredFields": "Felter markeret med (*) er påkrævet.",
         "privacyTitle": "Privatliv",
-        "privacyNotice": "Jeg har læst <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Gdpr\">Gdpr dokumentet</a>.",
+        "privacyNotice": "Ved at vælge fortsætte bekræfter du, at du har læst vores <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%privacyUrl%\" href=\"%privacyUrl%\" title=\"Data protection information\">databeskyttelsesoplysninger</a> og accepteret vores <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%tosUrl%\" href=\"%tosUrl%\" title=\"general terms and conditions\">generelle vilkår og betingelser</a>.",
         "privacyLink": "Privatlivspolitik",
         "imprintLink": "Om os",
         "404ErrorPageHeader": "Siden blev ikke fundet",
@@ -36,7 +36,8 @@
         "sortingLabel": "Sortering",
         "next": "Næste",
         "previous": "Forrige",
-        "formSubmit": "Gem"
+        "formSubmit": "Gem",
+        "listPricePreviously": "tidligere %price%"
     },
     "header": {
         "logoLink": "Gå til forsiden",
@@ -62,24 +63,21 @@
         "FRAMEWORK__INVALID_UUID": "Den valgte betalingsmetode er ikke gyldig.",
         "CHECKOUT__UNKNOWN_PAYMENT_METHOD": "Den valgte betalingsmetode er ikke gyldig.",
         "productNotFound": "Produkt \"%number%\" blev ikke fundet.",
-        "payment-method-blocked": "Betaling med %name% er ikke tilgængelig.",
-        "shipping-address-blocked": "Forsendelse til den valgte adresse er ikke muligt.",
-        "shipping-address-invalid": "Den valgte forsendelsesadresse er ikke gyldig eller ufuldstændig. Tjek venligst dine indgange.",
-        "billing-address-blocked": "Fakturering til den valgte adresse er ikke mulig.",
-        "billing-address-invalid": "Den valgte faktureringsadresse er ikke gyldig eller ufuldstændig. Tjek venligst dine indgange.",
         "VIOLATION::TOO_SHORT_ERROR": "%field% er for kort.",
         "product-not-found": "Produktet kunne ikke findes.",
         "message-403-ajax": "Din session er udløbet. Opdater siden og prøv igen.",
         "message-403": "Din session er udløbet. Vælg venligst tilbage til forrige side og prøv igen.",
         "product-out-of-stock": "%name% er ikke tilgængelig i øjeblikket.",
         "auto-promotion-not-found": "Kampagnen \"%name%\" er ikke længere gyldig!",
+        "rateLimitExceeded": "For mange anmodninger. Vent venligst %seconds% sekunder, før du prøver igen.",
         "captcha": {
-            "basic-captcha-invalid": "Captchaen er ugyldig. Tjek venligst dine indgange."
+            "basic-captcha-invalid": "Forkert input. Prøv venligst igen."
         }
     },
     "account": {
-        "externalPaymentCanceled": "Vi modtog din ordre, men betalingen blev afbrudt. Skift din betalingsmetode, eller prøv igen",
-        "externalPaymentFailure": "Vi har modtaget din ordre, men vi var ikke i stand til at behandle din betaling, bedes du ændre betalingsmetoden eller prøve igen",
+        "externalPaymentCanceled": "Vi har modtaget din ordre, men betalingen blev afbrudt. Du bedes ændre din betalingsmetode, eller prøv igen.",
+        "externalPaymentExpired": "Vi har modtaget din ordre, men betalingsprocessen er udløbet. Prøv venligst igen.",
+        "externalPaymentFailure": "Vi har modtaget din ordre, men vi var ikke i stand til at behandle din betaling, skal du ændre betalingsmetoden eller prøve igen.",
         "confirmationIsAlreadyDone": "Enten er email adressen allerede bekræftet eller URLen blevet invalid.",
         "doubleOptInMailConfirmationSuccessfully": "Tak fordi du bekræftede din email. Du kan nu gennemføre dit køb.",
         "doubleOptInRegistrationSuccessfully": "Tak fordi du oprettede en konto! Din konto er nu klar til brug.",
@@ -94,6 +92,7 @@
         "loginPasswordRecover": "Jeg har glemt mit password.",
         "loginSubmit": "Login",
         "loginBadCredentials": "Kunne ikke finde nogen konto der matcher de indtastede oplysninger.",
+        "loginThrottled": "Alt for mange login-forsøg. Vent venligst %seconds% sekunder, før du forsøger at logge ind igen.",
         "registerAdvantagesHeader": "Login fordele:",
         "registerAdvantage1": "Ekspres shopping",
         "registerAdvantage2": "Gem dine data og indstillinger",
@@ -161,6 +160,7 @@
         "overviewChangeShipping": "Redigér forsendelsesadresse",
         "overviewNewestOrderHeader": "Seneste ordre",
         "overviewCustomerGroupRequest": "Adgang til kundegruppe \"%group%\" anmodet om.",
+        "overviewNotAbleToShip": "Vi kan ikke levere til det land, der er gemt i din leveringsadresse.",
         "paymentChangeSubmit": "Redigér",
         "profilePersonalTitle": "Personlige oplysninger",
         "profileMailTitle": "Email adresse",
@@ -186,7 +186,7 @@
         "profileRecoverPasswordInfo": "Vi sender dig en bekræftelsese-mail. Klik på linket i denne e-mail for at ændre din adgangskode.",
         "profileRecoverPasswordSubmit": "Send e-mail",
         "profileSaveChanges": "Gem ændringer",
-        "profileDelete": "<a href=\"%target%\" data-toggle=\"modal\" data-target=\"%target%\">Klik her</a> for at slette alle dine personlige data",
+        "profileDelete": "<a href=\"%target%\" data-toggle=\"modal\" data-bs-toggle=\"modal\" data-target=\"%target%\" data-bs-target=\"%target%\">Klik her</a> for at slette alle dine personlige data",
         "profileDeleteAlert": "Når du har slettet dine personlige data på din kundekonto, vil nyhedsbrev og anmeldelser ikke længere være tilgængelige for dig. Bemærk, at optegnelser over alle ordrer vil blive opbevaret ikke desto mindre for at opfylde lovbestemmelserne.",
         "profileDeleteConfirm": "Vil du virkelig slette din kundekonto?",
         "profileDeleteModalTitle": "Kundekonto",
@@ -244,7 +244,8 @@
         "editOrderCancelOrderModalBodyQuestion": "Er du sikker på du ønsker at annullere ordren?",
         "editOrderCancelOrderModalFooterButton": "Annuller ordre",
         "editOrderCancelOrderModalFooterButtonBack": "Tilbage",
-        "editOrderPaymentNotChangeable": "Kan ikke ændre den aktuelle betalingsmetode! Der er en rabat eller lignende salgsfremmende fordel knyttet til den betalingsmetode, der ville gå tabt ved ændring. Prøv igen eller start forfra.",
+        "editOrderPaymentNotChangeable": "Denne ordre behandles allerede eller har en aktiv rabat bundet til betalingsmetoden, derfor kan du ikke redigere den længere.",
+        "editOrderPaymentNotChangeableWithRefunds": "Denne ordre behandles allerede eller har en aktiv rabat bundet til betalingsmetoden, derfor kan du ikke redigere den længere. Venligst annullere din ordre og ombestille.",
         "orderNumber": "Ordrenummer:",
         "orderItemColumnNumber": "Ordrenummer:",
         "orderItemColumnPaymentMethod": "Betalingsmetode",
@@ -297,6 +298,8 @@
         "cityPlaceholder": "Indtast bynavn...",
         "countryLabel": "Land",
         "countryPlaceholder": "Vælg land...",
+        "countryPostfixNoShipping": "(Levering ikke muligt)",
+        "countryNoShippingAlert": "En levering til dette land er ikke mulig.",
         "countryStateLabel": "Region",
         "countryStatePlaceholder": "Vælg region...",
         "phoneNumberLabel": "Telefonnummer",
@@ -314,6 +317,7 @@
         "addressLoginToggle": "Har du allerede en konto? Log ind her.",
         "addressRegisterCardTitle": "Dine personlige oplysninger",
         "registerGuestmodeLabel": "Opret ikke en kundekonto.",
+        "registerCustomermodeLabel": "Opret en debitorkonto.",
         "cartTitle": "Indkøbskurv",
         "cartHeader": "Indkøbskurv",
         "cartUpdateSuccess": "Indkøbskurven er opdateret",
@@ -328,6 +332,8 @@
         "summaryHeader": "Resumé",
         "lineItemContainerHeadline": "Indeholder",
         "lineItemContainerChangeLink": "forandring",
+        "lineItemShowMore": "mere",
+        "lineItemShowLess": "mindre",
         "cartEmpty": "Din indkøbskurv er tom.",
         "cartHeaderInfo": "Vare",
         "cartHeaderQuantity": "Antal",
@@ -366,8 +372,8 @@
         "confirmSubmit": "Gennemfør ordre",
         "confirmTermsHeader": "Vilkår, betingelser og annulleringspolitik",
         "confirmRevocationNotice": "Vær venlig opmærksom på vores handelsbetingelser.",
-        "confirmTerms": "Jeg har læst og accepteret <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"handelsbetingelserne\">handelsbetingelserne</a>.",
-        "confirmTermsReminder": "Du har allerede accepteret <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"generelle vilkår\">generelle vilkår</a>.",
+        "confirmTerms": "Jeg har læst og accepteret <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"general terms and conditions\">generelle vilkår og betingelser</a>.",
+        "confirmTermsReminder": "Du har allerede accepteret <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"general terms and conditions\">generelle vilkår og betingelser</a>.",
         "finishInfoPayment": "Betalingsmetode:",
         "finishInfoShipping": "Forsendelsesmetode:",
         "finishHeader": "Tak for din ordre hos %shop%!",
@@ -385,26 +391,37 @@
         "shippingCountry": "Leveringsland",
         "paymentMethod": "Betalingsmetode",
         "shippingMethod": "Forsendelsesmetode",
+        "notAvailableSuffix": "(ikke tilgængelig)",
         "product-stock-reached": "Produktet \"%name%\" er kun tilgængelig %quantity% gange",
         "product-out-of-stock": "Produktet \"%name%\" er ikke tilgængelig mere",
         "purchase-steps-quantity": "Produktet \"%name%\" er ikke tilgængeligt i denne mængde. Mængden blev ændret til %quantity%",
+        "min-order-quantity": "Mængden af produkt \"%name%\" opfyldte ikke den mindste ordremængde tærskel. Mængden er automatisk blevet forhøjet til %quantity%.",
         "shipping-method-blocked": "Forsendelsesmetoden \"%name%\" er blokeret for din nuværende indkøbskurv.",
+        "shipping-method-changed": "„%oldShippingMethodName%\" forsendelse er ikke tilgængelig for din nuværende indkøbskurv, forsendelsen blev ændret til \"%newShippingMethodName%“.",
         "payment-method-blocked": "Betalingsmetoden \"%name%\" er blokeret for din nuværende indkøbskurv.",
+        "payment-method-changed": "„%oldPaymentMethodName%\" betaling er ikke tilgængelig for din nuværende indkøbskurv, betalingen blev ændret til \"%newPaymentMethodName%“.",
         "lineItemDeliveryDate": "Leveringsperiode: %earliest% - %latest%",
         "promotion-discount-deleted": "Rabat: %name% er blevet fjernet",
         "promotion-discount-added": "Rabat: %name% er blevet tilføjet",
         "promotion-not-found": "Kampagnekoden \"%code%\" kunne ikke findes.",
         "auto-promotion-not-found": "Kampagne \"%name%\" ikke længere gyldig!",
         "promotion-not-eligible": "Rabatkoden er gyldig, men ikke alle betingelser er opnået. Rabatten fratrækkes automatisk så snart alle betingelser er opfyldt.",
+        "promotion-excluded": "En eller flere rabatter er blevet fjernet fra indkøbskurven på grund af konflikter med andre rabatter. Når betingelserne er opfyldt igen, vil rabatterne blive anvendt automatisk.",
         "shipping-address-blocked": "Den valgte forsendelsesmetode kan ikke benyttes til din adresse.",
         "billing-address-blocked": "Fakturering til den valgte adresse er ikke mulig.",
+        "shipping-address-invalid": "Den valgte leveringsadresse er ikke gyldig eller ufuldstændig. Tjek venligst dine indtastninger.",
+        "billing-address-invalid": "Den valgte faktureringsadresse er ikke gyldig eller ufuldstændig. Tjek venligst dine indtastninger.",
         "customerCommentHeader": "Yderligere information",
         "customerCommentLabel": "Ønsker du at fortælle os noget omkring din ordre?",
         "customerCommentPlaceholder": "Skriv din kommentar her...",
         "cart-merged-hint": "Den aktuelle indkøbskurv kan indeholde yderligere produkter, der er blevet tilføjet og gemt under et tidligere besøg.",
         "collapseTriggerMore": "Vis mere",
         "collapseTriggerLess": "Vis mindre",
-        "product-not-found": "Produktet kunne ikke findes."
+        "product-not-found": "Produktet kunne ikke findes.",
+        "salutation-missing": "En hilsen mangler fra din profil, vælg venligst en under kassen.",
+        "salutation-missing-profile": "Der er ingen hilsen konfigureret i din profil, sæt venligst en <a href=\"%url%\">her</a>.",
+        "salutation-missing-billing-address": "Der er ingen hilsen konfigureret til din aktive faktureringsadresse. Indstil en <a href=\"%url%\">her</a>.",
+        "salutation-missing-shipping-address": "Der er ingen hilsen konfigureret til din aktive leveringsadresse, angiv venligst en <a href=\"%url%\">her</a>."
     },
     "listing": {
         "filterTitleText": "Filter",
@@ -428,9 +445,10 @@
         "filterRatingAndMore": "min. %points%/%maxPoints%",
         "filterRangeMinLabel": "Minimum",
         "filterRangeMaxLabel": "Maksimum",
-        "filterRangeActiveMinLabel": "Pris fra",
-        "filterRangeActiveMaxLabel": "Pris til",
-        "filterRangeErrorMessage": "Minimumsprisen kan ikke være højere end maksimumsprisen.",
+        "filterRangeActiveMinLabel": "%displayName% fra",
+        "filterRangeActiveMaxLabel": "%displayName% til",
+        "filterRangeErrorMessage": "Minimumsværdien kan ikke være højere end maksimumværdien.",
+        "filterRangeLowerBoundErrorMessage": "Minimums- og maksimumsværdien skal være større eller lig med %lowerBound%.",
         "filterSubmitText": "Filter",
         "defaultProductSortingLabel": "Navn, stigende",
         "disabledFilterTooltip": "Dette filter viser ikke yderligere resultater i kombination med de valgte filtre.",
@@ -536,6 +554,7 @@
         "headline": "Din ønskeliste",
         "itemDeleteSuccess": "Du har fjernet produktet fra din ønskeliste.",
         "itemAddedSuccess": "Du har tilføjet produktet til din ønskeliste.",
+        "duplicateItemError": "Produktet er allerede blevet føjet til din ønskeliste.",
         "currentlyNotAvailable": "I øjeblikket er ikke tilgængelig",
         "manufacturerDisplayName": "Producent",
         "deliveryTimeAvailable": "Tilgængelig, leveringstid %name%",
@@ -551,21 +570,21 @@
         "informationHeadline": "Information",
         "newsletterHeadline": "Nyhedsbrev",
         "serviceHotline": "Ved spørgsmål ring da til os på: <a href=\"tel:+00 0000000\">00 00 00 00</a>Man-fredag 09-15.00",
-        "serviceContactLink": "Eller via vores <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"kontaktformular\">kontaktformular</a>.",
+        "serviceContactLink": "Eller via vores <a data-bs-toggle=\"modal\" data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"contact form\">kontaktformular</a>.",
         "newsletterInput": "Din e-mail adresse",
         "newsletter": "Tilmeld dig nyhedsbrevet og hold dig opdateret med gode tilbud og nyheder.",
-        "includeVat": "* Alle priser er inkl. moms og excl. <a data-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">fragt</a>.",
-        "excludeVat": "* Alle priser er excl moms og <a data-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">fragt</a>.",
+        "includeVat": "* Alle priser inkl. moms plus <a data-toggle=\"modal\" data-bs-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">forsendelsesomkostninger</a> og mulige leveringsomkostninger, hvis ikke andet er angivet.",
+        "excludeVat": "* Alle priser ekskl. Moms plus <a data-toggle=\"modal\" data-bs-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">forsendelsesomkostninger</a> og mulige leveringsomkostninger, hvis ikke andet er angivet.",
         "copyrightInfo": "Udviklet på Shopware"
     },
     "captcha": {
         "googleReCaptcha": {
-            "dataProtectionInformation": "Dette websted er beskyttet af reCAPTCHA, og Google\n<a href=\"https://policies.google.com/privacy\">Privacy Policy</a> og\n<a href=\"https://policies.google.com/terms\">Servicevilkår</a> gælder."
+            "dataProtectionInformation": "Dette websted er beskyttet af reCAPTCHA, og Google <a href=\"https://policies.google.com/privacy\">Privacy Policy</a> og <a href=\"https://policies.google.com/terms\">Servicevilkår</a> gælder."
         },
         "basicCaptchaLabel": "Indtast venligst de tegn, der er vist ovenfor*"
     },
     "cookie": {
-        "message": "Dette websted bruger cookies for at sikre den bedst mulige oplevelse. <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Mere information\">Mere information...</a>",
+        "message": "Denne hjemmeside bruger cookies for at sikre den bedst mulige oplevelse. <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"More information\">Mere information...</a>",
         "deny": "Afvis",
         "configure": "Konfigurér",
         "configuration": "Indstillinger",
@@ -577,7 +596,7 @@
         "groupRequiredSession": "Session",
         "groupRequiredCsrf": "CSRF-beskyttelse",
         "groupRequiredTimezone": "Tidszone",
-        "groupRequiredCaptcha": "Integration af Captcha",
+        "groupRequiredCaptcha": "CAPTCHA integration",
         "groupStatistical": "Statistik",
         "groupStatisticalDescription": "Cookies brugt til statistik og performance målinger.",
         "groupStatisticalGoogleAnalytics": "Google Analytics",
@@ -593,7 +612,7 @@
             "feature": {
                 "label": {
                     "manufacturerNumber": "Fabrikantens nummer:",
-                    "ean": "EAN:",
+                    "ean": "GTIN/EAN:",
                     "weight": "Vægt:",
                     "width": "Bredde:",
                     "height": "Højde:",
@@ -610,8 +629,42 @@
         },
         "cms": {
             "vimeo": {
-                "privacyNotice": "Ved at se videoen accepterer du, at dine data vil blive overført til %platform% , og at du har læst <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Privacy policy\">Privatlivspolitik</a>.",
+                "privacyNotice": "Ved at se videoen accepterer du, at dine data overføres til %platform% , og at du har læst <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Privacy policy\">Privatlivspolitik</a>.",
                 "acceptButtonLabel": "Accept"
+            },
+            "defaultMedia": {
+                "preview_camera_large": {
+                    "title": "Kamera",
+                    "alt": "Vintage kodak foto kamera med læder kappe og rem"
+                },
+                "preview_camera_small": {
+                    "title": "Kamera",
+                    "alt": "Vintage kodak foto kamera med læder kappe og rem"
+                },
+                "preview_glasses_large": {
+                    "title": "Solbriller",
+                    "alt": "Guldramme solbriller på reflekterende marmor overflade"
+                },
+                "preview_glasses_small": {
+                    "title": "Solbriller",
+                    "alt": "Guldramme solbriller på reflekterende marmor overflade"
+                },
+                "preview_mountain_large": {
+                    "title": "Snedækkede bjerge",
+                    "alt": "Rocky bjerghøjderyg med snedækkede toppe"
+                },
+                "preview_mountain_small": {
+                    "title": "Snedækkede bjerge",
+                    "alt": "Rocky bjerghøjderyg med snedækkede toppe"
+                },
+                "preview_plant_large": {
+                    "title": "Plante",
+                    "alt": "Saftige i en hvid gryde foran lyseblå baggrund"
+                },
+                "preview_plant_small": {
+                    "title": "Plante",
+                    "alt": "Saftige i en hvid gryde foran lyseblå baggrund"
+                }
             }
         }
     }

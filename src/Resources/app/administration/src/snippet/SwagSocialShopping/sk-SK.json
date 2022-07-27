@@ -8,18 +8,27 @@
                 "storefrontDomain": "Doména Storefront",
                 "storefrontDomainCurrency": "Výkladná mena",
                 "productStream": "Dynamická skupina produktov",
-                "noDynamicProductGroupFound": "Musíte vytvoriť dynamickú skupinu produktov, aby ste mohli používať predajný kanál sociálneho nakupovania. Vytvorte dynamickú skupinu produktov.",
+                "noDynamicProductGroupFound": "Ak chcete použiť kanál predaja Social Shopping Channel, musíte vytvoriť dynamickú skupinu produktov. Vytvorte dynamickú skupinu produktov.",
                 "createDynamicProductGroup": "Vytvorenie dynamickej skupiny produktov",
                 "tabErrors": "Nepublikované produkty",
                 "tabIntegration": "Integrácia",
-                "intervalHelpText": "Interval je obmedzený intervalom spustenia naplánovanej úlohy „ProducTexportGenerateTask“. Toto je predvolene nastavené na jedenkrát za deň."
+                "intervalHelpText": "Interval je obmedzený intervalom spustenia naplánovanej úlohy „ProducTexportGenerateTask“. Toto je predvolene nastavené na jedenkrát za deň.",
+                "template": {
+                    "tabTemplate": "Šablóna",
+                    "inputHeaderLabel": "Riadok hlavičky",
+                    "inputBodyLabel": "Riadok produktu",
+                    "inputFooterLabel": "Riadok päty",
+                    "buttonTestLabel": "Šablóna testovania",
+                    "buttonPreviewLabel": "Generovať náhľad",
+                    "buttonResetLabel": "Resetovať šablónu"
+                }
             },
             "facebook": {
                 "titleFacebookSettings": "Ďalšie nastavenia",
                 "name": "Facebook",
                 "description": "Predaj produktov na stránke Facebooku",
-                "googleProductDefaultCategory": "Predvolené ID kategórie produktov Google",
-                "helpTextGoogleProductDefaultCategory": "Spoločnosť Facebook používa ID kategórie produktov Google na kategorizovanie svojich produktov. Zadajte kategóriu produktov Google, ktorá sa má použiť, ak pre kategóriu produktov nebola nastavená žiadna kategória produktov Google.",
+                "googleProductDefaultCategory": "Predvolený identifikátor kategórie produktov Google",
+                "helpTextGoogleProductDefaultCategory": "Facebook používa identifikátor kategórie produktov Google na kategorizáciu svojich produktov. Prosím, zadajte kategóriu produktov Google, ktorá sa má použiť, ak nie je nastavená žiadna kategória produktov Google pre kategóriu produktov.",
                 "includeVariants": "Import variantov ako vyhradených produktov",
                 "interval": "Interval",
                 "generateByCronjob": "Generovať cez plánovač",
@@ -31,8 +40,8 @@
                 "titleInstagramSettings": "Ďalšie nastavenia",
                 "name": "Instagram",
                 "description": "Predaj produktov na kanáli Instagram",
-                "googleProductDefaultCategory": "Predvolené ID kategórie produktov Google",
-                "helpTextGoogleProductDefaultCategory": "Instagram používa ID kategórie produktov Google na kategorizovanie svojich produktov. Zadajte kategóriu produktov Google, ktorá sa má použiť, ak pre kategóriu produktov nebola nastavená žiadna kategória produktov Google.",
+                "googleProductDefaultCategory": "Predvolený identifikátor kategórie produktov Google",
+                "helpTextGoogleProductDefaultCategory": "Instagram používa identifikátor kategórie produktov Google na kategorizáciu svojich produktov. Prosím, zadajte kategóriu produktov Google, ktorá sa má použiť, ak nie je nastavená žiadna kategória produktov Google pre kategóriu produktov.",
                 "includeVariants": "Import variantov ako vyhradených produktov",
                 "interval": "Interval",
                 "generateByCronjob": "Generovať cez plánovač",
@@ -45,9 +54,9 @@
                 "description": "Predaj produktov cez Google Shopping",
                 "titleGoogleShoppingSettings": "Ďalšie nastavenia",
                 "titleGoogleShoppingGuide": "Príručka integrácie",
-                "googleProductDefaultCategory": "Predvolené ID kategórie produktov Google",
+                "googleProductDefaultCategory": "Predvolený identifikátor kategórie produktov Google",
                 "googleProductCategoryLinkLabel": "Stránka podpory pre kategórie produktov Google",
-                "helpTextGoogleProductDefaultCategory": "Spoločnosť Google používa ID kategórie produktov Google na kategorizovanie svojich produktov. Zadajte kategóriu produktov Google, ktorá sa má použiť, ak pre kategóriu produktov nebola nastavená žiadna kategória produktov Google.",
+                "helpTextGoogleProductDefaultCategory": "Spoločnosť Google používa identifikátor kategórie produktov Google na kategorizáciu svojich produktov. Prosím, zadajte kategóriu produktov Google, ktorá sa má použiť, ak nie je nastavená žiadna kategória produktov Google pre kategóriu produktov.",
                 "includeVariants": "Import variantov ako vyhradených produktov",
                 "interval": "Interval",
                 "generateByCronjob": "Generovať cez plánovač",
@@ -82,25 +91,22 @@
         },
         "integration": {
             "stepByStepTitle": "Krok za krokom",
-            "accessUrlChangeTitle": "URL sa zmenila",
-            "accessUrlChangeContent": "URL sa zmenila s verziou 2.0.0 Social Shopping. Trvalé presmerovanie bude k dispozícii až do vydania ďalšej hlavnej verzie. Skontrolujte, či potrebujete aktualizovať URL adresu všade tam, kde ste ju zadali.",
             "facebook": {
                 "cardTitle": "Pripojenie k Facebooku",
                 "introduction": {
                     "title": "Ako: Nastavenie a pripojenie",
                     "description": "Ak chcete zobraziť produkty na firemnej stránke Instagram, musíte najprv vytvoriť firemný účet Instagram. Všetko ostatné je vysvetlené v nižšie uvedenom sprievodcovi krok za krokom."
                 },
-                "stepByStep": "<li>Vytvorte si účet na <a href=\"https://facebook.com\">Facebook</a></li><li>Vytvorte si firemný účet na <a href=\"https://business.facebook.com\">business.facebook.com</a></li><li>Prejdite do katalógu manažéra</li><li>Pridajte nový katalóg pre Váš Obchod</li><li>Konfigurácia katalógu: Vyberte produkt v informáciách pre dátový kanál</li><li>Prepnúť na zdroj údajov</li><li>Pridať produkty</li><li>Vyberte datový kanál</li><li>Konfigurácia dátového kanála. Kopírovanie a prilepenie adresy URL informačného kanála údajov (nižšie)</li>",
-                "dataFeedLabel": "Dátový kanál"
+                "stepByStep": "<li>Vytvorte účet na <a href=\"https://facebook.com\">Facebook</a></li><li>Vytvorte si firemný účet na adrese <a href=\"https://business.facebook.com\">business.facebook.com</a></li><li>Prejdite do manažéra katalógu</li><li>Pridajte nový katalóg pre Váš Obchod</li><li>Konfiguráciakatalógu: Vyberte produkt v informáciách pre dátový kanál</li><li>Prepnutie na zdroj údajov</li><li>Pridať produkty</li><li>Vyberte dátový zdroj</li><li>Konfigurácia dátového kanála. Skopírujte a prilepte adresu URL informačného kanála (nižšie)</li>",
+                "dataFeedLabel": "Dátový informačný kanál"
             },
             "google-shopping": {
                 "cardTitle": "Pripojenie Google",
                 "introduction": {
                     "title": "Ako: Nastavenie a pripojenie",
-                    "description": "Tento predajný kanál vytvára informačný kanál XML, ktorý môžete použiť v Googli na automatickú synchronizáciu produktov do katalógu. Ak to chcete urobiť, musíte vložiť adresu URL informačného kanála na Google a definovať, ako často by mal Google stiahnuť informačný kanál. Všetko ostatné je vysvetlené v nižšie uvedenom sprievodcovi krok za krokom"
+                    "description": "Tento predajný kanál generuje informačný kanál XML, ktorý môžete použiť na Googli na automatickú synchronizáciu produktov do vášho katalógu. Ak to chcete urobiť, musíte vložiť adresu URL informačného kanála na Google a definovať, ako často by mal Google stiahnuť informačný kanál. Všetko ostatné je vysvetlené v krok za krokom sprievodcu nižšie"
                 },
-                "stepByStep": "<li>Otvorte <a href=\"https://merchants.google.com\">Google Merchant Center</a></li><li>Vytvorte nový zdroj v produktoch > Kanály</li><li>Vyberte krajinu a jazyk</li><li>Pomenujte svoj informačný kanál a zvoľte „naplánované načítanie“</li><li>Názov súboru informačného kanála a vložte adresu URL pre export (nižšie)</li><li>Potom otvorte zdroj a kliknite na tlačidlo „načítať teraz“</li>",
-                "dataFeedLabel": "Dátový kanál"
+                "dataFeedLabel": "Dátový informačný kanál"
             },
             "instagram": {
                 "cardTitle": "Pripojenie Instagram",
@@ -108,17 +114,17 @@
                     "title": "Ako: Nastavenie a pripojenie",
                     "description": "Ak chcete zobraziť produkty na obchodnej stránke facebooku, musíte najprv vytvoriť firemný účet na facebooku. Všetko ostatné je vysvetlené v nižšie uvedenom sprievodcovi krok za krokom."
                 },
-                "stepByStep": "<li>Vytvorte si firemný účet na <a href=\"https://business.facebook.com\">business.facebook.com</a></li><li>Prejdite do katalógu manažéra</li><li>Pridajte nový katalóg pre váš obchod</li><li>Konfigurácia katalógu: Vyberte produkt v informáciách pre dátový kanál</li><li>Prepnite na zdroj údajov</li><li>Pridať produkty</li><li>Vyberte zdroj dát</li><li>Konfigurácia dátového kanála. Skopírujte a prilepte adresu URL dátového kanála (nižšie)</li><li>V prípade potreby vytvorte účet <a href=\"https://instagram.com\">Instagram</a></li><li>Otvorte Nastavenia Instagram a kliknite na tlačidlo „Prepnúť na profesionálny profil“ a zvoľte „Business“</li><li>Postupujte podľa pokynov pre pripojenie Facebook Predajné kanály</li>\n",
-                "dataFeedLabel": "Dátový kanál"
+                "stepByStep": "<li>Vytvorte si firemný účet na <a href=\"https://business.facebook.com\">business.facebook.com</a></li><li>Prejdite na správcu katalógu</li><li>Pridajte nový katalóg pre Váš obchod</li><li>Konfigurácia katalógu: Vyberte produkt v informáciách pre dátový kanál</li><li>Prepnite na zdroj údajov</li><li>Pridať produkty</li><li>Vyberte dátový zdroj</li><li>Konfigurácia dátového krmiva. Skopírujte a vložte adresu URL informačného kanála (nižšie)</li><li>V prípade potreby vytvorte účet <a href=\"https://instagram.com\">Instagram</a></li><li>Otvorte svoj Nastavenia Instagram a kliknite na tlačidlo „Prepnúť na profesionálny profil“ a zvoľte „Business“</li><li>Postupujte podľa pokynov na pripojenie vás facebook Predajné kanály</li>\n",
+                "dataFeedLabel": "Dátový informačný kanál"
             },
             "pinterest": {
-                "cardTitle": "Pripojenie Pinterestu",
+                "cardTitle": "Pripojenie k Pinterestu",
                 "introduction": {
                     "title": "Ako: Nastavenie a pripojenie",
                     "description": "Tento predajný kanál generuje meta dáta, ktoré vám umožnia zobraziť vaše produkty ako pin na Pintereste. Ďalšie informácie o tejto téme nájdete v nižšie uvedenom sprievodcovi krok za krokom."
                 },
                 "stepByStep": "<li>Kliknite na „Overiť na Pintereste“</li><li>Prihláste sa alebo si vytvorte účet na <a href=\"https://pinterest.com\">Pintereste</a></li><li>Zadajte ľubovoľnú adresu URL produktu z predajne a kliknite na „Overiť“</li>",
-                "dataFeedLabel": "Dátový kanál"
+                "dataFeedLabel": "Dátový informačný kanál"
             }
         }
     }

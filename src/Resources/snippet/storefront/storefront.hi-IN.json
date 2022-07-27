@@ -25,7 +25,7 @@
         "required": "*",
         "requiredFields": "तारों (*) के साथ चिह्नित फ़ील्ड आवश्यक हैं।",
         "privacyTitle": "निजता",
-        "privacyNotice": "मैंने <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Data protection information\">डेटा सुरक्षा जानकारी</a>पढ़ी है।",
+        "privacyNotice": "जारी रखें का चयन करके आप पुष्टि करते हैं कि आपने हमारी <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%privacyUrl%\" href=\"%privacyUrl%\" title=\"Data protection information\">डेटा सुरक्षा जानकारी</a> पढ़ ली है और हमारे <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%tosUrl%\" href=\"%tosUrl%\" title=\"general terms and conditions\">सामान्य नियमों और शर्तों को स्वीकार कर लिया है</a>।",
         "privacyLink": "गोपनीयता नीति",
         "imprintLink": "छाप",
         "404ErrorPageHeader": "पृष्ठ नहीं मिला",
@@ -36,7 +36,8 @@
         "sortingLabel": "छंटनी",
         "next": "अगला",
         "previous": "पिछला",
-        "formSubmit": "सबमिट करें"
+        "formSubmit": "सबमिट करें",
+        "listPricePreviously": "पहले की %price%"
     },
     "header": {
         "logoLink": "मुखपृष्ठ पर जाएँ",
@@ -62,23 +63,18 @@
         "FRAMEWORK__INVALID_UUID": "चयनित भुगतान विधि मौजूद नहीं है।",
         "CHECKOUT__UNKNOWN_PAYMENT_METHOD": "चयनित भुगतान विधि मौजूद नहीं है।",
         "productNotFound": "उत्पाद \"%number%\" नहीं मिला।",
-        "payment-method-blocked": "के माध्यम से भुगतान %name% उपलब्ध नहीं।",
-        "shipping-address-blocked": "चयनित पते पर शिपिंग संभव नहीं है।",
-        "shipping-address-invalid": "चयनित शिपिंग पता मान्य या अपूर्ण नहीं है। कृपया अपनी प्रविष्टियों की जाँच करें।",
-        "billing-address-blocked": "चयनित पते पर बिलिंग संभव नहीं है।",
-        "billing-address-invalid": "चयनित बिलिंग पता मान्य या अपूर्ण नहीं है। कृपया अपनी प्रविष्टियों की जाँच करें।",
         "VIOLATION::TOO_SHORT_ERROR": "%field% बहुत छोटा है।",
         "product-not-found": "उत्पाद नहीं मिला।",
         "message-403-ajax": "आपका सत्र समाप्त हो गया है। कृपया पृष्ठ को फिर से लोड करें और पुनः प्रयास करें।",
         "message-403": "आपका सत्र समाप्त हो गया है। कृपया अंतिम पृष्ठ पर लौटें और पुनः प्रयास करें।",
         "product-out-of-stock": "%name% इस समय उपलब्ध नहीं है।",
+        "auto-promotion-not-found": "पदोन्नति \"%name%\" अब मान्य नहीं है!",
+        "rateLimitExceeded": "बहुत सारे अनुरोध। कृपया पुनः प्रयास करने से पहले %seconds% सेकंड प्रतीक्षा करें।",
         "captcha": {
-            "basic-captcha-invalid": "कैप्चा अवैध है। कृपया अपनी प्रविष्टियों की जाँच करें।"
+            "basic-captcha-invalid": "गलत इनपुट। कृपया पुन: प्रयास करें।"
         }
     },
     "account": {
-        "externalPaymentCanceled": "हम अपने आदेश प्राप्त किया, लेकिन भुगतान निरस्त कर दिया गया था। कृपया अपनी भुगतान विधि बदलें या पुनः प्रयास करें",
-        "externalPaymentFailure": "हम अपने आदेश प्राप्त, लेकिन हम आपके भुगतान पर कार्रवाई करने में सक्षम नहीं थे, कृपया भुगतान विधि को बदलने या फिर से प्रयास करें",
         "confirmationIsAlreadyDone": "या तो ईमेल पता पहले ही पुष्टि हो चुका है या यूआरएल अमान्य है।",
         "doubleOptInMailConfirmationSuccessfully": "अपने ईमेल पते की पुष्टि करने के लिए धन्यवाद! अब आप अपना ऑर्डर पूरा कर सकते हैं।",
         "doubleOptInRegistrationSuccessfully": "साइन अप करने के लिए धन्यवाद! आपका खाता सफलतापूर्वक अनलॉक कर दिया गया है।",
@@ -185,7 +181,6 @@
         "profileRecoverPasswordInfo": "हम आपको एक पुष्टिकरण ईमेल भेज देंगे। अपना पासवर्ड बदलने के लिए उस ईमेल में दिए गए लिंक पर क्लिक करें।",
         "profileRecoverPasswordSubmit": "ईमेल भेजें",
         "profileSaveChanges": "परिवर्तन सहेजें",
-        "profileDelete": "<a href=\"%target%\" data-toggle=\"modal\" data-target=\"%target%\">अपने सभी व्यक्तिगत डेटा को हटाने के लिए यहां</a> पर क्लिक करें",
         "profileDeleteAlert": "अपने ग्राहक खाते को व्यक्तिगत डेटा हटाने के बाद, न्यूज़लेटर प्रविष्टियां और समीक्षा अब आपके लिए सुलभ नहीं होगी। ध्यान दें कि कानूनी नियमों को पूरा करने के लिए सभी आदेशों के रिकॉर्ड को फिर भी रखा जाएगा।",
         "profileDeleteConfirm": "क्या आप वास्तव में अपने ग्राहक खाते को हटाना चाहते हैं?",
         "profileDeleteModalTitle": "ग्राहक खाता",
@@ -243,7 +238,6 @@
         "editOrderCancelOrderModalBodyQuestion": "क्या आप निश्चित हैं कि आप सभी के बाद अपना ऑर्डर रद्द करना चाहते हैं?",
         "editOrderCancelOrderModalFooterButton": "आदेश रद्द करें",
         "editOrderCancelOrderModalFooterButtonBack": "वापस",
-        "editOrderPaymentNotChangeable": "वर्तमान भुगतान विधि को बदलने में असमर्थ! भुगतान विधि से जुड़ी छूट या समान प्रचार लाभ है जो परिवर्तन पर खो जाएगा। कृपया अपना ऑर्डर रद्द करें और पुन: व्यवस्थित करें।",
         "orderNumber": "आदेश संख्या:",
         "orderItemColumnNumber": "आदेश संख्या:",
         "orderItemColumnPaymentMethod": "भुगतान विधि",
@@ -296,6 +290,8 @@
         "cityPlaceholder": "शहर दर्ज करें...",
         "countryLabel": "देश",
         "countryPlaceholder": "देश चुनें...",
+        "countryPostfixNoShipping": "(डिलीवरी संभव नहीं)",
+        "countryNoShippingAlert": "इस देश में डिलीवरी संभव नहीं है।",
         "countryStateLabel": "राज्य",
         "countryStatePlaceholder": "स्थिति चुनें...",
         "phoneNumberLabel": "फ़ोन नंबर",
@@ -313,6 +309,7 @@
         "addressLoginToggle": "आप पहले से ही एक खाता है? लॉगिन करने के लिए यहाँ क्लिक करें।",
         "addressRegisterCardTitle": "आपका व्यक्तिगत विवरण",
         "registerGuestmodeLabel": "ग्राहक खाता न बनाएं।",
+        "registerCustomermodeLabel": "ग्राहक खाता बनाएँ।",
         "cartTitle": "शॉपिंग कार्ट",
         "cartHeader": "शॉपिंग कार्ट",
         "cartUpdateSuccess": "शॉपिंग कार्ट अद्यतन",
@@ -327,6 +324,8 @@
         "summaryHeader": "सारांश",
         "lineItemContainerHeadline": "इसमें शामिल हैं",
         "lineItemContainerChangeLink": "परिवर्तन",
+        "lineItemShowMore": "अधिक",
+        "lineItemShowLess": "कम",
         "cartEmpty": "आपका शॉपिंग कार्ट खाली है।",
         "cartHeaderInfo": "उत्पाद",
         "cartHeaderQuantity": "मात्रा",
@@ -365,8 +364,6 @@
         "confirmSubmit": "ऑर्डर सबमिट करें",
         "confirmTermsHeader": "नियम और शर्तें और रद्दीकरण नीति",
         "confirmRevocationNotice": "कृपया हमारी रद्दीकरण नीति पर ध्यान दें।",
-        "confirmTerms": "मैंने <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"general terms and conditions\">सामान्य नियम और शर्तों को पढ़ा और स्वीकार कर लिया है</a>।",
-        "confirmTermsReminder": "आप पहले से ही स्वीकार कर लिया है <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"general terms and conditions\">सामान्य नियम और शर्तें</a>।",
         "finishInfoPayment": "भुगतान विधि:",
         "finishInfoShipping": "शिपिंग विधि:",
         "finishHeader": "के साथ अपने आदेश के लिए धन्यवाद %shop%!",
@@ -384,6 +381,7 @@
         "shippingCountry": "शिपिंग देश",
         "paymentMethod": "भुगतान विधि",
         "shippingMethod": "शिपिंग विधि",
+        "notAvailableSuffix": "(अनुपलब्ध नहीं है)",
         "product-stock-reached": "उत्पाद \"%name%\" केवल %quantity% बार उपलब्ध है",
         "product-out-of-stock": "उत्पाद \"%name%\" अब उपलब्ध नहीं है",
         "shipping-method-blocked": "शिपिंग विधि \"%name%\" आपकी वर्तमान शॉपिंग कार्ट के लिए अवरुद्ध है।",
@@ -425,9 +423,6 @@
         "filterRatingAndMore": "मिनट। %points%/%maxPoints%",
         "filterRangeMinLabel": "न्यूनतम",
         "filterRangeMaxLabel": "अधिकतम",
-        "filterRangeActiveMinLabel": "से मूल्य",
-        "filterRangeActiveMaxLabel": "मूल्य से",
-        "filterRangeErrorMessage": "न्यूनतम मूल्य अधिकतम मूल्य से अधिक नहीं हो सकता है।",
         "filterSubmitText": "फ़िल्टर",
         "defaultProductSortingLabel": "नाम, आरोही",
         "disabledFilterTooltip": "यह फ़िल्टर चयनित फ़िल्टर के साथ संयोजन में कोई और परिणाम प्रदर्शित नहीं करता है।",
@@ -548,21 +543,15 @@
         "informationHeadline": "सूचना",
         "newsletterHeadline": "न्यूज़लेटर",
         "serviceHotline": "सहायता और परामर्श के माध्यम से: <a href=\"tel:+49180000000\">0180 - 000000</a> सोम-शुक्र, 9 बजे - 5 बजे",
-        "serviceContactLink": "या हमारे <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"contact form\">संपर्क फॉर्म</a>के माध्यम से।",
         "newsletterInput": "आपका ईमेल पता",
         "newsletter": "नवीनतम उत्पादों और विशेष प्रस्तावों पर बने रहने के लिए अब हमारे नियमित न्यूज़लेटर की सदस्यता लें।",
-        "includeVat": "* सहित सभी मूल्यों वैट प्लस <a data-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">शिपिंग लागत</a> और संभव वितरण शुल्क, अन्यथा नहीं कहा गया है, तो।",
-        "excludeVat": "* सभी मूल्यों excl। वैट प्लस <a data-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">शिपिंग लागत</a> और संभव वितरण शुल्क, नहीं तो अन्यथा कहा गया है।",
         "copyrightInfo": "शॉपवेयर के साथ एहसास"
     },
     "captcha": {
-        "googleReCaptcha": {
-            "dataProtectionInformation": "यह साइट रीकैप्चा द्वारा संरक्षित है और Google\n<a href=\"https://policies.google.com/privacy\">गोपनीयता नीति</a> और\n<a href=\"https://policies.google.com/terms\">सेवा की शर्तें</a> लागू होती हैं।"
-        },
         "basicCaptchaLabel": "कृपया ऊपर दिखाए गए अक्षर प्रविष्ट करें*"
     },
     "cookie": {
-        "message": "यह वेबसाइट कुकीज़ का उपयोग करता है सबसे अच्छा अनुभव संभव सुनिश्चित करने के लिए। <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"More information\">अधिक जानकारी...</a>",
+        "message": "यह वेबसाइट सर्वोत्तम संभव अनुभव सुनिश्चित करने के लिए कुकीज़ का उपयोग करती है।<a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"अधिक जानकारी\">अधिक जानकारी...</a>",
         "deny": "इनकार",
         "configure": "कॉन्फ़िगर करें",
         "configuration": "सेटिंग्स",
@@ -574,7 +563,7 @@
         "groupRequiredSession": "सत्र",
         "groupRequiredCsrf": "सीएसआरएफ सुरक्षा",
         "groupRequiredTimezone": "टाइमज़ोन",
-        "groupRequiredCaptcha": "कैप्चा एकता",
+        "groupRequiredCaptcha": "CAPTCHA एकीकरण",
         "groupStatistical": "सांख्यिकी",
         "groupStatisticalDescription": "आंकड़े और दुकान प्रदर्शन मीट्रिक के लिए उपयोग की जाने वाली कुकीज़।",
         "groupStatisticalGoogleAnalytics": "गूगल एनालिटिक्स",
@@ -590,7 +579,6 @@
             "feature": {
                 "label": {
                     "manufacturerNumber": "निर्माता संख्या:",
-                    "ean": "EAN:",
                     "weight": "वजन:",
                     "width": "चौड़ाई:",
                     "height": "ऊँचाई:",
@@ -607,8 +595,27 @@
         },
         "cms": {
             "vimeo": {
-                "privacyNotice": "वीडियो देखने से आप सहमत हैं कि आपका डेटा %platform% में स्थानांतरित कर दिया जाएगा और आपने <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Privacy policy\">गोपनीयता नीति</a>पढ़ा है।",
                 "acceptButtonLabel": "स्वीकार करें"
+            },
+            "defaultMedia": {
+                "preview_camera_large": {
+                    "title": "कैमरा"
+                },
+                "preview_camera_small": {
+                    "title": "कैमरा"
+                },
+                "preview_glasses_large": {
+                    "title": "धूप का चश्मा"
+                },
+                "preview_glasses_small": {
+                    "title": "धूप का चश्मा"
+                },
+                "preview_plant_large": {
+                    "title": "पौधा"
+                },
+                "preview_plant_small": {
+                    "title": "पौधा"
+                }
             }
         }
     }

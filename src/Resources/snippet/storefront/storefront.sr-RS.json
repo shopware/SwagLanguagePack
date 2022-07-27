@@ -25,7 +25,7 @@
         "required": "*",
         "requiredFields": "Polja označena sa zvezdicama (*) su obavezna.",
         "privacyTitle": "Privatnost",
-        "privacyNotice": "Pročitao sam <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Data protection information\">informacije o zaštiti podataka</a>.",
+        "privacyNotice": "Izborom nastaviti potvrđujete da ste pročitali naše <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%privacyUrl%\" href=\"%privacyUrl%\" title=\"Data protection information\">informacije o zaštiti podataka</a> i prihvatili naša <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%tosUrl%\" href=\"%tosUrl%\" title=\"general terms and conditions\">opšti uslovi</a>.",
         "privacyLink": "Politika privatnosti",
         "imprintLink": "Impresum",
         "404ErrorPageHeader": "Stranica nije pronađena",
@@ -36,7 +36,8 @@
         "sortingLabel": "Sortiranje",
         "next": "Slеdеćе",
         "previous": "Prethodno",
-        "formSubmit": "Пошаљи"
+        "formSubmit": "Пошаљи",
+        "listPricePreviously": "ranije %price%"
     },
     "header": {
         "logoLink": "Nazad na naslovnu stranu",
@@ -62,24 +63,21 @@
         "FRAMEWORK__INVALID_UUID": "Izabrani način plaćanja je neispravan.",
         "CHECKOUT__UNKNOWN_PAYMENT_METHOD": "Изабрана метода плаћања не постоји.",
         "productNotFound": "Proizvod %number% nije pronađen.",
-        "payment-method-blocked": "Plaćanje putem %name% nije dostupno.",
-        "shipping-address-blocked": "Isporuka na izabranu adresu nije moguća.",
-        "shipping-address-invalid": "Izabrana adresa za dostavu nije važeća ili nepotpuna. Molimo vas da proverite svoje unose.",
-        "billing-address-blocked": "Obračunavanje na izabranu adresu nije moguće.",
-        "billing-address-invalid": "Izabrana adresa za naplatu nije važeća ili nepotpuna. Molimo vas da proverite svoje unose.",
         "VIOLATION::TOO_SHORT_ERROR": "%field% je prekratko.",
         "product-not-found": "Производ не може бити пронађен.",
         "message-403-ajax": "Vaša sesija je istekla. Pokušajte da učitate stranicu ponovo.",
         "message-403": "Vaša sesija je istekla. Vratite se na prethodnu stranicu i pokušajte ponovo.",
         "product-out-of-stock": "%name% trenutno nije dostupno.",
         "auto-promotion-not-found": "Promocija \"%name%\" više ne važi!",
+        "rateLimitExceeded": "Previše zahteva. Sačekajte %seconds% sekundi pre nego što pokušate ponovo.",
         "captcha": {
-            "basic-captcha-invalid": "Kaptča je nevažeća. Molimo vas da proverite svoje unose."
+            "basic-captcha-invalid": "Nepravilan ulaz. Molim vas pokušajte ponovo."
         }
     },
     "account": {
-        "externalPaymentCanceled": "Dobili smo vašu narudžbu, ali isplata je prekinuta. Promenite način plaćanja ili pokušajte ponovo",
-        "externalPaymentFailure": "Dobili smo vašu narudžbu, ali nismo bili u mogućnosti da obradimo vašu uplatu, promenite način plaćanja ili pokušajte ponovo",
+        "externalPaymentCanceled": "Primili smo vašu narudžbinu, ali plaćanje je prekinuto. Molimo vas da promenite način plaćanja ili pokušajte ponovo.",
+        "externalPaymentExpired": "Primili smo vašu narudžbinu, ali je proces plaćanja istekao. Molim vas pokušajte ponovo.",
+        "externalPaymentFailure": "Primili smo vašu narudžbinu, ali nismo bili u stanju da obradi vašu uplatu, molimo vas da promenite način plaćanja ili pokušajte ponovo.",
         "confirmationIsAlreadyDone": "Adresa E-pošte je već potvrđena ili je veb stranica neispravna.",
         "doubleOptInMailConfirmationSuccessfully": "Hvala vam što ste potvrdili svoju e-mail adresu! Sada možete da završite svoju narudžbu.",
         "doubleOptInRegistrationSuccessfully": "Hvala što ste se registrovali! Vaš nalog je uspešno aktiviran.",
@@ -94,6 +92,7 @@
         "loginPasswordRecover": "Zaboravio sam lozinku.",
         "loginSubmit": "Prijava",
         "loginBadCredentials": "Nije mogao da pronađe nalog koji odgovara datim akreditima.",
+        "loginThrottled": "Previše pokušaja prijave. Sačekajte %seconds% sekundi pre nego što pokušate ponovo da se prijavite.",
         "registerAdvantagesHeader": "Prednosti prijave:",
         "registerAdvantage1": "Ekspresna kupovina",
         "registerAdvantage2": "Sačuvajte podatke i podešavanja",
@@ -161,6 +160,7 @@
         "overviewChangeShipping": "Promenite adresu dostave",
         "overviewNewestOrderHeader": "Poslednja narudžba",
         "overviewCustomerGroupRequest": "Pristup grupi kupaca \"%group%\" zatražio.",
+        "overviewNotAbleToShip": "Ne možemo isporučiti u zemlju koja se čuva u vašoj adresi za isporuku.",
         "paymentChangeSubmit": "Promeni",
         "profilePersonalTitle": "Lični podaci",
         "profileMailTitle": "E-mail adresa",
@@ -186,7 +186,7 @@
         "profileRecoverPasswordInfo": "Poslaćemo Vam potvrdni e-mail. Kliknite na link koji ćete dobiti putem e-maila da biste promenili Vašu lozinku.",
         "profileRecoverPasswordSubmit": "Pošalji e-mail",
         "profileSaveChanges": "Sačuvaj izmene",
-        "profileDelete": "<a href=\"%target%\" data-toggle=\"modal\" data-target=\"%target%\">Kliknite ovde</a> da biste izbrisali sve vaše lične podatke",
+        "profileDelete": "<a href=\"%target%\" data-toggle=\"modal\" data-bs-toggle=\"modal\" data-target=\"%target%\" data-bs-target=\"%target%\">Kliknite ovde</a> da biste izbrisali sve vaše lične podatke",
         "profileDeleteAlert": "Nakon brisanja ličnih podataka o korisničkom nalogu, unosi biltena i pregledi više vam neće biti dostupni. Imajte na umu da će evidencija o svim nalozima biti zadržana ipak kako bi se ispunili zakonski propisi.",
         "profileDeleteConfirm": "Da li zaista želite da izbrišete svoj korisnički nalog?",
         "profileDeleteModalTitle": "Korisnički nalog",
@@ -244,7 +244,8 @@
         "editOrderCancelOrderModalBodyQuestion": "Da li ste sigurni da želite da otkažete svoju porudžbinu?",
         "editOrderCancelOrderModalFooterButton": "Otkaži porudžbinu",
         "editOrderCancelOrderModalFooterButtonBack": "Nazad",
-        "editOrderPaymentNotChangeable": "Nije moguće promeniti trenutni način plaćanja! Postoji popust ili slična promotivna pogodnost vezana za način plaćanja koji bi se izgubio promenom. Otkažite narudžbinu i ponovo naručite.",
+        "editOrderPaymentNotChangeable": "Ova narudžba se već obrađuje ili ima aktivan popust vezan za način plaćanja, stoga ga više ne možete uređivati.",
+        "editOrderPaymentNotChangeableWithRefunds": "Ova narudžba se već obrađuje ili ima aktivan popust vezan za način plaćanja, stoga ga više ne možete uređivati. Molimo vas da otkažete narudžbinu i preuredite.",
         "orderNumber": "Broj porudžbine:",
         "orderItemColumnNumber": "Redni broj:",
         "orderItemColumnPaymentMethod": "Način plaćanja",
@@ -297,6 +298,8 @@
         "cityPlaceholder": "Unesite grad...",
         "countryLabel": "Država",
         "countryPlaceholder": "Izaberite državu...",
+        "countryPostfixNoShipping": "(Isporuka nije moguća)",
+        "countryNoShippingAlert": "Isporuka u ovu zemlju nije moguća.",
         "countryStateLabel": "Region",
         "countryStatePlaceholder": "Izaberite region...",
         "phoneNumberLabel": "Broj telefona",
@@ -314,6 +317,7 @@
         "addressLoginToggle": "Već imate nalog? Kliknite ovdje za prijavu.",
         "addressRegisterCardTitle": "Vaši lični podaci",
         "registerGuestmodeLabel": "Ne kreirajte korisnički račun.",
+        "registerCustomermodeLabel": "Kreirajte nalog klijenta.",
         "cartTitle": "Korpa",
         "cartHeader": "Korpa",
         "cartUpdateSuccess": "Korpa je ažurirana",
@@ -328,6 +332,8 @@
         "summaryHeader": "Pregled",
         "lineItemContainerHeadline": "Sadrži",
         "lineItemContainerChangeLink": "promeniti",
+        "lineItemShowMore": "više",
+        "lineItemShowLess": "manje",
         "cartEmpty": "Vaša korpa je prazna.",
         "cartHeaderInfo": "Proizvod",
         "cartHeaderQuantity": "Količina",
@@ -366,8 +372,7 @@
         "confirmSubmit": "Pošalji nalog",
         "confirmTermsHeader": "Pravila i uslovi i politika otkazivanja",
         "confirmRevocationNotice": "Obratite pažnju na pravila za otkazivanje narudžbine.",
-        "confirmTerms": "Pročitao sam i prihvatio <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"general terms and conditions\">opšti uslovi</a>.",
-        "confirmTermsReminder": "Već ste prihvatili <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"general terms and conditions\">opšti uslovi</a>.",
+        "confirmTermsReminder": "Već ste prihvatili <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"general terms and conditions\">opštih uslova</a>.",
         "finishInfoPayment": "Način plaćanja:",
         "finishInfoShipping": "Način isporuke:",
         "finishHeader": "Hvala za Vašu narudžbu na %shop%!",
@@ -385,26 +390,37 @@
         "shippingCountry": "Zemlja isporuke",
         "paymentMethod": "Način plaćanja",
         "shippingMethod": "Način dostave",
+        "notAvailableSuffix": "(nije dostupno)",
         "product-stock-reached": "Proizvod \"%name%\" je dostupan samo %quantity% puta",
         "product-out-of-stock": "Proizvod \"%name%\" više nije dostupan",
         "purchase-steps-quantity": "Proizvod \"%name%\" nije dostupan u ovoj količini. Količina je promenjena u %quantity%",
+        "min-order-quantity": "Količina proizvoda \"%name%\" nije ispunila minimalni prag količine narudžbe. Količina je automatski povećana na %quantity%.",
         "shipping-method-blocked": "Metod dostave \"%name%\" je blokiran za vašu trenutnu korpu za kupovinu.",
+        "shipping-method-changed": "„%oldShippingMethodName%\" isporuka nije dostupna za vašu trenutnu korpu, isporuka je promenjena u \"%newShippingMethodName%“.",
         "payment-method-blocked": "Način plaćanja \"%name%\" je blokiran za vašu trenutnu korpu za kupovinu.",
+        "payment-method-changed": "„%oldPaymentMethodName%\" plaćanje nije dostupno za vašu trenutnu korpu, plaćanje je promenjeno u \"%newPaymentMethodName%“.",
         "lineItemDeliveryDate": "Rok isporuke: %earliest% - %latest%",
         "promotion-discount-deleted": "Popust \"%name%\" je uklonjen",
         "promotion-discount-added": "Popust \"%name%\" je dodat",
         "promotion-not-found": "Promocija sa kodom \"%code%\" nije mogla da se nameri.",
         "auto-promotion-not-found": "Promocija \"%name%\" više ne važi!",
         "promotion-not-eligible": "Promocija kod važi - međutim, nisu ispunjeni svi uslovi i popust nije primenjen. Kada se ispune svi uslovi, popust će se automatski primenjivati.",
+        "promotion-excluded": "Jedan ili više popusta je uklonjen iz korpe za kupovinu, zbog sukoba sa drugim popustima. Kada se uslovi ponovo ispunjavaju, popusti će se automatski primenjivati.",
         "shipping-address-blocked": "Dostava na odabranu adresu trenutno nije moguća.",
         "billing-address-blocked": "Obračunavanje na izabranu adresu nije moguće.",
+        "shipping-address-invalid": "Izabrana adresa za isporuku nije važeća ili nepotpuna. Molimo vas da proverite svoje unose.",
+        "billing-address-invalid": "Izabrana adresa za naplatu nije važeća ili nepotpuna. Molimo vas da proverite svoje unose.",
         "customerCommentHeader": "Dodatne informacije",
         "customerCommentLabel": "Želite li da nam kažete nešto o vašoj porudžbini?",
         "customerCommentPlaceholder": "Komentar ovde...",
         "cart-merged-hint": "Trenutna korpa za kupovinu može da sadrži dodatne proizvode koji su dodani i sačuvani tokom prethodne posete.",
         "collapseTriggerMore": "Prikaži više",
         "collapseTriggerLess": "Prikaži manje",
-        "product-not-found": "Proizvod ne može da se nameri."
+        "product-not-found": "Proizvod ne može da se nameri.",
+        "salutation-missing": "Pozdrav nedostaje iz vašeg profila, molimo vas da izaberete jedan tokom kasete.",
+        "salutation-missing-profile": "Nema pozdrav konfigurisan u vašem profilu, molimo vas da podesite jedan <a href=\"%url%\">ovde</a>.",
+        "salutation-missing-billing-address": "Nema pozdrava konfigurisana za vašu aktivnu adresu za naplatu, molimo vas da postavite jedan <a href=\"%url%\">ovde</a>.",
+        "salutation-missing-shipping-address": "Nema pozdrava konfigurisana za vašu aktivnu adresu za isporuku, molimo vas da podesite jedan <a href=\"%url%\">ovde</a>."
     },
     "listing": {
         "filterTitleText": "Filter",
@@ -428,9 +444,10 @@
         "filterRatingAndMore": "min. %points%/%maxPoints%",
         "filterRangeMinLabel": "Minimum",
         "filterRangeMaxLabel": "Maksimum",
-        "filterRangeActiveMinLabel": "Cena od",
-        "filterRangeActiveMaxLabel": "Cena do",
-        "filterRangeErrorMessage": "Minimalna cena ne sme biti veća od maksimalne cene.",
+        "filterRangeActiveMinLabel": "%displayName% od",
+        "filterRangeActiveMaxLabel": "%displayName% do",
+        "filterRangeErrorMessage": "Minimalna vrednost ne može biti veća od maksimalne vrednosti.",
+        "filterRangeLowerBoundErrorMessage": "Minimalna i maksimalna vrednost mora biti veća ili jednaka %lowerBound%.",
         "filterSubmitText": "Filter",
         "defaultProductSortingLabel": "Ime, uzlazno",
         "disabledFilterTooltip": "Ovaj filter ne prikazuje nikakve dodatne rezultate u kombinaciji sa izabranim filterima.",
@@ -536,6 +553,7 @@
         "headline": "Vaša lista želja",
         "itemDeleteSuccess": "Uspešno ste uklonili proizvod sa liste želja.",
         "itemAddedSuccess": "Uspešno ste dodali proizvod na listu želja.",
+        "duplicateItemError": "Proizvod je već dodat na listu želja.",
         "currentlyNotAvailable": "Trenutno nije dostupan",
         "manufacturerDisplayName": "Proizvođač",
         "deliveryTimeAvailable": "Dostupno, vreme isporuke %name%",
@@ -551,21 +569,21 @@
         "informationHeadline": "Informacije",
         "newsletterHeadline": "Newsletter",
         "serviceHotline": "Podrška i savetovanje putem: <a href=\"tel:+49180000000\">0180 - 000000</a> Pon-Pet, 9: 00 - 17: 00",
-        "serviceContactLink": "Ili putem našeg <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"contact form\">Kontakt obrasca</a>.",
+        "serviceContactLink": "Ili preko našeg <a data-bs-toggle=\"modal\" data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"contact form\">kontakt forme</a>.",
         "newsletterInput": "Vaša e-mail adresa",
         "newsletter": "Pretplatite se na naš redovni bilten sada da biste ostali u toku sa najnovijim proizvodima i specijalnim ponudama.",
-        "includeVat": "* Sve cene uklj. PDV plus <a data-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">troškovi isporuke</a> i moguće troškove isporuke, ako nije drugačije navedeno.",
-        "excludeVat": "* Sve cene bez. PDV plus <a data-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">troškovi isporuke</a> i moguće troškove isporuke, ako nije drugačije navedeno.",
+        "includeVat": "* Sve cene uklj. PDV plus <a data-toggle=\"modal\" data-bs-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">troškovi isporuke</a> i moguće troškove isporuke, ako nije drugačije navedeno.",
+        "excludeVat": "* Sve cene bez. PDV plus <a data-toggle=\"modal\" data-bs-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">troškovi isporuke</a> i moguće troškove isporuke, ako nije drugačije navedeno.",
         "copyrightInfo": "Realizovano sa Shopware"
     },
     "captcha": {
         "googleReCaptcha": {
-            "dataProtectionInformation": "Ovaj sajt je zaštićen reCAPTCHA i Google\n<a href=\"https://policies.google.com/privacy\">Politika privatnosti</a> i\n<a href=\"https://policies.google.com/terms\">Uslovi pružanja usluge</a> važe."
+            "dataProtectionInformation": "Ovaj sajt je zaštićen ReCAPTCHA i Google <a href=\"https://policies.google.com/privacy\">Politika privatnosti</a> i <a href=\"https://policies.google.com/terms\">Uslovi korišćenja usluge</a> važe."
         },
         "basicCaptchaLabel": "Molimo unesite znakove prikazane iznad*"
     },
     "cookie": {
-        "message": "Ovaj sajt koristi kolačiće kako bi se osiguralo najbolje moguće iskustvo. <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"More information\">Više informacija...</a>",
+        "message": "Ovaj sajt koristi kolačiće kako bi se osiguralo najbolje moguće iskustvo. <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"More information\">Više informacija...</a>",
         "deny": "Odbij",
         "configure": "Konfiguriši",
         "configuration": "Podešavanja",
@@ -577,7 +595,7 @@
         "groupRequiredSession": "Sеsija",
         "groupRequiredCsrf": "Zaštita CSRF",
         "groupRequiredTimezone": "Vremenska zona",
-        "groupRequiredCaptcha": "Integracija Captcha",
+        "groupRequiredCaptcha": "CAPTCHA integracija",
         "groupStatistical": "Statistika",
         "groupStatisticalDescription": "Kolačići se koriste za statistiku i metrike performansi prodavnica.",
         "groupStatisticalGoogleAnalytics": "Google Analitika",
@@ -593,7 +611,7 @@
             "feature": {
                 "label": {
                     "manufacturerNumber": "Broj proizvođača:",
-                    "ean": "EAN:",
+                    "ean": "GTIN/EAN:",
                     "weight": "Težina:",
                     "width": "Širina:",
                     "height": "Visina:",
@@ -610,8 +628,41 @@
         },
         "cms": {
             "vimeo": {
-                "privacyNotice": "Pregledom video zapisa slažete se da će vaši podaci biti prebačeni na %platform% i da ste pročitali <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Privacy policy\">Politiku privatnosti</a>.",
                 "acceptButtonLabel": "Prihvatite"
+            },
+            "defaultMedia": {
+                "preview_camera_large": {
+                    "title": "Kamera",
+                    "alt": "Vintage kodak foto kamera sa kožnim plaštom i kaišem"
+                },
+                "preview_camera_small": {
+                    "title": "Kamera",
+                    "alt": "Vintage kodak foto kamera sa kožnim plaštom i kaišem"
+                },
+                "preview_glasses_large": {
+                    "title": "Naočare za sunce",
+                    "alt": "Zlatni okvir naočare za sunce na reflektujućim mramor"
+                },
+                "preview_glasses_small": {
+                    "title": "Naočare za sunce",
+                    "alt": "Zlatni okvir naočare za sunce na reflektujućim mramor"
+                },
+                "preview_mountain_large": {
+                    "title": "Snegom pokrivene planine",
+                    "alt": "Rocki planinski greben sa snegom pokrivenim"
+                },
+                "preview_mountain_small": {
+                    "title": "Snegom pokrivene planine",
+                    "alt": "Rocki planinski greben sa snegom pokrivenim"
+                },
+                "preview_plant_large": {
+                    "title": "Plant",
+                    "alt": "Sočan u belom loncu ispred svetlo plavoj pozadini"
+                },
+                "preview_plant_small": {
+                    "title": "Plant",
+                    "alt": "Sočan u belom loncu ispred svetlo plavoj pozadini"
+                }
             }
         }
     }

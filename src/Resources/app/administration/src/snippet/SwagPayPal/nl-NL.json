@@ -6,9 +6,10 @@
         "labelClientSecret": "Klant geheim",
         "labelClientIdSandbox": "Zandbox klant ID",
         "labelClientSecretSandbox": "Zandbox klant geheim",
-        "labelSandbox": "Zandbak",
+        "labelSandbox": "Sandbox gebruiken",
         "tooltipSandbox": "Afhankelijk van de activering van de zandbox worden afzonderlijke aanmeldgegevens opgeslagen.",
-        "textSettingsHeader": "Geavanceerde instellingen",
+        "labelSetDefault": "Instellen als standaard betaalmethode",
+        "tooltipSetDefault": "PayPal wordt ingesteld als standaardbetaalmethode voor alle verkoopkanalen. U kunt individuele standaardbetaalmethoden instellen per verkoopkanaal in de instellingenmodule.",
         "messageFetchedError": "Probeer het opnieuw of gebruik de geavanceerde instellingen om de aanmeldgegevens op te geven.",
         "textFetchedSuccessful": "Aanmeldgegevens zijn opgehaald.",
         "messageNoCredentials": "Geen aanmeldgegevens verkregen.",
@@ -49,455 +50,6 @@
             "orderModuleLinkText": "Open bestelling",
             "rawDataCardTitle": "Ruwe gegevens",
             "copyButtonLabel": "onbewerkte gegevens kopiëren"
-        }
-    },
-    "swag-paypal-pos": {
-        "general": {
-            "moduleTitle": "Zettle met PayPal",
-            "salesChannelDetailDescription": {
-                "title": "Laat uw bedrijf groeien met Shopware en Zettle door PayPal",
-                "manufacturer": "Zettle met PayPal"
-            }
-        },
-        "header": "Verkoopkanaal Zettle",
-        "tabTitle": {
-            "overview": "Overzicht",
-            "syncedProducts": "Gesynchroniseerde producten",
-            "settings": "Instellingen",
-            "runs": "Logboeken",
-            "help": "Hulp"
-        },
-        "detail": {
-            "disclaimer": {
-                "headline": "Zettle is een PayPal-service",
-                "subheadline": "Help de omzet te verhogen door de kracht van PayPal. Ga gratis aan de slag.",
-                "linkTarget": "https://www.paypal.com/en/webapps/mpp/merchant",
-                "linkText": "Activeer PayPal voor uw winkel"
-            },
-            "overview": {
-                "titleSync": "Synchronisatie",
-                "buttonSync": "Nu synchroniseren",
-                "buttonSyncProducts": "Productgegevens synchroniseren",
-                "buttonSyncImages": "Afbeeldingen uploaden",
-                "buttonSyncInventory": "Synchroniseer voorraad",
-                "buttonSyncAbort": "Synchronisatie afbreken",
-                "syncErrorTitle": "Synchronisatiefout",
-                "status": {
-                    "disabled": "Synchronisatie is niet ingeschakeld, omdat uw verkoopkanaal is uitgeschakeld.",
-                    "message": {
-                        "syncing": "Synchronisatie in uitvoering",
-                        "noRunYet": "Geen recente run gevonden",
-                        "success": "Gesynchroniseerd",
-                        "warning": "Laatste synchronisatie voltooid met waarschuwingen",
-                        "error": "Laatste synchronisatie voltooid met fouten",
-                        "aborted": "Laatste synchronisatie is afgebroken door de gebruiker"
-                    },
-                    "task": {
-                        "complete": "compleet",
-                        "product": "producten",
-                        "image": "afbeeldingen",
-                        "inventory": "inventariseren"
-                    },
-                    "lastSynced": "Laatste synchronisatie",
-                    "lastSyncedComplete": "Laatste volledige synchronisatie",
-                    "syncingDetail": "Dit kan een paar minuten duren. Dit proces loopt op de achtergrond, ondertussen kunt u uw winkel gebruiken zoals gebruikelijk."
-                },
-                "continueSetup": {
-                    "cardTitle": "Setup",
-                    "content": {
-                        "headline": "Synchronisatie van producten instellen",
-                        "firstLine": "Uw Zettle en Shopware accounts zijn nu verbonden! U kunt nu productsynchronisatie instellen.",
-                        "secondLine": "Eenmaal geactiveerd wordt Zettle automatisch gesynchroniseerd met uw Shopware producten. Sales via Zettle worden ook gesynchroniseerd met Shopware en u kunt de Administratie gebruiken om ook op de hoogte te blijven van de verkoop van Zettle en Shopware."
-                    }
-                }
-            },
-            "syncedProducts": {
-                "title": "Gesynchroniseerde producten",
-                "notSyncedYet": "Nog niet gesynchroniseerd",
-                "columns": {
-                    "name": "Naam",
-                    "state": "Status",
-                    "date": "Datum"
-                },
-                "emptyState": {
-                    "title": "Geen producten geselecteerd",
-                    "message": "Er zijn geen producten in uw verkoopkanaal of dynamische productgroep."
-                },
-                "actions": {
-                    "productDetails": "Details van het product"
-                }
-            },
-            "settings": {
-                "titleGeneralSettings": "Algemene instellingen",
-                "domain": "Uw Winkel-Domein",
-                "domainHelpText": "Zettle gebruikt dit domein om media te downloaden die zijn gekoppeld aan uw gesynchroniseerde producten. Zettle accepteert alleen beveiligde URL's (https).",
-                "productStream": "Dynamische productgroep",
-                "titleCredentials": "Inloggegevens",
-                "titleSync": "Synchronisatie",
-                "titlePrices": "Prijzen",
-                "syncPrices": "Prijzen synchroniseren",
-                "replace": "Bestaande producten in Zettle vervangen",
-                "activeHelpText": "Als het actief is, gebeurt de Zettle synchronisatie automatisch op de achtergrond.",
-                "saveAlert": "Opgeslagen wijzigingen zijn beschikbaar nadat de huidige synchronisatie tussen Shopware en Zettle is beëindigd.",
-                "optionsTitle": "Opties",
-                "reset": {
-                    "buttonTitle": "Synchronisatie opnieuw instellen",
-                    "descriptionText": "Als u problemen ondervindt, kunt u alle producten en afbeeldingen opnieuw uploaden.",
-                    "modalConfirmText": "Hiermee wordt de synchronisatiegeschiedenis voor het verkoopkanaal opnieuw ingesteld",
-                    "modalTextInfo": "Alle items worden opnieuw geüpload bij de volgende synchronisatie. Dit kan even duren. U verliest geen gegevens in Shopware, sommige gegevens kunnen worden overschreven bij Zettle.",
-                    "modalTitle": "Synchronisatiegeschiedenis opnieuw instellen",
-                    "modalButtonConfirm": "Synchronisatie opnieuw instellen"
-                }
-            },
-            "logs": {
-                "columnLastSync": "Details",
-                "noEntry": "Nog niet gesynchroniseerd",
-                "states": {
-                    "success": "Bijgewerkt",
-                    "failed": "Mislukt",
-                    "aborted": "Afgebroken"
-                }
-            },
-            "runs": {
-                "title": "Synchronisatie geschiedenis",
-                "toolbarText": "„Logs opruimen” zal alle logboeken verwijderen. Logs ouder dan 30 dagen worden automatisch verwijderd.",
-                "completeTask": "Compleet",
-                "productTask": "Product",
-                "inventoryTask": "Voorraad",
-                "imageTask": "Afbeelding",
-                "states": {
-                    "withWarnings": "Voltooid met waarschuwingen",
-                    "successful": "voltooid",
-                    "aborted": "Afgebroken door gebruiker"
-                },
-                "actions": {
-                    "showDetails": "Details tonen"
-                },
-                "emptyState": {
-                    "title": "Geen voltooide synchronisaties",
-                    "message": "Synchroniseer nu om logboeken te genereren."
-                },
-                "columns": {
-                    "task": "Type",
-                    "state": "Staat",
-                    "date": "Datum"
-                }
-            },
-            "save": "Opslaan",
-            "cleanLog": "Log opruimen"
-        },
-        "wizard": {
-            "salesChannelPrototypeName": "Zettle POS",
-            "stepItemTitle": {
-                "connection": "Account instellen",
-                "connectionSuccess": "Verbinding",
-                "customization": "Maatwerk",
-                "productSelection": "Product selectie",
-                "syncLibrary": "Synchronisatie van producten",
-                "syncPrices": "Prijssynchronisatie",
-                "finish": "Finish"
-            },
-            "connection": {
-                "modalTitle": "Account instellen",
-                "headerConnect": "Uw Zettle account koppelen",
-                "headerNewCustomer": "Nieuw bij Zettle?",
-                "buttonCreateAccount": "Maak Zettle account",
-                "buttonCreateAccountLink": "https://www.zettle.com/gb/integrations/e-commerce/shopware?utm_source=local_partnership&utm_medium=ecommerce&utm_campaign=shopware"
-            },
-            "connectionSuccess": {
-                "modalTitle": "Verbinding tot stand",
-                "headline": "Uw Zettle en Shopware accounts zijn nu verbonden!",
-                "info": "Volg de volgende stappen om het instellen van productsynchronisatie te voltooien.",
-                "disconnectButton": "Verbinding verbreken",
-                "disclaimer": "Wijzigingen die u aanbrengt in uw Shopware producten worden nu automatisch bijgewerkt in uw verbonden Zettle account.",
-                "fakeFirstName": "Momenteel",
-                "fakeLastName": "laden...",
-                "fakeMail": "pos@example.com"
-            },
-            "connectionDisconnect": {
-                "modalTitle": "Verbinding met Zettle verbreken",
-                "headline": "U staat op het punt om Zettle los te koppelen",
-                "info": "Producten worden niet meer bijgewerkt en gesynchroniseerd met uw weergegeven Zettle account wanneer u uw account loskoppelt.",
-                "disconnectButton": "Account verbreken",
-                "disconnectErrorMessage": "Er is een fout opgetreden tijdens het verbreken van de verbinding"
-            },
-            "customization": {
-                "salesChannelLabel": "Naam van het verkoopkanaal",
-                "modalTitle": "Details verkoopkanaal",
-                "labelDomain": "Uw Winkel-Domein",
-                "subtitle": "Zettle gebruikt dit domein om media te downloaden die zijn gekoppeld aan uw gesynchroniseerde producten.",
-                "placeholderDomain": "www.my-store.shopware.com"
-            },
-            "productSelection": {
-                "modalTitle": "Producten overdragen van bestaand Sales Channel",
-                "labelSelect": "Kanaal voor verkoop",
-                "labelToggle": "Selectie product overdragen",
-                "info": "Om sneller aan de slag te gaan heb je nu de mogelijkheid om producten uit een bestaand verkoopkanaal toe te wijzen aan je nieuw gemaakte kanaal. Alle toegewezen producten zullen dan beschikbaar zijn voor synchronisatie in Zettle POS. Geen handwerk nodig."
-            },
-            "syncLibrary": {
-                "modalTitle": "Synchronisatie van producten instellen",
-                "header": "We vonden {shopwareProducts} en {posProducts}",
-                "shopwareProducts": "geen Shopware producten | één Shopware product | {n} Shopware producten",
-                "posProducts": "geen Zettle producten | een Zettle product | {n} Zettle producten",
-                "description": "Alle producten worden gesynchroniseerd vanaf uw nieuw aangemaakte Sales Channel in Shopware. Hoe wilt u uw Zettle bibliotheek instellen?",
-                "optionReplacePermanentlyLabel": "Gebruik alleen Shopware producten",
-                "optionReplacePermanentlyDescription": "Alleen uw Shopware producten en voorraadhoeveelheden zullen in uw Zettle bibliotheek aanwezig zijn.",
-                "optionReplaceOneTimeLabel": "Zettel-bibliotheek vervangen",
-                "optionReplaceOneTimeDescription": "Vervang uw bestaande Zettle bibliotheek eenmaal door producten en voorraadhoeveelheden van Shopware.",
-                "optionReplaceNotLabel": "Shopware producten toevoegen",
-                "optionReplaceNotDescription": "Uw Shopware producten en voorraadhoeveelheden worden toegevoegd aan uw bestaande Zettle bibliotheek.",
-                "disclaimer": "U kunt deze instellingen later op elk gewenst moment wijzigen."
-            },
-            "syncPrices": {
-                "modalTitle": "Synchronisatie van producten instellen",
-                "header": "Hoe wilt u de productprijzen synchroniseren met Zettle?",
-                "description": "De prijzen van uw producten zijn inclusief btw wanneer deze worden gesynchroniseerd met Zettle.",
-                "disclaimer": "U kunt uw btw handmatig bewerken in de productbibliotheek van Zettle.",
-                "optionTrueLabel": "Prijzen synchroniseren met btw",
-                "optionTrueDescription": "Prijzen gesynchroniseerd met Zettle zijn inclusief BTW.",
-                "optionFalseLabel": "Prijzen niet synchroniseren",
-                "optionFalseDescription": "Productprijzen worden niet overgedragen bij synchronisatie. U kunt ze instellen in uw Zettle productbibliotheek."
-            },
-            "finish": {
-                "modalTitle": "Finish",
-                "header": "Installatie van productsynchronisatie voltooid!",
-                "firstParagraph": "Uw Zettle account is nu gekoppeld aan uw verkoopkanaal en uw producten worden overgezet naar Zettle. Wanneer u in de toekomst een verkoop doet, zullen wij uw voorraad in Zettle en Shopware updaten.",
-                "secondParagraph": "Als je je producten moet updaten, raden we je aan dit te doen in Shopware en ze worden automatisch gesynchroniseerd met je Zettle app."
-            }
-        },
-        "authentication": {
-            "messageTestError": "De referenties konden niet worden gevalideerd.",
-            "labelApiKey": "API-sleutel",
-            "placeholderApiKey": "API-sleutel invoeren...",
-            "apiKeyDescription": "API-sleutels werken als wachtwoorden. Shopware gebruikt uw Zettle API-sleutel om een veilige verbinding tot stand te brengen met uw Zettle-account.",
-            "buttonGenerateKey": "API-sleutel genereren"
-        },
-        "account": {
-            "loadingName": "Momenteel aan het laden...",
-            "loadingEmail": "pos@example.com",
-            "errorName": "Fout tijdens verificatie",
-            "errorEmail": "Uw API-sleutel kon niet worden geverifieerd",
-            "connectedStatus": "Aangesloten",
-            "noConnectionStatus": "Geen verbinding",
-            "manageAccount": "Account beheren",
-            "editConnection": "Verbinding bewerken",
-            "lastUpdated": "Laatst bijgewerkt"
-        },
-        "gettingStarted": {
-            "cardTitle": "Aan de slag met Zettle via PayPal",
-            "readerHeadline": "Log in op Zettle om uw Zettle kaartlezer te bestellen",
-            "readerText": "Lees meer over de kaartlezer en bestel er hier een:",
-            "readerLinkTarget": "https://shop.zettle.com",
-            "readerLinkText": "shop.zettle.com",
-            "readerImageAlt": "Zettle kaartlezer",
-            "appHeadline": "Download de Zettle Go-app",
-            "appText": "Beschikbaar voor iOS en Android tablets en telefoons.<br>Koppel uw Zettle account en uw kaartlezer om te beginnen met verkopen.",
-            "appImageAlt": "Zettle app"
-        },
-        "messageCloneError": "Kan de zichtbaarheid van het product niet overbrengen vanuit een ander verkoopkanaal.",
-        "messageWebhookRegisterError": "De webhook kon niet geregistreerd worden bij Zettle"
-    },
-    "sw-privileges": {
-        "permissions": {
-            "parents": {
-                "swag_paypal": "PayPal"
-            },
-            "swag_paypal": {
-                "label": "PayPal-instellingen"
-            },
-            "swag_paypal_disputes": {
-                "label": "PayPal-geschillen"
-            }
-        }
-    },
-    "swag-paypal": {
-        "header": "PayPal",
-        "saleschannelCard": {
-            "button": {
-                "description": "Klik op deze knop om PayPal in te schakelen en deze als standaard te selecteren in het geselecteerde verkoopkanaal",
-                "label": "Stel PayPal als standaard in"
-            }
-        },
-        "general": {
-            "mainMenuItemGeneral": "PayPal",
-            "descriptionTextModule": "PayPal instellingen"
-        },
-        "messageNotBlank": "Deze waarde mag niet leeg zijn.",
-        "settingForm": {
-            "save": "Opslaan",
-            "testLive": "Test API aanmeldgegevens",
-            "testSandbox": "Test zandbox API aanmeldgegevens",
-            "credentials": {
-                "cardTitle": "API aanmeldgegevens",
-                "clientId": {
-                    "label": "Klant ID",
-                    "tooltipText": "De REST API klant ID wordt gebruikt om deze plug-in te verifiëren met de PayPal API."
-                },
-                "clientSecret": {
-                    "label": "Klant geheim",
-                    "tooltipText": "De REST API klant geheim wordt gebruikt om deze plug-in te verifiëren met de PayPal API."
-                },
-                "clientIdSandbox": {
-                    "label": "Zandbox klant ID",
-                    "tooltipText": "De REST API klant ID wordt gebruikt tijdens testen om deze plug-in te verifiëren met de PayPal API."
-                },
-                "clientSecretSandbox": {
-                    "label": "Zandbox klant geheim",
-                    "tooltipText": "De REST API klant geheim wordt gebruikt tijdens testen om deze plug-in te verifiëren met de PayPal API."
-                },
-                "sandbox": {
-                    "label": "Zandbox inschakelen",
-                    "tooltipText": "Inschakelen om de PayPal integratie te testen."
-                },
-                "button": {
-                    "title": "Krijg API aanmeldgegevens",
-                    "titleSandbox": "Krijg zandbox API aanmeldgegevens",
-                    "messageFetchedError": "Probeer het opnieuw of vul de inloggegevens handmatig in."
-                }
-            },
-            "behavior": {
-                "cardTitle": "gedrag",
-                "merchantLocation": {
-                    "label": "Locatie handelaar",
-                    "germany": "Duitsland",
-                    "other": "Andere handelaar locatie"
-                },
-                "intent": {
-                    "label": "Betaling acquisitie",
-                    "sale": "Voltooi betaling onmiddellijk (Verkoop)",
-                    "authorize": "Vertraagde betaling incasso (Auth-Capture)",
-                    "order": "Vertraagde betaling incasso (Order-Auth-Capture)",
-                    "CAPTURE": "Volledige betaling onmiddellijk (CAPTURE)",
-                    "AUTHORIZE": "Vertraagde betaling incasseren (ATAM"
-                },
-                "submitCart": {
-                    "label": "Winkelwagen indienen",
-                    "helpText": "Als deze optie actief is, worden de gegevens van het winkelwagentje bij het afrekenen naar PayPal verzonden."
-                },
-                "brandName": {
-                    "label": "Uw eigen merknaam op PayPal-pagina",
-                    "tooltipText": "Deze tekst wordt weergegeven als merknaam op de PayPal-betalingspagina."
-                },
-                "landingPage": {
-                    "label": "PayPal landingspagina",
-                    "helpText": {
-                        "login": "Inloggen: De PayPal-site geeft een inlogscherm weer als bestemmingspagina.",
-                        "billing": "Inschrijving: De PayPal-site geeft een registratieformulier weer als bestemmingspagina.",
-                        "no_preference": "Geen voorkeur: PayPal bepaalt welke pagina wordt getoond, afhankelijk van de eerdere interactie van de klant met PayPal."
-                    },
-                    "options": {
-                        "login": "Inloggen",
-                        "billing": "Inschrijving",
-                        "no_preference": "Geen voorkeur"
-                    }
-                },
-                "sendOrderNumber": {
-                    "label": "Bestellingsnummer verzenden",
-                    "helpText": "Als deze optie actief is, wordt het ordernummer bij het afrekenen bij PayPal ingediend."
-                },
-                "orderNumberPrefix": {
-                    "label": "Volgnummer voorvoegsel",
-                    "tooltipText": "Deze tekst wordt geplaatst voor het oorspronkelijke ordernummer (bijv. MyShop_SW20001). Dit helpt bij het identificeren van de winkel waar de betaling is gedaan."
-                },
-                "loggingLevel": {
-                    "label": "Debugging",
-                    "tooltipText": "Bij gebruik van geavanceerde foutopsporing worden tijdens het afrekenen extra gegevens vastgelegd om mogelijke fouten te detecteren. Uitsluitend voor tijdelijk gebruik.",
-                    "options": {
-                        "basic": "Basic",
-                        "advanced": "Geavanceerde"
-                    }
-                }
-            },
-            "express": {
-                "cardTitle": "PayPal Express Afrekenen",
-                "ecsDetailEnabled": {
-                    "label": "'Betaal nu' op de detailpagina:",
-                    "helpText": "Als deze optie actief is, wordt de knop Snel afrekenen weergegeven op elke product detailpagina."
-                },
-                "ecsCartEnabled": {
-                    "label": "'Betaal nu' op winkelwagen:",
-                    "helpText": "Als deze optie actief is, wordt de knop Express Checkout op de winkelwagen weergegeven."
-                },
-                "ecsOffCanvasEnabled": {
-                    "label": "'Betaal nu' op Off-Canvas-winkelwagen:",
-                    "helpText": "Als deze optie actief is, wordt de knop Express Checkout weergegeven op de Off-Canvas winkelwagen."
-                },
-                "ecsLoginEnabled": {
-                    "label": "'Betaal nu' op inlogpagina:",
-                    "helpText": "Als deze optie actief is, wordt de knop Snel afrekenen weergegeven op de inlog- en registratiepagina."
-                },
-                "ecsListingEnabled": {
-                    "label": "'Betaal nu' op vermeldingspagina's:",
-                    "helpText": "Als deze optie actief is, wordt de knop Snel afrekenen weergegeven op de vermeldingspagina's."
-                },
-                "ecsButtonColor": {
-                    "label": "Knop kleur:",
-                    "options": {
-                        "blue": "Blauw",
-                        "black": "Zwart",
-                        "gold": "Goud",
-                        "silver": "Zilver"
-                    }
-                },
-                "ecsButtonShape": {
-                    "label": "Knop vorm:",
-                    "options": {
-                        "pill": "Rond",
-                        "rect": "Rechthoekig"
-                    }
-                },
-                "ecsSubmitCart": {
-                    "label": "Winkelwagen indienen",
-                    "helpText": "Als deze optie actief is, wordt de winkelwagen voor Express-bestellingen naar PayPal verzonden."
-                },
-                "ecsButtonLanguageIso": {
-                    "label": "Knop locale:",
-                    "helpText": "Indien niet ingesteld, wordt de taal van het verkoopkanaal gebruikt."
-                }
-            },
-            "installment": {
-                "cardTitle": "Termijnen",
-                "installmentBannerEnabled": {
-                    "label": "Schakel termijnbanner in"
-                }
-            },
-            "spb": {
-                "cardTitle": "PayPal afrekenen met slimme betaalknoppen",
-                "spbCheckoutEnabled": {
-                    "label": "Schakel slimme betalingsknoppen in"
-                },
-                "spbButtonLanguageIso": {
-                    "label": "Knop locale:",
-                    "helpText": "Indien niet ingesteld, wordt de taal van het verkoopkanaal gebruikt."
-                },
-                "spbAlternativePaymentMethodsEnabled": {
-                    "label": "Schakel de alternatieve betaalmethoden in voor de slimme betaalknoppen.",
-                    "helpText": "Alternatieve betaalmethoden zijn: creditkaarteb, factuur en meer."
-                }
-            },
-            "plus": {
-                "cardTitle": "PayPal PLUS",
-                "introduction": "<strong>PayPal PLUS:</strong> de complete alles-in-één betalingsoplossing inclusief PayPal, automatische incasso, creditcard en betalen op factuur. PayPal PLUS biedt klanten volledige flexibiliteit bij het kiezen van hun favoriete betaalmethode. De voordelen als verkoper? Makkelijker boekhouden met slechts één contractant, één rekening en één transactieoverzicht met alle inkomende betalingen. Ontvangt het geld direct nadat klanten het bestelproces hebben voltooid.<br>PayPal PLUS aanvragen kan via <a href='https://www.paypal.com/de/webapps/mpp/paypal-plus' target='_ blank'>hier</a>. Vraag betaling op factuur <a href='https://www.paypal.com/de/webapps/mpp/pui-start' target='_blank'>hier</a> aan.",
-                "plusCheckoutEnabled": {
-                    "label": "Schakel PayPal PLUS in"
-                },
-                "hint": "Opmerking: PayPal PLUS werkt alleen met de betaalacquisitie „Verkoop”. Het wordt automatisch ingesteld."
-            },
-            "locale-field": {
-                "infobox": {
-                    "text": "Om een lijst met geldige locale codes te zien, klik ",
-                    "href": "hier"
-                },
-                "error": {
-                    "detail": "De landcode die u heeft opgegeven, komt niet overeen met het door PayPal vereiste formaat. Een geldig formaat is \"en_GB\"."
-                }
-            },
-            "messageSaveSuccess": "De PayPal instellingen zijn opgeslagen.",
-            "messageTestSuccess": "De API aanmeld gegevens zijn gevalideerd.",
-            "messageTestError": "De API aanmeld gegevens kunnen niet worden gevalideerd.",
-            "messageWebhookCreated": "De webhook is geregistreerd.",
-            "messageWebhookUpdated": "De webhook is bijgewerkt.",
-            "messageWebhookError": "De webhook kan niet worden opgeslagen. De volgende fouten zijn opgetreden:"
         }
     },
     "swag-paypal-payment": {
@@ -622,8 +174,7 @@
             "confirm": {
                 "message": "Deze betaling echt annuleren?",
                 "button": {
-                    "confirm": "Annuleer autorisatie",
-                    "cancel": "Nee"
+                    "confirm": "Annuleer autorisatie"
                 }
             }
         },
@@ -632,6 +183,476 @@
             "canceledPaymentContent": "Er is een fout opgetreden bij het ophalen van betalingsgegevens van PayPal. Als u dit bericht ziet, was het waarschijnlijk een betaling die door de klant is geannuleerd. Geannuleerde betalingen worden na een tijdje verwijderd door PayPal en zijn dan niet meer beschikbaar.",
             "sandboxLiveContent": "Er is een fout opgetreden bij het ophalen van betalingsgegevens van PayPal. Als u dit bericht ziet, was het waarschijnlijk een betaling die is gemaakt met sandbox ingeschakeld en is nu aangevraagd met live data, of vice versa. Corrigeer uw PayPal-instellingen of verwijder testorders uit het systeem.",
             "other": "Er is een fout opgetreden bij het ophalen van betalingsgegevens van PayPal."
+        }
+    },
+    "swag-paypal-pos": {
+        "general": {
+            "moduleTitle": "Zettle met PayPal",
+            "salesChannelDetailDescription": {
+                "title": "Laat uw bedrijf groeien met Shopware en Zettle door PayPal",
+                "manufacturer": "Zettle met PayPal"
+            }
+        },
+        "header": "Verkoopkanaal Zettle",
+        "tabTitle": {
+            "overview": "Overzicht",
+            "syncedProducts": "Gesynchroniseerde producten",
+            "settings": "Instellingen",
+            "runs": "Logboeken",
+            "help": "Hulp"
+        },
+        "detail": {
+            "disclaimer": {
+                "headline": "Zettle is een PayPal-service",
+                "subheadline": "Help de omzet te verhogen door de kracht van PayPal. Ga gratis aan de slag.",
+                "linkTarget": "https://www.paypal.com/en/webapps/mpp/merchant",
+                "linkText": "Koop PayPal voor je winkel"
+            },
+            "overview": {
+                "titleSync": "Synchronisatie",
+                "buttonSync": "Nu synchroniseren",
+                "buttonSyncProducts": "Productgegevens synchroniseren",
+                "buttonSyncImages": "Afbeeldingen uploaden",
+                "buttonSyncInventory": "Synchroniseer voorraad",
+                "buttonSyncAbort": "Synchronisatie afbreken",
+                "syncErrorTitle": "Synchronisatiefout",
+                "status": {
+                    "disabled": "Synchronisatie is niet ingeschakeld, omdat uw verkoopkanaal is uitgeschakeld.",
+                    "message": {
+                        "syncing": "Synchronisatie in uitvoering",
+                        "noRunYet": "Geen recente run gevonden",
+                        "success": "Gesynchroniseerd",
+                        "warning": "Laatste synchronisatie voltooid met waarschuwingen",
+                        "error": "Laatste synchronisatie voltooid met fouten",
+                        "aborted": "Laatste synchronisatie is afgebroken door de gebruiker"
+                    },
+                    "task": {
+                        "complete": "compleet",
+                        "product": "producten",
+                        "image": "afbeeldingen",
+                        "inventory": "inventariseren"
+                    },
+                    "lastSynced": "Laatste synchronisatie",
+                    "lastSyncedComplete": "Laatste volledige synchronisatie",
+                    "syncingDetail": "Dit kan een paar minuten duren. Dit proces loopt op de achtergrond, ondertussen kunt u uw winkel gebruiken zoals gebruikelijk."
+                },
+                "continueSetup": {
+                    "cardTitle": "Setup",
+                    "content": {
+                        "headline": "Synchronisatie van producten instellen",
+                        "firstLine": "Uw Zettle en Shopware accounts zijn nu verbonden! U kunt nu productsynchronisatie instellen.",
+                        "secondLine": "Eenmaal geactiveerd wordt Zettle automatisch gesynchroniseerd met uw Shopware producten. Sales via Zettle worden ook gesynchroniseerd met Shopware en u kunt de Administratie gebruiken om ook op de hoogte te blijven van de verkoop van Zettle en Shopware."
+                    }
+                }
+            },
+            "syncedProducts": {
+                "title": "Gesynchroniseerde producten",
+                "notSyncedYet": "Nog niet gesynchroniseerd",
+                "columns": {
+                    "name": "Naam",
+                    "state": "Status",
+                    "date": "Datum"
+                },
+                "emptyState": {
+                    "title": "Geen producten geselecteerd",
+                    "message": "Er zijn geen producten in uw verkoopkanaal of dynamische productgroep."
+                },
+                "actions": {
+                    "productDetails": "Details van het product"
+                }
+            },
+            "settings": {
+                "titleGeneralSettings": "Algemene instellingen",
+                "domain": "Uw Winkel-Domein",
+                "domainHelpText": "Zettle gebruikt dit domein om media te downloaden die zijn gekoppeld aan uw gesynchroniseerde producten. Zettle accepteert alleen beveiligde URL's (https).",
+                "productStream": "Dynamische productgroep",
+                "titleCredentials": "Inloggegevens",
+                "titleSync": "Synchronisatie",
+                "titlePrices": "Prijzen",
+                "syncPrices": "Prijzen synchroniseren",
+                "replace": "Bestaande producten in Zettle vervangen",
+                "activeHelpText": "Als het actief is, gebeurt de Zettle synchronisatie automatisch op de achtergrond.",
+                "saveAlert": "Opgeslagen wijzigingen zijn beschikbaar nadat de huidige synchronisatie tussen Shopware en Zettle is beëindigd.",
+                "optionsTitle": "Opties",
+                "reset": {
+                    "buttonTitle": "Synchronisatie opnieuw instellen",
+                    "descriptionText": "Als u problemen ondervindt, kunt u alle producten en afbeeldingen opnieuw uploaden.",
+                    "modalConfirmText": "Hiermee wordt de synchronisatiegeschiedenis voor het verkoopkanaal opnieuw ingesteld",
+                    "modalTextInfo": "Alle items worden opnieuw geüpload bij de volgende synchronisatie. Dit kan even duren. U verliest geen gegevens in Shopware, sommige gegevens kunnen worden overschreven bij Zettle.",
+                    "modalTitle": "Synchronisatiegeschiedenis opnieuw instellen",
+                    "modalButtonConfirm": "Synchronisatie opnieuw instellen"
+                }
+            },
+            "logs": {
+                "columnLastSync": "Details",
+                "noEntry": "Nog niet gesynchroniseerd",
+                "states": {
+                    "success": "Bijgewerkt",
+                    "failed": "Mislukt",
+                    "aborted": "Afgebroken"
+                }
+            },
+            "runs": {
+                "title": "Synchronisatie geschiedenis",
+                "toolbarText": "„Logs opruimen” zal alle logboeken verwijderen. Logs ouder dan 30 dagen worden automatisch verwijderd.",
+                "completeTask": "Compleet",
+                "productTask": "Product",
+                "inventoryTask": "Voorraad",
+                "imageTask": "Afbeelding",
+                "cloneVisibilityTask": "Zichtbaarheid van producten",
+                "states": {
+                    "withWarnings": "Voltooid met waarschuwingen",
+                    "successful": "voltooid",
+                    "aborted": "Afgebroken door gebruiker",
+                    "failed": "Mislukt"
+                },
+                "actions": {
+                    "showDetails": "Details tonen"
+                },
+                "emptyState": {
+                    "title": "Geen voltooide synchronisaties",
+                    "message": "Synchroniseer nu om logboeken te genereren."
+                },
+                "columns": {
+                    "task": "Type",
+                    "state": "Staat",
+                    "date": "Datum"
+                }
+            },
+            "cleanLog": "Log opruimen"
+        },
+        "wizard": {
+            "salesChannelPrototypeName": "Zettle POS",
+            "stepItemTitle": {
+                "connection": "Account instellen",
+                "connectionSuccess": "Verbinding",
+                "customization": "Maatwerk",
+                "productSelection": "Product selectie",
+                "syncLibrary": "Synchronisatie van producten",
+                "syncPrices": "Prijssynchronisatie",
+                "finish": "Finish"
+            },
+            "connection": {
+                "modalTitle": "Account instellen",
+                "headerConnect": "Uw Zettle account koppelen",
+                "headerNewCustomer": "Nieuw bij Zettle?",
+                "buttonCreateAccount": "Maak Zettle account",
+                "buttonCreateAccountLink": "https://www.zettle.com/gb/integrations/e-commerce/shopware?utm_source=local_partnership&utm_medium=ecommerce&utm_campaign=shopware"
+            },
+            "connectionSuccess": {
+                "modalTitle": "Verbinding tot stand",
+                "headline": "Uw Zettle en Shopware accounts zijn nu verbonden!",
+                "info": "Volg de volgende stappen om het instellen van productsynchronisatie te voltooien.",
+                "disconnectButton": "Verbinding verbreken",
+                "disclaimer": "Wijzigingen die u aanbrengt in uw Shopware producten worden nu automatisch bijgewerkt in uw verbonden Zettle account.",
+                "fakeFirstName": "Momenteel",
+                "fakeLastName": "laden...",
+                "fakeMail": "pos@example.com"
+            },
+            "connectionDisconnect": {
+                "modalTitle": "Verbinding met Zettle verbreken",
+                "headline": "U staat op het punt om Zettle los te koppelen",
+                "info": "Producten worden niet meer bijgewerkt en gesynchroniseerd met uw weergegeven Zettle account wanneer u uw account loskoppelt.",
+                "disconnectButton": "Account verbreken",
+                "disconnectErrorMessage": "Er is een fout opgetreden tijdens het verbreken van de verbinding"
+            },
+            "customization": {
+                "salesChannelLabel": "Naam van het verkoopkanaal",
+                "modalTitle": "Details verkoopkanaal",
+                "labelDomain": "Uw Winkel-Domein",
+                "subtitle": "Zettle gebruikt dit domein om media te downloaden die zijn gekoppeld aan uw gesynchroniseerde producten.",
+                "placeholderDomain": "www.my-store.shopware.com"
+            },
+            "productSelection": {
+                "modalTitle": "Producten overdragen van bestaand Sales Channel",
+                "labelSelect": "Kanaal voor verkoop",
+                "labelToggle": "Selectie product overdragen",
+                "info": "Om sneller aan de slag te gaan heb je nu de mogelijkheid om producten uit een bestaand verkoopkanaal toe te wijzen aan je nieuw gemaakte kanaal. Alle toegewezen producten zullen dan beschikbaar zijn voor synchronisatie in Zettle POS. Geen handwerk nodig."
+            },
+            "syncLibrary": {
+                "modalTitle": "Synchronisatie van producten instellen",
+                "header": "We vonden {shopwareProducts} en {posProducts}",
+                "shopwareProducts": "geen Shopware producten | één Shopware product | {n} Shopware producten",
+                "posProducts": "geen Zettle producten | een Zettle product | {n} Zettle producten",
+                "description": "Alle producten worden gesynchroniseerd vanaf uw nieuw aangemaakte Sales Channel in Shopware. Hoe wilt u uw Zettle bibliotheek instellen?",
+                "optionReplacePermanentlyLabel": "Gebruik alleen Shopware producten",
+                "optionReplacePermanentlyDescription": "Alleen uw Shopware producten en voorraadhoeveelheden zullen in uw Zettle bibliotheek aanwezig zijn.",
+                "optionReplaceOneTimeLabel": "Zettel-bibliotheek vervangen",
+                "optionReplaceOneTimeDescription": "Vervang uw bestaande Zettle bibliotheek eenmaal door producten en voorraadhoeveelheden van Shopware.",
+                "optionReplaceNotLabel": "Shopware producten toevoegen",
+                "optionReplaceNotDescription": "Uw Shopware producten en voorraadhoeveelheden worden toegevoegd aan uw bestaande Zettle bibliotheek.",
+                "disclaimer": "U kunt deze instellingen later op elk gewenst moment wijzigen."
+            },
+            "syncPrices": {
+                "modalTitle": "Synchronisatie van producten instellen",
+                "header": "Hoe wilt u de productprijzen synchroniseren met Zettle?",
+                "description": "De prijzen van uw producten zijn inclusief btw wanneer deze worden gesynchroniseerd met Zettle.",
+                "disclaimer": "U kunt uw btw handmatig bewerken in de productbibliotheek van Zettle.",
+                "optionTrueLabel": "Prijzen synchroniseren met btw",
+                "optionTrueDescription": "Prijzen gesynchroniseerd met Zettle zijn inclusief BTW.",
+                "optionFalseLabel": "Prijzen niet synchroniseren",
+                "optionFalseDescription": "Productprijzen worden niet overgedragen bij synchronisatie. U kunt ze instellen in uw Zettle productbibliotheek."
+            },
+            "finish": {
+                "modalTitle": "Finish",
+                "header": "Installatie van productsynchronisatie voltooid!",
+                "firstParagraph": "Uw Zettle account is nu gekoppeld aan uw verkoopkanaal en uw producten worden overgezet naar Zettle. Wanneer u in de toekomst een verkoop doet, zullen wij uw voorraad in Zettle en Shopware updaten.",
+                "secondParagraph": "Als je je producten moet updaten, raden we je aan dit te doen in Shopware en ze worden automatisch gesynchroniseerd met je Zettle app."
+            }
+        },
+        "authentication": {
+            "messageTestError": "De referenties konden niet worden gevalideerd",
+            "messageDuplicateError": "Dit Zettle-account is al geconfigureerd in een ander verkoopkanaal",
+            "labelApiKey": "API-sleutel",
+            "placeholderApiKey": "API-sleutel invoeren...",
+            "apiKeyDescription": "API-sleutels werken als wachtwoorden. Shopware gebruikt uw Zettle API-sleutel om een veilige verbinding tot stand te brengen met uw Zettle-account.",
+            "buttonGenerateKey": "API-sleutel genereren"
+        },
+        "account": {
+            "loadingName": "Momenteel aan het laden...",
+            "loadingEmail": "pos@example.com",
+            "errorName": "Fout tijdens verificatie",
+            "errorEmail": "Uw API-sleutel kon niet worden geverifieerd",
+            "connectedStatus": "Aangesloten",
+            "noConnectionStatus": "Geen verbinding",
+            "manageAccount": "Account beheren",
+            "editConnection": "Verbinding bewerken",
+            "lastUpdated": "Laatst bijgewerkt"
+        },
+        "gettingStarted": {
+            "cardTitle": "Aan de slag met Zettle via PayPal",
+            "readerHeadline": "Log in op Zettle om uw Zettle kaartlezer te bestellen",
+            "readerText": "Lees meer over de kaartlezer en bestel er hier een:",
+            "readerLinkTarget": "https://shop.zettle.com",
+            "readerLinkText": "shop.zettle.com",
+            "readerImageAlt": "Zettle kaartlezer",
+            "appHeadline": "Download de Zettle Go-app",
+            "appText": "Beschikbaar voor iOS en Android tablets en telefoons.<br>Koppel uw Zettle account en uw kaartlezer om te beginnen met verkopen.",
+            "appImageAlt": "Zettle app"
+        },
+        "messageCloneError": "Kan de zichtbaarheid van het product niet overbrengen vanuit een ander verkoopkanaal.",
+        "messageWebhookRegisterError": "De webhook kon niet geregistreerd worden bij Zettle"
+    },
+    "sw-privileges": {
+        "permissions": {
+            "parents": {
+                "swag_paypal": "PayPal"
+            },
+            "swag_paypal": {
+                "label": "PayPal-instellingen"
+            },
+            "swag_paypal_disputes": {
+                "label": "PayPal-geschillen"
+            }
+        }
+    },
+    "swag-paypal": {
+        "header": "PayPal",
+        "saleschannelCard": {
+            "button": {
+                "description": "Klik op deze knop om PayPal in te schakelen en deze als standaard te selecteren in het geselecteerde verkoopkanaal",
+                "label": "Stel PayPal als standaard in"
+            }
+        },
+        "general": {
+            "mainMenuItemGeneral": "PayPal",
+            "descriptionTextModule": "PayPal instellingen"
+        },
+        "messageNotBlank": "Deze waarde mag niet leeg zijn.",
+        "settingForm": {
+            "testLive": "Test API aanmeldgegevens",
+            "testSandbox": "Test zandbox API aanmeldgegevens",
+            "checkout": {
+                "sandbox": {
+                    "tooltipText": "Inschakelen om de PayPal integratie te testen."
+                },
+                "switch": {
+                    "label": "Actief"
+                },
+                "paymentMethodText": "Betaalwijzen",
+                "appImageAlt": "PayPal",
+                "deactivatePayPalPlusModal": {
+                    "button": {
+                        "cancel": "Annuleren"
+                    }
+                }
+            },
+            "credentials": {
+                "cardTitle": "API aanmeldgegevens",
+                "clientId": {
+                    "label": "Klant ID",
+                    "tooltipText": "De REST API klant ID wordt gebruikt om deze plug-in te verifiëren met de PayPal API."
+                },
+                "clientSecret": {
+                    "label": "Klant geheim",
+                    "tooltipText": "De REST API klant geheim wordt gebruikt om deze plug-in te verifiëren met de PayPal API."
+                },
+                "clientIdSandbox": {
+                    "label": "Zandbox klant ID",
+                    "tooltipText": "De REST API klant ID wordt gebruikt tijdens testen om deze plug-in te verifiëren met de PayPal API."
+                },
+                "clientSecretSandbox": {
+                    "label": "Zandbox klant geheim",
+                    "tooltipText": "De REST API klant geheim wordt gebruikt tijdens testen om deze plug-in te verifiëren met de PayPal API."
+                },
+                "sandbox": {
+                    "label": "Zandbox inschakelen",
+                    "tooltipText": "Inschakelen om de PayPal integratie te testen."
+                },
+                "button": {
+                    "title": "Krijg API aanmeldgegevens",
+                    "titleSandbox": "Krijg zandbox API aanmeldgegevens",
+                    "messageFetchedError": "Probeer het opnieuw of vul de inloggegevens handmatig in."
+                }
+            },
+            "behavior": {
+                "cardTitle": "gedrag",
+                "merchantLocation": {
+                    "label": "Locatie handelaar",
+                    "germany": "Duitsland",
+                    "other": "Andere handelaar locatie"
+                },
+                "intent": {
+                    "label": "Betaling acquisitie",
+                    "CAPTURE": "Automatische incasso van betalingen (intentie CAPTURE)",
+                    "AUTHORIZE": "Handmatige incasso van betalingen (intentie AUTORISEREN)"
+                },
+                "submitCart": {
+                    "label": "Winkelwagen indienen",
+                    "helpText": "Als deze optie actief is, worden de gegevens van het winkelwagentje bij het afrekenen naar PayPal verzonden."
+                },
+                "brandName": {
+                    "label": "Uw eigen merknaam op PayPal-pagina",
+                    "tooltipText": "Deze tekst wordt weergegeven als merknaam op de PayPal-betalingspagina."
+                },
+                "landingPage": {
+                    "label": "PayPal landingspagina",
+                    "helpText": {
+                        "login": "Inloggen: De PayPal-site geeft een inlogscherm weer als bestemmingspagina.",
+                        "billing": "Inschrijving: De PayPal-site geeft een registratieformulier weer als bestemmingspagina.",
+                        "no_preference": "Geen voorkeur: PayPal bepaalt welke pagina wordt getoond, afhankelijk van de eerdere interactie van de klant met PayPal."
+                    },
+                    "options": {
+                        "login": "Inloggen",
+                        "billing": "Inschrijving",
+                        "no_preference": "Geen voorkeur"
+                    }
+                },
+                "sendOrderNumber": {
+                    "label": "Bestellingsnummer verzenden",
+                    "helpText": "Als deze optie actief is, wordt het bestelnummer bij het afrekenen bij PayPal verzonden als factuur-ID."
+                },
+                "orderNumberPrefix": {
+                    "label": "Volgnummer voorvoegsel",
+                    "tooltipText": "Deze tekst wordt vóór het oorspronkelijke bestelnummer geplaatst (bijvoorbeeld MyShop_SW20001). Dit helpt bij het identificeren van de winkel waar de betaling is gedaan. Je kunt het als factuur-ID vinden in je PayPal-dashboard."
+                },
+                "orderNumberSuffix": {
+                    "label": "Achtervoegsel bestelnummer",
+                    "tooltipText": "Deze tekst wordt geplaatst na het originele bestelnummer (bijvoorbeeld SW20001_MyShop). Dit helpt bij het identificeren van de winkel waar de betaling is gedaan. Je kunt het als factuur-ID vinden in je PayPal-dashboard."
+                },
+                "loggingLevel": {
+                    "label": "Debugging",
+                    "tooltipText": "Bij gebruik van geavanceerde foutopsporing worden tijdens het afrekenen extra gegevens vastgelegd om mogelijke fouten te detecteren. Uitsluitend voor tijdelijk gebruik.",
+                    "options": {
+                        "basic": "Basic",
+                        "advanced": "Geavanceerde"
+                    }
+                }
+            },
+            "express": {
+                "cardTitle": "PayPal Express Afrekenen",
+                "ecsDetailEnabled": {
+                    "label": "'Betaal nu' op de detailpagina:",
+                    "helpText": "Als deze optie actief is, wordt de knop Snel afrekenen weergegeven op elke product detailpagina."
+                },
+                "ecsCartEnabled": {
+                    "label": "'Betaal nu' op winkelwagen:",
+                    "helpText": "Als deze optie actief is, wordt de knop Express Checkout op de winkelwagen weergegeven."
+                },
+                "ecsOffCanvasEnabled": {
+                    "label": "'Betaal nu' op Off-Canvas-winkelwagen:",
+                    "helpText": "Als deze optie actief is, wordt de knop Express Checkout weergegeven op de Off-Canvas winkelwagen."
+                },
+                "ecsLoginEnabled": {
+                    "label": "'Betaal nu' op inlogpagina:",
+                    "helpText": "Als deze optie actief is, wordt de knop Snel afrekenen weergegeven op de inlog- en registratiepagina."
+                },
+                "ecsListingEnabled": {
+                    "label": "'Betaal nu' op vermeldingspagina's:",
+                    "helpText": "Als deze optie actief is, wordt de knop Snel afrekenen weergegeven op de vermeldingspagina's."
+                },
+                "ecsButtonColor": {
+                    "label": "Knop kleur:",
+                    "options": {
+                        "blue": "Blauw",
+                        "black": "Zwart",
+                        "gold": "Goud",
+                        "silver": "Zilver",
+                        "white": "Wit"
+                    }
+                },
+                "ecsButtonShape": {
+                    "label": "Knop vorm:",
+                    "options": {
+                        "pill": "Rond",
+                        "rect": "Rechthoekig"
+                    }
+                },
+                "ecsSubmitCart": {
+                    "label": "Winkelwagen indienen",
+                    "helpText": "Als deze optie actief is, wordt de winkelwagen voor Express-bestellingen naar PayPal verzonden."
+                },
+                "ecsButtonLanguageIso": {
+                    "label": "Knop locale:",
+                    "helpText": "Indien niet ingesteld, wordt de taal van het verkoopkanaal gebruikt."
+                }
+            },
+            "installment": {
+                "cardTitle": "Termijnen",
+                "installmentBannerEnabled": {
+                    "label": "Schakel termijnbanner in"
+                }
+            },
+            "spb": {
+                "cardTitle": "PayPal afrekenen met slimme betaalknoppen",
+                "spbCheckoutEnabled": {
+                    "label": "Schakel slimme betalingsknoppen in"
+                },
+                "spbButtonLanguageIso": {
+                    "label": "Knop locale:",
+                    "helpText": "Indien niet ingesteld, wordt de taal van het verkoopkanaal gebruikt."
+                },
+                "spbAlternativePaymentMethodsEnabled": {
+                    "label": "Schakel de alternatieve betaalmethoden in voor de slimme betaalknoppen.",
+                    "helpText": "Alternatieve betaalmethoden zijn creditcards en betaalpassen en meer."
+                },
+                "spbShowPayLater": {
+                    "label": "Later betalen weergeven als aparte knop"
+                }
+            },
+            "plus": {
+                "cardTitle": "PayPal PLUS",
+                "introduction": "<strong>PayPal PLUS:</strong> Uw complete alles-in-één betalingsoplossing inclusief PayPal, automatische incasso en creditcard. PayPal PLUS biedt uw klanten volledige flexibiliteit bij het kiezen van hun favoriete betaalmethode. Jouw voordelen als verkoper? Eenvoudiger boekhouding met slechts één contractpartij, één rekening en één transactieoverzicht met alle inkomende betalingen. U ontvangt uw geld direct nadat klanten het bestelproces hebben voltooid.<br>Je kunt PayPal PLUS <a href='https://www.paypal.com/de/webapps/mpp/paypal-plus' target='_blank'>hier aanvragen</a>.",
+                "plusCheckoutEnabled": {
+                    "label": "Schakel PayPal PLUS in"
+                },
+                "hint": "Opmerking: PayPal PLUS werkt alleen met de betaalacquisitie „Verkoop”. Het wordt automatisch ingesteld."
+            },
+            "locale-field": {
+                "infobox": {
+                    "text": "Om een lijst met geldige locale codes te zien, klik ",
+                    "href": "hier"
+                },
+                "error": {
+                    "detail": "De landcode die u heeft opgegeven, komt niet overeen met het door PayPal vereiste formaat. Een geldig formaat is \"en_GB\"."
+                }
+            },
+            "messageSaveSuccess": "De PayPal instellingen zijn opgeslagen.",
+            "messageTestSuccess": "De API aanmeld gegevens zijn gevalideerd.",
+            "messageTestError": "De API aanmeld gegevens kunnen niet worden gevalideerd.",
+            "messageWebhookCreated": "De webhook is geregistreerd.",
+            "messageWebhookUpdated": "De webhook is bijgewerkt.",
+            "messageWebhookError": "De webhook kan niet worden opgeslagen. De volgende fouten zijn opgetreden:"
         }
     }
 }

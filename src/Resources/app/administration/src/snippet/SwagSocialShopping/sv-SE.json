@@ -8,18 +8,27 @@
                 "storefrontDomain": "Storefront domän",
                 "storefrontDomainCurrency": "Storefront valuta",
                 "productStream": "Dynamisk produktgrupp",
-                "noDynamicProductGroupFound": "Du måste skapa en dynamisk produktgrupp för att kunna använda den sociala shoppingkanalen. Skapa en dynamisk produktgrupp.",
+                "noDynamicProductGroupFound": "Du måste skapa en dynamisk produktgrupp för att kunna använda Social Shopping Sales Channel. Skapa en dynamisk produktgrupp.",
                 "createDynamicProductGroup": "Skapa dynamisk produktgrupp",
                 "tabErrors": "Opublicerade produkter",
                 "tabIntegration": "Integration",
-                "intervalHelpText": "Intervallet begränsas av körintervallet för den schemalagda uppgiften ”ProductExportGenerateTask”. Detta ställs in som standard till en gång per dag."
+                "intervalHelpText": "Intervallet begränsas av körintervallet för den schemalagda uppgiften ”ProductExportGenerateTask”. Detta ställs in som standard till en gång per dag.",
+                "template": {
+                    "tabTemplate": "Mall",
+                    "inputHeaderLabel": "Rubrik",
+                    "inputBodyLabel": "Produktlinje",
+                    "inputFooterLabel": "Sidfot",
+                    "buttonTestLabel": "Testa mall",
+                    "buttonPreviewLabel": "Generera förhandsvisning",
+                    "buttonResetLabel": "Återställ mallen"
+                }
             },
             "facebook": {
                 "titleFacebookSettings": "Ytterligare inställningar",
                 "name": "Facebook",
                 "description": "Sälj produkter på en Facebook sida",
-                "googleProductDefaultCategory": "Standardnummer för Google-produktkategori",
-                "helpTextGoogleProductDefaultCategory": "Facebook använder Googles produktkategori-id för att kategorisera sina produkter. Ange den Google-produktkategori som ska användas om ingen Google-produktkategori har angetts för produktkategorin.",
+                "googleProductDefaultCategory": "Standard-ID för Google produktkategori",
+                "helpTextGoogleProductDefaultCategory": "Facebook använder Googles produktkategori-ID för att kategorisera sina produkter. Ange den produktkategori för Google som ska användas om ingen Googles produktkategori har angetts för produktkategorin.",
                 "includeVariants": "Importera varianter som dedikerade produkter",
                 "interval": "Interval",
                 "generateByCronjob": "Generera via schemaläggare",
@@ -31,8 +40,8 @@
                 "titleInstagramSettings": "Ytterligare inställningar",
                 "name": "Instagram",
                 "description": "Sälj produkter på en Instagram",
-                "googleProductDefaultCategory": "Standardnummer för Google-produktkategori",
-                "helpTextGoogleProductDefaultCategory": "Instagram använder Googles produktkategori id för att kategorisera sina produkter. Ange den Google-produktkategori som ska användas om ingen Google-produktkategori har angetts för produktkategorin.",
+                "googleProductDefaultCategory": "Standard-ID för Google produktkategori",
+                "helpTextGoogleProductDefaultCategory": "Instagram använder Googles produktkategori-ID för att kategorisera sina produkter. Ange den produktkategori för Google som ska användas om ingen Googles produktkategori har angetts för produktkategorin.",
                 "includeVariants": "Importera varianter som dedikerade produkter",
                 "interval": "Interval",
                 "generateByCronjob": "Generera via schemaläggare",
@@ -45,9 +54,9 @@
                 "description": "Sälj produkter via Google Shopping",
                 "titleGoogleShoppingSettings": "Ytterligare inställningar",
                 "titleGoogleShoppingGuide": "Handbok för integration",
-                "googleProductDefaultCategory": "Standardnummer för Google-produktkategori",
+                "googleProductDefaultCategory": "Standard-ID för Google produktkategori",
                 "googleProductCategoryLinkLabel": "Supportsida för Google-produktkategorier",
-                "helpTextGoogleProductDefaultCategory": "Google använder Googles produktkategori-id för att kategorisera sina produkter. Ange den Google-produktkategori som ska användas om ingen Google-produktkategori har angetts för produktkategorin.",
+                "helpTextGoogleProductDefaultCategory": "Google använder Googles produktkategori-ID för att kategorisera sina produkter. Ange den produktkategori för Google som ska användas om ingen Googles produktkategori har angetts för produktkategorin.",
                 "includeVariants": "Importera varianter som dedikerade produkter",
                 "interval": "Interval",
                 "generateByCronjob": "Generera via schemaläggare",
@@ -82,33 +91,31 @@
         },
         "integration": {
             "stepByStepTitle": "Steg för steg",
-            "accessUrlChangeTitle": "Webbadressen har ändrats",
-            "accessUrlChangeContent": "Webbadressen har ändrats med version 2.0.0 av Social Shopping. En permanent omdirigering kommer att finnas tillgänglig fram till nästa huvudversion. Kontrollera om du behöver uppdatera webbadressen var du än angav den.",
             "facebook": {
-                "cardTitle": "Facebooks anslutning",
+                "cardTitle": "Facebook anslutning",
                 "introduction": {
                     "title": "Så här: Konfiguration och anslutning",
                     "description": "För att kunna visa produkter på en Instagram-företagssida måste du först skapa ett Instagram Business-konto. Allt annat förklaras i steg för steg guide nedan."
                 },
-                "stepByStep": "<li>Skapa ett konto på <a href=\"https://facebook.com\">Facebook</a></li><li>Skapa ett företagskonto på <a href=\"https://business.facebook.com\">business.facebook.com</a></li><li>Navigera till katalogansvarig</li><li>Lägg till en ny katalog för din Shop</li><li>Konfiguration av katalogen: Välj produkt i information för dataflödet</li><li>Växla till datakälla</li><li>Lägg till produkter</li><li>Välj dataflöde</li><li>Konfigurera dataflödet. Kopiera och klistra in dataflödet URL (nedan)</li>",
-                "dataFeedLabel": "Data Feed"
+                "stepByStep": "<li>Skapa ett konto på <a href=\"https://facebook.com\">Facebook</a></li><li>Skapa ett företagskonto på <a href=\"https://business.facebook.com\">business.facebook.com</a></li><li>Navigera till kataloghanteraren</li><li>Lägg till en ny katalog för din Shop</li><li>Katalogens konfiguration: Välj produkt i information för dataflödet</li><li>Byt till datakälla</li><li>Lägg till produkter</li><li>Välj dataflöde</li><li>Konfigurera dataflödet. Kopiera och klistra in dataflödesadressen (nedan)</li>",
+                "dataFeedLabel": "Dataflöde"
             },
             "google-shopping": {
                 "cardTitle": "Google-anslutning",
                 "introduction": {
                     "title": "Så här: Konfiguration och anslutning",
-                    "description": "Den här försäljningskanalen genererar ett XML-flöde som du kan använda på Google för att automatiskt synkronisera produkter till din katalog. För att göra detta måste du sätta in matningsadressen på Google och definiera hur ofta Google ska ladda ner flödet. Allt annat förklaras i steg för steg guide nedan"
+                    "description": "Den här försäljningskanalen genererar ett XML-flöde som du kan använda på Google för att automatiskt synkronisera produkter i din katalog. För att göra detta måste du sätta in foderadressen på Google och definiera hur ofta Google ska ladda ner flödet. Allt annat förklaras i steg för steg guide nedan"
                 },
-                "stepByStep": "<li>Öppna <a href=\"https://merchants.google.com\">Google Merchant Center</a></li><li>Skapa ett nytt flöde i produkter > Feeds</li><li>Välj ett land och ett språk</li><li>Namnge ditt flöde och välj ”schemalagda hämtningar”</li><li>Namnge din feed fil och klistra in exportadressen (nedan)</li><li>Därefter öppnar du flödet och klickar på ”hämta nu”</li>",
-                "dataFeedLabel": "Data Feed"
+                "stepByStep": "<li>Öppna <a href=\"https://merchants.google.com\">Google Merchant Center</a></li><li>Skapa ett nytt flöde i Produkter > Feeds</li><li>Välj ett land och ett språk</li><li>Namnge ditt flöde och välj ”schemalagda hämtningar”</li><li>Namnge din feed-fil och klistra in export-URL:en (nedan)</li><li>Därefter öppnar du flödet och klickar på ”hämta nu”</li>",
+                "dataFeedLabel": "Dataflöde"
             },
             "instagram": {
-                "cardTitle": "Instagram anslutning",
+                "cardTitle": "Instagram-anslutning",
                 "introduction": {
                     "title": "Så här: Konfiguration och anslutning",
                     "description": "För att kunna visa produkter på en facebook-företagsida måste du först skapa ett Facebook-företagskonto. Allt annat förklaras i steg för steg guide nedan."
                 },
-                "dataFeedLabel": "Data Feed"
+                "dataFeedLabel": "Dataflöde"
             },
             "pinterest": {
                 "cardTitle": "Pinterest-anslutning",
@@ -117,7 +124,7 @@
                     "description": "Den här försäljningskanalen genererar metadata som låter dig visa dina produkter som en pin på Pinterest. Du hittar mer information om detta ämne i steg för steg guide nedan."
                 },
                 "stepByStep": "<li>Klicka på ”Validera på Pinterest”</li><li>Logga in eller skapa ett konto på <a href=\"https://pinterest.com\">Pinterest</a></li><li>Ange en produkt-URL från butiksfronten och klicka på ”Validera”</li>",
-                "dataFeedLabel": "Data Feed"
+                "dataFeedLabel": "Dataflöde"
             }
         }
     }

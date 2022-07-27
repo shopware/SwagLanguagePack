@@ -8,18 +8,24 @@
                 "storefrontDomain": "Domena izloga",
                 "storefrontDomainCurrency": "Valuta izloga",
                 "productStream": "Dinamična grupa proizvoda",
-                "noDynamicProductGroupFound": "Morate stvoriti dinamičnu grupu proizvoda kako biste koristili kanal prodaje društvene kupovine. Izradite dinamičnu grupu proizvoda.",
+                "noDynamicProductGroupFound": "Morate stvoriti dinamičnu grupu proizvoda da biste koristili kanal za prodaju društvenih kupovina. Molimo kreirajte dinamičku grupu proizvoda.",
                 "createDynamicProductGroup": "Stvorite dinamičku grupu proizvoda",
                 "tabErrors": "Neobjavljeni proizvodi",
                 "tabIntegration": "Integracija",
-                "intervalHelpText": "Interval je ograničen intervalom izvođenja zakazanog zadatka \"ProductExportGenerateTask\". U postavkama je zadano jednom dnevno.\t"
+                "intervalHelpText": "Interval je ograničen intervalom izvođenja zakazanog zadatka \"ProductExportGenerateTask\". U postavkama je zadano jednom dnevno.\t",
+                "template": {
+                    "tabTemplate": "Predložak",
+                    "inputHeaderLabel": "Zaglavlje reda",
+                    "inputBodyLabel": "Red proizvoda",
+                    "inputFooterLabel": "Red podnožja",
+                    "buttonTestLabel": "Testni predložak",
+                    "buttonPreviewLabel": "Napravi pregled"
+                }
             },
             "facebook": {
                 "titleFacebookSettings": "Dodatne postavke",
                 "name": "Facebook",
                 "description": "Prodajte proizvode na Facebook stranici",
-                "googleProductDefaultCategory": "Zadani Id kategorije proizvoda Google",
-                "helpTextGoogleProductDefaultCategory": "Facebook koristi Googleovu kategoriju proizvoda za kategorizaciju svojih proizvoda. Unesite Google kategoriju proizvoda koja će se koristiti ako za kategoriju proizvoda nije postavljena Googleova kategorija proizvoda.",
                 "includeVariants": "Uvozite varijante kao namjenske proizvode",
                 "interval": "Interval",
                 "generateByCronjob": "Stvori putem planera",
@@ -31,8 +37,6 @@
                 "titleInstagramSettings": "Dodatne postavke",
                 "name": "Instagram",
                 "description": "Prodajte proizvode na Instagram kanalu",
-                "googleProductDefaultCategory": "Zadani Id Google kategorije proizvoda",
-                "helpTextGoogleProductDefaultCategory": "Instagram koristi Googleovu kategoriju proizvoda za kategorizaciju svojih proizvoda. Unesite Google kategoriju proizvoda koja će se koristiti ako za kategoriju proizvoda nije postavljena Googleova kategorija proizvoda.",
                 "includeVariants": "Uvozite varijante kao namjenske proizvode",
                 "interval": "Interval",
                 "generateByCronjob": "Stvori putem planera",
@@ -45,9 +49,7 @@
                 "description": "Prodajte proizvode putem Google Shopping",
                 "titleGoogleShoppingSettings": "Dodatne postavke",
                 "titleGoogleShoppingGuide": "Vodič za integraciju",
-                "googleProductDefaultCategory": "Zadani Id Google kategorije proizvoda",
                 "googleProductCategoryLinkLabel": "Stranica za podršku za google kategorije proizvoda",
-                "helpTextGoogleProductDefaultCategory": "Google koristi Googleovu kategoriju proizvoda za kategorizaciju svojih proizvoda. Unesite Google kategoriju proizvoda koja će se koristiti ako za kategoriju proizvoda nije postavljena Googleova kategorija proizvoda.",
                 "includeVariants": "Uvozite varijante kao namjenske proizvode",
                 "interval": "Interval",
                 "generateByCronjob": "Stvori putem planera",
@@ -81,44 +83,29 @@
             "google-product-category-missing": "Ovaj je proizvod povezan s kategorijom bez google kategorije proizvoda"
         },
         "integration": {
-            "stepByStepTitle": "Korak-po-korak",
-            "accessUrlChangeTitle": "URL se promijenio",
-            "accessUrlChangeContent": "URL se promijenio s verzijom 2.0.0 Social Shopping. Trajno preusmjeravanje bit će dostupno do sljedećeg izdanja glavne verzije. Provjerite trebate li ažurirati URL gdje god ste ga unijeli.",
             "facebook": {
-                "cardTitle": "Facebook povezivanje",
                 "introduction": {
                     "title": "Kako: Postavljanje i povezivanje",
                     "description": "Da biste proizvode prikazivali na poslovnoj stranici Instagrama, prvo morate uspostaviti Instagram račun. Sve ostalo objašnjeno je u vodiču korak po korak u nastavku."
-                },
-                "stepByStep": "<li>Stvorite račun na <a href=\"https://facebook.com\">Facebook</a></li><li>Stvorite poslovni račun na<a href=\"https://business.facebook.com\">business.facebook.com</a></li><li>Idite do upravitelja kataloga</li><li>Dodajte novi katalog za svoju trgovinu</li><li>Konfiguracija kataloga: Odaberite proizvod u informacijama za feed podataka</li><li>Prebacite se na izvor podataka</li><li>Dodajte proizvode</li><li>Odaberite feed podataka</li><li>Konfigurirajte feed podataka. Kopirajte i zalijepite URL feeda podataka (ispod)</li>",
-                "dataFeedLabel": "Feed podataka"
+                }
             },
             "google-shopping": {
-                "cardTitle": "Google veza",
                 "introduction": {
-                    "title": "Kako: Postavljanje i povezivanje",
-                    "description": "Ovaj prodajni kanal generira XML feed koji možete koristiti na Googleu za automatsku sinkronizaciju proizvoda u vaš katalog. Da biste to učinili, morate deponirati URL feeda na Google i definirati koliko često Google treba preuzeti feed. Sve ostalo objašnjeno je u vodiču korak po korak u nastavku"
-                },
-                "stepByStep": "<li>Otvorite<a href=\"https://merchants.google.com\">Google Merchant Center</a></li><li>Stvorite novi feed u proizvodima > Feeds</li> <li>Odaberite državu i jezik</li><li> Nazovite svoj feed i odaberite \"zakazano dohvaćanje\"</li><li>Nazovite svoju datoteku feeda i zalijepite izvozni Url (dolje)</li><li>Nakon toga, otvorite feed i kliknite \"dohvati odmah\"</li>",
-                "dataFeedLabel": "Feed podataka"
+                    "title": "Kako: Postavljanje i povezivanje"
+                }
             },
             "instagram": {
-                "cardTitle": "Instagram veza",
                 "introduction": {
                     "title": "Kako: Postavljanje i povezivanje",
                     "description": "Da biste proizvode prikazali na facebook poslovnoj stranici, prvo morate uspostaviti facebook poslovni račun. Sve ostalo objašnjeno je u vodiču korak po korak u nastavku."
-                },
-                "stepByStep": "<li>Stvorite poslovni račun na <a href=\"https://business.facebook.com\">business.facebook.com</a></li><li>Idite do upravitelja kataloga</li><li>Dodajte novi katalog za svoju trgovinu</li><li>Konfiguracija kataloga: odaberite proizvod u informacijama za feed podataka</li><li>Prebacite se na izvor podataka</li> <li>Dodajte proizvode</li><li>Odaberite feed podataka</li><li>Konfigurirajte feed podataka. Kopirajte i zalijepite URL feeda podataka (ispod)</li><li>Ako je potrebno, stvorite <a href=\"https://instagram.com\"> Instagram </a> račun </li> <li>Otvorite svoje postavke Instagram i kliknite \"Prebaci se na profesionalni profil\" i odaberite \"Posao\" </li><li> Slijedite upute za povezivanje svojih Facebook prodajnih kanala</li>\n",
-                "dataFeedLabel": "Feed podataka"
+                }
             },
             "pinterest": {
-                "cardTitle": "Pinterest veza",
                 "introduction": {
                     "title": "Kako: Postavljanje i povezivanje",
                     "description": "Ovaj prodajni kanal generira meta podatke koji vam omogućuju prikazivanje vaših proizvoda kao pribadače na Pinterestu. Više informacija o ovoj temi možete pronaći u vodiču korak po korak u nastavku."
                 },
-                "stepByStep": "<li>Kliknite \"Potvrdi na Pinterest\"</li><li>Prijavite se ili napravite račun na <a href=\"https://pinterest.com\"> Pinterest</a></li><li>Unesite bilo koji URL proizvoda iz izloga i kliknite \"Provjeri\"</li>",
-                "dataFeedLabel": "Feed podataka"
+                "stepByStep": "<li>Kliknite \"Potvrdi na Pinterest\"</li><li>Prijavite se ili napravite račun na <a href=\"https://pinterest.com\"> Pinterest</a></li><li>Unesite bilo koji URL proizvoda iz izloga i kliknite \"Provjeri\"</li>"
             }
         }
     }

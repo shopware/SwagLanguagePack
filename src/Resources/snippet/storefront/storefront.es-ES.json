@@ -25,7 +25,7 @@
         "required": "*",
         "requiredFields": "Los campos marcados con un asterisco (*) son obligatorios.",
         "privacyTitle": "Política de privacidad",
-        "privacyNotice": "He tomado nota de la <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Política de privacidad\">Política de privacidad</a>.",
+        "privacyNotice": "Al seleccionar Continuar, confirma que ha leído nuestra información de protección de datos <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%privacyUrl%\" href=\"%privacyUrl%\" title=\"Data protection information\"></a> y que ha aceptado nuestros <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%tosUrl%\" href=\"%tosUrl%\" title=\"general terms and conditions\">términos y condiciones generales</a>.",
         "privacyLink": "Política de privacidad",
         "imprintLink": "Pie de imprenta",
         "404ErrorPageHeader": "Página no encontrada",
@@ -36,7 +36,8 @@
         "sortingLabel": "Clasificación",
         "next": "Siguiente",
         "previous": "Anterior",
-        "formSubmit": "Enviar"
+        "formSubmit": "Enviar",
+        "listPricePreviously": "anteriormente %price%"
     },
     "header": {
         "logoLink": "Ir a la página inicial",
@@ -62,24 +63,21 @@
         "FRAMEWORK__INVALID_UUID": "No se encuentra la modalidad de pago elegida.",
         "CHECKOUT__UNKNOWN_PAYMENT_METHOD": "No se encuentra la modalidad de pago elegida.",
         "productNotFound": "No se ha encontrado el producto \"%number%\".",
-        "payment-method-blocked": "La modalidad de pago elegida %name% no está disponible.",
-        "shipping-address-blocked": "Las entregas a la dirección de entrega no son posibles.",
-        "shipping-address-invalid": "La dirección de envío seleccionada no es válida o incompleta. Por favor, compruebe sus entradas.",
-        "billing-address-blocked": "No es posible facturar a la dirección seleccionada.",
-        "billing-address-invalid": "La dirección de facturación seleccionada no es válida o incompleta. Por favor, compruebe sus entradas.",
         "VIOLATION::TOO_SHORT_ERROR": "%field% es demasiado corto.",
         "product-not-found": "Producto no encontrado.",
         "message-403-ajax": "La sesión ha caducado. Vuelva a cargar la página e inténtelo de nuevo.",
         "message-403": "La sesión ha caducado. Vuelva a la última página e inténtelo de nuevo.",
         "product-out-of-stock": "%name% no está disponible actualmente.",
         "auto-promotion-not-found": "¡La promoción \"%name%\" ya no es válida!",
+        "rateLimitExceeded": "Demasiadas solicitudes. Espere %seconds% segundos antes de volver a intentarlo.",
         "captcha": {
-            "basic-captcha-invalid": "El captcha no es válido. Por favor, compruebe sus entradas."
+            "basic-captcha-invalid": "Entrada incorrecta. Inténtelo de nuevo."
         }
     },
     "account": {
-        "externalPaymentCanceled": "Recibimos su pedido, pero el pago se canceló. Cambia tu método de pago o vuelve a intentarlo",
-        "externalPaymentFailure": "Hemos recibido su pedido, pero no hemos podido procesar su pago, cambie el método de pago o inténtelo de nuevo",
+        "externalPaymentCanceled": "Hemos recibido su pedido, pero se ha cancelado el pago. Cambia el método de pago o inténtalo de nuevo.",
+        "externalPaymentExpired": "Hemos recibido su pedido, pero el proceso de pago ha caducado. Inténtelo de nuevo.",
+        "externalPaymentFailure": "Hemos recibido tu pedido, pero no hemos podido procesar tu pago. Cambia el método de pago o inténtalo de nuevo.",
         "confirmationIsAlreadyDone": "La confirmación ya se ha realizado o la URL no es válida.",
         "doubleOptInMailConfirmationSuccessfully": "Muchas gracias por confirmar su dirección de correo electrónico. Ahora puede finalizar su pedido.",
         "doubleOptInRegistrationSuccessfully": "Muchas gracias por su registro. Su cuenta ha sido desbloqueada correctamente.",
@@ -94,6 +92,7 @@
         "loginPasswordRecover": "He olvidado mi contraseña.",
         "loginSubmit": "Iniciar sesión",
         "loginBadCredentials": "No se encuentra ninguna cuenta con los datos de acceso indicados.",
+        "loginThrottled": "Demasiados intentos de inicio de sesión. Espere %seconds% segundos antes de volver a intentar iniciar sesión.",
         "registerAdvantagesHeader": "Las ventajas del registro:",
         "registerAdvantage1": "Compra rápida",
         "registerAdvantage2": "Guarde sus datos y su configuración.",
@@ -161,6 +160,7 @@
         "overviewChangeShipping": "Modificar estándar",
         "overviewNewestOrderHeader": "Último pedido",
         "overviewCustomerGroupRequest": "Acceso al grupo de clientes \"%group%\" solicitado.",
+        "overviewNotAbleToShip": "No podemos realizar entregas en el país que está almacenado en su dirección de entrega.",
         "paymentChangeSubmit": "Modificar",
         "profilePersonalTitle": "Datos personales",
         "profileMailTitle": "Dirección de correo electrónico",
@@ -186,7 +186,7 @@
         "profileRecoverPasswordInfo": "Le enviaremos un correo electrónico de confirmación. Haga clic en el enlace contenido en el mismo para modificar su contraseña.",
         "profileRecoverPasswordSubmit": "Enviar correo electrónico",
         "profileSaveChanges": "Guardar cambios",
-        "profileDelete": "<a href=\"%target%\" data-toggle=\"modal\" data-target=\"%target%\">Haga clic aquí</a> para eliminar todos sus datos personales",
+        "profileDelete": "<a href=\"%target%\" data-toggle=\"modal\" data-bs-toggle=\"modal\" data-target=\"%target%\" data-bs-target=\"%target%\">Haga clic aquí</a> para eliminar todos sus datos personales",
         "profileDeleteAlert": "Después de eliminar los datos personales de su cuenta de cliente, las entradas y comentarios del boletín de noticias ya no estarán disponibles para usted. Tenga en cuenta que los registros de todos los pedidos se conservarán sin embargo para cumplir con las regulaciones legales.",
         "profileDeleteConfirm": "¿Realmente desea eliminar su cuenta de cliente?",
         "profileDeleteModalTitle": "Cuenta de cliente",
@@ -244,7 +244,8 @@
         "editOrderCancelOrderModalBodyQuestion": "¿Está seguro de querer anular irrevocablemente el pedido?",
         "editOrderCancelOrderModalFooterButton": "Anular pedido",
         "editOrderCancelOrderModalFooterButtonBack": "Atrás",
-        "editOrderPaymentNotChangeable": "No se puede modificar la modalidad de pago, ya que está ligada a un descuento u otra promoción. En lugar de ello debería anular el pedido y, en su caso, volver a realizarlo.",
+        "editOrderPaymentNotChangeable": "Este pedido ya se está procesando o tiene un descuento activo vinculado al método de pago, por lo que ya no puedes editarlo.",
+        "editOrderPaymentNotChangeableWithRefunds": "Este pedido ya se está procesando o tiene un descuento activo vinculado al método de pago, por lo que ya no puedes editarlo. Cancele su pedido y vuelva a realizar el pedido.",
         "orderNumber": "Número de pedido:",
         "orderItemColumnNumber": "Número de pedido:",
         "orderItemColumnPaymentMethod": "Modalidad de pago",
@@ -297,6 +298,8 @@
         "cityPlaceholder": "Introducir localidad…",
         "countryLabel": "País",
         "countryPlaceholder": "Seleccionar país…",
+        "countryPostfixNoShipping": "(No es posible la entrega)",
+        "countryNoShippingAlert": "No es posible realizar envíos a este país.",
         "countryStateLabel": "Estado federado",
         "countryStatePlaceholder": "Seleccionar estado federado…",
         "phoneNumberLabel": "Número de teléfono",
@@ -314,6 +317,7 @@
         "addressLoginToggle": "¿Ya es cliente? Haga clic aquí para iniciar una sesión.",
         "addressRegisterCardTitle": "Información personal",
         "registerGuestmodeLabel": "No crear cuenta de cliente.",
+        "registerCustomermodeLabel": "Crea una cuenta de cliente.",
         "cartTitle": "Cesta",
         "cartHeader": "Cesta",
         "cartUpdateSuccess": "Cesta actualizada",
@@ -328,6 +332,8 @@
         "summaryHeader": "Resumen",
         "lineItemContainerHeadline": "Contiene",
         "lineItemContainerChangeLink": "cambio",
+        "lineItemShowMore": "más",
+        "lineItemShowLess": "menos",
         "cartEmpty": "Su cesta está vacía.",
         "cartHeaderInfo": "Producto",
         "cartHeaderQuantity": "Cantidad",
@@ -366,8 +372,8 @@
         "confirmSubmit": "Pedir con pago",
         "confirmTermsHeader": "CGV y derecho de desistimiento",
         "confirmRevocationNotice": "Observe el derecho de desistimiento.",
-        "confirmTerms": "He leído las <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"CGV\">CGV</a> y estoy conforme con ellas.",
-        "confirmTermsReminder": "Ya has aceptado las <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"general terms and conditions\">Condiciones Generales de Venta</a>.",
+        "confirmTerms": "He leído y acepto los <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"general terms and conditions\">términos y condiciones generales</a>.",
+        "confirmTermsReminder": "Ya has aceptado los <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"general terms and conditions\">términos y condiciones generales</a>.",
         "finishInfoPayment": "Modalidad de pago:",
         "finishInfoShipping": "Modo de envío:",
         "finishHeader": "Muchas gracias por su pedido en %shop%.",
@@ -385,26 +391,36 @@
         "shippingCountry": "País de entrega",
         "paymentMethod": "Modalidad de pago",
         "shippingMethod": "Modo de envío",
+        "notAvailableSuffix": "(no disponible)",
         "product-stock-reached": "El producto \"%name%\" sólo está disponible %quantity% veces",
         "product-out-of-stock": "El producto \"%name%\" ya no está disponible",
         "purchase-steps-quantity": "El producto \"%name%\" no está disponible en esta cantidad. La cantidad se cambió a %quantity%",
         "shipping-method-blocked": "El método de envío \"%name%\" está bloqueado para el carrito de la compra actual.",
+        "shipping-method-changed": "El envío «%oldShippingMethodName%» no está disponible para su carrito actual, el envío se cambió a «%newShippingMethodName%».",
         "payment-method-blocked": "El método de pago \"%name%\" está bloqueado para su carrito de compras actual.",
+        "payment-method-changed": "El pago «%oldPaymentMethodName%» no está disponible para su carrito actual, el pago se cambió a «%newPaymentMethodName%».",
         "lineItemDeliveryDate": "Plazo de entrega: %earliest% - %latest%",
         "promotion-discount-deleted": "El descuento «%name%» ha sido eliminado de la cesta",
         "promotion-discount-added": "El descuento «%name%» ha sido añadido a la cesta",
         "promotion-not-found": "El código de vale «%code%» no existe.",
         "auto-promotion-not-found": "¡La promoción \"%name%\" ya no es válida!",
         "promotion-not-eligible": "El código de vale ha sido guardado, pero no se ha aplicado en la cesta porque no se cumplen los requisitos necesarios. En cuanto se cumplan los requisitos necesarios, será añadido automáticamente.",
+        "promotion-excluded": "Se han eliminado uno o más descuentos del carrito de compras debido a conflictos con otros descuentos. Una vez que se cumplan de nuevo las condiciones, los descuentos se aplicarán automáticamente.",
         "shipping-address-blocked": "Las entregas a la dirección de entrega no son posibles.",
         "billing-address-blocked": "No es posible facturar a la dirección seleccionada.",
+        "shipping-address-invalid": "La dirección de envío seleccionada no es válida o está incompleta. Por favor, comprueba tus entradas.",
+        "billing-address-invalid": "La dirección de facturación seleccionada no es válida o está incompleta. Por favor, comprueba tus entradas.",
         "customerCommentHeader": "Información adicional",
         "customerCommentLabel": "¿Desea comunicarnos algo con relación a su pedido?",
         "customerCommentPlaceholder": "Escriba su comentario aquí…",
         "cart-merged-hint": "El carrito de la compra actual puede contener productos adicionales que se han añadido y guardado durante una visita anterior.",
         "collapseTriggerMore": "Mostrar más",
         "collapseTriggerLess": "Mostrar menos",
-        "product-not-found": "No se pudo encontrar el producto."
+        "product-not-found": "No se pudo encontrar el producto.",
+        "salutation-missing": "Falta un saludo en tu perfil, elige uno al finalizar la compra.",
+        "salutation-missing-profile": "No hay ningún saludo configurado en su perfil, por favor ponga un <a href=\"%url%\">aquí</a>.",
+        "salutation-missing-billing-address": "No hay ningún saludo configurado para su dirección de facturación activa, establezca un <a href=\"%url%\">aquí</a>.",
+        "salutation-missing-shipping-address": "No hay ningún saludo configurado para tu dirección de envío activa, establece un <a href=\"%url%\">aquí</a>."
     },
     "listing": {
         "filterTitleText": "Filtro",
@@ -428,9 +444,10 @@
         "filterRatingAndMore": "mín. %points%/%maxPoints%",
         "filterRangeMinLabel": "Mínimo",
         "filterRangeMaxLabel": "Máximo",
-        "filterRangeActiveMinLabel": "Precio desde",
-        "filterRangeActiveMaxLabel": "Precio hasta",
-        "filterRangeErrorMessage": "El precio mínimo no debe ser superior al precio máximo.",
+        "filterRangeActiveMinLabel": "%displayName% de",
+        "filterRangeActiveMaxLabel": "%displayName% a",
+        "filterRangeErrorMessage": "El valor mínimo no puede ser superior al valor máximo.",
+        "filterRangeLowerBoundErrorMessage": "Los valores mínimo y máximo deben ser mayores o iguales a %lowerBound%.",
         "filterSubmitText": "Filtro",
         "defaultProductSortingLabel": "Nombre ascendente",
         "disabledFilterTooltip": "Este filtro no muestra ningún resultado adicional en combinación con los filtros seleccionados.",
@@ -536,6 +553,7 @@
         "headline": "Tu lista de deseos",
         "itemDeleteSuccess": "Has eliminado correctamente el producto de tu lista de deseos.",
         "itemAddedSuccess": "Has añadido correctamente el producto a tu lista de deseos.",
+        "duplicateItemError": "El producto ya se ha añadido a tu lista de deseos.",
         "currentlyNotAvailable": "Actualmente no disponible",
         "manufacturerDisplayName": "Fabricante",
         "deliveryTimeAvailable": "Disponible, tiempo de entrega %name%",
@@ -551,21 +569,21 @@
         "informationHeadline": "Información",
         "newsletterHeadline": "Boletín",
         "serviceHotline": "Asistencia y asesoramiento en: <a href=\"tel:+49180000000\">0180 - 000000</a> Lu-Vi, 09:00 - 17:00 horas",
-        "serviceContactLink": "O mediante nuestro <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Formulario de contacto\">formulario de contacto</a>.",
+        "serviceContactLink": "O a través de nuestro formulario de contacto <a data-bs-toggle=\"modal\" data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"contact form\"></a>.",
         "newsletterInput": "Su dirección de correo electrónico",
         "newsletter": "Suscríbase ahora a nuestro boletín informativo periódico para recibir a tiempo la información sobre los nuevos productos y ofertas.",
-        "includeVat": "* Salvo indicación contraria, todos los precios incluyen el IVA aplicable y se incrementan con los <a data-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">gastos de envío</a> y posibles tasas de reembolso.  ",
-        "excludeVat": "* Salvo indicación contraria, todos los precios se incrementan con el IVA aplicable, los <a data-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">gastos de envío</a> y posibles tasas de reembolso.  ",
+        "includeVat": "* Todos los precios incluyen el IVA más <a data-toggle=\"modal\" data-bs-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">gastos de envío</a> y los posibles gastos de envío, si no se indica lo contrario.",
+        "excludeVat": "* Todos los precios excl. IVA más <a data-toggle=\"modal\" data-bs-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">gastos de envío</a> y posibles gastos de envío, si no se indica lo contrario.",
         "copyrightInfo": "Realizado con Shopware"
     },
     "captcha": {
         "googleReCaptcha": {
-            "dataProtectionInformation": "Este sitio está protegido por reCAPTCHA y se aplican las Políticas de Privacidad de Google\n<a href=\"https://policies.google.com/privacy\"></a> y\n<a href=\"https://policies.google.com/terms\">Términos de Servicio</a>."
+            "dataProtectionInformation": "Este sitio está protegido por reCAPTCHA y se aplican la Política de privacidad de Google <a href=\"https://policies.google.com/privacy\"></a> y <a href=\"https://policies.google.com/terms\">Términos de servicio</a> ."
         },
         "basicCaptchaLabel": "Por favor, introduzca los caracteres mostrados anterior*"
     },
     "cookie": {
-        "message": "Este sitio web utiliza cookies para poder ofrecerle una experiencia óptima. <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Más información\">Más información…</a>",
+        "message": "Este sitio web utiliza cookies para garantizar la mejor experiencia posible. <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"More information\">Más información...</a>",
         "deny": "Rechazar",
         "configure": "Configurar",
         "configuration": "Ajustes",
@@ -577,7 +595,7 @@
         "groupRequiredSession": "Sesión",
         "groupRequiredCsrf": "Protección CSRF",
         "groupRequiredTimezone": "Zona horaria",
-        "groupRequiredCaptcha": "Integración con Captcha",
+        "groupRequiredCaptcha": "Integración de CAPTCHA",
         "groupStatistical": "Estadísticas",
         "groupStatisticalDescription": "Cookies utilizadas para estadísticas y métricas de rendimiento de la tienda.",
         "groupStatisticalGoogleAnalytics": "Google Analytics",
@@ -593,7 +611,7 @@
             "feature": {
                 "label": {
                     "manufacturerNumber": "Número de fabricante:",
-                    "ean": "EAN:",
+                    "ean": "GTIN/EAN:",
                     "weight": "Peso:",
                     "width": "Anchura:",
                     "height": "Altura:",
@@ -610,8 +628,42 @@
         },
         "cms": {
             "vimeo": {
-                "privacyNotice": "Al ver el vídeo, usted acepta que sus datos serán transferidos a %platform% y que ha leído la Política de privacidad <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Privacy policy\"></a>.",
+                "privacyNotice": "Al ver el video, usted acepta que sus datos se transfieran a %platform% y que ha leído la Política de privacidad <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Privacy policy\"></a>.",
                 "acceptButtonLabel": "Aceptar"
+            },
+            "defaultMedia": {
+                "preview_camera_large": {
+                    "title": "Cámara",
+                    "alt": "Cámara fotográfica kodak vintage con funda y correa de cuero"
+                },
+                "preview_camera_small": {
+                    "title": "Cámara",
+                    "alt": "Cámara fotográfica kodak vintage con funda y correa de cuero"
+                },
+                "preview_glasses_large": {
+                    "title": "Gafas sol",
+                    "alt": "Gafas de sol con montura dorada sobre superficie de mármol reflectante"
+                },
+                "preview_glasses_small": {
+                    "title": "Gafas sol",
+                    "alt": "Gafas de sol con montura dorada sobre superficie de mármol reflectante"
+                },
+                "preview_mountain_large": {
+                    "title": "Montañas cubiertas de nieve",
+                    "alt": "Cresta de montañas rocosas con cimas cubiertas de nieve"
+                },
+                "preview_mountain_small": {
+                    "title": "Montañas cubiertas de nieve",
+                    "alt": "Cresta de montañas rocosas con cimas cubiertas de nieve"
+                },
+                "preview_plant_large": {
+                    "title": "Planta",
+                    "alt": "Suculenta en una olla blanca frente a fondo azul claro"
+                },
+                "preview_plant_small": {
+                    "title": "Planta",
+                    "alt": "Suculenta en una olla blanca frente a fondo azul claro"
+                }
             }
         }
     }

@@ -25,7 +25,7 @@
         "required": "*",
         "requiredFields": "Polia označené hviezdičkami (*) sú povinné.",
         "privacyTitle": "Ochrana osobných údajov",
-        "privacyNotice": "Prečítal som informácie o ochrane údajov <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Data protection information\"></a>.",
+        "privacyNotice": "Výberom možnosti pokračovať potvrdzujete, že ste si prečítali naše <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%privacyUrl%\" href=\"%privacyUrl%\" title=\"Data protection information\">údaje o ochrane osobných údajov</a> a akceptovali naše <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%tosUrl%\" href=\"%tosUrl%\" title=\"general terms and conditions\">všeobecné obchodné podmienky</a>.",
         "privacyLink": "Zásady ochrany osobných údajov",
         "imprintLink": "Odtlačok",
         "404ErrorPageHeader": "Stránka nebola nájdená",
@@ -36,7 +36,8 @@
         "sortingLabel": "Triedenie",
         "next": "Ďalšie",
         "previous": "Predchádzajúce",
-        "formSubmit": "Predložiť"
+        "formSubmit": "Predložiť",
+        "listPricePreviously": "predtým %price%"
     },
     "header": {
         "logoLink": "Prejsť na domovskú stránku",
@@ -62,24 +63,21 @@
         "FRAMEWORK__INVALID_UUID": "Vybraný spôsob platby neexistuje.",
         "CHECKOUT__UNKNOWN_PAYMENT_METHOD": "Vybraný spôsob platby neexistuje.",
         "productNotFound": "Produkt \"%number%\" nebol nájdený.",
-        "payment-method-blocked": "Platba cez %name% nie je k dispozícii.",
-        "shipping-address-blocked": "Odosielanie na vybranú adresu nie je možné.",
-        "shipping-address-invalid": "Vybraná dodacia adresa nie je platná alebo neúplná. Prosím skontrolujte svoje záznamy.",
-        "billing-address-blocked": "Fakturacia na vybranú adresu nie je možná.",
-        "billing-address-invalid": "Vybratá fakturačná adresa nie je platná alebo neúplná. Prosím skontrolujte svoje záznamy.",
         "VIOLATION::TOO_SHORT_ERROR": "%field% je príliš krátka.",
         "product-not-found": "Výrobok sa nenašiel.",
         "message-403-ajax": "Platnosť vašej relácie vypršala. Prosím znova načítajte stránku a skúste to znova.",
         "message-403": "Platnosť vašej relácie vypršala. Vráťte sa na poslednú stránku a skúste to znova.",
         "product-out-of-stock": "%name% momentálne nie je k dispozícii.",
         "auto-promotion-not-found": "Propagácia \"%name%\" už nie je platná!",
+        "rateLimitExceeded": "Príliš veľa žiadostí. Prosím, počkajte %seconds% sekúnd, kým sa pokúsite znova.",
         "captcha": {
-            "basic-captcha-invalid": "Captcha je neplatná. Prosím skontrolujte svoje záznamy."
+            "basic-captcha-invalid": "Nesprávny vstup. Prosím, skúste to znova."
         }
     },
     "account": {
-        "externalPaymentCanceled": "Obdržali sme vašu objednávku, ale platba bola prerušená. Zmeňte spôsob platby alebo skúste to znova",
-        "externalPaymentFailure": "Obdržali sme vašu objednávku, ale nepodarilo sa nám spracovať platbu, zmeňte spôsob platby alebo skúste to znova",
+        "externalPaymentCanceled": "Dostali sme vašu objednávku, ale platba bola prerušená. Zmeňte spôsob platby alebo skúste znova.",
+        "externalPaymentExpired": "Vašu objednávku sme dostali, ale platobný proces vypršal. Prosím, skúste to znova.",
+        "externalPaymentFailure": "Vašu objednávku sme dostali, ale neboli sme schopní spracovať vašu platbu, zmeňte spôsob platby alebo skúste to znova.",
         "confirmationIsAlreadyDone": "Buď e-mailová adresa už bola potvrdená alebo adresa URL je neplatná.",
         "doubleOptInMailConfirmationSuccessfully": "Ďakujeme za potvrdenie vašej e-mailovej adresy! Teraz môžete dokončiť svoju objednávku.",
         "doubleOptInRegistrationSuccessfully": "Ďakujeme, že ste sa zaregistrovali! Vaše konto bolo úspešne odomknuté.",
@@ -94,6 +92,7 @@
         "loginPasswordRecover": "Zabudol som heslo.",
         "loginSubmit": "Prihlásiť sa",
         "loginBadCredentials": "Nepodarilo sa nájsť konto, ktoré zodpovedá daným poverením.",
+        "loginThrottled": "Príliš veľa pokusov o prihlásenie. Počkajte %seconds% sekúnd, kým sa znova pokúsite prihlásiť.",
         "registerAdvantagesHeader": "Výhody prihlásenia:",
         "registerAdvantage1": "Expresné nakupovanie",
         "registerAdvantage2": "Uloženie údajov a nastavení",
@@ -161,6 +160,7 @@
         "overviewChangeShipping": "Zmena doručovacej adresy",
         "overviewNewestOrderHeader": "Posledná objednávka",
         "overviewCustomerGroupRequest": "Prístup k zákazníckej skupine \"%group%\" požadované.",
+        "overviewNotAbleToShip": "Nemôžeme dodať do krajiny, ktorá je uložená vo vašej dodacej adrese.",
         "paymentChangeSubmit": "Zmeniť",
         "profilePersonalTitle": "Osobné údaje",
         "profileMailTitle": "E-mailová adresa",
@@ -186,7 +186,7 @@
         "profileRecoverPasswordInfo": "Pošleme vám potvrdzujúci e-mail. Ak chcete zmeniť heslo, kliknite na prepojenie v danom e-maile.",
         "profileRecoverPasswordSubmit": "Poslať e-mail",
         "profileSaveChanges": "Uložiť zmeny",
-        "profileDelete": "<a href=\"%target%\" data-toggle=\"modal\" data-target=\"%target%\">Kliknite tu</a> pre odstránenie všetkých vašich osobných údajov",
+        "profileDelete": "<a href=\"%target%\" data-toggle=\"modal\" data-bs-toggle=\"modal\" data-target=\"%target%\" data-bs-target=\"%target%\">Kliknite sem</a> pre vymazanie všetkých vašich osobných údajov",
         "profileDeleteAlert": "Po vymazaní osobných údajov z vášho zákazníckeho účtu už nebudete mať prístup k záznamom newsletteru a recenziám. Všimnite si, že záznamy všetkých objednávok budú uchovávané napriek tomu, aby bolo možné splniť právne predpisy.",
         "profileDeleteConfirm": "Naozaj chcete odstrániť svoj zákaznícky účet?",
         "profileDeleteModalTitle": "Zákaznícky účet",
@@ -244,7 +244,8 @@
         "editOrderCancelOrderModalBodyQuestion": "Naozaj chcete zrušiť objednávku?",
         "editOrderCancelOrderModalFooterButton": "Zrušiť objednávku",
         "editOrderCancelOrderModalFooterButtonBack": "Späť",
-        "editOrderPaymentNotChangeable": "Nie je možné zmeniť aktuálny spôsob platby! Existuje zľava alebo podobná propagačná výhoda viazaná na spôsob platby, ktorá by sa stratila pri zmene. Prosím, zrušte objednávku a poradie.",
+        "editOrderPaymentNotChangeable": "Táto objednávka je už spracovaná alebo má aktívnu zľavu viazanú na spôsob platby, preto ju už nemôžete upravovať.",
+        "editOrderPaymentNotChangeableWithRefunds": "Táto objednávka je už spracovaná alebo má aktívnu zľavu viazanú na spôsob platby, preto ju už nemôžete upravovať. Prosím, zrušte svoju objednávku a zmeniť objednávku.",
         "orderNumber": "Poradové číslo:",
         "orderItemColumnNumber": "Poradové číslo:",
         "orderItemColumnPaymentMethod": "Spôsob platby",
@@ -297,6 +298,8 @@
         "cityPlaceholder": "Vstúpiť do mesta...",
         "countryLabel": "Krajina",
         "countryPlaceholder": "Vyberte krajinu...",
+        "countryPostfixNoShipping": "(Doručenie nie je možné)",
+        "countryNoShippingAlert": "Doručenie do tejto krajiny nie je možné.",
         "countryStateLabel": "stav",
         "countryStatePlaceholder": "Vyberte stav...",
         "phoneNumberLabel": "Telefónne číslo",
@@ -314,6 +317,7 @@
         "addressLoginToggle": "Už máte účet? Kliknite sem pre prihlásenie.",
         "addressRegisterCardTitle": "Vaše osobné údaje",
         "registerGuestmodeLabel": "Nevytvárajte zákaznícky účet.",
+        "registerCustomermodeLabel": "Vytvorte si zákaznícke konto.",
         "cartTitle": "Nákupný košík",
         "cartHeader": "Nákupný košík",
         "cartUpdateSuccess": "Nákupný košík aktualizovaný",
@@ -328,6 +332,8 @@
         "summaryHeader": "Zhrnutie",
         "lineItemContainerHeadline": "Obsahuje",
         "lineItemContainerChangeLink": "zmeniť",
+        "lineItemShowMore": "ešte",
+        "lineItemShowLess": "menej",
         "cartEmpty": "Váš nákupný košík je prázdny.",
         "cartHeaderInfo": "Produkt",
         "cartHeaderQuantity": "Množstvo",
@@ -366,8 +372,8 @@
         "confirmSubmit": "Odoslať objednávku",
         "confirmTermsHeader": "Obchodné podmienky a storno podmienky",
         "confirmRevocationNotice": "Upozorňujeme, že naše storno podmienky.",
-        "confirmTerms": "Prečítal som a akceptoval <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"general terms and conditions\">všeobecné podmienky</a>.",
-        "confirmTermsReminder": "Už ste súhlasili s <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"general terms and conditions\">všeobecnými zmluvnými podmienkami</a>.",
+        "confirmTerms": "Prečítal som si a akceptoval <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"general terms and conditions\">všeobecné obchodné podmienky</a>.",
+        "confirmTermsReminder": "Už ste súhlasili s <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"general terms and conditions\">všeobecnými obchodnými podmienkami</a>.",
         "finishInfoPayment": "Spôsob platby:",
         "finishInfoShipping": "Spôsob prepravy:",
         "finishHeader": "Ďakujeme za vašu objednávku s %shop%!",
@@ -385,26 +391,37 @@
         "shippingCountry": "Krajina lodnej dopravy",
         "paymentMethod": "Spôsob platby",
         "shippingMethod": "Spôsob prepravy",
+        "notAvailableSuffix": "(nie je k dispozícii)",
         "product-stock-reached": "Produkt \"%name%\" je k dispozícii iba %quantity% krát",
         "product-out-of-stock": "Produkt \"%name%\" už nie je k dispozícii",
         "purchase-steps-quantity": "Produkt \"%name%\" nie je k dispozícii v tomto množstve. Množstvo bolo zmenené na %quantity%",
+        "min-order-quantity": "Množstvo produktu \"%name%\" nespĺňalo prahovú hodnotu minimálneho množstva objednávok. Množstvo sa automaticky zvýšilo na %quantity%.",
         "shipping-method-blocked": "Spôsob prepravy \"%name%\" je zablokovaný pre váš aktuálny nákupný košík.",
+        "shipping-method-changed": "„%oldShippingMethodName%\" doprava nie je k dispozícii pre váš aktuálny košík, doprava bola zmenená na \"%newShippingMethodName%“.",
         "payment-method-blocked": "Spôsob platby \"%name%\" je zablokovaný pre váš aktuálny nákupný košík.",
+        "payment-method-changed": "„%oldPaymentMethodName%\" platba nie je k dispozícii pre váš aktuálny košík, platba bola zmenená na \"%newPaymentMethodName%“.",
         "lineItemDeliveryDate": "Dodacia lehota: %earliest% - %latest%",
         "promotion-discount-deleted": "Zľava \"%name%\" bola odstránená",
         "promotion-discount-added": "Zľava \"%name%\" bola pridaná",
         "promotion-not-found": "Propagácia s kódom \"%code%\" nebola nájdená.",
         "auto-promotion-not-found": "Propagácia \"%name%\" už neplatí!",
         "promotion-not-eligible": "Akčný kód platný - nie všetky podmienky však boli splnené a zľava nebola uplatnená. Po splnení všetkých podmienok sa zľava uplatní automaticky.",
+        "promotion-excluded": "Jedna alebo viac zliav boli odstránené z nákupného košíka kvôli konfliktom s inými zľavami. Po opätovnom splnení podmienok sa zľavy uplatnia automaticky.",
         "shipping-address-blocked": "Odosielanie na vybranú dodaciu adresu momentálne nie je možné.",
         "billing-address-blocked": "Fakturacia na vybranú adresu nie je možná.",
+        "shipping-address-invalid": "Zvolená dodacia adresa nie je platná alebo neúplná. Prosím, skontrolujte svoje záznamy.",
+        "billing-address-invalid": "Vybraná fakturačná adresa nie je platná alebo neúplná. Prosím, skontrolujte svoje záznamy.",
         "customerCommentHeader": "Dodatočné informácie",
         "customerCommentLabel": "Chcete nám povedať niečo o vašej objednávke?",
         "customerCommentPlaceholder": "Komentovať tu...",
         "cart-merged-hint": "Aktuálny nákupný košík môže obsahovať ďalšie produkty, ktoré boli pridané a uložené počas predchádzajúcej návštevy.",
         "collapseTriggerMore": "Zobraziť viac",
         "collapseTriggerLess": "Zobraziť menej",
-        "product-not-found": "Výrobok sa nenašiel."
+        "product-not-found": "Výrobok sa nenašiel.",
+        "salutation-missing": "Vo vašom profile chýba pozdrav, vyberte si ho pri pokladni.",
+        "salutation-missing-profile": "Vo vašom profile nie je nakonfigurovaný pozdrav, prosím, nastavte jednu <a href=\"%url%\">tu</a>.",
+        "salutation-missing-billing-address": "Nie je nakonfigurovaný žiadny pozdrav pre vašu aktívnu fakturačnú adresu, prosím, nastavte jednu <a href=\"%url%\">tu</a>.",
+        "salutation-missing-shipping-address": "Nie je nakonfigurovaný žiadny pozdrav pre vašu aktívnu dodaciu adresu, prosím, nastavte jednu <a href=\"%url%\">tu</a>."
     },
     "listing": {
         "filterTitleText": "Filtrovať",
@@ -428,9 +445,10 @@
         "filterRatingAndMore": "min. %points%/%maxPoints%",
         "filterRangeMinLabel": "Minimálna",
         "filterRangeMaxLabel": "Maximálna",
-        "filterRangeActiveMinLabel": "Cena od",
-        "filterRangeActiveMaxLabel": "Cena do",
-        "filterRangeErrorMessage": "Minimálna cena nemôže byť vyššia ako maximálna cena.",
+        "filterRangeActiveMinLabel": "%displayName% z",
+        "filterRangeActiveMaxLabel": "%displayName% na",
+        "filterRangeErrorMessage": "Minimálna hodnota nemôže byť vyššia ako maximálna hodnota.",
+        "filterRangeLowerBoundErrorMessage": "Minimálna a maximálna hodnota musí byť väčšia alebo rovná %lowerBound%.",
         "filterSubmitText": "Filtrovať",
         "defaultProductSortingLabel": "Meno, vzostupne",
         "disabledFilterTooltip": "Tento filter nezobrazuje žiadne ďalšie výsledky v kombinácii s vybranými filtrmi.",
@@ -536,6 +554,7 @@
         "headline": "Váš zoznam želaní",
         "itemDeleteSuccess": "Úspešne ste odstránili produkt zo zoznamu želaní.",
         "itemAddedSuccess": "Úspešne ste pridali produkt do zoznamu želaní.",
+        "duplicateItemError": "Produkt už bol pridaný do zoznamu želaní.",
         "currentlyNotAvailable": "V súčasnosti nie je k dispozícii",
         "manufacturerDisplayName": "Výrobca",
         "deliveryTimeAvailable": "K dispozícii, dodacia lehota %name%",
@@ -551,21 +570,18 @@
         "informationHeadline": "Informácie",
         "newsletterHeadline": "Newsletter",
         "serviceHotline": "Podpora a poradenstvo cez: <a href=\"tel:+49180000000\">0180 - 000000</a> Po-Pia, 9 am - 5 pm",
-        "serviceContactLink": "Alebo prostredníctvom nášho kontaktného formulára <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"contact form\"></a>.",
+        "serviceContactLink": "Alebo prostredníctvom nášho <a data-bs-toggle=\"modal\" data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"contact form\">kontaktného formulára</a>.",
         "newsletterInput": "Vaša e-mailová adresa",
         "newsletter": "Prihláste sa na náš pravidelný newsletter, aby ste zostali naladení na najnovšie produkty a špeciálne ponuky.",
-        "includeVat": "* Všetky ceny vrátane DPH plus <a data-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">náklady na dopravu</a> a prípadné poplatky za doručenie, ak nie je uvedené inak.",
-        "excludeVat": "* Všetky ceny bez DPH plus <a data-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">náklady na dopravu</a> a prípadné poplatky za doručenie, ak nie je uvedené inak.",
+        "includeVat": "* Všetky ceny s DPH plus <a data-toggle=\"modal\" data-bs-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">prepravné náklady</a> a možné dodacie poplatky, ak nie je uvedené inak.",
+        "excludeVat": "* Všetky ceny bez DPH plus <a data-toggle=\"modal\" data-bs-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">prepravných nákladov</a> a možné dodacie poplatky, ak nie je uvedené inak.",
         "copyrightInfo": "Realizované s Shopware"
     },
     "captcha": {
-        "googleReCaptcha": {
-            "dataProtectionInformation": "Táto stránka je chránená spoločnosťou reCAPTCHA a platia podmienky používania</a> Google\n<a href=\"https://policies.google.com/privacy\">Privacy Policy</a> a\n<a href=\"https://policies.google.com/terms\">."
-        },
         "basicCaptchaLabel": "Zadajte vyššie uvedené znaky"
     },
     "cookie": {
-        "message": "Táto webová stránka používa cookies, aby zabezpečila čo najlepšiu možnú skúsenosť. <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"More information\">Viac informácií...</a>",
+        "message": "Táto webová stránka používa súbory cookie na zabezpečenie najlepšieho možného zážitku. <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"More information\">Viac informácií...</a>",
         "deny": "Popierať",
         "configure": "Konfigurácia",
         "configuration": "Nastavenia",
@@ -577,7 +593,7 @@
         "groupRequiredSession": "Relácia",
         "groupRequiredCsrf": "Ochrana CSRF",
         "groupRequiredTimezone": "Časové pásmo",
-        "groupRequiredCaptcha": "Integrácia Captcha",
+        "groupRequiredCaptcha": "Integrácia CAPTCHA",
         "groupStatistical": "Štatistiky",
         "groupStatisticalDescription": "Súbory cookie používané na štatistiku a výkonnostné metriky obchodu.",
         "groupStatisticalGoogleAnalytics": "Google Analytics",
@@ -593,7 +609,7 @@
             "feature": {
                 "label": {
                     "manufacturerNumber": "Číslo výrobcu:",
-                    "ean": "EAN:",
+                    "ean": "GTÍN/EAN:",
                     "weight": "Hmotnosť:",
                     "width": "Šírka:",
                     "height": "Výška:",
@@ -610,7 +626,18 @@
         },
         "cms": {
             "vimeo": {
+                "privacyNotice": "Prezeraním videa súhlasíte s tým, že vaše údaje budú prenesené na %platform% a že ste si prečítali <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Privacy policy\">Zásady ochrany osobných údajov</a>.",
                 "acceptButtonLabel": "Prijať"
+            },
+            "defaultMedia": {
+                "preview_camera_large": {
+                    "title": "Kamera",
+                    "alt": "Vintage kodak fotokamera s koženým plášťom a remienkom"
+                },
+                "preview_camera_small": {
+                    "title": "Kamera",
+                    "alt": "Vintage kodak fotokamera s koženým plášťom a remienkom"
+                }
             }
         }
     }

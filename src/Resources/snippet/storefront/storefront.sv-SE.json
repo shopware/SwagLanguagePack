@@ -25,7 +25,7 @@
         "required": "*",
         "requiredFields": "Fälten markerade med * är obligatoriska.",
         "privacyTitle": "Dataskydd",
-        "privacyNotice": "Jag har läst <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Sekretesspolicy\">sekretesspolicyn</a>.",
+        "privacyNotice": "Genom att välja fortsätt bekräftar du att du har läst vår <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%privacyUrl%\" href=\"%privacyUrl%\" title=\"Data protection information\">dataskyddsinformation</a> och accepterat våra <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%tosUrl%\" href=\"%tosUrl%\" title=\"general terms and conditions\">allmänna villkor</a>.",
         "privacyLink": "Dataskydd",
         "imprintLink": "Ansvarig utgivare",
         "404ErrorPageHeader": "Sidan hittades inte",
@@ -36,7 +36,8 @@
         "sortingLabel": "Sortering",
         "next": "Nästa",
         "previous": "Föregående",
-        "formSubmit": "Skicka"
+        "formSubmit": "Skicka",
+        "listPricePreviously": "tidigare %price%"
     },
     "header": {
         "logoLink": "Växla till startsidan",
@@ -62,24 +63,21 @@
         "FRAMEWORK__INVALID_UUID": "Typen av betalningsmetod kunde inte hittas.",
         "CHECKOUT__UNKNOWN_PAYMENT_METHOD": "Typen av betalningsmetod kunde inte hittas.",
         "productNotFound": "Produkten \"%number%\" kunde inte hittas.",
-        "payment-method-blocked": "Den valda betalningsmetoden %name% är inte tillgänglig.",
-        "shipping-address-blocked": "Leverans till den valda leveransadressen är inte möjlig.",
-        "shipping-address-invalid": "Den valda leveransadressen är inte giltig eller ofullständig. Vänligen kolla dina poster.",
-        "billing-address-blocked": "Fakturering till den valda adressen är inte möjlig.",
-        "billing-address-invalid": "Den valda faktureringsadressen är inte giltig eller ofullständig. Vänligen kolla dina poster.",
         "VIOLATION::TOO_SHORT_ERROR": "%field% är för kort.",
         "product-not-found": "Produkten hittades inte.",
         "message-403-ajax": "Din session har gått ut. Ladda om sidan och försök igen.",
         "message-403": "Din session har gått ut. Vänliigen gå tillbaka till sista sidan och försök igen.",
         "product-out-of-stock": "%name% är för tillfället inte tillgänglig.",
         "auto-promotion-not-found": "Kampanjen \"%name%\" är inte längre giltig!",
+        "rateLimitExceeded": "För många förfrågningar. Vänta %seconds% sekunder innan du försöker igen.",
         "captcha": {
-            "basic-captcha-invalid": "Captcha är ogiltig. Vänligen kolla dina poster."
+            "basic-captcha-invalid": "Felaktig inmatning. Försök igen."
         }
     },
     "account": {
-        "externalPaymentCanceled": "Vi tog emot din beställning, men betalningen avbröts. Ändra din betalningsmetod eller försök igen",
-        "externalPaymentFailure": "Vi tog emot din beställning, men vi kunde inte behandla din betalning, ändra betalningsmetoden eller försök igen",
+        "externalPaymentCanceled": "Vi har mottagit din beställning, men betalningen avbröts. Ändra betalningsmetod eller försök igen.",
+        "externalPaymentExpired": "Vi har mottagit din beställning, men betalningsprocessen har löpt ut. Försök igen.",
+        "externalPaymentFailure": "Vi har mottagit din beställning, men vi kunde inte behandla din betalning. Ändra betalningsmetoden eller försök igen.",
         "confirmationIsAlreadyDone": "Bekräftelsen har redan ägt rum eller webbadressen är ogiltig.",
         "doubleOptInMailConfirmationSuccessfully": "Tack för att du har bekräftat din e-postadress. Du kan nu slutföra din beställning.",
         "doubleOptInRegistrationSuccessfully": "Tack för din registrering! Ditt konto har nu aktiverats.",
@@ -94,6 +92,7 @@
         "loginPasswordRecover": "Jag har glömt mitt lösenord.",
         "loginSubmit": "Logga in",
         "loginBadCredentials": "Det var inte möjligt att hitta ett konto för angivna åtkomstdata.",
+        "loginThrottled": "För många inloggningsförsök. Vänta %seconds% sekunder innan du försöker logga in igen.",
         "registerAdvantagesHeader": "Fördelar med registrering:",
         "registerAdvantage1": "Snabb shopping",
         "registerAdvantage2": "Spara din information och dina inställningar.",
@@ -161,6 +160,7 @@
         "overviewChangeShipping": "Ändra standard",
         "overviewNewestOrderHeader": "Senaste beställning",
         "overviewCustomerGroupRequest": "Tillgång till kundgrupp \"%group%\" begärd.",
+        "overviewNotAbleToShip": "Vi kan inte leverera till det land som lagras i din leveransadress.",
         "paymentChangeSubmit": "Ändra",
         "profilePersonalTitle": "Personuppgifter",
         "profileMailTitle": "E-postadress:",
@@ -186,7 +186,7 @@
         "profileRecoverPasswordInfo": "Vi skickar en bekräftelse via e-post. Klicka på länken för att ändra ditt lösenord.",
         "profileRecoverPasswordSubmit": "Skicka e-post",
         "profileSaveChanges": "Spara ändringar",
-        "profileDelete": "<a href=\"%target%\" data-toggle=\"modal\" data-target=\"%target%\">Klicka här</a> för att radera alla dina personuppgifter",
+        "profileDelete": "<a href=\"%target%\" data-toggle=\"modal\" data-bs-toggle=\"modal\" data-target=\"%target%\" data-bs-target=\"%target%\">Klicka här</a> för att radera alla dina personuppgifter",
         "profileDeleteAlert": "När du har raderat ditt kundkontos personuppgifter kommer nyhetsbrev och recensioner inte att vara tillgängliga för dig längre. Observera att register över alla beställningar kommer att bevaras ändå för att uppfylla lagstadgade bestämmelser.",
         "profileDeleteConfirm": "Vill du verkligen ta bort ditt kundkonto?",
         "profileDeleteModalTitle": "Kundkonto",
@@ -244,7 +244,8 @@
         "editOrderCancelOrderModalBodyQuestion": "Är du säker på att du vill avbryta beställningen oåterkalleligt?",
         "editOrderCancelOrderModalFooterButton": "Avbryt beställning",
         "editOrderCancelOrderModalFooterButtonBack": "Tillbaka",
-        "editOrderPaymentNotChangeable": "Betalningsmetoden kan inte ändras eftersom en rabatt eller annan kampanj är länkad till den. Istället bör du avbryta beställningen och lägga in den igen.",
+        "editOrderPaymentNotChangeable": "Denna order behandlas redan eller har en aktiv rabatt knuten till betalningsmetoden, därför kan du inte redigera den längre.",
+        "editOrderPaymentNotChangeableWithRefunds": "Denna order behandlas redan eller har en aktiv rabatt knuten till betalningsmetoden, därför kan du inte redigera den längre. Vänligen annullera din beställning och beställa om.",
         "orderNumber": "Beställningsnummer:",
         "orderItemColumnNumber": "Beställningsnummer:",
         "orderItemColumnPaymentMethod": "Betalningsmetod",
@@ -297,6 +298,8 @@
         "cityPlaceholder": "Ange ort...",
         "countryLabel": "Land",
         "countryPlaceholder": "Välj land...",
+        "countryPostfixNoShipping": "(Leverans är inte möjlig)",
+        "countryNoShippingAlert": "En leverans till detta land är inte möjligt.",
         "countryStateLabel": "Län",
         "countryStatePlaceholder": "Välj län...",
         "phoneNumberLabel": "Telefonnummer",
@@ -314,6 +317,7 @@
         "addressLoginToggle": "Är du redan kund? Klicka här för att logga in.",
         "addressRegisterCardTitle": "Personlig information",
         "registerGuestmodeLabel": "Skapa inte ett kundkonto.",
+        "registerCustomermodeLabel": "Skapa ett kundkonto.",
         "cartTitle": "Kundvagn",
         "cartHeader": "Kundvagn",
         "cartUpdateSuccess": "Kundvagnen har uppdaterats",
@@ -328,6 +332,8 @@
         "summaryHeader": "Sammanfattning",
         "lineItemContainerHeadline": "Innehåller",
         "lineItemContainerChangeLink": "Byta",
+        "lineItemShowMore": "mer",
+        "lineItemShowLess": "mindre",
         "cartEmpty": "Din kundvagn är tom.",
         "cartHeaderInfo": "Produkt",
         "cartHeaderQuantity": "Antal",
@@ -366,8 +372,8 @@
         "confirmSubmit": "Beställning som ska betalas",
         "confirmTermsHeader": "Allmänna villkor och avbeställning",
         "confirmRevocationNotice": "Vänligen, observera avbokningsreglerna.",
-        "confirmTerms": "Jag har läst de <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Allmänna affärsvillkor\">Allmänna affärsvillkoren</a> och är införstådd med dess villkor.",
-        "confirmTermsReminder": "Du har redan godkänt <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"general terms and conditions\">allmänna villkor</a>.",
+        "confirmTerms": "Jag har läst och accepterat <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"general terms and conditions\">allmänna villkor</a>.",
+        "confirmTermsReminder": "Du har redan accepterat <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"general terms and conditions\">allmänna villkor</a>.",
         "finishInfoPayment": "Betalningsmetod:",
         "finishInfoShipping": "Leveranstyp:",
         "finishHeader": "Tack för din beställning hos %shop%!",
@@ -385,26 +391,37 @@
         "shippingCountry": "Leveransland",
         "paymentMethod": "Betalningsmetod",
         "shippingMethod": "Leveranstyp",
+        "notAvailableSuffix": "(ej tillgänglig)",
         "product-stock-reached": "Produkten \"%name%\" är endast tillgänglig %quantity% gånger",
         "product-out-of-stock": "Produkten \"%name%\" är inte tillgänglig längre",
         "purchase-steps-quantity": "Produkten \"%name%\" är inte tillgänglig i den här kvantiteten. Kvantiteten ändrades till %quantity%",
+        "min-order-quantity": "Mängden produkt \"%name%\" uppfyllde inte tröskelvärdet för minsta orderkvantitet. Kvantiteten har automatiskt ökats till %quantity%.",
         "shipping-method-blocked": "Leveransmetoden \"%name%\" är blockerad för din aktuella varukorg.",
+        "shipping-method-changed": "”%oldShippingMethodName%\" frakt är inte tillgänglig för din nuvarande varukorg, sändningen ändrades till \"%newShippingMethodName%”.",
         "payment-method-blocked": "Betalningsmetoden \"%name%\" är blockerad för din aktuella varukorg.",
+        "payment-method-changed": "”%oldPaymentMethodName%\" betalning är inte tillgänglig för din nuvarande varukorg, betalningen ändrades till \"%newPaymentMethodName%”.",
         "lineItemDeliveryDate": "Leveransperiod: %earliest% - %latest%",
         "promotion-discount-deleted": "Rabatten \"%name%\" har tagits bort från kundvagnen",
         "promotion-discount-added": "Rabatten \"%name%\" har lagts till i kundvagnen",
         "promotion-not-found": "Kupongkoden \"%code%\" finns inte.",
         "auto-promotion-not-found": "Kampanjen \"%name%\" är inte längre giltig!",
         "promotion-not-eligible": "Kupongkoden har sparats, men tillämpas inte på kundvagnen, då villkoren inte uppfylls. Så snart villkoren är uppfyllda läggs de till automatiskt.",
+        "promotion-excluded": "En eller flera rabatter har tagits bort från kundvagnen på grund av konflikter med andra rabatter. När villkoren är uppfyllda igen kommer rabatterna att tillämpas automatiskt.",
         "shipping-address-blocked": "Leverans till den valda leveransadressen är inte möjlig.",
         "billing-address-blocked": "Fakturering till den valda adressen är inte möjlig.",
+        "shipping-address-invalid": "Den valda leveransadressen är inte giltig eller ofullständig. Vänligen kontrollera dina anteckningar.",
+        "billing-address-invalid": "Den valda faktureringsadressen är inte giltig eller ofullständig. Vänligen kontrollera dina anteckningar.",
         "customerCommentHeader": "Ytterligare information",
         "customerCommentLabel": "Vill du meddela något till oss om din beställning?",
         "customerCommentPlaceholder": "Lämna kommentarer här...",
         "cart-merged-hint": "Den aktuella kundvagnen kan innehålla ytterligare produkter som har lagts till och sparats under ett tidigare besök.",
         "collapseTriggerMore": "Visa mer",
         "collapseTriggerLess": "Visa mindre",
-        "product-not-found": "Produkten kunde inte hittas."
+        "product-not-found": "Produkten kunde inte hittas.",
+        "salutation-missing": "En hälsning saknas i din profil, var god välj en i kassan.",
+        "salutation-missing-profile": "Det finns ingen hälsning konfigurerad i din profil, ställ in ett <a href=\"%url%\">här</a>.",
+        "salutation-missing-billing-address": "Det finns ingen hälsning konfigurerad för din aktiva faktureringsadress. Ange en <a href=\"%url%\">här</a>.",
+        "salutation-missing-shipping-address": "Det finns ingen hälsning konfigurerad för din aktiva leveransadress, ange en <a href=\"%url%\">här</a>."
     },
     "listing": {
         "filterTitleText": "Filter",
@@ -428,9 +445,10 @@
         "filterRatingAndMore": "min. %points%/%maxPoints%",
         "filterRangeMinLabel": "Minst",
         "filterRangeMaxLabel": "Högst",
-        "filterRangeActiveMinLabel": "Pris från",
-        "filterRangeActiveMaxLabel": "Pris till",
-        "filterRangeErrorMessage": "Minimipriset ska inte vara högre än maxpriset.",
+        "filterRangeActiveMinLabel": "%displayName% från",
+        "filterRangeActiveMaxLabel": "%displayName% till",
+        "filterRangeErrorMessage": "Minimivärdet får inte vara högre än det maximala värdet.",
+        "filterRangeLowerBoundErrorMessage": "Minsta och högsta värdet måste vara större eller lika med %lowerBound%.",
         "filterSubmitText": "Filter",
         "defaultProductSortingLabel": "Namn, stigande",
         "disabledFilterTooltip": "Filtret visar inga ytterligare resultat i kombination med de valda filtren.",
@@ -536,6 +554,7 @@
         "headline": "Din önskelista",
         "itemDeleteSuccess": "Du har tagit bort produkten från din önskelista.",
         "itemAddedSuccess": "Du har lagt till produkten i din önskelista.",
+        "duplicateItemError": "Produkten har redan lagts till din önskelista.",
         "currentlyNotAvailable": "För närvarande inte tillgänglig",
         "manufacturerDisplayName": "Tillverkare",
         "deliveryTimeAvailable": "Tillgänglig, leveranstid %name%",
@@ -551,21 +570,21 @@
         "informationHeadline": "Information",
         "newsletterHeadline": "Nyhetsbrev",
         "serviceHotline": "Support och råd på: <a href=\"tel:+49180000000\">0180 - 000000</a> Må-Fr, 9.00 - 17.00",
-        "serviceContactLink": "Eller via <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Kontaktformulär\">kontaktformulär</a>.",
+        "serviceContactLink": "Eller via vårt <a data-bs-toggle=\"modal\" data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"contact form\">kontaktformulär</a>.",
         "newsletterInput": "Din e-postadress",
         "newsletter": "Prenumerera nu enkelt på vårt nyhetsbrev som kommer ut regelbundet. Då kommer du alltid att vara först med att informeras om nya produkter och erbjudanden.",
-        "includeVat": "* Alla priser inkl. Moms plus <a data-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">fraktkostnad</a> och eventuella COD-avgifter (betalning vid leverans), om inte annat anges.",
-        "excludeVat": "* Alla priser inkl. Moms plus <a data-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">fraktkostnad</a> och eventuella COD-avgifter (betalning vid leverans), om inte annat anges.",
+        "includeVat": "* Alla priser inkl. moms plus <a data-toggle=\"modal\" data-bs-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">fraktkostnader</a> och eventuella leveransavgifter, om inte annat anges.",
+        "excludeVat": "* Alla priser exkl. Moms plus <a data-toggle=\"modal\" data-bs-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">fraktkostnader</a> och eventuella leveransavgifter, om inte annat anges.",
         "copyrightInfo": "Realiserad med Shopware"
     },
     "captcha": {
         "googleReCaptcha": {
-            "dataProtectionInformation": "Denna webbplats är skyddad av reCAPTCHA och Google\n<a href=\"https://policies.google.com/privacy\">Sekretesspolicy</a> och\n<a href=\"https://policies.google.com/terms\">Användarvillkor</a> gäller."
+            "dataProtectionInformation": "Denna webbplats skyddas av reCAPTCHA och Google <a href=\"https://policies.google.com/privacy\">Sekretesspolicy</a> och <a href=\"https://policies.google.com/terms\">Villkor</a> gäller."
         },
         "basicCaptchaLabel": "Ange tecknen som visas ovan*"
     },
     "cookie": {
-        "message": "Denna webbplats använder cookies för att ge dig bästa möjliga funktionalitet. <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Mer information\">Mer information...</a>",
+        "message": "Denna webbplats använder cookies för att säkerställa bästa möjliga upplevelse. <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"More information\">Mer information...</a>",
         "deny": "Avböj",
         "configure": "Konfigurera",
         "configuration": "Inställningar",
@@ -577,7 +596,7 @@
         "groupRequiredSession": "Session",
         "groupRequiredCsrf": "CSRF-skydd",
         "groupRequiredTimezone": "Tidszon",
-        "groupRequiredCaptcha": "Captcha-integrering",
+        "groupRequiredCaptcha": "CAPTCHA-integrering",
         "groupStatistical": "Statistik",
         "groupStatisticalDescription": "Cookies används för statistik och butiksprestanda.",
         "groupStatisticalGoogleAnalytics": "Google Analytics",
@@ -593,7 +612,7 @@
             "feature": {
                 "label": {
                     "manufacturerNumber": "Tillverkarens nummer:",
-                    "ean": "EAN:",
+                    "ean": "GTIN/EAN:",
                     "weight": "Vikt:",
                     "width": "Bredd:",
                     "height": "Höjd:",
@@ -610,8 +629,18 @@
         },
         "cms": {
             "vimeo": {
-                "privacyNotice": "Genom att titta på videon godkänner du att dina data kommer att överföras till %platform% och att du har läst <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Privacy policy\">Integritetspolicy</a>.",
+                "privacyNotice": "Genom att visa videon godkänner du att dina uppgifter överförs till %platform% och att du har läst <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Privacy policy\">Integritetspolicy</a>.",
                 "acceptButtonLabel": "Ta emot"
+            },
+            "defaultMedia": {
+                "preview_camera_large": {
+                    "title": "Kamera",
+                    "alt": "Vintage kodak fotokamera med lädermantel och rem"
+                },
+                "preview_camera_small": {
+                    "title": "Kamera",
+                    "alt": "Vintage kodak fotokamera med lädermantel och rem"
+                }
             }
         }
     }

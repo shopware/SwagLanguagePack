@@ -4,11 +4,14 @@
         "textIntroPayPal": "Da biste pokrenuli PayPal, trebate dostaviti samo svoje podatke za PayPal API.",
         "labelClientId": "ID klijenta",
         "labelClientSecret": "Tajna klijenta",
+        "labelMerchantPayerId": "PayPal trgovački ID",
         "labelClientIdSandbox": "ID Sandbox klijenta",
         "labelClientSecretSandbox": "Tajna Sandbox klijenta",
-        "labelSandbox": "Sandbox",
+        "labelMerchantPayerIdSandbox": "Sandbox PayPal trgovački ID",
+        "labelSandbox": "Koristi pješčanik",
         "tooltipSandbox": "Ovisno o aktivaciji Sandbox-a, spremaju se zasebni podaci.",
-        "textSettingsHeader": "Napredne postavke",
+        "labelSetDefault": "Postavi kao zadani način plaćanja",
+        "tooltipSetDefault": "PayPal će biti postavljen kao zadani način plaćanja svih prodajnih kanala. U modulu postavki možete postaviti pojedinačne zadane načine plaćanja po kanalu prodaje.",
         "messageFetchedError": "Pokušajte ponovo ili upotrijebite napredne postavke da biste unijeli svoje podatke.",
         "textFetchedSuccessful": "Podaci su dohvaćeni.",
         "messageNoCredentials": "Nisu dostavljeni podaci.",
@@ -49,455 +52,6 @@
             "orderModuleLinkText": "Otvori narudžbu",
             "rawDataCardTitle": "Neobrađeni podatci",
             "copyButtonLabel": "Kopirajte neobrađene podatke"
-        }
-    },
-    "swag-paypal-pos": {
-        "general": {
-            "moduleTitle": "Zettle putem PayPal",
-            "salesChannelDetailDescription": {
-                "title": "Širite svoje poslovanje uz Shopware i Zettle putem PayPal-a",
-                "manufacturer": "Zettle putem PayPal"
-            }
-        },
-        "header": "Zettle prodajni kanal",
-        "tabTitle": {
-            "overview": "Pregled",
-            "syncedProducts": "Sinkronizirani proizvodi",
-            "settings": "Postavke",
-            "runs": "Zapisnik",
-            "help": "Pomoć"
-        },
-        "detail": {
-            "disclaimer": {
-                "headline": "Zettle je PayPal usluga",
-                "subheadline": "Poboljšajte prodaju uz pomoć snage PayPal. Započnite besplatno.",
-                "linkTarget": "https://www.paypal.com/en/webapps/mpp/merchant",
-                "linkText": "Aktivirajte PayPal za svoju trgovinu"
-            },
-            "overview": {
-                "titleSync": "Sinkronizacija",
-                "buttonSync": "Sinkronizirajte odmah",
-                "buttonSyncProducts": "Sinkronizirajte detalje o proizvodu",
-                "buttonSyncImages": "Učitavanje slika",
-                "buttonSyncInventory": "Sinkronizirajte inventar",
-                "buttonSyncAbort": "Prekini sinkronizaciju",
-                "syncErrorTitle": "Pogreška sinkronizacije",
-                "status": {
-                    "disabled": "Sinkronizacija nije omogućena jer je vaš prodajni kanal onemogućen.",
-                    "message": {
-                        "syncing": "Sinkronizacija je u tijeku",
-                        "noRunYet": "Nisu pronađena prethodna pokretanja",
-                        "success": "Uspješno sinkronizirano",
-                        "warning": "Posljednja sinkronizacija završena je upozorenjima",
-                        "error": "Posljednja sinkronizacija završena s pogreškama",
-                        "aborted": "Korisnik je prekinuo posljednju sinkronizaciju"
-                    },
-                    "task": {
-                        "complete": "dovršeno",
-                        "product": "proizvodi",
-                        "image": "slike",
-                        "inventory": "inventar"
-                    },
-                    "lastSynced": "Posljednja sinkronizacija",
-                    "lastSyncedComplete": "Posljednja potpuna sinkronizacija",
-                    "syncingDetail": "Ovo bi moglo potrajati nekoliko minuta. Postupak se odvija u pozadini, a u međuvremenu svoju trgovinu možete koristiti kao i obično."
-                },
-                "continueSetup": {
-                    "cardTitle": "Postavljanje",
-                    "content": {
-                        "headline": "Postavite sinkronizaciju proizvoda",
-                        "firstLine": "Vaši Zettle i Shopware računi su povezani! Sada možete postaviti sinkronizaciju proizvoda.",
-                        "secondLine": "Nakon što je aktiviran, Zettle će se automatski sinkronizirati s vašim Shopware proizvodima. Prodaja ostvarena putem Zettlea također je sinkronizirana s Shopwareom, a administraciju možete koristiti kako biste bili u toku s prodajom Zettlea i Shopwarea."
-                    }
-                }
-            },
-            "syncedProducts": {
-                "title": "Sinkronizirani proizvodi",
-                "notSyncedYet": "Još nije sinkronizirano",
-                "columns": {
-                    "name": "Ime",
-                    "state": "Status",
-                    "date": "Datum"
-                },
-                "emptyState": {
-                    "title": "Nije odabrano niti jedan proizvod",
-                    "message": "Nema proizvoda u vašem prodajnom kanalu ili dinamičnoj grupi proizvoda."
-                },
-                "actions": {
-                    "productDetails": "Detalji o proizvodu"
-                }
-            },
-            "settings": {
-                "titleGeneralSettings": "Opće postavke",
-                "domain": "Vaša trgovina-Domena",
-                "domainHelpText": "Zettle će ovu domenu koristiti za preuzimanje medija povezanih s vašim sinkroniziranim proizvodima. Zettle će prihvatiti samo sigurne URL-ove (https).",
-                "productStream": "Dinamična grupa proizvoda",
-                "titleCredentials": "Podaci za prijavu",
-                "titleSync": "Sinkronizacija",
-                "titlePrices": "Cijene",
-                "syncPrices": "Sinkronizirajte cijene",
-                "replace": "Zamijenite postojeće proizvode u Zettle-u",
-                "activeHelpText": "Ako je aktivna Zettle sinkronizacija, automatski će se obavljati u pozadini.",
-                "saveAlert": "Spremljene promjene bit će dostupne nakon završetka trenutno pokrenute sinkronizacije između Shopwarea i Zettlea.",
-                "optionsTitle": "Opcije",
-                "reset": {
-                    "buttonTitle": "Resetiranje sinkronizacije",
-                    "descriptionText": "Ako ste naišli na problem, možete ponovo učitati sve proizvode i slike.",
-                    "modalConfirmText": "To će resetirati povijest sinkronizacije za prodajni kanal",
-                    "modalTextInfo": "Sve će se stavke ponovo učitati na sljedećoj sinkronizaciji. To može potrajati malo. U Shopwareu nećete izgubiti podatke, neki podaci mogu se izmjeniti u Zettleu.",
-                    "modalTitle": "Resetiranje povijesti sinkronizacije",
-                    "modalButtonConfirm": "Resetiranje sinkronizacije"
-                }
-            },
-            "logs": {
-                "columnLastSync": "Detalji",
-                "noEntry": "Još nije sinkronizirano",
-                "states": {
-                    "success": "Ažurirano",
-                    "failed": "Neuspješno",
-                    "aborted": "Obustavljeno"
-                }
-            },
-            "runs": {
-                "title": "Povijest sinkronizacije",
-                "toolbarText": "\"Očisti zapisnike\" izbrisat će sve zapise. Evidencije starije od 30 dana automatski će se ukloniti.",
-                "completeTask": "Dovršeno",
-                "productTask": "Proizvod",
-                "inventoryTask": "Inventar",
-                "imageTask": "Slika",
-                "states": {
-                    "withWarnings": "Dovršeno uz upozorenja",
-                    "successful": "Dovršeno",
-                    "aborted": "Prekinuto od strane korisnika"
-                },
-                "actions": {
-                    "showDetails": "Prikaži detalje"
-                },
-                "emptyState": {
-                    "title": "Nema završenih sinkronizacija",
-                    "message": "Sinkronizirajte sada da biste generirali zapisnike."
-                },
-                "columns": {
-                    "task": "Vrsta",
-                    "state": "Država",
-                    "date": "Datum"
-                }
-            },
-            "save": "Spremi",
-            "cleanLog": "Očistite zapisnik"
-        },
-        "wizard": {
-            "salesChannelPrototypeName": "Zettle POS",
-            "stepItemTitle": {
-                "connection": "Postavljanje računa",
-                "connectionSuccess": "Veza",
-                "customization": "Prilagođavanje",
-                "productSelection": "Odabir proizvoda",
-                "syncLibrary": "Sinkronizacija proizvoda",
-                "syncPrices": "Sinkronizacija cijena",
-                "finish": "Završi"
-            },
-            "connection": {
-                "modalTitle": "Postavljanje računa",
-                "headerConnect": "Povežite svoj Zettle račun",
-                "headerNewCustomer": "Novi ste u Zettleu?",
-                "buttonCreateAccount": "Kreiraj Zettle račun",
-                "buttonCreateAccountLink": "https://www.zettle.com/gb/integrations/e-commerce/shopware?utm_source=local_partnership&utm_medium=ecommerce&utm_campaign=shopware"
-            },
-            "connectionSuccess": {
-                "modalTitle": "Veza uspostavljena",
-                "headline": "Vaši Zettle i Shopware računi sada su povezani!",
-                "info": "Slijedite korake da biste dovršili postavljanje sinkronizacije proizvoda.",
-                "disconnectButton": "Odspoji se",
-                "disclaimer": "Sve promjene koje napravite na svojim Shopware proizvodima sada će se automatski ažurirati na vašem povezanom Zettle računu.",
-                "fakeFirstName": "Trenutno",
-                "fakeLastName": "učitavanje...",
-                "fakeMail": "vaseime@primjer.com"
-            },
-            "connectionDisconnect": {
-                "modalTitle": "Odspoji Zettle račun",
-                "headline": "Prekidate vezu s Zettleom",
-                "info": "Proizvodi se više neće ažurirati i sinkronizirati sa Zettle računom prilikom prekida veze s računom.",
-                "disconnectButton": "Isključite račun",
-                "disconnectErrorMessage": "Došlo je do pogreške prilikom prekida veze."
-            },
-            "customization": {
-                "salesChannelLabel": "Naziv prodajnog kanala",
-                "modalTitle": "Detalji o prodajnom kanalu",
-                "labelDomain": "Domena vaše trgovine",
-                "subtitle": "Zettle će koristiti ovu domenu za preuzimanje medija povezanih s vašim sinkroniziranim proizvodima.",
-                "placeholderDomain": "www.my-store.shopware.com"
-            },
-            "productSelection": {
-                "modalTitle": "Prenesite proizvode s postojećeg prodajnog kanala",
-                "labelSelect": "Prodajni Kanal",
-                "labelToggle": "Prijenos odabira proizvoda",
-                "info": "Da biste brže započeli, imate mogućnost proizvode s postojećeg prodajnog kanala dodijeliti novom kanalu. Svi dodijeljeni proizvodi bit će dostupni za sinkronizaciju u Zettle POS-u. Nije potreban ručni unos."
-            },
-            "syncLibrary": {
-                "modalTitle": "Postavite sinkronizaciju proizvoda",
-                "header": "Pronašli smo {shopwareProducts} i {posProducts}",
-                "shopwareProducts": "nema Shopware proizvoda | jedan Shopware proizvod | {n} Shopware proizvoda",
-                "posProducts": "nema Zettle proizvoda | jedan Zettleov proizvod | {n} Zettle proizvoda",
-                "description": "Svi proizvodi s vašeg novog prodajnog kanala u Shopwareu su sinkronizirani. Kako biste željeli postaviti svoju Zettle biblioteku?",
-                "optionReplacePermanentlyLabel": "Koristite samo Shopware proizvode",
-                "optionReplacePermanentlyDescription": "Vaša Zettle biblioteka sadržvat će samo vaše proizvode iz Shopwarea i količine zaliha.",
-                "optionReplaceOneTimeLabel": "Zamijenite Zettle knjižnicu",
-                "optionReplaceOneTimeDescription": "Zamijenite postojeću Zettle biblioteku proizvodima i količinama zaliha iz Shopwarea.",
-                "optionReplaceNotLabel": "Dodajte Shopware proizvode",
-                "optionReplaceNotDescription": "Vaši Shopware proizvodi i količine zaliha bit će dodani u vašu Zettle knjižnicu.",
-                "disclaimer": "Te postavke možete kasnije promijeniti u bilo kojem trenutku."
-            },
-            "syncPrices": {
-                "modalTitle": "Postavite sinkronizaciju proizvoda",
-                "header": "Kako želite sinkronizirati cijene proizvoda sa Zettleom?",
-                "description": "Cijene vaših proizvoda uključivat će PDV kada se sinkroniziraju s Zettleom.",
-                "disclaimer": "Svoj PDV možete ručno urediti u Zettle biblioteci proizvoda.",
-                "optionTrueLabel": "Sinkronizirajte cijene s PDV-om",
-                "optionTrueDescription": "Cijene sinkronizirane s Zettleom uključuju PDV.",
-                "optionFalseLabel": "Nemojte sinkronizirati cijene",
-                "optionFalseDescription": "Cijene proizvoda neće se prenositi sinkronizacijom. Možete ih postaviti u Zettle biblioteci proizvoda."
-            },
-            "finish": {
-                "modalTitle": "Završi",
-                "header": "Postavljanje sinkronizacije proizvoda dovršeno!",
-                "firstParagraph": "Vaš je Zettle račun sada povezan s vašim prodajnim kanalom i vaši će se proizvodi prenijeti na Zettle. U budućnosti, kada izvršite prodaju, ažurirat ćemo vaše zalihe u Zettleu i Shopwareu.",
-                "secondParagraph": "Ako trebate ažurirati svoje proizvode, preporučujemo da to učinite u Shopwareu i oni će se automatski sinkronizirati s vašom Zettle aplikacijom."
-            }
-        },
-        "authentication": {
-            "messageTestError": "Podaci za prijavu nisu mogli biti potvrđeni.",
-            "labelApiKey": "API ključ",
-            "placeholderApiKey": "Unesite API ključ...",
-            "apiKeyDescription": "API ključevi funkcioniraju poput lozinki. Shopware će koristiti vaš Zettle API ključ za uspostavljanje sigurne veze s vašim Zettle računom.",
-            "buttonGenerateKey": "Generirajte API ključ"
-        },
-        "account": {
-            "loadingName": "Trenutno se učitava...",
-            "loadingEmail": "vaseime@primjer.com",
-            "errorName": "Došlo je do pogreške tijekom provjere autentičnosti",
-            "errorEmail": "Vaš API ključ nije bilo moguće potvrditi",
-            "connectedStatus": "Povezano",
-            "noConnectionStatus": "Nema veze",
-            "manageAccount": "Upravljaj računom",
-            "editConnection": "Uredi vezu",
-            "lastUpdated": "Posljednje ažuriranje"
-        },
-        "gettingStarted": {
-            "cardTitle": "Započnite sa Zettleom putem PayPala",
-            "readerHeadline": "Prijavite se u Zettle kako biste naručili Zettle čitač kartica",
-            "readerText": "Saznajte više o čitaču kartica i naručite ga ovdje:",
-            "readerLinkTarget": "https://shop.zettle.com",
-            "readerLinkText": "shop.zettle.com",
-            "readerImageAlt": "Zettle čitač kartica",
-            "appHeadline": "Preuzmite aplikaciju Zettle Go",
-            "appText": "Dostupno za iOS i Android uređaje.<br>Povežite svoj Zettle račun i čitač kartica da biste započeli prodaju.",
-            "appImageAlt": "Zettle aplikacija"
-        },
-        "messageCloneError": "Nije moguće prenijeti vidljivost proizvoda s drugog prodajnog kanala.",
-        "messageWebhookRegisterError": "Webhook nije mogao biti registriran u Zettleu"
-    },
-    "sw-privileges": {
-        "permissions": {
-            "parents": {
-                "swag_paypal": "PayPal"
-            },
-            "swag_paypal": {
-                "label": "PayPal Postavke"
-            },
-            "swag_paypal_disputes": {
-                "label": "PayPal Sporovi"
-            }
-        }
-    },
-    "swag-paypal": {
-        "header": "PayPal",
-        "saleschannelCard": {
-            "button": {
-                "description": "Kliknite ovdje da omogućite PayPal i odaberete ga kao zadani u odabranom kanalu prodaje",
-                "label": "Postavite PayPal kao zadani"
-            }
-        },
-        "general": {
-            "mainMenuItemGeneral": "PayPal",
-            "descriptionTextModule": "PayPal Postavke"
-        },
-        "messageNotBlank": "Ova vrijednost ne smije biti prazna.",
-        "settingForm": {
-            "save": "Spremi",
-            "testLive": "Ispitajte API podatke",
-            "testSandbox": "Testirajte Sandbox API podatke",
-            "credentials": {
-                "cardTitle": "Podaci za API",
-                "clientId": {
-                    "label": "ID klijenta",
-                    "tooltipText": "ID klijenta REST API koristi se za provjeru autentičnosti ovog dodatka pomoću PayPal API-ja."
-                },
-                "clientSecret": {
-                    "label": "Tajna klijenta",
-                    "tooltipText": "Tajna klijentskog REST API-ja koristi se za provjeru autentičnosti ovog dodatka pomoću PayPal API-ja."
-                },
-                "clientIdSandbox": {
-                    "label": "ID Sandbox klijenta",
-                    "tooltipText": "ID klijenta REST API koristi se tijekom testiranja za autentifikaciju ovog dodatka s PayPal API-jem."
-                },
-                "clientSecretSandbox": {
-                    "label": "Tajna Sandbox klijenta",
-                    "tooltipText": "Tajna klijentskog REST API-ja koristi se tijekom testiranja za provjeru autentičnosti ovog dodatka pomoću PayPal API-ja."
-                },
-                "sandbox": {
-                    "label": "Omogući Sandbox",
-                    "tooltipText": "Omogućite ako želite testirati integraciju PayPal-a."
-                },
-                "button": {
-                    "title": "Nabavite API podatke",
-                    "titleSandbox": "Nabavite API vjerodajnice za Sandbox",
-                    "messageFetchedError": "Pokušajte ponovo ili ručno unesite svoje podatke."
-                }
-            },
-            "behavior": {
-                "cardTitle": "Ponašanje",
-                "merchantLocation": {
-                    "label": "Lokacija trgovca",
-                    "germany": "Njemačka",
-                    "other": "Lokacija drugog trgovca"
-                },
-                "intent": {
-                    "label": "Akvizicija plaćanja",
-                    "sale": "Odmah izvršite uplatu (prodaja)",
-                    "authorize": "Odgođen proces plaćanja (Auth-Capture)",
-                    "order": "Odgođen proces plaćanja (Order-Auth-Capture)",
-                    "CAPTURE": "Odmah izvršite uplatu (CAPTURE)",
-                    "AUTHORIZE": "Odgođen proces plaćanja (AUTHORIZE)"
-                },
-                "submitCart": {
-                    "label": "Potvrdite karticu",
-                    "helpText": "Ako je ova opcija aktivna, podaci o košarici bit će poslani PayPalu pri naplati."
-                },
-                "brandName": {
-                    "label": "Ime vašeg brenda na PayPal stranici",
-                    "tooltipText": "Ovaj će se tekst prikazati kao naziv brenda na PayPal stranici za plaćanje."
-                },
-                "landingPage": {
-                    "label": "PayPal odredišna stranica",
-                    "helpText": {
-                        "login": "Prijava: Web stranica PayPal prikazuje zaslon za prijavu kao odredišnu stranicu.",
-                        "billing": "Registracija: Web stranica PayPal prikazuje obrazac za registraciju kao odredišnu stranicu.",
-                        "no_preference": "Nema preferencija: PayPal odlučuje koja će se stranica prikazati, ovisno o prethodnoj interakciji kupca s PayPalom."
-                    },
-                    "options": {
-                        "login": "Prijava",
-                        "billing": "Registracija",
-                        "no_preference": "Bez preferencija"
-                    }
-                },
-                "sendOrderNumber": {
-                    "label": "Pošaljite broj narudžbe",
-                    "helpText": "Ako je ova opcija aktivna, broj narudžbe bit će poslan PayPalu pri naplati."
-                },
-                "orderNumberPrefix": {
-                    "label": "Prefiks broja narudžbe",
-                    "tooltipText": "Ovaj se tekst stavlja ispred izvornog broja narudžbi (npr. MojaTrgovina_SW20001). To pomaže identificirati trgovinu u kojoj je izvršeno plaćanje."
-                },
-                "loggingLevel": {
-                    "label": "Otklanjanje pogrešaka",
-                    "tooltipText": "Prilikom korištenja naprednog ispravljanja pogrešaka tijekom naplate bilježe se dodatni podaci kako bi se otkrile potencijalne pogreške. Samo za privremeno korištenje.",
-                    "options": {
-                        "basic": "Osnovne",
-                        "advanced": "Napredna"
-                    }
-                }
-            },
-            "express": {
-                "cardTitle": "PayPal Express naplata",
-                "ecsDetailEnabled": {
-                    "label": "'Plati odmah' na stranici s detaljima:",
-                    "helpText": "Ako je ova opcija aktivna, gumb Express Checkout prikazat će se na svakoj stranici s pojedinostima o proizvodu."
-                },
-                "ecsCartEnabled": {
-                    "label": "'Plati odmah' na košarici:",
-                    "helpText": "Ako je ova opcija aktivna, gumb Express Checkout prikazat će se na košarici."
-                },
-                "ecsOffCanvasEnabled": {
-                    "label": "\"Plati odmah\" na Off-Canvas košarici:",
-                    "helpText": "Ako je ova opcija aktivna, gumb Express Checkout prikazat će se na košarici Off-Canvas."
-                },
-                "ecsLoginEnabled": {
-                    "label": "'Plati odmah' na stranici za prijavu:",
-                    "helpText": "Ako je ova opcija aktivna, gumb Express Checkout prikazat će se na stranici za prijavu i registraciju."
-                },
-                "ecsListingEnabled": {
-                    "label": "'Plati odmah' na stranicama s popisima:",
-                    "helpText": "Ako je ova opcija aktivna, gumb Express Checkout prikazat će se na stranicama s popisima."
-                },
-                "ecsButtonColor": {
-                    "label": "Boja gumba:",
-                    "options": {
-                        "blue": "Plava",
-                        "black": "Crna",
-                        "gold": "Zlatna",
-                        "silver": "Srebrna"
-                    }
-                },
-                "ecsButtonShape": {
-                    "label": "Oblik gumba:",
-                    "options": {
-                        "pill": "Okruglo",
-                        "rect": "Pravokutni"
-                    }
-                },
-                "ecsSubmitCart": {
-                    "label": "Pošaljite košaricu",
-                    "helpText": "Ako je ova opcija aktivna, košarica će biti poslana PayPalu za ekspresne narudžbe."
-                },
-                "ecsButtonLanguageIso": {
-                    "label": "Područje gumba:",
-                    "helpText": "Ako nije postavljeno, upotrebljavat će se jezik prodajnog kanala."
-                }
-            },
-            "installment": {
-                "cardTitle": "Na rate",
-                "installmentBannerEnabled": {
-                    "label": "Omogući natpis na rate"
-                }
-            },
-            "spb": {
-                "cardTitle": "PayPal naplata pomoću pametnih gumba za plaćanje",
-                "spbCheckoutEnabled": {
-                    "label": "Omogućite gumbe pametnog plaćanja"
-                },
-                "spbButtonLanguageIso": {
-                    "label": "Područje gumba:",
-                    "helpText": "Ako nije postavljeno, upotrebljavat će se jezik prodajnog kanala."
-                },
-                "spbAlternativePaymentMethodsEnabled": {
-                    "label": "Omogućite alternativne načine plaćanja za pametne gumbe plaćanja.",
-                    "helpText": "Alternativni načini plaćanja su, kreditne kartice, faktura i drugi."
-                }
-            },
-            "plus": {
-                "cardTitle": "PayPal PLUS",
-                "introduction": "<strong>PayPal PLUS:</strong> Vaše cjelovito rješenje za plaćanje koje uključuje PayPal, izravno plaćanje, kreditnu karticu i plaćanje po pouzeću. PayPal PLUS nudi svojim kupcima potpunu fleksibilnost u odabiru željenog načina plaćanja. Vaše prednosti kao prodavača? Jednostavnije računovodstvo sa samo jednom ugovornom stranom, jednim računom i jednim pregledom transakcija koji prikazuje sve dolazne uplate. Novac dobivate izravno nakon što kupci dovrše postupak narudžbe.<br>Možete se prijaviti za PayPal PLUS <a href='https://www.paypal.com/de/webapps/mpp/paypal-plus' target='_blank'>ovdje</a>. Prijavite se za plaćanje pouzećem <a href='https://www.paypal.com/de/webapps/mpp/pui-start' target='_blank'>ovdje</a>.",
-                "plusCheckoutEnabled": {
-                    "label": "Omogućite PayPal PLUS"
-                },
-                "hint": "Napomena: PayPal PLUS radi samo s akvizicijom plaćanja \"Prodaja\". Postavit će se automatski."
-            },
-            "locale-field": {
-                "infobox": {
-                    "text": "Da biste vidjeli popis važećih lokalnih kodova, kliknite ",
-                    "href": "ovdje"
-                },
-                "error": {
-                    "detail": "Lokalni kod koji ste naveli ne odgovara formatu koji zahtijeva PayPal. Važeći format je \"en_GB\"."
-                }
-            },
-            "messageSaveSuccess": "Postavke PayPala su spremljene.",
-            "messageTestSuccess": "API podaci su potvđeni.",
-            "messageTestError": "API podaci ne mogu se potvrditi.",
-            "messageWebhookCreated": "Webhook je registriran.",
-            "messageWebhookUpdated": "Webhook je ažuriran.",
-            "messageWebhookError": "Webhook nije bilo moguće spremiti. Dogodile su sljedeće pogreške:"
         }
     },
     "swag-paypal-payment": {
@@ -622,8 +176,7 @@
             "confirm": {
                 "message": "Želite li zaista otkazati ovo plaćanje?",
                 "button": {
-                    "confirm": "Otkaži autorizaciju",
-                    "cancel": "Ne"
+                    "confirm": "Otkaži autorizaciju"
                 }
             }
         },
@@ -632,6 +185,541 @@
             "canceledPaymentContent": "Dogodila se pogreška prilikom dohvaćanja podataka o plaćanju s PayPala. Ako vidite ovu poruku, vjerojatno je riječ o plaćanju koje je kupac otkazao. Otkazane uplate PayPal će izbrisati nakon nekog vremena i više neće biti dostupne.",
             "sandboxLiveContent": "Došlo je do pogreške prilikom dohvaćanja podataka o plaćanju s PayPala. Ako vidite ovu poruku, vjerojatno se radilo o uplati koja je stvorena u testnim okruženjem i koja sada zahtjeva unos podataka. Prepravite svoje PayPal postavke ili iz sustava izbrišite testne narudžbe.",
             "other": "Dogodila se pogreška prilikom dohvaćanja podataka o plaćanju s PayPala."
+        }
+    },
+    "swag-paypal-pos": {
+        "general": {
+            "moduleTitle": "Zettle putem PayPal",
+            "salesChannelDetailDescription": {
+                "title": "Širite svoje poslovanje uz Shopware i Zettle putem PayPal-a",
+                "manufacturer": "Zettle putem PayPal"
+            }
+        },
+        "header": "Zettle prodajni kanal",
+        "tabTitle": {
+            "overview": "Pregled",
+            "syncedProducts": "Sinkronizirani proizvodi",
+            "settings": "Postavke",
+            "runs": "Zapisnik",
+            "help": "Pomoć"
+        },
+        "detail": {
+            "disclaimer": {
+                "headline": "Zettle je PayPal usluga",
+                "subheadline": "Poboljšajte prodaju uz pomoć snage PayPal. Započnite besplatno.",
+                "linkTarget": "https://www.paypal.com/en/webapps/mpp/merchant",
+                "linkText": "Nabavite PayPal za svoju trgovinu"
+            },
+            "overview": {
+                "titleSync": "Sinkronizacija",
+                "buttonSync": "Sinkronizirajte odmah",
+                "buttonSyncProducts": "Sinkronizirajte detalje o proizvodu",
+                "buttonSyncImages": "Učitavanje slika",
+                "buttonSyncInventory": "Sinkronizirajte inventar",
+                "buttonSyncAbort": "Prekini sinkronizaciju",
+                "syncErrorTitle": "Pogreška sinkronizacije",
+                "status": {
+                    "disabled": "Sinkronizacija nije omogućena jer je vaš prodajni kanal onemogućen.",
+                    "message": {
+                        "syncing": "Sinkronizacija je u tijeku",
+                        "noRunYet": "Nisu pronađena prethodna pokretanja",
+                        "success": "Uspješno sinkronizirano",
+                        "warning": "Posljednja sinkronizacija završena je upozorenjima",
+                        "error": "Posljednja sinkronizacija završena s pogreškama",
+                        "aborted": "Korisnik je prekinuo posljednju sinkronizaciju"
+                    },
+                    "task": {
+                        "complete": "dovršeno",
+                        "product": "proizvodi",
+                        "image": "slike",
+                        "inventory": "inventar"
+                    },
+                    "lastSynced": "Posljednja sinkronizacija",
+                    "lastSyncedComplete": "Posljednja potpuna sinkronizacija",
+                    "syncingDetail": "Ovo bi moglo potrajati nekoliko minuta. Postupak se odvija u pozadini, a u međuvremenu svoju trgovinu možete koristiti kao i obično."
+                },
+                "continueSetup": {
+                    "cardTitle": "Postavljanje",
+                    "content": {
+                        "headline": "Postavite sinkronizaciju proizvoda",
+                        "firstLine": "Vaši Zettle i Shopware računi su povezani! Sada možete postaviti sinkronizaciju proizvoda.",
+                        "secondLine": "Nakon što je aktiviran, Zettle će se automatski sinkronizirati s vašim Shopware proizvodima. Prodaja ostvarena putem Zettlea također je sinkronizirana s Shopwareom, a administraciju možete koristiti kako biste bili u toku s prodajom Zettlea i Shopwarea."
+                    }
+                }
+            },
+            "syncedProducts": {
+                "title": "Sinkronizirani proizvodi",
+                "notSyncedYet": "Još nije sinkronizirano",
+                "columns": {
+                    "name": "Ime",
+                    "state": "Status",
+                    "date": "Datum"
+                },
+                "emptyState": {
+                    "title": "Nije odabrano niti jedan proizvod",
+                    "message": "Nema proizvoda u vašem prodajnom kanalu ili dinamičnoj grupi proizvoda."
+                },
+                "actions": {
+                    "productDetails": "Detalji o proizvodu"
+                }
+            },
+            "settings": {
+                "titleGeneralSettings": "Opće postavke",
+                "domain": "Vaša trgovina-Domena",
+                "domainHelpText": "Zettle će ovu domenu koristiti za preuzimanje medija povezanih s vašim sinkroniziranim proizvodima. Zettle će prihvatiti samo sigurne URL-ove (https).",
+                "productStream": "Dinamična grupa proizvoda",
+                "titleCredentials": "Podaci za prijavu",
+                "titleSync": "Sinkronizacija",
+                "titlePrices": "Cijene",
+                "syncPrices": "Sinkronizirajte cijene",
+                "replace": "Zamijenite postojeće proizvode u Zettle-u",
+                "activeHelpText": "Ako je aktivna Zettle sinkronizacija, automatski će se obavljati u pozadini.",
+                "saveAlert": "Spremljene promjene bit će dostupne nakon završetka trenutno pokrenute sinkronizacije između Shopwarea i Zettlea.",
+                "optionsTitle": "Opcije",
+                "reset": {
+                    "buttonTitle": "Resetiranje sinkronizacije",
+                    "descriptionText": "Ako ste naišli na problem, možete ponovo učitati sve proizvode i slike.",
+                    "modalConfirmText": "To će resetirati povijest sinkronizacije za prodajni kanal",
+                    "modalTextInfo": "Sve će se stavke ponovo učitati na sljedećoj sinkronizaciji. To može potrajati malo. U Shopwareu nećete izgubiti podatke, neki podaci mogu se izmjeniti u Zettleu.",
+                    "modalTitle": "Resetiranje povijesti sinkronizacije",
+                    "modalButtonConfirm": "Resetiranje sinkronizacije"
+                }
+            },
+            "logs": {
+                "columnLastSync": "Detalji",
+                "noEntry": "Još nije sinkronizirano",
+                "states": {
+                    "success": "Ažurirano",
+                    "failed": "Neuspješno",
+                    "aborted": "Obustavljeno"
+                }
+            },
+            "runs": {
+                "title": "Povijest sinkronizacije",
+                "toolbarText": "\"Očisti zapisnike\" izbrisat će sve zapise. Evidencije starije od 30 dana automatski će se ukloniti.",
+                "completeTask": "Dovršeno",
+                "productTask": "Proizvod",
+                "inventoryTask": "Inventar",
+                "imageTask": "Slika",
+                "cloneVisibilityTask": "Vidljivost proizvoda",
+                "states": {
+                    "withWarnings": "Dovršeno uz upozorenja",
+                    "successful": "Dovršeno",
+                    "aborted": "Prekinuto od strane korisnika",
+                    "failed": "Neuspješno"
+                },
+                "actions": {
+                    "showDetails": "Prikaži detalje"
+                },
+                "emptyState": {
+                    "title": "Nema završenih sinkronizacija",
+                    "message": "Sinkronizirajte sada da biste generirali zapisnike."
+                },
+                "columns": {
+                    "task": "Vrsta",
+                    "state": "Država",
+                    "date": "Datum"
+                }
+            },
+            "cleanLog": "Očistite zapisnik"
+        },
+        "wizard": {
+            "salesChannelPrototypeName": "Zettle POS",
+            "stepItemTitle": {
+                "connection": "Postavljanje računa",
+                "connectionSuccess": "Veza",
+                "customization": "Prilagođavanje",
+                "productSelection": "Odabir proizvoda",
+                "syncLibrary": "Sinkronizacija proizvoda",
+                "syncPrices": "Sinkronizacija cijena",
+                "finish": "Završi"
+            },
+            "connection": {
+                "modalTitle": "Postavljanje računa",
+                "headerConnect": "Povežite svoj Zettle račun",
+                "headerNewCustomer": "Novi ste u Zettleu?",
+                "buttonCreateAccount": "Kreiraj Zettle račun",
+                "buttonCreateAccountLink": "https://www.zettle.com/gb/integrations/e-commerce/shopware?utm_source=local_partnership&utm_medium=ecommerce&utm_campaign=shopware"
+            },
+            "connectionSuccess": {
+                "modalTitle": "Veza uspostavljena",
+                "headline": "Vaši Zettle i Shopware računi sada su povezani!",
+                "info": "Slijedite korake da biste dovršili postavljanje sinkronizacije proizvoda.",
+                "disconnectButton": "Odspoji se",
+                "disclaimer": "Sve promjene koje napravite na svojim Shopware proizvodima sada će se automatski ažurirati na vašem povezanom Zettle računu.",
+                "fakeFirstName": "Trenutno",
+                "fakeLastName": "učitavanje...",
+                "fakeMail": "vaseime@primjer.com"
+            },
+            "connectionDisconnect": {
+                "modalTitle": "Odspoji Zettle račun",
+                "headline": "Prekidate vezu s Zettleom",
+                "info": "Proizvodi se više neće ažurirati i sinkronizirati sa Zettle računom prilikom prekida veze s računom.",
+                "disconnectButton": "Isključite račun",
+                "disconnectErrorMessage": "Došlo je do pogreške prilikom prekida veze."
+            },
+            "customization": {
+                "salesChannelLabel": "Naziv prodajnog kanala",
+                "modalTitle": "Detalji o prodajnom kanalu",
+                "labelDomain": "Domena vaše trgovine",
+                "subtitle": "Zettle će koristiti ovu domenu za preuzimanje medija povezanih s vašim sinkroniziranim proizvodima.",
+                "placeholderDomain": "www.my-store.shopware.com"
+            },
+            "productSelection": {
+                "modalTitle": "Prenesite proizvode s postojećeg prodajnog kanala",
+                "labelSelect": "Prodajni Kanal",
+                "labelToggle": "Prijenos odabira proizvoda",
+                "info": "Da biste brže započeli, imate mogućnost proizvode s postojećeg prodajnog kanala dodijeliti novom kanalu. Svi dodijeljeni proizvodi bit će dostupni za sinkronizaciju u Zettle POS-u. Nije potreban ručni unos."
+            },
+            "syncLibrary": {
+                "modalTitle": "Postavite sinkronizaciju proizvoda",
+                "header": "Pronašli smo {shopwareProducts} i {posProducts}",
+                "shopwareProducts": "nema Shopware proizvoda | jedan Shopware proizvod | {n} Shopware proizvoda",
+                "posProducts": "nema Zettle proizvoda | jedan Zettleov proizvod | {n} Zettle proizvoda",
+                "description": "Svi proizvodi s vašeg novog prodajnog kanala u Shopwareu su sinkronizirani. Kako biste željeli postaviti svoju Zettle biblioteku?",
+                "optionReplacePermanentlyLabel": "Koristite samo Shopware proizvode",
+                "optionReplacePermanentlyDescription": "Vaša Zettle biblioteka sadržvat će samo vaše proizvode iz Shopwarea i količine zaliha.",
+                "optionReplaceOneTimeLabel": "Zamijenite Zettle knjižnicu",
+                "optionReplaceOneTimeDescription": "Zamijenite postojeću Zettle biblioteku proizvodima i količinama zaliha iz Shopwarea.",
+                "optionReplaceNotLabel": "Dodajte Shopware proizvode",
+                "optionReplaceNotDescription": "Vaši Shopware proizvodi i količine zaliha bit će dodani u vašu Zettle knjižnicu.",
+                "disclaimer": "Te postavke možete kasnije promijeniti u bilo kojem trenutku."
+            },
+            "syncPrices": {
+                "modalTitle": "Postavite sinkronizaciju proizvoda",
+                "header": "Kako želite sinkronizirati cijene proizvoda sa Zettleom?",
+                "description": "Cijene vaših proizvoda uključivat će PDV kada se sinkroniziraju s Zettleom.",
+                "disclaimer": "Svoj PDV možete ručno urediti u Zettle biblioteci proizvoda.",
+                "optionTrueLabel": "Sinkronizirajte cijene s PDV-om",
+                "optionTrueDescription": "Cijene sinkronizirane s Zettleom uključuju PDV.",
+                "optionFalseLabel": "Nemojte sinkronizirati cijene",
+                "optionFalseDescription": "Cijene proizvoda neće se prenositi sinkronizacijom. Možete ih postaviti u Zettle biblioteci proizvoda."
+            },
+            "finish": {
+                "modalTitle": "Završi",
+                "header": "Postavljanje sinkronizacije proizvoda dovršeno!",
+                "firstParagraph": "Vaš je Zettle račun sada povezan s vašim prodajnim kanalom i vaši će se proizvodi prenijeti na Zettle. U budućnosti, kada izvršite prodaju, ažurirat ćemo vaše zalihe u Zettleu i Shopwareu.",
+                "secondParagraph": "Ako trebate ažurirati svoje proizvode, preporučujemo da to učinite u Shopwareu i oni će se automatski sinkronizirati s vašom Zettle aplikacijom."
+            }
+        },
+        "authentication": {
+            "messageTestError": "Vjerodajnice nisu mogle biti potvrđene",
+            "messageDuplicateError": "Ovaj Zettle račun već je konfiguriran u drugom kanalu prodaje",
+            "labelApiKey": "API ključ",
+            "placeholderApiKey": "Unesite API ključ...",
+            "apiKeyDescription": "API ključevi funkcioniraju poput lozinki. Shopware će koristiti vaš Zettle API ključ za uspostavljanje sigurne veze s vašim Zettle računom.",
+            "buttonGenerateKey": "Generirajte API ključ"
+        },
+        "account": {
+            "loadingName": "Trenutno se učitava...",
+            "loadingEmail": "vaseime@primjer.com",
+            "errorName": "Došlo je do pogreške tijekom provjere autentičnosti",
+            "errorEmail": "Vaš API ključ nije bilo moguće potvrditi",
+            "connectedStatus": "Povezano",
+            "noConnectionStatus": "Nema veze",
+            "manageAccount": "Upravljaj računom",
+            "editConnection": "Uredi vezu",
+            "lastUpdated": "Posljednje ažuriranje"
+        },
+        "gettingStarted": {
+            "cardTitle": "Započnite sa Zettleom putem PayPala",
+            "readerHeadline": "Prijavite se u Zettle kako biste naručili Zettle čitač kartica",
+            "readerText": "Saznajte više o čitaču kartica i naručite ga ovdje:",
+            "readerLinkTarget": "https://shop.zettle.com",
+            "readerLinkText": "shop.zettle.com",
+            "readerImageAlt": "Zettle čitač kartica",
+            "appHeadline": "Preuzmite aplikaciju Zettle Go",
+            "appText": "Dostupno za iOS i Android uređaje.<br>Povežite svoj Zettle račun i čitač kartica da biste započeli prodaju.",
+            "appImageAlt": "Zettle aplikacija"
+        },
+        "messageCloneError": "Nije moguće prenijeti vidljivost proizvoda s drugog prodajnog kanala.",
+        "messageWebhookRegisterError": "Webhook nije mogao biti registriran u Zettleu"
+    },
+    "sw-privileges": {
+        "permissions": {
+            "parents": {
+                "swag_paypal": "PayPal"
+            },
+            "swag_paypal": {
+                "label": "PayPal Postavke"
+            },
+            "swag_paypal_disputes": {
+                "label": "PayPal Sporovi"
+            }
+        }
+    },
+    "sw-settings-payment-list": {
+        "needOnboardingTooltip": "Dovršite ukrcaj da biste aktivirali ovaj način plaćanja"
+    },
+    "sw-settings-payment-detail": {
+        "tooltip": "Idite na postavke proširenja <a class=\"swag-paypal-go-to-settings-link\" href=\"#/swag/paypal/index\">PayPal →</a> i aktivirajte PayPal Commerce Platformu da biste aktivirali ovaj način"
+    },
+    "swag-paypal": {
+        "header": "PayPal",
+        "saleschannelCard": {
+            "button": {
+                "description": "Kliknite ovdje da omogućite PayPal i odaberete ga kao zadani u odabranom kanalu prodaje",
+                "label": "Postavite PayPal kao zadani"
+            }
+        },
+        "general": {
+            "mainMenuItemGeneral": "PayPal",
+            "descriptionTextModule": "PayPal Postavke"
+        },
+        "messageNotBlank": "Ova vrijednost ne smije biti prazna.",
+        "settingForm": {
+            "testLive": "Ispitajte API podatke",
+            "testSandbox": "Testirajte Sandbox API podatke",
+            "checkout": {
+                "cardTitle": "PayPal naplata",
+                "description": "PayPal Checkout je novo sve-u-jednom rješenje koje vam omogućuje da ponudite snažne značajke fleksibilne obrade plaćanja na tržištima i drugim trgovačkim platformama.",
+                "banner": "Uz PayPal Checkout, možete ponuditi svojim klijentima plaćanje putem fakture, kreditne kartice i drugih lokalnih načina plaćanja. PayPal Checkout vas podržava s najnovijom tehnologijom i donosi vam najveću fleksibilnost. Zadržite postojeće načine plaćanja, a naknade ostaju iste! Aktivirajte PayPal Checkout i deaktivirajte PayPal PLUS kako biste izbjegli duple načine plaćanja <a href=\"https://www.shopware.com/en/news/paypal-launches-new-product/?utm_source=product&utm_medium=sw6-onprem&utm_campaign=paypal-checkout&utm_content=link-en-blog\" target=\"_blank\">Više informacija</a>",
+                "button": {
+                    "title": "Početak ukrcavanja"
+                },
+                "sandbox": {
+                    "label": "Korištenje vjerodajnica za sandbox",
+                    "tooltipText": "Omogućite ako želite testirati integraciju PayPal-a."
+                },
+                "switch": {
+                    "label": "Aktivan"
+                },
+                "paymentMethodText": "Načini plaćanja",
+                "showCredentials": "Prikaži vjerodajnice",
+                "appImageAlt": "PayPal",
+                "editDetail": "Uredi detalje",
+                "startOnboardingButtonLabel": "Početak ukrcavanja",
+                "availabilityToolTip": {
+                    "BancontactAPMHandler": "Bancontact dostupan je za sljedeće države: Belgija",
+                    "BlikAPMHandler": "BLIK je dostupan za sljedeće države: Poljska",
+                    "BoletoBancarioAPMHandler": "Boleto Bancário dostupan je za sljedeće države: Brazil",
+                    "EpsAPMHandler": "eps dostupan je za sljedeće zemlje: Austrija",
+                    "GiropayAPMHandler": "Giropay je dostupan za sljedeće države: Njemačka",
+                    "IdealAPMHandler": "Ideal je dostupan za sljedeće zemlje: Nizozemska",
+                    "MultibancoAPMHandler": "Multibanco je dostupan za sljedeće države: Portugal",
+                    "MyBankAPMHandler": "MyBank je dostupan za sljedeće države: Italija",
+                    "OxxoAPMHandler": "OXXO je dostupan za sljedeće države: Meksiko",
+                    "P24APMHandler": "Przelewy24 je dostupan za sljedeće države: Poljska",
+                    "PUIHandler": "Plaćanje po fakturi dostupno je za sljedeće države: Njemačka",
+                    "SEPAHandler": "SEPA Lastschrift dostupan je za sljedeće zemlje: Njemačka",
+                    "SofortAPMHandler": "Sofort je dostupan za sljedeće države: Austrija, Belgija, Njemačka, Italija, Nizozemska, Španjolska, Ujedinjeno Kraljevstvo",
+                    "TrustlyAPMHandler": "Pouzdano je dostupan za sljedeće države: Estonija, Finska, Nizozemska, Švedska"
+                },
+                "onboardingStatusText": {
+                    "active": "Ovlašteni",
+                    "limited": "Ograničeno",
+                    "pending": "Odobrenje na čekanju",
+                    "inactive": "Potrebno je ukrcavanje"
+                },
+                "paymentMethodStatusChangedSuccess": {
+                    "active": "Način plaćanja \"{name}\" je sada aktivan.",
+                    "inactive": "Način plaćanja \"{name}\" je sada neaktivan."
+                },
+                "deactivatePayPalPlusModal": {
+                    "title": "Isključite PayPal PLUS",
+                    "text": "Čestitam! Prebacivanjem na PayPal Checkout upotrebljavate sve relevantne načine plaćanja — sada temeljene na najnovijoj tehnologiji.",
+                    "warning": "Izbjegavajte prikazivanje dvostrukih načina plaćanja i deaktivirajte PayPal PLUS",
+                    "button": {
+                        "deactivate": "Isključite PayPal PLUS",
+                        "cancel": "Poništi"
+                    }
+                }
+            },
+            "credentials": {
+                "cardTitle": "Podaci za API",
+                "clientId": {
+                    "label": "ID klijenta",
+                    "tooltipText": "ID klijenta REST API koristi se za provjeru autentičnosti ovog dodatka pomoću PayPal API-ja."
+                },
+                "clientSecret": {
+                    "label": "Tajna klijenta",
+                    "tooltipText": "Tajna klijentskog REST API-ja koristi se za provjeru autentičnosti ovog dodatka pomoću PayPal API-ja."
+                },
+                "merchantPayerId": {
+                    "label": "PayPal trgovački ID",
+                    "tooltipText": "PayPal Merchant ID dodijeljen vašem PayPal računu (pogledajte Poslovne informacije u postavkama PayPal računa)."
+                },
+                "clientIdSandbox": {
+                    "label": "ID Sandbox klijenta",
+                    "tooltipText": "ID klijenta REST API koristi se tijekom testiranja za autentifikaciju ovog dodatka s PayPal API-jem."
+                },
+                "clientSecretSandbox": {
+                    "label": "Tajna Sandbox klijenta",
+                    "tooltipText": "Tajna klijentskog REST API-ja koristi se tijekom testiranja za provjeru autentičnosti ovog dodatka pomoću PayPal API-ja."
+                },
+                "merchantPayerIdSandbox": {
+                    "label": "Sandbox PayPal trgovački ID",
+                    "tooltipText": "PayPal Merchant ID dodijeljen vašem PayPal računu za sandbox (pogledajte Poslovne informacije u postavkama PayPal računa)."
+                },
+                "sandbox": {
+                    "label": "Omogući Sandbox",
+                    "tooltipText": "Omogućite ako želite testirati integraciju PayPal-a."
+                },
+                "button": {
+                    "title": "Nabavite API podatke",
+                    "titleSandbox": "Nabavite API vjerodajnice za Sandbox",
+                    "messageFetchedError": "Pokušajte ponovo ili ručno unesite svoje podatke."
+                }
+            },
+            "behavior": {
+                "cardTitle": "Ponašanje",
+                "merchantLocation": {
+                    "label": "Lokacija trgovca",
+                    "germany": "Njemačka",
+                    "other": "Lokacija drugog trgovca"
+                },
+                "intent": {
+                    "label": "Akvizicija plaćanja",
+                    "CAPTURE": "Automatska naplata plaćanja (namjera CCATP",
+                    "AUTHORIZE": "Ručno prikupljanje plaćanja (namjera Odobriti)"
+                },
+                "submitCart": {
+                    "label": "Potvrdite karticu",
+                    "helpText": "Ako je ova opcija aktivna, podaci o košarici bit će poslani PayPalu pri naplati."
+                },
+                "brandName": {
+                    "label": "Ime vašeg brenda na PayPal stranici",
+                    "tooltipText": "Ovaj će se tekst prikazati kao naziv brenda na PayPal stranici za plaćanje."
+                },
+                "landingPage": {
+                    "label": "PayPal odredišna stranica",
+                    "helpText": {
+                        "login": "Prijava: Web stranica PayPal prikazuje zaslon za prijavu kao odredišnu stranicu.",
+                        "billing": "Registracija: Web stranica PayPal prikazuje obrazac za registraciju kao odredišnu stranicu.",
+                        "no_preference": "Nema preferencija: PayPal odlučuje koja će se stranica prikazati, ovisno o prethodnoj interakciji kupca s PayPalom."
+                    },
+                    "options": {
+                        "login": "Prijava",
+                        "billing": "Registracija",
+                        "no_preference": "Bez preferencija"
+                    }
+                },
+                "sendOrderNumber": {
+                    "label": "Pošaljite broj narudžbe",
+                    "helpText": "Ako je ova opcija aktivna, broj narudžbe bit će dostavljen PayPalu kao ID računa na blagajni."
+                },
+                "orderNumberPrefix": {
+                    "label": "Prefiks broja narudžbe",
+                    "tooltipText": "Ovaj tekst se nalazi prije izvornog broja narudžbe (npr myShop_SW20001). To pomaže identificirati trgovinu u kojoj je izvršena uplata. Možete ga pronaći kao ID računa na PayPal nadzornoj ploči."
+                },
+                "orderNumberSuffix": {
+                    "label": "Sufiks broj narudžbe",
+                    "tooltipText": "Ovaj tekst se nalazi nakon izvornog broja narudžbe (npr SW20001_MyShop). To pomaže identificirati trgovinu u kojoj je izvršena uplata. Možete ga pronaći kao ID računa na PayPal nadzornoj ploči."
+                },
+                "loggingLevel": {
+                    "label": "Otklanjanje pogrešaka",
+                    "tooltipText": "Prilikom korištenja naprednog ispravljanja pogrešaka tijekom naplate bilježe se dodatni podaci kako bi se otkrile potencijalne pogreške. Samo za privremeno korištenje.",
+                    "options": {
+                        "basic": "Osnovne",
+                        "advanced": "Napredna"
+                    }
+                }
+            },
+            "express": {
+                "cardTitle": "PayPal Express naplata",
+                "ecsDetailEnabled": {
+                    "label": "'Plati odmah' na stranici s detaljima:",
+                    "helpText": "Ako je ova opcija aktivna, gumb Express Checkout prikazat će se na svakoj stranici s pojedinostima o proizvodu."
+                },
+                "ecsCartEnabled": {
+                    "label": "'Plati odmah' na košarici:",
+                    "helpText": "Ako je ova opcija aktivna, gumb Express Checkout prikazat će se na košarici."
+                },
+                "ecsOffCanvasEnabled": {
+                    "label": "\"Plati odmah\" na Off-Canvas košarici:",
+                    "helpText": "Ako je ova opcija aktivna, gumb Express Checkout prikazat će se na košarici Off-Canvas."
+                },
+                "ecsLoginEnabled": {
+                    "label": "'Plati odmah' na stranici za prijavu:",
+                    "helpText": "Ako je ova opcija aktivna, gumb Express Checkout prikazat će se na stranici za prijavu i registraciju."
+                },
+                "ecsListingEnabled": {
+                    "label": "'Plati odmah' na stranicama s popisima:",
+                    "helpText": "Ako je ova opcija aktivna, gumb Express Checkout prikazat će se na stranicama s popisima."
+                },
+                "ecsButtonColor": {
+                    "label": "Boja gumba:",
+                    "options": {
+                        "blue": "Plava",
+                        "black": "Crna",
+                        "gold": "Zlatna",
+                        "silver": "Srebrna",
+                        "white": "Bijela"
+                    }
+                },
+                "ecsButtonShape": {
+                    "label": "Oblik gumba:",
+                    "options": {
+                        "pill": "Okruglo",
+                        "rect": "Pravokutni"
+                    }
+                },
+                "ecsSubmitCart": {
+                    "label": "Pošaljite košaricu",
+                    "helpText": "Ako je ova opcija aktivna, košarica će biti poslana PayPalu za ekspresne narudžbe."
+                },
+                "ecsButtonLanguageIso": {
+                    "label": "Područje gumba:",
+                    "helpText": "Ako nije postavljeno, upotrebljavat će se jezik prodajnog kanala."
+                }
+            },
+            "installment": {
+                "cardTitle": "Na rate",
+                "installmentBannerEnabled": {
+                    "label": "Omogući natpis na rate"
+                }
+            },
+            "pui": {
+                "cardTitle": "Plaćanje po fakturi",
+                "customerServiceInstructions": {
+                    "label": "Upute za korisničku službu za plaćanje po fakturi",
+                    "helpText": "Ove upute bit će dostavljene na PayPal & RatePay i prikazane u e-mailovima za kupca."
+                }
+            },
+            "spb": {
+                "cardTitle": "PayPal naplata pomoću pametnih gumba za plaćanje",
+                "spbCheckoutEnabled": {
+                    "label": "Omogućite gumbe pametnog plaćanja"
+                },
+                "spbButtonLanguageIso": {
+                    "label": "Područje gumba:",
+                    "helpText": "Ako nije postavljeno, upotrebljavat će se jezik prodajnog kanala."
+                },
+                "spbAlternativePaymentMethodsEnabled": {
+                    "label": "Omogućite alternativne načine plaćanja za pametne gumbe plaćanja.",
+                    "helpText": "Alternativni načini plaćanja su kreditne- i debitne kartice i više."
+                },
+                "spbShowPayLater": {
+                    "label": "Prikaz Plaćanje kasnije kao zasebna tipka"
+                }
+            },
+            "plus": {
+                "cardTitle": "PayPal PLUS",
+                "introduction": "<strong>PayPal PLUS:</strong> Vaš kompletan sve-u-jednom rješenje za plaćanje uključujući PayPal, Direct Debitna PayPal PLUS nudi vašim klijentima potpunu fleksibilnost pri odabiru željenog načina plaćanja. Vaše prednosti kao prodavatelj? Lakše računovodstvo sa samo jednom ugovorom, jednim računom i jednim pregledom transakcija koji prikazuje sva dolazna plaćanja. Dobivate svoj novac neposredno nakon što kupci završe postupak narudžbe.<br>Možete podnijeti zahtjev za PayPal PLUS <a href='https://www.paypal.com/de/webapps/mpp/paypal-plus' target='_blank'>ovdje</a>.",
+                "plusCheckoutEnabled": {
+                    "label": "Omogućite PayPal PLUS"
+                },
+                "hint": "Napomena: PayPal PLUS radi samo s akvizicijom plaćanja \"Prodaja\". Postavit će se automatski.",
+                "warning": {
+                    "active": "PayPal Checkout pruža iste načine plaćanja vašim klijentima — na temelju najnovije tehnologije. Aktivirajte PayPal Checkout sada i deaktivirajte PayPal PLUS kako biste izbjegli prikazivanje du <a href=\"https://www.shopware.com/en/news/paypal-launches-new-product/?utm_source=product&utm_medium=sw6-onprem&utm_campaign=paypal-checkout&utm_content=link-en-blog\" target=\"_blank\">Više informacija</a>",
+                    "inactive": "Izbjegavajte prikazivanje dvostrukih načina plaćanja i deaktivirajte PayPal PLUS <a href=\"https://www.shopware.com/en/news/paypal-launches-new-product/?utm_source=product&utm_medium=sw6-onprem&utm_campaign=paypal-checkout&utm_content=link-en-blog\" target=\"_blank\">Više informacija</a>"
+                }
+            },
+            "locale-field": {
+                "infobox": {
+                    "text": "Da biste vidjeli popis važećih lokalnih kodova, kliknite ",
+                    "href": "ovdje"
+                },
+                "error": {
+                    "detail": "Lokalni kod koji ste naveli ne odgovara formatu koji zahtijeva PayPal. Važeći format je \"en_GB\"."
+                }
+            },
+            "messageSaveSuccess": "Postavke PayPala su spremljene.",
+            "messageTestSuccess": "API podaci su potvđeni.",
+            "messageTestError": "API podaci ne mogu se potvrditi.",
+            "messageWebhookCreated": "Webhook je registriran.",
+            "messageWebhookUpdated": "Webhook je ažuriran.",
+            "messageWebhookError": "Webhook nije bilo moguće spremiti. Dogodile su sljedeće pogreške:"
         }
     }
 }

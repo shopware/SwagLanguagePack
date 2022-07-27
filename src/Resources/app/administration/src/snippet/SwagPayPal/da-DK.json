@@ -4,11 +4,14 @@
         "textIntroPayPal": "For at få PayPal op at køre behøver du kun at angive dine PayPal API-legitimationsoplysninger.",
         "labelClientId": "Klient-id",
         "labelClientSecret": "Klient hemmelighed",
+        "labelMerchantPayerId": "PayPal Merchant ID",
         "labelClientIdSandbox": "Sandkasse-klient-id",
         "labelClientSecretSandbox": "Sandkasse-klient hemmelighed",
-        "labelSandbox": "Sandkasse",
+        "labelMerchantPayerIdSandbox": "Sandkasse PayPal Merchant ID",
+        "labelSandbox": "Brug sandkasse",
         "tooltipSandbox": "Afhængigt af aktivering af sandkassen gemmes separate legitimationsoplysninger.",
-        "textSettingsHeader": "Avancerede indstillinger",
+        "labelSetDefault": "Indstil som standard betalingsmetode",
+        "tooltipSetDefault": "PayPal vil blive indstillet som standard betalingsmetode for alle salgskanaler. Du kan angive individuelle standardbetalingsmetoder pr. Salgskanal i indstillingsmodulet.",
         "messageFetchedError": "Prøv igen, eller brug de avancerede indstillinger til at angive dine legitimationsoplysninger.",
         "textFetchedSuccessful": "Legitimationsoplysninger er blevet hentet.",
         "messageNoCredentials": "Ingen legitimationsoplysninger angivet.",
@@ -49,455 +52,6 @@
             "orderModuleLinkText": "Åben ordre",
             "rawDataCardTitle": "Rå data",
             "copyButtonLabel": "Kopiere rå data"
-        }
-    },
-    "swag-paypal-pos": {
-        "general": {
-            "moduleTitle": "Zettle af PayPal",
-            "salesChannelDetailDescription": {
-                "title": "Udvid din virksomhed med Shopware og Zettle fra PayPal",
-                "manufacturer": "Zettle af PayPal"
-            }
-        },
-        "header": "Zettle salgskanal",
-        "tabTitle": {
-            "overview": "Oversigt",
-            "syncedProducts": "Synkroniserede produkter",
-            "settings": "Indstillinger",
-            "runs": "Logfiler",
-            "help": "Hjælp"
-        },
-        "detail": {
-            "disclaimer": {
-                "headline": "Zettle er en PayPal-tjeneste",
-                "subheadline": "Hjælp med at øge salget gennem kraften i PayPal. Kom i gang gratis.",
-                "linkTarget": "https://www.paypal.com/en/webapps/mpp/merchant",
-                "linkText": "Aktivér PayPal til din butik"
-            },
-            "overview": {
-                "titleSync": "Synkronisering",
-                "buttonSync": "Synkroniser nu",
-                "buttonSyncProducts": "Synkroniser produktoplysninger",
-                "buttonSyncImages": "Upload billeder",
-                "buttonSyncInventory": "Synkroniser lager",
-                "buttonSyncAbort": "Afbryd synkronisering",
-                "syncErrorTitle": "Synkroniseringsfejl",
-                "status": {
-                    "disabled": "Synkronisering er ikke aktiveret, fordi din salgskanal er deaktiveret.",
-                    "message": {
-                        "syncing": "Synkronisering i gang",
-                        "noRunYet": "Der blev ikke fundet nogen seneste løb",
-                        "success": "Synkroniseret",
-                        "warning": "Sidste synkronisering afsluttet med advarsler",
-                        "error": "Sidste synkronisering afsluttet med fejl",
-                        "aborted": "Sidste synkronisering blev afbrudt af brugeren"
-                    },
-                    "task": {
-                        "complete": "færdig",
-                        "product": "produkter",
-                        "image": "billeder",
-                        "inventory": "opgørelse"
-                    },
-                    "lastSynced": "Seneste synkronisering",
-                    "lastSyncedComplete": "Sidste fuldført synkronisering",
-                    "syncingDetail": "Det kan tage et par minutter. Denne proces kører i baggrunden, i mellemtiden kan du bruge din butik som sædvanlig."
-                },
-                "continueSetup": {
-                    "cardTitle": "Opsætning",
-                    "content": {
-                        "headline": "Opsætning af produktsynkronisering",
-                        "firstLine": "Dine Zettle og Shopware-konti er nu forbundet! Du kan nu konfigurere produktsynkronisering.",
-                        "secondLine": "Når Zettle er aktiveret, vil Zettle automatisk blive synkroniseret med dine Shopware-produkter. Salg foretaget via Zettle synkroniseres også med Shopware, og du kan bruge administrationen til også at holde dig ajour med salget af Zettle og Shopware."
-                    }
-                }
-            },
-            "syncedProducts": {
-                "title": "Synkroniserede produkter",
-                "notSyncedYet": "Ikke synkroniseret endnu",
-                "columns": {
-                    "name": "Navn",
-                    "state": "Status",
-                    "date": "Dato"
-                },
-                "emptyState": {
-                    "title": "Ingen produkter valgt",
-                    "message": "Der er ingen produkter i din salgskanal eller dynamiske produktgruppe."
-                },
-                "actions": {
-                    "productDetails": "Produkt detaljer"
-                }
-            },
-            "settings": {
-                "titleGeneralSettings": "Generelle indstillinger",
-                "domain": "Dit Shop-domæne",
-                "domainHelpText": "Zettle bruger dette domæne til at downloade medier, der er knyttet til dine synkroniserede produkter. Zettle accepterer kun sikre webadresser (https).",
-                "productStream": "Dynamisk produktgruppe",
-                "titleCredentials": "legitimationsoplysninger",
-                "titleSync": "Synkronisering",
-                "titlePrices": "Priser",
-                "syncPrices": "Synkroniser priser",
-                "replace": "Udskift eksisterende produkter i Zettle",
-                "activeHelpText": "Hvis den er aktiv, sker Zettle synkroniseringen automatisk i baggrunden.",
-                "saveAlert": "Gemte ændringer er tilgængelige, efter at den aktuelt kørende synkronisering mellem Shopware og Zettle er afsluttet.",
-                "optionsTitle": "Indstillinger",
-                "reset": {
-                    "buttonTitle": "Nulstil synkronisering",
-                    "descriptionText": "Hvis du oplever problemer, kan du uploade alle produkter og billeder igen.",
-                    "modalConfirmText": "Dette nulstiller synkroniseringshistorikken for salgskanalen",
-                    "modalTextInfo": "Alle elementer vil blive uploadet igen ved næste synkronisering. Det kan tage et stykke tid. Du mister ingen data i Shopware, nogle data kan blive overskrevet hos Zettle.",
-                    "modalTitle": "Nulstilling af synkroniseringsoversigt",
-                    "modalButtonConfirm": "Nulstil synkronisering"
-                }
-            },
-            "logs": {
-                "columnLastSync": "Detaljer",
-                "noEntry": "Ikke synkroniseret endnu",
-                "states": {
-                    "success": "Opdateret",
-                    "failed": "Mislykkedes",
-                    "aborted": "Afbrudt"
-                }
-            },
-            "runs": {
-                "title": "Synkroniseringsoversigt",
-                "toolbarText": "„Ryd op logfiler“ sletter alle logfiler. Logfiler, der er ældre end 30 dage, fjernes automatisk.",
-                "completeTask": "Komplet",
-                "productTask": "Produkt",
-                "inventoryTask": "Lager",
-                "imageTask": "Billede",
-                "states": {
-                    "withWarnings": "Fuldført med advarsler",
-                    "successful": "Gennemført",
-                    "aborted": "Afbrydes af brugeren"
-                },
-                "actions": {
-                    "showDetails": "Vis detaljer"
-                },
-                "emptyState": {
-                    "title": "Ingen afsluttede synkroniseringer",
-                    "message": "Synkroniser nu for at generere logfiler."
-                },
-                "columns": {
-                    "task": "Type",
-                    "state": "Stat",
-                    "date": "Dato"
-                }
-            },
-            "save": "Gem",
-            "cleanLog": "Ryd op logfil"
-        },
-        "wizard": {
-            "salesChannelPrototypeName": "Zettle POS",
-            "stepItemTitle": {
-                "connection": "Kontoopsætning",
-                "connectionSuccess": "Tilslutning",
-                "customization": "Tilpasning",
-                "productSelection": "Valg af produkt",
-                "syncLibrary": "Produkt-synkronisering",
-                "syncPrices": "Prissynkronisering",
-                "finish": "Afslut"
-            },
-            "connection": {
-                "modalTitle": "Kontoopsætning",
-                "headerConnect": "Opret forbindelse mellem din Zettle konto",
-                "headerNewCustomer": "Ny til Zettle?",
-                "buttonCreateAccount": "Opret Zettle konto",
-                "buttonCreateAccountLink": "https://www.zettle.com/gb/integrations/e-commerce/shopware?utm_source=local_partnership&utm_medium=ecommerce&utm_campaign=shopware"
-            },
-            "connectionSuccess": {
-                "modalTitle": "Oprettes forbindelse",
-                "headline": "Dine Zettle og Shopware-konti er nu forbundet!",
-                "info": "Følg de næste trin for at afslutte opsætningen af produktsynkronisering.",
-                "disconnectButton": "Afbryd forbindelsen",
-                "disclaimer": "Eventuelle ændringer, du foretager i dine Shopware-produkter, opdateres nu automatisk på din tilsluttede Zettle konto.",
-                "fakeFirstName": "I øjeblikket",
-                "fakeLastName": "indlæser...",
-                "fakeMail": "pos@example.com"
-            },
-            "connectionDisconnect": {
-                "modalTitle": "Afbryd Zettle konto",
-                "headline": "Du er ved at afbryde Zettle",
-                "info": "Produkterne opdateres og synkroniseres ikke længere med din viste Zettelle-konto, når du afbryder forbindelsen til din konto.",
-                "disconnectButton": "Afbryd din konto",
-                "disconnectErrorMessage": "Der opstod en fejl under afbrydelsen."
-            },
-            "customization": {
-                "salesChannelLabel": "Navn på salgskanal",
-                "modalTitle": "Oplysninger om salgskanal",
-                "labelDomain": "Dit Shop-domæne",
-                "subtitle": "Zettle bruger dette domæne til at downloade medier, der er knyttet til dine synkroniserede produkter.",
-                "placeholderDomain": "www.my-store.shopware.com"
-            },
-            "productSelection": {
-                "modalTitle": "Overfør produkter fra eksisterende salgskanal",
-                "labelSelect": "Salgskanal",
-                "labelToggle": "Overfør valg af produkt",
-                "info": "For at komme hurtigere i gang har du nu mulighed for at tildele produkter fra en eksisterende salgskanal til din nyoprettede. Alle tildelte produkter vil derefter være tilgængelige til synkronisering i Zettle POS. Der er ikke behov for manuel arbejde."
-            },
-            "syncLibrary": {
-                "modalTitle": "Opsætning af produktsynkronisering",
-                "header": "Vi fandt {shopwareProducts} og {posProducts}",
-                "shopwareProducts": "no Shopware-produkter | ét butiksprodukt | {n} Shopware products",
-                "posProducts": "no Zettle produkter | ét Zettle produkt | {n} Zettle produkter",
-                "description": "Alle produkter synkroniseres fra din nyoprettede salgskanal i Shopware. Hvordan vil du opsætte dit Zettle bibliotek?",
-                "optionReplacePermanentlyLabel": "Brug kun Shopware-produkter",
-                "optionReplacePermanentlyDescription": "Kun dine butiksprodukter og lagermængder findes i dit Zettle bibliotek.",
-                "optionReplaceOneTimeLabel": "Erstat Zettelle-biblioteket",
-                "optionReplaceOneTimeDescription": "Udskift dit eksisterende Zettle bibliotek med produkter og lagermængder fra Shopware én gang.",
-                "optionReplaceNotLabel": "Tilføj Shopware-produkter",
-                "optionReplaceNotDescription": "Dine butiksprodukter og lagermængder føjes til dit eksisterende Zettle bibliotek.",
-                "disclaimer": "Du kan til enhver tid ændre disse indstillinger senere."
-            },
-            "syncPrices": {
-                "modalTitle": "Opsætning af produktsynkronisering",
-                "header": "Hvordan vil du synkronisere produktpriserne med Zettle?",
-                "description": "Dine produkters priser inkluderer moms, når de synkroniseres med Zettle.",
-                "disclaimer": "Du kan redigere momsen manuelt i Zettle produktbibliotek.",
-                "optionTrueLabel": "Synkroniser priser med moms",
-                "optionTrueDescription": "Priserne synkroniseret med Zettle inkluderer moms.",
-                "optionFalseLabel": "Synkroniser ikke priser",
-                "optionFalseDescription": "Produktpriser vil ikke blive overført ved synkronisering. Du kan indstille dem i dit Zettle produktbibliotek."
-            },
-            "finish": {
-                "modalTitle": "Afslut",
-                "header": "Produkt-synkronisering opsætning fuldført!",
-                "firstParagraph": "Din Zettle konto er nu knyttet til din salgskanal, og dine produkter overføres til Zettle. I fremtiden, når du foretager et salg, opdaterer vi dit lager i Zettle og Shopware.",
-                "secondParagraph": "Hvis du har brug for at opdatere dine produkter, anbefaler vi, at du gør dette i Shopware, og de synkroniserer automatisk med din Zettle app."
-            }
-        },
-        "authentication": {
-            "messageTestError": "Legitimationsoplysningerne kunne ikke valideres.",
-            "labelApiKey": "API-nøgle",
-            "placeholderApiKey": "Indtast API nøgle...",
-            "apiKeyDescription": "API-nøgler fungerer som adgangskoder. Shopware bruger din Zettle API-nøgle til at oprette en sikker forbindelse til din Zettle konto.",
-            "buttonGenerateKey": "Generer API-nøgle"
-        },
-        "account": {
-            "loadingName": "I øjeblikket indlæser...",
-            "loadingEmail": "pos@example.com",
-            "errorName": "Fejl under godkendelse",
-            "errorEmail": "Din API-nøgle kunne ikke verificeres",
-            "connectedStatus": "Forbundet",
-            "noConnectionStatus": "Ingen forbindelse",
-            "manageAccount": "Administrer konto",
-            "editConnection": "Redigér forbindelse",
-            "lastUpdated": "Sidst opdateret"
-        },
-        "gettingStarted": {
-            "cardTitle": "Kom i gang med Zettle af PayPal",
-            "readerHeadline": "Log ind på Zettle for at bestille din Zettle kortlæser",
-            "readerText": "Få mere at vide om kortlæseren, og bestil en lige her:",
-            "readerLinkTarget": "https://shop.zettle.com",
-            "readerLinkText": "shop.zettle.com",
-            "readerImageAlt": "Zettle kortlæser",
-            "appHeadline": "Hent Zettle Go-appen",
-            "appText": "Tilgængelig til iOS og Android tablets og telefoner.<br>Tilslut din Zettle konto og din kortlæser for at begynde at sælge.",
-            "appImageAlt": "Zettle app"
-        },
-        "messageCloneError": "Kunne ikke overføre produktsynlighed fra en anden salgskanal.",
-        "messageWebhookRegisterError": "Webhook kunne ikke registreres hos Zettle"
-    },
-    "sw-privileges": {
-        "permissions": {
-            "parents": {
-                "swag_paypal": "PayPal"
-            },
-            "swag_paypal": {
-                "label": "PayPal-indstillinger"
-            },
-            "swag_paypal_disputes": {
-                "label": "PayPal-tvister"
-            }
-        }
-    },
-    "swag-paypal": {
-        "header": "PayPal",
-        "saleschannelCard": {
-            "button": {
-                "description": "Klik på denne knap for at aktivere PayPal og vælge den som standard i den valgte salgskanal",
-                "label": "Sæt PayPal som standard"
-            }
-        },
-        "general": {
-            "mainMenuItemGeneral": "PayPal",
-            "descriptionTextModule": "PayPal-indstillinger"
-        },
-        "messageNotBlank": "Denne værdi bør ikke være tom.",
-        "settingForm": {
-            "save": "Gem",
-            "testLive": "Test API-legitimationsoplysninger",
-            "testSandbox": "Test sandkassens API-legitimationsoplysninger",
-            "credentials": {
-                "cardTitle": "API-legitimationsoplysninger",
-                "clientId": {
-                    "label": "Klient-id",
-                    "tooltipText": "REST API-klient-id'et bruges til at godkende dette plugin med PayPal-API'en."
-                },
-                "clientSecret": {
-                    "label": "Klient hemmelighed",
-                    "tooltipText": "REST API-klienthemmeligheden bruges til at godkende dette plugin med PayPal-API'en."
-                },
-                "clientIdSandbox": {
-                    "label": "Sandkasse-klient-id",
-                    "tooltipText": "REST API-klient-id'et bruges under test til at godkende dette plugin med PayPal-API'en."
-                },
-                "clientSecretSandbox": {
-                    "label": "Sandkasse-klient hemmelighed",
-                    "tooltipText": "REST API-klienthemmeligheden bruges under test til at godkende dette plugin med PayPal API."
-                },
-                "sandbox": {
-                    "label": "Aktivér sandkasse",
-                    "tooltipText": "Aktivér, hvis du vil teste PayPal-integrationen."
-                },
-                "button": {
-                    "title": "Hent API-legitimationsoplysninger",
-                    "titleSandbox": "Hent sandkasse-API-legitimationsoplysninger",
-                    "messageFetchedError": "Prøv igen, eller indtast dine legitimationsoplysninger manuelt."
-                }
-            },
-            "behavior": {
-                "cardTitle": "Adfærd",
-                "merchantLocation": {
-                    "label": "Placering af forhandleren",
-                    "germany": "Tyskland",
-                    "other": "Anden købmandslokation"
-                },
-                "intent": {
-                    "label": "Erhvervelse af betaling",
-                    "sale": "Fuldfør betaling straks (Salg)",
-                    "authorize": "Forsinket betaling (Auth-Capture)",
-                    "order": "Forsinket opkrævning af betaling (Order-Auth-Capture)",
-                    "CAPTURE": "Fuldstændig betaling med det samme (",
-                    "AUTHORIZE": "Forsinket inddrivelse af betaling (godkende)"
-                },
-                "submitCart": {
-                    "label": "Indsend indkøbskurv",
-                    "helpText": "Hvis denne indstilling er aktiv, sendes indkøbsvogndata til PayPal ved kassen."
-                },
-                "brandName": {
-                    "label": "Dit eget varemærke på PayPal-siden",
-                    "tooltipText": "Denne tekst vil blive vist som varemærket på PayPals betalingsside."
-                },
-                "landingPage": {
-                    "label": "PayPals landingsside",
-                    "helpText": {
-                        "login": "Login: PayPal-webstedet viser en loginskærm som landingsside.",
-                        "billing": "Registrering: PayPal-webstedet viser en registreringsformular som landingsside.",
-                        "no_preference": "Ingen præference: PayPal bestemmer, hvilken side der vises, afhængigt af kundens tidligere interaktion med PayPal."
-                    },
-                    "options": {
-                        "login": "Log ind",
-                        "billing": "Registrering",
-                        "no_preference": "Ingen præference"
-                    }
-                },
-                "sendOrderNumber": {
-                    "label": "Send ordrenummer",
-                    "helpText": "Hvis denne indstilling er aktiv, sendes ordrenummeret til PayPal ved kassen."
-                },
-                "orderNumberPrefix": {
-                    "label": "Ordrenummer præfiks",
-                    "tooltipText": "Denne tekst placeres før det oprindelige ordrenummer (f.eks. MyShop_SW20001). Dette hjælper med at identificere den butik, hvor betalingen blev foretaget."
-                },
-                "loggingLevel": {
-                    "label": "Fejlfinding",
-                    "tooltipText": "Når du bruger avanceret fejlfinding, registreres yderligere data under kassen for at opdage potentielle fejl. Kun til midlertidig brug.",
-                    "options": {
-                        "basic": "Grundlæggende",
-                        "advanced": "Avanceret"
-                    }
-                }
-            },
-            "express": {
-                "cardTitle": "PayPal Express Checkout",
-                "ecsDetailEnabled": {
-                    "label": "'Betal nu' på detaljesiden:",
-                    "helpText": "Hvis denne indstilling er aktiv, vises knappen Express Checkout på hver produktdetaljeside."
-                },
-                "ecsCartEnabled": {
-                    "label": "'Betal nu' på indkøbsvognen:",
-                    "helpText": "Hvis denne indstilling er aktiv, vises knappen Express Checkout i indkøbskurven."
-                },
-                "ecsOffCanvasEnabled": {
-                    "label": "'Betal nu' på Off-Canvas vogn:",
-                    "helpText": "Hvis denne indstilling er aktiv, vises knappen Express Checkout på Off-Canvas indkøbskurv."
-                },
-                "ecsLoginEnabled": {
-                    "label": "'Betal nu' på login-siden:",
-                    "helpText": "Hvis denne indstilling er aktiv, vises knappen Express Checkout på login- og registreringssiden."
-                },
-                "ecsListingEnabled": {
-                    "label": "'Betal nu' på listesider:",
-                    "helpText": "Hvis denne indstilling er aktiv, vises knappen Express Checkout på annoncesider."
-                },
-                "ecsButtonColor": {
-                    "label": "Knap farve:",
-                    "options": {
-                        "blue": "Blå",
-                        "black": "Sort",
-                        "gold": "Guld",
-                        "silver": "Sølv"
-                    }
-                },
-                "ecsButtonShape": {
-                    "label": "Knap form:",
-                    "options": {
-                        "pill": "Runde",
-                        "rect": "rektangulær"
-                    }
-                },
-                "ecsSubmitCart": {
-                    "label": "Indsend indkøbskurv",
-                    "helpText": "Hvis denne indstilling er aktiv, sendes indkøbskurven til PayPal for Express-ordrer."
-                },
-                "ecsButtonLanguageIso": {
-                    "label": "Knap landestandard:",
-                    "helpText": "Hvis det ikke er angivet, bruges salgskanalens sprog."
-                }
-            },
-            "installment": {
-                "cardTitle": "Afdrag",
-                "installmentBannerEnabled": {
-                    "label": "Aktivér banner for afdrag"
-                }
-            },
-            "spb": {
-                "cardTitle": "PayPal-kassen med smarte betalingsknapper",
-                "spbCheckoutEnabled": {
-                    "label": "Aktiver Smart Payment Knapper"
-                },
-                "spbButtonLanguageIso": {
-                    "label": "Knap landestandard:",
-                    "helpText": "Hvis det ikke er angivet, bruges salgskanalens sprog."
-                },
-                "spbAlternativePaymentMethodsEnabled": {
-                    "label": "Aktivér de alternative betalingsmetoder for Smart-betalingsknapper.",
-                    "helpText": "Alternative betalingsmetoder er, Kreditkort, Faktura og mere."
-                }
-            },
-            "plus": {
-                "cardTitle": "PayPal PLUS",
-                "introduction": "<strong>PayPal PLUS:</strong> Din komplette alt-i-en-betalingsløsning, herunder PayPal, direkte debitering, kreditkort og betaling efter faktura. PayPal PLUS giver dine kunder fuld fleksibilitet til at vælge deres foretrukne betalingsmetode. Dine fordele som sælger? Nemmere bogføring med kun én kontraherende part, én konto og én transaktionsoversigt, der viser alle indgående betalinger. Du modtager dine penge direkte, når kunderne har fuldført ordreprocessen.<br>Du kan ansøge om PayPal PLUS <a href='https://www.paypal.com/de/webapps/mpp/paypal-plus' target='_blank'>her</a>. Ansøg om betaling på faktura <a href='https://www.paypal.com/de/webapps/mpp/pui-start' target='_blank'>her</a>.",
-                "plusCheckoutEnabled": {
-                    "label": "Aktiver PayPal PLUS"
-                },
-                "hint": "Bemærk: PayPal PLUS fungerer kun med betalingsovertagelsen „Salg“. Den vil blive indstillet automatisk."
-            },
-            "locale-field": {
-                "infobox": {
-                    "text": "Hvis du vil se en liste over gyldige landekoder, skal du klikke på ",
-                    "href": "her"
-                },
-                "error": {
-                    "detail": "Den landekode, du har angivet, stemmer ikke overens med det format, der kræves af PayPal. Et gyldigt format er „da_DK“."
-                }
-            },
-            "messageSaveSuccess": "PayPal-indstillingerne er blevet gemt.",
-            "messageTestSuccess": "API-legitimationsoplysningerne er blevet valideret.",
-            "messageTestError": "API-legitimationsoplysningerne kunne ikke valideres.",
-            "messageWebhookCreated": "Webhook er blevet registreret.",
-            "messageWebhookUpdated": "Webhook er blevet opdateret.",
-            "messageWebhookError": "Webhook kunne ikke gemmes. Følgende fejl opstod:"
         }
     },
     "swag-paypal-payment": {
@@ -622,8 +176,7 @@
             "confirm": {
                 "message": "Vil du virkelig annullere denne betaling?",
                 "button": {
-                    "confirm": "Annuller godkendelse",
-                    "cancel": "Nej"
+                    "confirm": "Annuller godkendelse"
                 }
             }
         },
@@ -632,6 +185,541 @@
             "canceledPaymentContent": "Der opstod en fejl under hentning af betalingsoplysninger fra PayPal. Hvis du ser denne meddelelse, var det sandsynligvis en betaling, der blev annulleret af kunden. Annullerede betalinger slettes af PayPal efter et stykke tid og er derefter ikke længere tilgængelige.",
             "sandboxLiveContent": "Der opstod en fejl under hentning af betalingsoplysninger fra PayPal. Hvis du ser denne meddelelse, var det sandsynligvis en betaling, der blev oprettet med sandkasse aktiveret og nu er blevet anmodet om med live data, eller omvendt. Ret dine PayPal-indstillinger, eller slet testordrer fra systemet.",
             "other": "Der opstod en fejl under hentning af betalingsoplysninger fra PayPal."
+        }
+    },
+    "swag-paypal-pos": {
+        "general": {
+            "moduleTitle": "Zettle af PayPal",
+            "salesChannelDetailDescription": {
+                "title": "Udvid din virksomhed med Shopware og Zettle fra PayPal",
+                "manufacturer": "Zettle af PayPal"
+            }
+        },
+        "header": "Zettle salgskanal",
+        "tabTitle": {
+            "overview": "Oversigt",
+            "syncedProducts": "Synkroniserede produkter",
+            "settings": "Indstillinger",
+            "runs": "Logfiler",
+            "help": "Hjælp"
+        },
+        "detail": {
+            "disclaimer": {
+                "headline": "Zettle er en PayPal-tjeneste",
+                "subheadline": "Hjælp med at øge salget gennem kraften i PayPal. Kom i gang gratis.",
+                "linkTarget": "https://www.paypal.com/en/webapps/mpp/merchant",
+                "linkText": "Få PayPal til din butik"
+            },
+            "overview": {
+                "titleSync": "Synkronisering",
+                "buttonSync": "Synkroniser nu",
+                "buttonSyncProducts": "Synkroniser produktoplysninger",
+                "buttonSyncImages": "Upload billeder",
+                "buttonSyncInventory": "Synkroniser lager",
+                "buttonSyncAbort": "Afbryd synkronisering",
+                "syncErrorTitle": "Synkroniseringsfejl",
+                "status": {
+                    "disabled": "Synkronisering er ikke aktiveret, fordi din salgskanal er deaktiveret.",
+                    "message": {
+                        "syncing": "Synkronisering i gang",
+                        "noRunYet": "Der blev ikke fundet nogen seneste løb",
+                        "success": "Synkroniseret",
+                        "warning": "Sidste synkronisering afsluttet med advarsler",
+                        "error": "Sidste synkronisering afsluttet med fejl",
+                        "aborted": "Sidste synkronisering blev afbrudt af brugeren"
+                    },
+                    "task": {
+                        "complete": "færdig",
+                        "product": "produkter",
+                        "image": "billeder",
+                        "inventory": "opgørelse"
+                    },
+                    "lastSynced": "Seneste synkronisering",
+                    "lastSyncedComplete": "Sidste fuldført synkronisering",
+                    "syncingDetail": "Det kan tage et par minutter. Denne proces kører i baggrunden, i mellemtiden kan du bruge din butik som sædvanlig."
+                },
+                "continueSetup": {
+                    "cardTitle": "Opsætning",
+                    "content": {
+                        "headline": "Opsætning af produktsynkronisering",
+                        "firstLine": "Dine Zettle og Shopware-konti er nu forbundet! Du kan nu konfigurere produktsynkronisering.",
+                        "secondLine": "Når Zettle er aktiveret, vil Zettle automatisk blive synkroniseret med dine Shopware-produkter. Salg foretaget via Zettle synkroniseres også med Shopware, og du kan bruge administrationen til også at holde dig ajour med salget af Zettle og Shopware."
+                    }
+                }
+            },
+            "syncedProducts": {
+                "title": "Synkroniserede produkter",
+                "notSyncedYet": "Ikke synkroniseret endnu",
+                "columns": {
+                    "name": "Navn",
+                    "state": "Status",
+                    "date": "Dato"
+                },
+                "emptyState": {
+                    "title": "Ingen produkter valgt",
+                    "message": "Der er ingen produkter i din salgskanal eller dynamiske produktgruppe."
+                },
+                "actions": {
+                    "productDetails": "Produkt detaljer"
+                }
+            },
+            "settings": {
+                "titleGeneralSettings": "Generelle indstillinger",
+                "domain": "Dit Shop-domæne",
+                "domainHelpText": "Zettle bruger dette domæne til at downloade medier, der er knyttet til dine synkroniserede produkter. Zettle accepterer kun sikre webadresser (https).",
+                "productStream": "Dynamisk produktgruppe",
+                "titleCredentials": "legitimationsoplysninger",
+                "titleSync": "Synkronisering",
+                "titlePrices": "Priser",
+                "syncPrices": "Synkroniser priser",
+                "replace": "Udskift eksisterende produkter i Zettle",
+                "activeHelpText": "Hvis den er aktiv, sker Zettle synkroniseringen automatisk i baggrunden.",
+                "saveAlert": "Gemte ændringer er tilgængelige, efter at den aktuelt kørende synkronisering mellem Shopware og Zettle er afsluttet.",
+                "optionsTitle": "Indstillinger",
+                "reset": {
+                    "buttonTitle": "Nulstil synkronisering",
+                    "descriptionText": "Hvis du oplever problemer, kan du uploade alle produkter og billeder igen.",
+                    "modalConfirmText": "Dette nulstiller synkroniseringshistorikken for salgskanalen",
+                    "modalTextInfo": "Alle elementer vil blive uploadet igen ved næste synkronisering. Det kan tage et stykke tid. Du mister ingen data i Shopware, nogle data kan blive overskrevet hos Zettle.",
+                    "modalTitle": "Nulstilling af synkroniseringsoversigt",
+                    "modalButtonConfirm": "Nulstil synkronisering"
+                }
+            },
+            "logs": {
+                "columnLastSync": "Detaljer",
+                "noEntry": "Ikke synkroniseret endnu",
+                "states": {
+                    "success": "Opdateret",
+                    "failed": "Mislykkedes",
+                    "aborted": "Afbrudt"
+                }
+            },
+            "runs": {
+                "title": "Synkroniseringsoversigt",
+                "toolbarText": "„Ryd op logfiler“ sletter alle logfiler. Logfiler, der er ældre end 30 dage, fjernes automatisk.",
+                "completeTask": "Komplet",
+                "productTask": "Produkt",
+                "inventoryTask": "Lager",
+                "imageTask": "Billede",
+                "cloneVisibilityTask": "Produkt synlighed",
+                "states": {
+                    "withWarnings": "Fuldført med advarsler",
+                    "successful": "Gennemført",
+                    "aborted": "Afbrydes af brugeren",
+                    "failed": "Mislykket"
+                },
+                "actions": {
+                    "showDetails": "Vis detaljer"
+                },
+                "emptyState": {
+                    "title": "Ingen afsluttede synkroniseringer",
+                    "message": "Synkroniser nu for at generere logfiler."
+                },
+                "columns": {
+                    "task": "Type",
+                    "state": "Stat",
+                    "date": "Dato"
+                }
+            },
+            "cleanLog": "Ryd op logfil"
+        },
+        "wizard": {
+            "salesChannelPrototypeName": "Zettle POS",
+            "stepItemTitle": {
+                "connection": "Kontoopsætning",
+                "connectionSuccess": "Tilslutning",
+                "customization": "Tilpasning",
+                "productSelection": "Valg af produkt",
+                "syncLibrary": "Produkt-synkronisering",
+                "syncPrices": "Prissynkronisering",
+                "finish": "Afslut"
+            },
+            "connection": {
+                "modalTitle": "Kontoopsætning",
+                "headerConnect": "Opret forbindelse mellem din Zettle konto",
+                "headerNewCustomer": "Ny til Zettle?",
+                "buttonCreateAccount": "Opret Zettle konto",
+                "buttonCreateAccountLink": "https://www.zettle.com/gb/integrations/e-commerce/shopware?utm_source=local_partnership&utm_medium=ecommerce&utm_campaign=shopware"
+            },
+            "connectionSuccess": {
+                "modalTitle": "Oprettes forbindelse",
+                "headline": "Dine Zettle og Shopware-konti er nu forbundet!",
+                "info": "Følg de næste trin for at afslutte opsætningen af produktsynkronisering.",
+                "disconnectButton": "Afbryd forbindelsen",
+                "disclaimer": "Eventuelle ændringer, du foretager i dine Shopware-produkter, opdateres nu automatisk på din tilsluttede Zettle konto.",
+                "fakeFirstName": "I øjeblikket",
+                "fakeLastName": "indlæser...",
+                "fakeMail": "pos@example.com"
+            },
+            "connectionDisconnect": {
+                "modalTitle": "Afbryd Zettle konto",
+                "headline": "Du er ved at afbryde Zettle",
+                "info": "Produkterne opdateres og synkroniseres ikke længere med din viste Zettelle-konto, når du afbryder forbindelsen til din konto.",
+                "disconnectButton": "Afbryd din konto",
+                "disconnectErrorMessage": "Der opstod en fejl under afbrydelsen."
+            },
+            "customization": {
+                "salesChannelLabel": "Navn på salgskanal",
+                "modalTitle": "Oplysninger om salgskanal",
+                "labelDomain": "Dit Shop-domæne",
+                "subtitle": "Zettle bruger dette domæne til at downloade medier, der er knyttet til dine synkroniserede produkter.",
+                "placeholderDomain": "www.my-store.shopware.com"
+            },
+            "productSelection": {
+                "modalTitle": "Overfør produkter fra eksisterende salgskanal",
+                "labelSelect": "Salgskanal",
+                "labelToggle": "Overfør valg af produkt",
+                "info": "For at komme hurtigere i gang har du nu mulighed for at tildele produkter fra en eksisterende salgskanal til din nyoprettede. Alle tildelte produkter vil derefter være tilgængelige til synkronisering i Zettle POS. Der er ikke behov for manuel arbejde."
+            },
+            "syncLibrary": {
+                "modalTitle": "Opsætning af produktsynkronisering",
+                "header": "Vi fandt {shopwareProducts} og {posProducts}",
+                "shopwareProducts": "no Shopware-produkter | ét butiksprodukt | {n} Shopware products",
+                "posProducts": "no Zettle produkter | ét Zettle produkt | {n} Zettle produkter",
+                "description": "Alle produkter synkroniseres fra din nyoprettede salgskanal i Shopware. Hvordan vil du opsætte dit Zettle bibliotek?",
+                "optionReplacePermanentlyLabel": "Brug kun Shopware-produkter",
+                "optionReplacePermanentlyDescription": "Kun dine butiksprodukter og lagermængder findes i dit Zettle bibliotek.",
+                "optionReplaceOneTimeLabel": "Erstat Zettelle-biblioteket",
+                "optionReplaceOneTimeDescription": "Udskift dit eksisterende Zettle bibliotek med produkter og lagermængder fra Shopware én gang.",
+                "optionReplaceNotLabel": "Tilføj Shopware-produkter",
+                "optionReplaceNotDescription": "Dine butiksprodukter og lagermængder føjes til dit eksisterende Zettle bibliotek.",
+                "disclaimer": "Du kan til enhver tid ændre disse indstillinger senere."
+            },
+            "syncPrices": {
+                "modalTitle": "Opsætning af produktsynkronisering",
+                "header": "Hvordan vil du synkronisere produktpriserne med Zettle?",
+                "description": "Dine produkters priser inkluderer moms, når de synkroniseres med Zettle.",
+                "disclaimer": "Du kan redigere momsen manuelt i Zettle produktbibliotek.",
+                "optionTrueLabel": "Synkroniser priser med moms",
+                "optionTrueDescription": "Priserne synkroniseret med Zettle inkluderer moms.",
+                "optionFalseLabel": "Synkroniser ikke priser",
+                "optionFalseDescription": "Produktpriser vil ikke blive overført ved synkronisering. Du kan indstille dem i dit Zettle produktbibliotek."
+            },
+            "finish": {
+                "modalTitle": "Afslut",
+                "header": "Produkt-synkronisering opsætning fuldført!",
+                "firstParagraph": "Din Zettle konto er nu knyttet til din salgskanal, og dine produkter overføres til Zettle. I fremtiden, når du foretager et salg, opdaterer vi dit lager i Zettle og Shopware.",
+                "secondParagraph": "Hvis du har brug for at opdatere dine produkter, anbefaler vi, at du gør dette i Shopware, og de synkroniserer automatisk med din Zettle app."
+            }
+        },
+        "authentication": {
+            "messageTestError": "Legitimationsoplysningerne kunne ikke valideres",
+            "messageDuplicateError": "Denne Zettle konto er allerede konfigureret i en anden salgskanal",
+            "labelApiKey": "API-nøgle",
+            "placeholderApiKey": "Indtast API nøgle...",
+            "apiKeyDescription": "API-nøgler fungerer som adgangskoder. Shopware bruger din Zettle API-nøgle til at oprette en sikker forbindelse til din Zettle konto.",
+            "buttonGenerateKey": "Generer API-nøgle"
+        },
+        "account": {
+            "loadingName": "I øjeblikket indlæser...",
+            "loadingEmail": "pos@example.com",
+            "errorName": "Fejl under godkendelse",
+            "errorEmail": "Din API-nøgle kunne ikke verificeres",
+            "connectedStatus": "Forbundet",
+            "noConnectionStatus": "Ingen forbindelse",
+            "manageAccount": "Administrer konto",
+            "editConnection": "Redigér forbindelse",
+            "lastUpdated": "Sidst opdateret"
+        },
+        "gettingStarted": {
+            "cardTitle": "Kom i gang med Zettle af PayPal",
+            "readerHeadline": "Log ind på Zettle for at bestille din Zettle kortlæser",
+            "readerText": "Få mere at vide om kortlæseren, og bestil en lige her:",
+            "readerLinkTarget": "https://shop.zettle.com",
+            "readerLinkText": "shop.zettle.com",
+            "readerImageAlt": "Zettle kortlæser",
+            "appHeadline": "Hent Zettle Go-appen",
+            "appText": "Tilgængelig til iOS og Android tablets og telefoner.<br>Tilslut din Zettle konto og din kortlæser for at begynde at sælge.",
+            "appImageAlt": "Zettle app"
+        },
+        "messageCloneError": "Kunne ikke overføre produktsynlighed fra en anden salgskanal.",
+        "messageWebhookRegisterError": "Webhook kunne ikke registreres hos Zettle"
+    },
+    "sw-privileges": {
+        "permissions": {
+            "parents": {
+                "swag_paypal": "PayPal"
+            },
+            "swag_paypal": {
+                "label": "PayPal-indstillinger"
+            },
+            "swag_paypal_disputes": {
+                "label": "PayPal-tvister"
+            }
+        }
+    },
+    "sw-settings-payment-list": {
+        "needOnboardingTooltip": "Gennemfør onboarding for at aktivere denne betalingsmetode"
+    },
+    "sw-settings-payment-detail": {
+        "tooltip": "Gå til <a class=\"swag-paypal-go-to-settings-link\" href=\"#/swag/paypal/index\">Paypal plugin indstillinger →</a> og aktiver PayPal Commerce Platform, for at aktivere denne betalingsmetode."
+    },
+    "swag-paypal": {
+        "header": "PayPal",
+        "saleschannelCard": {
+            "button": {
+                "description": "Klik på denne knap for at aktivere PayPal og vælge den som standard i den valgte salgskanal",
+                "label": "Sæt PayPal som standard"
+            }
+        },
+        "general": {
+            "mainMenuItemGeneral": "PayPal",
+            "descriptionTextModule": "PayPal-indstillinger"
+        },
+        "messageNotBlank": "Denne værdi bør ikke være tom.",
+        "settingForm": {
+            "testLive": "Test API-legitimationsoplysninger",
+            "testSandbox": "Test sandkassens API-legitimationsoplysninger",
+            "checkout": {
+                "cardTitle": "PayPal Checkout",
+                "description": "PayPal Checkout er den nye All-in-One løsning som tilbyder en kraftfuld og fleksibel betalingsløsning, især på markedspladser og Commerce platforme.",
+                "banner": "Med PayPal Checkout kan du tilbyde dine kunder betaling med faktura, kreditkort og andre lokale betalingsmetoder. PayPal Checkout giver dig den nyeste teknologi og den højeste fleksibilitet. Du beholder dine eksisterende betalingsmetoder, og gebyrerne forbliver de samme! Aktiver PayPal Checkout og deaktiver PayPal PLUS for at undgå duplikerede betalingsmetoder i din webshop.<a href=\"https://www.shopware.com/en/news/paypal-launches-new-product/?utm_source=product&utm_medium=sw6-onprem&utm_campaign=paypal-checkout&utm_content=link-en-blog\" target=\"_blank\">Mere information</a>",
+                "button": {
+                    "title": "Start onboarding"
+                },
+                "sandbox": {
+                    "label": "Brug Sandbox credentials",
+                    "tooltipText": "Aktivér, hvis du vil teste PayPal-integrationen."
+                },
+                "switch": {
+                    "label": "Aktive"
+                },
+                "paymentMethodText": "Betalingsmetoder",
+                "showCredentials": "Vis credentials",
+                "appImageAlt": "PayPal",
+                "editDetail": "Redigér detaljer",
+                "startOnboardingButtonLabel": "Start onboarding",
+                "availabilityToolTip": {
+                    "BancontactAPMHandler": "Bancontact er tilgængelig i de følgende lande: Belgien",
+                    "BlikAPMHandler": "BLIK er tilgængelig i de følgende lande: Polen",
+                    "BoletoBancarioAPMHandler": "Boleto Bancário er tilgængelig i de følgende lande: Brasilien",
+                    "EpsAPMHandler": "eps er tilgængelig i de følgende lande: Østrig",
+                    "GiropayAPMHandler": "Giropay er tilgængelig i de følgende lande: Tyskland",
+                    "IdealAPMHandler": "iDEAL er tilgængelig i de følgende lande: Holland",
+                    "MultibancoAPMHandler": "Multibanco er tilgængelig i de følgende lande: Portugal",
+                    "MyBankAPMHandler": "MyBank er tilgængelig i de følgende lande: Italien",
+                    "OxxoAPMHandler": "OXXO er tilgængelig i de følgende lande: Mexico",
+                    "P24APMHandler": "Przelewy24 er tilgængelig i de følgende lande: Polen",
+                    "PUIHandler": "Pay upon invoice er tilgængelig i de følgende lande: Tyskland",
+                    "SEPAHandler": "SEPA lastschrift er tilgængelig i de følgende lande: Tyskland",
+                    "SofortAPMHandler": "Sofort er tilgængelig i de følgende lande: Østrig, Belgien, Tyskland, Italien, Holland, Spanien og England",
+                    "TrustlyAPMHandler": "Trustly er tilgængelig i de følgende lande: Estland, Finland, Holland og Sverige"
+                },
+                "onboardingStatusText": {
+                    "active": "Godkendt",
+                    "limited": "Begrænset",
+                    "pending": "Godkendelse afventer",
+                    "inactive": "Onboarding påkrævet"
+                },
+                "paymentMethodStatusChangedSuccess": {
+                    "active": "Betalingsmetoden \"{name}\" er nu aktiv.",
+                    "inactive": "Betalingsmetoden \"{name}\" er nu inaktiv."
+                },
+                "deactivatePayPalPlusModal": {
+                    "title": "Deaktiver PayPal PLUS",
+                    "text": "Tillykke! Ved at skifte til PayPal Checkout bliver du ved med at bruge alle relevante betalingsmetoder –  nu baseret på den nyeste teknologi.",
+                    "warning": "Undgå at vise duplikerede betalingsmetoder og deaktiver PayPal PLUS.",
+                    "button": {
+                        "deactivate": "Deaktiver PayPal PLUS",
+                        "cancel": "Annullér"
+                    }
+                }
+            },
+            "credentials": {
+                "cardTitle": "API-legitimationsoplysninger",
+                "clientId": {
+                    "label": "Klient-id",
+                    "tooltipText": "REST API-klient-id'et bruges til at godkende dette plugin med PayPal-API'en."
+                },
+                "clientSecret": {
+                    "label": "Klient hemmelighed",
+                    "tooltipText": "REST API-klienthemmeligheden bruges til at godkende dette plugin med PayPal-API'en."
+                },
+                "merchantPayerId": {
+                    "label": "PayPal Merchant ID",
+                    "tooltipText": "Det tildelte PayPal Merchant ID (se Virksomhedsoplysninger i PayPal-kontoindstillinger)."
+                },
+                "clientIdSandbox": {
+                    "label": "Sandkasse-klient-id",
+                    "tooltipText": "REST API-klient-id'et bruges under test til at godkende dette plugin med PayPal-API'en."
+                },
+                "clientSecretSandbox": {
+                    "label": "Sandkasse-klient hemmelighed",
+                    "tooltipText": "REST API-klienthemmeligheden bruges under test til at godkende dette plugin med PayPal API."
+                },
+                "merchantPayerIdSandbox": {
+                    "label": "Sandkasse PayPal Merchant ID",
+                    "tooltipText": "Det tildelte PayPal Merchant ID til din Sandbox (se Virksomhedsoplysninger i PayPal-kontoindstillinger)."
+                },
+                "sandbox": {
+                    "label": "Aktivér sandkasse",
+                    "tooltipText": "Aktivér, hvis du vil teste PayPal-integrationen."
+                },
+                "button": {
+                    "title": "Hent API-legitimationsoplysninger",
+                    "titleSandbox": "Hent sandkasse-API-legitimationsoplysninger",
+                    "messageFetchedError": "Prøv igen, eller indtast dine legitimationsoplysninger manuelt."
+                }
+            },
+            "behavior": {
+                "cardTitle": "Adfærd",
+                "merchantLocation": {
+                    "label": "Placering af forhandleren",
+                    "germany": "Tyskland",
+                    "other": "Anden købmandslokation"
+                },
+                "intent": {
+                    "label": "Erhvervelse af betaling",
+                    "CAPTURE": "Automatisk betaling indsamling (hensigt CAPTURE)",
+                    "AUTHORIZE": "Manuel betaling indsamling (hensigt AUTHORIZE)"
+                },
+                "submitCart": {
+                    "label": "Indsend indkøbskurv",
+                    "helpText": "Hvis denne indstilling er aktiv, sendes indkøbsvogndata til PayPal ved kassen."
+                },
+                "brandName": {
+                    "label": "Dit eget varemærke på PayPal-siden",
+                    "tooltipText": "Denne tekst vil blive vist som varemærket på PayPals betalingsside."
+                },
+                "landingPage": {
+                    "label": "PayPals landingsside",
+                    "helpText": {
+                        "login": "Login: PayPal-webstedet viser en loginskærm som landingsside.",
+                        "billing": "Registrering: PayPal-webstedet viser en registreringsformular som landingsside.",
+                        "no_preference": "Ingen præference: PayPal bestemmer, hvilken side der vises, afhængigt af kundens tidligere interaktion med PayPal."
+                    },
+                    "options": {
+                        "login": "Log ind",
+                        "billing": "Registrering",
+                        "no_preference": "Ingen præference"
+                    }
+                },
+                "sendOrderNumber": {
+                    "label": "Send ordrenummer",
+                    "helpText": "Hvis denne indstilling er aktiv, vil ordrenummeret blive sendt til PayPal som faktura-id ved kassen."
+                },
+                "orderNumberPrefix": {
+                    "label": "Ordrenummer præfiks",
+                    "tooltipText": "Denne tekst er placeret før det oprindelige ordrenummer (f.eks MyShop_SW20001). Dette hjælper med at identificere den butik, hvor betalingen blev foretaget. Du kan finde det som faktura-id i dit PayPal-dashboard."
+                },
+                "orderNumberSuffix": {
+                    "label": "Ordrenummer suffiks",
+                    "tooltipText": "Denne tekst er placeret efter det oprindelige ordrenummer (f.eks SW20001_MyShop). Dette hjælper med at identificere den butik, hvor betalingen blev foretaget. Du kan finde det som faktura-id i dit PayPal-dashboard."
+                },
+                "loggingLevel": {
+                    "label": "Fejlfinding",
+                    "tooltipText": "Når du bruger avanceret fejlfinding, registreres yderligere data under kassen for at opdage potentielle fejl. Kun til midlertidig brug.",
+                    "options": {
+                        "basic": "Grundlæggende",
+                        "advanced": "Avanceret"
+                    }
+                }
+            },
+            "express": {
+                "cardTitle": "PayPal Express Checkout",
+                "ecsDetailEnabled": {
+                    "label": "'Betal nu' på detaljesiden:",
+                    "helpText": "Hvis denne indstilling er aktiv, vises knappen Express Checkout på hver produktdetaljeside."
+                },
+                "ecsCartEnabled": {
+                    "label": "'Betal nu' på indkøbsvognen:",
+                    "helpText": "Hvis denne indstilling er aktiv, vises knappen Express Checkout i indkøbskurven."
+                },
+                "ecsOffCanvasEnabled": {
+                    "label": "'Betal nu' på Off-Canvas vogn:",
+                    "helpText": "Hvis denne indstilling er aktiv, vises knappen Express Checkout på Off-Canvas indkøbskurv."
+                },
+                "ecsLoginEnabled": {
+                    "label": "'Betal nu' på login-siden:",
+                    "helpText": "Hvis denne indstilling er aktiv, vises knappen Express Checkout på login- og registreringssiden."
+                },
+                "ecsListingEnabled": {
+                    "label": "'Betal nu' på listesider:",
+                    "helpText": "Hvis denne indstilling er aktiv, vises knappen Express Checkout på annoncesider."
+                },
+                "ecsButtonColor": {
+                    "label": "Knap farve:",
+                    "options": {
+                        "blue": "Blå",
+                        "black": "Sort",
+                        "gold": "Guld",
+                        "silver": "Sølv",
+                        "white": "Hvid"
+                    }
+                },
+                "ecsButtonShape": {
+                    "label": "Knap form:",
+                    "options": {
+                        "pill": "Runde",
+                        "rect": "rektangulær"
+                    }
+                },
+                "ecsSubmitCart": {
+                    "label": "Indsend indkøbskurv",
+                    "helpText": "Hvis denne indstilling er aktiv, sendes indkøbskurven til PayPal for Express-ordrer."
+                },
+                "ecsButtonLanguageIso": {
+                    "label": "Knap landestandard:",
+                    "helpText": "Hvis det ikke er angivet, bruges salgskanalens sprog."
+                }
+            },
+            "installment": {
+                "cardTitle": "Afdrag",
+                "installmentBannerEnabled": {
+                    "label": "Aktivér banner for afdrag"
+                }
+            },
+            "pui": {
+                "cardTitle": "Betal med faktura",
+                "customerServiceInstructions": {
+                    "label": "Instruktioner til kunden ved Betal med faktura",
+                    "helpText": "Disse instruktioner vil blive sendt til PayPal & RatePay og vist i e-mails til kunden."
+                }
+            },
+            "spb": {
+                "cardTitle": "PayPal-kassen med smarte betalingsknapper",
+                "spbCheckoutEnabled": {
+                    "label": "Aktiver Smart Payment Knapper"
+                },
+                "spbButtonLanguageIso": {
+                    "label": "Knap landestandard:",
+                    "helpText": "Hvis det ikke er angivet, bruges salgskanalens sprog."
+                },
+                "spbAlternativePaymentMethodsEnabled": {
+                    "label": "Aktivér de alternative betalingsmetoder for Smart-betalingsknapper.",
+                    "helpText": "Alternative betalingsmetoder er kredit- og betalingskort og meget mere."
+                },
+                "spbShowPayLater": {
+                    "label": "Vis Betal senere som separat knap"
+                }
+            },
+            "plus": {
+                "cardTitle": "PayPal PLUS",
+                "introduction": "<strong>PayPal PLUS:</strong> Din komplette alt-i-én betalingsløsning, herunder PayPal, Direct Debit og kreditkort. PayPal PLUS tilbyder dine kunder fuld fleksibilitet i at vælge deres foretrukne betalingsmetode. Dine fordele som sælger? Nemmere regnskab med kun én kontraherende part, en konto og en transaktion oversigt over alle indgående betalinger. Du modtager dine penge direkte efter kunderne har fuldført ordreprocessen.<br>Du kan ansøge om PayPal PLUS <a href='https://www.paypal.com/de/webapps/mpp/paypal-plus' target='_blank'>her</a>.",
+                "plusCheckoutEnabled": {
+                    "label": "Aktiver PayPal PLUS"
+                },
+                "hint": "Bemærk: PayPal PLUS fungerer kun med betalingsovertagelsen „Salg“. Den vil blive indstillet automatisk.",
+                "warning": {
+                    "active": "PayPal Checkout giver de samme betalingsmetoder til dine kunder – baseret på den nyeste teknologi. Aktivér PayPal Checkout nu, og deaktiver PayPal PLUS for at undgå at vise duplikerede betalingsmetoder. <a href=\"https://www.shopware.com/en/news/paypal-launches-new-product/?utm_source=product&utm_medium=sw6-onprem&utm_campaign=paypal-checkout&utm_content=link-en-blog\" target=\"_blank\">Mere information</a>",
+                    "inactive": "Undgå at vise duplikerede betalingsmetoder og deaktiver PayPal PLUS. <a href=\"https://www.shopware.com/en/news/paypal-launches-new-product/?utm_source=product&utm_medium=sw6-onprem&utm_campaign=paypal-checkout&utm_content=link-en-blog\" target=\"_blank\">Mere information</a>"
+                }
+            },
+            "locale-field": {
+                "infobox": {
+                    "text": "Hvis du vil se en liste over gyldige landekoder, skal du klikke på ",
+                    "href": "her"
+                },
+                "error": {
+                    "detail": "Den landekode, du har angivet, stemmer ikke overens med det format, der kræves af PayPal. Et gyldigt format er „da_DK“."
+                }
+            },
+            "messageSaveSuccess": "PayPal-indstillingerne er blevet gemt.",
+            "messageTestSuccess": "API-legitimationsoplysningerne er blevet valideret.",
+            "messageTestError": "API-legitimationsoplysningerne kunne ikke valideres.",
+            "messageWebhookCreated": "Webhook er blevet registreret.",
+            "messageWebhookUpdated": "Webhook er blevet opdateret.",
+            "messageWebhookError": "Webhook kunne ikke gemmes. Følgende fejl opstod:"
         }
     }
 }

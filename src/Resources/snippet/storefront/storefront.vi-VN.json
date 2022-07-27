@@ -25,7 +25,7 @@
         "required": "*",
         "requiredFields": "Trường được đánh dấu bằng dấu sao (*) là bắt buộc.",
         "privacyTitle": "Quyền riêng tư",
-        "privacyNotice": "Tôi đã đọc <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Data protection information\">thông tin bảo vệ dữ liệu</a>.",
+        "privacyNotice": "Bằng cách chọn tiếp tục, bạn xác nhận rằng bạn đã đọc <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%privacyUrl%\" href=\"%privacyUrl%\" title=\"Data protection information\">thông tin bảo vệ dữ liệu của chúng tôi</a> và chấp nhận <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%tosUrl%\" href=\"%tosUrl%\" title=\"general terms and conditions\">điều khoản và điều kiện chung của chúng tôi</a>.",
         "privacyLink": "Chính sách bảo mật",
         "imprintLink": "Dấu ấn",
         "404ErrorPageHeader": "Không tìm thấy trang",
@@ -36,7 +36,8 @@
         "sortingLabel": "Sắp xếp",
         "next": "Tiếp",
         "previous": "Trước",
-        "formSubmit": "Gửi"
+        "formSubmit": "Gửi",
+        "listPricePreviously": "trước đây %price%"
     },
     "header": {
         "logoLink": "Đi tới trang chủ",
@@ -62,24 +63,21 @@
         "FRAMEWORK__INVALID_UUID": "Phương thức thanh toán đã chọn không tồn tại.",
         "CHECKOUT__UNKNOWN_PAYMENT_METHOD": "Phương thức thanh toán đã chọn không tồn tại.",
         "productNotFound": "Không tìm thấy sản phẩm \"%number%\".",
-        "payment-method-blocked": "Thanh toán qua %name% không có sẵn.",
-        "shipping-address-blocked": "Vận chuyển đến địa chỉ đã chọn là không thể.",
-        "shipping-address-invalid": "Địa chỉ vận chuyển đã chọn không hợp lệ hoặc không đầy đủ. Vui lòng kiểm tra mục nhập của bạn.",
-        "billing-address-blocked": "Không thể thanh toán đến địa chỉ đã chọn.",
-        "billing-address-invalid": "Địa chỉ thanh toán đã chọn không hợp lệ hoặc không đầy đủ. Vui lòng kiểm tra mục nhập của bạn.",
         "VIOLATION::TOO_SHORT_ERROR": "%field% là quá ngắn.",
         "product-not-found": "Không thể tìm thấy sản phẩm.",
         "message-403-ajax": "Phiên của bạn đã hết hạn. Vui lòng tải lại trang và thử lại.",
         "message-403": "Phiên của bạn đã hết hạn. Vui lòng quay lại trang cuối và thử lại.",
         "product-out-of-stock": "%name% không có sẵn tại thời điểm này.",
         "auto-promotion-not-found": "Khuyến mãi \"%name%\" không còn giá trị nữa!",
+        "rateLimitExceeded": "Quá nhiều yêu cầu. Vui lòng đợi %seconds% giây trước khi thử lại.",
         "captcha": {
-            "basic-captcha-invalid": "Các captcha là không hợp lệ. Vui lòng kiểm tra mục nhập của bạn."
+            "basic-captcha-invalid": "Đầu vào không chính xác. Vui lòng thử lại."
         }
     },
     "account": {
-        "externalPaymentCanceled": "Chúng tôi đã nhận được đơn đặt hàng của bạn, nhưng khoản thanh toán đã bị hủy bỏ. Vui lòng thay đổi phương thức thanh toán của bạn hoặc thử lại",
-        "externalPaymentFailure": "chúng tôi nhận được đặt hàng của bạn, nhưng chúng tôi đã không thể xử lý thanh toán của bạn, xin vui lòng thay đổi phương thức thanh toán hoặc thử lại",
+        "externalPaymentCanceled": "Chúng tôi đã nhận được đơn đặt hàng của bạn, nhưng thanh toán đã bị hủy. Vui lòng thay đổi phương thức thanh toán của bạn hoặc thử lại.",
+        "externalPaymentExpired": "Chúng tôi đã nhận được đơn đặt hàng của bạn, nhưng quá trình thanh toán đã hết hạn. Vui lòng thử lại.",
+        "externalPaymentFailure": "Chúng tôi đã nhận được đơn đặt hàng của bạn, nhưng chúng tôi không thể xử lý thanh toán của bạn, vui lòng thay đổi phương thức thanh toán hoặc thử lại.",
         "confirmationIsAlreadyDone": "Địa chỉ email đã được xác nhận hoặc URL không hợp lệ.",
         "doubleOptInMailConfirmationSuccessfully": "Cảm ơn bạn đã xác nhận địa chỉ email của bạn! Bây giờ bạn có thể hoàn thành đơn hàng của mình.",
         "doubleOptInRegistrationSuccessfully": "Cảm ơn bạn đã đăng ký! Tài khoản của bạn đã được mở khóa thành công.",
@@ -94,6 +92,7 @@
         "loginPasswordRecover": "Tôi đã quên mật khẩu của mình.",
         "loginSubmit": "Đăng nhập",
         "loginBadCredentials": "Không thể tìm thấy tài khoản phù hợp với thông tin đăng nhập đã cho.",
+        "loginThrottled": "Quá nhiều lần đăng nhập. Vui lòng đợi %seconds% giây trước khi cố gắng đăng nhập lại.",
         "registerAdvantagesHeader": "Ưu điểm đăng nhập:",
         "registerAdvantage1": "Mua sắm Express",
         "registerAdvantage2": "Lưu dữ liệu và cài đặt của bạn",
@@ -161,6 +160,7 @@
         "overviewChangeShipping": "Thay đổi địa chỉ vận chuyển",
         "overviewNewestOrderHeader": "Đặt hàng cuối cùng",
         "overviewCustomerGroupRequest": "Yêu cầu truy cập vào nhóm khách hàng \"%group%\".",
+        "overviewNotAbleToShip": "Chúng tôi không thể giao hàng đến quốc gia được lưu trữ trong địa chỉ giao hàng của bạn.",
         "paymentChangeSubmit": "Thay đổi",
         "profilePersonalTitle": "Dữ liệu cá nhân",
         "profileMailTitle": "Địa chỉ email",
@@ -186,7 +186,7 @@
         "profileRecoverPasswordInfo": "Chúng tôi sẽ gửi cho bạn một email xác nhận. Nhấp vào liên kết trong email đó để thay đổi mật khẩu của bạn.",
         "profileRecoverPasswordSubmit": "Gửi email",
         "profileSaveChanges": "Lưu thay đổi",
-        "profileDelete": "<a href=\"%target%\" data-toggle=\"modal\" data-target=\"%target%\">Nhấp vào đây</a> để xóa tất cả dữ liệu cá nhân của bạn",
+        "profileDelete": "<a href=\"%target%\" data-toggle=\"modal\" data-bs-toggle=\"modal\" data-target=\"%target%\" data-bs-target=\"%target%\">Nhấp vào đây</a> để xóa tất cả dữ liệu cá nhân của bạn",
         "profileDeleteAlert": "Sau khi xóa dữ liệu cá nhân của tài khoản khách hàng của bạn, các mục nhận bản tin và đánh giá sẽ không thể truy cập được nữa. Lưu ý rằng hồ sơ của tất cả các đơn đặt hàng dù sao cũng sẽ được lưu giữ để thực hiện các quy định pháp lý.",
         "profileDeleteConfirm": "Bạn có thực sự muốn xóa tài khoản khách hàng của mình?",
         "profileDeleteModalTitle": "Tài khoản khách hàng",
@@ -244,7 +244,8 @@
         "editOrderCancelOrderModalBodyQuestion": "Bạn có chắc chắn muốn hủy đơn hàng của bạn sau khi tất cả?",
         "editOrderCancelOrderModalFooterButton": "Hủy đơn hàng",
         "editOrderCancelOrderModalFooterButtonBack": "Quay lại",
-        "editOrderPaymentNotChangeable": "Không thể thay đổi phương thức thanh toán hiện tại! Có một khoản chiết khấu hoặc lợi ích quảng cáo tương tự gắn với phương thức thanh toán sẽ bị mất khi thay đổi. Vui lòng hủy đơn đặt hàng của bạn và đặt hàng lại.",
+        "editOrderPaymentNotChangeable": "Đơn hàng này đã được xử lý hoặc có chiết khấu hoạt động gắn liền với phương thức thanh toán, do đó bạn không thể chỉnh sửa nó nữa.",
+        "editOrderPaymentNotChangeableWithRefunds": "Đơn hàng này đã được xử lý hoặc có chiết khấu hoạt động gắn liền với phương thức thanh toán, do đó bạn không thể chỉnh sửa nó nữa. Vui lòng hủy đơn đặt hàng của bạn và sắp xếp lại.",
         "orderNumber": "Số đơn hàng:",
         "orderItemColumnNumber": "Số đơn hàng:",
         "orderItemColumnPaymentMethod": "Phương thức thanh toán",
@@ -297,6 +298,8 @@
         "cityPlaceholder": "Vào thành phố...",
         "countryLabel": "Quốc gia",
         "countryPlaceholder": "Chọn quốc gia...",
+        "countryPostfixNoShipping": "(Không thể giao hàng)",
+        "countryNoShippingAlert": "Việc giao hàng đến đất nước này là không thể.",
         "countryStateLabel": "Tiểu bang",
         "countryStatePlaceholder": "Chọn trạng thái...",
         "phoneNumberLabel": "Số điện thoại",
@@ -314,6 +317,7 @@
         "addressLoginToggle": "Bạn đã có một tài khoản? Bấm vào đây để đăng nhập.",
         "addressRegisterCardTitle": "Thông tin cá nhân của bạn",
         "registerGuestmodeLabel": "Không tạo tài khoản khách hàng.",
+        "registerCustomermodeLabel": "Tạo một tài khoản khách hàng.",
         "cartTitle": "Giỏ hàng",
         "cartHeader": "Giỏ hàng",
         "cartUpdateSuccess": "Giỏ hàng đã cập nhật",
@@ -328,6 +332,8 @@
         "summaryHeader": "Tóm tắt",
         "lineItemContainerHeadline": "Chứa",
         "lineItemContainerChangeLink": "thay đổi",
+        "lineItemShowMore": "hơn",
+        "lineItemShowLess": "ít hơn",
         "cartEmpty": "Giỏ hàng của bạn trống.",
         "cartHeaderInfo": "Sản Phẩm",
         "cartHeaderQuantity": "Số lượng",
@@ -366,8 +372,8 @@
         "confirmSubmit": "Gửi đơn đặt hàng",
         "confirmTermsHeader": "Điều khoản và điều kiện và chính sách hủy",
         "confirmRevocationNotice": "Xin lưu ý chính sách hủy của chúng tôi.",
-        "confirmTerms": "Tôi đã đọc và chấp nhận <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"general terms and conditions\">điều khoản chung và điều kiện</a>.",
-        "confirmTermsReminder": "Bạn đã chấp nhận <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"general terms and conditions\">điều khoản và điều kiện chung</a>.",
+        "confirmTerms": "Tôi đã đọc và chấp nhận <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"general terms and conditions\">điều khoản và điều kiện chung</a>.",
+        "confirmTermsReminder": "Bạn đã chấp nhận <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"general terms and conditions\">điều khoản và điều kiện chung</a>.",
         "finishInfoPayment": "Phương thức thanh toán:",
         "finishInfoShipping": "Phương thức vận chuyển:",
         "finishHeader": "Cảm ơn bạn đã đặt hàng của bạn với %shop%!",
@@ -385,26 +391,37 @@
         "shippingCountry": "Quốc gia vận chuyển",
         "paymentMethod": "Phương thức thanh toán",
         "shippingMethod": "Phương thức vận chuyển",
+        "notAvailableSuffix": "(không có sẵn)",
         "product-stock-reached": "Sản phẩm \"%name%\" chỉ có sẵn %quantity% lần",
         "product-out-of-stock": "Sản phẩm \"%name%\" không còn nữa",
         "purchase-steps-quantity": "Sản phẩm \"%name%\" không có sẵn trong số lượng này. Số lượng đã được thay đổi thành %quantity%",
+        "min-order-quantity": "Số lượng sản phẩm “%name%\" không đáp ứng ngưỡng số lượng đặt hàng tối thiểu. Số lượng đã tự động được tăng lên %quantity%.",
         "shipping-method-blocked": "Phương thức vận chuyển \"%name%\" bị chặn cho giỏ hàng hiện tại của bạn.",
+        "shipping-method-changed": "“%oldShippingMethodName%\" vận chuyển không có sẵn cho giỏ hàng hiện tại của bạn, vận chuyển đã được thay đổi thành \"%newShippingMethodName%”.",
         "payment-method-blocked": "Phương thức thanh toán \"%name%\" bị chặn cho giỏ hàng hiện tại của bạn.",
+        "payment-method-changed": "Thanh toán “%oldPaymentMethodName%\" không có sẵn cho giỏ hàng hiện tại của bạn, khoản thanh toán đã được thay đổi thành \"%newPaymentMethodName%”.",
         "lineItemDeliveryDate": "Thời gian giao hàng: %earliest% - %latest%",
         "promotion-discount-deleted": "Giảm giá \"%name%\" đã được gỡ bỏ",
         "promotion-discount-added": "Giảm giá \"%name%\" đã được thêm",
         "promotion-not-found": "Không tìm thấy chương trình khuyến mãi với mã \"%code%\".",
         "auto-promotion-not-found": "Khuyến mãi \"%name%\" không còn hợp lệ!",
         "promotion-not-eligible": "Mã khuyến mãi hợp lệ - tuy nhiên, không phải tất cả các điều kiện đã được đáp ứng và giảm giá không được áp dụng. Khi tất cả các điều kiện được đáp ứng, chiết khấu sẽ được áp dụng tự động.",
+        "promotion-excluded": "Một hoặc nhiều giảm giá đã bị xóa khỏi giỏ hàng, do xung đột với các khoản giảm giá khác. Khi các điều kiện được đáp ứng một lần nữa, giảm giá sẽ được áp dụng tự động.",
         "shipping-address-blocked": "Vận chuyển đến địa chỉ vận chuyển đã chọn hiện không thể.",
         "billing-address-blocked": "Không thể thanh toán đến địa chỉ đã chọn.",
+        "shipping-address-invalid": "Địa chỉ giao hàng đã chọn không hợp lệ hoặc không đầy đủ. Vui lòng kiểm tra các mục nhập của bạn.",
+        "billing-address-invalid": "Địa chỉ thanh toán đã chọn không hợp lệ hoặc không đầy đủ. Vui lòng kiểm tra các mục nhập của bạn.",
         "customerCommentHeader": "Thông tin bổ sung",
         "customerCommentLabel": "Bạn có muốn cho chúng tôi biết bất cứ điều gì về đơn hàng của bạn?",
         "customerCommentPlaceholder": "Bình luận ở đây...",
         "cart-merged-hint": "Giỏ hàng hiện tại có thể chứa các sản phẩm bổ sung đã được thêm vào và lưu trong lần truy cập trước đó.",
         "collapseTriggerMore": "Xem thêm",
         "collapseTriggerLess": "Hiển thị ít hơn",
-        "product-not-found": "Không thể tìm thấy sản phẩm."
+        "product-not-found": "Không thể tìm thấy sản phẩm.",
+        "salutation-missing": "Một lời chào bị thiếu trong hồ sơ của bạn, vui lòng chọn một trong quá trình thanh toán.",
+        "salutation-missing-profile": "Không có lời chào được cấu hình trong hồ sơ của bạn, vui lòng đặt một <a href=\"%url%\">ở đây</a>.",
+        "salutation-missing-billing-address": "Không có lời chào được cấu hình cho địa chỉ thanh toán hoạt động của bạn, vui lòng đặt một <a href=\"%url%\">ở đây</a>.",
+        "salutation-missing-shipping-address": "Không có lời chào được cấu hình cho địa chỉ vận chuyển đang hoạt động của bạn, vui lòng đặt một <a href=\"%url%\">ở đây</a>."
     },
     "listing": {
         "filterTitleText": "Lọc",
@@ -428,9 +445,10 @@
         "filterRatingAndMore": "phút. %points%/%maxPoints%",
         "filterRangeMinLabel": "Tối thiểu",
         "filterRangeMaxLabel": "Tối đa",
-        "filterRangeActiveMinLabel": "Giá từ",
-        "filterRangeActiveMaxLabel": "Giá đến",
-        "filterRangeErrorMessage": "Giá tối thiểu không thể cao hơn mức giá tối đa.",
+        "filterRangeActiveMinLabel": "%displayName% từ",
+        "filterRangeActiveMaxLabel": "%displayName% sang",
+        "filterRangeErrorMessage": "Giá trị tối thiểu không thể cao hơn giá trị lớn nhất.",
+        "filterRangeLowerBoundErrorMessage": "Giá trị tối thiểu và tối đa phải lớn hơn hoặc bằng %lowerBound%.",
         "filterSubmitText": "Lọc",
         "defaultProductSortingLabel": "Tên, tăng dần",
         "disabledFilterTooltip": "Bộ lọc này không hiển thị bất kỳ kết quả nào khác kết hợp với các bộ lọc đã chọn.",
@@ -536,6 +554,7 @@
         "headline": "Danh sách mong muốn của bạn",
         "itemDeleteSuccess": "Bạn đã xóa thành công sản phẩm khỏi danh sách mong muốn của bạn.",
         "itemAddedSuccess": "Bạn đã thêm thành công sản phẩm vào danh sách mong muốn của bạn.",
+        "duplicateItemError": "Sản phẩm đã được thêm vào danh sách mong muốn của bạn.",
         "currentlyNotAvailable": "Hiện không có sẵn",
         "manufacturerDisplayName": "Nhà sản xuất",
         "deliveryTimeAvailable": "Có sẵn, thời gian giao hàng %name%",
@@ -551,21 +570,21 @@
         "informationHeadline": "Thông tin",
         "newsletterHeadline": "Bản tin",
         "serviceHotline": "Hỗ trợ và tư vấn thông qua: <a href=\"tel:+49180000000\">0180 - 000000</a> Thứ Hai - Thứ Sáu, 9 giờ sáng - 5 giờ chiều",
-        "serviceContactLink": "Hoặc qua mẫu liên hệ <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"contact form\">của chúng tôi</a>.",
+        "serviceContactLink": "Hoặc thông qua hình thức liên lạc <a data-bs-toggle=\"modal\" data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"contact form\">của chúng tôi</a>.",
         "newsletterInput": "Địa chỉ email của bạn",
         "newsletter": "Đăng ký nhận bản tin thường xuyên của chúng tôi ngay bây giờ để theo dõi các sản phẩm mới nhất và ưu đãi đặc biệt.",
-        "includeVat": "* Tất cả giá bao gồm thuế GTGT cộng với <a data-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">chi phí vận chuyển</a> và chi phí giao hàng có thể, nếu không quy định khác.",
-        "excludeVat": "* Tất cả giá không bao gồm. VAT cộng với <a data-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">chi phí vận chuyển</a> và chi phí giao hàng có thể, nếu không quy định khác.",
+        "includeVat": "* Tất cả các giá bao gồm VAT cộng với <a data-toggle=\"modal\" data-bs-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">chi phí vận chuyển</a> và phí giao hàng có thể, nếu không được nêu khác.",
+        "excludeVat": "* Tất cả các giá không bao gồm. VAT cộng với <a data-toggle=\"modal\" data-bs-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">chi phí vận chuyển</a> và phí giao hàng có thể, nếu không được nêu khác.",
         "copyrightInfo": "Thực hiện với Shopware"
     },
     "captcha": {
         "googleReCaptcha": {
-            "dataProtectionInformation": "Trang web này được bảo vệ bởi reCAPTCHA và Google\n<a href=\"https://policies.google.com/privacy\">Chính sách bảo mật</a> và\n<a href=\"https://policies.google.com/terms\">Điều khoản dịch vụ</a> áp dụng."
+            "dataProtectionInformation": "Trang web này được bảo vệ bởi reCAPTCHA và Chính sách bảo mật của Google <a href=\"https://policies.google.com/privacy\"></a> và <a href=\"https://policies.google.com/terms\">Điều khoản dịch vụ</a> áp dụng."
         },
         "basicCaptchaLabel": "Vui lòng nhập các ký tự hiển thị ở trên*"
     },
     "cookie": {
-        "message": "Trang web này sử dụng cookie để đảm bảo trải nghiệm tốt nhất có thể. <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"More information\">Thêm thông tin...</a>",
+        "message": "Trang web này sử dụng cookie để đảm bảo trải nghiệm tốt nhất có thể. <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"More information\">Thêm thông tin...</a>",
         "deny": "Từ chối",
         "configure": "Cấu hình",
         "configuration": "Thiết đặt",
@@ -577,7 +596,7 @@
         "groupRequiredSession": "Phiên",
         "groupRequiredCsrf": "Bảo vệ CSRF",
         "groupRequiredTimezone": "Múi giờ",
-        "groupRequiredCaptcha": "Tích hợp Captcha",
+        "groupRequiredCaptcha": "Tích hợp CAPTCHA",
         "groupStatistical": "Thống kê",
         "groupStatisticalDescription": "Cookies được sử dụng để thống kê và chỉ số hiệu suất cửa hàng.",
         "groupStatisticalGoogleAnalytics": "Google Analytics",
@@ -593,7 +612,7 @@
             "feature": {
                 "label": {
                     "manufacturerNumber": "Số nhà sản xuất:",
-                    "ean": "EAN:",
+                    "ean": "GTIN/EAN:",
                     "weight": "Trọng lượng:",
                     "width": "Chiều rộng:",
                     "height": "Chiều cao:",
@@ -610,8 +629,42 @@
         },
         "cms": {
             "vimeo": {
-                "privacyNotice": "Bằng cách xem video, bạn đồng ý rằng dữ liệu của bạn sẽ được chuyển sang %platform% và rằng bạn đã đọc <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Privacy policy\">Chính sách bảo mật</a>.",
+                "privacyNotice": "Bằng cách xem video, bạn đồng ý rằng dữ liệu của bạn sẽ được chuyển đến %platform% và bạn đã đọc Chính sách bảo mật <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Privacy policy\"></a>.",
                 "acceptButtonLabel": "Chấp nhận"
+            },
+            "defaultMedia": {
+                "preview_camera_large": {
+                    "title": "Máy ảnh",
+                    "alt": "Vintage kodak ảnh máy ảnh với vỏ bọc da và dây đeo"
+                },
+                "preview_camera_small": {
+                    "title": "Máy ảnh",
+                    "alt": "Vintage kodak ảnh máy ảnh với vỏ bọc da và dây đeo"
+                },
+                "preview_glasses_large": {
+                    "title": "Kính râm",
+                    "alt": "Kính râm khung vàng trên bề mặt đá cẩm thạch phản chiếu"
+                },
+                "preview_glasses_small": {
+                    "title": "Kính râm",
+                    "alt": "Kính râm khung vàng trên bề mặt đá cẩm thạch phản chiếu"
+                },
+                "preview_mountain_large": {
+                    "title": "Những ngọn núi phủ đầy tuyết",
+                    "alt": "Sườn núi đá với ngọn phủ đầy tuyết"
+                },
+                "preview_mountain_small": {
+                    "title": "Những ngọn núi phủ đầy tuyết",
+                    "alt": "Sườn núi đá với ngọn phủ đầy tuyết"
+                },
+                "preview_plant_large": {
+                    "title": "Nhà máy",
+                    "alt": "Mọng nước trong một nồi trắng ở phía trước của ánh sáng màu xanh nền"
+                },
+                "preview_plant_small": {
+                    "title": "Nhà máy",
+                    "alt": "Mọng nước trong một nồi trắng ở phía trước của ánh sáng màu xanh nền"
+                }
             }
         }
     }

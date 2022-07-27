@@ -25,7 +25,7 @@
         "required": "*",
         "requiredFields": "Bidang ditandai dengan tanda bintang (*)\ndiperlukan.",
         "privacyTitle": "Privasi",
-        "privacyNotice": "Saya sudah membaca <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Data protection information\"> informasi perlindungan data</a>.",
+        "privacyNotice": "Dengan memilih, lanjutkan Anda mengonfirmasi bahwa Anda telah membaca <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%privacyUrl%\" href=\"%privacyUrl%\" title=\"Data protection information\">informasi perlindungan data kami</a> dan menerima <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%tosUrl%\" href=\"%tosUrl%\" title=\"general terms and conditions\">syarat dan ketentuan umum kami</a>.",
         "privacyLink": "Kebijakan privasi",
         "imprintLink": "Jejak",
         "404ErrorPageHeader": "Halaman tidak ditemukan",
@@ -36,7 +36,8 @@
         "sortingLabel": "Penyortiran",
         "next": "Berikutnya",
         "previous": "Sebelumnya",
-        "formSubmit": "Menyerahkan"
+        "formSubmit": "Menyerahkan",
+        "listPricePreviously": "sebelumnya %price%"
     },
     "header": {
         "logoLink": "Pergi ke beranda",
@@ -62,24 +63,21 @@
         "FRAMEWORK__INVALID_UUID": "Metode pembayaran yang dipilih tidak ada.",
         "CHECKOUT__UNKNOWN_PAYMENT_METHOD": "Metode pembayaran yang dipilih tidak ada.",
         "productNotFound": "Produk %number% tidak ditemukan.",
-        "payment-method-blocked": "Pembayaran melalui %name% tidak tersedia.",
-        "shipping-address-blocked": "Pengiriman ke alamat yang dipilih tidak tersedia.",
-        "shipping-address-invalid": "Alamat pengiriman yang dipilih tidak valid atau tidak lengkap. Silakan periksa entri Anda.",
-        "billing-address-blocked": "Penagihan ke alamat yang dipilih tidak mungkin.",
-        "billing-address-invalid": "Alamat penagihan yang dipilih tidak valid atau tidak lengkap. Silakan periksa entri Anda.",
         "VIOLATION::TOO_SHORT_ERROR": "%field% terlalu pendek.",
         "product-not-found": "Produk tidak ditemukan.",
         "message-403-ajax": "Sesi anda telah kadaluarsa. Silahkan muat ulang halaman dan coba lagi.",
         "message-403": "Sesi anda telah kadaluarsa. Silahkan kembali ke halaman terakhir dan coba lagi.",
         "product-out-of-stock": "%name% sedang tidak tersedia saat ini.",
         "auto-promotion-not-found": "Promosi \"%name%\" tidak berlaku lagi!",
+        "rateLimitExceeded": "Terlalu banyak permintaan. Silakan tunggu %seconds% detik sebelum mencoba lagi.",
         "captcha": {
-            "basic-captcha-invalid": "Captcha tidak valid. Silakan periksa entri Anda."
+            "basic-captcha-invalid": "Masukan salah. Silakan coba lagi."
         }
     },
     "account": {
-        "externalPaymentCanceled": "Kami menerima pesananmu, tapi pembayarannya dibatalkan. Silahkan ubah metode pembayaran Anda atau coba lagi",
-        "externalPaymentFailure": "Kami menerima pesanan Anda, tetapi kami tidak dapat memproses pembayaran Anda, silakan mengubah metode pembayaran atau coba lagi",
+        "externalPaymentCanceled": "Kami telah menerima pesanan Anda, tapi pembayarannya dibatalkan. Silakan ubah metode pembayaran Anda atau coba lagi.",
+        "externalPaymentExpired": "Kami telah menerima pesanan Anda, tetapi proses pembayaran telah berakhir. Silakan coba lagi.",
+        "externalPaymentFailure": "Kami telah menerima pesanan Anda, tetapi kami tidak dapat memproses pembayaran Anda, silakan ubah metode pembayaran atau coba lagi.",
         "confirmationIsAlreadyDone": "Surel sudah dikonfirmasi atau URL tidak valid.",
         "doubleOptInMailConfirmationSuccessfully": "Terima kasih telah menkonfirmasi surel anda! Anda dapat menyelesaikan pesanan anda sekarang.",
         "doubleOptInRegistrationSuccessfully": "Terima kasih telah mendaftar! Akun anda berhasil dibuka.",
@@ -94,6 +92,7 @@
         "loginPasswordRecover": "Saya telah lupa sandi saya.",
         "loginSubmit": "Masuk",
         "loginBadCredentials": "Tidak dapat menemukan akun yang cocok dengan kredensial ini.",
+        "loginThrottled": "Terlalu banyak upaya login. Harap tunggu %seconds% detik sebelum mencoba masuk lagi.",
         "registerAdvantagesHeader": "Keuntungan masuk:",
         "registerAdvantage1": "Belanja cepat",
         "registerAdvantage2": "Simpan data dan pengaturan anda",
@@ -161,6 +160,7 @@
         "overviewChangeShipping": "Ubah alamat pengiriman",
         "overviewNewestOrderHeader": "Pesanan terakhir",
         "overviewCustomerGroupRequest": "Akses ke grup pelanggan \"%group%\" telah diminta.",
+        "overviewNotAbleToShip": "Kami tidak dapat mengirimkan ke negara yang disimpan di alamat pengiriman Anda.",
         "paymentChangeSubmit": "Ubah",
         "profilePersonalTitle": "Data pribadi",
         "profileMailTitle": "Alamat email",
@@ -186,7 +186,7 @@
         "profileRecoverPasswordInfo": "Kami akan mengirimkan email konfirmasi. Klik tautan dalam email untuk merubah kata sandi.",
         "profileRecoverPasswordSubmit": "Kirim email",
         "profileSaveChanges": "Simpan perubahan",
-        "profileDelete": "<a href=\"%target%\" data-toggle=\"modal\" data-target=\"%target%\">Klik di sini</a> untuk menghapus semua data pribadi Anda",
+        "profileDelete": "<a href=\"%target%\" data-toggle=\"modal\" data-bs-toggle=\"modal\" data-target=\"%target%\" data-bs-target=\"%target%\">Klik di sini</a> untuk menghapus semua data pribadi Anda",
         "profileDeleteAlert": "Setelah menghapus data pribadi akun pelanggan Anda, entri newsletter dan ulasan tidak akan dapat diakses oleh Anda lagi. Perhatikan bahwa catatan semua pesanan akan tetap disimpan untuk memenuhi peraturan hukum.",
         "profileDeleteConfirm": "Apakah Anda benar-benar ingin menghapus akun pelanggan Anda?",
         "profileDeleteModalTitle": "Akun Pelanggan",
@@ -244,7 +244,8 @@
         "editOrderCancelOrderModalBodyQuestion": "Apakah anda yakin untuk membatalkan pesanan anda?",
         "editOrderCancelOrderModalFooterButton": "Batalkan pesanan",
         "editOrderCancelOrderModalFooterButtonBack": "Kembali",
-        "editOrderPaymentNotChangeable": "Tidak dapat mengubah metode pembayaran yang dipilih! Terdapat potongan harga atau keuntungan promosi sejenis yang terikat dengan metode pembayaran yang akan hilang ketika diubah. Sila batalkan pesanan anda dan pesan ulang.",
+        "editOrderPaymentNotChangeable": "Pesanan ini sudah diproses atau memiliki diskon aktif yang terkait dengan metode pembayaran, oleh karena itu Anda tidak dapat mengeditnya lagi.",
+        "editOrderPaymentNotChangeableWithRefunds": "Pesanan ini sudah diproses atau memiliki diskon aktif yang terkait dengan metode pembayaran, oleh karena itu Anda tidak dapat mengeditnya lagi. Silahkan batalkan pesanan Anda dan menyusun ulang.",
         "orderNumber": "Nomor pesanan:",
         "orderItemColumnNumber": "Nomor pesanan:",
         "orderItemColumnPaymentMethod": "Metode pembayaran",
@@ -297,6 +298,8 @@
         "cityPlaceholder": "Masukkan kota...",
         "countryLabel": "Negara",
         "countryPlaceholder": "Pilih negara...",
+        "countryPostfixNoShipping": "(Pengiriman tidak mungkin)",
+        "countryNoShippingAlert": "Pengiriman ke negara ini tidak mungkin.",
         "countryStateLabel": "Negara",
         "countryStatePlaceholder": "Pilih negara...",
         "phoneNumberLabel": "Nomor telepon",
@@ -314,6 +317,7 @@
         "addressLoginToggle": "Anda sudah memiliki akun? Klik disini untuk masuk.",
         "addressRegisterCardTitle": "Detil personal anda",
         "registerGuestmodeLabel": "Jangan membuat akun pelanggan.",
+        "registerCustomermodeLabel": "Buat akun pelanggan.",
         "cartTitle": "Keranjang pengiriman",
         "cartHeader": "Keranjang belanja",
         "cartUpdateSuccess": "Keranjang belanja diperbaharui",
@@ -328,6 +332,8 @@
         "summaryHeader": "Ringkasan",
         "lineItemContainerHeadline": "Berisi",
         "lineItemContainerChangeLink": "perubahan",
+        "lineItemShowMore": "lebih banyak",
+        "lineItemShowLess": "kurang",
         "cartEmpty": "Keranjang belanja anda kosong.",
         "cartHeaderInfo": "Produk",
         "cartHeaderQuantity": "Kuantitas",
@@ -366,8 +372,8 @@
         "confirmSubmit": "Kirim pesanan",
         "confirmTermsHeader": "Syarat dan ketentuan serta kebijakan pembatalan",
         "confirmRevocationNotice": "Tolong perhatikan kebijakan pembatalan kami.",
-        "confirmTerms": "Saya telah membaca dan menyetujui <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"syarat dan ketentuan umum\">syarat dan ketentuan umum</a>.",
-        "confirmTermsReminder": "Saya telah menyetujui <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"syarat dan ketentuan umum\">syarat dan ketentuan umum</a>.",
+        "confirmTerms": "Saya telah membaca dan menerima <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"syarat dan ketentuan umum\">syarat dan ketentuan umum</a>.",
+        "confirmTermsReminder": "Anda telah menerima <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"syarat dan ketentuan umum\">syarat dan ketentuan umum</a>.",
         "finishInfoPayment": "Metode pembayaran:",
         "finishInfoShipping": "Metode pengiriman:",
         "finishHeader": "Terima kasih untuk pesanan anda dengan %shop%!",
@@ -385,26 +391,37 @@
         "shippingCountry": "Negara pengiriman",
         "paymentMethod": "Metode pembayaran",
         "shippingMethod": "Metode pengiriman",
+        "notAvailableSuffix": "(tidak tersedia)",
         "product-stock-reached": "Produk \"%name%\" hanya tersedia %quantity% kali",
         "product-out-of-stock": "Produk \"%name%\" tidak tersedia lagi",
         "purchase-steps-quantity": "Produk \"%name%\" tidak tersedia dalam jumlah ini. Kuantitas diubah menjadi %quantity%",
+        "min-order-quantity": "Kuantitas produk \"%name%\" tidak memenuhi ambang batas kuantitas minimum order. Kuantitas telah secara otomatis ditingkatkan menjadi %quantity%.",
         "shipping-method-blocked": "Metode pengiriman \"%name%\" diblokir untuk keranjang belanja Anda saat ini.",
+        "shipping-method-changed": "Metode pengiriman \"%oldShippingMethodName%\" tidak tersedia untuk barang anda, akan di alihkan ke metode \"%newShippingMethodName%\".",
         "payment-method-blocked": "Metode pembayaran \"%name%\" diblokir untuk keranjang belanja Anda saat ini.",
+        "payment-method-changed": "Metode pembayaran \"%oldPaymentMethodName%\" tidak tersedia untuk barang anda, akan di alihkan ke metode \"%newPaymentMethodName%\".",
         "lineItemDeliveryDate": "Waktu pengiriman: %earliest%-%latest%",
         "promotion-discount-deleted": "Diskon %name% telah dihapus",
         "promotion-discount-added": "Diskon %name% telah ditambahkan",
         "promotion-not-found": "Promosi dengan kode \"%code%\" tidak dapat ditemukan.",
         "auto-promotion-not-found": "Promosi \"%name%\" tidak berlaku lagi!",
         "promotion-not-eligible": "Kode promosi valid - namun, tidak semua kondisi telah dipenuhi dan diskon tidak diterapkan. Setelah seluruh kondisi telah terpenuhi, diskon akan kembali diterapkan secara otomatis.",
+        "promotion-excluded": "Satu atau lebih diskon telah dihapus dari keranjang belanja, karena konflik dengan diskon lainnya. Setelah kondisi terpenuhi lagi, diskon akan diterapkan secara otomatis.",
         "shipping-address-blocked": "Pengiriman ke alamat yang dipilih untuk dikirimkan saat ini tidak memungkinkan.",
         "billing-address-blocked": "Penagihan ke alamat yang dipilih tidak mungkin.",
+        "shipping-address-invalid": "Alamat pengiriman yang dipilih tidak valid atau tidak lengkap. Silakan periksa entri Anda.",
+        "billing-address-invalid": "Alamat penagihan yang dipilih tidak valid atau tidak lengkap. Silakan periksa entri Anda.",
         "customerCommentHeader": "Informasi tambahan",
         "customerCommentLabel": "Apakah anda ingin memberitahu kami tentang pesanan anda?",
         "customerCommentPlaceholder": "Komentar disini...",
         "cart-merged-hint": "Keranjang belanja saat ini mungkin berisi produk tambahan yang telah ditambahkan dan disimpan selama kunjungan sebelumnya.",
         "collapseTriggerMore": "Tampilkan lebih",
         "collapseTriggerLess": "Tampilkan lebih sedikit",
-        "product-not-found": "Produk tidak dapat ditemukan."
+        "product-not-found": "Produk tidak dapat ditemukan.",
+        "salutation-missing": "Salam hilang dari profil Anda, silakan pilih salah satu saat checkout.",
+        "salutation-missing-profile": "Tidak ada salam yang dikonfigurasi di profil Anda, silakan atur satu <a href=\"%url%\">di sini</a>.",
+        "salutation-missing-billing-address": "Tidak ada salam yang dikonfigurasi untuk alamat penagihan aktif Anda, silakan atur satu <a href=\"%url%\">di sini</a>.",
+        "salutation-missing-shipping-address": "Tidak ada salam yang dikonfigurasi untuk alamat pengiriman aktif Anda, silakan atur satu <a href=\"%url%\">di sini</a>."
     },
     "listing": {
         "filterTitleText": "Saring",
@@ -428,9 +445,10 @@
         "filterRatingAndMore": "min. %points%/%maxPoints%",
         "filterRangeMinLabel": "Minimum",
         "filterRangeMaxLabel": "Maksimum",
-        "filterRangeActiveMinLabel": "Harga dari",
-        "filterRangeActiveMaxLabel": "Harga ke",
-        "filterRangeErrorMessage": "Harga minimum tidak boleh lebih tinggi dari harga maksimum.",
+        "filterRangeActiveMinLabel": "%displayName% dari",
+        "filterRangeActiveMaxLabel": "%displayName% untuk",
+        "filterRangeErrorMessage": "Nilai minimum tidak boleh lebih tinggi dari nilai maksimum.",
+        "filterRangeLowerBoundErrorMessage": "Nilai minimum dan maksimum harus lebih besar atau sama dengan %lowerBound%.",
         "filterSubmitText": "Saring",
         "defaultProductSortingLabel": "Nama, naik",
         "disabledFilterTooltip": "Filter ini tidak menampilkan hasil lebih lanjut dalam kombinasi dengan filter yang dipilih.",
@@ -536,6 +554,7 @@
         "headline": "Wishlist Anda",
         "itemDeleteSuccess": "Anda telah berhasil menghapus produk dari daftar keinginan Anda.",
         "itemAddedSuccess": "Anda telah berhasil menambahkan produk ke daftar keinginan Anda.",
+        "duplicateItemError": "Produk telah ditambahkan ke wishlist anda.",
         "currentlyNotAvailable": "Saat ini tidak tersedia",
         "manufacturerDisplayName": "Pabrikan",
         "deliveryTimeAvailable": "Tersedia, waktu pengiriman %name%",
@@ -551,21 +570,21 @@
         "informationHeadline": "Informasi",
         "newsletterHeadline": "Newsletter/buletin",
         "serviceHotline": "Dukungan dan konseling melalui: <a href=\"tel:+49180000000\">0180-000000</a>senin-jumat, 9pagi-5sore",
-        "serviceContactLink": "Atau melalui<a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"contact form\">formulir kontak</a>.",
+        "serviceContactLink": "Atau melalui kami <a data-bs-toggle=\"modal\" data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"contact form\">formulir kontak</a>.",
         "newsletterInput": "Alamat email anda",
         "newsletter": "Berlangganan newsletter reguler kami sekarang untuk tetap menantikan produk terbaru dan penawaran khusus.",
-        "includeVat": "* Semua harga termasuk. PPN ditambah <a data-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">biaya pengiriman</a> dan kemungkinan biaya pengiriman, jika tidak dinyatakan sebaliknya.",
-        "excludeVat": "* Semua harga excl. PPN ditambah <a data-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">biaya pengiriman</a> dan biaya pengiriman mungkin, jika tidak dinyatakan sebaliknya.",
+        "includeVat": "* Semua harga termasuk PPN ditambah <a data-toggle=\"modal\" data-bs-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">biaya pengiriman</a> dan kemungkinan biaya pengiriman, jika tidak dinyatakan sebaliknya.",
+        "excludeVat": "* Semua harga excl. PPN ditambah <a data-toggle=\"modal\" data-bs-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">biaya pengiriman</a> dan kemungkinan biaya pengiriman, jika tidak dinyatakan sebaliknya.",
         "copyrightInfo": "Wujudkan dengan Shopware"
     },
     "captcha": {
         "googleReCaptcha": {
-            "dataProtectionInformation": "Situs ini dilindungi oleh reCAPTCHA dan Kebijakan Privasi Google\n<a href=\"https://policies.google.com/privacy\"></a> dan\n<a href=\"https://policies.google.com/terms\">Persyaratan Layanan</a> berlaku."
+            "dataProtectionInformation": "Situs ini dilindungi oleh reCAPTCHA dan Kebijakan Privasi Google <a href=\"https://policies.google.com/privacy\"></a> dan <a href=\"https://policies.google.com/terms\">Persyaratan Layanan</a> berlaku."
         },
         "basicCaptchaLabel": "Harap masukkan karakter yang ditunjukkan di atas*"
     },
     "cookie": {
-        "message": "Situs web ini menggunakan cookie untuk memastikan pengalaman yang terbaik. <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Informasi lainnya\">Informasi lainnya...</a>",
+        "message": "Situs web ini menggunakan cookie untuk memastikan pengalaman terbaik. <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"More information\">Informasi lebih lanjut...</a>",
         "deny": "Tolak",
         "configure": "Konfigurasi",
         "configuration": "Pengaturan",
@@ -577,7 +596,7 @@
         "groupRequiredSession": "Sesi",
         "groupRequiredCsrf": "Perlindungan CSRF",
         "groupRequiredTimezone": "Zona waktu",
-        "groupRequiredCaptcha": "Integrasi Captcha",
+        "groupRequiredCaptcha": "Integrasi CAPTCHA",
         "groupStatistical": "Statistik",
         "groupStatisticalDescription": "Cookie digunakan untuk statistik dan metrik performa toko.",
         "groupStatisticalGoogleAnalytics": "Google Analytics",
@@ -593,7 +612,7 @@
             "feature": {
                 "label": {
                     "manufacturerNumber": "Nomor produsen:",
-                    "ean": "EAN:",
+                    "ean": "GTIN/EAN:",
                     "weight": "Berat:",
                     "width": "Lebar:",
                     "height": "Tinggi:",
@@ -610,8 +629,42 @@
         },
         "cms": {
             "vimeo": {
-                "privacyNotice": "Dengan melihat video, Anda setuju bahwa data Anda akan ditransfer ke %platform% dan bahwa Anda telah membaca <a data-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Privacy policy\">Kebijakan Privasi</a>.",
+                "privacyNotice": "Dengan melihat video, Anda setuju bahwa data Anda akan ditransfer ke %platform% dan bahwa Anda telah membaca <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Privacy policy\">Kebijakan Privasi</a>.",
                 "acceptButtonLabel": "Terima"
+            },
+            "defaultMedia": {
+                "preview_camera_large": {
+                    "title": "Kamera",
+                    "alt": "Kamera foto kodak vintage dengan selubung kulit dan tali"
+                },
+                "preview_camera_small": {
+                    "title": "Kamera",
+                    "alt": "Kamera foto kodak vintage dengan selubung kulit dan tali"
+                },
+                "preview_glasses_large": {
+                    "title": "Kacamata hitam",
+                    "alt": "Kacamata bingkai emas pada permukaan marmer reflektif"
+                },
+                "preview_glasses_small": {
+                    "title": "Kacamata hitam",
+                    "alt": "Kacamata bingkai emas pada permukaan marmer reflektif"
+                },
+                "preview_mountain_large": {
+                    "title": "Pegunungan yang tertutup salju",
+                    "alt": "Ridge gunung berbatu dengan puncak tertutup salju"
+                },
+                "preview_mountain_small": {
+                    "title": "Pegunungan yang tertutup salju",
+                    "alt": "Ridge gunung berbatu dengan puncak tertutup salju"
+                },
+                "preview_plant_large": {
+                    "title": "Tanaman",
+                    "alt": "Sukulen dalam pot putih di depan latar belakang biru muda"
+                },
+                "preview_plant_small": {
+                    "title": "Tanaman",
+                    "alt": "Sukulen dalam pot putih di depan latar belakang biru muda"
+                }
             }
         }
     }

@@ -22,7 +22,7 @@ class PackLanguagesStillInUseException extends ShopwareHttpException
         }, $languages->getElements());
 
         parent::__construct(
-            'The following languages provided by SwagLanguagePack are still used by SalesChannels: {{ names }}',
+            'The following languages provided by SwagLanguagePack are still used by Sales Channels: {{ names }}',
             [
                 'names' => \implode(', ', $names),
             ]

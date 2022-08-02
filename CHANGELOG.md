@@ -1,5 +1,7 @@
-# NEXT-VERSION
+# 2.3.0
 - LAN-90 - Updated extension description
+- LAN-105 - All supported languages got updated by community translations (Shopware version 6.4.14.0)
+- LAN-112 - Updated Country flags for storefront language selection
 
 # 2.2.0
 - LAN-91 - Fixed compatibility for Shopware 6.4.6.0

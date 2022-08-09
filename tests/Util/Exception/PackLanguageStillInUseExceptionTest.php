@@ -23,7 +23,7 @@ class PackLanguageStillInUseExceptionTest extends TestCase
         $exception = new PackLanguagesStillInUseException(new EntityCollection([$language]));
 
         static::assertSame(
-            'The following languages provided by SwagLanguagePack are still used by Sales Channels: Nederlands',
+            "The following languages provided by Shopware's LanguagePack are still used by Sales Channels: Nederlands",
             $exception->getMessage()
         );
         static::assertSame('SWAG_LANGUAGE_PACK_LANGUAGE__STILL_IN_USE_IN_SALES_CHANNEL', $exception->getErrorCode());

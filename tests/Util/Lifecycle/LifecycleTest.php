@@ -50,7 +50,7 @@ class LifecycleTest extends TestCase
         $deactivateContext = $this->getDeactivateContext();
         $this->addPackLanguageLanguageToSalesChannel($languageRepository, $deactivateContext->getContext());
 
-        $this->expectExceptionMessage('The following languages provided by SwagLanguagePack are still used by SalesChannels: Nederlands');
+        $this->expectExceptionMessage('The following languages provided by SwagLanguagePack are still used by Sales Channels: Nederlands');
         $lifecycle->deactivate($deactivateContext);
     }
 

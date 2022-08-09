@@ -1,5 +1,7 @@
-# NEXT-VERSION
+# 2.3.0
 - LAN-90 - Erweiterungsbeschreibung aktualisiert
+- LAN-105 - Alle unterstützten Sprachen mit Community-Übersetzungen aktualisiert (Shopware Version 6.4.14.0)
+- LAN-112 - Länderflaggen zur Storefront-Sprachauswahl aktualisiert 
 
 # 2.2.0
 - LAN-91 - Kompatibilität für Shopware 6.4.6.0

@@ -17,6 +17,9 @@ use Swag\LanguagePack\PackLanguage\PackLanguageDefinition;
 use Symfony\Component\Validator\ConstraintViolation;
 use Symfony\Component\Validator\ConstraintViolationList;
 
+/**
+ * @internal
+ */
 class UserValidator extends AbstractLanguageValidator
 {
     protected function getSupportedCommandDefinitionClass(): string

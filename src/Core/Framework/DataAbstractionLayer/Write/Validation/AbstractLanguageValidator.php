@@ -22,6 +22,9 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Validator\ConstraintViolation;
 use Symfony\Component\Validator\ConstraintViolationList;
 
+/**
+ * @internal
+ */
 abstract class AbstractLanguageValidator implements EventSubscriberInterface
 {
     /**

@@ -16,6 +16,7 @@ use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\NotFilter;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Sorting\FieldSorting;
 use Shopware\Core\Framework\Plugin\Context\DeactivateContext;
 use Shopware\Core\Framework\Plugin\Context\UninstallContext;
+use Shopware\Core\System\Language\LanguageCollection;
 use Shopware\Core\System\Language\LanguageDefinition;
 use Swag\LanguagePack\Extension\LanguageExtension;
 use Swag\LanguagePack\PackLanguage\PackLanguageDefinition;
@@ -59,7 +60,9 @@ class Lifecycle
         $result = $this->languageRepository->search($criteria, $deactivateContext->getContext());
 
         if ($result->getTotal() > 0) {
-            throw new PackLanguagesStillInUseException($result->getEntities());
+            /** @var LanguageCollection $languages */
+            $languages = $result->getEntities();
+            throw new PackLanguagesStillInUseException($languages);
         }
     }
 
@@ -104,8 +107,8 @@ SQL;
             $checkSql = \str_replace(
                 $replaceVariables,
                 $dropColumn,
-                'SELECT * 
-                FROM `information_schema`.`REFERENTIAL_CONSTRAINTS` 
+                'SELECT *
+                FROM `information_schema`.`REFERENTIAL_CONSTRAINTS`
                 WHERE `CONSTRAINT_NAME` = "#constraint#"
                 AND `TABLE_NAME` = "#table#"
                 AND `CONSTRAINT_SCHEMA` = DATABASE();'

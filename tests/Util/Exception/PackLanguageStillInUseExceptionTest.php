@@ -9,6 +9,7 @@ namespace Swag\LanguagePack\Test\Util\Exception;
 
 use PHPUnit\Framework\TestCase;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityCollection;
+use Shopware\Core\System\Language\LanguageCollection;
 use Shopware\Core\System\Language\LanguageEntity;
 use Swag\LanguagePack\Util\Exception\PackLanguagesStillInUseException;
 
@@ -20,7 +21,7 @@ class PackLanguageStillInUseExceptionTest extends TestCase
         $language->setUniqueIdentifier('NobodyDoesCareAboutThisAtAll');
         $language->setName('Nederlands');
 
-        $exception = new PackLanguagesStillInUseException(new EntityCollection([$language]));
+        $exception = new PackLanguagesStillInUseException(new LanguageCollection([$language]));
 
         static::assertSame(
             "The following languages provided by Shopware's LanguagePack are still used by Sales Channels: Nederlands",

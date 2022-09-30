@@ -7,6 +7,7 @@
 
 namespace Swag\LanguagePack\Test\Util\Lifecycle;
 
+use Doctrine\DBAL\Cache\ArrayStatement;
 use Doctrine\DBAL\Connection;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
@@ -64,7 +65,7 @@ class LifecycleTest extends TestCase
 
         $connection->expects(static::atLeast(2))
             ->method('executeQuery')
-            ->willReturn(new FakeResultStatement([]));
+            ->willReturn(new ArrayStatement([]));
 
         /** @var EntityRepositoryInterface $languageRepository */
         $languageRepository = $this->getContainer()->get('language.repository');

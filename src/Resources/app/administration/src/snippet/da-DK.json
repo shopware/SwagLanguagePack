@@ -2234,7 +2234,7 @@
         },
         "mainMenu": {
             "mainMenuItemExtensionStore": "Udvidelser",
-            "store": "Opbevar",
+            "store": "Butik",
             "purchased": "Mine udvidelser",
             "support": "Support"
         }
@@ -2254,7 +2254,7 @@
             "activationDescriptionTitleDescription": "Aktivér Shopware Store, og få adgang til masser af nyttige udvidelser og moderne temaer, der kan integreres i din Shop uden programmeringsevner.",
             "activate": "Aktiver"
         },
-        "title": "Opbevar",
+        "title": "Butik",
         "descriptionTextModule": "Administrer dine udvidelser",
         "general": {
             "labelPrice": "Gratis | {price} /måned | {price}",
@@ -2961,15 +2961,26 @@
             "placeholderSalesChannels": "Vælg Salgskanaler...",
             "placeholderMailTemplate": "Vælg en e- mail- skabelon...",
             "titleRecipientsCard": "Modtagere af e-mail",
+            "textEmptyStateRecipients": "Tilføj alternative modtagere - Hvis udfyldt, vil kunde e-mails vil blive suspenderet!",
             "columnRecipientName": "Navn",
             "columnRecipientMail": "E-mail-adresse",
             "addRecipientButton": "Tilføj modtager",
             "placeholderRecipientEmailAddress": "Indtast e- mail- adresse...",
             "placeholderRecipientName": "Indtast modtagerens navn..."
         },
+        "deprecatedModal": {
+            "titleModal": "Flow Builder erstatter det tidligere Business Events",
+            "titleFlowBuilder": "Hvad er Flow Builder?",
+            "linkLearnMore": "Få mere at vide om Flow Builder",
+            "textFlowBuilderDescription": "<p>Vores nyeste værktøj - den helt nye Flow Builder - giver dig mulighed for at tage begivenhedsbaserede handlinger til et helt nyt niveau. Flow Builder gør det muligt at specificere begivenhedsudløsere endnu mere ved hjælp af regler. Selvfølgelig vil du stadig være i stand til at knytte handlinger og begivenheder til at automatisere e-mail-levering og endda foretage URL-opkald eller ordrestatusændringer.</p><p>Alle forretningshændelser er allerede blevet migreret til den nye Flow Builder. Modulet business events vil stadig være her, parallelt med den nye Flow Builder, men forberede modulet til at være væk efter den næste Shopware større udgivelse (6.5.0.0). Forretningshændelser, der er blevet tilføjet af eksterne apps, overføres ikke og skal integreres i Flow Builder med nye versioner af disse respektive apps.</p><p>Du kan stadig bruge forretningshændelser. Men nye oprettede eller redigerede forretningshændelser vil ikke blive flyttet til Flow Builder med den næste Shopware større udgivelse. Derfor opfordrer vi dig kraftigt til at bruge den nye Flow Builder fra nu af. Kun ty til forretningshændelser, hvis du ikke kan bruge Flow Builder på ingen måde (f.eks. begivenheder i tredjepartsudvidelser/apps).</p>",
+            "buttonStartBuilding": "Opsæt et forløb",
+            "linkFlowBuilder": "https://www.shopware.com/en/products/flow-builder/"
+        },
         "deprecatedAlert": {
+            "textBusinessEvent": "Business Events vil blive erstattet af <a href=\"#/sw/flow/index\" class=\"sw-event-action-deprecated-alert__link\">Flow Builder</a> med den næste større udgivelse.",
             "linkMoreInfo": "Mere information",
-            "textHide": "Skjul"
+            "textHide": "Skjul",
+            "linkFlowBuilder": "https://www.shopware.com/en/products/flow-builder/"
         }
     },
     "sw-customer": {
@@ -3335,6 +3346,7 @@
             "messageInvalidRefreshToken": "Ugyldig refresh token.",
             "messageAccessDenied": "Anmodning afvist af autorisationsserveren.",
             "messageGeneralRequestError": "Noget gik galt i forsøget på at indlæse \"{url}\".",
+            "messageAuthThrottled": "For mange login-forsøg. Vent venligst {seconds} sekunder, før du forsøger at logge ind igen.",
             "forgottenPasswordLink": "Glemt din adgangskode?"
         },
         "recovery": {
@@ -3490,6 +3502,7 @@
         },
         "captcha": {
             "label": {
+                "honeypot": "Honeypot",
                 "basicCaptcha": "Grundlæggende CAPTCHA",
                 "googleReCaptchaV2": "Google reCAPTCHA v2",
                 "googleReCaptchaV2SiteKey": "Google reCAPTCHA v2 webstedsnøgle",
@@ -3500,7 +3513,9 @@
                 "googleReCaptchaV3SecretKey": "Google reCAPTCHA v3 hemmelig nøgle",
                 "googleReCaptchaV3ThresholdScore": "Tærskelværdi for Google reCAPTCHA v3",
                 "googleReCaptchaV2CheckboxDescription": "\"Jeg er ikke en robot\" afkrydsningsfeltet kræver, at brugeren skal klikke på et afkrydningsfelt, for at indikere at brugeren, ikke er en robot. Dette vil enten godkende brugeren øjeblikkeligt (uden CAPTCHA), eller udfordre dem til at bekræfte om de er et menneske. Dette er den enkelteste løsning, og kræver kun to linjer HTML, for at renderer afkrydningsfeltet.",
-                "googleReCaptchaV2InvisibleDescription": "Det usinlige reCAPTCHA skilt kræver ikke at brugeren skal klikke på et afkrydningsfelt, i stedet er det aktiveret direkte, når en bruger klikker på en eksisterende knap på din side, eller det kan blive aktiveret via et JavaScript API kald. Integrationen kræver et JavaScript callback når reCHAPTCHA godkendelsen er fuldført. Som standard er det kun den mest mistænkelige trafik, som vil blive bedt om at løse en CAPTCHA. For at skifte denne opførsel kan du redigere din sides sikkerhedsindstillinger under avanceret indstillinger."
+                "googleReCaptchaV2InvisibleDescription": "Det usinlige reCAPTCHA skilt kræver ikke at brugeren skal klikke på et afkrydningsfelt, i stedet er det aktiveret direkte, når en bruger klikker på en eksisterende knap på din side, eller det kan blive aktiveret via et JavaScript API kald. Integrationen kræver et JavaScript callback når reCHAPTCHA godkendelsen er fuldført. Som standard er det kun den mest mistænkelige trafik, som vil blive bedt om at løse en CAPTCHA. For at skifte denne opførsel kan du redigere din sides sikkerhedsindstillinger under avanceret indstillinger.",
+                "googleReCaptchaV3Description": "reCAPTCHA v3 giver dig mulighed for at kontrollere, om en interaktion er legitim uden nogen brugerinteraktion. Det er et rent JavaScript API, der returnerer en score, giver dig mulighed for at gribe ind i forbindelse med dit websted: for eksempel kræver yderligere faktorer for godkendelse, sende et indlæg til moderering, eller begrænse bots, der kan skrabe indhold.",
+                "googleReCaptchaV3DescriptionThresholdScore": "reCAPTCHA v3 returnerer en score for hver anmodning uden brugerfriktion. Scoren er baseret på interaktioner med dit websted og giver dig mulighed for at træffe en passende handling for dit websted. Værdierne for tærskelscore varierer fra 0,0 til 1,0."
             }
         }
     },
@@ -3720,6 +3735,7 @@
         },
         "activity": {
             "invalidHelpText": "Ugyldige poster kan downloades via kontekstmenuen",
+            "dryrun": "Dry run",
             "columns": {
                 "size": "Størrelse",
                 "profile": "Profil",
@@ -3731,10 +3747,14 @@
             },
             "contextMenu": {
                 "showLog": "Åben logpost",
+                "showLogInfo": "Åben log filer",
                 "abortProcess": "Afbryd proces",
                 "downloadFile": "Download fil",
+                "downloadImportFile": "Hent importfil",
+                "downloadExportFile": "Hent eksportfil",
                 "showProfile": "Vis profil",
-                "downloadInvalidFile": "Hent ugyldige poster"
+                "downloadInvalidFile": "Hent ugyldige poster",
+                "showResults": "Vis resumé"
             },
             "detail": {
                 "modalTitle": "Log information",
@@ -3750,6 +3770,7 @@
                 "labelState": "Status",
                 "exportLabel": "Eksport",
                 "importLabel": "Import",
+                "dryrunLabel": "Dry run",
                 "labelDownloadFile": "Download fil",
                 "helpTextFailedRecords": "Mislykkede poster kan downloades, redigeres og importeres igen.",
                 "labelDownloadInvalidFile": "Download mislykkede poster"
@@ -3759,15 +3780,21 @@
                 "labelClose": "Luk",
                 "labelFilename": "Filnavn",
                 "labelType": "Type",
+                "labelExportRecords": "Eksporterede poster",
                 "labelSize": "Filstørrelse",
                 "labelUser": "Bruger",
                 "labelDate": "Dato / Tid",
                 "labelState": "Status",
                 "labelProfile": "Profil",
                 "exportLabel": "Eksportér",
-                "importLabel": "Importér"
+                "importLabel": "Importér",
+                "dryrunLabel": "Dry run",
+                "labelDownloadFile": "Hent eksportfil"
             },
             "result": {
+                "modalTitle": "Import historik",
+                "activityHeadline": "Importaktivitet: relaterede ændringer",
+                "activityDescription": "Følgende enheder blev påvirket af importen {entity}.",
                 "entityName": "Datasæt",
                 "changes": "Ændringer",
                 "errors": "Fejl",
@@ -3775,14 +3802,20 @@
                 "labelDownloadFile": "Download importfil",
                 "labelDownloadInvalidFile": "Download mislykkede poster",
                 "mainEntity": {
+                    "title": "Importaktivitet: {entity}",
                     "insert": "Oprettet",
                     "update": "Opdateret",
-                    "insertError": "Oprettelsesfejl"
+                    "insertError": "Oprettelsesfejl",
+                    "updateError": "Opdateringsfejl",
+                    "otherError": "Anden fejl",
+                    "insertSkip": "Oprettelse sprunget over",
+                    "updateSkip": "Opdatering sprunget over"
                 },
                 "logInfo": {
                     "title": "Log information",
                     "labelFilename": "Filnavn",
                     "labelType": "Type",
+                    "labelImported": "Importerede poster",
                     "labelSize": "Filstørrelse",
                     "labelState": "Status",
                     "labelUser": "Bruger",
@@ -3796,10 +3829,25 @@
                 "succeeded": "Gennemført",
                 "failed": "Mislykket",
                 "aborted": "Afbrudt"
+            },
+            "emptyState": {
+                "titleExport": "Ingen eksport",
+                "titleImport": "Ingen import",
+                "subLineExport": "Ingen registrerede eksportaktiviteter endnu.",
+                "subLineImport": "Ingen registrerede importaktiviteter endnu."
             }
         },
         "profile": {
+            "messageSaveSuccess": "Profil gemt.",
+            "messageSaveError": "Profil kunne ikke gemmes.",
+            "messageDeleteSuccess": "Profil slettet.",
+            "messageDeleteError": "Profilen kunne ikke gemmes. Slet alle denne profils logfiler.",
+            "messageDuplicateSuccess": "Profil duplikeret.",
+            "messageDuplicateError": "Profil kunne ikke duplikeres.",
             "messageSearchParentProfileError": "Kan ikke behandle anmodning",
+            "messageCsvTemplateUploadError": "Kan ikke behandle CSV-fil.",
+            "messageCsvTemplateUploadEmptyError": "CSV-filen indeholder ingen kolonner.",
+            "messageCsvTemplateUploadWarning": "Importerede mapninger kan være forkert. CSV-filen indeholder kun én kolonne. Kontroller CSV-separatorindstillingen.",
             "productLabel": "Produkt",
             "customerLabel": "Kunde",
             "categoriesLabel": "Kategorier",
@@ -3814,7 +3862,9 @@
             "editProfileLabel": "Redigér profil",
             "addProfileLabel": "Tilføj profil",
             "addNewProfileLabel": "Tilføj ny profil",
+            "addNewProfileTooltipLanguage": "Profiler kan kun oprettes i standardsproget",
             "openLabel": "Rediger",
+            "indicatorHeadline": "Field indikatorer",
             "duplicateLabel": "Kopier",
             "copyOfLabel": "Kopi af:",
             "saveProfileLabel": "Gem profil",
@@ -3822,6 +3872,7 @@
             "generalTab": "Generelt",
             "fieldIndicatorsTab": "Feltindikator",
             "csvUploadTab": "Upload CSV fil",
+            "mappingsTab": "Mapninger",
             "advancedTab": "Avancerede indstillinger",
             "profileNameFieldLabel": "Profilnavn",
             "objectTypeFieldLabel": "Objekttype",
@@ -3829,8 +3880,13 @@
             "enclosureFieldLabel": "Indkapslingskarakter",
             "addMappingTooltipText": "Definér først en objekttype.",
             "objectTypeFieldTooltipText": "Objekttypen kan ikke ændres, når der er kortlægningsmuligheder.",
+            "descriptionBlock": "Objekttyper definerer en bestemt tilstand til import og eksport af data. Hvis du vælger en objekttype, begrænses mapningssindstillingerne. Bemærk, at du ikke kan ændre objekttypen, når mapningsindstillingerne er blevet valgt.",
+            "mappingDescriptionBlock": "Brug tabellen på fanen „Mappinger“ til at knytte CSV-felter til deres respektive databasemodparter.",
+            "csvDescriptionBlock": "Separatorer og indkapslingstegn bruges til at angive det separate felt i CSV-filen. Separatorer bruges til at opdele enkelte felter, indkapslingstegn bruges til at gruppere flere felter.",
             "cancelLabel": "Annuller",
             "addMappingLabel": "Tilføj ny kortlægning",
+            "deleteMappingLabel": "Fjern mapning",
+            "downloadTemplateLabel": "Download skabelon",
             "deleteLabel": "Slet profil",
             "systemDefaultInfoText": "Du ser en standardprofilen, der ikke kan ændres. Du kan enten oprette en ny profil eller kopiere en systemets standardprofiler.",
             "mapping": {
@@ -3838,7 +3894,8 @@
                 "entityLabel": "Databasepost",
                 "isRequired": "Påkrævet",
                 "defaultValue": "Standardværdi",
-                "position": "Placering"
+                "position": "Placering",
+                "notMapped": "Ikke mappet"
             },
             "identifiers": {
                 "identifierNameLabel": "Enhed",
@@ -3849,8 +3906,13 @@
             "customTypeLabel": "Tilpasset",
             "defaultTypeLabel": "Standard",
             "propertyLabel": "Egenskaber",
+            "mappingAutomatedDescription": "Shopware har automatisk mappet {automatedCount} databaseposter. Udfør processen ved at tildele umappede poster til den korrekte databasepost manuelt. Obligatoriske felter, der efterlades tomme, vil forårsage fejl under import, medmindre standardværdierne er angivet. Standardværdier vil også blive brugt til at udfylde tomme databaseposter.",
+            "mappingDescription": "Brug tabellen nedenfor til at knytte CSV-kolonnenavne til Shopware databaseposter. Tomme obligatoriske felter vil forårsage fejl under import, medmindre standardværdierne er angivet.",
+            "mappingEmptyState": "Ingen brugerdefineret mapning er udfyldt endnu.",
+            "advancedDescription": "Identifikatorer bruges til utvetydigt at bestemme opdaterbare enheder og skal derfor være unikke.",
             "configuratorSettingLabel": "Variantkonfigurationsindstillinger",
             "productCrossSellingLabel": "Krydssalg",
+            "promotionDiscountLabel": "Kampagnerabatter",
             "promotionIndividualCodesLabel": "Kampagnekoder",
             "productPriceLabel": "Avanceret priser",
             "closeViolation": "Luk",
@@ -3864,10 +3926,15 @@
                 "importExportLabel": "Importering og eksportering",
                 "importLabel": "Importér",
                 "exportLabel": "Eksportér"
-            }
+            },
+            "profileTypeDisabledText": "Ryd 'objekttype' for at kunne vælge et vilkårligt 'brug'.",
+            "objectTypeDisabledText": "Ryd 'brug' for at kunne vælge en 'objekttype'.",
+            "csvUploadText": "Opret mapping fra en eksisterende CSV-fil.",
+            "skipCsvUpload": "Spring CSV-upload over"
         },
         "exporter": {
             "messageExportStarted": "Eksportering startet.",
+            "messageExportSuccess": "Eksport \"{profile}\" afsluttet.",
             "startExportLabel": "Start eksport",
             "showLogLabel": "Vis logfil",
             "exportActivityLabel": "Eksportaktivitet",
@@ -3881,15 +3948,21 @@
         },
         "importer": {
             "messageImportStarted": "Importering startet.",
+            "messageImportSuccess": "Import \"{profile}\" afsluttet.",
+            "messageImportError": "Fejl opstod under import af \"{profile}\"",
+            "messageImportWarning": "Ingen poster importeret. Kontroller, at dine afgrænsere matcher den aktuelle profil.",
             "uploadCsvLabel": "Upload CSV fil",
             "startImportLabel": "Start import",
             "selectProfileLabel": "Vælg profil",
             "profileLabel": "Profil",
+            "warningBlock": "<strong>Advarsel:</strong> Sørg for, at egenskaber og varianter knyttet til produkterne i den uploadede CSV-fil er tilgængelige i din shop. Hvis dette ikke er tilfældet, kan du importere egenskaber og varianter som separate CSV-filer med tilsvarende profiler. Hvis ingen af disse gør sig gældende, skal du oprette produktvarianterne manuelt i produktmodulet efter importen.",
             "importActivityLabel": "Import aktivitet",
             "importLabel": "Import",
             "directImportVariantsLabel": "Importér variantindstillinger",
             "directImportPropertiesLabel": "Importér egenskaber",
             "close": "Luk",
+            "labelUploadCaption": "Vælg en CSV-fil at uploade",
+            "variantsWarning": "<strong>Obs: </strong> Hvis du importerer produkter med varianter, så sørg for at bruge en profil, der kan importere variant indstillinger.<br>Hvis du ikke gør det, importeres kun hoved produkterne og varianterne skal oprettes manuelt af administratoren bagefter.",
             "importVariants": "Importér produktvarianter"
         },
         "page": {
@@ -3899,6 +3972,7 @@
         },
         "progress": {
             "startImportLabel": "Start import",
+            "startImportDryrunLabel": "Start kørsel",
             "startExportLabel": "Start eksport"
         }
     },
@@ -3961,7 +4035,8 @@
     },
     "sw-settings-country": {
         "page": {
-            "generalTab": "Indstillinger"
+            "generalTab": "Indstillinger",
+            "stateTab": "Stater/regioner"
         },
         "general": {
             "mainMenuItemGeneral": "Lande",
@@ -3995,26 +4070,42 @@
             "labelShippingAvailable": "Forsendelse",
             "labelTaxFree": "Skattefrit (B2C)",
             "labelCompanyTaxFree": "Skattefrit (B2B)",
+            "helpTextCompanyTaxFree": "For at håndtere momsfrie B2B-transaktioner skal de respektive kundekonti have en gyldig CVR.",
             "labelCheckVatIdFormat": "Valider momsreg.nr. format",
             "helpTextCheckVatIdFormat": "Validerer momsreg.No format for EU-medlemsstater.",
+            "labelForceStateInRegistration": "Stat/region påkrævet",
             "placeholderName": "Angiv navn...",
             "placeholderPosition": "1",
+            "placeholderStateSearch": "Søg efter stater/regioner...",
             "placeholderIso": "Indtast Alpha-2 ISO kode...",
             "placeholderIso3": "Alpha-3 ISO kode...",
             "buttonCancel": "Annuller",
             "buttonSave": "Gem",
+            "buttonAddCountryState": "Tilføj stat/region",
             "editAction": "Rediger",
             "columnStateNameLabel": "Navn",
             "columnStateShortCodeLabel": "ISO",
-            "titleOptions": "Indstillinger"
+            "taxFreeFrom": "Min. kurv værdi (netto)",
+            "baseCurrency": "Standard valuta",
+            "taxFreeFromHelpText": "Hvis summen af indkøbskurven er højere end værdien angivet i \"min. kurv værdi (netto)\", vil hele indkøbskurven være momsfritaget.",
+            "labelVatIdRequired": "Moms Reg.No. påkrævet",
+            "helpTextLabelVatIdRequired": "Vær opmærksom på den globale indstilling i \"Indstillinger > Log ind/registrering\".",
+            "titleOptions": "Indstillinger",
+            "currencyDependentValues": "Valuta afhængige værdier"
         }
     },
     "sw-country-state-detail": {
+        "titleNew": "Ny stat/region",
+        "titleEdit": "Rediger stat/region",
         "buttonSave": "Gem",
         "buttonCancel": "Annuller",
         "labelName": "Navn",
         "labelPosition": "Placering",
-        "labelShortCode": "ISO"
+        "labelShortCode": "ISO",
+        "tooltipPosition": "Ændrer placeringen af stater/regioner i lister.",
+        "createNewStateError": "Kan ikke oprette en region med det valgte sprog. Opret venligst en region ved brug af standardsproget først.",
+        "emptyTitle": "Ingen region tilgængelig",
+        "emptySubline": "Tilføj et område"
     },
     "sw-settings-custom-field": {
         "general": {
@@ -4130,104 +4221,226 @@
             "checkbox": "Checkbox",
             "switch": "Aktiv kontakt",
             "textEditor": "Tekstredigeringsværktøj",
-            "colorpicker": "Favevælger"
+            "colorpicker": "Favevælger",
+            "price": "Pris felt"
         }
     },
     "sw-flow": {
         "general": {
             "mainMenuItemGeneral": "Flow Builder",
-            "descriptionTextModule": "Flow Builder"
+            "descriptionTextModule": "Flow Builder",
+            "placeholderSearchBar": "Søg I Flow Builder..."
         },
         "list": {
             "textHeadline": "Flow Builder",
             "buttonAddFlow": "Tilføj flow",
             "labelColumnActive": "Aktive",
             "labelColumnName": "Navn",
-            "labelColumnDescription": "Beskrivelse"
+            "labelColumnTrigger": "Udløser",
+            "labelColumnDescription": "Beskrivelse",
+            "confirmText": "Er du sikker på, at du vil slette denne?",
+            "emptyStateTitle": "Ingen flows endnu",
+            "emptyStateSubTitle": "Tilføj flow ved at klikke på \"Tilføj\" knappen."
         },
         "detail": {
             "textHeadline": "Nyt flow",
             "labelGeneralCard": "Generel information",
             "labelLogCard": "Log",
             "labelGeneralInformationName": "Navn",
+            "placeholderGeneralInformationName": "Indtast flownavn ...",
             "labelGeneralInformationDescription": "Beskrivelse",
+            "placeholderGeneralInformationDescription": "Angiv flowbeskrivelse ...",
             "labelGeneralInformationPriority": "Prioritet",
-            "labelGeneralInformationActive": "Aktive"
+            "labelGeneralInformationActive": "Aktive",
+            "trigger": {
+                "name": "Udløser",
+                "placeholder": "Vælg en udløser ...",
+                "title": "Vælg en udløser",
+                "helpText": "Udløsere bruges til at starte et flow. Når du har valgt en udløser, får du mulighed for at tilføje betingelser for at forfine udløseren eller tilføje handlinger, der skal udføres med udløseren.",
+                "textNoEvent": "Ingen begivenheder fundet",
+                "textHint": "I øjeblikket kan denne udløser ikke bruges, fordi der ikke er nogen handlinger for den."
+            },
+            "sequence": {
+                "selectorTitle": "Tilføj betingelse eller handling",
+                "selectorHelpTextTrueCondition": "Denne handling eller betingelse anvendes hvis udtrykket til venstre er \"sand\".",
+                "selectorHelpTextFalseCondition": "Denne handling eller betingelse anvendes hvis udtrykket ovenfor er \"falsk\".",
+                "selectorHelpText": "Betingelserne bruges til at forfine et flow og kan enten blive \"sand\" eller \"falsk\".<br/><br/>Handlinger kan bruges til at sende e-mails, oprette dokumenter eller tilføje tags. De kan udføres på \"sande\" såvel som \"falske\" betingelser.",
+                "selectorTitleAddSequence": "Tilføj ny sekvens",
+                "selectorHelpTextAddSequence": "Flows startes af en enkelt udløser, men kan bestå af flere sekvenser.<br/><br/>Sekvenser vil blive udført efter hinanden. Du kan afslutte et flow på ethvert tidspunkt ved at tilføje en \"stop\" handling.",
+                "selectorIfCondition": "Tilføj betingelse (IF)",
+                "selectorThenAction": "Tilføj handling (THEN)",
+                "conditionTitle": "Betingelse (IF)",
+                "conditionExplainsTitle": "Opret betingelser",
+                "conditionExplainsDescription": "Betingelser er lavet ved hjælp af Regel motoren. Du kan enten vælge en eksisterende regel eller oprette en ny for at opsætte denne flows tilstand.",
+                "actionTitle": "Handling (THEN)",
+                "contextButton": {
+                    "deleteCondition": "Slet betingelse",
+                    "deleteActionContainer": "Slet handling"
+                },
+                "labelTrue": "Sandt",
+                "labelFalse": "Falsk",
+                "noActions": "Ingen handlinger tilføjet endnu",
+                "noRule": "Ingen regel defineret endnu"
+            }
         },
         "page": {
-            "tabGeneral": "Generelt"
+            "tabGeneral": "Generelt",
+            "tabFlow": "Flow"
         },
         "flowNotification": {
-            "messageError": "Der opstod en fejl."
+            "messageDeleteSuccess": "Dette flow er blevet slettet.",
+            "messageDeleteError": "Dette flow kunne ikke slettes.",
+            "messageSaveError": "Dette flow kunne ikke gemmes.",
+            "messageError": "Der opstod en fejl.",
+            "messageRequiredEventName": "Vælg venligst udløsende begivenhed, før du gemmer.",
+            "messageRequiredEmptyFields": "Indtast en regel eller et handlingsnavn før du gemmer."
         },
         "actions": {
+            "addTag": "Tilføj tag",
+            "generateDocument": "Generer dokument",
+            "removeTag": "Fjern tag",
             "mailSend": "Send e-mail",
+            "setOrderState": "Sæt Status",
+            "stopFlow": "Stop flow",
+            "changeCustomerGroup": "Skift kundegruppe",
+            "changeCustomerStatus": "Skift kundestatus",
+            "changeCustomFieldContent": "Skift brugerdefineret feltindhold",
+            "addAffiliateAndCampaignCode": "Tilføj affiliate og kampagne kode",
+            "textStopFlowDescription": "Efterfølgende handlinger/sekvenser vil ikke blive udført.",
+            "labelDescription": "Beskrivelse: {description}",
             "contextButton": {
+                "editAction": "Rediger handling",
+                "deleteAction": "Slet handling",
                 "moveUpAction": "Flyt op",
                 "moveDownAction": "Flyt ned"
-            }
+            },
+            "addAction": "Tilføj handling",
+            "labelTo": "Til: {entity}",
+            "labelTag": "Tag: {tagNames}",
+            "labelTemplate": "Skabelon: {template}",
+            "labelCustomFieldSet": "Brugerdefineret feltsæt: {customFieldSet}",
+            "labelCustomField": "Brugerdefineret felt: {customField}",
+            "labelCustomFieldOption": "Brugerdefineret feltindstilling: {customFieldOption}",
+            "placeholderSelectAction": "Vælg handling...",
+            "labelAffiliateCode": "Affiliate kode: {affiliateCode}",
+            "labelCampaignCode": "Kampagne kode: {campaignCode}"
         },
         "rule": {
             "addRule": "Tilføj regel",
-            "createNewRule": "Opret ny regel"
+            "createNewRule": "Opret ny regel",
+            "contextButton": {
+                "editRule": "Redigér regel",
+                "changeRule": "Skift regel",
+                "deleteRule": "Slet regel"
+            },
+            "placeholderSelectRule": "Vælg regel ..."
         },
         "modals": {
+            "buttonAddAction": "Tilføj handling",
+            "buttonSaveAction": "Gem handling",
             "rule": {
                 "labelAddNewRule": "Tilføj ny regel",
+                "labelEditRule": "Redigér regel",
                 "tabRule": "Regel",
                 "tabDetail": "Detaljer",
+                "buttonAddRule": "Gem og anvend",
                 "labelName": "Navn",
+                "placeholderName": "Indtast regelnavn ...",
                 "labelPriority": "Prioritet",
+                "placeholderPriority": "Indtast regel prioritet...",
                 "labelDescription": "Beskrivelse",
-                "labelType": "Type"
+                "placeholderDescription": "Indtast regel beskrivelse ...",
+                "labelType": "Type",
+                "placeholderType": "Vælg regeltype ..."
             },
             "tag": {
+                "labelAddTag": "Tag information",
                 "labelToField": "Enhed",
-                "labelTagsField": "Tags"
+                "placeholderToField": "Vælg enhed ...",
+                "labelTagsField": "Tags",
+                "placeholderTagsField": "Indtast tags ..."
             },
             "status": {
+                "titleSetStatus": "Sæt Status",
                 "labelOrderStatus": "Ordre status",
                 "labelPaymentStatus": "Betalingsstatus",
-                "labelDeliveryStatus": "Forsendelsesstatus"
+                "labelDeliveryStatus": "Forsendelsesstatus",
+                "placeholderOrderStatus": "Vælg ordrestatus...",
+                "placeholderPaymentStatus": "Vælg betalingsstatus ...",
+                "placeholderDeliveryStatus": "Vælg leveringsstatus ...",
+                "messageNoStatusError": "Mindst én status skal vælges"
             },
             "document": {
                 "titleCreateDocument": "Opret dokument",
-                "labelDocumentType": "Dokumenttype"
+                "labelDocumentType": "Dokumenttype",
+                "placeholderDocumentType": "Vælg dokumenttype ...",
+                "documentDescription": "Dokumenttype: {documentType}"
             },
             "customerGroup": {
-                "labelCustomerGroup": "Kundegruppe"
+                "titleChangeCustomerGroup": "Skift kundegruppe",
+                "labelCustomerGroup": "Kundegruppe",
+                "placeholderCustomerGroup": "Vælg kundegruppe ...",
+                "customerGroupDescription": "Kundegruppe: {customerGroup}"
             },
             "customerStatus": {
+                "titleChangeCustomerStatus": "Skift kundestatus",
+                "labelCustomerStatus": "Kunde status",
+                "placeholderCustomerStatus": "Vælg kundestatus ...",
+                "customerStatusDescriptionActive": "Aktiv kunde",
+                "customerStatusDescriptionInactive": "Inaktiv kunde",
                 "active": "Aktive",
                 "inactive": "Inaktive"
             },
             "mail": {
                 "columnRecipientName": "Navn",
                 "columnRecipientMail": "Email adresse",
+                "placeholderRecipientEmailAddress": "Indtast e-mailadresse...",
+                "placeholderRecipientName": "Indtast modtagernavn...",
                 "fieldMailTemplateDetailLink": "Åbn e-mail-skabelon",
+                "titleSendMail": "Send mail",
                 "labelEmailTemplate": "Email skabelon",
+                "placeholderEmailTemplate": "Vælg e-mail skabelon...",
                 "titleNewEmailTemplate": "Ny e-mail skabelon",
                 "tabGeneral": "Generelt",
                 "tabMailText": "Mail tekst",
                 "labelMailType": "Type",
+                "placeholderMailType": "Vælg en type...",
                 "labelSubject": "Emne",
                 "labelSenderName": "Afsender navn",
+                "placeholderSubject": "Indtast emne...",
+                "placeholderSenderName": "Indtast afsendernavn ...",
                 "labelDescription": "Beskrivelse",
+                "placeholderDescription": "Indtast e-mail skabelonbeskrivelse ...",
                 "labelContentPlain": "Simpel tekst",
                 "labelContentHtml": "HTML",
+                "placeholderPlain": "Indtast e-mail almindelig tekst...",
+                "placeholderHtml": "Indtast e-mail HTML tekst...",
                 "buttonAddMailTemplate": "Tilføj email skabelon",
                 "labelDefault": "Standard",
                 "labelCustomer": "Kunder",
+                "labelAdmin": "Administrator",
                 "labelCustom": "Brugerdefineret",
-                "labelRecipient": "Modtager"
+                "labelContactFormMail": "Bekræftelse af kontaktformular",
+                "labelRecipient": "Modtager",
+                "placeholderRecipient": "Vælg e-mail modtager ...",
+                "labelLatestDocuments": "Tilføj (seneste) dokumenter",
+                "placeholderLatestDocuments": "Tilføj dokumenter...",
+                "documentDescription": "Hvis det valgte dokument ikke findes, skal du generere det først. Ellers vil ingen dokumenter blive sendt."
             },
             "setEntityCustomField": {
                 "labelToField": "Enhed",
+                "placeholderToField": "Vælg enhed ...",
+                "title": "Skift brugerdefineret felt",
                 "customFieldSet": "Brugerdefinerede feltsæt",
+                "customFieldSetPlaceHolder": "Vælg brugerdefineret feltsæt...",
                 "customField": "Brugerdefineret felt",
                 "customFieldPlaceHolder": "Vælg brugerdefineret felt...",
+                "requiredMessageError": "\"{item}\" bør ikke være tom!",
+                "customFieldOption": "Feltindstillinger",
+                "prefixFieldName": "Ændr: ",
                 "options": {
                     "overwrite": "Overskriv",
+                    "notOverwrite": "Overskriv ikke",
                     "clear": "Ryd",
                     "add": "Tilføj",
                     "remove": "Fjern"
@@ -4235,9 +4448,16 @@
             },
             "affiliateAndCampaignCode": {
                 "labelEntity": "Enhed",
+                "placeholderEntity": "Vælg enhed...",
+                "title": "Tilføj affiliate kode og kampagne kode",
                 "labelAffiliateCode": "Affiliate kode",
+                "placeholderAffiliateCode": "Indtast affiliate kode...",
                 "labelCampaignCode": "Kampagne kode",
+                "placeholderCampaignCode": "Indtast kampagnekode...",
                 "overwrite": "Overskriv"
+            },
+            "confirmation": {
+                "textConfirmChangeTrigger": "Er du sikker på, at du vil ændre udløserens begivenhed? <br> Flowsekvensen vil blive nulstillet, hvis du trykker Bekræft."
             }
         }
     },
@@ -4337,7 +4557,12 @@
             "buttonCancelOrder": "Annuller",
             "messageSaveError": "Ordren kunne ikke gemmes.",
             "messageSwitchCustomerError": "En fejl opstod under forsøg på at skifte kunde",
-            "messageFetchCustomerAddressesError": "En fejl opstod i forsøget på at hente kundeadresser"
+            "messageFetchCustomerAddressesError": "En fejl opstod i forsøget på at hente kundeadresser",
+            "remindPaymentModal": {
+                "title": "Påmind betaling",
+                "text": "Ønsker du at minde kunden om at betale denne ordre med \"{paymentMethodName}\"?",
+                "primaryAction": "Påmind"
+            }
         },
         "createBase": {
             "labelEmail": "Email adresse",
@@ -4346,6 +4571,8 @@
             "placeholderPhoneNumber": "Indtast telefonnummer...",
             "labelBillingAddress": "Faktureringsadresse",
             "labelShippingAddress": "Leveringsadresse",
+            "placeholderBillingAddress": "Vælg faktureringsadresse...",
+            "placeholderShippingAddress": "Vælg leveringsadresse...",
             "labelSalesChannel": "Salgskanal",
             "labelPaymentMethod": "Betalingsmetode",
             "labelShippingMethod": "Forsendelses metode",
@@ -4356,6 +4583,8 @@
             "placeholderShippingMethod": "Vælg leveringsmetode...",
             "placeholderOrderLanguage": "Vælg ordresprog...",
             "placeholderCurrency": "Vælg valuta...",
+            "helpTextPaymentMethod": "Kun betalinger, der er kompatible med \"Tillad betaling efter checkout\" er tilgængelige.",
+            "labelToggleAutomaticPromotions": "Deaktivér automatisk anvendte kampagner",
             "labelPromotions": "Kampagner",
             "generalTab": {
                 "labelLineItemsCard": "Varer",
@@ -4381,7 +4610,8 @@
                 "labelShippingAddress": "Leveringsadresse",
                 "placeholder": "Vælg eller tilføj først en kunde...",
                 "textIdentical": "Fakturerings- og leveringsadresse er identisk",
-                "buttonAddNewAddress": "Tilføj ny adresse"
+                "buttonAddNewAddress": "Tilføj ny adresse",
+                "placeholderAddress": "Vælg adresse..."
             },
             "detailsFooter": {
                 "labelSalesChannel": "Salgskanal",
@@ -4393,7 +4623,8 @@
                 "placeholderPaymentMethod": "Vælg betalingsmetode...",
                 "placeholderShippingMethod": "Vælg leveringsmetode...",
                 "placeholderOrderLanguage": "Vælg ordresprog...",
-                "placeholderCurrency": "Vælg valuta..."
+                "placeholderCurrency": "Vælg valuta...",
+                "helpTextPaymentMethod": "Kun betalinger, der er kompatible med \"Tillad betaling efter checkout\" er tilgængelige."
             },
             "cardTitleLineItems": "Varer",
             "placeholderSearchBarItem": "Søg varer...",
@@ -4401,6 +4632,7 @@
             "columnQuantity": "Antal",
             "columnPriceNet": "Pris (Netto)",
             "columnPriceGross": "Pris (Brutto)",
+            "columnPriceTaxFree": "Pris (momsfri)",
             "columnTotalPriceNet": "Total",
             "columnPrice": "Pris",
             "columnTotalPrice": "Total",
@@ -4410,6 +4642,7 @@
             "taxDetail": "{taxRate}%:{tax}",
             "contextMenuShowProduct": "Vis produkt",
             "messageEmptyItem": "Ingen varer tilføjet endnu",
+            "buttonAddItems": "Tilføj varer",
             "buttonAddProduct": "Tilføj produkt",
             "buttonAddBlankProduct": "Tilføj brugerdefineret vare",
             "buttonAddCredit": "Tilføj kredit",
@@ -4461,12 +4694,14 @@
             "columnQuantity": "Antal",
             "columnPriceNet": "Nettopris",
             "columnPriceGross": "Bruttopris",
+            "columnPriceTaxFree": "Pris (momsfri)",
             "columnTotalPriceNet": "I alt",
             "columnPrice": "Pris",
             "columnTotalPrice": "I alt",
             "columnTotalPriceGross": "Subtotal",
             "columnTax": "Moms",
             "contextMenuShowProduct": "Vis produkt",
+            "contextMenuDelete": "Fjern fra ordre",
             "summaryLabelAmount": "I alt",
             "summaryLabelAmountGrandTotal": "I alt",
             "summaryLabelAmountWithoutTaxes": "I alt eksl. moms",
@@ -4516,7 +4751,12 @@
             "addTrackingCode": "Klik her for at tilføje kode",
             "enterValidTrackingCode": "Indtast tracking kode",
             "textCreditTax": "auto",
-            "taxDetail": "{taxRate}%:{tax}"
+            "taxDetail": "{taxRate}%:{tax}",
+            "textPromotionRemoved": "Rabat {promotion} er blevet fjernet",
+            "textMissingProductLineItems": "Følgende elementer er knyttet til produkter, der er blevet slettet:",
+            "textMissingProductLineItemsDescription": "Priserne på disse varer kan ikke genberegnes. Derfor vil disse varer blive konverteret til brugerdefinerede varer, når du gemmer denne ordre.",
+            "textConvertedProductLineItems": "Følgende elementer som var knyttet til produkter, der er blevet slettet:",
+            "textConvertedProductLineItemsDescription": "Priserne på disse produkter kan ikke genberegnes. Vær ekstra forsigtig, når du redigerer ordren."
         },
         "nestedLineItemsModal": {
             "titlePrefix": "Vare: {lineItemLabel} - {price}",
@@ -4563,6 +4803,8 @@
             "headlineOrderState": "Ordrestatus",
             "headlineTransactionState": "Betalingsstatus",
             "headlineDeliveryState": "Leveringsstatus",
+            "labelHistory": "Status sat {time} af {author}",
+            "labelShowHistoryModal": "Vis statushistorik",
             "labelLastEditedBy": "Sidst redigeret af",
             "labelSystemUser": "System",
             "labelSelectStatePlaceholder": "Vælg en status...",
@@ -4595,6 +4837,13 @@
             "labelSent": "Sendt",
             "labelAttach": "Vedhæft",
             "labelAmount": "Ordre værdi",
+            "labelOpenDocument": "Åben dokument",
+            "labelDownloadPdf": "Download dokument",
+            "labelPrintDocument": "Udskriv dokument",
+            "labelSendDocument": "Send dokument",
+            "labelMarkAsSent": "Marker som sendt",
+            "labelMarkAsUnsent": "Marker som ikke sendt",
+            "labelCreateNew": "Opret nyt dokument",
             "messageEmptyTitle": "Ingen dokumenter endnu",
             "messageEmptySubline": "Håndtér dokumenterne her.",
             "error": {
@@ -4608,9 +4857,14 @@
             "info": {
                 "summary": {
                     "and": "og",
+                    "on": "på",
                     "by": "af",
-                    "lastChanged": "Sidst ændret"
+                    "lastChanged": "Sidst ændret",
+                    "with": "med"
                 }
+            },
+            "tagSelect": {
+                "placeholder": "Tilføj tags..."
             }
         },
         "detailsTab": {
@@ -4619,7 +4873,9 @@
             "labelOrderCard": "Ordre",
             "promotionsField": {
                 "labelPromotions": "Kampagner",
-                "placeholderPromotions": "Indtast kampagnekode..."
+                "placeholderPromotions": "Indtast kampagnekode...",
+                "automaticPromotion": "automatisk anvendt",
+                "labelToggleAutomaticPromotions": "Deaktivér automatisk anvendte kampagner"
             }
         },
         "documentModal": {
@@ -4648,16 +4904,21 @@
             "labelDate": "Dato",
             "labelMailTemplate": "Email skabelon",
             "labelRecipient": "Email adresse",
+            "labelContent": "E-mail-indhold",
             "labelSubject": "Emne",
-            "labelClose": "Luk"
+            "labelClose": "Luk",
+            "errorMessage": "Noget gik galt under afsendelse af e-mailen."
         },
         "stateModal": {
             "modalTitle": "Tilføj dokumenter"
         },
         "stateHistoryModal": {
+            "modalTitle": "Status historik",
             "labelSystemUser": "System",
             "column": {
                 "createdAt": "Dato",
+                "entity": "Ændret",
+                "user": "Ændret Af",
                 "transaction": "Betaling",
                 "delivery": "Forsendelse",
                 "order": "Ordre"
@@ -4682,9 +4943,14 @@
             "titleNewOrder": "Ny ordre",
             "tabCustomer": "Kunder",
             "tabProducts": "Produkter",
+            "tabCustomItem": "Brugerdefineret element",
             "tabOptions": "Indstillinger",
+            "tabCredit": "Kredit",
+            "buttonPreviewOrder": "Forhåndsvis ordre",
             "customerGrid": {
                 "buttonAddNewCustomer": "Tilføj ny kunde",
+                "placeholderSearchCustomer": "Indtast kundens navn...",
+                "textEmptySearch": "Ingen data for {name}",
                 "contextOpenButton": "Åben",
                 "columnCustomerName": "Navn",
                 "columnCustomerNumber": "Kundenummer",
@@ -4693,24 +4959,36 @@
             "options": {
                 "textHeadlineOrder": "Ordre",
                 "textHeadlinePayment": "Betaling",
+                "textHeadlineShipment": "Forsendelse",
+                "labelTestOrder": "Test ordre",
+                "helpTextTestOrder": "Denne ordre vil være i testtilstand",
                 "placeholderAddPromotion": "Tilføj kampagne",
-                "textSameAsBillingAddress": "Samme som faktureringsadresse"
+                "textSameAsBillingAddress": "Samme som faktureringsadresse",
+                "textSameAsShippingAddress": "Samme som leveringsadresse"
             }
         },
         "itemModal": {
             "productGrid": {
                 "columnAmount": "I alt",
                 "columnProductName": "Navn",
-                "columnProductNumber": "Varenummer"
+                "columnProductNumber": "Varenummer",
+                "textEmptySearch": "Ingen data for {name}"
             },
             "customItem": {
                 "labelName": "Navn",
+                "placeholderName": "Indtast varenavn...",
+                "placeholderPriceNet": "Indtast pris (netto)",
+                "placeholderPriceGross": "Angiv pris (brutto)",
+                "placeholderPriceTaxFree": "Indtast pris (skattefri)",
                 "labelAmount": "I alt",
-                "labelVat": "Moms"
+                "labelVat": "Moms",
+                "placeholderSelectVat": "Vælg moms..."
             },
             "credit": {
                 "labelCreditName": "Navn",
-                "labelCreditAmount": "I alt"
+                "placeholderCreditName": "Indtast kreditnavn...",
+                "labelCreditAmount": "I alt",
+                "placeholderAmount": "Angiv kredit i alt..."
             }
         },
         "filters": {
@@ -4723,6 +5001,11 @@
             "orderDateFilter": {
                 "label": "Ordre dato",
                 "options": {
+                    "lastYear": "Sidste år",
+                    "lastQuarter": "Sidste kvartal",
+                    "lastMonth": "Sidste måned",
+                    "lastWeek": "Sidste uge",
+                    "lastDay": "Sidste dag",
                     "custom": "Brugerdefineret"
                 }
             },
@@ -4787,7 +5070,11 @@
         "components": {
             "selectDocumentTypeModal": {
                 "title": "Opret dokument",
-                "primaryAction": "Opret dokument"
+                "primaryAction": "Opret dokument",
+                "helpText": {
+                    "storno": "En annulleringsfaktura kan ikke oprettes uden en faktura.",
+                    "credit_note": "Hvis du vil oprette en kreditnota, skal du først tilføje en kreditpost."
+                }
             }
         }
     },
@@ -4806,6 +5093,7 @@
         "sorting": {
             "labelSort": "Sorter efter:",
             "labelSortByNameAsc": "Navn, stigende",
+            "labelSortByNameDesc": "Navn, faldende",
             "labelSortByCreatedAsc": "Oprettelsesdato, stigende",
             "labelSortByCreatedDsc": "Oprettelsesdato, faldende",
             "labelSortByUpdatedAsc": "Ændring dato, stigende",
@@ -4813,14 +5101,16 @@
             "labelSortByAllPages": "Alle typer",
             "labelSortByShopPages": "Shop sider",
             "labelSortByLandingPages": "Landingsside",
-            "labelSortByProductPages": "Produktsider"
+            "labelSortByProductPages": "Produktsider",
+            "labelSortByCategoryPages": "Kategorisider"
         },
         "list": {
             "gridHeaderName": "Navn",
             "gridHeaderType": "Type",
             "gridHeaderAssignment": "Tildelte kategorier",
             "gridHeaderAssignments": "Opgaver",
-            "gridHeaderCreated": "Oprettet"
+            "gridHeaderCreated": "Oprettet",
+            "gridHeaderUpdated": "Opdateret dato"
         },
         "section": {
             "fallBackSectionName": "Sektion",
@@ -4919,6 +5209,13 @@
                 "claimEmptyState": "Opret nye layouts ved at vælge en sektion. Start med at vælge en sektionstype, træk & slip blokke til enhver sektion og udfyld dit indhold."
             },
             "notification": {
+                "pageInvalid": "Der opstod fejl. Kontroller fejllisten i editoren.",
+                "errorCollectionText": "Siden kunne ikke gemmes på grund af følgende fejl:",
+                "warningCollectionText": "Følgende, anbefalede elementer mangler i dette layout:",
+                "messageMissingFields": "Nogle obligatoriske felter blev ikke udfyldt.",
+                "messageMissingBlockFields": "Nogle blokke blev ikke konfigureret tilstrækkeligt.",
+                "messageMissingProductListing": "Kategorisiden indeholder ikke en produkt liste blok.",
+                "messageMissingSections": "Dette layout indeholder ikke sektioner.",
                 "messageMissingBlocks": "Du kan ikke gemme en tom side. Tilføj mindst én blok først.",
                 "messageMissingElements": "Konfiguration kræves. Indstil alle elementer i dit layout."
             },
@@ -4934,6 +5231,7 @@
                 "titleNavigator": "Navigator",
                 "titleSectionSettings": "Sektionsindstillinger",
                 "titleLayoutAssignment": "Layout opgave",
+                "confirmReminderNavigator": "Spørg mig ikke igen",
                 "mobile": "Mobil sidebjælkeadfærd",
                 "mobileOptionHidden": "Skjult",
                 "mobileOptionWrap": "Ombryd"
@@ -4998,7 +5296,10 @@
                         "navigationPreviewPositionLeft": "Venstre",
                         "navigationPreviewPositionUnderneath": "Nedenunder",
                         "zoom": "Forstør",
-                        "fullscreen": "Fuldskærmsvisning"
+                        "fullscreen": "Fuldskærmsvisning",
+                        "keepAspectRatioOnZoom": "Behold billedformat ved zoom",
+                        "magnifierOverGallery": "Vis forstørrelsesglas over Galleri",
+                        "magnifierOverGalleryHelpText": "Vis lup boksen oven på galleriet i stedet for at vise den ved siden af galleriet"
                     }
                 }
             },
@@ -5617,7 +5918,8 @@
             "labelName": "Søgeresultater",
             "labelScore": "Ranging-score",
             "textNoResult": "Ingen resultater fundet. Prøv igen med et andet søgeord."
-        }
+        },
+        "textLeaveConfirm": "Du har foretaget ændringer på denne side. Hvis du forlader uden at gemme, vil dine ændringer gå tabt."
     },
     "sw-settings-payment": {
         "general": {
@@ -5658,6 +5960,7 @@
             "placeholderName": "Indtast navn...",
             "placeholderPosition": "Indtast position...",
             "placeholderDescription": "Indtast beskrivelse...",
+            "placeholderAvailabilityRule": "Vælg tilgængelighedsregel...",
             "buttonCancel": "Annullér",
             "buttonSave": "Gem"
         }
@@ -5820,7 +6123,8 @@
     },
     "sw-extension-sdk": {
         "general": {
-            "mainMenuItemGeneral": "Mine udvidelser"
+            "mainMenuItemGeneral": "Mine udvidelser",
+            "moduleDescription": "Modul til at vise udvidelse indhold"
         }
     },
     "sw-settings-snippet": {
@@ -6078,6 +6382,7 @@
             "labelDescription": "Beskrivelse",
             "labelProductNumber": "Varenummer",
             "labelManufacturer": "Leverandør",
+            "labelManufacturerCreation": "producent",
             "placeholderName": "Indtast produktnavn...",
             "placeholderDescriptionLong": "Indtast produktbeskrivelse...",
             "placeholderId": "Indtast varenummer...",
@@ -6176,6 +6481,7 @@
             "placeholderMaxPurchase": "Max. antal salgsbar...",
             "placeholderPurchaseSteps": "Indtast købstrin...",
             "placeholderRestockTime": "Indtast tid indtil varen er på lager i hele dage...",
+            "placeholderEan": "Indtast GTIN/EAN...",
             "placeholderManufacturerNumber": "Indtast varenummer...",
             "labelAvailableStock": "Antal tilgængelig",
             "labelPurchaseSteps": "Købstrin"
@@ -6229,7 +6535,9 @@
                 "buttonCancel": "Annuller",
                 "buttonDelete": "Slet"
             },
-            "messageEmptyTitle": "Produktet har endnu ingen anmeldelser"
+            "messageEmptyTitle": "Produktet har endnu ingen anmeldelser",
+            "messageEmptySubline": "Du kan søge i anmeldelser af andre produkter.",
+            "emptyStateButton": "Åbn andre anmeldelser"
         },
         "prices": {
             "cardTitlePriceRule": "Ny prisregel",
@@ -6329,7 +6637,8 @@
             "advancedPricesNotInherited": "Du kan nu bruge brugerdefinerede prisregler for denne variant.",
             "advancedListPricePriceLabel": "Pris",
             "advancedListPriceLabel": "List pris",
-            "advancedPriceDisabledTooltip": "Startværdien af den første notering skal være 1."
+            "advancedPriceDisabledTooltip": "Startværdien af den første notering skal være 1.",
+            "labelRegulationPrice": "Billigste pris (sidste 30 dage)"
         },
         "properties": {
             "cardTitleProperties": "Tilgængelige egenskaber",
@@ -6341,7 +6650,11 @@
             "linkPropertiesOfParent": "Vis egenskaber for moderproduktet",
             "inheritSwitchLabel": "Brug egenskaber fra det overordnede produkt",
             "propertiesNotInherited": "Du kan nu bruge brugerdefinerede egenskaber for denne variant.",
+            "propertiesNotExisting": "Ingen egenskaber, der er tildelt dette produkt endnu.",
             "cardTitle": "Egenskaber",
+            "buttonAddProperty": "Konfigurere egenskaber",
+            "buttonAddProperties": "Konfigurere egenskaber",
+            "titleEmptyState": "Ingen egenskaber, der er tildelt dette produkt endnu.",
             "columnProperty": "Egenskab",
             "columnValue": "Egenskabsværdi",
             "addPropertiesModal": {
@@ -6814,7 +7127,9 @@
             "messageSaveSuccess": "Dine informationer er blevet gemt."
         },
         "detail": {
-            "titleCard": "Indstillinger"
+            "titleCard": "Indstillinger",
+            "labelHost": "Licens domæne",
+            "placeholderHost": "Indtast licensdomænet (butiksdomæne), der er angivet i din Shopware konto."
         }
     },
     "sw-settings-sitemap": {
@@ -6863,9 +7178,12 @@
             "messageSaveError": "En fejl opstod da du forsøgte at gemme regel: \"{name}\".",
             "tabGeneral": "Generel",
             "tabAssignments": "Opgaver",
+            "buttonAddAssignment": "Tilføj opgave",
             "associations": {
                 "shippingMethods": "Forsendelsesmetoder",
                 "promotions": "Kampagner",
+                "products": "Produkt pris regler",
+                "shippingMethodPrices": "Forsendelse metode prisregler",
                 "paymentMethods": "Betalingsmetoder",
                 "eventActions": "Forretningsbegivenheder"
             },
@@ -8185,7 +8503,8 @@
     "sw-app": {
         "component": {
             "sw-app-actions": {
-                "messageErrorFetchButtons": "Der opstod en fejl under hentning af dine apphandlinger."
+                "messageErrorFetchButtons": "Der opstod en fejl under hentning af dine apphandlinger.",
+                "dontAskMeAgain": "Spørg mig ikke igen"
             },
             "sw-app-app-url-changed-modal": {
                 "move-shop-permanently": {

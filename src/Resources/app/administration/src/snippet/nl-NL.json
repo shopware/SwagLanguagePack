@@ -912,6 +912,7 @@
             "helpTextListPriceGross": "Catalogusprijzen duiden op een gereduceerd product. Catalogusprijzen worden aangeduid als de „originele” prijs die doorgestreept en rood gekleurd is. De werkelijke prijs en de gereduceerde prijs worden naast de standaardtekstkleur weergegeven.",
             "labelListPriceNet": "Afgeprijsd van (netto)",
             "labelRegulationPriceGross": "Goedkoopste prijs (afgelopen 30 dagen, bruto)",
+            "helpTextRegulationPriceGross": "U moet dit veld invullen als u prijsverlagingen wilt adverteren in uw winkel in de EU. Dergelijke informatie moet door de klanten kunnen worden geverifieerd. Daarom moet bij prijsverlagingen, naast de prijsverlaging op de huidige prijs, ook de laagste prijs van de goederen in de laatste 30 dagen vóór de prijsverlaging worden vermeld. Dit is voorgeschreven in art. 6a van Richtlijn 98/6/EG.",
             "labelRegulationPriceNet": "Goedkoopste prijs (afgelopen 30 dagen, netto)"
         },
         "sw-text-editor": {
@@ -1977,7 +1978,9 @@
                 "placeholderMetaTitle": "Voer de meta titel in...",
                 "placeholderMetaDescription": "Voer een metabeschrijving in...",
                 "placeholderKeywords": "Voer een of meer trefwoorden in...",
-                "placeholderUrl": "URL invoeren..."
+                "placeholderUrl": "URL invoeren...",
+                "helpTextMetaTitle": "Metatitels mogen niet langer zijn dan 70 tekens. Overtollige tekst wordt door Google ingekort en de titel wordt niet volledig weergegeven in het SERP-fragment.",
+                "helpTextMetaDescription": "De mogelijke lengte voor metabeschrijvingen op Google is ongeveer 175 tekens en wordt bijgesneden volgens pixelbreedte. Het wordt echter aanbevolen om te streven naar een lengte van ongeveer 150 tekens, zodat de beschrijving niet wordt afgebroken in het SERP-fragment."
             },
             "cms": {
                 "title": "Layout opdracht",
@@ -2837,6 +2840,7 @@
                 "manufacturerId": "Fabrikant",
                 "manufacturer": "Fabrikant",
                 "manufacturerNumber": "Fabrikantnummer",
+                "markAsTopseller": "Gemarkeerd als gepromoveerd",
                 "maxDeliveryTime": "Maximale levertijd",
                 "maxPurchase": "Maximale bestelhoeveelheid",
                 "minDeliveryTime": "Minimale levertijd",
@@ -3839,8 +3843,11 @@
             "messageDeleteSuccess": "Profiel verwijderd.",
             "messageDeleteError": "Profiel kon niet worden opgeslagen. Verwijder alle logboeken van dit profiel.",
             "messageDuplicateSuccess": "Profiel gedupliceerd.",
+            "messageDuplicateError": "Profiel kon niet worden gedupliceerd.",
             "messageSearchParentProfileError": "Kan aanvraag niet verwerken",
             "messageCsvTemplateUploadError": "Kan CSV bestand niet verwerken.",
+            "messageCsvTemplateUploadEmptyError": "CSV-bestand bevat geen kolommen.",
+            "messageCsvTemplateUploadWarning": "Geïmporteerde toewijzing is mogelijk onjuist. CSV-bestand bevat slechts één kolom. Controleer de instelling voor het CSV-scheidingsteken.",
             "productLabel": "Product",
             "customerLabel": "Klant",
             "categoriesLabel": "Categorieën",
@@ -3873,6 +3880,9 @@
             "enclosureFieldLabel": "Markeringsteken",
             "addMappingTooltipText": "Leg eerst een objecttype vast.",
             "objectTypeFieldTooltipText": "Het objecttype kan niet worden gewijzigd als er al mappingopties voor bestaan.",
+            "descriptionBlock": "Objecttypen definiëren een bepaalde modus voor het importeren en exporteren van gegevens. Als u een objecttype selecteert, worden de toewijzingsopties beperkt. Merk op dat u het objecttype niet kunt wijzigen nadat toewijzingsopties zijn geïntroduceerd.",
+            "mappingDescriptionBlock": "Gebruik de tabel op het tabblad \"Mappings\" om CSV-velden toe te wijzen aan hun respectievelijke database-tegenhangers.",
+            "csvDescriptionBlock": "Scheidingstekens en bijlagetekens worden gebruikt om het afzonderlijke veld in het CSV-bestand aan te geven. Scheidingstekens worden gebruikt om afzonderlijke velden te splitsen, bijlagetekens worden gebruikt om meerdere velden te groeperen.",
             "cancelLabel": "Annuleren",
             "addMappingLabel": "Nieuwe mapping toevoegen",
             "deleteMappingLabel": "Toewijzing verwijderen",
@@ -3896,18 +3906,35 @@
             "customTypeLabel": "Gebruikersspecifiek",
             "defaultTypeLabel": "Standaard",
             "propertyLabel": "Eigenschappen",
+            "mappingAutomatedDescription": "Shopware heeft automatisch {automatedCount} database-items toegewezen. Voltooi het proces door niet-toegewezen vermeldingen handmatig toe te wijzen aan de juiste database-invoer. Verplichte velden die leeg worden gelaten, veroorzaken fouten tijdens het importeren, tenzij er standaardwaarden zijn ingesteld. Standaardwaarden worden ook gebruikt om lege database-items te vullen.",
+            "mappingDescription": "Gebruik de onderstaande tabel om de CSV-kolomnamen toe te wijzen aan Shopware-databasevermeldingen. Lege verplichte velden veroorzaken fouten tijdens het importeren, tenzij er standaardwaarden zijn ingesteld.",
+            "mappingEmptyState": "Nog geen aangepaste toewijzing verstrekt.",
+            "advancedDescription": "Identifiers worden gebruikt om ondubbelzinnig updatebare entiteiten te bepalen en moeten dus uniek zijn.",
             "configuratorSettingLabel": "Variant configuratie instellingen",
             "productCrossSellingLabel": "Cross selling",
+            "promotionDiscountLabel": "Promotie kortingen",
             "promotionIndividualCodesLabel": "Actiecodes",
             "productPriceLabel": "Geavanceerde prijzen",
             "closeViolation": "Sluiten",
             "violationMessage": "Het profiel is nog niet geldig. Voeg toewijzingen aan de onderstaande verplichte velden toe om het profiel op te slaan:",
+            "importSettingsHeadline": "Import instellingen",
+            "fieldIndicatorsHeadline": "Veldindicatoren",
+            "createEntitiesLabel": "Nieuwe entiteiten maken",
+            "updateEntitiesLabel": "Bestaande gegevens bijwerken",
+            "typeFieldLabel": "Gebruik",
             "types": {
+                "importExportLabel": "Import en export",
                 "importLabel": "Import",
                 "exportLabel": "Export"
-            }
+            },
+            "profileTypeDisabledText": "Wis 'objecttype' om eventueel 'gebruik' te kunnen selecteren.",
+            "objectTypeDisabledText": "Wis 'gebruik' om elk 'objecttype' te kunnen selecteren.",
+            "csvUploadText": "Maak een toewijzing van een bestaand CSV-bestand.",
+            "skipCsvUpload": "CSV-upload overslaan"
         },
         "exporter": {
+            "messageExportStarted": "Exporteren is begonnen.",
+            "messageExportSuccess": "Export \"{profile}\" voltooid.",
             "startExportLabel": "Export starten",
             "showLogLabel": "Log tonen",
             "exportActivityLabel": "Exportactiviteit",
@@ -3920,15 +3947,22 @@
             "exportVariants": "Productvarianten exporteren"
         },
         "importer": {
+            "messageImportStarted": "Importeren gestart.",
+            "messageImportSuccess": "Import \"{profile}\" voltooid.",
+            "messageImportError": "Er zijn fouten opgetreden tijdens het importeren \"{profile}\"",
+            "messageImportWarning": "Er zijn geen records geïmporteerd. Zorg ervoor dat je scheidingstekens overeenkomen met het huidige profiel.",
             "uploadCsvLabel": "CSV-bestand uploaden",
             "startImportLabel": "Import starten",
             "selectProfileLabel": "Profiel selecteren",
             "profileLabel": "Profiel",
+            "warningBlock": "<strong>Waarschuwing:</strong> zorg ervoor dat de eigenschappen en varianten die aan de producten zijn gekoppeld in het geüploade CSV-bestand beschikbaar zijn in je winkel. Als dit niet het geval is, kunt u eigenschappen en varianten importeren als aparte CSV-bestanden met bijbehorende profielen. Als geen van beide van toepassing is, moet u de productvarianten na de import handmatig onderhouden in de productmodule.",
             "importActivityLabel": "Import activiteit",
             "importLabel": "Import",
             "directImportVariantsLabel": "Varianten instellingen importeren",
             "directImportPropertiesLabel": "Eigenschappen importeren",
             "close": "Sluiten",
+            "labelUploadCaption": "Selecteer een CSV-bestand om te uploaden",
+            "variantsWarning": "<strong>Let op: </strong> als u producten met varianten importeert, moet u een profiel gebruiken dat variantinstellingen kan importeren.<br>Als u dat niet doet, worden alleen de hoofdproducten geïmporteerd en moeten de varianten achteraf handmatig wroden gemaakt door de beheerder.",
             "importVariants": "Productvarianten importeren"
         },
         "page": {
@@ -3938,6 +3972,7 @@
         },
         "progress": {
             "startImportLabel": "Import starten",
+            "startImportDryrunLabel": "Start dry run",
             "startExportLabel": "Export starten"
         }
     },
@@ -4000,7 +4035,8 @@
     },
     "sw-settings-country": {
         "page": {
-            "generalTab": "Instellingen"
+            "generalTab": "Instellingen",
+            "stateTab": "Provincie/regio"
         },
         "general": {
             "mainMenuItemGeneral": "Landen",
@@ -4034,25 +4070,42 @@
             "labelShippingAvailable": "Verzending",
             "labelTaxFree": "BTW-vrij (B2C)",
             "labelCompanyTaxFree": "BTW-vrij (B2B)",
+            "helpTextCompanyTaxFree": "Om belastingvrije B2B-transacties uit te voeren, moeten de respectieve klantaccounts een geldig btw-reg.nr.",
             "labelCheckVatIdFormat": "Valideren btw-reg.N. formaat",
             "helpTextCheckVatIdFormat": "Valideert btw-reg.N. formaat voor EU-lidstaten.",
+            "labelForceStateInRegistration": "Provincie/regio vereist",
             "placeholderName": "Naam invoeren...",
             "placeholderPosition": "1",
+            "placeholderStateSearch": "Zoek staten/regio's...",
             "placeholderIso": "Voer een alpha-2 ISO code in...",
             "placeholderIso3": "Driecijferige ISO-code invoeren …",
             "buttonCancel": "Annuleren",
             "buttonSave": "Opslaan",
+            "buttonAddCountryState": "Staat/regio toevoegen",
             "editAction": "Bewerken",
             "columnStateNameLabel": "Naam",
-            "titleOptions": "Opties"
+            "columnStateShortCodeLabel": "ISO",
+            "taxFreeFrom": "Min. winkelwagenwaarde (netto)",
+            "baseCurrency": "Standaardvaluta",
+            "taxFreeFromHelpText": "Als het totaal van het winkelwagentje hoger is dan de waarde die is ingesteld in \"min. winkelwagenwaarde (netto)\", is het hele winkelwagentje belastingvrij.",
+            "labelVatIdRequired": "BTW Reg.nr. verplicht",
+            "helpTextLabelVatIdRequired": "Houd rekening met de algemene omschakeling in „Instellingen > Inloggen/registratie”.",
+            "titleOptions": "Opties",
+            "currencyDependentValues": "Valutagebonden prijzen"
         }
     },
     "sw-country-state-detail": {
+        "titleNew": "Nieuwe staat/regio",
+        "titleEdit": "Staat/regio bewerken",
         "buttonSave": "Opslaan",
         "buttonCancel": "Annuleren",
         "labelName": "Naam",
         "labelPosition": "Positie",
-        "labelShortCode": "ISO"
+        "labelShortCode": "ISO",
+        "tooltipPosition": "Wijzigt de positionering van staten/regio's in vermeldingen.",
+        "createNewStateError": "Kan geen regio maken met de momenteel geselecteerde taal. Maak eerst een regio aan met behulp van de standaard systeemtaal.",
+        "emptyTitle": "Geen regio beschikbaar",
+        "emptySubline": "Een regio toevoegen"
     },
     "sw-settings-custom-field": {
         "general": {
@@ -4168,13 +4221,15 @@
             "checkbox": "Checkbox",
             "switch": "Actieve schakelaar",
             "textEditor": "Teksteditor",
-            "colorpicker": "Kleurenkiezer"
+            "colorpicker": "Kleurenkiezer",
+            "price": "Prijs veld"
         }
     },
     "sw-flow": {
         "general": {
             "mainMenuItemGeneral": "Flow Builder",
-            "descriptionTextModule": "Flow Builder"
+            "descriptionTextModule": "Flow Builder",
+            "placeholderSearchBar": "Flow Builder zoeken..."
         },
         "list": {
             "textHeadline": "Flow Builder",
@@ -4183,23 +4238,49 @@
             "labelColumnName": "Naam",
             "labelColumnTrigger": "Evenement",
             "labelColumnDescription": "Beschrijving",
-            "confirmText": "Weet u zeker dat u dit object wilt verwijderen?"
+            "confirmText": "Weet u zeker dat u dit object wilt verwijderen?",
+            "emptyStateTitle": "Nog geen stromen",
+            "emptyStateSubTitle": "Voeg stromen toe door op de knop „toevoegen” te klikken."
         },
         "detail": {
             "textHeadline": "Nieuwe flow",
             "labelGeneralCard": "Algemene informatie",
             "labelLogCard": "Log",
             "labelGeneralInformationName": "Naam",
+            "placeholderGeneralInformationName": "Voer de flownaam in...",
             "labelGeneralInformationDescription": "Beschrijving",
+            "placeholderGeneralInformationDescription": "Voer de stroombeschrijving in...",
             "labelGeneralInformationPriority": "Prioriteit",
             "labelGeneralInformationActive": "Actief",
             "trigger": {
                 "name": "Evenement",
-                "textNoEvent": "Geen evenementen gevonden"
+                "placeholder": "Selecteer een trigger...",
+                "title": "Selecteer een trigger",
+                "helpText": "Triggers worden gebruikt om een stroom te starten. Nadat je een trigger hebt geselecteerd, krijg je de kans om voorwaarden toe te voegen om de trigger te verfijnen of acties toe te voegen die met de trigger moeten worden uitgevoerd.",
+                "textNoEvent": "Geen evenementen gevonden",
+                "textHint": "Op dit moment kan deze trigger niet worden gebruikt omdat er geen acties voor zijn."
             },
             "sequence": {
+                "selectorTitle": "Voorwaarde of actie toevoegen",
+                "selectorHelpTextTrueCondition": "Deze actie of voorwaarde wordt toegepast als de uitdrukking aan de linkerkant „true” is.",
+                "selectorHelpTextFalseCondition": "Deze actie of voorwaarde wordt toegepast als de bovenstaande uitdrukking „false” is.",
+                "selectorHelpText": "Voorwaarden worden gebruikt om een stroom te verfijnen en kunnen „waar” of „onwaar” worden.<br/><br/>Acties kunnen worden gebruikt om e-mails te verzenden, documenten te maken of tags toe te voegen. Ze kunnen zowel onder „echte” als „valse” voorwaarden worden uitgevoerd.",
+                "selectorTitleAddSequence": "Voeg een nieuwe reeks toe",
+                "selectorHelpTextAddSequence": "Stromen worden gestart door een enkele trigger, maar kunnen uit meerdere sequenties bestaan.<br/><br/>Sequenties worden na elkaar uitgevoerd. U kunt een stroom in elk stadium beëindigen door een „stop” -actie toe te voegen.",
+                "selectorIfCondition": "Voorwaarde toevoegen (IF)",
+                "selectorThenAction": "Actie toevoegen (DAN)",
+                "conditionTitle": "Conditie (IF)",
+                "conditionExplainsTitle": "Voorwaarden creëren",
+                "conditionExplainsDescription": "Voorwaarden worden gesteld met behulp van de Rule Builder. U kunt een bestaande regel selecteren of een nieuwe regel maken om de conditie van deze stroom in te stellen.",
+                "actionTitle": "Actie (TOEN)",
+                "contextButton": {
+                    "deleteCondition": "Voorwaarde verwijderen",
+                    "deleteActionContainer": "Actiecontainer verwijderen"
+                },
                 "labelTrue": "Waar",
-                "labelFalse": "Onwaar"
+                "labelFalse": "Onwaar",
+                "noActions": "Nog geen acties toegevoegd",
+                "noRule": "Nog geen regel gedefinieerd"
             }
         },
         "page": {
@@ -4207,77 +4288,159 @@
             "tabFlow": "Stroom"
         },
         "flowNotification": {
-            "messageError": "Er is een fout opgetreden."
+            "messageDeleteSuccess": "De stroom is verwijderd.",
+            "messageDeleteError": "De stroom kon niet worden verwijderd.",
+            "messageSaveError": "De stroom kon niet worden opgeslagen.",
+            "messageError": "Er is een fout opgetreden.",
+            "messageRequiredEventName": "Kies de triggergebeurtenis voordat u opslaat.",
+            "messageRequiredEmptyFields": "Voer een regel of actienaam in voordat u deze opslaat."
         },
         "actions": {
             "addTag": "Tag toevoegen",
+            "generateDocument": "Document genereren",
+            "removeTag": "Tag verwijderen",
             "mailSend": "E-mail versturen",
+            "setOrderState": "Status instellen",
+            "stopFlow": "Stop de stroom",
+            "changeCustomerGroup": "Klantengroep wijzigen",
+            "changeCustomerStatus": "Status van klant wijzigen",
+            "changeCustomFieldContent": "Aangepaste veldinhoud wijzigen",
+            "addAffiliateAndCampaignCode": "Affiliate- en campagnecode toevoegen",
+            "textStopFlowDescription": "Latere acties/sequenties worden niet uitgevoerd.",
+            "labelDescription": "Beschrijving: {description}",
             "contextButton": {
+                "editAction": "Actie bewerken",
+                "deleteAction": "Actie verwijderen",
                 "moveUpAction": "Omhoog verplaatsen",
                 "moveDownAction": "Omlaag verplaatsen"
-            }
+            },
+            "addAction": "Actie toevoegen",
+            "labelTo": "Aan: {entity}",
+            "labelTag": "Label: {tagNames}",
+            "labelTemplate": "Sjabloon: {template}",
+            "labelCustomFieldSet": "Aangepaste veldset: {customFieldSet}",
+            "labelCustomField": "Aangepast veld: {customField}",
+            "labelCustomFieldOption": "Optie aangepast veld: {customFieldOption}",
+            "placeholderSelectAction": "Actie selecteren...",
+            "labelAffiliateCode": "Partnercode: {affiliateCode}",
+            "labelCampaignCode": "Campagnecode: {campaignCode}"
         },
         "rule": {
             "addRule": "Regel toevoegen",
-            "createNewRule": "Nieuwe regel aanmaken"
+            "createNewRule": "Nieuwe regel aanmaken",
+            "contextButton": {
+                "editRule": "Regel bewerken",
+                "changeRule": "Regel wijzigen",
+                "deleteRule": "Regel verwijderen"
+            },
+            "placeholderSelectRule": "Regel selecteren..."
         },
         "modals": {
+            "buttonAddAction": "Actie toevoegen",
+            "buttonSaveAction": "Actie opslaan",
             "rule": {
                 "labelAddNewRule": "Nieuwe regel aanmaken",
+                "labelEditRule": "Regel bewerken",
                 "tabRule": "Regel",
                 "tabDetail": "Detail",
+                "buttonAddRule": "Opslaan en toepassen",
                 "labelName": "Naam",
+                "placeholderName": "Voer de regelnaam in...",
                 "labelPriority": "Prioriteit",
+                "placeholderPriority": "Voer regelprioriteit in...",
                 "labelDescription": "Beschrijving",
-                "labelType": "Type"
+                "placeholderDescription": "Voer de regelbeschrijving in...",
+                "labelType": "Type",
+                "placeholderType": "Regeltype selecteren..."
             },
             "tag": {
+                "labelAddTag": "Label - informatie",
                 "labelToField": "entiteit",
-                "labelTagsField": "Tags"
+                "placeholderToField": "Entiteit selecteren...",
+                "labelTagsField": "Tags",
+                "placeholderTagsField": "Voer tags in..."
             },
             "status": {
+                "titleSetStatus": "Status instellen",
                 "labelOrderStatus": "Bestelstatus",
                 "labelPaymentStatus": "Betalingsstatus",
-                "labelDeliveryStatus": "Leveringsstatus"
+                "labelDeliveryStatus": "Leveringsstatus",
+                "placeholderOrderStatus": "Bestelstatus selecteren...",
+                "placeholderPaymentStatus": "Betalingsstatus selecteren...",
+                "placeholderDeliveryStatus": "Verzendstatus selecteren...",
+                "messageNoStatusError": "Er moet ten minste één status worden geselecteerd"
             },
             "document": {
                 "titleCreateDocument": "Document aanmaken",
-                "labelDocumentType": "Documenttype"
+                "labelDocumentType": "Documenttype",
+                "placeholderDocumentType": "Selecteer het documenttype...",
+                "documentDescription": "Type document: {documentType}"
             },
             "customerGroup": {
-                "labelCustomerGroup": "Klantgroep"
+                "titleChangeCustomerGroup": "Klantengroep wijzigen",
+                "labelCustomerGroup": "Klantgroep",
+                "placeholderCustomerGroup": "Selecteer de klantgroep...",
+                "customerGroupDescription": "Klantengroep: {customerGroup}"
             },
             "customerStatus": {
+                "titleChangeCustomerStatus": "Status van klant wijzigen",
+                "labelCustomerStatus": "Status van klant",
+                "placeholderCustomerStatus": "Selecteer klantstatus...",
+                "customerStatusDescriptionActive": "Actieve klant",
+                "customerStatusDescriptionInactive": "Inactieve klant",
                 "active": "Actief",
                 "inactive": "Inactief"
             },
             "mail": {
                 "columnRecipientName": "Naam",
                 "columnRecipientMail": "E-mailadres",
+                "placeholderRecipientEmailAddress": "Voer het e-mailadres in...",
+                "placeholderRecipientName": "Typ de naam van de ontvanger...",
                 "fieldMailTemplateDetailLink": "E-mailsjabloon openen",
+                "titleSendMail": "Mail versturen",
                 "labelEmailTemplate": "E-mailsjablonen",
+                "placeholderEmailTemplate": "Selecteer een e-mailsjabloon...",
                 "titleNewEmailTemplate": "Nieuw e-mailsjabloon",
                 "tabGeneral": "Algemeen",
                 "tabMailText": "Mailtekst",
                 "labelMailType": "Type",
+                "placeholderMailType": "Selecteer een type...",
                 "labelSubject": "Onderwerp",
                 "labelSenderName": "Afzender",
+                "placeholderSubject": "Voer het onderwerp in...",
+                "placeholderSenderName": "Voer de naam van de zender...",
                 "labelDescription": "Beschrijving",
+                "placeholderDescription": "Voer de beschrijving van e-mailsjabloon in...",
                 "labelContentPlain": "Platte tekst",
                 "labelContentHtml": "HTML",
+                "placeholderPlain": "Voer platte tekst voor e-mailsjabloon in...",
+                "placeholderHtml": "Voer HTML-tekst voor e-mailsjabloon in...",
                 "buttonAddMailTemplate": "E-mailsjabloon toevoegen",
                 "labelDefault": "Standaard",
                 "labelCustomer": "Klant",
+                "labelAdmin": "Beheerder",
                 "labelCustom": "Individueel",
-                "labelRecipient": "Ontvanger"
+                "labelContactFormMail": "Bevestiging contactformulier",
+                "labelRecipient": "Ontvanger",
+                "placeholderRecipient": "Selecteer een e-mailontvanger...",
+                "labelLatestDocuments": "Voeg (laatste) documenten toe",
+                "placeholderLatestDocuments": "Documenten toevoegen...",
+                "documentDescription": "Als het geselecteerde document niet bestaat, moet u het eerst genereren. Anders worden er geen documenten verzonden."
             },
             "setEntityCustomField": {
                 "labelToField": "entiteit",
+                "placeholderToField": "Entiteit selecteren...",
+                "title": "Aangepast veld wijzigen",
                 "customFieldSet": "Vrije tekstvelden set",
+                "customFieldSetPlaceHolder": "Selecteer een aangepaste veldset...",
                 "customField": "Extra velden",
                 "customFieldPlaceHolder": "Vrije tekstveld selecteren...",
+                "requiredMessageError": "„{item}\" mag niet leeg zijn!",
+                "customFieldOption": "Opties voor velden",
+                "prefixFieldName": "Verandering: ",
                 "options": {
                     "overwrite": "Overschrijven",
+                    "notOverwrite": "Niet overschrijven",
                     "clear": "Verwijderen",
                     "add": "Aanmaken",
                     "remove": "Verwijderen"
@@ -4285,9 +4448,16 @@
             },
             "affiliateAndCampaignCode": {
                 "labelEntity": "entiteit",
+                "placeholderEntity": "Entiteit selecteren...",
+                "title": "Partnercode en campagnecode toevoegen",
                 "labelAffiliateCode": "Affiliatecode",
+                "placeholderAffiliateCode": "Voer partnercode in...",
                 "labelCampaignCode": "Campagnecode",
+                "placeholderCampaignCode": "Voer campagnecode in...",
                 "overwrite": "Overschrijven"
+            },
+            "confirmation": {
+                "textConfirmChangeTrigger": "Weet je zeker dat je de triggergebeurtenis wilt wijzigen? <br> De stroomvolgorde wordt gereset als u op de bevestigingsknop drukt."
             }
         }
     },
@@ -4387,7 +4557,12 @@
             "buttonCancelOrder": "Annuleren",
             "messageSaveError": "Bestelling kon niet worden opgeslagen",
             "messageSwitchCustomerError": "Bij de klantenwissel is een fout opgetreden",
-            "messageFetchCustomerAddressesError": "Bij het oproepen van het klantenadres is een fout opgetrede"
+            "messageFetchCustomerAddressesError": "Bij het oproepen van het klantenadres is een fout opgetrede",
+            "remindPaymentModal": {
+                "title": "Betaling herinneren",
+                "text": "Wil je de klant eraan herinneren om deze bestelling te betalen met \"{paymentMethodName}„?",
+                "primaryAction": "Herinneren"
+            }
         },
         "createBase": {
             "labelEmail": "E-mailadres",
@@ -4396,6 +4571,8 @@
             "placeholderPhoneNumber": "Voor telefoonnummer in...",
             "labelBillingAddress": "Factuuradres",
             "labelShippingAddress": "Afleveradres",
+            "placeholderBillingAddress": "Factuuradres selecteren...",
+            "placeholderShippingAddress": "Selecteer het verzendadres...",
             "labelSalesChannel": "Verkoopkanaal",
             "labelPaymentMethod": "Betaalwijze",
             "labelShippingMethod": "Verzendwijze",
@@ -4406,6 +4583,8 @@
             "placeholderShippingMethod": "Selecteer een verzendwijze...",
             "placeholderOrderLanguage": "Selecteer een taal van de bestelling...",
             "placeholderCurrency": "Selecteer valuta…",
+            "helpTextPaymentMethod": "Alleen betalingen die compatibel zijn met het betalingsproces na bestelling zijn beschikbaar.",
+            "labelToggleAutomaticPromotions": "Automatisch toegepaste promoties uitschakelen",
             "labelPromotions": "Promoties",
             "generalTab": {
                 "labelLineItemsCard": "Posities",
@@ -4431,7 +4610,8 @@
                 "labelShippingAddress": "Afleveradres",
                 "placeholder": "Klanten selecteren of aanmaken...",
                 "textIdentical": "Factuur- en afleveradres zijn identiek",
-                "buttonAddNewAddress": "Nieuw adres toevoegen"
+                "buttonAddNewAddress": "Nieuw adres toevoegen",
+                "placeholderAddress": "Adres selecteren..."
             },
             "detailsFooter": {
                 "labelSalesChannel": "Verkoopkanalen",
@@ -4443,7 +4623,8 @@
                 "placeholderPaymentMethod": "Selecteer een betaalwijze…",
                 "placeholderShippingMethod": "Selecteer een verzendwijze...",
                 "placeholderOrderLanguage": "Selecteer een taal van de bestelling...",
-                "placeholderCurrency": "Selecteer valuta…"
+                "placeholderCurrency": "Selecteer valuta…",
+                "helpTextPaymentMethod": "Alleen betalingen die compatibel zijn met het betalingsproces na bestelling zijn beschikbaar."
             },
             "cardTitleLineItems": "Posities",
             "placeholderSearchBarItem": "Zoek in posities...",
@@ -4451,6 +4632,7 @@
             "columnQuantity": "Hoeveelheid",
             "columnPriceNet": "Nettoprijs",
             "columnPriceGross": "Brutoprijs",
+            "columnPriceTaxFree": "Prijs (belastingvrij)",
             "columnTotalPriceNet": "Totaal",
             "columnPrice": "Prijs",
             "columnTotalPrice": "Totaal",
@@ -4460,6 +4642,7 @@
             "taxDetail": "{taxRate}%: {tax}",
             "contextMenuShowProduct": "Product tonen",
             "messageEmptyItem": "Nog geen posities beschikbaar",
+            "buttonAddItems": "Items toevoegen",
             "buttonAddProduct": "Product toevoegen",
             "buttonAddBlankProduct": "Lege positie toevoegen",
             "buttonAddCredit": "Creditnota toevoegen",
@@ -4511,12 +4694,14 @@
             "columnQuantity": "Hoeveelheid",
             "columnPriceNet": "Nettoprijs",
             "columnPriceGross": "Brutoprijs",
+            "columnPriceTaxFree": "Prijs (belastingvrij)",
             "columnTotalPriceNet": "Totaal",
             "columnPrice": "Prijs",
             "columnTotalPrice": "Totaal",
             "columnTotalPriceGross": "Totaal",
             "columnTax": "Belastingtarief",
             "contextMenuShowProduct": "Product tonen",
+            "contextMenuDelete": "Verwijderen uit bestelling",
             "summaryLabelAmount": "Bedrag",
             "summaryLabelAmountGrandTotal": "Grand totaal",
             "summaryLabelAmountWithoutTaxes": "Totaal zonder btw",
@@ -4566,7 +4751,12 @@
             "addTrackingCode": "Klik hier om iets toe te voegen",
             "enterValidTrackingCode": "Voer de trackingcode in",
             "textCreditTax": "auto",
-            "taxDetail": "{taxRate}%: {tax}"
+            "taxDetail": "{taxRate}%: {tax}",
+            "textPromotionRemoved": "Korting {promotion} is verwijderd",
+            "textMissingProductLineItems": "De volgende items zijn gekoppeld aan producten die zijn verwijderd:",
+            "textMissingProductLineItemsDescription": "De prijzen van deze producten kunnen niet opnieuw worden berekend. Daarom worden deze items geconverteerd naar aangepaste items bij het opslaan van deze bestelling.",
+            "textConvertedProductLineItems": "De volgende items zijn gekoppeld aan producten die zijn verwijderd:",
+            "textConvertedProductLineItemsDescription": "De prijzen van deze producten kunnen niet opnieuw worden berekend. Wees extra voorzichtig bij het bewerken van de bestelling."
         },
         "nestedLineItemsModal": {
             "titlePrefix": "Item: {lineItemLabel} - {price}",
@@ -4613,6 +4803,8 @@
             "headlineOrderState": "Bestelstatus",
             "headlineTransactionState": "Betalingsstatus",
             "headlineDeliveryState": "Leveringsstatus",
+            "labelHistory": "Status ingesteld {time} bij {author}",
+            "labelShowHistoryModal": "Statusgeschiedenis tonen",
             "labelLastEditedBy": "Laatst gewijzigd door",
             "labelSystemUser": "Systeem",
             "labelSelectStatePlaceholder": "Maak uw keuze …",
@@ -4645,6 +4837,13 @@
             "labelSent": "Verzonden",
             "labelAttach": "Bijlage toevoegen",
             "labelAmount": "Bestelwaarde",
+            "labelOpenDocument": "Document openen",
+            "labelDownloadPdf": "Document downloaden",
+            "labelPrintDocument": "Document afdrukken",
+            "labelSendDocument": "Document verzenden",
+            "labelMarkAsSent": "Markeren als verzonden",
+            "labelMarkAsUnsent": "Markeren als niet verzonden",
+            "labelCreateNew": "Nieuw document maken",
             "messageEmptyTitle": "Nog geen documenten",
             "messageEmptySubline": "Beheer van documenten.",
             "error": {
@@ -4658,9 +4857,14 @@
             "info": {
                 "summary": {
                     "and": "en",
+                    "on": "op",
                     "by": "door",
-                    "lastChanged": "Laatst gewijzigd"
+                    "lastChanged": "Laatst gewijzigd",
+                    "with": "met"
                 }
+            },
+            "tagSelect": {
+                "placeholder": "Tags toevoegen..."
             }
         },
         "detailsTab": {
@@ -4669,7 +4873,9 @@
             "labelOrderCard": "Bestelling",
             "promotionsField": {
                 "labelPromotions": "Promoties",
-                "placeholderPromotions": "Vouchercode invoeren..."
+                "placeholderPromotions": "Vouchercode invoeren...",
+                "automaticPromotion": "automatisch toegepast",
+                "labelToggleAutomaticPromotions": "Automatisch toegepaste promoties uitschakelen"
             }
         },
         "documentModal": {
@@ -4698,16 +4904,21 @@
             "labelDate": "Datum",
             "labelMailTemplate": "E-mailsjablonen",
             "labelRecipient": "E-mailadres",
+            "labelContent": "Inhoud van e-mail",
             "labelSubject": "Onderwerp",
-            "labelClose": "Sluiten"
+            "labelClose": "Sluiten",
+            "errorMessage": "Er ging iets mis tijdens het verzenden van de e-mail."
         },
         "stateModal": {
             "modalTitle": "Documenten toevoegen"
         },
         "stateHistoryModal": {
+            "modalTitle": "Status geschiedenis",
             "labelSystemUser": "Systeem",
             "column": {
                 "createdAt": "Datum",
+                "entity": "Veranderd",
+                "user": "Gewijzigd door",
                 "transaction": "Betaalwijze",
                 "delivery": "Verzending",
                 "order": "Bestelling"
@@ -4732,9 +4943,14 @@
             "titleNewOrder": "Nieuwe bestelling",
             "tabCustomer": "Klant",
             "tabProducts": "Producten",
+            "tabCustomItem": "Aangepast item",
             "tabOptions": "Opties",
+            "tabCredit": "Krediet",
+            "buttonPreviewOrder": "Voorbeeld van bestelling",
             "customerGrid": {
                 "buttonAddNewCustomer": "Klant aanmaken",
+                "placeholderSearchCustomer": "Voer de klantnaam in...",
+                "textEmptySearch": "Geen gegevens voor {name}",
                 "contextOpenButton": "Openen",
                 "columnCustomerName": "Naam",
                 "columnCustomerNumber": "Klantnummer",
@@ -4743,24 +4959,37 @@
             "options": {
                 "textHeadlineOrder": "Bestelling",
                 "textHeadlinePayment": "Betaalwijze",
+                "textHeadlineShipment": "Verzending",
+                "labelTestOrder": "Bestelling testen",
+                "helpTextTestOrder": "Deze volgorde staat in de testmodus",
                 "placeholderAddPromotion": "Promotie toevoegen",
-                "textSameAsBillingAddress": "Komt overeen met het factuuradres"
+                "textSameAsBillingAddress": "Komt overeen met het factuuradres",
+                "textSameAsShippingAddress": "Hetzelfde als verzendadres"
             }
         },
         "itemModal": {
             "productGrid": {
                 "columnAmount": "Totaal",
                 "columnProductName": "Naam",
-                "columnProductNumber": "Productnummer"
+                "columnProductNumber": "Productnummer",
+                "textEmptySearch": "Geen gegevens voor {name}"
             },
             "customItem": {
                 "labelName": "Naam",
+                "placeholderName": "Voer de itemnaam in...",
+                "placeholderPriceNet": "Prijs invoeren (netto)",
+                "placeholderPriceGross": "Prijs invoeren (bruto)",
+                "placeholderPriceTaxFree": "Prijs invoeren (belastingvrij)",
                 "labelAmount": "Totaal",
-                "labelVat": "Belastingtarief"
+                "placeholderAmount": "Voer het aangepaste item totaal in...",
+                "labelVat": "Belastingtarief",
+                "placeholderSelectVat": "Selecteer BTW..."
             },
             "credit": {
                 "labelCreditName": "Naam",
-                "labelCreditAmount": "Totaal"
+                "placeholderCreditName": "Voer kredietnaam in...",
+                "labelCreditAmount": "Totaal",
+                "placeholderAmount": "Voer het krediettotaal in..."
             }
         },
         "filters": {
@@ -4773,6 +5002,11 @@
             "orderDateFilter": {
                 "label": "Bestelling datum",
                 "options": {
+                    "lastYear": "Vorig jaar",
+                    "lastQuarter": "Vorig kwartaal",
+                    "lastMonth": "Vorige maand",
+                    "lastWeek": "Vorige week",
+                    "lastDay": "Laatste dag",
                     "custom": "Individueel"
                 }
             },
@@ -4837,7 +5071,11 @@
         "components": {
             "selectDocumentTypeModal": {
                 "title": "Document aanmaken",
-                "primaryAction": "Document aanmaken"
+                "primaryAction": "Document aanmaken",
+                "helpText": {
+                    "storno": "Een annuleringsfactuur kan niet worden aangemaakt zonder factuur.",
+                    "credit_note": "Voeg eerst een creditnota toe om een creditnota te maken."
+                }
             }
         }
     },
@@ -4856,6 +5094,7 @@
         "sorting": {
             "labelSort": "Sorteren op:",
             "labelSortByNameAsc": "Naam, oplopend",
+            "labelSortByNameDesc": "Naam, aflopend",
             "labelSortByCreatedAsc": "Aanmaakdatum oplopend",
             "labelSortByCreatedDsc": "Aanmaakdatum aflopend",
             "labelSortByUpdatedAsc": "Bewerkingsdatum, oplopend",
@@ -4863,14 +5102,16 @@
             "labelSortByAllPages": "Alle typen",
             "labelSortByShopPages": "Shoppagina's",
             "labelSortByLandingPages": "Landingpaginas",
-            "labelSortByProductPages": "Productpagina's"
+            "labelSortByProductPages": "Productpagina's",
+            "labelSortByCategoryPages": "Pagina's met vermelding"
         },
         "list": {
             "gridHeaderName": "Naam",
             "gridHeaderType": "Type",
             "gridHeaderAssignment": "Toegewezen categorieën",
             "gridHeaderAssignments": "Opdrachten",
-            "gridHeaderCreated": "Aangemaakt"
+            "gridHeaderCreated": "Aangemaakt",
+            "gridHeaderUpdated": "Datum bijgewerkt"
         },
         "section": {
             "fallBackSectionName": "Sectie",
@@ -4969,6 +5210,14 @@
                 "claimEmptyState": "Maak nieuwe lay-outs door een sectie te kiezen. Kies eerst een sectietype, sleep blokken naar een sectie en vul de inhoud in."
             },
             "notification": {
+                "pageInvalid": "Er zijn fouten opgetreden. Controleer de foutenlijst in de editor.",
+                "errorCollectionText": "Pagina kon niet worden opgeslagen vanwege de volgende fouten:",
+                "warningCollectionText": "De volgende, aanbevolen elementen ontbreken in deze lay-out:",
+                "messageMissingFields": "Sommige verplichte velden zijn niet ingevuld.",
+                "messageMissingBlockFields": "Sommige blokken waren niet voldoende geconfigureerd.",
+                "messageMissingProductListing": "Deze aanbiedingspagina bevat geen blok met productaanbieding.",
+                "messageMissingSections": "Deze lay-out bevat geen secties.",
+                "messageRedundantElements": "Er zijn blokken die mogelijk maar één keer bestaan. ({names})",
                 "messageMissingBlocks": "U kunt geen lege pagina opslaan. Voeg eerst ten minste één blok toe.",
                 "messageMissingElements": "Configuratie vereist. Configureer alle elementen van uw lay-out."
             },
@@ -4984,6 +5233,8 @@
                 "titleNavigator": "Navigator",
                 "titleSectionSettings": "Sectie-instellingen",
                 "titleLayoutAssignment": "Layout opdracht",
+                "confirmTextNavigator": "Wanneer u de bloknavigator binnengaat, wordt uw huidige pagina opgeslagen. Weet je zeker dat je verder wilt gaan?",
+                "confirmReminderNavigator": "Vraag het me niet nog een keer",
                 "mobile": "Gedrag van mobiele zijbalk",
                 "mobileOptionHidden": "Verborgen",
                 "mobileOptionWrap": "Wikkel"
@@ -5048,7 +5299,10 @@
                         "navigationPreviewPositionLeft": "Links",
                         "navigationPreviewPositionUnderneath": "Eronder",
                         "zoom": "Zoom",
-                        "fullscreen": "Galerie over gehele scherm"
+                        "fullscreen": "Galerie over gehele scherm",
+                        "keepAspectRatioOnZoom": "Houd de beeldverhouding bij zoom",
+                        "magnifierOverGallery": "Vergrootglas weergeven over galerij",
+                        "magnifierOverGalleryHelpText": "Toon het vergrootglas bovenaan de galerij in plaats van het naast de galerij te tonen"
                     }
                 }
             },
@@ -5667,7 +5921,8 @@
             "labelName": "Zoekresultaat",
             "labelScore": "Rangschikking score",
             "textNoResult": "Geen resultaten gevonden. Probeer het opnieuw met een andere zoekterm."
-        }
+        },
+        "textLeaveConfirm": "Je hebt wijzigingen aangebracht op deze pagina. Als u vertrekt zonder op te slaan, gaan uw wijzigingen verloren."
     },
     "sw-settings-payment": {
         "general": {
@@ -5708,6 +5963,7 @@
             "placeholderName": "Naam invoeren...",
             "placeholderPosition": "Positie invoeren...",
             "placeholderDescription": "Beschrijving invoeren...",
+            "placeholderAvailabilityRule": "Kies beschikbaarheidsregel...",
             "buttonCancel": "Annuleren",
             "buttonSave": "Opslaan"
         }
@@ -5870,7 +6126,8 @@
     },
     "sw-extension-sdk": {
         "general": {
-            "mainMenuItemGeneral": "Mijn extensies"
+            "mainMenuItemGeneral": "Mijn extensies",
+            "moduleDescription": "Module om extensie-inhoud te tonen"
         }
     },
     "sw-settings-snippet": {
@@ -6128,6 +6385,7 @@
             "labelDescription": "Beschrijving",
             "labelProductNumber": "Productnummer",
             "labelManufacturer": "Fabrikant",
+            "labelManufacturerCreation": "fabrikant",
             "placeholderName": "Voer een productnaam in …",
             "placeholderDescriptionLong": "Voer een productbeschrijving in …",
             "placeholderId": "Voer productnummer in...",
@@ -6226,6 +6484,7 @@
             "placeholderMaxPurchase": "Maximale bestelhoeveelheid …",
             "placeholderPurchaseSteps": "Verkoopinterval (aantal stuks) ...",
             "placeholderRestockTime": "Opvulinterval ...",
+            "placeholderEan": "Voer GTIN/EAN in...",
             "placeholderManufacturerNumber": "Voer het fabrikantnummer in …",
             "labelAvailableStock": "Beschikbare voorraad",
             "labelPurchaseSteps": "Staffel"
@@ -6279,7 +6538,9 @@
                 "buttonCancel": "Annuleren",
                 "buttonDelete": "Verwijderen"
             },
-            "messageEmptyTitle": "Product nog niet beoordeeld"
+            "messageEmptyTitle": "Product nog niet beoordeeld",
+            "messageEmptySubline": "U kunt de beoordelingen van andere producten doorzoeken.",
+            "emptyStateButton": "Andere reviews openen"
         },
         "prices": {
             "cardTitlePriceRule": "Nieuwe prijsregel",
@@ -6379,7 +6640,8 @@
             "advancedPricesNotInherited": "De aangepaste prijsregels kunnen nu voor deze variant worden gebruikt.",
             "advancedListPricePriceLabel": "Prijs",
             "advancedListPriceLabel": "Prijs van de lijst",
-            "advancedPriceDisabledTooltip": "De startwaarde van de eerste aanbiedingsprijs moet 1 zijn."
+            "advancedPriceDisabledTooltip": "De startwaarde van de eerste aanbiedingsprijs moet 1 zijn.",
+            "labelRegulationPrice": "Goedkoopste prijs (afgelopen 30 dagen)"
         },
         "properties": {
             "cardTitleProperties": "Eigenschappen",
@@ -6406,6 +6668,8 @@
             }
         },
         "variations": {
+            "emptyStateTitle": "Dit product heeft nog geen varianten.",
+            "emptyStateDescription": "Beheer hier productvarianten.",
             "emptyStatePropertyTitle": "Er zijn nog geen attributen toegewezen aan dit product",
             "emptyStatePropertyDescription": "Gelieve eerst attributen te configureren vooraleer deze te kunnen gebruiken tijdens het definiëren van varianten.",
             "emptyStateButton": "Variantengenerator starten",
@@ -6453,6 +6717,9 @@
                 "selectOptions": "Waarde selectie",
                 "selectOptionsExplanation": "Selecteer eigenschapswaarden waaruit u varianten wilt genereren.",
                 "selectRestrictionsExplanation": "Selecteer eigenschapswaarden die u wilt uitsluiten van het genereren van varianten",
+                "selectPricesExplanation": "Voeg toeslagen en kortingen toe aan waarden of valuta's.",
+                "priceSurcharges": "Prijstoeslagen/kortingen",
+                "resetSurcharges": "Toeslag/korting verwijderen",
                 "defineRestrictions": "Waarde uitsluiting",
                 "priceOptions": "Waarde",
                 "restrictedCombinations": "Uitgesloten eigenschapswaarden",
@@ -6466,7 +6733,8 @@
                 "cancel": "Annuleren",
                 "save": "Opslaan",
                 "searchPlaceholder": "Zoek waarden...",
-                "singleRestrictionAddTitle": "Waarden uitsluiten"
+                "singleRestrictionAddTitle": "Waarden uitsluiten",
+                "surchargeNotice": "Wijzigingen in de toeslagen en kortingen hebben geen effect op reeds gegenereerde varianten. Ga naar de gegevenspagina van de variant en wijzig daar de prijzen van reeds gegenereerde varianten."
             },
             "deliveryModal": {
                 "modalHeadline": "Genereren varianten",
@@ -6650,6 +6918,7 @@
                     "individual": {
                         "description": "Individuele promotie codes",
                         "emptyStateTitle": "Er zijn nog geen promotiecodes gegenereerd.",
+                        "generateButton": "Genereer nieuwe codes",
                         "searchPlaceholder": "Zoek promotiecodes...",
                         "addButton": "Codes toevoegen",
                         "columnCode": "Code",
@@ -6666,6 +6935,7 @@
                         },
                         "generateModal": {
                             "title": "Nieuwe promotiecodes genereren",
+                            "buttonGenerate": "Genereer nieuwe codes",
                             "warning": "Als u nieuwe codes genereert, worden alle bestaande codes voor deze promotie verwijderd. Verwijderde codes zijn ongeldig en kunnen niet meer worden gebruikt.",
                             "description": "Promotiecodes worden willekeurig gegenereerd uit hoofdletters en cijfers. Je kunt vaste individuele termen toevoegen als voorvoegsel en/of achtervoegsel of een volledig aangepast patroon gebruiken en kijken hoe je codepatroon eruit ziet in de promotiecode preview.",
                             "labelPrefix": "Voorvoegsel",
@@ -6690,6 +6960,8 @@
                 "preConditions": {
                     "cardTitlePreConditions": "Pre-voorwaarden",
                     "cardTitleRuleConditions": "Op regels gebaseerde voorwaarden",
+                    "labelPreventCombination": "Combinatie met andere promoties voorkomen",
+                    "helpTextPreventCombination": "Als u deze optie activeert, worden alle andere promoties uitgesloten, ongeacht de combinatieselectie.",
                     "labelPromotionExclusions": "Niet combineren met",
                     "placeholderPromotionExclusions": "Promotie toevoegen...",
                     "labelPromotionSalesChannel": "Verkoop Kanalen",
@@ -6709,6 +6981,7 @@
                     "labelValue": "Waarde",
                     "labelSorting": "Sorteren",
                     "labelRules": "Product regels",
+                    "placeholder": "Kies een productregel...",
                     "packager": {
                         "COUNT": "hoeveelheid",
                         "PRICE_UNIT_GROSS": "Bedrag (bruto)",
@@ -6861,7 +7134,8 @@
             "buttonSave": "Opslaan",
             "helpTextAdvancedField": "Geavanceerde patroondefinitie: <br/>{prefix}_{n}_{suffix}<br/>'n' is het ingestelde startnummer<br/>('_' is een scheidingsteken naar keuze)<br/><br/>Gebruik b.v. de PHP-parameter 'date': <br/>{date}:<br/>internationaal datumformaat (YYYY-MM-DD)<br/>{date_dmy}:<br/>door gebruiker gekozen datumformaat (DD-MM-YY)<br/><br/>",
             "errorSalesChannelNeededMessage": "Geen verkoopkanaal geselecteerd. Wijs minstens één verkoopkanaal toe.",
-            "errorPatternNeededMessage": "Geen patroon gedefinieerd. Definieer minimaal een startwaarde."
+            "errorPatternNeededMessage": "Geen patroon gedefinieerd. Definieer minimaal een startwaarde.",
+            "infoStartDecrementMessage": "Wijzigingen in het startnummer worden alleen van kracht als het startnummer hoger is dan het huidige nummer."
         }
     },
     "sw-settings-store": {
@@ -6873,7 +7147,9 @@
             "messageSaveSuccess": "Uw Shopware-account informatie is opgeslagen."
         },
         "detail": {
-            "titleCard": "Instellingen"
+            "titleCard": "Instellingen",
+            "labelHost": "Licentie-domein",
+            "placeholderHost": "Voer het licentiedomein (winkeldomein) in dat is opgegeven in uw Shopware-account."
         }
     },
     "sw-settings-sitemap": {
@@ -6922,14 +7198,28 @@
             "messageSaveError": "Bij het opslaan van de regel \"{name}\" is een fout opgetreden.",
             "tabGeneral": "Generaal",
             "tabAssignments": "Opdrachten",
+            "buttonAddAssignment": "Opdracht toevoegen",
             "associations": {
                 "shippingMethods": "Verzendwijzen",
                 "promotions": "Promoties",
+                "products": "Regels voor productprijzen",
+                "shippingMethodPrices": "Prijsregels voor verzendmethode",
                 "paymentMethods": "Betaalwijzen",
-                "eventActions": "Zakelijke evenementen"
+                "promotionCustomerRules": "Regels voor klanten voor promotie",
+                "promotionOrderRules": "Regels voor promotiebestellingen",
+                "promotionCartRules": "Regels voor promotiekar",
+                "promotionDiscountRules": "Productregels voor promotie korting",
+                "promotionGroupRules": "Groepsregels voor promotieset",
+                "shippingMethodAvailabilityRule": "Regels voor beschikbaarheid van verzendmethoden",
+                "eventActions": "Zakelijke evenementen",
+                "flows": "Flow Builder"
             },
+            "typeHasNoAssociations": "Er zijn geen regels toegewezen",
             "hasNoAssociations": "Deze regel is niet in gebruik",
             "associationsLoadingError": "Kan regeltoewijzingen niet laden.",
+            "textModalDelete": "Wil je deze opdracht echt verwijderen?",
+            "textModalBulkDelete": "Weet je zeker dat je deze opdracht wilt verwijderen? | Weet je zeker dat je deze {count} opdrachten wilt verwijderen?",
+            "titleModalDelete": "Opdracht verwijderen",
             "types": {
                 "shipping": "Verzendwijze",
                 "payment": "Betaalwijze",
@@ -6939,7 +7229,10 @@
             "groups": {
                 "general": "Algemeen",
                 "cart": "Winkelmandje",
-                "customers": "Klanten"
+                "items": "Items in winkelwagentje",
+                "customers": "Klanten",
+                "promotions": "Marketing & promoties",
+                "misc": "Diversen"
             }
         },
         "conditionFilter": {
@@ -7080,7 +7373,9 @@
     },
     "sw-bulk-edit": {
         "general": {
-            "mainMenuTitle": "Bulk bewerken"
+            "mainMenuTitle": "Bulk bewerken",
+            "descriptionTextModule": "Module om gegevens in bulk te bewerken",
+            "defaultChangeLabel": "Verandering:"
         },
         "changeTypes": {
             "overwrite": "Overschrijven",
@@ -7089,26 +7384,55 @@
             "remove": "Verwijderen"
         },
         "product": {
+            "textTitle": "Bulk bewerking: {productTotal} product | Bulk bewerking: {productTotal} producten",
+            "messageEmptyTitle": "Geen producten geselecteerd voor bulkbewerking",
+            "messageEmptySubline": "Ga terug en selecteer enkele producten",
             "generalInformation": {
                 "cardTitle": "Algemene informatie",
+                "description": {
+                    "changeLabel": "Verandering: Beschrijving"
+                },
                 "manufacturer": {
+                    "changeLabel": "Verandering: fabrikant",
                     "placeholderManufacturer": "Selecteer fabrikant..."
                 },
                 "active": {
+                    "changeLabel": "Verandering: actief",
                     "switchLabel": "Actief"
                 },
                 "productPromotion": {
+                    "changeLabel": "Wijziging: Productpromotie",
                     "switchLabel": "Product markeren"
                 }
             },
             "prices": {
                 "cardTitle": "Prijzen",
                 "taxRate": {
+                    "changeLabel": "Verandering: belastingtarief",
                     "placeholderTax": "Selecteer een belastingtarief …"
+                },
+                "price": {
+                    "changeLabel": "Verandering: prijs",
+                    "placeholderPrice": "Prijs invoeren..."
+                },
+                "purchasePrices": {
+                    "changeLabel": "Verandering: Aankoopprijs",
+                    "placeholderPurchasePrices": "Voer de aankoopprijs in..."
+                },
+                "listPrice": {
+                    "changeLabel": "Wijziging: catalogusprijs",
+                    "placeholderListPrice": "Voer catalogusprijs in..."
+                },
+                "regulationPrice": {
+                    "changeLabel": "Wijzigen: Goedkoopste prijs (laatste 30 dagen)",
+                    "placeholderRegulationPrice": "Vul de goedkoopste prijs in..."
                 }
             },
             "advancedPrices": {
-                "cardTitle": "Geavanceerde prijzen"
+                "cardTitle": "Geavanceerde prijzen",
+                "changeLabel": "Verandering: Geavanceerde prijzen",
+                "selectRule": "Prijsregel selecteren...",
+                "newAdvancedPrices": "Nieuwe geavanceerde prijzen maken ({count})"
             },
             "property": {
                 "cardTitle": "Attributen",
@@ -7116,132 +7440,282 @@
             },
             "deliverability": {
                 "cardTitle": "Leverbaarheid",
+                "stock": {
+                    "changeLabel": "Verandering: voorraad",
+                    "placeholderStock": "Voer de hoeveelheid in op voorraad... "
+                },
                 "isCloseout": {
+                    "changeLabel": "Verandering: uitverkoop",
                     "switchLabel": "Uitverkoop"
                 },
+                "deliveryTime": {
+                    "changeLabel": "Verandering: Levertijd",
+                    "placeholderDeliveryTime": "Selecteer de levertijd..."
+                },
                 "restockTime": {
+                    "changeLabel": "Verandering: tijd voor hervoorraad",
                     "placeholderRestockTime": "Opvulinterval ..."
                 },
                 "freeShipping": {
+                    "changeLabel": "Verander: Gratis verzending",
                     "switchLabel": "Gratis verzending"
+                },
+                "minOrderQuantity": {
+                    "changeLabel": "Verandering: Min bestelhoeveelheid",
+                    "placeholderMinOrderQuantity": "Voer de minimale bestelhoeveelheid in..."
+                },
+                "purchaseSteps": {
+                    "changeLabel": "Wijzigen: Aankoopstappen",
+                    "placeholderPurchaseSteps": "Voer de grootte van de aankoopstap..."
+                },
+                "maxOrderQuantity": {
+                    "changeLabel": "Wijziging: Max bestelhoeveelheid",
+                    "placeholderMaxOrderQuantity": "Voer de maximale bestelhoeveelheid in..."
                 }
             },
             "assignment": {
                 "cardTitle": "Zichtbaarheid & structuur",
                 "categories": {
+                    "changeLabel": "Verandering: categorie",
                     "placeholder": "Categorieën selecteren..."
                 },
+                "tags": {
+                    "changeLabel": "Wijzigen: Tags",
+                    "placeholder": "Voer tags in..."
+                },
                 "visibilities": {
+                    "changeLabel": "Verandering: Sales Channel",
                     "placeholder": "Selecteer verkoopkanaal..."
+                },
+                "searchKeywords": {
+                    "changeLabel": "Change: Zoekwoorden",
+                    "placeholder": "Voer trefwoorden in..."
                 }
             },
             "media": {
-                "cardTitle": "Media"
+                "cardTitle": "Media",
+                "changeLabel": "Verandering: Media"
             },
             "labelling": {
                 "cardTitle": "Onderscheiding",
                 "releaseDate": {
+                    "changeLabel": "Wijziging: releasedatum",
                     "placeholderReleaseDate": "Voer een publicatiedatum in …"
                 }
             },
             "seo": {
                 "cardTitle": "SEO",
                 "metaTitle": {
+                    "changeLabel": "Wijziging: Meta-titel",
                     "placeholderMetaTitle": "Voer een meta title in ..."
                 },
                 "metaDescription": {
+                    "changeLabel": "Verandering: Meta description",
                     "placeholderMetaDescription": "Voer een meta description in ..."
+                },
+                "seoKeywords": {
+                    "changeLabel": "Verandering: SEO-zoekwoorden",
+                    "placeholderSeoKeywords": "Voer trefwoorden in..."
                 }
             },
             "measuresAndPackaging": {
                 "cardTitle": "Maatregelen & verpakking",
                 "widthTitle": {
+                    "changeLabel": "Verandering: breedte",
                     "placeholder": "bijv. 500 ..."
                 },
                 "heightTitle": {
+                    "changeLabel": "Verandering: hoogte",
                     "placeholder": "bijv. 200 ..."
                 },
                 "lengthTitle": {
+                    "changeLabel": "Verandering: lengte",
                     "placeholder": "bijv. 100 ..."
                 },
                 "weightTitle": {
+                    "changeLabel": "Verandering: gewicht",
                     "placeholder": "bijv. 0,4 ..."
                 },
                 "sellingUnitTitle": {
+                    "changeLabel": "Verandering: Verkoopeenheid",
                     "placeholder": "Geef de verkoopeenheid aan ..."
                 },
+                "scaleUnitTitle": {
+                    "changeLabel": "Verandering: schaaleenheid",
+                    "placeholder": "Voer de schaaleenheid in..."
+                },
                 "packUnitTitle": {
+                    "changeLabel": "Verandering: Verpakkingseenheid",
                     "placeholder": "Geef de verpakkingseenheid aan ..."
                 },
                 "packUnitPluralTitle": {
+                    "changeLabel": "Change: Verpakkingseenheid meervoud",
                     "placeholder": "Voer de verpakkingseenheid meervoud in..."
                 },
                 "basicUnitTitle": {
+                    "changeLabel": "Verandering: Basiseenheid",
                     "placeholder": "Geef de basiseenheid aan ..."
                 }
             },
             "featureSets": {
                 "cardTitle": "Essentiele karakteristieken",
+                "changeLabel": "Verandering: sjabloon",
                 "placeholder": "Selecteer een sjabloon..."
             },
             "customFields": {
-                "cardTitle": "Vrije tekstvelden"
+                "cardTitle": "Vrije tekstvelden",
+                "changeLabel": "Verandering: {name}"
             }
         },
         "modal": {
             "confirm": {
+                "title": "Bulk bewerken - Toepassen?",
+                "description": "Wijzigingen toepassen op {itemCount} geselecteerd item? Deze actie kan niet ongedaan worden gemaakt. | Wijzigingen toepassen op {itemCount} geselecteerde items? Deze actie kan niet ongedaan worden gemaakt.",
+                "switchLabel": "Trigger Flows met deze bulkbewerking",
+                "switchHelpText": "Als deze actie actief is, worden alle triggers die in de Flow Builder zijn gemaakt, uitgevoerd voor alle wijzigingen van deze bulkbewerking. Onder bepaalde omstandigheden kan dit ertoe leiden dat Flows twee keer worden uitgevoerd.",
+                "alertTitle": "De volgende triggers/flows kunnen worden uitgevoerd:",
+                "triggeredFlows": {
+                    "orderDeliveries": {
+                        "key": "Leveringen bestellen",
+                        "label": "Wijzigingen in de leveringsstatus"
+                    },
+                    "orderTransactions": {
+                        "key": "ordertransacties",
+                        "label": "Wijzigingen in de betalingsstatus"
+                    },
+                    "orders": {
+                        "key": "orders",
+                        "label": "Wijzigingen in de bestelstatus"
+                    },
+                    "requestedCustomerGroupId": {
+                        "key": "gevraagde klantgroep-id",
+                        "label": "Aanvraag voor registratie van klantengroep"
+                    }
+                },
                 "buttons": {
                     "applyChanges": "Wijzigingen toepassen"
                 }
             },
             "process": {
+                "title": "Bulk bewerking - In proces",
+                "description": "Afhankelijk van het aantal wijzigingen kan dit even duren.",
+                "helpText": "Houd er rekening mee dat handmatige wijzigingen in een van de geselecteerde items tijdens het bulkbewerkingsproces ongewenste resultaten kunnen opleveren.",
                 "buttons": {
                     "cancel": "Annuleren"
                 }
-            }
+            },
+            "success": {
+                "title": "Bulk edit - Succes",
+                "description": "Bulk bewerking voltooid."
+            },
+            "error": {
+                "title": "Bulk bewerken - Fout",
+                "description": "Bulkbewerking voltooid met fouten.",
+                "buttons": {
+                    "openLog": "Logbestand openen"
+                }
+            },
+            "warningText": "Wacht tot de bulkbewerking is voltooid. Dit kan even duren. Als u het browsertabblad sluit of het proces voortijdig annuleert, worden niet alle wijzigingen toegepast. U kunt de bulkbewerking op elk gewenst moment opnieuw uitvoeren.",
+            "messageBeforeTabLeave": "Er worden bulkbewerkingen uitgevoerd. Als u het tabblad sluit, kunnen niet alle wijzigingen worden toegepast."
         },
         "order": {
+            "textTitle": "Bulk bewerking: {orderTotal} bestelling | Bulk bewerking: {orderTotal} bestellingen",
+            "messageEmptyTitle": "Geen bestellingen geselecteerd",
+            "messageEmptySubline": "Ga terug en selecteer bestellingen.",
             "status": {
                 "cardTitle": "Status",
                 "payment": {
+                    "label": "Wijziging: Betalingsstatus",
                     "placeholder": "Selecteer betalingsstatus..."
                 },
+                "shipping": {
+                    "label": "Wijziging: Verzendstatus",
+                    "placeholder": "Verzendstatus selecteren..."
+                },
                 "order": {
+                    "label": "Wijziging: Status van de bestelling",
                     "placeholder": "Status van bestelling selecteren..."
                 },
+                "statusMails": {
+                    "label": "Verzenden: Status e-mails",
+                    "helpText": "Alleen beschikbaar als de status is gewijzigd."
+                },
                 "documents": {
+                    "label": "Verzenden: Documenten",
+                    "helpText": "Alleen beschikbaar als „Verzenden: status e-mails” is aangevinkt.",
                     "options": {
+                        "newest": "Nieuwste",
                         "all": "Alle"
-                    }
+                    },
+                    "documentType": {
+                        "invoices": "Facturen",
+                        "deliveryNotes": "Aflevernotities",
+                        "creditNotes": "Creditnota's",
+                        "cancellationInvoices": "Annuleringsnotities"
+                    },
+                    "skipSentDocuments": "Reeds verzonden documenten overslaan"
                 }
             },
             "documents": {
                 "cardTitle": "Documenten",
                 "generateInvoice": {
+                    "label": "Genereren: factuur",
+                    "helpText": "Deze actie verhoogt de waarde van het overeenkomstige getalbereik.",
                     "labelDatePicker": "Datum",
-                    "labelTextarea": "Commentaar"
+                    "labelTextarea": "Commentaar",
+                    "placeholderTextarea": "\nLorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim."
+                },
+                "generateCancellationInvoice": {
+                    "label": "Genereren: Annuleringsfactuur",
+                    "helpText": "Deze actie verhoogt de waarde van het overeenkomstige getalbereik.",
+                    "changeSubLabel": "Het laatste referentiefactuurnummer wordt gebruikt."
                 },
                 "generateDeliveryNote": {
+                    "label": "Genereren: Aflevernota",
+                    "helpText": "Deze actie verhoogt de waarde van het overeenkomstige getalbereik.",
                     "labelDeliveryDatePicker": "Leveringsdatum"
+                },
+                "generateCreditNote": {
+                    "label": "Genereren: Creditnota",
+                    "helpText": "Creditnota's gebruiken over het algemeen het meest recente bijbehorende factuurnummer ter referentie.",
+                    "changeSubLabel": "Dit document wordt alleen gegenereerd als er een kredietpositie in de bestelling bestaat."
                 }
             },
             "customFields": {
-                "cardTitle": "Vrije tekstvelden"
+                "cardTitle": "Vrije tekstvelden",
+                "changeLabel": "Verandering: {name}"
             },
             "tags": {
-                "cardTitle": "Tags"
+                "cardTitle": "Tags",
+                "changeLabel": "Wijzigen: Tags",
+                "placeholder": "Voer tags in..."
             }
         },
         "customer": {
+            "textTitle": "Bulk bewerking: {customerTotal} klant | Bulk bewerking: {customerTotal} klanten",
+            "messageEmptyTitle": "Geen klanten geselecteerd",
+            "messageEmptySubline": "Ga terug en selecteer klanten.",
             "account": {
                 "cardTitle": "Account",
                 "customerGroup": {
+                    "label": "Verandering: klantengroep",
                     "placeholder": "Selecteer klantgroep..."
                 },
                 "defaultPaymentMethod": {
+                    "label": "Wijzigen: standaard betaalmethode",
                     "placeholder": "Selecteer standaard betaalmethode..."
                 },
+                "status": {
+                    "label": "Wijziging: Accountstatus"
+                },
+                "language": {
+                    "label": "Verandering: taal",
+                    "placeholder": "Taal selecteren..."
+                },
                 "customerGroupRequest": {
+                    "label": "Antwoord op: Verzoek van de klantgroep",
+                    "helpText": "Houd er rekening mee dat e-mails naar de geselecteerde klanten worden verzonden. Klanten zonder verzoeken worden overgeslagen.",
+                    "placeholder": "Selecteer een reactie van de klantgroep...",
                     "options": {
                         "accept": "Akkoord",
                         "decline": "Weigeren"
@@ -7249,10 +7723,13 @@
                 }
             },
             "customFields": {
-                "cardTitle": "Vrije tekstvelden"
+                "cardTitle": "Vrije tekstvelden",
+                "changeLabel": "Verandering: {name}"
             },
             "tags": {
-                "cardTitle": "Tags"
+                "cardTitle": "Tags",
+                "changeLabel": "Wijzigen: Tags",
+                "placeholder": "Tags toevoegen..."
             }
         },
         "applyChanges": "Wijzigingen toepassen"
@@ -7322,7 +7799,9 @@
             },
             "emptyCountryRoundings": "Voeg individuele decimalen en afrondingsfactoren toe voor verschillende landen.",
             "emptyCountryRoundingsNewCurrency": "Vul basisinformatie in, sla de valuta op - voeg vervolgens waarden toe",
-            "buttonAddCountry": "Land toevoegen"
+            "buttonAddCountry": "Land toevoegen",
+            "taxFreeFrom": "Belastingvrij van",
+            "taxFreeFromHelpText": "Als het totaal van het winkelwagentje hoger is dan de waarde die is ingesteld in „Belastingvrij van”, is het hele winkelwagentje belastingvrij. Geldt alleen voor winkelwagentjes die worden betaald in \"{currencyName}„."
         },
         "currency-country-modal": {
             "labelCountrySelect": "Land",
@@ -7361,6 +7840,7 @@
             "treeHeadline": "categorieën",
             "treeHeadSelected": "{count} geselecteerd",
             "emptyStateHeadline": "Geen categorie geselecteerd",
+            "errorNavigationEntryPoint": "Deze categorie wordt gedefinieerd als een {entryPointLabel} van ten minste één verkoopkanaal en kan daarom niet worden verwijderd.",
             "errorNavigationEntryPointMultiple": "Een of meer categorieën worden gedefinieerd als een hoofdnavigatie van ten minste één verkoopkanaal en kunnen daarom niet worden verwijderd.",
             "actions": {
                 "actionsDisabledInLanguage": "Categorieën kunnen alleen in de standaardtaal worden aangemaakt.",
@@ -7524,6 +8004,7 @@
         },
         "welcome": {
             "modalTitle": "Welkom",
+            "headlineWelcome": "Welkom bij de Shopware 6 Administration",
             "messageWelcome": "Deze configuratieassistent begeleid door de belangrijkste instellingen en geeft waardevolle tips voor de configuratie.<br>Moet deze shop in een andere taal beschikbaar zijn en zo ook klanten in andere landen bereiken? Dan kan hier eenvoudig de gewenste taalpakketten worden geïnstalleerd.",
             "headlineChangeLanguage": "Extra talen installeren",
             "switchLanguageModalTitle": "Selecteer gebruikersinterface taal",
@@ -7615,18 +8096,24 @@
         },
         "store": {
             "modalTitle": "Winkelware Winkel",
+            "loadStatusCollect": "Winkelinformatie verzamelen...",
             "takeMinutes": "Dit kan een paar minuten duren.",
+            "alreadyActivated": "De winkel is al succesvol geactiveerd.",
             "enablingStore": "De Shopware Store inschakelen... ",
             "activationErrorTitle": "Fout bij activering",
             "activationErrorDescription": "Vraag uw beheerder om hulp.",
             "headingOne": "Ontdek en koop eenvoudig extensies -",
-            "headingTwo": "rechtstreeks vanuit uw eigen Shopware shop."
+            "headingTwo": "rechtstreeks vanuit uw eigen Shopware shop.",
+            "description": "Activeer de geheel nieuwe Shopware Store en krijg toegang tot tal van handige extensies en moderne thema's die naadloos in uw winkel kunnen worden geïntegreerd - zonder programmeervaardigheden."
         },
         "markets": {
             "modalTitle": "Shopware Markten",
             "heading": "Shopware Markten",
             "description": "Met Shopware Markets kun je je winkel verbinden met de Amazon-marketplaces en eBay-marketplaces, terwijl je de overdracht van producten en bestellingen zo gemakkelijk mogelijk maakt.<br>Shopware Markets is ontworpen om uw bedrijf nog verder te laten groeien met behulp van Sales Channels*¹.",
             "footnote": "*¹ Voor het gebruik van Shopware Markets toegevoegde verkoopkanalen is een betaald abonnement vereist."
+        },
+        "defaults": {
+            "modalTitle": "Standaardwaarden instellen"
         },
         "finish": {
             "headlineAllDone": "Hartelijk gefeliciteerd!",
@@ -7649,7 +8136,8 @@
             "plugins": "Extensies",
             "shopware": "Shopware Account",
             "store": "Winkelware Winkel",
-            "markets": "Shopware Markten"
+            "markets": "Shopware Markten",
+            "defaults": "Standaardwaarden"
         }
     },
     "sw-media": {
@@ -7707,6 +8195,7 @@
                 "tooltipFoundInUser": "Gevonden bij gebruikers",
                 "tooltipFoundInPayment": "Gevonden in betaalwijze",
                 "tooltipFoundShipping": "Gevonden in verzendwijze",
+                "tooltipFoundLayout": "Gevonden in winkelervaringen",
                 "titleMediaNotUsed": "Niet gebruikt medium",
                 "labelMediaNotUsed": "Het media item wordt momenteel niet gebruikt."
             }
@@ -7795,7 +8284,9 @@
             "buttonCancel": "Annuleren",
             "buttonSave": "Opslaan",
             "messageSaveError": "Fout bij het opslaan van het belastingtarief.",
-            "messageSaveSuccess": "Belastingstarief is opgeslagen."
+            "messageSaveSuccess": "Belastingstarief is opgeslagen.",
+            "defaultTaxLabel": "Standaard gebruiken",
+            "defaultTaxHelpText": "Dit belastingtarief wordt vooraf geselecteerd bij het maken van nieuwe producten. Dit kan slechts worden ingesteld voor één enkel belastingtarief."
         },
         "taxRuleCard": {
             "tooltipCountries": "Als niet alle beschikbare landen worden weergegeven, typ dan een naam in om niet weergegeven landen te tonen. Landen kunnen worden aangemaakt of bewerkt in instellingen / landen.",
@@ -7994,7 +8485,8 @@
             "labelPhoneNumber": "Telefoonnummer",
             "placeholderPhoneNumber": "Voor telefoonnummer in...",
             "placeholderEmail": "Voer een e-mailadres in...",
-            "placeholderProduct": "Selecteer een product..."
+            "placeholderProduct": "Selecteer een product...",
+            "placeholderCategory": "Categorie selecteren..."
         },
         "table": {
             "addHeading": "Tabelkop toevoegen",
@@ -8231,7 +8723,8 @@
     "sw-maintain-currencies-modal": {
         "title": "Valuta's beheren",
         "columnPrice": "Prijzen (bruto / netto)",
-        "columnListPriceHeader": "Afgeprijsd van (bruto / netto)"
+        "columnListPriceHeader": "Afgeprijsd van (bruto / netto)",
+        "columnReferencePriceHeader": "Goedkoopste prijs (afgelopen 30 dagen, netto)"
     },
     "sw-custom-field-set-renderer": {
         "labelCustomFieldSetSelectSwitch": "Selecteer vrije tekstveld sets",
@@ -8245,7 +8738,11 @@
     "sw-app": {
         "component": {
             "sw-app-actions": {
-                "messageErrorFetchButtons": "Er is een fout opgetreden bij het ophalen van uw app-acties."
+                "messageErrorFetchButtons": "Er is een fout opgetreden bij het ophalen van uw app-acties.",
+                "closeWindow": "Venster sluiten",
+                "iframeModalConfirmMessage": "Weet je zeker dat je \"{title}„wilt sluiten?",
+                "iframeModalConfirmMessageDescription": "Zorg ervoor dat alle processen zijn voltooid.",
+                "dontAskMeAgain": "Vraag het me niet nog een keer"
             },
             "sw-app-app-url-changed-modal": {
                 "move-shop-permanently": {
@@ -8303,6 +8800,26 @@
         "resetButton": "Alles opnieuw instellen"
     },
     "sw-empty-state": {
-        "messageNoResultTitle": "Niets gevonden"
+        "messageNoResultTitle": "Niets gevonden",
+        "messageNoResultSubline": "Bewerk je filters of zoektermen om resultaten te vinden. Controleer ook de configuratie van je zoekopdracht.",
+        "messageNoResultSublineBefore": "Bewerk je filters of zoektermen om resultaten te vinden. Controleer ook",
+        "messageNoResultSublineLink": "de configuratie",
+        "messageNoResultSublineAfter": "van je zoektocht."
+    },
+    "sw-restricted-rules": {
+        "restrictedAssignment": {
+            "general": "Deze regel maakt gebruik van conditietypen die niet zijn toegestaan voor toewijzing aan {relation}.",
+            "productPrices": "prijsregels",
+            "shippingMethodPrices": "prijsregels",
+            "shippingMethodPriceCalculations": "regels voor berekening van verzendkosten",
+            "shippingMethods": "regels voor verzendmethode",
+            "paymentMethods": "regels voor betalingsmethoden",
+            "flowSequences": "Regels voor Flow Builder",
+            "personaPromotions": "regels van klanten",
+            "orderPromotions": "regels voor bestellingen",
+            "cartPromotions": "regels voor winkelwagentjes",
+            "promotionDiscounts": "productregels",
+            "promotionSetGroups": "productregels"
+        }
     }
 }

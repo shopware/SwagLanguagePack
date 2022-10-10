@@ -4,10 +4,14 @@
         "textIntroPayPal": "Para poner en marcha PayPal solo necesita proporcionar sus credenciales de API de PayPal.",
         "labelClientId": "Id. de cliente",
         "labelClientSecret": "Secreto del cliente",
+        "labelMerchantPayerId": "ID de comerciante de PayPal",
         "labelClientIdSandbox": "ID de cliente de sandbox",
         "labelClientSecretSandbox": "Secreto del cliente de sandbox",
+        "labelMerchantPayerIdSandbox": "ID de comerciante de PayPal en Sandbox",
         "labelSandbox": "Usar sandbox",
         "tooltipSandbox": "Dependiendo de la activación del entorno limitado, se guardan credenciales separadas.",
+        "labelSetDefault": "Establecer como método de pago predeterminado",
+        "tooltipSetDefault": "PayPal se establecerá como método de pago predeterminado para todos los canales de venta. Puede configurar métodos de pago predeterminados individuales por canal de ventas en el módulo de configuración.",
         "messageFetchedError": "Inténtelo de nuevo o utilice la configuración avanzada para proporcionar sus credenciales.",
         "textFetchedSuccessful": "Se han recuperado las credenciales.",
         "messageNoCredentials": "No se han proporcionado credenciales.",
@@ -203,7 +207,8 @@
             "disclaimer": {
                 "headline": "Zettle es un servicio de PayPal",
                 "subheadline": "Ayuda a aumentar las ventas a través del poder de PayPal. Comience de forma gratuita.",
-                "linkTarget": "https://www.paypal.com/en/webapps/mpp/merchant"
+                "linkTarget": "https://www.paypal.com/en/webapps/mpp/merchant",
+                "linkText": "Activar PayPal para tu tienda"
             },
             "overview": {
                 "titleSync": "Sincronización",
@@ -296,6 +301,7 @@
                 "productTask": "Producto",
                 "inventoryTask": "Inventario",
                 "imageTask": "Imagen",
+                "cloneVisibilityTask": "Visibilidad del producto",
                 "states": {
                     "withWarnings": "Completado con advertencias",
                     "successful": "Completado",
@@ -397,6 +403,8 @@
             }
         },
         "authentication": {
+            "messageTestError": "No se pudieron validar las credenciales",
+            "messageDuplicateError": "Esta cuenta de Zettle ya se ha configurado en otro canal de ventas",
             "labelApiKey": "Clave API",
             "placeholderApiKey": "Introduzca la clave API...",
             "apiKeyDescription": "Las teclas API funcionan como contraseñas. Shopware usará su clave API de Zettle para establecer una conexión segura con su cuenta de Zettle.",
@@ -440,6 +448,12 @@
             }
         }
     },
+    "sw-settings-payment-list": {
+        "needOnboardingTooltip": "Complete la incorporación de este método de pago para activarlo"
+    },
+    "sw-settings-payment-detail": {
+        "tooltip": "Vaya a <a class=\"swag-paypal-go-to-settings-link\" href=\"#/swag/paypal/index\">configuración de la extensión PayPal →</a> y active la Plataforma de Comercio PayPal para activar este método de pago."
+    },
     "swag-paypal": {
         "header": "PayPal",
         "saleschannelCard": {
@@ -457,16 +471,56 @@
             "testLive": "Probar credenciales de API",
             "testSandbox": "Probar credenciales de API de entorno limitado",
             "checkout": {
+                "cardTitle": "PayPal Checkout",
+                "description": "PayPal Checkout es la nueva solución todo en uno que le permite ofrecer potentes funciones de procesamiento de pagos flexibles en los mercados y otras plataformas de comercio.",
+                "banner": "Con PayPal Checkout, puede ofrecer a sus clientes el pago mediante factura, tarjeta de crédito y otros métodos de pago locales. PayPal Checkout lo respalda con la última tecnología y le brinda la mayor flexibilidad. ¡Usted mantiene sus métodos de pago existentes y las tarifas siguen siendo las mismas! Active PayPal Checkout y desactive PayPal PLUS para evitar la duplicación de métodos de pago en su tienda. <a href=\"https://www.shopware.com/en/news/paypal-launches-new-product/?utm_source=product&utm_medium=sw6-onprem&utm_campaign=paypal-checkout&utm_content=link-en-blog\" target=\"_blank\">Más información</a>",
+                "button": {
+                    "title": "Comenzar la incorporación"
+                },
                 "sandbox": {
+                    "label": "Usa credenciales de sandbox",
                     "tooltipText": "Habilita si quieres probar la integración de PayPal."
                 },
                 "switch": {
                     "label": "Activo"
                 },
                 "paymentMethodText": "Modalidades de pago",
+                "showCredentials": "Mostrar credenciales",
                 "appImageAlt": "PayPal",
+                "editDetail": "Editar detalle",
+                "startOnboardingButtonLabel": "Comenzar la incorporación",
+                "availabilityToolTip": {
+                    "BancontactAPMHandler": "Bancontact está disponible en los siguientes países: Bélgica",
+                    "BlikAPMHandler": "BLIK está disponible en los siguientes países: Polonia",
+                    "BoletoBancarioAPMHandler": "Boleto Bancário está disponible en los siguientes países: Brasil",
+                    "EpsAPMHandler": "eps está disponible en los siguientes países: Austria",
+                    "GiropayAPMHandler": "Giropay está disponible en los siguientes países: Alemania",
+                    "IdealAPMHandler": "iDEAL está disponible en los siguientes países: Holanda",
+                    "MultibancoAPMHandler": "Multibanco está disponible en los siguientes países: Portugal",
+                    "MyBankAPMHandler": "MyBank está disponible en los siguientes países: Italia",
+                    "OxxoAPMHandler": "OXXO está disponible en los siguientes países: Mexico",
+                    "P24APMHandler": "Przelewy24 está disponible en los siguientes países: Polonia",
+                    "PUIHandler": "Pay upon invoice está disponible en los siguientes países: Alemania",
+                    "SEPAHandler": "SEPA Lastschrift está disponible en los siguientes países: Alemania",
+                    "SofortAPMHandler": "Sofort está disponible en los siguientes países: Austria, Bélgica, Alemania, Italia, Holando, España, Reino Unido",
+                    "TrustlyAPMHandler": "Trustly está disponible en los siguientes países: Estonia, Finlandia, Holanda, Suecia"
+                },
+                "onboardingStatusText": {
+                    "active": "Autorizado",
+                    "limited": "Limitado",
+                    "pending": "Autorización pendiente",
+                    "inactive": "Se necesita incorporación"
+                },
+                "paymentMethodStatusChangedSuccess": {
+                    "active": "Método de pago \"{name}\" está ahora activo.",
+                    "inactive": "Método de pago \"{name}\" está ahora inactivo."
+                },
                 "deactivatePayPalPlusModal": {
+                    "title": "Desactivar PayPal PLUS",
+                    "text": "¡Felicidades! Al cambiar a PayPal Checkout, sigue utilizando todos los métodos de pago relevantes – ahora basados en la última tecnología.",
+                    "warning": "Evite mostrar métodos de pago duplicados y desactive PayPal PLUS.",
                     "button": {
+                        "deactivate": "Desactivar PayPal PLUS",
                         "cancel": "Cancelar"
                     }
                 }
@@ -481,6 +535,10 @@
                     "label": "Secreto del cliente",
                     "tooltipText": "El secreto del cliente de la API REST se utiliza para autenticar este complemento con la API de PayPal."
                 },
+                "merchantPayerId": {
+                    "label": "ID de comerciante de PayPal",
+                    "tooltipText": "El ID de vendedor de PayPal asignado a tu cuenta PayPal (consulta la sección Información empresarial en la configuración de la cuenta PayPal)."
+                },
                 "clientIdSandbox": {
                     "label": "ID de cliente de sandbox",
                     "tooltipText": "El ID de cliente de la API REST se utiliza durante las pruebas para autenticar este complemento con la API de PayPal."
@@ -488,6 +546,10 @@
                 "clientSecretSandbox": {
                     "label": "Secreto del cliente de sandbox",
                     "tooltipText": "El secreto del cliente de la API REST se utiliza durante las pruebas para autenticar este complemento con la API de PayPal."
+                },
+                "merchantPayerIdSandbox": {
+                    "label": "ID de comerciante de PayPal en Sandbox",
+                    "tooltipText": "El ID de comerciante de PayPal asignado a tu cuenta de prueba de PayPal (consulta la sección Información empresarial en la configuración de la cuenta PayPal)."
                 },
                 "sandbox": {
                     "label": "Habilitar sandbox",
@@ -507,7 +569,9 @@
                     "other": "Ubicación de otro comerciante"
                 },
                 "intent": {
-                    "label": "Adquisición de"
+                    "label": "Adquisición de",
+                    "CAPTURE": "Cobro automático de pagos (captura intencional)",
+                    "AUTHORIZE": "Cobro manual de pagos (intención AUTORIZADA)"
                 },
                 "submitCart": {
                     "label": "Enviar carrito",
@@ -531,10 +595,16 @@
                     }
                 },
                 "sendOrderNumber": {
-                    "label": "Enviar número de pedido"
+                    "label": "Enviar número de pedido",
+                    "helpText": "Si esta opción está activa, el número de pedido se enviará a PayPal como ID de la factura al finalizar la compra."
                 },
                 "orderNumberPrefix": {
-                    "label": "Prefijo de número de pedido"
+                    "label": "Prefijo de número de pedido",
+                    "tooltipText": "Este texto se coloca antes del número de pedido original (por ejemplo, MyShop_SW20001). Esto ayuda a identificar la tienda en la que se realizó el pago. Puedes encontrarlo como ID de la factura en el panel de control de PayPal."
+                },
+                "orderNumberSuffix": {
+                    "label": "Sufijo del número de pedido",
+                    "tooltipText": "Este texto se coloca después del número de pedido original (por ejemplo, SW20001_myshop). Esto ayuda a identificar la tienda en la que se realizó el pago. Puedes encontrarlo como ID de la factura en el panel de control de PayPal."
                 },
                 "loggingLevel": {
                     "label": "Depuración",
@@ -573,7 +643,8 @@
                         "blue": "Azul",
                         "black": "Negro",
                         "gold": "Oro",
-                        "silver": "Plata"
+                        "silver": "Plata",
+                        "white": "Blanco"
                     }
                 },
                 "ecsButtonShape": {
@@ -598,6 +669,13 @@
                     "label": "Habilitar banner de pago"
                 }
             },
+            "pui": {
+                "cardTitle": "Pagar contra factura",
+                "customerServiceInstructions": {
+                    "label": "Instrucciones de servicio al cliente para el pago con factura",
+                    "helpText": "Estas instrucciones se enviarán a PayPal y RatePay y se mostrarán en los correos electrónicos para el cliente."
+                }
+            },
             "spb": {
                 "cardTitle": "Pago de PayPal con botones de pago inteligente",
                 "spbCheckoutEnabled": {
@@ -608,15 +686,24 @@
                     "helpText": "Si no se establece, se utilizará el idioma del canal de ventas."
                 },
                 "spbAlternativePaymentMethodsEnabled": {
-                    "label": "Habilite los métodos de pago alternativos para los botones de pago inteligente."
+                    "label": "Habilite los métodos de pago alternativos para los botones de pago inteligente.",
+                    "helpText": "Los métodos de pago alternativos son tarjetas de crédito y débito y más."
+                },
+                "spbShowPayLater": {
+                    "label": "Mostrar Pagar después como un botón independiente"
                 }
             },
             "plus": {
                 "cardTitle": "PayPal PLUS",
+                "introduction": "<strong>PayPal PLUS:</strong> Su solución completa de pago todo en uno que incluye PayPal, débito directo y tarjeta de crédito. PayPal PLUS ofrece a sus clientes una flexibilidad total para elegir su método de pago preferido. ¿Sus ventajas como vendedor? Contabilidad más fácil con solo una parte contratante, una cuenta y una visión general de las transacciones que muestran todos los pagos entrantes. Recibirá su dinero directamente después de que los clientes completen el proceso de pedido.<br>Puede solicitar PayPal PLUS <a href='https://www.paypal.com/de/webapps/mpp/paypal-plus' target='_blank'>aquí</a>.",
                 "plusCheckoutEnabled": {
                     "label": "Activar PayPal PLUS"
                 },
-                "hint": "Nota: PayPal PLUS sólo funciona con la adquisición de pago «Venta». Se establecerá automáticamente."
+                "hint": "Nota: PayPal PLUS sólo funciona con la adquisición de pago «Venta». Se establecerá automáticamente.",
+                "warning": {
+                    "active": "PayPal Checkout ofrece los mismos métodos de pago a sus clientes – basados ​​en la última tecnología. Active PayPal Checkout ahora y desactive PayPal PLUS para evitar mostrar métodos de pago duplicados. <a href=\"https://www.shopware.com/en/news/paypal-launches-new-product/?utm_source=product&utm_medium=sw6-onprem&utm_campaign=paypal-checkout&utm_content=link-en-blog\" target=\"_blank\">Más información</a>",
+                    "inactive": "Evite mostrar métodos de pago duplicados y desactive PayPal PLUS. <a href=\"https://www.shopware.com/en/news/paypal-launches-new-product/?utm_source=product&utm_medium=sw6-onprem&utm_campaign=paypal-checkout&utm_content=link-en-blog\" target=\"_blank\">Más información</a>"
+                }
             },
             "locale-field": {
                 "infobox": {

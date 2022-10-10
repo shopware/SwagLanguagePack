@@ -1,3 +1,6 @@
+# NEXT-VERSION
+- LAN-119 - Add English (US) language support & Corrected Romanian locale from "ro-MD" to "ro-RO"
+
 # 2.3.0
 - LAN-90 - Updated extension description
 - LAN-105 - All supported languages got updated by community translations (Shopware version 6.4.14.0)

@@ -11,9 +11,8 @@ use Doctrine\DBAL\Cache\ArrayStatement;
 use Doctrine\DBAL\Connection;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
-use Shopware\Core\Checkout\Test\Cart\Promotion\Helpers\Fakes\FakeResultStatement;
 use Shopware\Core\Framework\Context;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
 use Shopware\Core\Framework\Migration\MigrationCollection;
@@ -33,7 +32,7 @@ class LifecycleTest extends TestCase
 
     public function testDeactivateWithNoLinkToASalesChannel(): void
     {
-        /** @var EntityRepositoryInterface $languageRepository */
+        /** @var EntityRepository $languageRepository */
         $languageRepository = $this->getContainer()->get('language.repository');
 
         $lifecycle = new Lifecycle($this->getConnectionMock(), $languageRepository);
@@ -44,7 +43,7 @@ class LifecycleTest extends TestCase
 
     public function testDeactivateWithLinkedSalesChannels(): void
     {
-        /** @var EntityRepositoryInterface $languageRepository */
+        /** @var EntityRepository $languageRepository */
         $languageRepository = $this->getContainer()->get('language.repository');
         $lifecycle = new Lifecycle($this->getConnectionMock(), $languageRepository);
 
@@ -67,7 +66,7 @@ class LifecycleTest extends TestCase
             ->method('executeQuery')
             ->willReturn(new ArrayStatement([]));
 
-        /** @var EntityRepositoryInterface $languageRepository */
+        /** @var EntityRepository $languageRepository */
         $languageRepository = $this->getContainer()->get('language.repository');
 
         $lifecycle = new Lifecycle($connection, $languageRepository);
@@ -82,7 +81,7 @@ class LifecycleTest extends TestCase
         $connection->expects(static::never())
             ->method('executeStatement');
 
-        /** @var EntityRepositoryInterface $languageRepository */
+        /** @var EntityRepository $languageRepository */
         $languageRepository = $this->getContainer()->get('language.repository');
 
         $lifecycle = new Lifecycle($connection, $languageRepository);
@@ -123,12 +122,12 @@ class LifecycleTest extends TestCase
             ->getMock();
     }
 
-    private function addPackLanguageLanguageToSalesChannel(EntityRepositoryInterface $languageRepository, Context $context): void
+    private function addPackLanguageLanguageToSalesChannel(EntityRepository $languageRepository, Context $context): void
     {
-        /** @var EntityRepositoryInterface $salesChannelRepository */
+        /** @var EntityRepository $salesChannelRepository */
         $salesChannelRepository = $this->getContainer()->get('sales_channel.repository');
 
-        /** @var EntityRepositoryInterface $packLanguageRepository */
+        /** @var EntityRepository $packLanguageRepository */
         $packLanguageRepository = $this->getContainer()->get('swag_language_pack_language.repository');
 
         $languageCriteria = (new Criteria())

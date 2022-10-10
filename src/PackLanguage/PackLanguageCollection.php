@@ -10,13 +10,7 @@ namespace Swag\LanguagePack\PackLanguage;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityCollection;
 
 /**
- * @method void                           add(PackLanguageEntity $entity)
- * @method void                           set(string $key, PackLanguageEntity $entity)
- * @method \Generator<PackLanguageEntity> getIterator()
- * @method PackLanguageEntity[]           getElements()
- * @method PackLanguageEntity|null        get(string $key)
- * @method PackLanguageEntity|null        first()
- * @method PackLanguageEntity|null        last()
+ * @extends EntityCollection<PackLanguageEntity>
  */
 class PackLanguageCollection extends EntityCollection
 {

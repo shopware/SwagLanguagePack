@@ -9,6 +9,9 @@ namespace Swag\LanguagePack\Core\Framework\DataAbstractionLayer\Write\Validation
 
 use Shopware\Core\System\SalesChannel\Aggregate\SalesChannelDomain\SalesChannelDomainDefinition;
 
+/**
+ * @internal
+ */
 class SalesChannelDomainValidator extends AbstractLanguageValidator
 {
     protected function getSupportedCommandDefinitionClass(): string

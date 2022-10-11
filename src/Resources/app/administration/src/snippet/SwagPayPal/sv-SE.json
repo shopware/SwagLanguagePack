@@ -471,16 +471,56 @@
             "testLive": "Referensuppgifter för Testa API",
             "testSandbox": "Testa autentiseringsuppgifter för API i sandlådan",
             "checkout": {
+                "cardTitle": "PayPal Checkout",
+                "description": "PayPal Checkout är den nya allt-i-ett lösning som låter dig erbjuda kraftfulla flexibile betalningsbehandling funktioner på marknadsplatser och andra handelsplattformar.",
+                "banner": "Med PayPal Checkout kan du erbjuda dina kunder betalning via faktura, kreditkort och andra lokala betalningsmetoder. PayPal Checkout hjälper dig med den senaste tekniken och ger dig högsta flexibilitet. Du behåller dina befintliga betalningsmetoder, och avgifterna förblir desamma! Aktivera PayPal Checkout och inaktivera PayPal PLUS för att undvika dubbla betalningsmetoder i din butik. <a href=\"https://www.shopware.com/en/news/paypal-launches-new-product/?utm_source=product&utm_medium=sw6-onprem&utm_campaign=paypal-checkout&utm_content=link-en-blog\" target=\"_blank\">Mer information</a>",
+                "button": {
+                    "title": "Starta registrering"
+                },
                 "sandbox": {
+                    "label": "Använd sandbox-uppgifter",
                     "tooltipText": "Aktivera om du vill testa PayPal-integrationen."
                 },
                 "switch": {
                     "label": "Aktiv"
                 },
                 "paymentMethodText": "Betalningsmetoder",
+                "showCredentials": "Visa inloggningsuppgifter",
                 "appImageAlt": "PayPal",
+                "editDetail": "Redigera detalj",
+                "startOnboardingButtonLabel": "Starta registrering",
+                "availabilityToolTip": {
+                    "BancontactAPMHandler": "Bancontact är tillgängligt för följande länder: Belgien",
+                    "BlikAPMHandler": "BLIK är tillgängligt för följande länder: Polen",
+                    "BoletoBancarioAPMHandler": "Boleto Banca<unk> rio är tillgängligt för följande länder: Brasilien",
+                    "EpsAPMHandler": "eps finns för följande länder: Österrike",
+                    "GiropayAPMHandler": "Giropay är tillgängligt för följande länder: Tyskland",
+                    "IdealAPMHandler": "iDEAL är tillgängligt för följande länder: Nederländerna",
+                    "MultibancoAPMHandler": "Multibanco är tillgängligt för följande länder: Portugal",
+                    "MyBankAPMHandler": "MyBank är tillgängligt för följande länder: Italien",
+                    "OxxoAPMHandler": "OXXO är tillgängligt för följande länder: Mexiko",
+                    "P24APMHandler": "Przelewy24 är tillgänglig för följande länder: Polen",
+                    "PUIHandler": "Betala på faktura finns för följande länder: Tyskland",
+                    "SEPAHandler": "SEPA Lastschrift är tillgängligt för följande länder: Tyskland",
+                    "SofortAPMHandler": "Sofort är tillgängligt för följande länder: Österrike, Belgien, Tyskland, Italien, Nederländerna, Spanien, Storbritannien",
+                    "TrustlyAPMHandler": "Trustly är tillgängligt för följande länder: Estland, Finland, Nederländerna, Sverige"
+                },
+                "onboardingStatusText": {
+                    "active": "Auktoriserad",
+                    "limited": "Begränsad",
+                    "pending": "Tillstånd väntar",
+                    "inactive": "Onboarding behövs"
+                },
+                "paymentMethodStatusChangedSuccess": {
+                    "active": "Betalningsmetod \"{name}\" är nu aktiv.",
+                    "inactive": "Betalningsmetod \"{name}\" är nu inaktiv."
+                },
                 "deactivatePayPalPlusModal": {
+                    "title": "Inaktivera PayPal PLUS",
+                    "text": "Grattis! Genom att byta till PayPal Checkout fortsätter du att använda alla relevanta betalningsmetoder – nu baserat på den senaste tekniken.",
+                    "warning": "Undvik att visa dubbla betalningsmetoder och inaktivera PayPal PLUS.",
                     "button": {
+                        "deactivate": "Inaktivera PayPal PLUS",
                         "cancel": "Avbryt"
                     }
                 }
@@ -496,7 +536,8 @@
                     "tooltipText": "REST API-klienthemligheten används för att autentisera denna plugin med PayPals API."
                 },
                 "merchantPayerId": {
-                    "label": "PayPal-handels-ID"
+                    "label": "PayPal-handels-ID",
+                    "tooltipText": "PayPal Merchant ID som tilldelats ditt PayPal-konto (se Business Information i PayPal-kontoinställningar)."
                 },
                 "clientIdSandbox": {
                     "label": "Klient-ID för sandlådan",
@@ -507,7 +548,8 @@
                     "tooltipText": "REST API-klienthemligheten används vid testning för att autentisera denna plugin med PayPals API."
                 },
                 "merchantPayerIdSandbox": {
-                    "label": "PayPal-handels-ID i sandlåda"
+                    "label": "PayPal-handels-ID i sandlåda",
+                    "tooltipText": "PayPal Merchant ID tilldelad till din PayPal sandlåda konto (se Business Information i PayPal-kontoinställningar)."
                 },
                 "sandbox": {
                     "label": "Aktivera sandlåda",
@@ -627,6 +669,13 @@
                     "label": "Aktivera avbetalning banner"
                 }
             },
+            "pui": {
+                "cardTitle": "Betala på faktura",
+                "customerServiceInstructions": {
+                    "label": "Instruktioner för kundservice för att betala på faktura",
+                    "helpText": "Dessa instruktioner kommer att lämnas till PayPal & RatePay och visas i e-post för kunden."
+                }
+            },
             "spb": {
                 "cardTitle": "PayPal-kassan med smarta betalningsknappar",
                 "spbCheckoutEnabled": {
@@ -650,7 +699,11 @@
                 "plusCheckoutEnabled": {
                     "label": "Aktivera PayPal PLUS"
                 },
-                "hint": "Obs! PayPal PLUS fungerar endast med betalning förvärv ”Försäljning”. Det ställs in automatiskt."
+                "hint": "Obs! PayPal PLUS fungerar endast med betalning förvärv ”Försäljning”. Det ställs in automatiskt.",
+                "warning": {
+                    "active": "PayPal Checkout tillhandahåller samma betalningsmetoder till dina kunder – baserat på den senaste tekniken. Aktivera PayPal Checkout nu och inaktivera PayPal PLUS för att undvika att visa dubbla betalningsmetoder. <a href=\"https://www.shopware.com/en/news/paypal-launches-new-product/?utm_source=product&utm_medium=sw6-onprem&utm_campaign=paypal-checkout&utm_content=link-en-blog\" target=\"_blank\">Mer information</a>",
+                    "inactive": "Undvik att visa dubbla betalningsmetoder och inaktivera PayPal PLUS. <a href=\"https://www.shopware.com/en/news/paypal-launches-new-product/?utm_source=product&utm_medium=sw6-onprem&utm_campaign=paypal-checkout&utm_content=link-en-blog\" target=\"_blank\">Mer information</a>"
+                }
             },
             "locale-field": {
                 "infobox": {

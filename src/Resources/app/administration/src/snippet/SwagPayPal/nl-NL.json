@@ -4,8 +4,10 @@
         "textIntroPayPal": "Om PayPal werkend te krijgen, zijn alleen de PayPal API aanmeldgegevens nodig.",
         "labelClientId": "Klant ID",
         "labelClientSecret": "Klant geheim",
+        "labelMerchantPayerId": "PayPal-verkoper-ID",
         "labelClientIdSandbox": "Zandbox klant ID",
         "labelClientSecretSandbox": "Zandbox klant geheim",
+        "labelMerchantPayerIdSandbox": "Sandbox PayPal-verkoper-ID",
         "labelSandbox": "Sandbox gebruiken",
         "tooltipSandbox": "Afhankelijk van de activering van de zandbox worden afzonderlijke aanmeldgegevens opgeslagen.",
         "labelSetDefault": "Instellen als standaard betaalmethode",
@@ -446,6 +448,12 @@
             }
         }
     },
+    "sw-settings-payment-list": {
+        "needOnboardingTooltip": "Voltooi de onboarding om deze betaalmethode te activeren"
+    },
+    "sw-settings-payment-detail": {
+        "tooltip": "Ga naar de <a class=\"swag-paypal-go-to-settings-link\" href=\"#/swag/paypal/index\">PayPal-extensie-instellingen →</a> en activeer PayPal Commerce Platform om deze betaalmethode te activeren."
+    },
     "swag-paypal": {
         "header": "PayPal",
         "saleschannelCard": {
@@ -463,16 +471,56 @@
             "testLive": "Test API aanmeldgegevens",
             "testSandbox": "Test zandbox API aanmeldgegevens",
             "checkout": {
+                "cardTitle": "PayPal Afrekenen",
+                "description": "PayPal Checkout is de nieuwe alles-in-één oplossing waarmee u krachtige, flexibele betalingsverwerkingsfuncties op de marktplaatsen en andere handelsplatforms kunt aanbieden.",
+                "banner": "Met PayPal Checkout kunt u uw klanten betaling per factuur, creditcard en andere lokale betaalmethoden aanbieden. PayPal Checkout ondersteunt u met de nieuwste technologie en biedt u de hoogste flexibiliteit. U behoudt uw bestaande betaalmethoden en de kosten blijven hetzelfde! Activeer PayPal Checkout en deactiveer PayPal PLUS om dubbele betaalmethoden in je winkel te voorkomen. <a href=\"https://www.shopware.com/en/news/paypal-launches-new-product/?utm_source=product&utm_medium=sw6-onprem&utm_campaign=paypal-checkout&utm_content=link-en-blog\" target=\"_blank \">Meer informatie</a>",
+                "button": {
+                    "title": "Onboarding starten"
+                },
                 "sandbox": {
+                    "label": "Sandbox-inloggegevens gebruiken",
                     "tooltipText": "Inschakelen om de PayPal integratie te testen."
                 },
                 "switch": {
                     "label": "Actief"
                 },
                 "paymentMethodText": "Betaalwijzen",
+                "showCredentials": "Inloggegevens weergeven",
                 "appImageAlt": "PayPal",
+                "editDetail": "Details bewerken",
+                "startOnboardingButtonLabel": "Onboarding starten",
+                "availabilityToolTip": {
+                    "BancontactAPMHandler": "Bancontact is beschikbaar voor de volgende landen: België",
+                    "BlikAPMHandler": "BLIK is beschikbaar voor de volgende landen: Polen",
+                    "BoletoBancarioAPMHandler": "Boleto Bancário is beschikbaar voor de volgende landen: Brazilië",
+                    "EpsAPMHandler": "eps is beschikbaar voor de volgende landen: Oostenrijk",
+                    "GiropayAPMHandler": "Giropay is beschikbaar voor de volgende landen: Duitsland",
+                    "IdealAPMHandler": "iDEAL is beschikbaar voor de volgende landen: Nederland",
+                    "MultibancoAPMHandler": "Multibanco is beschikbaar voor de volgende landen: Portugal",
+                    "MyBankAPMHandler": "MyBank is beschikbaar voor de volgende landen: Italië",
+                    "OxxoAPMHandler": "OXXO is beschikbaar voor de volgende landen: Mexico",
+                    "P24APMHandler": "Przelewy24 is beschikbaar voor de volgende landen: Polen",
+                    "PUIHandler": "Betalen op factuur is beschikbaar voor de volgende landen: Duitsland",
+                    "SEPAHandler": "SEPA Lastschrift is beschikbaar voor de volgende landen: Duitsland",
+                    "SofortAPMHandler": "Sofort is beschikbaar voor de volgende landen: Oostenrijk, België, Duitsland, Italië, Nederland, Spanje, Verenigd Koninkrijk",
+                    "TrustlyAPMHandler": "Trustly is beschikbaar voor de volgende landen: Estland, Finland, Nederland, Zweden"
+                },
+                "onboardingStatusText": {
+                    "active": "Gemachtigd",
+                    "limited": "Beperkt",
+                    "pending": "Autorisatie In afwachting",
+                    "inactive": "Onboarding nodig"
+                },
+                "paymentMethodStatusChangedSuccess": {
+                    "active": "Betaalmethode \"{name}\" is nu actief.",
+                    "inactive": "Betaalmethode \"{name}\" is nu inactief."
+                },
                 "deactivatePayPalPlusModal": {
+                    "title": "PayPal PLUS deactiveren",
+                    "text": "Gefeliciteerd! Door over te stappen op PayPal Checkout, blijf je alle relevante betaalmethoden gebruiken – nu gebaseerd op de nieuwste technologie.",
+                    "warning": "Vermijd het weergeven van dubbele betaalmethoden en deactiveer PayPal PLUS.",
                     "button": {
+                        "deactivate": "PayPal PLUS deactiveren",
                         "cancel": "Annuleren"
                     }
                 }
@@ -487,6 +535,10 @@
                     "label": "Klant geheim",
                     "tooltipText": "De REST API klant geheim wordt gebruikt om deze plug-in te verifiëren met de PayPal API."
                 },
+                "merchantPayerId": {
+                    "label": "PayPal-verkoper-ID",
+                    "tooltipText": "De PayPal-handelaars-ID die is toegewezen aan uw PayPal-account (zie Bedrijfsinformatie in PayPal-accountinstellingen)."
+                },
                 "clientIdSandbox": {
                     "label": "Zandbox klant ID",
                     "tooltipText": "De REST API klant ID wordt gebruikt tijdens testen om deze plug-in te verifiëren met de PayPal API."
@@ -494,6 +546,10 @@
                 "clientSecretSandbox": {
                     "label": "Zandbox klant geheim",
                     "tooltipText": "De REST API klant geheim wordt gebruikt tijdens testen om deze plug-in te verifiëren met de PayPal API."
+                },
+                "merchantPayerIdSandbox": {
+                    "label": "Sandbox PayPal-verkoper-ID",
+                    "tooltipText": "De PayPal-handelaars-ID die is toegewezen aan uw PayPal-sandboxaccount (zie Bedrijfsinformatie in PayPal-accountinstellingen)."
                 },
                 "sandbox": {
                     "label": "Zandbox inschakelen",
@@ -613,6 +669,13 @@
                     "label": "Schakel termijnbanner in"
                 }
             },
+            "pui": {
+                "cardTitle": "Betalen op factuur",
+                "customerServiceInstructions": {
+                    "label": "Klantenservice instructies voor Betalen op factuur",
+                    "helpText": "Deze instructies worden verzonden naar PayPal & RatePay en getoond in e-mails voor de klant."
+                }
+            },
             "spb": {
                 "cardTitle": "PayPal afrekenen met slimme betaalknoppen",
                 "spbCheckoutEnabled": {
@@ -636,7 +699,11 @@
                 "plusCheckoutEnabled": {
                     "label": "Schakel PayPal PLUS in"
                 },
-                "hint": "Opmerking: PayPal PLUS werkt alleen met de betaalacquisitie „Verkoop”. Het wordt automatisch ingesteld."
+                "hint": "Opmerking: PayPal PLUS werkt alleen met de betaalacquisitie „Verkoop”. Het wordt automatisch ingesteld.",
+                "warning": {
+                    "active": "PayPal Checkout biedt dezelfde betaalmethoden aan uw klanten - op basis van de nieuwste technologie. Activeer PayPal Checkout nu en deactiveer PayPal PLUS om te voorkomen dat dubbele betaalmethoden worden weergegeven. <a href=\"https://www.shopware.com/en/news/paypal-launches-new-product/?utm_source=product&utm_medium=sw6-onprem&utm_campaign=paypal-checkout&utm_content=link-en-blog\" target=\"_blank \">Meer informatie</a>",
+                    "inactive": "Vermijd het weergeven van dubbele betaalmethoden en deactiveer PayPal PLUS. <a href=\"https://www.shopware.com/en/news/paypal-launches-new-product/?utm_source=product&utm_medium=sw6-onprem&utm_campaign=paypal-checkout&utm_content=link-en-blog\" target=\"_blank \">Meer informatie</a>>"
+                }
             },
             "locale-field": {
                 "infobox": {

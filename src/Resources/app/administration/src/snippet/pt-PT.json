@@ -39,7 +39,12 @@
             "title": "Geral"
         },
         "tabSearchPreferences": {
+            "title": "Preferências de pesquisa",
             "cardSearchableElements": {
+                "title": "Elementos pesquisáveis",
+                "description": "Defina o conteúdo pesquisável para cada módulo e entrada.",
+                "buttonSelect": "Selecionar tudo",
+                "buttonDeselect": "Desmarcar tudo",
                 "buttonReset": "Redefinir para padrão"
             },
             "modules": {
@@ -54,6 +59,8 @@
                     "phoneNumber": "Número de telefone",
                     "additionalAddressLine1": "Complemento do endereço 1",
                     "additionalAddressLine2": "Complemento do endereço 2",
+                    "trackingCodes": "Códigos de rastreamento",
+                    "amountTotal": "Montante total",
                     "orderNumber": "Número de encomenda",
                     "email": "Endereço de e-mail",
                     "tagsName": "Tags",
@@ -75,6 +82,7 @@
                     "additionalAddressLine2": "Complemento do endereço 2"
                 },
                 "product": {
+                    "ean": "GTIN/EAN",
                     "name": "Nome",
                     "tagsName": "Tags",
                     "productNumber": "Número de produto",
@@ -145,6 +153,7 @@
                 "import_export": "Importação/Exportação",
                 "core_update": "Iniciar atualização",
                 "plugin_maintain": "Manter extensões",
+                "plugin_upload": "Carregar Extensões",
                 "frw": "Assistente de Primeira Execução",
                 "system_config": "Configuração básica"
             },
@@ -169,11 +178,13 @@
                 "api_action_container-cache_delete": "Excluir cache de contêiner",
                 "api_info_me": "Leia as próprias informações do usuário api",
                 "api_info_ping": "Atualizar token de autenticação",
-                "system:clear:cache": "Limpar cache"
+                "system:clear:cache": "Limpar cache",
+                "api_proxy_switch-customer": "Atuar em nome de um cliente"
             },
             "app": {
                 "label": "Apps",
-                "all": "Tudo"
+                "all": "Tudo",
+                "disabledCheckboxMessage": "Para desativar esta opção, você deve primeiro desativar a opção Todos."
             }
         },
         "permissions": {
@@ -408,10 +419,18 @@
         "todayStats": {
             "headline": "Estatística do dia",
             "orders": "Encomendas",
+            "turnover": "Valor total",
             "orderTime": "Período"
         },
         "monthStats": {
             "headline": "Estatísticas",
+            "dateRanges": {
+                "30Days": "Últimos 30 dias",
+                "14Days": "Últimos 14 dias",
+                "7Days": "Últimos 7 dias",
+                "24Hours": "Últimas 24 horas",
+                "yesterday": "Desde ontem"
+            },
             "orderNumber": "Encomendas",
             "turnover": "Faturação",
             "numberOfOrders": "Número",
@@ -538,6 +557,8 @@
                 "contextMenuDelete": "Eliminar",
                 "textChangePassword": "Pressionar o botão “mudar” salvará imediatamente a nova senha!",
                 "addAccessKey": "Criar chave de acesso",
+                "noAccessKeysTitle": "Não há chaves de acesso disponíveis",
+                "noAccessKeysSubline": "Crie chaves de acesso aqui",
                 "labelAccessKey": "Chave de acesso",
                 "labelPermissions": "Permissões",
                 "disabledRoleSelectWarning": "As funções estão disponíveis apenas para usuários que não têm direitos de administrador.",
@@ -584,6 +605,7 @@
     "sw-settings-newsletter": {
         "general": {
             "mainMenuItemGeneral": "Newsletter",
+            "description": "Altere a configuração da newsletter aqui.",
             "textHeadline": "Newsletter",
             "buttonSave": "Guardar",
             "messageSaveSuccess": "A configuração foi guardada com sucesso."
@@ -903,7 +925,8 @@
             "labelSettingsCompactMode": "Utilizar modo compacto",
             "labelSettingsPreviewImages": "Exibir miniaturas das imagens",
             "labelColumnHide": "Suprimir coluna",
-            "labelSelectionCount": "Selecionado:"
+            "labelSelectionCount": "Selecionado:",
+            "labelDeSelectAll": "Desmarcar tudo"
         },
         "sw-pagination": {
             "labelItemsPerPage": "Entradas por página:"
@@ -1464,6 +1487,7 @@
             "Reduced rate 2": "Taxa super-reduzida"
         },
         "sw-search-preferences-modal": {
+            "title": "Preferências de pesquisa",
             "columnActive": "Ativo"
         }
     },
@@ -2604,6 +2628,7 @@
                 "choose": "Seleção",
                 "description": "Descrição",
                 "descriptionLong": "Descrição longa",
+                "ean": "GTIN/EAN",
                 "gross": "Bruto",
                 "group": "Grupo",
                 "height": "Altura",
@@ -3073,6 +3098,7 @@
                 "releaseDate": "Data de lançamento",
                 "description": "Descrição",
                 "manufacturerNumber": "Número do produto do fabricante",
+                "ean": "GTIN/EAN",
                 "referencePrice": "Preço unitário"
             }
         }
@@ -5315,6 +5341,7 @@
                 "description": "Descrição do produto",
                 "productNumber": "Número do produto",
                 "manufacturerNumber": "Número do fabricante",
+                "ean": "GTIN/EAN",
                 "customSearchKeywords": "Termos de pesquisa personalizados",
                 "manufacturerName": "Nome do fabricante",
                 "manufacturerCustomFields": "Campos personalizados do fabricante",
@@ -5890,6 +5917,7 @@
             "labelWeight": "Peso",
             "labelMinPurchase": "Mínimo de compra",
             "labelMaxPurchase": "Máximo de compra",
+            "labelEan": "GTIN/EAN",
             "labelManufacturerNumber": "Número de fabricante",
             "labelStock": "Stock",
             "labelActive": "Ativo para todos os canais de vendas selecionados",

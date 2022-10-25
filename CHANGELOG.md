@@ -1,4 +1,4 @@
-# NEXT-VERSION
+# 2.4.0
 - LAN-119 - Add English (US) language support & Corrected Romanian locale from "ro-MD" to "ro-RO"
 
 # 2.3.0

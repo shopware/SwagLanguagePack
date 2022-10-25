@@ -1,4 +1,4 @@
-# NEXT-VERSION
+# 2.4.0
 - LAN-119 - Englisch (US) zu den angebotenen Sprachen hinzugefügt & Rumänische Locale von "ro-MD" nach "ro-RO" korrigiert
 
 # 2.3.0

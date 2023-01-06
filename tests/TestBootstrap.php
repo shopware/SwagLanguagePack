@@ -11,22 +11,24 @@ use Shopware\Core\Framework\Plugin\KernelPluginLoader\DbalKernelPluginLoader;
 use Shopware\Core\Framework\Test\TestCaseBase\KernelLifecycleManager;
 use Shopware\Core\TestBootstrapper;
 
-if (is_readable(__DIR__ . '/../vendor/shopware/platform/src/Core/TestBootstrapper.php')) {
-    require __DIR__ . '/../vendor/shopware/platform/src/Core/TestBootstrapper.php';
-} else {
-    require __DIR__ . '/../vendor/shopware/core/TestBootstrapper.php';
+if (is_readable(__DIR__ . '/../../../../src/Core/TestBootstrapper.php')) {
+    require __DIR__ . '/../../../../src/Core/TestBootstrapper.php';
 }
 
-$bootstrapper = (new TestBootstrapper())
+$classLoader = (new TestBootstrapper())
+    ->setProjectDir($_SERVER['PROJECT_ROOT'] ?? dirname(__DIR__, 4))
     ->setLoadEnvFile(true)
     ->setForceInstallPlugins(true)
     ->addCallingPlugin()
-    ->bootstrap();
+    ->bootstrap()
+    ->getClassLoader();
+
+$classLoader->addPsr4('Swag\\LanguagePack\\Test\\', __DIR__);
 
 // build StaticAnalyzeKernel container for phpstan
 $testKernel = KernelLifecycleManager::getKernel();
-$pluginLoader = new DbalKernelPluginLoader($bootstrapper->getClassLoader(), null, $testKernel->getContainer()->get(Connection::class));
+$pluginLoader = new DbalKernelPluginLoader($classLoader, null, $testKernel->getContainer()->get(Connection::class));
 $kernel = new StaticAnalyzeKernel('test', true, $pluginLoader, 'phpstan-test-cache-id');
 $kernel->boot();
 
-return $bootstrapper;
+return $classLoader;

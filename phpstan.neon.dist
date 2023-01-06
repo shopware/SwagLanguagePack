@@ -1,5 +1,5 @@
 includes:
-    - vendor/phpstan/phpstan/conf/bleedingEdge.neon
+    - ../../../vendor/phpstan/phpstan/conf/bleedingEdge.neon
 
 parameters:
     level: 8
@@ -8,15 +8,15 @@ parameters:
 
     bootstrapFiles:
         - tests/TestBootstrap.php
-    # run `php tests/TestBootstrap.php` to create the container
+        # run `php tests/TestBootstrap.php` to create the container
     symfony:
         constantHassers: false
         containerXmlPath: '../../../var/cache/test/Shopware_Core_DevOps_StaticAnalyze_StaticAnalyzeKernelTestDebugContainer.xml'
-        consoleApplicationLoader: tests/console-application.php
     excludePaths:
         - vendor
         - var
         - ecs.php
+        - tests/TestBootstrap.php
     paths:
         - src
         - tests

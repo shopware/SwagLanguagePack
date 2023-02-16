@@ -1,16 +1,26 @@
 {
+    "global": {
+        "error-codes": {
+            "ACTION_VALID_TO_VIOLATION": "Срокът на годност на действието трябва да бъде определен след началото на действието.",
+            "ACTION_DUPLICATE_NAME_VIOLATION": "Това име вече е използвано в друго действие.",
+            "ACTION_SEARCH_TERM_DUPLICATE_TERM_VIOLATION": "Терминът „{value}“ вече е използван в друго действие."
+        }
+    },
     "swag-enterprise-search": {
         "general": {
-            "mainMenuItemGeneral": "Търсене на предприятие за магазини",
-            "mainMenuEntry": "Търсене на предприятие за магазини"
+            "mainMenuItemGeneral": "Разширено търсене в магазина",
+            "mainMenuEntry": "Разширено търсене в магазина"
         },
         "index": {
-            "title": "Конфигурация на корпоративно",
+            "title": "Конфигурация за разширено търсене",
             "buttonSave": "Запиши",
             "entityConfigTitle": "Общ преглед",
             "previewSearchTitle": "Преглед",
             "relevanceTitle": "Съответствия",
-            "boostingTitle": "Подсилвания"
+            "boostingTitle": "Подсилвания",
+            "synonymsTitle": "Синоними",
+            "actionTitle": "Действия",
+            "labelSalesChannelSelect": "Канал за продажби"
         },
         "types": {
             "category": "Категория",
@@ -87,6 +97,34 @@
                 "placeholderOperatorSelect": "Изберете оператор"
             }
         },
+        "synonyms": {
+            "title": "синоними",
+            "addsynonyms": "Нов синоним",
+            "searchPlaceholder": "Търсене синоним",
+            "messageEmptyTitle": "Няма синоними",
+            "messageEmptySubline": "Управление на синоними",
+            "columnHeaders": {
+                "name": "Име",
+                "left": "Ляво",
+                "right": "Право",
+                "language": "Език",
+                "synonym": "Синоним"
+            },
+            "detail": {
+                "name": "Име",
+                "synonym": "Синоним",
+                "left": "Ляво",
+                "right": "Право",
+                "newsynonym": "Нов синоним",
+                "cancelModal": "Отмени"
+            },
+            "explanation": {
+                "sameTitle": "Равни синоними",
+                "same": "напр. „wifi, wlan, w-LAN, безжична мрежа“ са напълно равни и трябва да бъдат въведени само в колоната „ляво“",
+                "expandingTitle": "Определяне на синоними",
+                "expanding": "например iPhone също е смартфон, но не всеки смартфон също е iPhone. Такива конструкции се въвеждат така: „ляво“: „смартфон“, „дясно“: „iphone, i-phone, i phone, смартфон“"
+            }
+        },
         "relevance": {
             "title": "Информация за търсене",
             "cancelModal": "Отмени",
@@ -121,6 +159,46 @@
                     "notEqualsAny": "Не е равен на нито един от",
                     "notContains": "Не съдържа",
                     "range": "Обхват"
+                }
+            }
+        },
+        "action": {
+            "title": "Действия",
+            "addAction": "Добавяне на действие",
+            "searchPlaceholder": "Действие за търсене",
+            "messageEmptyTitle": "Все още няма действия",
+            "messageEmptySubline": "Управлявайте действията тук.",
+            "columnHeaders": {
+                "name": "Име",
+                "type": "Тип",
+                "active": "Активен",
+                "validFrom": "Активен от",
+                "validTo": "Активен към"
+            },
+            "detail": {
+                "action": "Действие",
+                "searchTerms": "Условия за търсене",
+                "name": "Име",
+                "active": "Активен",
+                "validFrom": "Активен от",
+                "validTo": "Активен към",
+                "type": "Тип",
+                "typePlaceholder": "Изберете тип...",
+                "cancelModal": "Отмени",
+                "newAction": "Ново действие"
+            },
+            "type": {
+                "forwardUrl": {
+                    "title": "Препращане на URL",
+                    "url": "URL"
+                },
+                "forwardProduct": {
+                    "title": "Продукт напред",
+                    "product": "Продукт"
+                },
+                "forwardCategory": {
+                    "title": "Категория „Напред“",
+                    "category": "Категория"
                 }
             }
         }

@@ -1,16 +1,25 @@
 {
+    "global": {
+        "error-codes": {
+            "ACTION_VALID_TO_VIOLATION": "कार्रवाई शुरू होने के बाद कार्रवाई की समाप्ति तिथि निर्धारित की जानी चाहिए।",
+            "ACTION_DUPLICATE_NAME_VIOLATION": "इस नाम का उपयोग पहले से ही किसी अन्य क्रिया में किया जा चुका है।"
+        }
+    },
     "swag-enterprise-search": {
         "general": {
-            "mainMenuItemGeneral": "शॉपवेयर एंटरप्राइज़ खोज",
-            "mainMenuEntry": "शॉपवेयर एंटरप्राइज़ खोज"
+            "mainMenuItemGeneral": "शॉपवेयर एडवांस्ड सर्च",
+            "mainMenuEntry": "शॉपवेयर एडवांस्ड सर्च"
         },
         "index": {
-            "title": "एंटरप्राइज़ खोज कॉन्फ़िगरेशन",
+            "title": "एडवांस सर्च कॉन्फ़िगरेशन",
             "buttonSave": "सहेजें",
             "entityConfigTitle": "अवलोकन",
             "previewSearchTitle": "पूर्वावलोकन",
             "relevanceTitle": "प्रासंगिकता",
-            "boostingTitle": "बूस्टिंग्स"
+            "boostingTitle": "बूस्टिंग्स",
+            "synonymsTitle": "समानार्थी",
+            "actionTitle": "क्रियाएँ",
+            "labelSalesChannelSelect": "बिक्री चैनल"
         },
         "types": {
             "category": "श्रेणी",
@@ -87,6 +96,34 @@
                 "placeholderOperatorSelect": "ऑपरेटर चुनें"
             }
         },
+        "synonyms": {
+            "title": "समानार्थक शब्द",
+            "addsynonyms": "नया पर्याय",
+            "searchPlaceholder": "पर्यायवाची खोजें",
+            "messageEmptyTitle": "कोई पर्यायवाची नहीं",
+            "messageEmptySubline": "समानार्थी शब्द प्रबंधित करें",
+            "columnHeaders": {
+                "name": "नाम",
+                "left": "बायाँ",
+                "right": "दाएँ",
+                "language": "भाषा",
+                "synonym": "समानार्थी"
+            },
+            "detail": {
+                "name": "नाम",
+                "synonym": "समानार्थी",
+                "left": "बायाँ",
+                "right": "दाएँ",
+                "newsynonym": "नया पर्याय",
+                "cancelModal": "रद्द करें"
+            },
+            "explanation": {
+                "sameTitle": "समान पर्यायवाची",
+                "same": "उदाहरण के लिए “wifi, wlan, w-lan, वायरलेस नेटवर्क” पूरी तरह से बराबर हैं और केवल “बाएं” कॉलम में दर्ज किया जाना चाहिए",
+                "expandingTitle": "समानार्थी शब्दों को परिभाषित करना",
+                "expanding": "उदाहरण के लिए एक iPhone भी एक स्मार्टफोन है, लेकिन हर स्मार्टफोन एक iPhone भी नहीं है। इस तरह के निर्माण इस तरह दर्ज किए गए हैं: “बाएं”: “स्मार्टफोन”, “दाएं”: “iphone, i-phone, i phone, i phone, स्मार्टफोन”"
+            }
+        },
         "relevance": {
             "title": "खोजने योग्य जानकारी",
             "cancelModal": "रद्द करें",
@@ -121,6 +158,46 @@
                     "notEqualsAny": "में से किसी के बराबर नहीं है",
                     "notContains": "इसमें शामिल नहीं है",
                     "range": "रेंज"
+                }
+            }
+        },
+        "action": {
+            "title": "क्रियाएँ",
+            "addAction": "ऐक्शन जोड़ें",
+            "searchPlaceholder": "सर्च ऐक्शन",
+            "messageEmptyTitle": "अभी तक कोई कार्रवाई नहीं",
+            "messageEmptySubline": "यहां क्रियाएँ प्रबंधित करें।",
+            "columnHeaders": {
+                "name": "नाम",
+                "type": "टाइप करें",
+                "active": "सक्रिय",
+                "validFrom": "से सक्रिय",
+                "validTo": "करने के लिए सक्रिय"
+            },
+            "detail": {
+                "action": "कार्रवाई",
+                "searchTerms": "खोज के शब्द",
+                "name": "नाम",
+                "active": "सक्रिय",
+                "validFrom": "से सक्रिय",
+                "validTo": "करने के लिए सक्रिय",
+                "type": "टाइप करें",
+                "typePlaceholder": "क़िस्म चुनें...",
+                "cancelModal": "रद्द करें",
+                "newAction": "नई क्रिया"
+            },
+            "type": {
+                "forwardUrl": {
+                    "title": "URL को फॉरवर्ड करें",
+                    "url": "यूआरएल"
+                },
+                "forwardProduct": {
+                    "title": "फॉरवर्ड प्रॉडक्ट",
+                    "product": "उत्पाद"
+                },
+                "forwardCategory": {
+                    "title": "फॉरवर्ड कैटेगरी",
+                    "category": "श्रेणी"
                 }
             }
         }

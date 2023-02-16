@@ -1,16 +1,26 @@
 {
+    "global": {
+        "error-codes": {
+            "ACTION_VALID_TO_VIOLATION": "La date d'expiration de l'action doit être fixée après le début de l'action.",
+            "ACTION_DUPLICATE_NAME_VIOLATION": "Ce nom a déjà été utilisé dans une autre action.",
+            "ACTION_SEARCH_TERM_DUPLICATE_TERM_VIOLATION": "Le terme « {value} » a déjà été utilisé dans une autre action."
+        }
+    },
     "swag-enterprise-search": {
         "general": {
-            "mainMenuItemGeneral": "Recherche d'entreprise Shopware",
-            "mainMenuEntry": "Recherche d'entreprise Shopware"
+            "mainMenuItemGeneral": "Recherche avancée dans Shopware",
+            "mainMenuEntry": "Recherche avancée dans Shopware"
         },
         "index": {
-            "title": "Configuration de la recherche d'entreprise",
+            "title": "Configuration de recherche avancée",
             "buttonSave": "Enregistrer",
             "entityConfigTitle": "Vue d'ensemble",
             "previewSearchTitle": "Aperçu",
             "relevanceTitle": "Pertinences",
-            "boostingTitle": "Stimulations"
+            "boostingTitle": "Stimulations",
+            "synonymsTitle": "Synonymes",
+            "actionTitle": "Promotions",
+            "labelSalesChannelSelect": "Canal de vente"
         },
         "types": {
             "category": "Catégorie",
@@ -87,6 +97,34 @@
                 "placeholderOperatorSelect": "Choisir un opérateur"
             }
         },
+        "synonyms": {
+            "title": "des synonymes",
+            "addsynonyms": "Nouveau synonyme",
+            "searchPlaceholder": "Rechercher un synonyme",
+            "messageEmptyTitle": "Pas de synonymes",
+            "messageEmptySubline": "Gérer les synonymes",
+            "columnHeaders": {
+                "name": "Nom",
+                "left": "Gauche",
+                "right": "Droite",
+                "language": "Langue",
+                "synonym": "Synonyme"
+            },
+            "detail": {
+                "name": "Nom",
+                "synonym": "Synonyme",
+                "left": "Gauche",
+                "right": "Droite",
+                "newsynonym": "Nouveau synonyme",
+                "cancelModal": "Annuler"
+            },
+            "explanation": {
+                "sameTitle": "Synonymes égaux",
+                "same": "Par exemple, « wifi, wlan, w-lan, réseau sans fil » sont totalement égaux et ne doivent être saisis que dans la colonne « gauche »",
+                "expandingTitle": "Définition des synonymes",
+                "expanding": "Par exemple, un iPhone est aussi un smartphone, mais tous les smartphones ne sont pas également des iPhone. Ces constructions sont saisies comme suit : « gauche » : « smartphone », « droite » : « iphone, i-phone, téléphone, smartphone »"
+            }
+        },
         "relevance": {
             "title": "Informations consultables",
             "cancelModal": "Annuler",
@@ -121,6 +159,46 @@
                     "notEqualsAny": "N'est pas égal à l'un des",
                     "notContains": "Ne contient pas",
                     "range": "Gamme"
+                }
+            }
+        },
+        "action": {
+            "title": "Promotions",
+            "addAction": "Ajouter une action",
+            "searchPlaceholder": "Action de recherche",
+            "messageEmptyTitle": "Aucune action pour l'instant",
+            "messageEmptySubline": "Gérez les actions ici.",
+            "columnHeaders": {
+                "name": "Nom",
+                "type": "Type",
+                "active": "En cours de validité",
+                "validFrom": "Actif à partir",
+                "validTo": "Actif à"
+            },
+            "detail": {
+                "action": "Promotion",
+                "searchTerms": "Termes de recherche",
+                "name": "Nom",
+                "active": "En cours de validité",
+                "validFrom": "Actif à partir",
+                "validTo": "Actif à",
+                "type": "Type",
+                "typePlaceholder": "Sélectionnez le type...",
+                "cancelModal": "Annuler",
+                "newAction": "Nouvelle action"
+            },
+            "type": {
+                "forwardUrl": {
+                    "title": "URL de transfert",
+                    "url": "URL"
+                },
+                "forwardProduct": {
+                    "title": "Produit Forward",
+                    "product": "Produit"
+                },
+                "forwardCategory": {
+                    "title": "Catégorie Forward",
+                    "category": "Catégorie"
                 }
             }
         }

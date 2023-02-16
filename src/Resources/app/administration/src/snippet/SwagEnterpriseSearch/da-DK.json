@@ -1,16 +1,26 @@
 {
+    "global": {
+        "error-codes": {
+            "ACTION_VALID_TO_VIOLATION": "Handlingens udløbsdato skal indstilles efter handlingens start.",
+            "ACTION_DUPLICATE_NAME_VIOLATION": "Dette navn er allerede blevet brugt i en anden handling.",
+            "ACTION_SEARCH_TERM_DUPLICATE_TERM_VIOLATION": "Udtrykket“{value}„er allerede blevet brugt i en anden handling."
+        }
+    },
     "swag-enterprise-search": {
         "general": {
-            "mainMenuItemGeneral": "Butikware Enterprise-søgning",
-            "mainMenuEntry": "Butikware Enterprise-søgning"
+            "mainMenuItemGeneral": "Shopware Avanceret søgning",
+            "mainMenuEntry": "Shopware Avanceret søgning"
         },
         "index": {
-            "title": "Konfiguration af virksomhedssøgning",
+            "title": "Konfiguration af avanceret søgning",
             "buttonSave": "Gem",
             "entityConfigTitle": "Oversigt",
             "previewSearchTitle": "Forhåndsvisning",
             "relevanceTitle": "Relevanser",
-            "boostingTitle": "Stigninger"
+            "boostingTitle": "Stigninger",
+            "synonymsTitle": "Synonymer",
+            "actionTitle": "Indstillinger",
+            "labelSalesChannelSelect": "Salgskanal"
         },
         "types": {
             "category": "kategori",
@@ -87,6 +97,34 @@
                 "placeholderOperatorSelect": "Vælg en operatør"
             }
         },
+        "synonyms": {
+            "title": "synonymer",
+            "addsynonyms": "Nyt synonym",
+            "searchPlaceholder": "Søg synonym",
+            "messageEmptyTitle": "Ingen synonymer",
+            "messageEmptySubline": "Administrer synonymer",
+            "columnHeaders": {
+                "name": "Navn",
+                "left": "Venstre",
+                "right": "Højre",
+                "language": "Sprog",
+                "synonym": "Synonym"
+            },
+            "detail": {
+                "name": "Navn",
+                "synonym": "Synonym",
+                "left": "Venstre",
+                "right": "Højre",
+                "newsynonym": "Nyt synonym",
+                "cancelModal": "Annullér"
+            },
+            "explanation": {
+                "sameTitle": "Lige synonymer",
+                "same": "f.eks. „wifi, wlan, w-lan, trådløst netværk“ er helt ens og skal kun indtastes i kolonnen „venstre“",
+                "expandingTitle": "Definition af synonymer",
+                "expanding": "f.eks. En iPhone er også en smartphone, men ikke alle smartphones er også en iPhone. Sådanne konstruktioner indtastes som denne: „venstre“: „smartphone“, „højre“: „iphone, i-telefon, jeg telefon, smartphone“"
+            }
+        },
         "relevance": {
             "title": "Søgbare oplysninger",
             "cancelModal": "annullere",
@@ -121,6 +159,46 @@
                     "notEqualsAny": "Er ikke lig med nogen af",
                     "notContains": "Indeholder ikke",
                     "range": "Range"
+                }
+            }
+        },
+        "action": {
+            "title": "Indstillinger",
+            "addAction": "Tilføj handling",
+            "searchPlaceholder": "Søg handling",
+            "messageEmptyTitle": "Ingen handlinger endnu",
+            "messageEmptySubline": "Administrer handlinger her.",
+            "columnHeaders": {
+                "name": "Navn",
+                "type": "Type",
+                "active": "Aktive",
+                "validFrom": "Aktiv fra",
+                "validTo": "Aktiv til"
+            },
+            "detail": {
+                "action": "Handling",
+                "searchTerms": "Søgeresultater",
+                "name": "Navn",
+                "active": "Aktive",
+                "validFrom": "Aktiv fra",
+                "validTo": "Aktiv til",
+                "type": "Type",
+                "typePlaceholder": "Vælg type...",
+                "cancelModal": "Annullér",
+                "newAction": "Ny handling"
+            },
+            "type": {
+                "forwardUrl": {
+                    "title": "videresend URL",
+                    "url": "URL"
+                },
+                "forwardProduct": {
+                    "title": "Forward Produkt",
+                    "product": "Produkt"
+                },
+                "forwardCategory": {
+                    "title": "Forward Kategori",
+                    "category": "Kategori"
                 }
             }
         }

@@ -1,16 +1,26 @@
 {
+    "global": {
+        "error-codes": {
+            "ACTION_VALID_TO_VIOLATION": "Åtgärdens utgångsdatum måste ställas in efter åtgärdens början.",
+            "ACTION_DUPLICATE_NAME_VIOLATION": "Detta namn har redan använts i en annan åtgärd.",
+            "ACTION_SEARCH_TERM_DUPLICATE_TERM_VIOLATION": "Termen ”{value}” har redan använts i en annan åtgärd."
+        }
+    },
     "swag-enterprise-search": {
         "general": {
-            "mainMenuItemGeneral": "Sökning av butiksprogram för företag",
-            "mainMenuEntry": "Sökning av butiksprogram för företag"
+            "mainMenuItemGeneral": "Shopware Avancerad sökning",
+            "mainMenuEntry": "Shopware Avancerad sökning"
         },
         "index": {
-            "title": "Konfiguration av företagssökning",
+            "title": "Avancerad sökkonfiguration",
             "buttonSave": "Spara",
             "entityConfigTitle": "Översikt",
             "previewSearchTitle": "Förhandsvisning",
             "relevanceTitle": "Relevanser",
-            "boostingTitle": "Boostings"
+            "boostingTitle": "Boostings",
+            "synonymsTitle": "Synonymer",
+            "actionTitle": "Kampanjer",
+            "labelSalesChannelSelect": "Försäljningskanal"
         },
         "types": {
             "category": "Kategori",
@@ -87,6 +97,34 @@
                 "placeholderOperatorSelect": "Välj en operatör"
             }
         },
+        "synonyms": {
+            "title": "synonymer",
+            "addsynonyms": "Ny synonym",
+            "searchPlaceholder": "Sök synonym",
+            "messageEmptyTitle": "Inga synonymer",
+            "messageEmptySubline": "Hantera synonymer",
+            "columnHeaders": {
+                "name": "Namn",
+                "left": "Vänster",
+                "right": "Höger",
+                "language": "Språk",
+                "synonym": "Synonym"
+            },
+            "detail": {
+                "name": "Namn",
+                "synonym": "Synonym",
+                "left": "Vänster",
+                "right": "Höger",
+                "newsynonym": "Ny synonym",
+                "cancelModal": "Avbryt"
+            },
+            "explanation": {
+                "sameTitle": "Lika synonymer",
+                "same": "t.ex. ”wifi, wlan, w-lan, trådlöst nätverk” är helt lika och får endast anges i kolumnen ”left”",
+                "expandingTitle": "Definiera synonymer",
+                "expanding": "t.ex. en iPhone är också en smartphone, men inte alla smarttelefoner är också en iPhone. Sådana konstruktioner skrivs in så här: ”vänster”: ”smartphone”, ”höger”: ”iphone, i-telefon, i telefon, smartphone”"
+            }
+        },
         "relevance": {
             "title": "Sökbar information",
             "cancelModal": "Avbryta",
@@ -121,6 +159,46 @@
                     "notEqualsAny": "Är inte lika med någon av",
                     "notContains": "Innehåller inte",
                     "range": "Range"
+                }
+            }
+        },
+        "action": {
+            "title": "Kampanjer",
+            "addAction": "Lägg till åtgärd",
+            "searchPlaceholder": "Sök Åtgärd",
+            "messageEmptyTitle": "Inga åtgärder ännu",
+            "messageEmptySubline": "Hantera åtgärder här.",
+            "columnHeaders": {
+                "name": "Namn",
+                "type": "Typ",
+                "active": "Aktiv",
+                "validFrom": "Aktiv från",
+                "validTo": "Aktiv till"
+            },
+            "detail": {
+                "action": "Kampanj",
+                "searchTerms": "Sök termer",
+                "name": "Namn",
+                "active": "Aktiv",
+                "validFrom": "Aktiv från",
+                "validTo": "Aktiv till",
+                "type": "Typ",
+                "typePlaceholder": "Välj typ...",
+                "cancelModal": "Avbryt",
+                "newAction": "Ny åtgärd"
+            },
+            "type": {
+                "forwardUrl": {
+                    "title": "Framåt URL",
+                    "url": "URL"
+                },
+                "forwardProduct": {
+                    "title": "Framåt produkt",
+                    "product": "Produkt"
+                },
+                "forwardCategory": {
+                    "title": "Forward Kategori",
+                    "category": "Kategori"
                 }
             }
         }

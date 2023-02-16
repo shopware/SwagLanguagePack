@@ -8,6 +8,7 @@
                 "storefrontDomain": "Domínio Storefront",
                 "storefrontDomainCurrency": "Moeda da montra",
                 "productStream": "Grupo de produtos dinâmicos",
+                "noDynamicProductGroupFound": "Você precisa criar um grupo de produtos dinâmico para usar o Social Shopping Sales Channel. Crie um grupo dinâmico de produtos.",
                 "createDynamicProductGroup": "Criar grupo de produtos dinâmicos",
                 "tabErrors": "Produtos inéditos",
                 "tabIntegration": "Integração",
@@ -18,13 +19,31 @@
                     "inputBodyLabel": "Linha de produto",
                     "inputFooterLabel": "Rodapé",
                     "buttonTestLabel": "Testar template",
-                    "buttonPreviewLabel": "Gerar pré-visualização"
+                    "buttonPreviewLabel": "Gerar pré-visualização",
+                    "buttonResetLabel": "Redefinir modelo"
+                },
+                "statistics": {
+                    "tabStatistics": "Estatísticas",
+                    "orderCardHeadline": "Encomendas",
+                    "customerCardHeadline": "Clientes",
+                    "turnoverCardHeadline": "Faturação",
+                    "numbers": "Número",
+                    "totalTurnover": "Total",
+                    "dateRanges": {
+                        "30Days": "Últimos 30 dias",
+                        "14Days": "Últimos 14 dias",
+                        "7Days": "Últimos 7 dias",
+                        "24Hours": "Últimas 24 horas",
+                        "yesterday": "Desde ontem"
+                    }
                 }
             },
             "facebook": {
                 "titleFacebookSettings": "Configurações adicionais",
                 "name": "Facebook",
                 "description": "Vender produtos em uma página do Facebook",
+                "googleProductDefaultCategory": "ID padrão da categoria de produto do Google",
+                "helpTextGoogleProductDefaultCategory": "O Facebook usa o ID da categoria do produto do Google para categorizar seus produtos. Insira a categoria de produto do Google a ser usada se nenhuma categoria de produto do Google tiver sido definida para a categoria do produto.",
                 "includeVariants": "Variantes de importação como produtos dedicados",
                 "interval": "Intervalo",
                 "generateByCronjob": "Gerar via agendador",
@@ -36,6 +55,8 @@
                 "titleInstagramSettings": "Configurações adicionais",
                 "name": "Instagram",
                 "description": "Vender produtos em um canal do Instagram",
+                "googleProductDefaultCategory": "ID padrão da categoria de produto do Google",
+                "helpTextGoogleProductDefaultCategory": "O Instagram usa o ID da categoria do produto do Google para categorizar seus produtos. Insira a categoria de produto do Google a ser usada se nenhuma categoria de produto do Google tiver sido definida para a categoria do produto.",
                 "includeVariants": "Variantes de importação como produtos dedicados",
                 "interval": "Intervalo",
                 "generateByCronjob": "Gerar via agendador",
@@ -48,7 +69,9 @@
                 "description": "Vender produtos via Google Shopping",
                 "titleGoogleShoppingSettings": "Configurações adicionais",
                 "titleGoogleShoppingGuide": "Guia de integração",
+                "googleProductDefaultCategory": "ID padrão da categoria de produto do Google",
                 "googleProductCategoryLinkLabel": "Página de suporte para categorias de produtos do Google",
+                "helpTextGoogleProductDefaultCategory": "O Google usa o ID da categoria do produto do Google para categorizar seus produtos. Insira a categoria de produto do Google a ser usada se nenhuma categoria de produto do Google tiver sido definida para a categoria do produto.",
                 "includeVariants": "Variantes de importação como produtos dedicados",
                 "interval": "Intervalo",
                 "generateByCronjob": "Gerar via agendador",
@@ -82,29 +105,65 @@
             "google-product-category-missing": "Este produto está associado a uma categoria sem categoria de produto do Google"
         },
         "integration": {
+            "stepByStepTitle": "Passo a passo",
             "facebook": {
+                "cardTitle": "Conexão ao Facebook",
                 "introduction": {
                     "title": "Como: Configuração e conexão",
                     "description": "Para exibir produtos em uma página de negócios do Instagram, você terá que estabelecer uma conta comercial do Instagram, primeiro. Tudo o resto é explicado no guia passo a passo abaixo."
-                }
+                },
+                "stepByStep": "<li>Crie uma conta em <a href=\"https://facebook.com\">Facebook</a></li><li>Crie uma conta comercial em <a href=\"https://business.facebook.com\">business.facebook.com</a></li><li>Navegue até o gerenciador de catálogos</li><li>Adicione um novo catálogo para sua loja</li><li>Configuração do catálogo: Selecione o produto nas informações do feed de dados</li><li>Mudar para a fonte de dados</li><li>Adicionar produtos</li><li>Selecione o feed de dados</li><li>Configure o feed de dados. Copie e cole o URL do feed de dados (abaixo)</li>",
+                "dataFeedLabel": "Feed de dados"
             },
             "google-shopping": {
+                "cardTitle": "conexão com o Google",
                 "introduction": {
-                    "title": "Como: Configuração e conexão"
-                }
+                    "title": "Como: Configuração e conexão",
+                    "description": "Esse canal de vendas gera um feed XML que você pode usar no Google para sincronizar automaticamente os produtos em seu catálogo. Para fazer isso, você precisa depositar o URL do feed no Google e definir com que frequência o Google deve baixar o feed. Todo o resto é explicado no guia passo a passo abaixo"
+                },
+                "dataFeedLabel": "Feed de dados"
             },
             "instagram": {
+                "cardTitle": "Conexão com Instagram",
                 "introduction": {
                     "title": "Como: Configuração e conexão",
                     "description": "Para exibir produtos em uma página de negócios do facebook, você terá que estabelecer uma conta comercial do facebook primeiro. Tudo o resto é explicado no guia passo a passo abaixo."
-                }
+                },
+                "stepByStep": "<li>Crie uma conta comercial em <a href=\"https://business.facebook.com\">business.facebook.com</a></li><li>Navegue até o gerenciador de catálogos</li><li>Adicione um novo catálogo para sua loja</li><li>Configuração do catálogo: Selecione o produto nas informações para o feed de dados</li><li>Mudar para a fonte de dados</li><li>Adicionar produtos</li><li>Selecione o feed de dados</li><li>Configurar o feed de dados. Copie e cole o URL do feed de dados (abaixo)</li><li>Se necessário, crie uma conta <a href=\"https://instagram.com\">no Instagram</a></li><li>Abra seu Configurações do Instagram e clique em “Mudar para perfil profissional” e selecione “Negócios”</li><li>Siga as instruções para conectar seus canais de vendas do Facebook</li>\n",
+                "dataFeedLabel": "Feed de dados"
             },
             "pinterest": {
+                "cardTitle": "Conexão com o Pinterest",
                 "introduction": {
                     "title": "Como: Configuração e conexão",
                     "description": "Este canal de vendas gera metadados, que permite exibir seus produtos como um pin no Pinterest. Você pode encontrar mais informações sobre este tópico no guia passo a passo abaixo."
                 },
-                "stepByStep": "<li>Clique em “Validar no Pinterest”</li><li>Faça login ou crie uma conta no <a href=\"https://pinterest.com\">Pinterest</a></li><li>Digite qualquer URL do produto da vitrine e clique em “Validar”</li>"
+                "stepByStep": "<li>Clique em “Validar no Pinterest”</li><li>Faça login ou crie uma conta no <a href=\"https://pinterest.com\">Pinterest</a></li><li>Digite qualquer URL do produto da vitrine e clique em “Validar”</li>",
+                "dataFeedLabel": "Feed de dados"
+            }
+        },
+        "extension": {
+            "sw-customer": {
+                "filter": {
+                    "referralCode": {
+                        "label": "Encaminhamento",
+                        "placeholder": "Selecione a referência"
+                    }
+                },
+                "list": {
+                    "columnReferral": "Encaminhamento"
+                }
+            },
+            "sw-order": {
+                "filter": {
+                    "referralCode": {
+                        "label": "Encaminhamento",
+                        "placeholder": "Selecione a referência"
+                    }
+                },
+                "list": {
+                    "columnReferral": "Encaminhamento"
+                }
             }
         }
     }

@@ -1,16 +1,26 @@
 {
+    "global": {
+        "error-codes": {
+            "ACTION_VALID_TO_VIOLATION": "De vervaldatum van de actie moet worden vastgesteld na het begin van de actie.",
+            "ACTION_DUPLICATE_NAME_VIOLATION": "Deze naam is al in een andere actie gebruikt.",
+            "ACTION_SEARCH_TERM_DUPLICATE_TERM_VIOLATION": "De term '{value}' is al in een andere actie gebruikt."
+        }
+    },
     "swag-enterprise-search": {
         "general": {
-            "mainMenuItemGeneral": "Shopware Enterprise Zoeken",
-            "mainMenuEntry": "Shopware Enterprise Zoeken"
+            "mainMenuItemGeneral": "Shopware geavanceerd zoeken",
+            "mainMenuEntry": "Shopware geavanceerd zoeken"
         },
         "index": {
-            "title": "Configuratie Shopware Enterprise Search",
+            "title": "Configuratie voor geavanceerd zoeken",
             "buttonSave": "Opslaan",
             "entityConfigTitle": "Overzicht",
             "previewSearchTitle": "Preview",
             "relevanceTitle": "Relevanties",
-            "boostingTitle": "Boostings"
+            "boostingTitle": "Boostings",
+            "synonymsTitle": "Synoniemen",
+            "actionTitle": "Acties",
+            "labelSalesChannelSelect": "Verkoopkanaal"
         },
         "types": {
             "category": "Categorie",
@@ -87,6 +97,34 @@
                 "placeholderOperatorSelect": "Kies een operator"
             }
         },
+        "synonyms": {
+            "title": "synoniemen",
+            "addsynonyms": "Nieuw synoniem",
+            "searchPlaceholder": "Zoek synoniem",
+            "messageEmptyTitle": "Geen synoniemen",
+            "messageEmptySubline": "Synoniemen beheren",
+            "columnHeaders": {
+                "name": "Naam",
+                "left": "Links",
+                "right": "Rechts",
+                "language": "Taal",
+                "synonym": "synoniem"
+            },
+            "detail": {
+                "name": "Naam",
+                "synonym": "synoniem",
+                "left": "Links",
+                "right": "Rechts",
+                "newsynonym": "Nieuw synoniem",
+                "cancelModal": "Annuleren"
+            },
+            "explanation": {
+                "sameTitle": "Gelijke synoniemen",
+                "same": "bijv. „wifi, wlan, w-lan, draadloos netwerk” zijn volledig gelijk en moeten alleen worden ingevoerd in de kolom „left”",
+                "expandingTitle": "Synoniemen definiëren",
+                "expanding": "Een iPhone is bijvoorbeeld ook een smartphone, maar niet elke smartphone is ook een iPhone. Dergelijke constructies worden als volgt ingevoerd: „links”: „smartphone”, „rechts”: „iphone, i-phone, i phone, smartphone”"
+            }
+        },
         "relevance": {
             "title": "Doorzoekbare informatie",
             "cancelModal": "annuleren",
@@ -121,6 +159,46 @@
                     "notEqualsAny": "Is niet gelijk aan een van",
                     "notContains": "Bevat geen",
                     "range": "bereik"
+                }
+            }
+        },
+        "action": {
+            "title": "Acties",
+            "addAction": "Actie toevoegen",
+            "searchPlaceholder": "Zoek actie",
+            "messageEmptyTitle": "Nog geen acties",
+            "messageEmptySubline": "Hier kun je acties beheren.",
+            "columnHeaders": {
+                "name": "Naam",
+                "type": "Type",
+                "active": "Actief",
+                "validFrom": "Actief van",
+                "validTo": "Actief naar"
+            },
+            "detail": {
+                "action": "Actie",
+                "searchTerms": "Zoektermen",
+                "name": "Naam",
+                "active": "Actief",
+                "validFrom": "Actief van",
+                "validTo": "Actief naar",
+                "type": "Type",
+                "typePlaceholder": "Selecteer het type...",
+                "cancelModal": "Annuleren",
+                "newAction": "Nieuwe actie"
+            },
+            "type": {
+                "forwardUrl": {
+                    "title": "URL doorsturen",
+                    "url": "URL"
+                },
+                "forwardProduct": {
+                    "title": "Product doorsturen",
+                    "product": "Product"
+                },
+                "forwardCategory": {
+                    "title": "Categorie vooruit",
+                    "category": "Categorie"
                 }
             }
         }

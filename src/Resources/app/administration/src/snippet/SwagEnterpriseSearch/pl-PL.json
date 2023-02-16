@@ -1,16 +1,26 @@
 {
+    "global": {
+        "error-codes": {
+            "ACTION_VALID_TO_VIOLATION": "Data wygaśnięcia działania musi zostać ustalona po rozpoczęciu działania.",
+            "ACTION_DUPLICATE_NAME_VIOLATION": "Ta nazwa została już użyta w innej akcji.",
+            "ACTION_SEARCH_TERM_DUPLICATE_TERM_VIOLATION": "Termin „{value}” został już użyty w innym działaniu."
+        }
+    },
     "swag-enterprise-search": {
         "general": {
-            "mainMenuItemGeneral": "Shopware Enterprise Search",
-            "mainMenuEntry": "Shopware Enterprise Search"
+            "mainMenuItemGeneral": "Zaawansowane wyszukiwanie Shopware",
+            "mainMenuEntry": "Zaawansowane wyszukiwanie Shopware"
         },
         "index": {
-            "title": "Konfiguracja wyszukiwania przedsiębiorstwa",
+            "title": "Zaawansowana konfiguracja wyszukiwania",
             "buttonSave": "Zapisz",
             "entityConfigTitle": "Przegląd",
             "previewSearchTitle": "Podgląd",
             "relevanceTitle": "Relevances",
-            "boostingTitle": "Boostings"
+            "boostingTitle": "Boostings",
+            "synonymsTitle": "Synonimy",
+            "actionTitle": "Promocje",
+            "labelSalesChannelSelect": "Kanał sprzedaży"
         },
         "types": {
             "category": "Kategoria",
@@ -87,6 +97,34 @@
                 "placeholderOperatorSelect": "Wybierz operatora"
             }
         },
+        "synonyms": {
+            "title": "synonimy",
+            "addsynonyms": "Nowy synonim",
+            "searchPlaceholder": "Wyszukaj synonim",
+            "messageEmptyTitle": "Brak synonimów",
+            "messageEmptySubline": "Zarządzanie synonimami",
+            "columnHeaders": {
+                "name": "Nazwa",
+                "left": "Linki",
+                "right": "Prawo",
+                "language": "Język",
+                "synonym": "Synonim"
+            },
+            "detail": {
+                "name": "Nazwa",
+                "synonym": "Synonim",
+                "left": "Linki",
+                "right": "Prawo",
+                "newsynonym": "Nowy synonim",
+                "cancelModal": "Anuluj"
+            },
+            "explanation": {
+                "sameTitle": "Równe synonimy",
+                "same": "np. „wifi, wlan, w-lan, sieć bezprzewodowa” są całkowicie równe i muszą być wpisane tylko w kolumnie „left”",
+                "expandingTitle": "Definiowanie synonimów",
+                "expanding": "np. iPhone to także smartfon, ale nie każdy smartfon to także iPhone. Takie konstrukcje są wprowadzane w następujący sposób: „left”: „smartphone”, „right”: „iphone, i-phone, i phone, smartphone”"
+            }
+        },
         "relevance": {
             "title": "Informacje z możliwością wyszukiwania",
             "cancelModal": "Anulować",
@@ -121,6 +159,46 @@
                     "notEqualsAny": "Nie jest równa którejkolwiek z",
                     "notContains": "Nie zawiera",
                     "range": "Zakres"
+                }
+            }
+        },
+        "action": {
+            "title": "Promocje",
+            "addAction": "Dodaj akcję",
+            "searchPlaceholder": "Działanie wyszukiwania",
+            "messageEmptyTitle": "Nie ma jeszcze żadnych działań",
+            "messageEmptySubline": "Zarządzaj działaniami tutaj.",
+            "columnHeaders": {
+                "name": "Nazwa",
+                "type": "Typ",
+                "active": "Aktywny",
+                "validFrom": "Aktywny od",
+                "validTo": "Aktywny do"
+            },
+            "detail": {
+                "action": "Promocja",
+                "searchTerms": "Wyszukiwane hasła",
+                "name": "Nazwa",
+                "active": "Aktywny",
+                "validFrom": "Aktywny od",
+                "validTo": "Aktywny do",
+                "type": "Typ",
+                "typePlaceholder": "Wybierz typ...",
+                "cancelModal": "Anuluj",
+                "newAction": "Nowa akcja"
+            },
+            "type": {
+                "forwardUrl": {
+                    "title": "Adres URL do przodu",
+                    "url": "URL"
+                },
+                "forwardProduct": {
+                    "title": "Produkt do przodu",
+                    "product": "Produkt"
+                },
+                "forwardCategory": {
+                    "title": "Kategoria do przodu",
+                    "category": "Kategoria"
                 }
             }
         }

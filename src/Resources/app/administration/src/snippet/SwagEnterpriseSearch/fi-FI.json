@@ -1,16 +1,26 @@
 {
+    "global": {
+        "error-codes": {
+            "ACTION_VALID_TO_VIOLATION": "Toiminnan viimeinen voimassaolopäivä on asetettava toimenpiteen alkamisen jälkeen.",
+            "ACTION_DUPLICATE_NAME_VIOLATION": "Tätä nimeä on jo käytetty toisessa toiminnassa.",
+            "ACTION_SEARCH_TERM_DUPLICATE_TERM_VIOLATION": "Termiä ”{value}” on jo käytetty toisessa kanteessa."
+        }
+    },
     "swag-enterprise-search": {
         "general": {
-            "mainMenuItemGeneral": "Shopware-yrityshaku",
-            "mainMenuEntry": "Shopware-yrityshaku"
+            "mainMenuItemGeneral": "Shopware Tarkennettu haku",
+            "mainMenuEntry": "Shopware Tarkennettu haku"
         },
         "index": {
-            "title": "Yrityshakumääritykset",
+            "title": "Tarkennettu haku Määritykset",
             "buttonSave": "Tallenna",
             "entityConfigTitle": "Katsaus",
             "previewSearchTitle": "esikatselu",
             "relevanceTitle": "Merkitykselliset",
-            "boostingTitle": "Tehostukset"
+            "boostingTitle": "Tehostukset",
+            "synonymsTitle": "Synonyymit",
+            "actionTitle": "Toimet",
+            "labelSalesChannelSelect": "Myyntikanava"
         },
         "types": {
             "category": "Luokka",
@@ -87,6 +97,34 @@
                 "placeholderOperatorSelect": "Valitse operaattori"
             }
         },
+        "synonyms": {
+            "title": "synonyymejä",
+            "addsynonyms": "Uusi synonyymi",
+            "searchPlaceholder": "Haku synonyymi",
+            "messageEmptyTitle": "Ei synonyymejä",
+            "messageEmptySubline": "Hallitse synonyymejä",
+            "columnHeaders": {
+                "name": "Nimi",
+                "left": "Vasen",
+                "right": "Oikea",
+                "language": "Kieli",
+                "synonym": "Synonyymi"
+            },
+            "detail": {
+                "name": "Nimi",
+                "synonym": "Synonyymi",
+                "left": "Vasen",
+                "right": "Oikea",
+                "newsynonym": "Uusi synonyymi",
+                "cancelModal": "Peruuta"
+            },
+            "explanation": {
+                "sameTitle": "Yhtä synonyymit",
+                "same": "esim. ”wifi, wlan, w-lan, langaton verkko” ovat täysin samanarvoisia ja ne on syötettävä vain sarakkeeseen ”vasen”",
+                "expandingTitle": "Synonyymien määrittely",
+                "expanding": "esim. iPhone on myös älypuhelin, mutta kaikki älypuhelimet eivät ole myös iPhone. Tällaisia rakenteita syötetään näin: ”vasen”: ”älypuhelin”, ”oikea”: ”iphone, i-phone, i phone, älypuhelin”"
+            }
+        },
         "relevance": {
             "title": "Haettavissa olevat tiedot",
             "cancelModal": "Peruuta",
@@ -121,6 +159,46 @@
                     "notEqualsAny": "Ei ole yhtä suuri kuin mikään",
                     "notContains": "Ei sisällä",
                     "range": "Alude"
+                }
+            }
+        },
+        "action": {
+            "title": "Toimet",
+            "addAction": "Lisää toiminto",
+            "searchPlaceholder": "Haku Toiminta",
+            "messageEmptyTitle": "Ei vielä toimia",
+            "messageEmptySubline": "Hallitse toimia täällä.",
+            "columnHeaders": {
+                "name": "Nimi",
+                "type": "Tyyppi",
+                "active": "Aktiivinen",
+                "validFrom": "Aktiivinen alkaen",
+                "validTo": "Aktiivinen"
+            },
+            "detail": {
+                "action": "Toiminta",
+                "searchTerms": "Hakutermit",
+                "name": "Nimi",
+                "active": "Aktiivinen",
+                "validFrom": "Aktiivinen alkaen",
+                "validTo": "Aktiivinen",
+                "type": "Tyyppi",
+                "typePlaceholder": "Valitse tyyppi...",
+                "cancelModal": "Peruuta",
+                "newAction": "Uusi Toiminta"
+            },
+            "type": {
+                "forwardUrl": {
+                    "title": "Forward URL-osoite",
+                    "url": "URL-OSOITE"
+                },
+                "forwardProduct": {
+                    "title": "Eteenpäin tuote",
+                    "product": "Tuote"
+                },
+                "forwardCategory": {
+                    "title": "Eteenpäin Luokka",
+                    "category": "Luokka"
                 }
             }
         }

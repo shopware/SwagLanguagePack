@@ -173,6 +173,7 @@
             "finishButton": "Φινίρισμα",
             "backButton": "Επισκόπηση",
             "migrationAlreadyRunning": "Η μετανάστευση έχει ήδη ξεκινήσει.",
+            "pluginVersionText": "Έχουμε παρατηρήσει ότι μια ενημερωμένη έκδοση plugin είναι διαθέσιμη στο σύστημα προέλευσης {sourceSystem}. Παρακαλώ ενημερώστε το πρόσθετο \"{pluginName}\" πριν ξεκινήσετε τη μετεγκατάσταση.",
             "shopInfoCard": {
                 "cardTitle": "Σύστημα καταστήματος",
                 "buttonEditSettings": "Επεξεργασία σύνδεσης",
@@ -487,6 +488,9 @@
                 "localeNotFound": {
                     "information": "Ο κωδικός καταχώρησης τοπικών ρυθμίσεων \"{notFoundCode}\" δεν βρέθηκε."
                 },
+                "migrationsWorkloadPropertyMissing": {
+                    "information": "Η απαιτούμενη ιδιότητα \"{notFoundProperty}\" για το φόρτο εργασίας μετεγκατάστασης δεν βρέθηκε."
+                },
                 "noFileSystemPermissions": {
                     "information": "Δεν υπάρχουν δικαιώματα συστήματος αρχείων για τη δημιουργία ή εγγραφή αρχείων ή καταλόγων. Παρακαλώ ελέγξτε τα δικαιώματά σας."
                 },
@@ -513,17 +517,20 @@
                     "description": "Η γονική οντότητα για το παιδί \"{entity}\" δεν βρέθηκε."
                 },
                 "SWAG_MIGRATION__SHOPWARE_ASSOCIATION_REQUIRED_MISSING": {
-                    "title": "Ο συσχετισμένος {entity} δε βρέθηκε"
+                    "title": "Ο συσχετισμένος {entity} δε βρέθηκε",
+                    "description": "Το {missingEntity} με το αναγνωριστικό πηγής \"{sourceId}\" δεν μπορεί να βρεθεί αλλά απαιτείται για το {requiredFor}."
                 },
                 "SWAG_MIGRATION__SHOPWARE_EMPTY_NECESSARY_DATA_FIELDS": {
-                    "title": "Η οντότητα {entity} έχει ένα κενό απαραίτητο πεδίο"
+                    "title": "Η οντότητα {entity} έχει ένα κενό απαραίτητο πεδίο",
+                    "description": "Η οντότητα {entity} με το αναγνωριστικό πηγής \"{sourceId}\" δεν έχει τα απαραίτητα δεδομένα για το πεδίο \"{emptyField}»"
                 },
                 "SWAG_MIGRATION__SHOPWARE_UNSUPPORTED_OBJECT_TYPE": {
                     "title": "Μη υποστηριζόμενος τύπος αντικειμένου",
                     "description": "{entity} του τύπου αντικειμένου «{objectType}«με αναγνωριστικό πηγής «{sourceId}«δεν ήταν δυνατή η μετατροπή."
                 },
                 "SWAG_MIGRATION__SHOPWARE_INVALID_UNSERIALIZED_DATA": {
-                    "title": "Μη έγκυρα μη σειριοποιημένα δεδομένα"
+                    "title": "Μη έγκυρα μη σειριοποιημένα δεδομένα",
+                    "description": "Η οντότητα {entity} με αναγνωριστικό προέλευσης \"{sourceId}\" δεν ήταν δυνατό να μετατραπεί εξαιτίας μη έγκυρα μη σειριοποιημένα δεδομένα αντικειμένου για την οντότητα \"{unserializedEntity}\" και τα μη επεξεργασμένα δεδομένα είναι: {serializedData}"
                 },
                 "SWAG_MIGRATION__SHOPWARE_CANNOT_COPY_DATA": {
                     "title": "Το αρχείο προέλευσης δεν βρέθηκε",
@@ -533,38 +540,46 @@
                     "title": "Δεν ήταν δυνατή η μετατροπή της θυγατρικής οντότητας {entity}"
                 },
                 "SWAG_MIGRATION_CANNOT_CONVERT_ENTITY": {
-                    "title": "Η οντότητα {entity} δεν ήταν δυνατή η μετατροπή"
+                    "title": "Η οντότητα {entity} δεν ήταν δυνατή η μετατροπή",
+                    "description": "Δεν ήταν δυνατή η μετατροπή της οντότητας {entity} με το αναγνωριστικό προέλευσης \"{sourceId}\"."
                 },
                 "SWAG_MIGRATION_CANNOT_GET_FILE": {
                     "title": "Το αρχείο {entity} δεν μπορεί να μεταφορτωθεί/αντιγραφεί"
                 },
                 "SWAG_MIGRATION__COULD_NOT_READ_ENTITY_COUNT": {
-                    "title": "Δεν ήταν δυνατή η ανάγνωση του αριθμού οντοτήτων"
+                    "title": "Δεν ήταν δυνατή η ανάγνωση του αριθμού οντοτήτων",
+                    "description": "Δεν ήταν δυνατή η ανάγνωση του συνολικού αριθμού για την οντότητα {entity} . Βεβαιωθείτε ότι ο πίνακας \"{table}\" υπάρχει στο σύστημα προέλευσης και ότι η προαιρετική συνθήκη \"{condition}\" είναι έγκυρη. Μήνυμα εξαίρεσης: {exceptionMessage}"
                 },
                 "SWAG_MIGRATION__DATASET_NOT_FOUND": {
-                    "title": "Δεν βρέθηκε το DataSet"
+                    "title": "Δεν βρέθηκε το DataSet",
+                    "description": "DataSet για το προφίλ \"{profileName}\" και την οντότητα \"{entity}\" δεν βρέθηκε. Δεν ήταν δυνατή η επεξεργασία οντότητας με αναγνωριστικό \"{sourceId}\"."
                 },
                 "SWAG_MIGRATION_ENTITY_ALREADY_EXISTS": {
-                    "title": "Η οντότητα {entity} υπάρχει ήδη"
+                    "title": "Η οντότητα {entity} υπάρχει ήδη",
+                    "description": "Η οντότητα {entity} με αναγνωριστικό προέλευσης \"{sourceId}\" υπάρχει ήδη και δεν μπορεί να γραφτεί."
                 },
                 "SWAG_MIGRATION_ENTITY_FIELD_REASSIGNED": {
-                    "title": "Η οντότητα {entity} έχει ένα πεδίο που έχει εκχωρηθεί εκ νέου"
+                    "title": "Η οντότητα {entity} έχει ένα πεδίο που έχει εκχωρηθεί εκ νέου",
+                    "description": "Η οντότητα {entity} με το αναγνωριστικό πηγής \"{sourceId}\" πήρε το πεδίο \"{emptyField}\" αντικαταστάθηκε με \"{replacementField}\"."
                 },
                 "SWAG_MIGRATION__PROCESSOR_NOT_FOUND": {
-                    "title": "Ο επεξεργαστής δεν βρέθηκε"
+                    "title": "Ο επεξεργαστής δεν βρέθηκε",
+                    "description": "Δεν βρέθηκε επεξεργαστής για το προφίλ \"{profileName}«, την πύλη \"{gatewayName}\" και την οντότητα \"{entity}\"."
                 },
                 "SWAG_MIGRATION_ENTITY_UNKNOWN": {
                     "title": "Αδυναμία εύρεσης {entity}"
                 },
                 "SWAG_MIGRATION__INVALID_EMAIL_ADDRESS": {
-                    "title": "Μη έγκυρη διεύθυνση ηλεκτρονικού ταχυδρομείου"
+                    "title": "Μη έγκυρη διεύθυνση ηλεκτρονικού ταχυδρομείου",
+                    "description": "Η διεύθυνση ηλεκτρονικού ταχυδρομείου της οντότητας {entity}  με αναγνωριστικό προέλευσης \"{sourceId}\" δεν είναι έγκυρη: {email}"
                 },
                 "SWAG_MIGRATION__SHOPWARE_UNSUPPORTED_NUMBER_RANGE_TYPE": {
                     "title": "Μη υποστηριζόμενος τύπος εύρους αριθμών",
                     "description": "Η αριθμο-οντότητα με αναγνωριστικό προέλευσης \"{sourceId}\" δεν ήταν δυνατή η μετατροπή λόγω μη υποστηριζόμενου τύπου: {type}."
                 },
                 "SWAG_MIGRATION__SHOPWARE_UNSUPPORTED_SHIPPING_PRICE": {
-                    "title": "Μη υποστηριζόμενος υπολογισμός τιμής συντελεστή αποστολής"
+                    "title": "Μη υποστηριζόμενος υπολογισμός τιμής συντελεστή αποστολής",
+                    "description": "Η οντότητα τιμών αποστολής με κωδικό πηγής \"{sourceId}\" της μεθόδου αποστολής \"{shippingMethodId}\" δεν μπορεί να μετατραπεί λόγω μη υποστηριζόμενου υπολογισμού τιμής παράγοντα."
                 },
                 "SWAG_MIGRATION__SHOPWARE_UNSUPPORTED_SHIPPING_CALCULATION_TYPE": {
                     "title": "Μη υποστηριζόμενος τύπος υπολογισμού αποστολής",
@@ -583,7 +598,8 @@
                     "description": "{logData}"
                 },
                 "SWAG_MIGRATION__DOCUMENT_TYPE_NOT_SUPPORTED": {
-                    "title": "Ο τύπος εγγράφου δεν υποστηρίζεται"
+                    "title": "Ο τύπος εγγράφου δεν υποστηρίζεται",
+                    "description": "Το έγγραφο με το αναγνωριστικό προέλευσης \"{sourceId}\" δεν μπορεί να μετατραπεί επειδή ο τύπος εγγράφου \"{type}\" δεν υποστηρίζεται."
                 },
                 "SWAG_MIGRATION__WRITE_EXCEPTION_OCCURRED": {
                     "title": "Παρουσιάστηκε μια εξαίρεση εγγραφής",

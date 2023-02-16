@@ -1,16 +1,26 @@
 {
+    "global": {
+        "error-codes": {
+            "ACTION_VALID_TO_VIOLATION": "The action's expiry date must be set after the start of the action.",
+            "ACTION_DUPLICATE_NAME_VIOLATION": "This name has already been used in another action.",
+            "ACTION_SEARCH_TERM_DUPLICATE_TERM_VIOLATION": "The term '{value}' has already been used in another action."
+        }
+    },
     "swag-enterprise-search": {
         "general": {
-            "mainMenuItemGeneral": "Shopware Enterprise Search",
-            "mainMenuEntry": "Shopware Enterprise Search"
+            "mainMenuItemGeneral": "Shopware Advanced Search",
+            "mainMenuEntry": "Shopware Advanced Search"
         },
         "index": {
-            "title": "Enterprise Search Configuration",
+            "title": "Advanced Search Configuration",
             "buttonSave": "Save",
             "entityConfigTitle": "Overview",
             "previewSearchTitle": "Preview",
             "relevanceTitle": "Relevances",
-            "boostingTitle": "Boostings"
+            "boostingTitle": "Boostings",
+            "synonymsTitle": "Synonyms",
+            "actionTitle": "Actions",
+            "labelSalesChannelSelect": "Sales Channel"
         },
         "types": {
             "category": "Category",
@@ -87,6 +97,34 @@
                 "placeholderOperatorSelect": "Choose an operator"
             }
         },
+        "synonyms": {
+            "title": "synonyms",
+            "addsynonyms": "New Synonym",
+            "searchPlaceholder": "Search synonym",
+            "messageEmptyTitle": "No synonyms",
+            "messageEmptySubline": "Manage synonyms",
+            "columnHeaders": {
+                "name": "Name",
+                "left": "Left",
+                "right": "Right",
+                "language": "Language",
+                "synonym": "Synonym"
+            },
+            "detail": {
+                "name": "Name",
+                "synonym": "Synonym",
+                "left": "Left",
+                "right": "Right",
+                "newsynonym": "New synonym",
+                "cancelModal": "Cancel"
+            },
+            "explanation": {
+                "sameTitle": "Equal synonyms",
+                "same": "e.g. \"wifi, wlan, w-lan, wireless network\" are totally equal and must only be entered in the column \"left\"",
+                "expandingTitle": "Defining synonyms",
+                "expanding": "e.g. an iPhone is also a smartphone, but not every smartphone is also an iPhone. Such constructs are entered like this: \"left\": \"smartphone\", \"right\": \"iphone, i-phone, i phone, smartphone\""
+            }
+        },
         "relevance": {
             "title": "Searchable Information",
             "cancelModal": "Cancel",
@@ -121,6 +159,46 @@
                     "notEqualsAny": "Is not equal to any of",
                     "notContains": "Does not contain",
                     "range": "Range"
+                }
+            }
+        },
+        "action": {
+            "title": "Actions",
+            "addAction": "Add action",
+            "searchPlaceholder": "Search Action",
+            "messageEmptyTitle": "No actions yet",
+            "messageEmptySubline": "Manage actions here.",
+            "columnHeaders": {
+                "name": "Name",
+                "type": "Type",
+                "active": "Active",
+                "validFrom": "Active from",
+                "validTo": "Active to"
+            },
+            "detail": {
+                "action": "Action",
+                "searchTerms": "Search terms",
+                "name": "Name",
+                "active": "Active",
+                "validFrom": "Active from",
+                "validTo": "Active to",
+                "type": "Type",
+                "typePlaceholder": "Select type...",
+                "cancelModal": "Cancel",
+                "newAction": "New Action"
+            },
+            "type": {
+                "forwardUrl": {
+                    "title": "Forward URL",
+                    "url": "URL"
+                },
+                "forwardProduct": {
+                    "title": "Forward Product",
+                    "product": "Product"
+                },
+                "forwardCategory": {
+                    "title": "Forward Category",
+                    "category": "Category"
                 }
             }
         }

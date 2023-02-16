@@ -1,192 +1,4 @@
 {
-    "swag-paypal-frw-credentials": {
-        "buttonGetCredentials": "Ottieni credenziali API",
-        "textIntroPayPal": "Per far funzionare PayPal devi solo fornire le credenziali dell'API PayPal.",
-        "labelClientId": "ID client",
-        "labelClientSecret": "Segreto client",
-        "labelMerchantPayerId": "ID commerciante PayPal",
-        "labelClientIdSandbox": "ID client sandbox",
-        "labelClientSecretSandbox": "Segreto client sandbox",
-        "labelMerchantPayerIdSandbox": "ID venditore Sandbox PayPal",
-        "labelSandbox": "Usa sandbox",
-        "tooltipSandbox": "A seconda dell'attivazione della sandbox, vengono salvate credenziali separate.",
-        "labelSetDefault": "Imposta come metodo di pagamento predefinito",
-        "tooltipSetDefault": "PayPal verrà impostato come metodo di pagamento predefinito per tutti i canali di vendita. Puoi impostare singoli metodi di pagamento predefiniti per canale di vendita nel modulo delle impostazioni.",
-        "messageFetchedError": "Riprovare o utilizzare le impostazioni avanzate per fornire le credenziali.",
-        "textFetchedSuccessful": "Le credenziali sono state recuperate.",
-        "messageNoCredentials": "Non sono state fornite credenziali.",
-        "messageTestSuccess": "Le credenziali sono valide."
-    },
-    "swag-paypal-disputes": {
-        "general": {
-            "mainMenuItemGeneral": "Controversie PayPal",
-            "descriptionTextModule": "Gestisci le controversie PayPal qui"
-        },
-        "common": {
-            "dispute_id": "ID",
-            "update_time": "Tempo di aggiornamento",
-            "response_due_date": {
-                "label": "Data scadenza risposta",
-                "seller": "Venditore",
-                "buyer": "Acquirente"
-            },
-            "status": "Stato",
-            "dispute_life_cycle_stage": "Stage",
-            "dispute_amount": "Importo"
-        },
-        "list": {
-            "title": "Controversie",
-            "titleSidebarItemRefresh": "Aggiorna",
-            "titleSidebarItemFilter": "Filtra",
-            "errorTitle": "Errore durante il recupero delle controversie da PayPal",
-            "emptyState": {
-                "title": "Nessuna controversia trovata",
-                "subline": "Modificare il filtro per visualizzare tutte le controversie."
-            }
-        },
-        "detail": {
-            "title": "Controversia PayPal:",
-            "titleAddition": "(Dettagli tecnici)",
-            "mainFieldsCardTitle": "Dettagli",
-            "externalLinkText": "Controversia aperta nel centro risoluzione PayPal",
-            "orderModuleLinkText": "Ordine aperto",
-            "rawDataCardTitle": "Dati grezzi",
-            "copyButtonLabel": "Copia dati non elaborati"
-        }
-    },
-    "swag-paypal-payment": {
-        "general": {
-            "title": "Ordini"
-        },
-        "tabs": {
-            "overview": "Panoramica"
-        },
-        "paymentDetails": {
-            "cardTitle": "Pagamento",
-            "invoice": {
-                "heading": "Importo fattura",
-                "totalAmount": "Importo totale:",
-                "subTotal": "Totale parziale:",
-                "shipping": "Spedizione:",
-                "discount": "Sconto:",
-                "handling": "Costo di gestione:",
-                "insurance": "Assicurazione:",
-                "shipping_discount": "Sconto sulla spedizione:"
-            },
-            "payment": {
-                "heading": "Dettagli di pagamento",
-                "intent": "Intento:",
-                "paymentId": "ID pagamento:",
-                "cartId": "ID carrello:",
-                "state": "Stato:",
-                "createTime": "Tempo di creazione:",
-                "updateTime": "Tempo di aggiornamento:"
-            },
-            "customer": {
-                "heading": "Cliente",
-                "payerId": "ID pagante:"
-            },
-            "error": {
-                "title": "Errore durante il recupero dei dettagli del pagamento da PayPal"
-            }
-        },
-        "transactionHistory": {
-            "cardTitle": "Cronologia pagamenti",
-            "states": {
-                "authorization": "Autorizzazione",
-                "sale": "Vendita",
-                "refund": "Rimborso",
-                "capture": "Cattura",
-                "order": "Ordina"
-            },
-            "types": {
-                "type": "Tipo",
-                "amount": "Importo",
-                "createTime": "Creato",
-                "updateTime": "Aggiornato",
-                "state": "Stato",
-                "trackingId": "Numero di tracciamento",
-                "transactionFee": "Commissario di transazione",
-                "paymentMode": "Modalità di pagamento"
-            }
-        },
-        "buttons": {
-            "label": {
-                "refund": "Crea un nuovo rimborso",
-                "capture": "Cattura",
-                "void": "Annulla autorizzazione"
-            }
-        },
-        "modal": {
-            "title": {
-                "refund": "Nuovo rimborso",
-                "capture": "Cattura",
-                "void": "Annulla autorizzazione"
-            }
-        },
-        "refundAction": {
-            "successMessage": "Il rimborso ha avuto esito positivo.",
-            "invoiceSelect": {
-                "label": "Seleziona cattura"
-            },
-            "refundAmount": {
-                "label": "Importo",
-                "helpText": "Un importo di '0' causerà il rimborso del pagamento completo"
-            },
-            "refundDescription": {
-                "label": "Descrizione",
-                "placeholder": "Immettere una descrizione"
-            },
-            "refundReason": {
-                "label": "Motivo",
-                "placeholder": "Immettere un motivo"
-            },
-            "refundNoteToPayer": {
-                "label": "Nota al pagatore",
-                "placeholder": "Inserire una nota per il pagatore"
-            },
-            "refundInvoiceNumber": {
-                "label": "Numero fattura",
-                "placeholder": "Immettere un numero di fattura"
-            },
-            "confirmButton": {
-                "text": "Esegui"
-            }
-        },
-        "captureAction": {
-            "successMessage": "La tua cattura ha avuto successo.",
-            "maxAmount": "Importo massimo",
-            "currentAmount": "Importo",
-            "captureInvoiceNumber": {
-                "label": "Numero fattura",
-                "placeholder": "Immettere un numero di fattura"
-            },
-            "captureNoteToPayer": {
-                "label": "Nota al pagatore",
-                "placeholder": "Inserire una nota per il pagatore"
-            },
-            "isFinal": "Questa è la cattura finale",
-            "isFinalHint": "Suggerimento: contrassegnato come cattura finale, anche se non l'intero importo deve essere catturato.",
-            "button": {
-                "text": "Acquisizione pagamento"
-            }
-        },
-        "voidAction": {
-            "successMessage": "Il pagamento è stato annullato con successo.",
-            "confirm": {
-                "message": "Vuoi davvero annullare questo pagamento?",
-                "button": {
-                    "confirm": "Annulla autorizzazione"
-                }
-            }
-        },
-        "errorPage": {
-            "title": "Dettagli di pagamento non disponibili",
-            "canceledPaymentContent": "Si è verificato un errore durante il recupero dei dettagli di pagamento da PayPal. Se visualizzi questo messaggio, probabilmente si trattava di un pagamento annullato dal cliente. I pagamenti annullati verranno cancellati da PayPal dopo un po' di tempo e non saranno più disponibili.",
-            "sandboxLiveContent": "Si è verificato un errore durante il recupero dei dettagli di pagamento da PayPal. Se viene visualizzato questo messaggio, è stato probabilmente un pagamento creato con sandbox abilitato e ora è stato richiesto con dati in tempo reale, o viceversa. Correggere le impostazioni PayPal o eliminare gli ordini di prova dal sistema.",
-            "other": "Si è verificato un errore durante il recupero dei dettagli di pagamento da PayPal."
-        }
-    },
     "swag-paypal-pos": {
         "general": {
             "moduleTitle": "Zettle da PayPal",
@@ -462,6 +274,10 @@
                 "label": "Imposta PayPal come predefinito"
             }
         },
+        "shippingAlert": {
+            "title": "Tracciamento del pacco",
+            "message": "Ora puoi fornire il tracciamento del pacco se selezioni un corriere predefinito nei tuoi <a href=\"#/sw/settings/shipping/index\">metodi di spedizione →</a>."
+        },
         "general": {
             "mainMenuItemGeneral": "PayPal",
             "descriptionTextModule": "Impostazioni PayPal"
@@ -472,14 +288,25 @@
             "testSandbox": "Test delle credenziali API sandbox",
             "checkout": {
                 "cardTitle": "Pagamento PayPal",
+                "settingsLink": "Impostazioni",
+                "header": "Più metodi di pagamento con un'unica soluzione di PayPal",
                 "description": "PayPal Checkout è la nuova soluzione all-in-one che ti consente di offrire potenti funzionalità di elaborazione dei pagamenti flessibili sui mercati e su altre piattaforme commerciali.",
                 "banner": "Con PayPal Checkout, puoi offrire ai tuoi clienti il pagamento tramite fattura, carta di credito e altri metodi di pagamento locali. PayPal Checkout ti supporta con la tecnologia più recente e ti offre la massima flessibilità. Mantieni i tuoi metodi di pagamento esistenti e le commissioni rimangono le stesse! Attiva PayPal Checkout e disattiva PayPal PLUS per evitare la duplicazione dei metodi di pagamento nel tuo negozio. <a href=\"https://www.shopware.com/en/news/paypal-launches-new-product/?utm_source=product&utm_medium=sw6-onprem&utm_campaign=paypal-checkout&utm_content=link-en-blog\" target=\"_blank\">Ulteriori informazioni</a>",
                 "button": {
-                    "title": "Inizia l'onboarding"
+                    "liveTitle": "Connetti l'account",
+                    "sandboxTitle": "Connetti l'account sandbox",
+                    "changeLiveTitle": "Collega un altro account",
+                    "changeSandboxTitle": "Collega un altro account sandbox",
+                    "onboardingLiveTitle": "Avvia PayPal Checkout onboarding",
+                    "onboardingSandboxTitle": "Inizia l'onboarding nella sandbox PayPal Checkout",
+                    "restartOnboardingLiveTitle": "Riavvia PayPal Checkout onboarding",
+                    "restartOnboardingSandboxTitle": "Riavvia PayPal Checkout nella sandbox onboarding"
                 },
                 "sandbox": {
-                    "label": "Usa le credenziali sandbox",
-                    "tooltipText": "Attivare se si desidera verificare l'integrazione con PayPal."
+                    "label": "Sandbox",
+                    "onlySandboxTooltip": "Finora hai collegato solo un account PayPal sandbox.",
+                    "onlyLiveTooltip": "Finora hai collegato solo un conto PayPal reale.",
+                    "helpText": "Abilita, se vuoi testare l'integrazione con PayPal."
                 },
                 "switch": {
                     "label": "Attivo"
@@ -490,26 +317,33 @@
                 "editDetail": "Modifica dettagli",
                 "startOnboardingButtonLabel": "Inizia l'onboarding",
                 "availabilityToolTip": {
-                    "BancontactAPMHandler": "Bancontact è disponibile per i seguenti paesi: Belgio",
-                    "BlikAPMHandler": "BLIK è disponibile per i seguenti paesi: Polonia",
-                    "BoletoBancarioAPMHandler": "Boleto Bancário è disponibile per i seguenti paesi: Brasile",
-                    "EpsAPMHandler": "eps è disponibile per i seguenti paesi: Austria",
-                    "GiropayAPMHandler": "Giropay è disponibile per i seguenti paesi: Germania",
-                    "IdealAPMHandler": "iDeal è disponibile per i seguenti paesi: Paesi Bassi",
-                    "MultibancoAPMHandler": "Multibanco è disponibile per i seguenti paesi: Portogallo",
-                    "MyBankAPMHandler": "MyBank è disponibile per i seguenti Paesi: Italia",
-                    "OxxoAPMHandler": "OXXO è disponibile per i seguenti paesi: Messico",
-                    "P24APMHandler": "Przelewy24 è disponibile per i seguenti paesi: Polonia",
-                    "PUIHandler": "Il pagamento su fattura è disponibile per i seguenti paesi: Germania",
-                    "SEPAHandler": "SEPA Lastschrift è disponibile per i seguenti paesi: Germania",
-                    "SofortAPMHandler": "Sofort è disponibile per i seguenti paesi: Austria, Belgio, Germania, Italia, Paesi Bassi, Spagna, Regno Unito",
-                    "TrustlyAPMHandler": "Trustly è disponibile per i seguenti paesi: Estonia, Finlandia, Paesi Bassi, Svezia"
+                    "bancontactapmhandler": "Bancontact è disponibile per i seguenti paesi: Belgio",
+                    "blikapmhandler": "BLIK è disponibile per i seguenti paesi: Polonia",
+                    "boletobancarioapmhandler": "Boleto Bancário è disponibile per i seguenti paesi: Brasile",
+                    "epsapmhandler": "eps è disponibile per i seguenti paesi: Austria",
+                    "giropayapmhandler": "Giropay è disponibile per i seguenti paesi: Germania",
+                    "idealapmhandler": "iDEAL è disponibile per i seguenti paesi: Paesi Bassi",
+                    "multibancoapmhandler": "Multibanco è disponibile per i seguenti paesi: Portogallo",
+                    "mybankapmhandler": "MyBank è disponibile per i seguenti Paesi: Italia",
+                    "oxxoapmhandler": "OXXO è disponibile per i seguenti paesi: Messico",
+                    "p24apmhandler": "Przelewy24 è disponibile per i seguenti paesi: Polonia",
+                    "paylaterhandler": "Pay Later è disponibile per i seguenti Paesi: Australia, Francia, Germania, Italia, Spagna, Regno Unito, Stati Uniti",
+                    "puihandler": "Il pagamento in base alla fattura è disponibile per i seguenti paesi: Germania",
+                    "sepahandler": "SEPA Lastschrift è disponibile per i seguenti Paesi: Germania",
+                    "sofortapmhandler": "Sofort è disponibile per i seguenti paesi: Austria, Belgio, Germania, Italia, Paesi Bassi, Spagna, Regno Unito",
+                    "venmohandler": "Venmo è disponibile per i seguenti paesi: Stati Uniti",
+                    "trustlyapmhandler": "Trustly è disponibile per i seguenti paesi: Estonia, Finlandia, Paesi Bassi, Svezia"
                 },
                 "onboardingStatusText": {
                     "active": "Autorizzato",
                     "limited": "Limitato",
                     "pending": "Autorizzazione in sospeso",
+                    "ineligible": "Non idoneo",
                     "inactive": "È necessario l'onboarding"
+                },
+                "onboardingStatusTooltip": {
+                    "ineligible": "PayPal ci ha informato che questo metodo di pagamento non è attualmente idoneo per il tuo account.",
+                    "limited": "PayPal ci ha informato che questo metodo di pagamento presenta alcune limitazioni per il tuo account."
                 },
                 "paymentMethodStatusChangedSuccess": {
                     "active": "Il metodo di pagamento \"{name}\" è ora attivo.",
@@ -553,7 +387,7 @@
                 },
                 "sandbox": {
                     "label": "Abilita sandbox",
-                    "tooltipText": "Attivare se si desidera verificare l'integrazione con PayPal."
+                    "tooltipText": "Abilita, se vuoi testare l'integrazione con PayPal."
                 },
                 "button": {
                     "title": "Ottieni credenziali API",
@@ -613,32 +447,40 @@
                         "basic": "Base",
                         "advanced": "Advanced"
                     }
+                },
+                "excludedProductIds": {
+                    "label": "Prodotti esclusi",
+                    "tooltipText": "I prodotti qui selezionati non possono essere acquistati con PayPal."
+                },
+                "excludedProductStreamIds": {
+                    "label": "gruppi di prodotti dinamici esclusi",
+                    "tooltipText": "I prodotti inclusi nei gruppi dinamici di prodotti selezionati qui non possono essere acquistati con PayPal."
                 }
             },
             "express": {
                 "cardTitle": "PayPal Express Checkout",
                 "ecsDetailEnabled": {
-                    "label": "'Paga ora' sulla pagina prodotto:",
+                    "label": "«Paga ora» nella pagina dei dettagli",
                     "helpText": "Se questa opzione è attiva, il pulsante Checkout rapido verrà visualizzato in ogni pagina prodotto."
                 },
                 "ecsCartEnabled": {
-                    "label": "'Paga ora' sul carrello:",
+                    "label": "'Paga ora' nel carrello",
                     "helpText": "Se questa opzione è attiva, sul carrello verrà visualizzato il pulsante Checkout rapido."
                 },
                 "ecsOffCanvasEnabled": {
-                    "label": "'Paga ora' sul carrello Off-Canvas:",
+                    "label": "'Paga ora' nel carrello Off-Canvas",
                     "helpText": "Se questa opzione è attiva, il pulsante Express Checkout verrà visualizzato sul carrello Off-Canvas."
                 },
                 "ecsLoginEnabled": {
-                    "label": "'Paga ora' sulla pagina di accesso:",
+                    "label": "«Paga ora» nella pagina di accesso",
                     "helpText": "Se questa opzione è attiva, il pulsante Express Checkout verrà visualizzato nella pagina di login e registrazione."
                 },
                 "ecsListingEnabled": {
-                    "label": "Paga ora sulle pagine delle inserzioni:",
+                    "label": "«Paga adesso» nelle pagine delle inserzioni",
                     "helpText": "Se questa opzione è attiva, il pulsante Checkout rapido verrà visualizzato nelle pagine delle inserzioni."
                 },
                 "ecsButtonColor": {
-                    "label": "Colore pulsante:",
+                    "label": "Colore del pulsante",
                     "options": {
                         "blue": "Blu",
                         "black": "Nero",
@@ -648,7 +490,7 @@
                     }
                 },
                 "ecsButtonShape": {
-                    "label": "Forma del pulsante:",
+                    "label": "Forma del bottone",
                     "options": {
                         "pill": "Rotondo",
                         "rect": "Rettangolare"
@@ -659,7 +501,7 @@
                     "helpText": "Se questa opzione è attiva, il carrello verrà inviato a PayPal per gli ordini Express."
                 },
                 "ecsButtonLanguageIso": {
-                    "label": "Impostazioni internazionali del pulsante:",
+                    "label": "Impostazioni locali del pulsante",
                     "helpText": "Se non è impostata, verrà utilizzata la lingua del canale di vendita."
                 }
             },
@@ -667,6 +509,13 @@
                 "cardTitle": "Rate",
                 "installmentBannerEnabled": {
                     "label": "Attiva banner rateale"
+                }
+            },
+            "acdc": {
+                "cardTitle": "Carta di credito o debito",
+                "acdcForce3DS": {
+                    "label": "Esegui transazioni solo con 3D Secure",
+                    "helpText": "La transazione non sarà accettata se 3D Secure non è disponibile."
                 }
             },
             "pui": {
@@ -682,7 +531,7 @@
                     "label": "Attiva pulsanti Smart Payment"
                 },
                 "spbButtonLanguageIso": {
-                    "label": "Impostazioni internazionali del pulsante:",
+                    "label": "Impostazioni locali del pulsante",
                     "helpText": "Se non è impostata, verrà utilizzata la lingua del canale di vendita."
                 },
                 "spbAlternativePaymentMethodsEnabled": {
@@ -720,6 +569,207 @@
             "messageWebhookCreated": "Il webhook è stato registrato.",
             "messageWebhookUpdated": "Il webhook è stato aggiornato.",
             "messageWebhookError": "Impossibile salvare il webhook. Si sono verificati i seguenti errori:"
+        }
+    },
+    "swag-paypal-frw-credentials": {
+        "buttonGetCredentials": "Ottieni credenziali API",
+        "textIntroPayPal": "Per far funzionare PayPal devi solo fornire le credenziali dell'API PayPal.",
+        "labelClientId": "ID client",
+        "labelClientSecret": "Segreto client",
+        "labelMerchantPayerId": "ID commerciante PayPal",
+        "labelClientIdSandbox": "ID client sandbox",
+        "labelClientSecretSandbox": "Segreto client sandbox",
+        "labelMerchantPayerIdSandbox": "ID venditore Sandbox PayPal",
+        "labelSandbox": "Usa sandbox",
+        "tooltipSandbox": "A seconda dell'attivazione della sandbox, vengono salvate credenziali separate.",
+        "labelSetDefault": "Imposta come metodo di pagamento predefinito",
+        "tooltipSetDefault": "PayPal verrà impostato come metodo di pagamento predefinito per tutti i canali di vendita. Puoi impostare singoli metodi di pagamento predefiniti per canale di vendita nel modulo delle impostazioni.",
+        "messageFetchedError": "Riprovare o utilizzare le impostazioni avanzate per fornire le credenziali.",
+        "textFetchedSuccessful": "Le credenziali sono state recuperate.",
+        "messageNoCredentials": "Non sono state fornite credenziali.",
+        "messageTestSuccess": "Le credenziali sono valide."
+    },
+    "swag-paypal-settings-shipping-carrier": {
+        "cardTitle": "Vettore di spedizione predefinito",
+        "cardHelpText": "Le informazioni di tracciamento verranno inviate a PayPal",
+        "description": "PayPal offre il tracciamento degli ordini elaborati tramite PayPal. Per utilizzarlo, specifica un corriere predefinito, che può essere sovrascritto negli ordini. Trova un elenco di tutti i fornitori di spedizioni <a target=\"_blank\" href=\"https://developer.paypal.com/docs/tracking/reference/carriers/\">qui</a>",
+        "inputLabel": "Codice corriere",
+        "inputPlaceholder": "Inserisci un codice corriere PayPal (ad esempio DHL_GLOBAL_ECOMMERCE)..."
+    },
+    "swag-paypal-payment": {
+        "general": {
+            "title": "Ordini"
+        },
+        "tabs": {
+            "overview": "Panoramica"
+        },
+        "paymentDetails": {
+            "cardTitle": "Pagamento",
+            "invoice": {
+                "heading": "Importo fattura",
+                "totalAmount": "Importo totale:",
+                "subTotal": "Totale parziale:",
+                "shipping": "Spedizione:",
+                "discount": "Sconto:",
+                "handling": "Costo di gestione:",
+                "insurance": "Assicurazione:",
+                "shipping_discount": "Sconto sulla spedizione:"
+            },
+            "payment": {
+                "heading": "Dettagli di pagamento",
+                "intent": "Intento:",
+                "paymentId": "ID pagamento:",
+                "cartId": "ID carrello:",
+                "state": "Stato:",
+                "createTime": "Tempo di creazione:",
+                "updateTime": "Tempo di aggiornamento:"
+            },
+            "customer": {
+                "heading": "Cliente",
+                "payerId": "ID pagante:"
+            },
+            "error": {
+                "title": "Errore durante il recupero dei dettagli del pagamento da PayPal"
+            }
+        },
+        "transactionHistory": {
+            "cardTitle": "Cronologia pagamenti",
+            "states": {
+                "authorization": "Autorizzazione",
+                "sale": "Vendita",
+                "refund": "Rimborso",
+                "capture": "Cattura",
+                "order": "Ordina"
+            },
+            "types": {
+                "type": "Tipo",
+                "amount": "Importo",
+                "createTime": "Creato",
+                "updateTime": "Aggiornato",
+                "state": "Stato",
+                "trackingId": "Numero di tracciamento",
+                "transactionFee": "Commissario di transazione",
+                "paymentMode": "Modalità di pagamento"
+            }
+        },
+        "buttons": {
+            "label": {
+                "refund": "Crea un nuovo rimborso",
+                "capture": "Cattura",
+                "void": "Annulla autorizzazione"
+            }
+        },
+        "modal": {
+            "title": {
+                "refund": "Nuovo rimborso",
+                "capture": "Cattura",
+                "void": "Annulla autorizzazione"
+            }
+        },
+        "refundAction": {
+            "successMessage": "Il rimborso ha avuto esito positivo.",
+            "invoiceSelect": {
+                "label": "Seleziona cattura"
+            },
+            "refundAmount": {
+                "label": "Importo",
+                "helpText": "Un importo di '0' causerà il rimborso del pagamento completo"
+            },
+            "refundDescription": {
+                "label": "Descrizione",
+                "placeholder": "Immettere una descrizione"
+            },
+            "refundReason": {
+                "label": "Motivo",
+                "placeholder": "Immettere un motivo"
+            },
+            "refundNoteToPayer": {
+                "label": "Nota al pagatore",
+                "placeholder": "Inserire una nota per il pagatore"
+            },
+            "refundInvoiceNumber": {
+                "label": "Numero fattura",
+                "placeholder": "Immettere un numero di fattura"
+            },
+            "confirmButton": {
+                "text": "Esegui"
+            }
+        },
+        "captureAction": {
+            "successMessage": "La tua cattura ha avuto successo.",
+            "maxAmount": "Importo massimo",
+            "currentAmount": "Importo",
+            "captureInvoiceNumber": {
+                "label": "Numero fattura",
+                "placeholder": "Immettere un numero di fattura"
+            },
+            "captureNoteToPayer": {
+                "label": "Nota al pagatore",
+                "placeholder": "Inserire una nota per il pagatore"
+            },
+            "isFinal": "Questa è la cattura finale",
+            "isFinalHint": "Suggerimento: contrassegnato come cattura finale, anche se non l'intero importo deve essere catturato.",
+            "button": {
+                "text": "Acquisizione pagamento"
+            }
+        },
+        "voidAction": {
+            "successMessage": "Il pagamento è stato annullato con successo.",
+            "confirm": {
+                "message": "Vuoi davvero annullare questo pagamento?",
+                "button": {
+                    "confirm": "Annulla autorizzazione"
+                }
+            }
+        },
+        "errorPage": {
+            "title": "Dettagli di pagamento non disponibili",
+            "canceledPaymentContent": "Si è verificato un errore durante il recupero dei dettagli di pagamento da PayPal. Se visualizzi questo messaggio, probabilmente si trattava di un pagamento annullato dal cliente. I pagamenti annullati verranno cancellati da PayPal dopo un po' di tempo e non saranno più disponibili.",
+            "sandboxLiveContent": "Si è verificato un errore durante il recupero dei dettagli di pagamento da PayPal. Se viene visualizzato questo messaggio, è stato probabilmente un pagamento creato con sandbox abilitato e ora è stato richiesto con dati in tempo reale, o viceversa. Correggere le impostazioni PayPal o eliminare gli ordini di prova dal sistema.",
+            "other": "Si è verificato un errore durante il recupero dei dettagli di pagamento da PayPal."
+        }
+    },
+    "sw-order-detail": {
+        "payPalCarrierLabel": "Vettore di spedizione predefinito",
+        "payPalCarrierPlaceholder": "non impostato",
+        "payPalCarrierHelpText": "Puoi impostare e modificare il corriere predefinito per PayPal nei <a class=\"sw-internal-link sw-internal-link--inline\" href=\"#/sw/settings/shipping/index\">metodi di spedizione<sw-icon name=\"regular-long-arrow-right\" small /></a>. Tuttavia, ciò non avrà alcun effetto sugli ordini già effettuati.",
+        "payPalCarrierDescription": "Se desideri cambiare il corriere per questo ordine PayPal, <a target=\"_blank\" href=\"{orderLink}\">clicca qui</a>"
+    },
+    "swag-paypal-disputes": {
+        "general": {
+            "mainMenuItemGeneral": "Controversie PayPal",
+            "descriptionTextModule": "Gestisci le controversie PayPal qui"
+        },
+        "common": {
+            "dispute_id": "ID",
+            "update_time": "Tempo di aggiornamento",
+            "response_due_date": {
+                "label": "Data scadenza risposta",
+                "seller": "Venditore",
+                "buyer": "Acquirente"
+            },
+            "status": "Stato",
+            "dispute_life_cycle_stage": "Stage",
+            "dispute_amount": "Importo"
+        },
+        "list": {
+            "title": "Controversie",
+            "titleSidebarItemRefresh": "Aggiorna",
+            "titleSidebarItemFilter": "Filtra",
+            "errorTitle": "Errore durante il recupero delle controversie da PayPal",
+            "emptyState": {
+                "title": "Nessuna controversia trovata",
+                "subline": "Modificare il filtro per visualizzare tutte le controversie."
+            }
+        },
+        "detail": {
+            "title": "Controversia PayPal:",
+            "titleAddition": "(Dettagli tecnici)",
+            "mainFieldsCardTitle": "Dettagli",
+            "externalLinkText": "Controversia aperta nel centro risoluzione PayPal",
+            "orderModuleLinkText": "Ordine aperto",
+            "rawDataCardTitle": "Dati grezzi",
+            "copyButtonLabel": "Copia dati non elaborati"
         }
     }
 }

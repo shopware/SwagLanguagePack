@@ -1,16 +1,26 @@
 {
+    "global": {
+        "error-codes": {
+            "ACTION_VALID_TO_VIOLATION": "Дата истечения срока действия действия должна быть установлена после начала действия.",
+            "ACTION_DUPLICATE_NAME_VIOLATION": "Это имя уже использовалось в другом действии.",
+            "ACTION_SEARCH_TERM_DUPLICATE_TERM_VIOLATION": "Термин '{value}' уже используется в другом действии."
+        }
+    },
     "swag-enterprise-search": {
         "general": {
-            "mainMenuItemGeneral": "Корпоративный поиск Shopware",
-            "mainMenuEntry": "Корпоративный поиск Shopware"
+            "mainMenuItemGeneral": "Расширенный поиск Shopware",
+            "mainMenuEntry": "Расширенный поиск Shopware"
         },
         "index": {
-            "title": "Конфигурация корпоративного поиска",
+            "title": "Конфигурация расширенного поиска",
             "buttonSave": "Сохранить",
             "entityConfigTitle": "Обзор",
             "previewSearchTitle": "Предварительный просмотр",
             "relevanceTitle": "Релевантность",
-            "boostingTitle": "Бустинги"
+            "boostingTitle": "Бустинги",
+            "synonymsTitle": "Синонимы",
+            "actionTitle": "Действия",
+            "labelSalesChannelSelect": "Канал продаж"
         },
         "types": {
             "category": "Категория",
@@ -87,6 +97,34 @@
                 "placeholderOperatorSelect": "Выберите оператора"
             }
         },
+        "synonyms": {
+            "title": "синонимов",
+            "addsynonyms": "Новый синоним",
+            "searchPlaceholder": "Поиск синонимов",
+            "messageEmptyTitle": "Нет синонимов",
+            "messageEmptySubline": "Управление синонимами",
+            "columnHeaders": {
+                "name": "Название",
+                "left": "Слева",
+                "right": "Правильно",
+                "language": "Язык",
+                "synonym": "Синоним"
+            },
+            "detail": {
+                "name": "Название",
+                "synonym": "Синоним",
+                "left": "Слева",
+                "right": "Правильно",
+                "newsynonym": "Новый синоним",
+                "cancelModal": "Отмена"
+            },
+            "explanation": {
+                "sameTitle": "Равные синонимы",
+                "same": "например, «wifi, wlan, wlan, wireless network» полностью равны и должны вводиться только в столбце «слева»",
+                "expandingTitle": "Определение синонимов",
+                "expanding": "Например, iPhone также является смартфоном, но не каждый смартфон также является iPhone. Такие конструкции вводятся так: «слева»: «смартфон», «вправо»: «iphone, i-phone, i phone, смартфон»"
+            }
+        },
         "relevance": {
             "title": "Информация с возможностью поиска",
             "cancelModal": "Отменить",
@@ -121,6 +159,46 @@
                     "notEqualsAny": "Не равно ни одному из",
                     "notContains": "Не содержит",
                     "range": "Диапазон"
+                }
+            }
+        },
+        "action": {
+            "title": "Действия",
+            "addAction": "Добавить действие",
+            "searchPlaceholder": "Действие поиска",
+            "messageEmptyTitle": "Пока нет действий",
+            "messageEmptySubline": "Управляйте действиями здесь.",
+            "columnHeaders": {
+                "name": "Название",
+                "type": "Тип",
+                "active": "Активный",
+                "validFrom": "Активный с",
+                "validTo": "Активный в"
+            },
+            "detail": {
+                "action": "Действие",
+                "searchTerms": "Поисковые термины",
+                "name": "Название",
+                "active": "Активный",
+                "validFrom": "Активный с",
+                "validTo": "Активный в",
+                "type": "Тип",
+                "typePlaceholder": "Выберите тип...",
+                "cancelModal": "Отмена",
+                "newAction": "Новое действие"
+            },
+            "type": {
+                "forwardUrl": {
+                    "title": "URL-адрес пересылки",
+                    "url": "URL"
+                },
+                "forwardProduct": {
+                    "title": "Форвардный продукт",
+                    "product": "Товар"
+                },
+                "forwardCategory": {
+                    "title": "Форвардная категория",
+                    "category": "Категория"
                 }
             }
         }

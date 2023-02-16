@@ -1,16 +1,26 @@
 {
+    "global": {
+        "error-codes": {
+            "ACTION_VALID_TO_VIOLATION": "Dátum uplynutia platnosti akcie sa musí stanoviť po začatí akcie.",
+            "ACTION_DUPLICATE_NAME_VIOLATION": "Tento názov už bol použitý v inej akcii.",
+            "ACTION_SEARCH_TERM_DUPLICATE_TERM_VIOLATION": "Pojem „{value}“ sa už použil v inej akcii."
+        }
+    },
     "swag-enterprise-search": {
         "general": {
-            "mainMenuItemGeneral": "Obchodné vyhľadávanie podnikov",
-            "mainMenuEntry": "Obchodné vyhľadávanie podnikov"
+            "mainMenuItemGeneral": "Shopware Rozšírené vyhľadávanie",
+            "mainMenuEntry": "Shopware Rozšírené vyhľadávanie"
         },
         "index": {
-            "title": "Konfigurácia podnikového vyhľadávania",
+            "title": "Rozšírená konfigurácia vyhľadávania",
             "buttonSave": "Uložiť",
             "entityConfigTitle": "Prehľad",
             "previewSearchTitle": "Náhľad",
             "relevanceTitle": "Relevantnosť",
-            "boostingTitle": "Posilnenie"
+            "boostingTitle": "Posilnenie",
+            "synonymsTitle": "Synonymá",
+            "actionTitle": "Akcie",
+            "labelSalesChannelSelect": "Predajný kanál"
         },
         "types": {
             "category": "Kategória",
@@ -87,6 +97,34 @@
                 "placeholderOperatorSelect": "Vyberte operátora"
             }
         },
+        "synonyms": {
+            "title": "synonymá",
+            "addsynonyms": "Nové synonymum",
+            "searchPlaceholder": "Hľadať synonymum",
+            "messageEmptyTitle": "Žiadne synonymá",
+            "messageEmptySubline": "Správa synonymá",
+            "columnHeaders": {
+                "name": "Meno",
+                "left": "Ľavá",
+                "right": "Pravá",
+                "language": "Jazyk",
+                "synonym": "Synonymum"
+            },
+            "detail": {
+                "name": "Meno",
+                "synonym": "Synonymum",
+                "left": "Ľavá",
+                "right": "Pravá",
+                "newsynonym": "Nové synonymum",
+                "cancelModal": "Zrušiť"
+            },
+            "explanation": {
+                "sameTitle": "Rovnaké synonymá",
+                "same": "napr. „wifi, wlan, w-lan, bezdrôtová sieť“ sú úplne rovnaké a musia byť zadané iba v stĺpci „vľavo“",
+                "expandingTitle": "Definovanie synoným",
+                "expanding": "napr. iPhone je tiež smartphone, ale nie každý smartphone je tiež iPhone. Takéto konštrukty sa zadávajú takto: „vľavo“: „smartphone“, „vpravo“: „iphone, i-phone, i telefón, smartphone“"
+            }
+        },
         "relevance": {
             "title": "Prehľadávateľné informácie",
             "cancelModal": "Zrušiť",
@@ -121,6 +159,46 @@
                     "notEqualsAny": "Nerovná sa žiadnemu z",
                     "notContains": "Neobsahuje",
                     "range": "Rozsah"
+                }
+            }
+        },
+        "action": {
+            "title": "Akcie",
+            "addAction": "Pridať akciu",
+            "searchPlaceholder": "Hľadať akciu",
+            "messageEmptyTitle": "Zatiaľ žiadne akcie",
+            "messageEmptySubline": "Spravujte akcie tu.",
+            "columnHeaders": {
+                "name": "Meno",
+                "type": "Typ",
+                "active": "Aktívny",
+                "validFrom": "Aktívne od",
+                "validTo": "Aktívne do"
+            },
+            "detail": {
+                "action": "Akcia",
+                "searchTerms": "Hľadané výrazy",
+                "name": "Meno",
+                "active": "Aktívny",
+                "validFrom": "Aktívne od",
+                "validTo": "Aktívne do",
+                "type": "Typ",
+                "typePlaceholder": "Vyberte typ...",
+                "cancelModal": "Zrušiť",
+                "newAction": "Nová akcia"
+            },
+            "type": {
+                "forwardUrl": {
+                    "title": "Adresa URL dopredu",
+                    "url": "URL"
+                },
+                "forwardProduct": {
+                    "title": "Vpred produkt",
+                    "product": "Produkt"
+                },
+                "forwardCategory": {
+                    "title": "Kategória dopredu",
+                    "category": "Kategória"
                 }
             }
         }

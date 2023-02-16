@@ -8,6 +8,7 @@
                 "storefrontDomain": "Storefront-verkkotunnus",
                 "storefrontDomainCurrency": "Storefront valuutta",
                 "productStream": "Dynamic tuoteryhmä",
+                "noDynamicProductGroupFound": "Sinun on luotava dynaaminen tuoteryhmä, jotta voit käyttää Social Shopping Sales Channel -kanavaa. Luo dynaaminen tuoteryhmä.",
                 "createDynamicProductGroup": "Dynamic tuoteryhmä",
                 "tabErrors": "Julkaisemattomat tuotteet",
                 "tabIntegration": "integraatio",
@@ -18,13 +19,31 @@
                     "inputBodyLabel": "Tuoterivi",
                     "inputFooterLabel": "Alatunnisteen rivi",
                     "buttonTestLabel": "Testausmalli",
-                    "buttonPreviewLabel": "Luo esiversio"
+                    "buttonPreviewLabel": "Luo esiversio",
+                    "buttonResetLabel": "Nollaa malli"
+                },
+                "statistics": {
+                    "tabStatistics": "Tilastot",
+                    "orderCardHeadline": "Tilaukset",
+                    "customerCardHeadline": "Asiakkaat",
+                    "turnoverCardHeadline": "Liikevaihto",
+                    "numbers": "Kreivi",
+                    "totalTurnover": "Yhteensä",
+                    "dateRanges": {
+                        "30Days": "Viimeiset 30 päivää",
+                        "14Days": "Viimeiset 14 päivää",
+                        "7Days": "Viimeiset 7 päivää",
+                        "24Hours": "Viimeiset 24 tuntia",
+                        "yesterday": "Eilisestä lähtien"
+                    }
                 }
             },
             "facebook": {
                 "titleFacebookSettings": "Lisäasetukset",
                 "name": "Facebook",
                 "description": "Myydä tuotteita Facebook-sivulla",
+                "googleProductDefaultCategory": "Oletus Google-tuoteryhmän tunnus",
+                "helpTextGoogleProductDefaultCategory": "Facebook käyttää tuotteidensa luokitteluun Googlen tuoteluokan tunnusta. Anna käytettävä Google-tuoteryhmä, jos tuoteryhmälle ei ole määritetty Google-tuoteryhmää.",
                 "includeVariants": "Tuo variantteja erillisinä tuotteina",
                 "interval": "Väliaika",
                 "generateByCronjob": "Luo ajastimen kautta",
@@ -36,6 +55,8 @@
                 "titleInstagramSettings": "Lisäasetukset",
                 "name": "Instagram",
                 "description": "Myy tuotteita Instagram-kanavalla",
+                "googleProductDefaultCategory": "Oletus Google-tuoteryhmän tunnus",
+                "helpTextGoogleProductDefaultCategory": "Instagram luokittelee tuotteensa Googlen tuoteluokan tunnuksen avulla. Anna käytettävä Google-tuoteryhmä, jos tuoteryhmälle ei ole määritetty Google-tuoteryhmää.",
                 "includeVariants": "Tuo variantteja erillisinä tuotteina",
                 "interval": "Väliaika",
                 "generateByCronjob": "Luo ajastimen kautta",
@@ -48,7 +69,9 @@
                 "description": "Myydä tuotteita Google Shopping",
                 "titleGoogleShoppingSettings": "Lisäasetukset",
                 "titleGoogleShoppingGuide": "Kotouttamisopas",
+                "googleProductDefaultCategory": "Oletus Google-tuoteryhmän tunnus",
                 "googleProductCategoryLinkLabel": "Google-tuoteryhmien tukisivu",
+                "helpTextGoogleProductDefaultCategory": "Google käyttää tuotteidensa luokitteluun Googlen tuoteluokan tunnusta. Anna käytettävä Google-tuoteryhmä, jos tuoteryhmälle ei ole määritetty Google-tuoteryhmää.",
                 "includeVariants": "Tuo variantteja erillisinä tuotteina",
                 "interval": "Väliaika",
                 "generateByCronjob": "Luo ajastimen kautta",
@@ -82,29 +105,66 @@
             "google-product-category-missing": "Tämä tuote liittyy luokkaan, jossa ei ole googlen tuoteluokkaa"
         },
         "integration": {
+            "stepByStepTitle": "Askel askeleelta",
             "facebook": {
+                "cardTitle": "Facebook-yhteys",
                 "introduction": {
                     "title": "Ohjeet: Asennus ja yhteys",
                     "description": "Jotta voit näyttää tuotteita Instagram-yrityssivulla, sinun on ensin luotava Instagram Business -tili. Kaikki muu selitetään alla olevassa askel askeleelta oppaassa."
-                }
+                },
+                "stepByStep": "<li>Luo tili osoitteessa <a href=\"https://facebook.com\">Facebook</a></li><li>Luo yritystili osoitteessa <a href=\"https://business.facebook.com\">business.facebook.com</a></li><li>Siirry luettelonhallintaan</li><li>Lisää uusi luettelo kauppaasi varten</li><li>Luettelon kokoonpano: Valitse tuote syötteen tiedoista</li><li>Vaihda tietolähteeseen</li><li>Lisää tuotteet</li><li>Valitse tietosyöte</li><li>Määritä tietosyötteen. Kopioi ja liitä tietosyötteen URL-osoite (alla)</li>",
+                "dataFeedLabel": "Tietojen syöttö"
             },
             "google-shopping": {
+                "cardTitle": "Google-yhteys",
                 "introduction": {
-                    "title": "Ohjeet: Asennus ja yhteys"
-                }
+                    "title": "Ohjeet: Asennus ja yhteys",
+                    "description": "Tämä myyntikanava luo XML-syötteen, jonka avulla voit synkronoida tuotteet automaattisesti luetteloosi Googlessa. Tätä varten sinun on talletettava syötteen URL-osoite Googlelle ja määritettävä, kuinka usein Googlen pitäisi ladata syöte. Kaikki muu selitetään alla olevassa vaiheittaisessa oppaassa"
+                },
+                "stepByStep": "<li>Avaa <a href=\"https://merchants.google.com\">Google Merchant Center</a></li><li>Luo uusi syöte tuotteisiin > Syötteet</li><li>Valitse maa ja kieli</li><li>Nimeä syötteesi ja valitse ”ajoitetut noudot”</li><li>Nimeä syöttötiedosto ja liitä viennin URL-osoite (alla)</li><li>Sen jälkeen avaa syöte ja napsauta ”nouda nyt”</li>",
+                "dataFeedLabel": "Tietojen syöttö"
             },
             "instagram": {
+                "cardTitle": "Instagram-yhteys",
                 "introduction": {
                     "title": "Ohjeet: Asennus ja yhteys",
                     "description": "Jotta voit näyttää tuotteita facebook-yrityssivulla, sinun on ensin luotava facebook-yritystili. Kaikki muu selitetään alla olevassa askel askeleelta oppaassa."
-                }
+                },
+                "stepByStep": "<li>Luo yritystili osoitteessa <a href=\"https://business.facebook.com\">business.facebook.com</a></li><li>Siirry luettelonhallintaan</li><li>Lisää uusi luettelo myymälääsi</li><li>Luettelon kokoonpano: Valitse tuote syötteen tiedoista</li><li>Vaihda tietolähteeseen</li><li>Lisää tuotteita</li><li>Valitse tietosyöte</li><li>Määritä tietosyötteen. Kopioi ja liitä tietosyötteen URL-osoite (alla)</li><li>Luo tarvittaessa <a href=\"https://instagram.com\">Instagram</a> tili</li><li>Avaa Instagram-asetukset ja napsauta ”Vaihda ammattiprofiiliin” ja valitse ”Liiketoiminta”</li><li>Yhdistä facebook-myyntikanavat noudattamalla ohjeita</li>\n",
+                "dataFeedLabel": "Tietojen syöttö"
             },
             "pinterest": {
+                "cardTitle": "Pinterest-yhteys",
                 "introduction": {
                     "title": "Ohjeet: Asennus ja yhteys",
                     "description": "Tämä myyntikanava luo metatietoja, joiden avulla voit näyttää tuotteesi Pinterestissä pin-lisäyksenä. Lisätietoja tästä aiheesta on alla olevasta vaiheittaisesta oppaasta."
                 },
-                "stepByStep": "<li>Klikkaa ”Vahvista Pinterestissä”</li><li>Kirjaudu sisään tai luo tili <a href=\"https://pinterest.com\">Pinterest</a></li><li>Anna minkä tahansa tuotteen URL-osoite myymälästäsi ja napsauta ”Vahvista”</li>"
+                "stepByStep": "<li>Klikkaa ”Vahvista Pinterestissä”</li><li>Kirjaudu sisään tai luo tili <a href=\"https://pinterest.com\">Pinterest</a></li><li>Anna minkä tahansa tuotteen URL-osoite myymälästäsi ja napsauta ”Vahvista”</li>",
+                "dataFeedLabel": "Tietojen syöttö"
+            }
+        },
+        "extension": {
+            "sw-customer": {
+                "filter": {
+                    "referralCode": {
+                        "label": "Lähete",
+                        "placeholder": "Valitse viittaus"
+                    }
+                },
+                "list": {
+                    "columnReferral": "Lähete"
+                }
+            },
+            "sw-order": {
+                "filter": {
+                    "referralCode": {
+                        "label": "Lähete",
+                        "placeholder": "Valitse viittaus"
+                    }
+                },
+                "list": {
+                    "columnReferral": "Lähete"
+                }
             }
         }
     }

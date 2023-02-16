@@ -36,7 +36,8 @@
         "sortingLabel": "Lajittelu",
         "next": "Seuraava",
         "previous": "Edellinen",
-        "formSubmit": "Lähetä"
+        "formSubmit": "Lähetä",
+        "listPricePreviously": "aiemmin %price%"
     },
     "header": {
         "logoLink": "Siirry kotisivulle",
@@ -329,7 +330,7 @@
         "removeLineItem": "Poista tuote",
         "subtotalAmount": "Välikumma",
         "summaryHeader": "Yhteenveto",
-        "lineItemContainerHeadline": "Sisältää",
+        "lineItemContainerHeadline": "Tuotepaketti sisältää",
         "lineItemContainerChangeLink": "vaihtaa",
         "lineItemShowMore": "lisää",
         "lineItemShowLess": "vähemmän",
@@ -396,6 +397,7 @@
         "purchase-steps-quantity": "Tuote \"%name%\" ei ole saatavilla tässä määrin. Määräksi muutettiin %quantity%",
         "min-order-quantity": "Tuotteen määrä \"%name%\" ei täyttänyt vähimmäistilausmääräkynnystä. Määrä on nostettu automaattisesti %quantity%.",
         "shipping-method-blocked": "Toimitustapa \"%name%\" on estetty nykyisen ostoskorin osalta.",
+        "shipping-method-changed": "”%oldShippingMethodName%\" lähetys ei ole käytettävissä nykyiseen ostoskoriin, toimitus muutettiin \"%newShippingMethodName%”.",
         "payment-method-blocked": "Maksutapa \"%name%\" on estetty nykyisen ostoskorisi osalta.",
         "payment-method-changed": "”%oldPaymentMethodName%\" maksu ei ole käytettävissä nykyisessä ostoskorissa, maksu muutettiin \"%newPaymentMethodName%”.",
         "lineItemDeliveryDate": "Toimitusaika: %earliest% - %latest%",
@@ -417,7 +419,9 @@
         "collapseTriggerLess": "Näytä vähemmän",
         "product-not-found": "Tuotetta ei löytynyt.",
         "salutation-missing": "Tervehdys puuttuu profiilistasi, valitse yksi kassalla.",
-        "salutation-missing-profile": "Profiilissasi ei ole määritetty tervehdystä, aseta yksi <a href=\"%url%\">tässä</a>."
+        "salutation-missing-profile": "Profiilissasi ei ole määritetty tervehdystä, aseta yksi <a href=\"%url%\">tässä</a>.",
+        "salutation-missing-billing-address": "Aktiiviselle laskutusosoitteellesi ei ole määritetty tervehdystä, aseta yksi <a href=\"%url%\">tässä</a>.",
+        "salutation-missing-shipping-address": "Aktiiviselle toimitusosoitteellesi ei ole määritetty tervehdystä, aseta yksi <a href=\"%url%\">tässä</a>."
     },
     "listing": {
         "filterTitleText": "suodatin",
@@ -441,6 +445,10 @@
         "filterRatingAndMore": "min. %points%/%maxPoints%",
         "filterRangeMinLabel": "Vähintään",
         "filterRangeMaxLabel": "Maksimi",
+        "filterRangeActiveMinLabel": "%displayName% alkaen",
+        "filterRangeActiveMaxLabel": "%displayName% että",
+        "filterRangeErrorMessage": "Vähimmäisarvo ei voi olla suurempi kuin enimmäisarvo.",
+        "filterRangeLowerBoundErrorMessage": "Minimi- ja enimmäisarvon on oltava suurempi tai yhtä suuri kuin %lowerBound%.",
         "filterSubmitText": "suodatin",
         "defaultProductSortingLabel": "Nimi, nouseva",
         "disabledFilterTooltip": "Tämä suodatin ei näytä muita tuloksia yhdessä valittujen suodattimien kanssa.",
@@ -476,6 +484,7 @@
         "subjectPlaceholder": "Kirjoita aihe...",
         "commentLabel": "kommentti",
         "commentPlaceholder": "Kirjoita kommentti...",
+        "privacyNotice": "Valitsemalla Jatka vahvistat, että olet lukenut ja hyväksyt meidän <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%privacyUrl%\" href=\"%privacyUrl%\" title=\"Data protection information\">tietosuojatiedot</a>.",
         "formSubmit": "Lähetä",
         "success": "Olemme vastaanottaneet yhteydenottopyyntösi ja käsittelemme sen mahdollisimman pian."
     },
@@ -545,6 +554,7 @@
         "headline": "Toivelistasi",
         "itemDeleteSuccess": "Olet onnistuneesti poistanut tuotteen toivelistaltasi.",
         "itemAddedSuccess": "Olet onnistuneesti lisännyt tuotteen toivelistaasi.",
+        "duplicateItemError": "Tuote on jo lisätty toivelistallesi.",
         "currentlyNotAvailable": "Tällä hetkellä ei saatavilla",
         "manufacturerDisplayName": "Valmistaja",
         "deliveryTimeAvailable": "Saatavilla, toimitusaika %name%",
@@ -552,7 +562,8 @@
         "wishlistMergeHint": "Toivelistasi saattaa sisältää tuotteita, jotka on lisätty ja tallennettu edellisen käynnin aikana.",
         "wishlistEmptyHeader": "Toivelistasi on tyhjä",
         "wishlistEmptyDescription": "Pidä silmällä haluamasi tuotteita lisäämällä ne toivelistaasi.",
-        "deliveryTimeRestock": "{1} Saatavilla 1 päivä, toimitusaika %name%|] 1, Inf [Saatavilla %restockTime% päivää, toimitusaika %name%"
+        "deliveryTimeRestock": "{1} Saatavilla 1 päivä, toimitusaika %name%|] 1, Inf [Saatavilla %restockTime% päivää, toimitusaika %name%",
+        "deliveryShipping": "Tämä tuote julkaistaan"
     },
     "footer": {
         "serviceHotlineHeadline": "Palvelun hotline",
@@ -560,14 +571,21 @@
         "informationHeadline": "Tiedot",
         "newsletterHeadline": "Tiedotuslehti",
         "serviceHotline": "Tuki ja neuvonta kautta: <a href=\"tel:+49180000000\">0180 - 000000</a> ma-pe, klo 9 - 5",
+        "serviceContactLink": "Tai meidän kautta <a data-bs-toggle=\"modal\" data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"contact form\">yhteydenottolomake</a>.",
         "newsletterInput": "Sähköpostiosoitteesi",
         "newsletter": "Tilaa säännöllinen uutiskirjeemme nyt, jotta pysyt ajan tasalla uusimmista tuotteista ja erikoistarjouksista.",
+        "includeVat": "* Kaikki hinnat sis. alv plus <a data-toggle=\"modal\" data-bs-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">toimituskulut</a> ja mahdolliset toimituskulut, ellei toisin mainita.",
+        "excludeVat": "* Kaikki hinnat pl. ALV plus <a data-toggle=\"modal\" data-bs-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">toimituskulut</a> ja mahdolliset toimituskulut, ellei toisin mainita.",
         "copyrightInfo": "Toteutettu Shopwarella"
     },
     "captcha": {
+        "googleReCaptcha": {
+            "dataProtectionInformation": "Tämä sivusto on suojattu reCAPTCHA ja Google <a href=\"https://policies.google.com/privacy\">Tietosuojakäytäntö</a> ja <a href=\"https://policies.google.com/terms\">Käyttöehdot</a> sovelletaan."
+        },
         "basicCaptchaLabel": "Ole hyvä ja syötä yllä näkyvät merkkejä*"
     },
     "cookie": {
+        "message": "Tämä sivusto käyttää evästeitä parhaan mahdollisen kokemuksen varmistamiseksi. <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"More information\">Lisätietoja...</a>",
         "deny": "Kiellä",
         "configure": "Määritä",
         "configuration": "Asetukset",
@@ -579,6 +597,7 @@
         "groupRequiredSession": "istunto",
         "groupRequiredCsrf": "CSRF-suojaus",
         "groupRequiredTimezone": "Aikavyöhyke",
+        "groupRequiredCaptcha": "CAPTCHA integraatio",
         "groupStatistical": "Tilastot",
         "groupStatisticalDescription": "Evästeitä käytetään tilastoihin ja myymälöiden suorituskyvyn mittareihin.",
         "groupStatisticalGoogleAnalytics": "Google Analytics",
@@ -594,6 +613,7 @@
             "feature": {
                 "label": {
                     "manufacturerNumber": "Valmistajan numero:",
+                    "ean": "GTIN/EAN:",
                     "weight": "Paino:",
                     "width": "Leveys:",
                     "height": "Korkeus:",
@@ -610,7 +630,42 @@
         },
         "cms": {
             "vimeo": {
+                "privacyNotice": "Katselemalla videota hyväksyt, että tietosi siirretään %platform% ja että olet lukenut <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Privacy policy\">Tietosuojakäytäntö</a>.",
                 "acceptButtonLabel": "Hyväksy"
+            },
+            "defaultMedia": {
+                "preview_camera_large": {
+                    "title": "Kamera",
+                    "alt": "Vintage kodak-valokuvakamera, jossa nahkatuppi ja hihna"
+                },
+                "preview_camera_small": {
+                    "title": "Kamera",
+                    "alt": "Vintage kodak-valokuvakamera, jossa nahkatuppi ja hihna"
+                },
+                "preview_glasses_large": {
+                    "title": "Aurinkolasit",
+                    "alt": "Kultakehyksen aurinkolasit heijastavalla marmoripinnalla"
+                },
+                "preview_glasses_small": {
+                    "title": "Aurinkolasit",
+                    "alt": "Kultakehyksen aurinkolasit heijastavalla marmoripinnalla"
+                },
+                "preview_mountain_large": {
+                    "title": "Lumiset vuoret",
+                    "alt": "Kalliovuoren harjanne, jossa lumiset"
+                },
+                "preview_mountain_small": {
+                    "title": "Lumiset vuoret",
+                    "alt": "Kalliovuoren harjanne, jossa lumiset"
+                },
+                "preview_plant_large": {
+                    "title": "Kasvi",
+                    "alt": "Mehevä valkoisessa ruukussa vaaleansinisen taustan edessä"
+                },
+                "preview_plant_small": {
+                    "title": "Kasvi",
+                    "alt": "Mehevä valkoisessa ruukussa vaaleansinisen taustan edessä"
+                }
             }
         }
     }

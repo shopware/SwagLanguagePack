@@ -25,6 +25,7 @@
         "required": "*",
         "requiredFields": "Câmpurile marcate cu asteriscuri (*) sunt obligatorii.",
         "privacyTitle": "Confi",
+        "privacyNotice": "Prin selectarea continuă, confirmați că ați citit informațiile noastre <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%privacyUrl%\" href=\"%privacyUrl%\" title=\"Data protection information\">privind protecția datelor</a> și ați acceptat <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%tosUrl%\" href=\"%tosUrl%\" title=\"general terms and conditions\">termeni și condiții generale</a>.",
         "privacyLink": "Politica de confidențialitate",
         "imprintLink": "Imprimare",
         "404ErrorPageHeader": "Pagina nu a fost găsită",
@@ -35,7 +36,8 @@
         "sortingLabel": "Sortare",
         "next": "Următorul",
         "previous": "Anterior",
-        "formSubmit": "Trimite"
+        "formSubmit": "Trimite",
+        "listPricePreviously": "anterior %price%"
     },
     "header": {
         "logoLink": "Accesați prima pagină",
@@ -66,9 +68,16 @@
         "message-403-ajax": "Sesiunea ta a expirat. Vă rugăm să reîncărcați pagina și încercați din nou.",
         "message-403": "Sesiunea ta a expirat. Vă rugăm să reveniți la ultima pagină și încercați din nou.",
         "product-out-of-stock": "%name% nu este disponibil în acest moment.",
-        "auto-promotion-not-found": "Promovarea \"%name%\" nu mai este validă!"
+        "auto-promotion-not-found": "Promovarea \"%name%\" nu mai este validă!",
+        "rateLimitExceeded": "Prea multe cereri. Vă rugăm să așteptați %seconds% secunde înainte de a încerca din nou.",
+        "captcha": {
+            "basic-captcha-invalid": "Intrare incorectă. Vă rugăm să încercați din nou."
+        }
     },
     "account": {
+        "externalPaymentCanceled": "Am primit comanda dvs., dar plata a fost anulată. Vă rugăm să modificați metoda de plată sau să încercați din nou.",
+        "externalPaymentExpired": "Am primit comanda dvs., dar procesul de plată a expirat. Vă rugăm să încercați din nou.",
+        "externalPaymentFailure": "Am primit comanda dvs., dar nu am putut procesa plata, vă rugăm să schimbați metoda de plată sau să încercați din nou.",
         "confirmationIsAlreadyDone": "Adresa de e-mail a fost deja confirmată sau adresa URL nu este validă.",
         "doubleOptInMailConfirmationSuccessfully": "Vă mulțumim pentru confirmarea adresei de e-mail! Acum puteți finaliza comanda.",
         "doubleOptInRegistrationSuccessfully": "Vă mulțumim pentru înscriere! Contul dvs. a fost deblocat cu succes.",
@@ -83,6 +92,7 @@
         "loginPasswordRecover": "Mi-am uitat parola.",
         "loginSubmit": "Login",
         "loginBadCredentials": "Nu am putut găsi un cont care să corespundă acreditărilor date.",
+        "loginThrottled": "Prea multe încercări de conectare. Vă rugăm să așteptați %seconds% secunde înainte de a încerca să vă conectați din nou.",
         "registerAdvantagesHeader": "Avantaje autentificare:",
         "registerAdvantage1": "Cumpărături expres",
         "registerAdvantage2": "Salvarea datelor și a setărilor",
@@ -150,6 +160,7 @@
         "overviewChangeShipping": "Schimbă adresa de livrare",
         "overviewNewestOrderHeader": "Ultima comandă",
         "overviewCustomerGroupRequest": "Accesul la grupul de clienți „%group%” solicitat.",
+        "overviewNotAbleToShip": "Nu putem livra în țara care este stocată în adresa dvs. de livrare.",
         "paymentChangeSubmit": "Modificare",
         "profilePersonalTitle": "Date cu caracter personal",
         "profileMailTitle": "Adresă de e-mail",
@@ -175,6 +186,7 @@
         "profileRecoverPasswordInfo": "Vă vom trimite un e-mail de confirmare. Faceți clic pe linkul din acel e-mail pentru a vă schimba parola.",
         "profileRecoverPasswordSubmit": "Trimite e-mail",
         "profileSaveChanges": "Salvează modificările",
+        "profileDelete": "<a href=\"%target%\" data-toggle=\"modal\" data-bs-toggle=\"modal\" data-target=\"%target%\" data-bs-target=\"%target%\">Faceți clic aici</a> pentru a șterge toate datele dvs. personale",
         "profileDeleteAlert": "După ștergerea datelor personale ale contului dvs. de client, intrările la newsletter și recenziile nu vă vor mai fi accesibile. Rețineți că înregistrările tuturor comenzilor vor fi păstrate totuși pentru a îndeplini reglementările legale.",
         "profileDeleteConfirm": "Chiar doriți să ștergeți contul dvs. de client?",
         "profileDeleteModalTitle": "Cont Client",
@@ -232,6 +244,8 @@
         "editOrderCancelOrderModalBodyQuestion": "Sunteți sigur că doriți să anulați comanda până la urmă?",
         "editOrderCancelOrderModalFooterButton": "Anulează comanda",
         "editOrderCancelOrderModalFooterButtonBack": "Înapoi",
+        "editOrderPaymentNotChangeable": "Această comandă este deja procesată sau are o reducere activă legată de metoda de plată, prin urmare nu o mai puteți edita.",
+        "editOrderPaymentNotChangeableWithRefunds": "Această comandă este deja procesată sau are o reducere activă legată de metoda de plată, prin urmare nu o mai puteți edita. Vă rugăm să anulați comanda și să reordonați.",
         "orderNumber": "Număr de comandă:",
         "orderItemColumnNumber": "Număr de comandă:",
         "orderItemColumnPaymentMethod": "Metoda de plată",
@@ -284,6 +298,8 @@
         "cityPlaceholder": "Intraţi în oraş...",
         "countryLabel": "Țară",
         "countryPlaceholder": "Selectează țara...",
+        "countryPostfixNoShipping": "(Livrarea nu este posibilă)",
+        "countryNoShippingAlert": "O livrare în această țară nu este posibilă.",
         "countryStateLabel": "Stat",
         "countryStatePlaceholder": "Selectați starea...",
         "phoneNumberLabel": "Număr de telefon",
@@ -301,6 +317,7 @@
         "addressLoginToggle": "Ai deja un cont? Faceți clic aici pentru a vă conecta.",
         "addressRegisterCardTitle": "Datele dvs. personale",
         "registerGuestmodeLabel": "Nu creați un cont de client.",
+        "registerCustomermodeLabel": "Creați un cont de client.",
         "cartTitle": "Coş de cumpărături",
         "cartHeader": "Coş de cumpărături",
         "cartUpdateSuccess": "Coșul de cumpărături actualizat",
@@ -313,8 +330,10 @@
         "removeLineItem": "Elimină produsul",
         "subtotalAmount": "Subtotal",
         "summaryHeader": "Rezumat",
-        "lineItemContainerHeadline": "Conține",
+        "lineItemContainerHeadline": "Pachetul de produse conține",
         "lineItemContainerChangeLink": "Schimbare",
+        "lineItemShowMore": "mai multe",
+        "lineItemShowLess": "Mai puțin",
         "cartEmpty": "Cosul de cumparaturi este gol.",
         "cartHeaderInfo": "Produs",
         "cartHeaderQuantity": "Cantitate",
@@ -353,6 +372,8 @@
         "confirmSubmit": "Trimite comanda",
         "confirmTermsHeader": "Termeni și condiții și politica de anulare",
         "confirmRevocationNotice": "Vă rugăm să rețineți politica noastră de anulare.",
+        "confirmTerms": "Am citit si acceptat <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"general terms and conditions\">termenii si conditiile generale</a>.",
+        "confirmTermsReminder": "Ați acceptat deja <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"general terms and conditions\">termenii și condițiile generale</a>.",
         "finishInfoPayment": "Metoda de plată:",
         "finishInfoShipping": "Metoda de expediere:",
         "finishHeader": "Vă mulțumim pentru comanda cu %shop%!",
@@ -370,26 +391,37 @@
         "shippingCountry": "Țara de transport",
         "paymentMethod": "Metoda de plată",
         "shippingMethod": "Metoda de expediere",
+        "notAvailableSuffix": "(nu este disponibil)",
         "product-stock-reached": "Produsul „%name%” este disponibil doar de %quantity% ori",
         "product-out-of-stock": "Produsul „%name%” nu mai este disponibil",
         "purchase-steps-quantity": "Produsul „%name%” nu este disponibil în această cantitate. Cantitatea a fost schimbată la %quantity%",
+        "min-order-quantity": "Cantitatea de produs „%name%” nu a îndeplinit pragul minim al cantității de comandă. Cantitatea a fost mărită automat la %quantity%.",
         "shipping-method-blocked": "Metoda de expediere „%name%” este blocată pentru coșul de cumpărături curent.",
+        "shipping-method-changed": "Expedierea „%oldShippingMethodName%” nu este disponibilă pentru coșul dvs. curent, transportul a fost schimbat în \"%newShippingMethodName%”.",
         "payment-method-blocked": "Metoda de plată „%name%” este blocată pentru coșul de cumpărături curent.",
+        "payment-method-changed": "Plata „%oldPaymentMethodName%” nu este disponibilă pentru coșul dvs. curent, plata a fost schimbată în \"%newPaymentMethodName%”.",
         "lineItemDeliveryDate": "Perioada de livrare: %earliest% - %latest%",
         "promotion-discount-deleted": "Reducere „%name%” a fost eliminat",
         "promotion-discount-added": "Reducere „%name%” a fost adăugat",
         "promotion-not-found": "Promovarea cu codul „%code%” nu a putut fi găsită.",
         "auto-promotion-not-found": "Promovarea \"%name%\" nu mai este valabilă!",
         "promotion-not-eligible": "Cod promoțional valabil - cu toate acestea, nu au fost îndeplinite toate condițiile și reducerea nu a fost aplicată. Odată ce toate condițiile sunt îndeplinite, reducerea va fi aplicată automat.",
+        "promotion-excluded": "Una sau mai multe reduceri au fost eliminate din coșul de cumpărături, din cauza conflictelor cu alte reduceri. Odată ce condițiile sunt îndeplinite din nou, reducerile vor fi aplicate automat.",
         "shipping-address-blocked": "În prezent, expedierea la adresa de expediere selectată nu este posibilă.",
         "billing-address-blocked": "Facturarea la adresa selectată nu este posibilă.",
+        "shipping-address-invalid": "Adresa de expediere selectată nu este validă sau incompletă. Vă rugăm să verificați intrările.",
+        "billing-address-invalid": "Adresa de facturare selectată nu este validă sau incompletă. Vă rugăm să verificați intrările.",
         "customerCommentHeader": "Informații suplimentare",
         "customerCommentLabel": "Vrei să ne spui ceva despre comanda ta?",
         "customerCommentPlaceholder": "Comentariu aici...",
         "cart-merged-hint": "Coșul de cumpărături actual poate conține produse suplimentare care au fost adăugate și salvate în timpul unei vizite anterioare.",
         "collapseTriggerMore": "Arată mai mult",
         "collapseTriggerLess": "Arată mai puțin",
-        "product-not-found": "Produsul nu a putut fi găsit."
+        "product-not-found": "Produsul nu a putut fi găsit.",
+        "salutation-missing": "Un salut lipsește din profilul dvs., vă rugăm să alegeți unul în timpul plății.",
+        "salutation-missing-profile": "Nu există nici un salut configurat în profilul dvs., vă rugăm să setați unul <a href=\"%url%\">aici</a>.",
+        "salutation-missing-billing-address": "Nu există nici un salut configurat pentru adresa de facturare activă, vă rugăm să setați unul <a href=\"%url%\">aici</a>.",
+        "salutation-missing-shipping-address": "Nu există nici un salut configurat pentru adresa de expediere activă, vă rugăm să setați unul <a href=\"%url%\">aici</a>."
     },
     "listing": {
         "filterTitleText": "Filtru",
@@ -413,6 +445,10 @@
         "filterRatingAndMore": "min. %points%/%maxPoints%",
         "filterRangeMinLabel": "Minim",
         "filterRangeMaxLabel": "Maxim",
+        "filterRangeActiveMinLabel": "%displayName% din",
+        "filterRangeActiveMaxLabel": "%displayName% la",
+        "filterRangeErrorMessage": "Valoarea minimă nu poate fi mai mare decât valoarea maximă.",
+        "filterRangeLowerBoundErrorMessage": "Valoarea minimă și maximă trebuie să fie mai mare sau egală cu %lowerBound%.",
         "filterSubmitText": "Filtru",
         "defaultProductSortingLabel": "Nume, crescător",
         "disabledFilterTooltip": "Acest filtru nu afişează rezultate suplimentare în combinaţie cu filtrele selectate.",
@@ -448,6 +484,7 @@
         "subjectPlaceholder": "Introduceți subiectul...",
         "commentLabel": "Comentariu",
         "commentPlaceholder": "Introdu comentariu...",
+        "privacyNotice": "Prin selectarea continuă, confirmați că ați citit și sunteți de acord cu informațiile noastre <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%privacyUrl%\" href=\"%privacyUrl%\" title=\"Data protection information\">privind protecția datelor</a>.",
         "formSubmit": "Trimite",
         "success": "Am primit cererea dvs. de contact și o vom procesa cât mai curând posibil."
     },
@@ -518,6 +555,7 @@
         "headline": "Lista ta de dorinţe",
         "itemDeleteSuccess": "Ați eliminat cu succes produsul din lista dvs. de dorințe.",
         "itemAddedSuccess": "Ați adăugat cu succes produsul în lista de dorințe.",
+        "duplicateItemError": "Produsul a fost deja adăugat la lista de dorințe.",
         "currentlyNotAvailable": "În prezent nu este disponibil",
         "manufacturerDisplayName": "Producător",
         "deliveryTimeAvailable": "Disponibil, timp de livrare %name%",
@@ -525,7 +563,8 @@
         "wishlistMergeHint": "Lista dvs. de dorințe poate conține produse care au fost adăugate și salvate în timpul unei vizite anterioare.",
         "wishlistEmptyHeader": "Lista ta de dorinţe este goală",
         "wishlistEmptyDescription": "Fiți cu ochii pe produsele care vă plac adăugându-le în lista de dorințe.",
-        "deliveryTimeRestock": "{1} Disponibil în 1 zi, timp de livrare %name%|] 1, Inf [Disponibil în %restockTime% zile, timp de livrare %name%"
+        "deliveryTimeRestock": "{1} Disponibil în 1 zi, timp de livrare %name%|] 1, Inf [Disponibil în %restockTime% zile, timp de livrare %name%",
+        "deliveryShipping": "Acest produs va fi lansat pe"
     },
     "footer": {
         "serviceHotlineHeadline": "Linia telefonică de servicii",
@@ -533,14 +572,21 @@
         "informationHeadline": "Informații",
         "newsletterHeadline": "Newsletter",
         "serviceHotline": "Sprijin și consiliere prin: <a href=\"tel:+49180000000\">0180 - 000000</a> Luni-Vineri, 9 am - 5 pm",
+        "serviceContactLink": "Sau prin <a data-bs-toggle=\"modal\" data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"contact form\">formularul nostru de contact</a>.",
         "newsletterInput": "Adresa dvs. de e-mail",
         "newsletter": "Aboneaza-te acum la newsletter-ul nostru obisnuit pentru a ramane la curent cu cele mai noi produse si oferte speciale.",
+        "includeVat": "* Toate prețurile includ TVA plus <a data-toggle=\"modal\" data-bs-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">costurile de transport</a> și eventualele taxe de livrare, dacă nu se specifică altfel.",
+        "excludeVat": "* Toate prețurile fără. TVA plus <a data-toggle=\"modal\" data-bs-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">costurile de transport</a> și eventualele taxe de livrare, dacă nu se specifică altfel.",
         "copyrightInfo": "Realizata cu Shopware"
     },
     "captcha": {
+        "googleReCaptcha": {
+            "dataProtectionInformation": "Acest site este protejat de reCAPTCHA și Google <a href=\"https://policies.google.com/privacy\">Politica de confidențialitate</a> și <a href=\"https://policies.google.com/terms\">Termenii serviciului</a> se aplică."
+        },
         "basicCaptchaLabel": "Vă rugăm să introduceți caracterele de mai sus.*"
     },
     "cookie": {
+        "message": "Acest site foloseste cookie-uri pentru a asigura cea mai buna experienta posibila. <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"More information\">Mai multe informații...</a>",
         "deny": "Deny",
         "configure": "Configurează",
         "configuration": "Setări",
@@ -552,6 +598,7 @@
         "groupRequiredSession": "Sesiune",
         "groupRequiredCsrf": "Protecție CSRF",
         "groupRequiredTimezone": "Fus orar",
+        "groupRequiredCaptcha": "Integrare CAPTCHA",
         "groupStatistical": "Statistici",
         "groupStatisticalDescription": "Cookie-uri utilizate pentru statistici și indicatori de performanță magazin.",
         "groupStatisticalGoogleAnalytics": "Google Analytics",
@@ -567,6 +614,7 @@
             "feature": {
                 "label": {
                     "manufacturerNumber": "Numărul producătorului:",
+                    "ean": "GTIN/EAN:",
                     "weight": "Greutate:",
                     "width": "Lățime:",
                     "height": "Înălțime:",
@@ -583,7 +631,42 @@
         },
         "cms": {
             "vimeo": {
+                "privacyNotice": "Prin vizionarea videoclipului sunteți de acord că datele dvs. vor fi transferate către %platform% și că ați citit <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Privacy policy\">Politica de confidențialitate</a>.",
                 "acceptButtonLabel": "Accept"
+            },
+            "defaultMedia": {
+                "preview_camera_large": {
+                    "title": "Aparat foto",
+                    "alt": "Vintage Kodak aparat de fotografiat foto cu teaca din piele și curea"
+                },
+                "preview_camera_small": {
+                    "title": "Aparat foto",
+                    "alt": "Vintage Kodak aparat de fotografiat foto cu teaca din piele și curea"
+                },
+                "preview_glasses_large": {
+                    "title": "Ochelari de soare",
+                    "alt": "Ochelari de soare cu cadru auriu pe suprafața reflectorizantă din marmură"
+                },
+                "preview_glasses_small": {
+                    "title": "Ochelari de soare",
+                    "alt": "Ochelari de soare cu cadru auriu pe suprafața reflectorizantă din marmură"
+                },
+                "preview_mountain_large": {
+                    "title": "Munți acoperiți de zăpadă",
+                    "alt": "Munte stâncos creasta cu vârfuri acoperite de zăpadă"
+                },
+                "preview_mountain_small": {
+                    "title": "Munți acoperiți de zăpadă",
+                    "alt": "Munte stâncos creasta cu vârfuri acoperite de zăpadă"
+                },
+                "preview_plant_large": {
+                    "title": "Plantă",
+                    "alt": "Suculent într-o oală albă în fața fundal albastru deschis"
+                },
+                "preview_plant_small": {
+                    "title": "Plantă",
+                    "alt": "Suculent într-o oală albă în fața fundal albastru deschis"
+                }
             }
         }
     }

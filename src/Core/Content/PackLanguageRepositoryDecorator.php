@@ -17,6 +17,9 @@ use Shopware\Core\Framework\DataAbstractionLayer\Search\EntitySearchResult;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\IdSearchResult;
 use Shopware\Core\Framework\DataAbstractionLayer\Write\CloneBehavior;
 
+/**
+ * @deprecated tag:v3.0.0 - Will be removed without replacement
+ */
 class PackLanguageRepositoryDecorator implements EntityRepositoryInterface
 {
     private EntityRepositoryInterface $inner;

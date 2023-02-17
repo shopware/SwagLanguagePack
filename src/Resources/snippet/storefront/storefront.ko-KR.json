@@ -10,6 +10,7 @@
         "deliveryShipping": "이 제품은 출시 예정",
         "deliveryPartialStock": "만 %inStock% 의 %quantity% 재고",
         "deliveryInStock": "배송 준비 완료, 예상 배송 시간: 1-3 영업일",
+        "deliveryShippingTime": "예상 배송 시간: %shippingTime% 근무일",
         "deliveryShippingDelay": "예상 배송 시간: 영업일 기준 5일",
         "offcanvasCloseMenu": "메뉴 닫기",
         "noscriptNotice": "Shopware 6의 전체 범위를 사용하려면 브라우저에서 Javascript를 활성화하는 것이 좋습니다.",
@@ -33,13 +34,15 @@
         "sortingLabel": "정렬",
         "next": "다음",
         "previous": "이전",
-        "formSubmit": "제출"
+        "formSubmit": "제출",
+        "listPricePreviously": "이전 버전 %price%"
     },
     "header": {
         "logoLink": "홈페이지로 이동",
         "searchButton": "검색",
         "searchPlaceholder": "모든 카테고리 검색...",
         "searchAllResults": "모든 검색 결과 표시",
+        "searchResults": "{1} 1 결과|] 1, 정보 [ %count% 결과]",
         "indexLinkService": "서비스/도움말",
         "searchNoResult": "결과를 찾을 수 없습니다.",
         "wishlist": "위시리스트"
@@ -53,11 +56,19 @@
         "addToCartError": "장바구니에 항목을 추가하는 동안 오류가 발생했습니다.",
         "FRAMEWORK__INVALID_UUID": "선택한 결제 방법이 없습니다.",
         "CHECKOUT__UNKNOWN_PAYMENT_METHOD": "선택한 결제 방법이 없습니다.",
+        "productNotFound": "“%number%\" 제품을 찾을 수 없습니다.",
         "product-not-found": "제품을 찾을 수 없습니다.",
         "message-403-ajax": "세션이 만료되었습니다.페이지를 다시 로드하고 다시 시도하십시오.",
-        "message-403": "세션이 만료되었습니다.마지막 페이지로 돌아가서 다시 시도하십시오."
+        "message-403": "세션이 만료되었습니다.마지막 페이지로 돌아가서 다시 시도하십시오.",
+        "auto-promotion-not-found": "“%name%\" 프로모션은 더 이상 유효하지 않습니다!",
+        "captcha": {
+            "basic-captcha-invalid": "입력이 잘못되었습니다.다시 시도해 주세요."
+        }
     },
     "account": {
+        "externalPaymentCanceled": "주문을 받았으나 결제가 중단되었습니다.결제 방법을 변경하거나 다시 시도하세요.",
+        "externalPaymentExpired": "주문을 받았으나 결제 절차가 만료되었습니다.다시 시도해 주세요.",
+        "externalPaymentFailure": "주문을 받았으나 결제를 처리할 수 없습니다. 결제 방법을 변경하거나 다시 시도하십시오.",
         "confirmationIsAlreadyDone": "이메일 주소가 이미 확인되었거나 URL이 유효하지 않습니다.",
         "doubleOptInMailConfirmationSuccessfully": "이메일 주소를 확인해 주셔서 감사합니다!이제 주문을 완료할 수 있습니다.",
         "doubleOptInRegistrationSuccessfully": "가입해 주셔서 감사합니다!계정이 성공적으로 잠금 해제되었습니다.",
@@ -137,6 +148,7 @@
         "overviewChangeBilling": "청구지 주소 변경",
         "overviewChangeShipping": "배송 주소 변경",
         "overviewNewestOrderHeader": "라스트 오더",
+        "overviewNotAbleToShip": "배송 주소에 저장된 국가로는 배송할 수 없습니다.",
         "paymentChangeSubmit": "변경",
         "profilePersonalTitle": "개인 정보",
         "profileMailTitle": "이메일 주소",
@@ -219,6 +231,8 @@
         "editOrderCancelOrderModalBodyQuestion": "결국 주문을 취소하시겠습니까?",
         "editOrderCancelOrderModalFooterButton": "주문 취소",
         "editOrderCancelOrderModalFooterButtonBack": "뒤로",
+        "editOrderPaymentNotChangeable": "이 주문은 이미 처리 중이거나 결제 방법에 따라 유효한 할인이 적용되어 더 이상 편집할 수 없습니다.",
+        "editOrderPaymentNotChangeableWithRefunds": "이 주문은 이미 처리 중이거나 결제 방법에 따라 유효한 할인이 적용되어 더 이상 편집할 수 없습니다.주문을 취소하고 다시 주문하세요.",
         "orderNumber": "주문 번호:",
         "orderItemColumnNumber": "주문 번호:",
         "orderItemColumnPaymentMethod": "결제 방법",
@@ -271,6 +285,8 @@
         "cityPlaceholder": "도시 입력...",
         "countryLabel": "국가",
         "countryPlaceholder": "국가 선택...",
+        "countryPostfixNoShipping": "(배송 불가)",
+        "countryNoShippingAlert": "이 국가로의 배송은 불가능합니다.",
         "countryStateLabel": "상태",
         "countryStatePlaceholder": "상태 선택...",
         "phoneNumberLabel": "전화 번호",
@@ -287,6 +303,7 @@
         "addressLoginToggle": "이미 계정이 있으신가요?로그인하려면 여기를 클릭하십시오.",
         "addressRegisterCardTitle": "귀하의 개인 세부 정보",
         "registerGuestmodeLabel": "고객 계정을 생성하지 마십시오.",
+        "registerCustomermodeLabel": "고객 계정을 만드세요.",
         "cartTitle": "쇼핑 카트",
         "cartHeader": "쇼핑 카트",
         "cartUpdateSuccess": "쇼핑 카트가 업데이트됨",
@@ -299,8 +316,10 @@
         "removeLineItem": "제품 제거",
         "subtotalAmount": "소계",
         "summaryHeader": "요약",
-        "lineItemContainerHeadline": "포함",
+        "lineItemContainerHeadline": "제품 번들 내용물",
         "lineItemContainerChangeLink": "변화",
+        "lineItemShowMore": "더",
+        "lineItemShowLess": "적게",
         "cartEmpty": "장바구니가 비어 있습니다.",
         "cartHeaderInfo": "제품",
         "cartHeaderQuantity": "수량",
@@ -354,17 +373,25 @@
         "shippingCountry": "배송 국가",
         "paymentMethod": "결제 방법",
         "shippingMethod": "배송 방법",
+        "notAvailableSuffix": "(사용할 수 없음)",
+        "shipping-method-changed": "현재 장바구니에서 “%oldShippingMethodName%\" 배송을 사용할 수 없습니다. 배송이 “%newShippingMethodName%”로 변경되었습니다.",
+        "payment-method-changed": "현재 장바구니에서 “%oldPaymentMethodName%\" 결제를 사용할 수 없습니다. 결제 금액이 “%newPaymentMethodName%”로 변경되었습니다.",
         "lineItemDeliveryDate": "배송 기간: %earliest% - %latest%",
+        "auto-promotion-not-found": "“%name%” 프로모션은 더 이상 유효하지 않습니다!",
         "promotion-not-eligible": "프로모션 코드가 유효합니다. 단, 모든 조건이 충족되지 않았으며 할인이 적용되지 않았습니다.모든 조건이 충족되면 할인이 자동으로 적용됩니다.",
+        "promotion-excluded": "다른 할인과의 충돌로 인해 하나 이상의 할인이 장바구니에서 제거되었습니다.조건이 다시 충족되면 할인이 자동으로 적용됩니다.",
         "shipping-address-blocked": "현재 선택한 배송 주소로 배송할 수 없습니다.",
         "billing-address-blocked": "선택한 주소로 청구할 수 없습니다.",
+        "shipping-address-invalid": "선택한 배송 주소가 유효하지 않거나 불완전합니다.입력한 내용을 확인해 주세요.",
+        "billing-address-invalid": "선택한 청구지 주소가 유효하지 않거나 완전하지 않습니다.입력한 내용을 확인해 주세요.",
         "customerCommentHeader": "추가 정보",
         "customerCommentLabel": "주문하신 내용에 대해 말씀해 주시겠습니까?",
         "customerCommentPlaceholder": "여기에 댓글...",
         "cart-merged-hint": "현재 장바구니에는 이전 방문 시 추가 및 저장된 추가 제품이 포함될 수 있습니다.",
         "collapseTriggerMore": "더 보기",
         "collapseTriggerLess": "적게 표시",
-        "product-not-found": "제품을 찾을 수 없습니다."
+        "product-not-found": "제품을 찾을 수 없습니다.",
+        "salutation-missing": "프로필에 인사말 내용이 없습니다. 결제 시 인사말을 선택하세요."
     },
     "listing": {
         "filterTitleText": "필터",
@@ -388,6 +415,8 @@
         "filterRatingAndMore": "분. %points%/%maxPoints%",
         "filterRangeMinLabel": "최소",
         "filterRangeMaxLabel": "최대",
+        "filterRangeActiveMinLabel": "%displayName% 보낸 사람",
+        "filterRangeErrorMessage": "최소값은 최대값보다 클 수 없습니다.",
         "filterSubmitText": "필터",
         "defaultProductSortingLabel": "이름, 오름차순",
         "disabledFilterTooltip": "이 필터는 선택한 필터와 함께 더 이상 결과를 표시하지 않습니다.",
@@ -490,6 +519,7 @@
         "headline": "귀하의 위시리스트",
         "itemDeleteSuccess": "위시리스트에서 제품을 성공적으로 제거했습니다.",
         "itemAddedSuccess": "상품을 위시리스트에 성공적으로 추가했습니다.",
+        "duplicateItemError": "제품이 이미 위시리스트에 추가되었습니다.",
         "currentlyNotAvailable": "현재 사용할 수 없음",
         "manufacturerDisplayName": "제조 업체",
         "deliveryTimeAvailable": "가능, 배송 시간 %name%",
@@ -497,13 +527,15 @@
         "wishlistMergeHint": "위시리스트에는 이전 방문 중에 추가되고 저장된 제품이 포함될 수 있습니다.",
         "wishlistEmptyHeader": "위시리스트가 비어 있습니다",
         "wishlistEmptyDescription": "원하는 제품을 위시리스트에 추가하여 주시하십시오.",
-        "deliveryTimeRestock": "{1} 사용 가능 1 일, 배달 시간 %name%|] 1, INF [ %restockTime% 일 사용 가능, 배달 시간 %name%"
+        "deliveryTimeRestock": "{1} 사용 가능 1 일, 배달 시간 %name%|] 1, INF [ %restockTime% 일 사용 가능, 배달 시간 %name%",
+        "deliveryShipping": "이 제품은 출시 예정"
     },
     "footer": {
         "serviceHotlineHeadline": "서비스 핫라인",
         "shopServiceHeadline": "쇼핑 서비스",
         "informationHeadline": "정보",
         "newsletterHeadline": "뉴스레터",
+        "serviceHotline": "다음을 통한 지원 및 상담: <a href=\"tel:+49180000000\">0180 - 000000</a> 월-금, 오전 9시 - 오후 5시",
         "newsletterInput": "귀하의 이메일 주소",
         "newsletter": "지금 정기 뉴스레터를 구독하여 최신 제품 및 특별 혜택에 대해 계속 지켜보십시오.",
         "copyrightInfo": "숍웨어로 실현"
@@ -512,6 +544,7 @@
         "basicCaptchaLabel": "위에 표시된 문자를 입력하십시오*"
     },
     "cookie": {
+        "message": "이 웹사이트는 최상의 경험을 보장하기 위해 쿠키를 사용합니다. <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"More information\">추가 정보...</a>",
         "deny": "거부",
         "configure": "구성",
         "configuration": "설정",
@@ -523,6 +556,7 @@
         "groupRequiredSession": "세션",
         "groupRequiredCsrf": "CSRF 보호",
         "groupRequiredTimezone": "시간대",
+        "groupRequiredCaptcha": "보안 문자 통합",
         "groupStatistical": "통계",
         "groupStatisticalDescription": "통계 및 매장 성과 지표에 사용되는 쿠키.",
         "groupStatisticalGoogleAnalytics": "구글 웹 로그 분석",
@@ -538,6 +572,7 @@
             "feature": {
                 "label": {
                     "manufacturerNumber": "제조업체 번호:",
+                    "ean": "주석/콩:",
                     "weight": "무게:",
                     "width": "너비:",
                     "height": "높이:",
@@ -555,6 +590,40 @@
         "cms": {
             "vimeo": {
                 "acceptButtonLabel": "수락"
+            },
+            "defaultMedia": {
+                "preview_camera_large": {
+                    "title": "카메라",
+                    "alt": "가죽 덮개와 스트랩이 달린 빈티지 코닥 사진 카메라"
+                },
+                "preview_camera_small": {
+                    "title": "카메라",
+                    "alt": "가죽 덮개와 스트랩이 달린 빈티지 코닥 사진 카메라"
+                },
+                "preview_glasses_large": {
+                    "title": "선글라스",
+                    "alt": "반사 대리석 표면에 골드 프레임 선글라스"
+                },
+                "preview_glasses_small": {
+                    "title": "선글라스",
+                    "alt": "반사 대리석 표면에 골드 프레임 선글라스"
+                },
+                "preview_mountain_large": {
+                    "title": "눈 덮인 산맥",
+                    "alt": "눈 덮인 꼭대기가 있는 바위 산등성이"
+                },
+                "preview_mountain_small": {
+                    "title": "눈 덮인 산맥",
+                    "alt": "눈 덮인 꼭대기가 있는 바위 산등성이"
+                },
+                "preview_plant_large": {
+                    "title": "식물",
+                    "alt": "하늘색 배경 앞의 흰색 냄비에 즙이 많은 식물"
+                },
+                "preview_plant_small": {
+                    "title": "식물",
+                    "alt": "하늘색 배경 앞의 흰색 냄비에 즙이 많은 식물"
+                }
             }
         }
     }

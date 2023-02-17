@@ -9,10 +9,10 @@ namespace Swag\LanguagePack\Test\Core\Content;
 
 use PHPUnit\Framework\TestCase;
 use Shopware\Core\Framework\Context;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryForwardCompatibilityDecorator;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\Test\TestCaseBase\KernelTestBehaviour;
-use Swag\LanguagePack\Core\Content\PackLanguageRepositoryDecorator;
 use Swag\LanguagePack\PackLanguage\PackLanguageDefinition;
 
 class PackLanguageRepositoryDecoratorTest extends TestCase
@@ -33,7 +33,7 @@ class PackLanguageRepositoryDecoratorTest extends TestCase
 
     public function testThatRepositoryGetsDecorated(): void
     {
-        static::assertInstanceOf(PackLanguageRepositoryDecorator::class, $this->repositoryDecorator);
+        static::assertInstanceOf(EntityRepositoryForwardCompatibilityDecorator::class, $this->repositoryDecorator);
     }
 
     public function testThatLanguageLocaleAssociationIsAddedForSearchMethods(): void

@@ -1,16 +1,26 @@
 {
+    "global": {
+        "error-codes": {
+            "ACTION_VALID_TO_VIOLATION": "Eylemin sona erme tarihi, eylemin başlamasından sonra ayarlanmalıdır.",
+            "ACTION_DUPLICATE_NAME_VIOLATION": "Bu isim zaten başka bir eylemde kullanılmıştır.",
+            "ACTION_SEARCH_TERM_DUPLICATE_TERM_VIOLATION": "'{value}' başka bir eylem için zaten kullanılıyor."
+        }
+    },
     "swag-enterprise-search": {
         "general": {
-            "mainMenuItemGeneral": "Shopware Kurumsal Arama",
-            "mainMenuEntry": "Shopware Kurumsal Arama"
+            "mainMenuItemGeneral": "Shopware Gelişmiş Arama",
+            "mainMenuEntry": "Shopware Gelişmiş Arama"
         },
         "index": {
-            "title": "Kurumsal Arama Yapılandırması",
+            "title": "Gelişmiş Arama Yapılandırması",
             "buttonSave": "Kaydet",
             "entityConfigTitle": "Genel Bakış",
             "previewSearchTitle": "Önizleme",
             "relevanceTitle": "Alaka İlişkileri",
-            "boostingTitle": "Yükseltmeler"
+            "boostingTitle": "Yükseltmeler",
+            "synonymsTitle": "Eş anlamlı",
+            "actionTitle": "Eylemler",
+            "labelSalesChannelSelect": "Satış Kanalı"
         },
         "types": {
             "category": "Kategori",
@@ -87,6 +97,34 @@
                 "placeholderOperatorSelect": "Bir operatör seçin"
             }
         },
+        "synonyms": {
+            "title": "eş anlamlılar",
+            "addsynonyms": "Yeni Eşanlamlı",
+            "searchPlaceholder": "Arama eşanlamlı",
+            "messageEmptyTitle": "Eş anlamlı yok",
+            "messageEmptySubline": "Eşanlamlıları",
+            "columnHeaders": {
+                "name": "İsim",
+                "left": "Sol",
+                "right": "Sağ",
+                "language": "Dil",
+                "synonym": "Eşanlamlı"
+            },
+            "detail": {
+                "name": "İsim",
+                "synonym": "Eşanlamlı",
+                "left": "Sol",
+                "right": "Sağ",
+                "newsynonym": "Yeni eşanlamlı",
+                "cancelModal": "İptal"
+            },
+            "explanation": {
+                "sameTitle": "Eşit eş anlamlı",
+                "same": "Örneğin “wifi, wlan, w-lan, kablosuz ağ” tamamen eşittir ve yalnızca “sol” sütununa girilmelidir",
+                "expandingTitle": "Eşanlamlıları tanımlama",
+                "expanding": "Örneğin bir iPhone aynı zamanda bir akıllı telefondur, ancak her akıllı telefon aynı zamanda bir iPhone değildir. Bu tür yapılar şöyle girilir: “sol”: “akıllı telefon”, “sağ”: “iphone, i-phone, i phone, akıllı telefon”"
+            }
+        },
         "relevance": {
             "title": "Aranabilir Bilgiler",
             "cancelModal": "İptal",
@@ -121,6 +159,46 @@
                     "notEqualsAny": "Herhangi birine eşit değildir",
                     "notContains": "İçermez",
                     "range": "Aralığı"
+                }
+            }
+        },
+        "action": {
+            "title": "Eylemler",
+            "addAction": "Eylem ekle",
+            "searchPlaceholder": "Arama Eylemi",
+            "messageEmptyTitle": "Henüz eylem yok",
+            "messageEmptySubline": "Eylemleri buradan yönetin.",
+            "columnHeaders": {
+                "name": "İsim",
+                "type": "Türü",
+                "active": "Aktif",
+                "validFrom": "Etkin",
+                "validTo": "Etkin"
+            },
+            "detail": {
+                "action": "Eylem",
+                "searchTerms": "Arama terimleri",
+                "name": "İsim",
+                "active": "Aktif",
+                "validFrom": "Etkin",
+                "validTo": "Etkin",
+                "type": "Türü",
+                "typePlaceholder": "Tür seç...",
+                "cancelModal": "İptal",
+                "newAction": "Yeni Eylem"
+            },
+            "type": {
+                "forwardUrl": {
+                    "title": "İleri URL",
+                    "url": "URL"
+                },
+                "forwardProduct": {
+                    "title": "İleri Ürün",
+                    "product": "Ürün"
+                },
+                "forwardCategory": {
+                    "title": "İleri Kategori",
+                    "category": "Kategori"
                 }
             }
         }

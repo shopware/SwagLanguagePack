@@ -1,42 +1,4 @@
 {
-    "b2b": {
-        "global": {
-            "errors": {
-                "unexpectedErrorTitle": "Error!",
-                "unexpectedErrorMessage": "An error occurred."
-            }
-        },
-        "order": {
-            "detail": {
-                "orderReferenceLabel": "Order reference number",
-                "deliveryDateLabel": "Delivery date"
-            }
-        },
-        "customer": {
-            "detail": {
-                "easymode": {
-                    "title": "Easy mode",
-                    "label": "Activate Easy mode",
-                    "isActive": "Easy mode is active",
-                    "isNotActive": "Easy mode is not active",
-                    "helpText": "Easy mode enabled a less complex management. This means that it is no longer necessary to maintain roles, budgets and contingents! To activate this mode, the user must not have created any roles."
-                }
-            }
-        }
-    },
-    "sw-privileges": {
-        "permissions": {
-            "b2b-user": {
-                "label": "B2B user"
-            },
-            "b2b-offer": {
-                "label": "Offers"
-            },
-            "sales-representative-clients": {
-                "label": "Sales representative clients"
-            }
-        }
-    },
     "b2b-salesrep": {
         "general": {
             "title": "B2B Sales Representative",
@@ -76,9 +38,9 @@
     },
     "b2b-offer": {
         "general": {
-            "title": "Offers",
+            "title": "Quotes",
             "description": "Customer-specific offers",
-            "label": "Offers",
+            "label": "Quotes",
             "offer_status_open": "Open",
             "offer_status_declined_admin": "Declined by shop owner",
             "offer_status_declined_user": "Declined by user",
@@ -90,10 +52,10 @@
             "buttonCancel": "Cancel",
             "buttonDelete": "Delete",
             "buttonSave": "Save",
-            "buttonAcceptOffer": "Accept offer",
-            "buttonDeclineOffer": "Decline offer",
-            "buttonMakeNewOffer": "Make new offer",
-            "buttonSendNewOffer": "Send new offer",
+            "buttonAcceptOffer": "Accept quote",
+            "buttonDeclineOffer": "Decline quote",
+            "buttonMakeNewOffer": "Make new quote",
+            "buttonSendNewOffer": "Send new quote",
             "buttonSendMessage": "Send",
             "buttonReply": "Reply",
             "buttonViewDebtor": "View debtor"
@@ -101,21 +63,21 @@
         "notifications": {
             "titleError": "An error occurred.",
             "titleProductSearchError": "The product could not be added.",
-            "messageDeleteError": "The offer could not be deleted.",
+            "messageDeleteError": "The quote could not be deleted.",
             "messageProductSearchError": "The offer already contains this product.",
-            "messageListError": "The offers could not be loaded.",
-            "messageOfferUpdatedError": "The offer could not be updated.",
-            "messageDetailError": "The offer details could not be loaded.",
-            "messageCommentError": "The comment could not be send."
+            "messageListError": "The quotes could not be loaded.",
+            "messageOfferUpdatedError": "The quote could not be updated.",
+            "messageDetailError": "The quote details could not be loaded.",
+            "messageCommentError": "The comment could not be sent."
         },
         "modal": {
-            "titleDelete": "Delete offer",
-            "titleBulkDelete": "Delete selected offers",
-            "textDeleteConfirm": "Are you sure you want to delete this offer?",
-            "textBulkDeleteConfirm": "Are you sure you want to delete the selected offers?"
+            "titleDelete": "Delete quote",
+            "titleBulkDelete": "Delete selected quotes",
+            "textDeleteConfirm": "Are you sure you want to delete this quote?",
+            "textBulkDeleteConfirm": "Are you sure you want to delete the selected quotes?"
         },
         "list": {
-            "title": "Offers",
+            "title": "Quotes",
             "columnId": "Id",
             "columnDebtor": "Debtor",
             "columnDebtorCompany": "Company",
@@ -129,17 +91,17 @@
             "columnPositions": "Items",
             "contextMenuDebtor": "View Debtor",
             "contextMenuDelete": "Delete",
-            "contextMenuDetail": "View Offer",
-            "messageEmpty": "Currently there are no offers."
+            "contextMenuDetail": "View Quote",
+            "messageEmpty": "Currently, there are no quotes."
         },
         "detail": {
-            "title": "Offer",
+            "title": "Quote",
             "titleBase": "Details",
             "titlePositions": "Items",
             "titleActivity": "Activity",
             "noComments": "No comments available",
             "commentPlaceholder": "Comment",
-            "offerPlaceholder": "The offer details could not be loaded.",
+            "offerPlaceholder": "The quote details could not be loaded.",
             "base": {
                 "titleCompany": "Company",
                 "titleDetails": "Details",
@@ -164,15 +126,15 @@
                 "columnPriceNet": "Original",
                 "columnDiscountPriceNet": "Request",
                 "columnTotalNet": "Total (net)",
-                "columnNewOffer": "New offer",
+                "columnNewOffer": "New quote",
                 "discountLabel": "Additional discount",
                 "labelExpirationDate": "Expiration date",
                 "labelComment": "Comment",
                 "placeholderComment": "Comment",
                 "labelDiscount": "Discount",
-                "summaryTotalAmountNet": "Total excluding VAT",
-                "summaryTaxes": "VAT",
-                "summaryTotalWithTax": "Total including VAT",
+                "summaryTotalAmountNet": "Total excluding taxes",
+                "summaryTaxes": "Tax",
+                "summaryTotalWithTax": "Total including tax",
                 "summaryTotalDiscount": "Total Discount",
                 "summaryDate": "Date",
                 "labelDiscountType": "Discount type",
@@ -199,8 +161,46 @@
                 "titleRemovedPositions": "Removed items",
                 "titleItemComment": "The item comment changed",
                 "labelComment": "Comment",
-                "titleChangedItemPrice": "The price of a item changed",
+                "titleChangedItemPrice": "The price of an item changed",
                 "messagePlaceholder": "Message"
+            }
+        }
+    },
+    "b2b": {
+        "global": {
+            "errors": {
+                "unexpectedErrorTitle": "Error!",
+                "unexpectedErrorMessage": "An error occurred."
+            }
+        },
+        "order": {
+            "detail": {
+                "orderReferenceLabel": "Order reference number",
+                "deliveryDateLabel": "Delivery date"
+            }
+        },
+        "customer": {
+            "detail": {
+                "easymode": {
+                    "title": "Easy mode",
+                    "label": "Activate Easy mode",
+                    "isActive": "Easy mode is active",
+                    "isNotActive": "Easy mode is not active",
+                    "helpText": "Easy mode enabled a less complex management. This means that it is no longer necessary to maintain roles, budgets and contingents! To activate this mode, the user must not have created any roles."
+                }
+            }
+        }
+    },
+    "sw-privileges": {
+        "permissions": {
+            "b2b-user": {
+                "label": "B2B user"
+            },
+            "b2b-offer": {
+                "label": "Quotes"
+            },
+            "sales-representative-clients": {
+                "label": "Sales representative clients"
             }
         }
     }

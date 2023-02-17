@@ -1,16 +1,26 @@
 {
+    "global": {
+        "error-codes": {
+            "ACTION_VALID_TO_VIOLATION": "Tanggal kedaluwarsa tindakan harus ditetapkan setelah dimulainya tindakan.",
+            "ACTION_DUPLICATE_NAME_VIOLATION": "Nama ini telah digunakan dalam tindakan lain.",
+            "ACTION_SEARCH_TERM_DUPLICATE_TERM_VIOLATION": "Istilah '{value}' telah digunakan dalam tindakan lain."
+        }
+    },
     "swag-enterprise-search": {
         "general": {
-            "mainMenuItemGeneral": "Pencarian Perusahaan Shopware",
-            "mainMenuEntry": "Pencarian Perusahaan Shopware"
+            "mainMenuItemGeneral": "Pencarian Lanjutan Shopware",
+            "mainMenuEntry": "Pencarian Lanjutan Shopware"
         },
         "index": {
-            "title": "Konfigurasi Pencarian Perusahaan",
+            "title": "Konfigurasi Pencarian Lanjutan",
             "buttonSave": "Simpan",
             "entityConfigTitle": "Sekilas",
             "previewSearchTitle": "Pratinjau",
             "relevanceTitle": "Relevansi",
-            "boostingTitle": "Boostings"
+            "boostingTitle": "Boostings",
+            "synonymsTitle": "Sinonim",
+            "actionTitle": "Tindakan",
+            "labelSalesChannelSelect": "Jalur penjualan"
         },
         "types": {
             "category": "Kategori",
@@ -87,6 +97,34 @@
                 "placeholderOperatorSelect": "Pilih operator"
             }
         },
+        "synonyms": {
+            "title": "sinonim",
+            "addsynonyms": "Sinonim Baru",
+            "searchPlaceholder": "Cari sinonim",
+            "messageEmptyTitle": "Tidak ada sinonim",
+            "messageEmptySubline": "Kelola sinonim",
+            "columnHeaders": {
+                "name": "Nama",
+                "left": "Kiri",
+                "right": "Kanan",
+                "language": "Bahasa",
+                "synonym": "Sinonim"
+            },
+            "detail": {
+                "name": "Nama",
+                "synonym": "Sinonim",
+                "left": "Kiri",
+                "right": "Kanan",
+                "newsynonym": "Sinonim baru",
+                "cancelModal": "Batal"
+            },
+            "explanation": {
+                "sameTitle": "Sinonim yang sama",
+                "same": "misalnya “wifi, wlan, w-lan, jaringan nirkabel” sama sekali sama dan hanya boleh dimasukkan dalam kolom “kiri”",
+                "expandingTitle": "Mendefinisikan sinonim",
+                "expanding": "misalnya iPhone juga merupakan smartphone, tetapi tidak setiap smartphone juga merupakan iPhone. Konstruksi seperti itu dimasukkan seperti ini: “kiri”: “smartphone”, “benar”: “iphone, i-phone, i phone, smartphone”"
+            }
+        },
         "relevance": {
             "title": "Informasi yang Dapat Dicari",
             "cancelModal": "Batalkan",
@@ -121,6 +159,46 @@
                     "notEqualsAny": "Tidak sama dengan salah satu",
                     "notContains": "Tidak mengandung",
                     "range": "Rentang"
+                }
+            }
+        },
+        "action": {
+            "title": "Tindakan",
+            "addAction": "Tambahkan tindakan",
+            "searchPlaceholder": "Cari Tindakan",
+            "messageEmptyTitle": "Belum ada tindakan",
+            "messageEmptySubline": "Kelola tindakan di sini.",
+            "columnHeaders": {
+                "name": "Nama",
+                "type": "Jenis",
+                "active": "Aktif",
+                "validFrom": "Aktif dari",
+                "validTo": "Aktif ke"
+            },
+            "detail": {
+                "action": "Tindakan",
+                "searchTerms": "Istilah pencarian",
+                "name": "Nama",
+                "active": "Aktif",
+                "validFrom": "Aktif dari",
+                "validTo": "Aktif ke",
+                "type": "Jenis",
+                "typePlaceholder": "Pilih jenis...",
+                "cancelModal": "Batal",
+                "newAction": "Aksi Baru"
+            },
+            "type": {
+                "forwardUrl": {
+                    "title": "URL Teruskan",
+                    "url": "URL"
+                },
+                "forwardProduct": {
+                    "title": "Produk Maju",
+                    "product": "Produk"
+                },
+                "forwardCategory": {
+                    "title": "Kategori Maju",
+                    "category": "Kategori"
                 }
             }
         }

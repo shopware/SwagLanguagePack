@@ -1,3 +1,7 @@
+# 2.5.0
+- LAN-133 - Alle unterstützten Sprachen mit Community-Übersetzungen aktualisiert (Shopware Version 6.4.19.0)
+- LAN-133 - `src/Core/Content/PackLanguageRepositoryDecorator.php` als "deprecated" markiert, um es mit 3.0.0 zu entfernen
+
 # 2.4.0
 - LAN-119 - Englisch (US) zu den angebotenen Sprachen hinzugefügt & Rumänische Locale von "ro-MD" nach "ro-RO" korrigiert
 

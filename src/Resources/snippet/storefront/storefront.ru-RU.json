@@ -25,6 +25,7 @@
         "required": "*",
         "requiredFields": "Поля, отмеченные звездочками (*), обязательны для заполнения.",
         "privacyTitle": "Конфиденциальность",
+        "privacyNotice": "Выбирая «Продолжить», вы подтверждаете, что прочитали нашу информацию о защите данных <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%privacyUrl%\" href=\"%privacyUrl%\" title=\"Data protection information\"></a> и приняли наши <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%tosUrl%\" href=\"%tosUrl%\" title=\"general terms and conditions\">общих положения и условия</a>.",
         "privacyLink": "Политика конфиденциальности",
         "imprintLink": "Выходные данные",
         "404ErrorPageHeader": "Cтраница не найдена",
@@ -35,7 +36,8 @@
         "sortingLabel": "Сортировать",
         "next": "Следующий",
         "previous": "Предыдущий",
-        "formSubmit": "Подтвердить"
+        "formSubmit": "Подтвердить",
+        "listPricePreviously": "ранее %price%"
     },
     "header": {
         "logoLink": "Вернуться на главную",
@@ -66,9 +68,16 @@
         "message-403-ajax": "Ваша сессия истекла. Пожалуйста, перезагрузите страницу и повторите попытку.",
         "message-403": "Ваша сессия истекла. Вернитесь на последнюю страницу и повторите попытку.",
         "product-out-of-stock": "%name% недоступно в данный момент.",
-        "auto-promotion-not-found": "Акция «%name%» больше не действительна!"
+        "auto-promotion-not-found": "Акция «%name%» больше не действительна!",
+        "rateLimitExceeded": "Слишком много запросов. Подождите %seconds% секунд, прежде чем повторить попытку.",
+        "captcha": {
+            "basic-captcha-invalid": "Неверный ввод. Пожалуйста, попробуйте еще раз."
+        }
     },
     "account": {
+        "externalPaymentCanceled": "Мы получили ваш заказ, но платеж был отменен. Измените способ оплаты или повторите попытку.",
+        "externalPaymentExpired": "Мы получили ваш заказ, но процесс оплаты истек. Пожалуйста, попробуйте еще раз.",
+        "externalPaymentFailure": "Мы получили ваш заказ, но не смогли обработать ваш платеж. Измените способ оплаты или повторите попытку.",
         "confirmationIsAlreadyDone": "Aдрес электронной почты уже подтвержден либо URL недействителен.",
         "doubleOptInMailConfirmationSuccessfully": "Спасибо за подтверждение вашей электронной почты! Теперь вы можете завершить свой заказ.",
         "doubleOptInRegistrationSuccessfully": "Спасибо за регистрацию! Ваша учетная запись успешно разблокирована.",
@@ -83,6 +92,7 @@
         "loginPasswordRecover": "Я забыл свой пароль.",
         "loginSubmit": "Войти",
         "loginBadCredentials": "Нет учетной записи, которая соответствует данным учетным данным.",
+        "loginThrottled": "Слишком много попыток входа в систему. Подождите %seconds% секунд, прежде чем повторить попытку входа в систему.",
         "registerAdvantagesHeader": "Логин:",
         "registerAdvantage1": "Экспресс-покупки",
         "registerAdvantage2": "Сохраните ваши данные и настройки",
@@ -150,6 +160,7 @@
         "overviewChangeShipping": "Изменить адрес доставки",
         "overviewNewestOrderHeader": "Последний заказ",
         "overviewCustomerGroupRequest": "Запрошен доступ к группе клиентов \"%group%\".",
+        "overviewNotAbleToShip": "Мы не можем доставить товар в страну, которая указана в вашем адресе доставки.",
         "paymentChangeSubmit": "Изменить",
         "profilePersonalTitle": "Личные данные",
         "profileMailTitle": "Email адрес",
@@ -175,6 +186,7 @@
         "profileRecoverPasswordInfo": "Мы вышлем вам подтверждение по электронной почте. Нажмите на ссылку в этом письме, чтобы изменить пароль.",
         "profileRecoverPasswordSubmit": "Отправить email",
         "profileSaveChanges": "Сохранить изменения",
+        "profileDelete": "<a href=\"%target%\" data-toggle=\"modal\" data-bs-toggle=\"modal\" data-target=\"%target%\" data-bs-target=\"%target%\">Нажмите здесь</a> , чтобы удалить все ваши личные данные",
         "profileDeleteAlert": "После удаления личных данных вашей учетной записи клиента записи и отзывы о новостных рассылках больше не будут доступны для вас. Обратите внимание, что записи всех заказов будут храниться, тем не менее, для того, чтобы выполнить правовые нормы.",
         "profileDeleteConfirm": "Вы действительно хотите удалить свою учетную запись клиента?",
         "profileDeleteModalTitle": "Счет клиента",
@@ -232,6 +244,8 @@
         "editOrderCancelOrderModalBodyQuestion": "Вы уверены что хотите отменить свой заказ?",
         "editOrderCancelOrderModalFooterButton": "Отменить заказ",
         "editOrderCancelOrderModalFooterButtonBack": "Назад",
+        "editOrderPaymentNotChangeable": "Этот заказ уже обрабатывается или имеет активную скидку, привязанную к способу оплаты, поэтому вы больше не можете его редактировать.",
+        "editOrderPaymentNotChangeableWithRefunds": "Этот заказ уже обрабатывается или имеет активную скидку, привязанную к способу оплаты, поэтому вы больше не можете его редактировать. Пожалуйста, отмените заказ и повторите заказ.",
         "orderNumber": "Номер заказа:",
         "orderItemColumnNumber": "Номер заказа:",
         "orderItemColumnPaymentMethod": "Способ оплаты",
@@ -284,6 +298,8 @@
         "cityPlaceholder": "Введите город...",
         "countryLabel": "Страна",
         "countryPlaceholder": "Выберите страну...",
+        "countryPostfixNoShipping": "(Доставка невозможна)",
+        "countryNoShippingAlert": "Доставка в эту страну невозможна.",
         "countryStateLabel": "Область",
         "countryStatePlaceholder": "Выберите область...",
         "phoneNumberLabel": "Номер телефона",
@@ -301,6 +317,7 @@
         "addressLoginToggle": "У вас уже есть аккаунт? Нажмите здесь, чтобы войти.",
         "addressRegisterCardTitle": "Ваши личные данные",
         "registerGuestmodeLabel": "Не создавайте аккаунт клиента.",
+        "registerCustomermodeLabel": "Создайте учетную запись клиента.",
         "cartTitle": "Корзина",
         "cartHeader": "Корзина",
         "cartUpdateSuccess": "Корзина обновлена",
@@ -313,8 +330,10 @@
         "removeLineItem": "Удалить товар",
         "subtotalAmount": "Итого",
         "summaryHeader": "Суммарно",
-        "lineItemContainerHeadline": "Содержит",
+        "lineItemContainerHeadline": "Комплект продуктов содержит",
         "lineItemContainerChangeLink": "изменение",
+        "lineItemShowMore": "больше",
+        "lineItemShowLess": "меньше",
         "cartEmpty": "Ваша корзина пуста.",
         "cartHeaderInfo": "Товар",
         "cartHeaderQuantity": "Количество",
@@ -353,6 +372,8 @@
         "confirmSubmit": "Подтвердить заказ",
         "confirmTermsHeader": "Условия, условия и правила отмены",
         "confirmRevocationNotice": "Пожалуйста обратите внимание на нашу политику отмены.",
+        "confirmTerms": "Я прочитал и принял <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"general terms and conditions\">общих положений и условий</a>.",
+        "confirmTermsReminder": "Вы уже приняли <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"general terms and conditions\">общих положений и условий</a>.",
         "finishInfoPayment": "Способ оплаты:",
         "finishInfoShipping": "Способ доставки:",
         "finishHeader": "Спасибо за ваш заказ с %shop%!",
@@ -370,26 +391,37 @@
         "shippingCountry": "Страна доставки",
         "paymentMethod": "Способ оплаты",
         "shippingMethod": "Способ доставки",
+        "notAvailableSuffix": "(недоступно)",
         "product-stock-reached": "Продукт «%name%» доступен только %quantity% раз",
         "product-out-of-stock": "Товар «%name%» больше не доступен",
         "purchase-steps-quantity": "Товар «%name%» недоступен в этом количестве. Количество было изменено на %quantity%",
+        "min-order-quantity": "Количество товара \"%name%\" не соответствует порогу минимального количества заказа. Количество автоматически увеличено до %quantity%.",
         "shipping-method-blocked": "Способ доставки «%name%» заблокирован для вашей текущей корзины.",
+        "shipping-method-changed": "Доставка \"%oldShippingMethodName%\" недоступна для текущей корзины, доставка была изменена на \"%newShippingMethodName%\".",
         "payment-method-blocked": "Способ оплаты «%name%» заблокирован для вашей текущей корзины.",
+        "payment-method-changed": "Платеж \"%oldPaymentMethodName%\" недоступен для текущей корзины, платеж был изменен на \"%newPaymentMethodName%\".",
         "lineItemDeliveryDate": "Период доставки: %earliest% - %latest%",
         "promotion-discount-deleted": "Скидка \"%name%\" была удалена",
         "promotion-discount-added": "Скидка \"%name%\" была добавлена",
         "promotion-not-found": "Не удалось найти акцию с кодом \"%code%\".",
         "auto-promotion-not-found": "Акция «%name%» больше не действует!",
         "promotion-not-eligible": "Промо-код действителен - однако не все условия были выполнены и скидка не была применена. Как только все условия будут выполнены, скидка будет применена автоматически.",
+        "promotion-excluded": "Одна или несколько скидок были удалены из корзины из-за конфликта с другими скидками. Как только условия будут выполнены снова, скидки будут применены автоматически.",
         "shipping-address-blocked": "Доставка по выбранному адресу доставки в настоящее время невозможна.",
         "billing-address-blocked": "Выставление счетов по выбранному адресу невозможно.",
+        "shipping-address-invalid": "Выбранный адрес доставки недействителен или неполон. Пожалуйста, проверьте свои записи.",
+        "billing-address-invalid": "Выбранный платежный адрес недействителен или неполон. Пожалуйста, проверьте свои записи.",
         "customerCommentHeader": "Дополнительная информация",
         "customerCommentLabel": "Хотите рассказать нам что-нибудь о своем заказе?",
         "customerCommentPlaceholder": "Комментарий здесь...",
         "cart-merged-hint": "Текущая корзина может содержать дополнительные продукты, которые были добавлены и сохранены во время предыдущего посещения.",
         "collapseTriggerMore": "Показать больше",
         "collapseTriggerLess": "Показать меньше",
-        "product-not-found": "Не удалось найти продукт."
+        "product-not-found": "Не удалось найти продукт.",
+        "salutation-missing": "В вашем профиле отсутствует приветствие, выберите его при оформлении заказа.",
+        "salutation-missing-profile": "В вашем профиле нет настроенного приветствия, пожалуйста, установите <a href=\"%url%\">здесь</a>.",
+        "salutation-missing-billing-address": "Для вашего активного платежного адреса не настроено приветствие, пожалуйста, установите <a href=\"%url%\">здесь</a>.",
+        "salutation-missing-shipping-address": "Для вашего активного адреса доставки не настроено приветствие, пожалуйста, установите <a href=\"%url%\">здесь</a>."
     },
     "listing": {
         "filterTitleText": "Фильтр",
@@ -413,6 +445,10 @@
         "filterRatingAndMore": "мин. %points%/%maxPoints%",
         "filterRangeMinLabel": "Минимум",
         "filterRangeMaxLabel": "Максимум",
+        "filterRangeActiveMinLabel": "%displayName% от",
+        "filterRangeActiveMaxLabel": "%displayName% до",
+        "filterRangeErrorMessage": "Минимальное значение не может быть выше максимального.",
+        "filterRangeLowerBoundErrorMessage": "Минимальное и максимальное значения должны быть больше или равны %lowerBound%.",
         "filterSubmitText": "Фильтр",
         "defaultProductSortingLabel": "Названия по возрастанию",
         "disabledFilterTooltip": "Этот фильтр не отображает никаких дальнейших результатов в сочетании с выбранными фильтрами.",
@@ -448,6 +484,7 @@
         "subjectPlaceholder": "Введите тему...",
         "commentLabel": "Комментарий",
         "commentPlaceholder": "Введите комментарий...",
+        "privacyNotice": "Нажимая «Продолжить», вы подтверждаете, что прочитали и согласны с нашей <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%privacyUrl%\" href=\"%privacyUrl%\" title=\"Data protection information\">информацией о защите данных</a>.",
         "formSubmit": "Подтвердить",
         "success": "Мы получили ваш запрос и обработаем его как можно скорее."
     },
@@ -518,6 +555,7 @@
         "headline": "Ваш список желаний",
         "itemDeleteSuccess": "Вы успешно удалили товар из списка желаний.",
         "itemAddedSuccess": "Вы успешно добавили продукт в свой список желаний.",
+        "duplicateItemError": "Продукт уже добавлен в ваш список желаний.",
         "currentlyNotAvailable": "В настоящее время недоступно",
         "manufacturerDisplayName": "Производитель",
         "deliveryTimeAvailable": "Доступно, время доставки %name%",
@@ -525,7 +563,8 @@
         "wishlistMergeHint": "Ваш список желаний может содержать продукты, которые были добавлены и сохранены во время предыдущего посещения.",
         "wishlistEmptyHeader": "Ваш список желаний пуст",
         "wishlistEmptyDescription": "Следите за продуктами, которые вам нравятся, добавляя их в свой список желаний.",
-        "deliveryTimeRestock": "{1} Доступно в течение 1 дня, время доставки %name%|] 1, Inf [Доступно через %restockTime% дня, время доставки %name%"
+        "deliveryTimeRestock": "{1} Доступно в течение 1 дня, время доставки %name%|] 1, Inf [Доступно через %restockTime% дня, время доставки %name%",
+        "deliveryShipping": "Этот продукт будет выпущен в"
     },
     "footer": {
         "serviceHotlineHeadline": "Горячая линия обслуживания",
@@ -533,14 +572,21 @@
         "informationHeadline": "Информация",
         "newsletterHeadline": "Рассылка",
         "serviceHotline": "Поддержка и консультирование: <a href=\"tel:+49180000000\">0180 - 000000</a> Пн-пт, 9: 00 - 17: 00",
+        "serviceContactLink": "Или через нашу контактную форму <a data-bs-toggle=\"modal\" data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"contact form\"></a>.",
         "newsletterInput": "Ваш адрес электронной почты",
         "newsletter": "Подпишитесь на регулярную рассылку и будьте в курсе последних продуктов и специальных предложений.",
+        "includeVat": "* Все цены включают НДС плюс <a data-toggle=\"modal\" data-bs-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">стоимость доставки</a> и возможные расходы на доставку, если не указано иное.",
+        "excludeVat": "* Все цены указаны без учета НДС плюс <a data-toggle=\"modal\" data-bs-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">стоимость доставки</a> и возможные расходы на доставку, если не указано иное.",
         "copyrightInfo": "Реализован с помощью Shopware"
     },
     "captcha": {
+        "googleReCaptcha": {
+            "dataProtectionInformation": "Этот сайт защищен reCAPTCHA и применяется Политика конфиденциальности Google <a href=\"https://policies.google.com/privacy\"></a> и <a href=\"https://policies.google.com/terms\">Условия обслуживания</a> ."
+        },
         "basicCaptchaLabel": "Пожалуйста, введите символы, показанные выше*"
     },
     "cookie": {
+        "message": "Этот веб-сайт использует файлы cookie для обеспечения наилучшего взаимодействия с сайтом. <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"More information\">Дополнительная информация...</a>",
         "deny": "Запретить",
         "configure": "Настроить",
         "configuration": "Настройки",
@@ -552,6 +598,7 @@
         "groupRequiredSession": "Сессия",
         "groupRequiredCsrf": "Защита CSRF",
         "groupRequiredTimezone": "Часовой пояс",
+        "groupRequiredCaptcha": "Интеграция с капчей",
         "groupStatistical": "Статистика",
         "groupStatisticalDescription": "Файлы cookie используемые для статистики и показателей эффективности магазина.",
         "groupStatisticalGoogleAnalytics": "Google Analytics",
@@ -567,6 +614,7 @@
             "feature": {
                 "label": {
                     "manufacturerNumber": "Номер производителя:",
+                    "ean": "ГТИН/ЕАН:",
                     "weight": "Вес:",
                     "width": "Ширина:",
                     "height": "Высота:",
@@ -583,7 +631,42 @@
         },
         "cms": {
             "vimeo": {
+                "privacyNotice": "Просматривая видео, вы соглашаетесь с тем, что ваши данные будут переданы в %platform% и что вы прочитали <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Privacy policy\">Политику конфиденциальности</a>.",
                 "acceptButtonLabel": "Принять"
+            },
+            "defaultMedia": {
+                "preview_camera_large": {
+                    "title": "Камера",
+                    "alt": "Винтажная фотокамера kodak с кожаным чехлом и ремешком"
+                },
+                "preview_camera_small": {
+                    "title": "Камера",
+                    "alt": "Винтажная фотокамера kodak с кожаным чехлом и ремешком"
+                },
+                "preview_glasses_large": {
+                    "title": "Солнцезащитные очки",
+                    "alt": "Солнцезащитные очки в золотой оправе на отражающей мраморной"
+                },
+                "preview_glasses_small": {
+                    "title": "Солнцезащитные очки",
+                    "alt": "Солнцезащитные очки в золотой оправе на отражающей мраморной"
+                },
+                "preview_mountain_large": {
+                    "title": "Заснеженные горы",
+                    "alt": "Скалистый горный хребет с заснеженными вершинами"
+                },
+                "preview_mountain_small": {
+                    "title": "Заснеженные горы",
+                    "alt": "Скалистый горный хребет с заснеженными вершинами"
+                },
+                "preview_plant_large": {
+                    "title": "Растение",
+                    "alt": "Суккулент в белом горшке на голубом фоне"
+                },
+                "preview_plant_small": {
+                    "title": "Растение",
+                    "alt": "Суккулент в белом горшке на голубом фоне"
+                }
             }
         }
     }

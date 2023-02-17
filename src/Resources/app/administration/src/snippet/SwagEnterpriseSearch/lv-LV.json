@@ -1,16 +1,26 @@
 {
+    "global": {
+        "error-codes": {
+            "ACTION_VALID_TO_VIOLATION": "Darbības derīguma termiņš ir jānosaka pēc darbības sākuma.",
+            "ACTION_DUPLICATE_NAME_VIOLATION": "Šis nosaukums jau ir izmantots citā darbībā.",
+            "ACTION_SEARCH_TERM_DUPLICATE_TERM_VIOLATION": "Termins “{value}” jau ir izmantots citā darbībā."
+        }
+    },
     "swag-enterprise-search": {
         "general": {
-            "mainMenuItemGeneral": "Shopware Enterprise Meklēšana",
-            "mainMenuEntry": "Shopware Enterprise Meklēšana"
+            "mainMenuItemGeneral": "Shopware Izvērstā meklēšana",
+            "mainMenuEntry": "Shopware Izvērstā meklēšana"
         },
         "index": {
-            "title": "Uzņēmuma meklēšanas konfigurācija",
+            "title": "Izvērstās meklēšanas konfigurācija",
             "buttonSave": "Saglabāt",
             "entityConfigTitle": "Pārskats",
             "previewSearchTitle": "Priekšskatījums",
             "relevanceTitle": "Izlaidumi",
-            "boostingTitle": "Palielinājumi"
+            "boostingTitle": "Palielinājumi",
+            "synonymsTitle": "Sinonīmi",
+            "actionTitle": "Darbības",
+            "labelSalesChannelSelect": "Pārdošanas kanāls"
         },
         "types": {
             "category": "Kategorija",
@@ -87,6 +97,34 @@
                 "placeholderOperatorSelect": "Izvēlēties operatoru"
             }
         },
+        "synonyms": {
+            "title": "sinonīmi",
+            "addsynonyms": "Jaunais sinonīms",
+            "searchPlaceholder": "Meklēšanas sinonīms",
+            "messageEmptyTitle": "Nav sinonīmu",
+            "messageEmptySubline": "Sinonīmu pārvaldība",
+            "columnHeaders": {
+                "name": "Nosaukums",
+                "left": "Pa kreisi",
+                "right": "Tiesības",
+                "language": "Valoda",
+                "synonym": "Sinonīms"
+            },
+            "detail": {
+                "name": "Nosaukums",
+                "synonym": "Sinonīms",
+                "left": "Pa kreisi",
+                "right": "Tiesības",
+                "newsynonym": "Jauns sinonīms",
+                "cancelModal": "Atcelt"
+            },
+            "explanation": {
+                "sameTitle": "Vienādi sinonīmi",
+                "same": "piemēram, “wifi, wlan, w-lan, bezvadu tīkls” ir pilnīgi vienādi un jāievada tikai slejā “pa kreisi”",
+                "expandingTitle": "Sinonīmu definēšana",
+                "expanding": "piemēram, iPhone ir arī viedtālrunis, bet ne katrs viedtālrunis ir arī iPhone. Šādas konstrukcijas tiek ievadītas šādi: “pa kreisi”: “viedtālrunis”, “pa labi”: “iphone, i-phone, i tālrunis, viedtālrunis”"
+            }
+        },
         "relevance": {
             "title": "Informācija par meklēšanu",
             "cancelModal": "Atcelt",
@@ -121,6 +159,46 @@
                     "notEqualsAny": "Nav vienāds ar kādu no",
                     "notContains": "Nesatur",
                     "range": "Diapazons"
+                }
+            }
+        },
+        "action": {
+            "title": "Darbības",
+            "addAction": "Pievienot darbību",
+            "searchPlaceholder": "Meklēšanas darbība",
+            "messageEmptyTitle": "Vēl nav darbību",
+            "messageEmptySubline": "Pārvaldiet darbības šeit.",
+            "columnHeaders": {
+                "name": "Nosaukums",
+                "type": "Tips",
+                "active": "Aktīvs",
+                "validFrom": "Aktīvs no",
+                "validTo": "Aktīvs"
+            },
+            "detail": {
+                "action": "Darbība",
+                "searchTerms": "Meklēšanas termini",
+                "name": "Nosaukums",
+                "active": "Aktīvs",
+                "validFrom": "Aktīvs no",
+                "validTo": "Aktīvs",
+                "type": "Tips",
+                "typePlaceholder": "Izvēlēties veidu...",
+                "cancelModal": "Atcelt",
+                "newAction": "Jauna darbība"
+            },
+            "type": {
+                "forwardUrl": {
+                    "title": "Pārsūtīt URL",
+                    "url": "URL"
+                },
+                "forwardProduct": {
+                    "title": "Forward Product",
+                    "product": "Produkts"
+                },
+                "forwardCategory": {
+                    "title": "Pārsūtīt kategoriju",
+                    "category": "Kategorija"
                 }
             }
         }

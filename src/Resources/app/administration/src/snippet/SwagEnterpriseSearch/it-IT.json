@@ -1,16 +1,26 @@
 {
+    "global": {
+        "error-codes": {
+            "ACTION_VALID_TO_VIOLATION": "La data di scadenza dell'azione deve essere impostata dopo l'inizio dell'azione.",
+            "ACTION_DUPLICATE_NAME_VIOLATION": "Questo nome è già stato utilizzato in un'altra azione.",
+            "ACTION_SEARCH_TERM_DUPLICATE_TERM_VIOLATION": "Il termine '{value}' è già stato utilizzato in un'altra azione."
+        }
+    },
     "swag-enterprise-search": {
         "general": {
-            "mainMenuItemGeneral": "Ricerca di Shopware Enterprise",
-            "mainMenuEntry": "Ricerca di Shopware Enterprise"
+            "mainMenuItemGeneral": "Ricerca avanzata Shopware",
+            "mainMenuEntry": "Ricerca avanzata Shopware"
         },
         "index": {
-            "title": "Configurazione della ricerca aziendale",
+            "title": "Configurazione avanzata della ricerca",
             "buttonSave": "Salva",
             "entityConfigTitle": "Panoramica",
             "previewSearchTitle": "Anteprima",
             "relevanceTitle": "Pertinenze",
-            "boostingTitle": "Potenziamenti"
+            "boostingTitle": "Potenziamenti",
+            "synonymsTitle": "Sinonimi",
+            "actionTitle": "Promozioni",
+            "labelSalesChannelSelect": "Canale di vendita"
         },
         "types": {
             "category": "Categoria",
@@ -87,6 +97,34 @@
                 "placeholderOperatorSelect": "Scegli un operatore"
             }
         },
+        "synonyms": {
+            "title": "sinonimi",
+            "addsynonyms": "Nuovo sinonimo",
+            "searchPlaceholder": "Cerca sinonimo",
+            "messageEmptyTitle": "Nessun sinonimo",
+            "messageEmptySubline": "Gestisci i sinonimi",
+            "columnHeaders": {
+                "name": "Nome",
+                "left": "Link",
+                "right": "Giusto",
+                "language": "Lingua",
+                "synonym": "Sinonimo"
+            },
+            "detail": {
+                "name": "Nome",
+                "synonym": "Sinonimo",
+                "left": "Link",
+                "right": "Giusto",
+                "newsynonym": "Nuovo sinonimo",
+                "cancelModal": "Interrompi"
+            },
+            "explanation": {
+                "sameTitle": "Sinonimi uguali",
+                "same": "ad esempio «wifi, wlan, w-lan, rete wireless» sono totalmente uguali e devono essere inseriti solo nella colonna «sinistra»",
+                "expandingTitle": "Definire i sinonimi",
+                "expanding": "ad esempio un iPhone è anche uno smartphone, ma non tutti gli smartphone sono anche iPhone. Tali costrutti sono inseriti in questo modo: «left»: «smartphone», «right»: «iphone, i-phone, smartphone»"
+            }
+        },
         "relevance": {
             "title": "Informazioni ricercabili",
             "cancelModal": "Annulla",
@@ -121,6 +159,46 @@
                     "notEqualsAny": "Non è uguale a nessuno dei",
                     "notContains": "Non contiene",
                     "range": "Gamma"
+                }
+            }
+        },
+        "action": {
+            "title": "Promozioni",
+            "addAction": "Aggiungi azione",
+            "searchPlaceholder": "Azione di ricerca",
+            "messageEmptyTitle": "Ancora nessuna azione",
+            "messageEmptySubline": "Gestisci le azioni qui.",
+            "columnHeaders": {
+                "name": "Nome",
+                "type": "Tipo",
+                "active": "Attivo",
+                "validFrom": "Attivo da",
+                "validTo": "Attivo a"
+            },
+            "detail": {
+                "action": "Promozione",
+                "searchTerms": "Termini di ricerca",
+                "name": "Nome",
+                "active": "Attivo",
+                "validFrom": "Attivo da",
+                "validTo": "Attivo a",
+                "type": "Tipo",
+                "typePlaceholder": "Seleziona tipo...",
+                "cancelModal": "Interrompi",
+                "newAction": "Nuova azione"
+            },
+            "type": {
+                "forwardUrl": {
+                    "title": "Inoltra URL",
+                    "url": "URL"
+                },
+                "forwardProduct": {
+                    "title": "Prodotto in avanti",
+                    "product": "Prodotto"
+                },
+                "forwardCategory": {
+                    "title": "Categoria avanzata",
+                    "category": "Categoria"
                 }
             }
         }

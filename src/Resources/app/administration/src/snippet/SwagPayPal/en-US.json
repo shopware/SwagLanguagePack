@@ -1,192 +1,4 @@
 {
-    "swag-paypal-frw-credentials": {
-        "buttonGetCredentials": "Get API credentials",
-        "textIntroPayPal": "To get PayPal up and running you only need to provide your PayPal API credentials.",
-        "labelClientId": "Client ID",
-        "labelClientSecret": "Client secret",
-        "labelMerchantPayerId": "PayPal Merchant ID",
-        "labelClientIdSandbox": "Sandbox client ID",
-        "labelClientSecretSandbox": "Sandbox client secret",
-        "labelMerchantPayerIdSandbox": "Sandbox PayPal Merchant ID",
-        "labelSandbox": "Use sandbox",
-        "tooltipSandbox": "Depending on activation of the sandbox, separate credentials are saved.",
-        "labelSetDefault": "Set as default payment method",
-        "tooltipSetDefault": "PayPal will be set as default payment method of all Sales Channels. You can set individual default payment methods per Sales Channel in the settings module.",
-        "messageFetchedError": "Try again or use the advanced settings to provide your credentials.",
-        "textFetchedSuccessful": "Credentials have been fetched.",
-        "messageNoCredentials": "No credentials provided.",
-        "messageTestSuccess": "Credentials are valid."
-    },
-    "swag-paypal-disputes": {
-        "general": {
-            "mainMenuItemGeneral": "PayPal disputes",
-            "descriptionTextModule": "Manage PayPal disputes here"
-        },
-        "common": {
-            "dispute_id": "ID",
-            "update_time": "Update time",
-            "response_due_date": {
-                "label": "Response due date",
-                "seller": "Seller",
-                "buyer": "Buyer"
-            },
-            "status": "Status",
-            "dispute_life_cycle_stage": "Stage",
-            "dispute_amount": "Amount"
-        },
-        "list": {
-            "title": "Disputes",
-            "titleSidebarItemRefresh": "Refresh",
-            "titleSidebarItemFilter": "Filter",
-            "errorTitle": "Error fetching disputes from PayPal",
-            "emptyState": {
-                "title": "No disputes found",
-                "subline": "Change the filter to show all disputes."
-            }
-        },
-        "detail": {
-            "title": "PayPal dispute:",
-            "titleAddition": "(Technical details)",
-            "mainFieldsCardTitle": "Details",
-            "externalLinkText": "Open dispute in PayPal resolution center",
-            "orderModuleLinkText": "Open order",
-            "rawDataCardTitle": "Raw data",
-            "copyButtonLabel": "Copy raw data"
-        }
-    },
-    "swag-paypal-payment": {
-        "general": {
-            "title": "Orders"
-        },
-        "tabs": {
-            "overview": "Overview"
-        },
-        "paymentDetails": {
-            "cardTitle": "Payment",
-            "invoice": {
-                "heading": "Invoice amount",
-                "totalAmount": "Total amount:",
-                "subTotal": "Subtotal:",
-                "shipping": "Shipping:",
-                "discount": "Discount:",
-                "handling": "Handling fee:",
-                "insurance": "Insurance:",
-                "shipping_discount": "Shipping discount:"
-            },
-            "payment": {
-                "heading": "Payment details",
-                "intent": "Intent:",
-                "paymentId": "Payment ID:",
-                "cartId": "Cart ID:",
-                "state": "State:",
-                "createTime": "Create time:",
-                "updateTime": "Update time:"
-            },
-            "customer": {
-                "heading": "Customer",
-                "payerId": "Payer ID:"
-            },
-            "error": {
-                "title": "Error fetching payment details from PayPal"
-            }
-        },
-        "transactionHistory": {
-            "cardTitle": "Payment History",
-            "states": {
-                "authorization": "Authorization",
-                "sale": "Sale",
-                "refund": "Refund",
-                "capture": "Capture",
-                "order": "Order"
-            },
-            "types": {
-                "type": "Type",
-                "amount": "Amount",
-                "createTime": "Created",
-                "updateTime": "Updated",
-                "state": "State",
-                "trackingId": "Tracking ID",
-                "transactionFee": "Transaction fee",
-                "paymentMode": "Payment mode"
-            }
-        },
-        "buttons": {
-            "label": {
-                "refund": "Create a new refund",
-                "capture": "Capture",
-                "void": "Cancel authorization"
-            }
-        },
-        "modal": {
-            "title": {
-                "refund": "New refund",
-                "capture": "Capture",
-                "void": "Cancel authorization"
-            }
-        },
-        "refundAction": {
-            "successMessage": "Your refund was successful.",
-            "invoiceSelect": {
-                "label": "Select capture"
-            },
-            "refundAmount": {
-                "label": "Amount",
-                "helpText": "An amount of '0' will cause the refund of the complete payment"
-            },
-            "refundDescription": {
-                "label": "Description",
-                "placeholder": "Enter a description"
-            },
-            "refundReason": {
-                "label": "Reason",
-                "placeholder": "Enter a reason"
-            },
-            "refundNoteToPayer": {
-                "label": "Note to payer",
-                "placeholder": "Enter a note to payer"
-            },
-            "refundInvoiceNumber": {
-                "label": "Invoice number",
-                "placeholder": "Enter an invoice number"
-            },
-            "confirmButton": {
-                "text": "Execute"
-            }
-        },
-        "captureAction": {
-            "successMessage": "Your capture was successful.",
-            "maxAmount": "Maximum amount",
-            "currentAmount": "Amount",
-            "captureInvoiceNumber": {
-                "label": "Invoice number",
-                "placeholder": "Enter an invoice number"
-            },
-            "captureNoteToPayer": {
-                "label": "Note to payer",
-                "placeholder": "Enter a note to payer"
-            },
-            "isFinal": "This is the final capture",
-            "isFinalHint": "Hint: Marked as final capture, although not the entire amount is to be captured.",
-            "button": {
-                "text": "Capture payment"
-            }
-        },
-        "voidAction": {
-            "successMessage": "The payment was successfully voided.",
-            "confirm": {
-                "message": "Do you really want to cancel this payment?",
-                "button": {
-                    "confirm": "Cancel authorization"
-                }
-            }
-        },
-        "errorPage": {
-            "title": "Payment details not available",
-            "canceledPaymentContent": "An error occurred while retrieving payment details from PayPal. If you see this message, it was probably a payment that was cancelled by the customer. Cancelled payments will be deleted by PayPal after a while and are then no longer available.",
-            "sandboxLiveContent": "An error occurred while retrieving payment details from PayPal. If you see this message, it was probably a payment that was created with sandbox enabled and has now been requested with live data, or vice versa. Correct your PayPal settings or delete test orders from the system.",
-            "other": "An error occurred while retrieving payment details from PayPal."
-        }
-    },
     "swag-paypal-pos": {
         "general": {
             "moduleTitle": "Zettle by PayPal",
@@ -462,6 +274,10 @@
                 "label": "Set PayPal as default"
             }
         },
+        "shippingAlert": {
+            "title": "Package tracking available",
+            "message": "You can now provide package tracking if you select a default shipping carrier in your <a href=\"#/sw/settings/shipping/index\">shipping methods →</a>."
+        },
         "general": {
             "mainMenuItemGeneral": "PayPal",
             "descriptionTextModule": "PayPal settings"
@@ -472,14 +288,25 @@
             "testSandbox": "Test sandbox API credentials",
             "checkout": {
                 "cardTitle": "PayPal Checkout",
+                "settingsLink": "Settings",
+                "header": "More payment methods with one solution from PayPal",
                 "description": "PayPal Checkout is the new all-in-one solution that lets you offer powerful flexibile payment processing features on the marketplaces and other commerce platforms.",
                 "banner": "With PayPal Checkout, you can offer your customers payment by invoice, credit card and other local payment methods. PayPal Checkout supports you with the latest technology and brings you the highest flexibility. You keep your existing payment methods, and the fees remain the same! Activate PayPal Checkout and deactivate PayPal PLUS to avoid duplicate payment methods in your shop. <a href=\"https://www.shopware.com/en/news/paypal-launches-new-product/?utm_source=product&utm_medium=sw6-onprem&utm_campaign=paypal-checkout&utm_content=link-en-blog\" target=\"_blank\">More information</a>",
                 "button": {
-                    "title": "Start onboarding"
+                    "liveTitle": "Connect PayPal account",
+                    "sandboxTitle": "Connect sandbox account",
+                    "changeLiveTitle": "Connect different account",
+                    "changeSandboxTitle": "Connect different sandbox account",
+                    "onboardingLiveTitle": "Start PayPal Checkout onboarding",
+                    "onboardingSandboxTitle": "Start PayPal Checkout sandbox onboarding",
+                    "restartOnboardingLiveTitle": "Restart PayPal Checkout onboarding",
+                    "restartOnboardingSandboxTitle": "Restart PayPal Checkout sandbox onboarding"
                 },
                 "sandbox": {
-                    "label": "Use sandbox credentials",
-                    "tooltipText": "Enable if you want to test the PayPal integration."
+                    "label": "Sandbox",
+                    "onlySandboxTooltip": "You are only connected a sandbox PayPal account so far.",
+                    "onlyLiveTooltip": "You are only connected a live PayPal account so far.",
+                    "helpText": "Enable if you want to test the PayPal integration."
                 },
                 "switch": {
                     "label": "Active"
@@ -487,29 +314,36 @@
                 "paymentMethodText": "Payment methods",
                 "showCredentials": "Show credentials",
                 "appImageAlt": "PayPal",
-                "editDetail": "Edit Detail",
+                "editDetail": "Edit details",
                 "startOnboardingButtonLabel": "Start onboarding",
                 "availabilityToolTip": {
-                    "BancontactAPMHandler": "Bancontact is available for the following countries: Belgium",
-                    "BlikAPMHandler": "BLIK is available for the following countries: Poland",
-                    "BoletoBancarioAPMHandler": "Boleto Bancário is available for the following countries: Brazil",
-                    "EpsAPMHandler": "eps is available for the following countries: Austria",
-                    "GiropayAPMHandler": "Giropay is available for the following countries: Germany",
-                    "IdealAPMHandler": "iDEAL is available for the following countries: Netherlands",
-                    "MultibancoAPMHandler": "Multibanco is available for the following countries: Portugal",
-                    "MyBankAPMHandler": "MyBank is available for the following countries: Italy",
-                    "OxxoAPMHandler": "OXXO is available for the following countries: Mexico",
-                    "P24APMHandler": "Przelewy24 is available for the following countries: Poland",
-                    "PUIHandler": "Pay upon invoice is available for the following countries: Germany",
-                    "SEPAHandler": "SEPA Lastschrift is available for the following countries: Germany",
-                    "SofortAPMHandler": "Sofort is available for the following countries: Austria, Belgium, Germany, Italy, Netherlands, Spain, United Kingdom",
-                    "TrustlyAPMHandler": "Trustly is available for the following countries: Estonia, Finland, Netherlands, Sweden"
+                    "bancontactapmhandler": "Bancontact is available for the following countries: Belgium",
+                    "blikapmhandler": "BLIK is available for the following countries: Poland",
+                    "boletobancarioapmhandler": "Boleto Bancário is available for the following countries: Brazil",
+                    "epsapmhandler": "eps is available for the following countries: Austria",
+                    "giropayapmhandler": "Giropay is available for the following countries: Germany",
+                    "idealapmhandler": "iDEAL is available for the following countries: Netherlands",
+                    "multibancoapmhandler": "Multibanco is available for the following countries: Portugal",
+                    "mybankapmhandler": "MyBank is available for the following countries: Italy",
+                    "oxxoapmhandler": "OXXO is available for the following countries: Mexico",
+                    "p24apmhandler": "Przelewy24 is available for the following countries: Poland",
+                    "paylaterhandler": "Pay Later is available for the following countries: Australia, France, Germany, Italy, Spain, United Kingdom, United States",
+                    "puihandler": "Pay upon invoice is available for the following countries: Germany",
+                    "sepahandler": "SEPA Lastschrift is available for the following countries: Germany",
+                    "sofortapmhandler": "Sofort is available for the following countries: Austria, Belgium, Germany, Italy, Netherlands, Spain, United Kingdom",
+                    "venmohandler": "Venmo is available for the following countries: United States",
+                    "trustlyapmhandler": "Trustly is available for the following countries: Estonia, Finland, Netherlands, Sweden"
                 },
                 "onboardingStatusText": {
                     "active": "Authorized",
                     "limited": "Limited",
                     "pending": "Authorization pending",
+                    "ineligible": "Ineligible",
                     "inactive": "Onboarding needed"
+                },
+                "onboardingStatusTooltip": {
+                    "ineligible": "PayPal informed us, that this payment method is currently ineligible for your account.",
+                    "limited": "PayPal informed us, that this payment method has some limitations for your account."
                 },
                 "paymentMethodStatusChangedSuccess": {
                     "active": "Payment method \"{name}\" is now active.",
@@ -553,7 +387,7 @@
                 },
                 "sandbox": {
                     "label": "Enable sandbox",
-                    "tooltipText": "Enable if you want to test the PayPal integration."
+                    "tooltipText": "Enable, if you want to test the PayPal integration."
                 },
                 "button": {
                     "title": "Get API credentials",
@@ -613,32 +447,40 @@
                         "basic": "Basic",
                         "advanced": "Advanced"
                     }
+                },
+                "excludedProductIds": {
+                    "label": "Excluded products",
+                    "tooltipText": "Products selected here cannot be purchased with PayPal."
+                },
+                "excludedProductStreamIds": {
+                    "label": "Excluded dynamic product groups",
+                    "tooltipText": "Products included in the dynamic product groups selected here cannot be purchased with PayPal."
                 }
             },
             "express": {
                 "cardTitle": "PayPal Express Checkout",
                 "ecsDetailEnabled": {
-                    "label": "'Pay now' on detail page:",
+                    "label": "'Pay Now' on detail page",
                     "helpText": "If this option is active, the Express Checkout button will be shown on each product detail page."
                 },
                 "ecsCartEnabled": {
-                    "label": "'Pay now' on cart:",
+                    "label": "'Pay Now' on cart",
                     "helpText": "If this option is active, the Express Checkout button will be shown on the cart."
                 },
                 "ecsOffCanvasEnabled": {
-                    "label": "'Pay Now' on Off-Canvas cart:",
+                    "label": "'Pay Now' on Off-Canvas cart",
                     "helpText": "If this option is active, the Express Checkout button will be shown on the Off-Canvas cart."
                 },
                 "ecsLoginEnabled": {
-                    "label": "'Pay Now' on login page:",
+                    "label": "'Pay Now' on login page",
                     "helpText": "If this option is active, the Express Checkout button will be shown on the login and register page."
                 },
                 "ecsListingEnabled": {
-                    "label": "'Pay now' on listing pages:",
+                    "label": "'Pay Now' on listing pages",
                     "helpText": "If this option is active, the Express Checkout button will be shown on listing pages."
                 },
                 "ecsButtonColor": {
-                    "label": "Button color:",
+                    "label": "Button color",
                     "options": {
                         "blue": "Blue",
                         "black": "Black",
@@ -648,7 +490,7 @@
                     }
                 },
                 "ecsButtonShape": {
-                    "label": "Button shape:",
+                    "label": "Button shape",
                     "options": {
                         "pill": "Round",
                         "rect": "Rectangular"
@@ -659,7 +501,7 @@
                     "helpText": "If this option is active, the cart will be submitted to PayPal for Express orders."
                 },
                 "ecsButtonLanguageIso": {
-                    "label": "Button locale:",
+                    "label": "Button locale",
                     "helpText": "If not set, the sales channel language will be used."
                 }
             },
@@ -667,6 +509,13 @@
                 "cardTitle": "Installments",
                 "installmentBannerEnabled": {
                     "label": "Enable installment banner"
+                }
+            },
+            "acdc": {
+                "cardTitle": "Credit or debit card",
+                "acdcForce3DS": {
+                    "label": "Execute transactions with 3D Secure only",
+                    "helpText": "Transaction will not be accepted, if 3D Secure is unavailable."
                 }
             },
             "pui": {
@@ -682,7 +531,7 @@
                     "label": "Enable Smart Payment Buttons"
                 },
                 "spbButtonLanguageIso": {
-                    "label": "Button locale:",
+                    "label": "Button locale",
                     "helpText": "If not set, the sales channel language will be used."
                 },
                 "spbAlternativePaymentMethodsEnabled": {
@@ -720,6 +569,207 @@
             "messageWebhookCreated": "The webhook has been registered.",
             "messageWebhookUpdated": "The webhook has been updated.",
             "messageWebhookError": "The webhook could not be saved. The following errors occurred:"
+        }
+    },
+    "swag-paypal-frw-credentials": {
+        "buttonGetCredentials": "Get API credentials",
+        "textIntroPayPal": "To get PayPal up and running you only need to provide your PayPal API credentials.",
+        "labelClientId": "Client ID",
+        "labelClientSecret": "Client secret",
+        "labelMerchantPayerId": "PayPal Merchant ID",
+        "labelClientIdSandbox": "Sandbox client ID",
+        "labelClientSecretSandbox": "Sandbox client secret",
+        "labelMerchantPayerIdSandbox": "Sandbox PayPal Merchant ID",
+        "labelSandbox": "Use sandbox",
+        "tooltipSandbox": "Depending on activation of the sandbox, separate credentials are saved.",
+        "labelSetDefault": "Set as default payment method",
+        "tooltipSetDefault": "PayPal will be set as default payment method of all Sales Channels. You can set individual default payment methods per Sales Channel in the settings module.",
+        "messageFetchedError": "Try again or use the advanced settings to provide your credentials.",
+        "textFetchedSuccessful": "Credentials have been fetched.",
+        "messageNoCredentials": "No credentials provided.",
+        "messageTestSuccess": "Credentials are valid."
+    },
+    "swag-paypal-settings-shipping-carrier": {
+        "cardTitle": "Default shipping carrier",
+        "cardHelpText": "Tracking information will be sent to PayPal",
+        "description": "PayPal offers tracking for orders processed through PayPal. To use this, specify a default shipping carrier, which can be overwritten in the orders. Find a list of all shipping providers <a target=\"_blank\" href=\"https://developer.paypal.com/docs/tracking/reference/carriers/\">here</a>",
+        "inputLabel": "Carrier code",
+        "inputPlaceholder": "Enter a PayPal carrier code (e.g. DHL_GLOBAL_ECOMMERCE)..."
+    },
+    "swag-paypal-payment": {
+        "general": {
+            "title": "Orders"
+        },
+        "tabs": {
+            "overview": "Overview"
+        },
+        "paymentDetails": {
+            "cardTitle": "Payment",
+            "invoice": {
+                "heading": "Invoice amount",
+                "totalAmount": "Total amount:",
+                "subTotal": "Subtotal:",
+                "shipping": "Shipping:",
+                "discount": "Discount:",
+                "handling": "Handling fee:",
+                "insurance": "Insurance:",
+                "shipping_discount": "Shipping discount:"
+            },
+            "payment": {
+                "heading": "Payment details",
+                "intent": "Intent:",
+                "paymentId": "Payment ID:",
+                "cartId": "Cart ID:",
+                "state": "State:",
+                "createTime": "Create time:",
+                "updateTime": "Update time:"
+            },
+            "customer": {
+                "heading": "Customer",
+                "payerId": "Payer ID:"
+            },
+            "error": {
+                "title": "Error fetching payment details from PayPal"
+            }
+        },
+        "transactionHistory": {
+            "cardTitle": "Payment History",
+            "states": {
+                "authorization": "Authorization",
+                "sale": "Sale",
+                "refund": "Refund",
+                "capture": "Capture",
+                "order": "Order"
+            },
+            "types": {
+                "type": "Type",
+                "amount": "Amount",
+                "createTime": "Created",
+                "updateTime": "Updated",
+                "state": "State",
+                "trackingId": "Tracking ID",
+                "transactionFee": "Transaction fee",
+                "paymentMode": "Payment mode"
+            }
+        },
+        "buttons": {
+            "label": {
+                "refund": "Create a new refund",
+                "capture": "Capture",
+                "void": "Cancel authorization"
+            }
+        },
+        "modal": {
+            "title": {
+                "refund": "New refund",
+                "capture": "Capture",
+                "void": "Cancel authorization"
+            }
+        },
+        "refundAction": {
+            "successMessage": "Your refund was successful.",
+            "invoiceSelect": {
+                "label": "Select capture"
+            },
+            "refundAmount": {
+                "label": "Amount",
+                "helpText": "An amount of '0' will cause the refund of the complete payment"
+            },
+            "refundDescription": {
+                "label": "Description",
+                "placeholder": "Enter a description"
+            },
+            "refundReason": {
+                "label": "Reason",
+                "placeholder": "Enter a reason"
+            },
+            "refundNoteToPayer": {
+                "label": "Note to payer",
+                "placeholder": "Enter a note to payer"
+            },
+            "refundInvoiceNumber": {
+                "label": "Invoice number",
+                "placeholder": "Enter an invoice number"
+            },
+            "confirmButton": {
+                "text": "Execute"
+            }
+        },
+        "captureAction": {
+            "successMessage": "Your capture was successful.",
+            "maxAmount": "Maximum amount",
+            "currentAmount": "Amount",
+            "captureInvoiceNumber": {
+                "label": "Invoice number",
+                "placeholder": "Enter an invoice number"
+            },
+            "captureNoteToPayer": {
+                "label": "Note to payer",
+                "placeholder": "Enter a note to payer"
+            },
+            "isFinal": "This is the final capture",
+            "isFinalHint": "Hint: Marked as final capture, although not the entire amount is to be captured.",
+            "button": {
+                "text": "Capture payment"
+            }
+        },
+        "voidAction": {
+            "successMessage": "The payment was successfully voided.",
+            "confirm": {
+                "message": "Do you really want to cancel this payment?",
+                "button": {
+                    "confirm": "Cancel authorization"
+                }
+            }
+        },
+        "errorPage": {
+            "title": "Payment details not available",
+            "canceledPaymentContent": "An error occurred while retrieving payment details from PayPal. If you see this message, it was probably a payment that was cancelled by the customer. Cancelled payments will be deleted by PayPal after a while and are then no longer available.",
+            "sandboxLiveContent": "An error occurred while retrieving payment details from PayPal. If you see this message, it was probably a payment that was created with sandbox enabled and has now been requested with live data, or vice versa. Correct your PayPal settings or delete test orders from the system.",
+            "other": "An error occurred while retrieving payment details from PayPal."
+        }
+    },
+    "sw-order-detail": {
+        "payPalCarrierLabel": "Default shipping carrier",
+        "payPalCarrierPlaceholder": "not set",
+        "payPalCarrierHelpText": "You can set and change the default shipping carrier for PayPal in the <a class=\"sw-internal-link sw-internal-link--inline\" href=\"#/sw/settings/shipping/index\">shipping methods<sw-icon name=\"regular-long-arrow-right\" small /></a>. However, this will have no effect on orders that have already been placed.",
+        "payPalCarrierDescription": "If you want to change the carrier for this PayPal order, <a target=\"_blank\" href=\"{orderLink}\">click here</a>"
+    },
+    "swag-paypal-disputes": {
+        "general": {
+            "mainMenuItemGeneral": "PayPal disputes",
+            "descriptionTextModule": "Manage PayPal disputes here"
+        },
+        "common": {
+            "dispute_id": "ID",
+            "update_time": "Update time",
+            "response_due_date": {
+                "label": "Response due date",
+                "seller": "Seller",
+                "buyer": "Buyer"
+            },
+            "status": "Status",
+            "dispute_life_cycle_stage": "Stage",
+            "dispute_amount": "Amount"
+        },
+        "list": {
+            "title": "Disputes",
+            "titleSidebarItemRefresh": "Refresh",
+            "titleSidebarItemFilter": "Filter",
+            "errorTitle": "Error fetching disputes from PayPal",
+            "emptyState": {
+                "title": "No disputes found",
+                "subline": "Change the filter to show all disputes."
+            }
+        },
+        "detail": {
+            "title": "PayPal dispute:",
+            "titleAddition": "(Technical details)",
+            "mainFieldsCardTitle": "Details",
+            "externalLinkText": "Open dispute in PayPal resolution center",
+            "orderModuleLinkText": "Open order",
+            "rawDataCardTitle": "Raw data",
+            "copyButtonLabel": "Copy raw data"
         }
     }
 }

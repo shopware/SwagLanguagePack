@@ -1,16 +1,26 @@
 {
+    "global": {
+        "error-codes": {
+            "ACTION_VALID_TO_VIOLATION": "Datum isteka radnje mora biti postavljen nakon početka radnje.",
+            "ACTION_DUPLICATE_NAME_VIOLATION": "Ovo ime je već korišteno u drugoj akciji.",
+            "ACTION_SEARCH_TERM_DUPLICATE_TERM_VIOLATION": "Izraz '{value}' je već korišten u drugoj akciji."
+        }
+    },
     "swag-enterprise-search": {
         "general": {
-            "mainMenuItemGeneral": "Shopware Enterprise pretraživanje",
-            "mainMenuEntry": "Shopware Enterprise pretraživanje"
+            "mainMenuItemGeneral": "Shopware Napredno pretraživanje",
+            "mainMenuEntry": "Shopware Napredno pretraživanje"
         },
         "index": {
-            "title": "Konfiguracija pretraživanja poduzeća",
+            "title": "Napredna konfiguracija pretraživanja",
             "buttonSave": "Sačuvajte",
             "entityConfigTitle": "Pregled",
             "previewSearchTitle": "Pregled",
             "relevanceTitle": "Relevantnosti",
-            "boostingTitle": "Povećanja"
+            "boostingTitle": "Povećanja",
+            "synonymsTitle": "Sinonimi",
+            "actionTitle": "Radnje",
+            "labelSalesChannelSelect": "Prodajni kanal"
         },
         "types": {
             "category": "Kategorija",
@@ -87,6 +97,34 @@
                 "placeholderOperatorSelect": "Odaberite operatora"
             }
         },
+        "synonyms": {
+            "title": "sinonimi",
+            "addsynonyms": "Novi sinonim",
+            "searchPlaceholder": "Traži sinonim",
+            "messageEmptyTitle": "Nema sinonima",
+            "messageEmptySubline": "Upravljanje sinonimima",
+            "columnHeaders": {
+                "name": "Ime",
+                "left": "Lijevo",
+                "right": "Pravo",
+                "language": "Jezik",
+                "synonym": "Sinonim"
+            },
+            "detail": {
+                "name": "Ime",
+                "synonym": "Sinonim",
+                "left": "Lijevo",
+                "right": "Pravo",
+                "newsynonym": "Novi sinonim",
+                "cancelModal": "Poništi"
+            },
+            "explanation": {
+                "sameTitle": "Jednaki sinonimi",
+                "same": "npr. “wifi, wlan, w-lan, bežična mreža” potpuno su jednaki i moraju se unijeti samo u kolonu “lijevo”",
+                "expandingTitle": "Definiranje sinonima",
+                "expanding": "npr. iPhone je također pametni telefon, ali nije svaki pametni telefon također iPhone. Takvi konstrukti se unose ovako: “lijevo”: “pametni telefon”, “desno”: “iphone, i-telefon, i telefon, pametni telefon”"
+            }
+        },
         "relevance": {
             "title": "Informacije koje se mogu pretraživati",
             "cancelModal": "Odustani",
@@ -121,6 +159,46 @@
                     "notEqualsAny": "Nije jednak bilo kojem od",
                     "notContains": "Ne sadrži",
                     "range": "Raspon"
+                }
+            }
+        },
+        "action": {
+            "title": "Radnje",
+            "addAction": "Dodaj akciju",
+            "searchPlaceholder": "Pretraga Akcija",
+            "messageEmptyTitle": "Još nema radnji",
+            "messageEmptySubline": "Upravljajte radnjama ovdje.",
+            "columnHeaders": {
+                "name": "Ime",
+                "type": "Vrsta",
+                "active": "Aktivan",
+                "validFrom": "Aktivno od",
+                "validTo": "Aktivno"
+            },
+            "detail": {
+                "action": "Radnja",
+                "searchTerms": "Pojmovi za pretraživanje",
+                "name": "Ime",
+                "active": "Aktivan",
+                "validFrom": "Aktivno od",
+                "validTo": "Aktivno",
+                "type": "Vrsta",
+                "typePlaceholder": "Odaberite vrstu...",
+                "cancelModal": "Poništi",
+                "newAction": "Nova akcija"
+            },
+            "type": {
+                "forwardUrl": {
+                    "title": "Proslijedi URL",
+                    "url": "URL"
+                },
+                "forwardProduct": {
+                    "title": "Naprijed proizvoda",
+                    "product": "Proizvod"
+                },
+                "forwardCategory": {
+                    "title": "Naprijed Kategorija",
+                    "category": "Kategorija"
                 }
             }
         }

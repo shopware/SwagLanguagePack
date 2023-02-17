@@ -69,6 +69,7 @@
         "DateLabel": "Ημερομηνία",
         "OrderNumberLabel": "Αριθμός παραγγελίας",
         "CustomOrderNumberLabel": "Προσαρμοσμένος αριθμός παραγγελίας",
+        "CategoryError": "Δεν επιτρέπεται να παραγγείλετε προϊόντα από την κατηγορία \"%allowedValue%\".",
         "CustomerLabel": "Πελάτης",
         "CustomOrderReferenceNumberHelpText": "Εκχωρήστε έναν μοναδικό αριθμό αναφοράς για να ταιριάζει με αυτή τη σειρά με μια μονάδα κόστους",
         "ContingentManagement": "Ενδεχόμενη διαχείριση",
@@ -652,6 +653,9 @@
         "TheCustomOrderNumberValueWasCreated": "Ο προσαρμοσμένος αριθμός σειράς \"%value%\" έχει δημιουργηθεί.",
         "TheCustomOrderNumberValueWasUpdated": "Ο προσαρμοσμένος αριθμός σειράς \"%value%\" έχει ενημερωθεί.",
         "EmptyListOrderNumber": "Δεν υπάρχουν ακόμα αποτελέσματα. Μπορείτε να προσθέσετε τον πρώτο προσαρμοσμένο αριθμό παραγγελίας αναζητώντας ένα προϊόν ή ανεβάζοντας ένα αρχείο.",
+        "ThisvaluevalueisalreadyusedLineline": "Αυτή η τιμή \"%value%\" χρησιμοποιείται ήδη (Γραμμή \"%line%\").",
+        "ThisvaluevaluemustnotcontainspecialcharsLineline": "Αυτή η τιμή \"%value%\" δεν πρέπει να περιέχει ειδικούς χαρακτήρες (Γραμμή \"%line%\").",
+        "ThisvaluevalueisnotavailableLineline": "Αυτή η τιμή \"%value%\" δεν είναι διαθέσιμη (Γραμμή \"%line%\").",
         "Thisvaluevalueisnotavailable": "Αυτή η τιμή \"%value%\" δεν είναι διαθέσιμη.",
         "absolute_discount": "Απόλυτη έκπτωση",
         "percentage_discount": "εκατοστιαία έκπτωση",
@@ -661,7 +665,8 @@
     "checkout": {
         "b2b": {
             "cart-clearance-block": "Η τρέχουσα παραγγελία σας υπόκειται σε εξουσιοδότηση.",
-            "cart-in-stock-block": "Μια παραγγελία δεν είναι δυνατή λόγω ανεπαρκών αποθεμάτων."
+            "cart-in-stock-block": "Μια παραγγελία δεν είναι δυνατή λόγω ανεπαρκών αποθεμάτων.",
+            "ProductHasNotEnoughStocks": "Το προϊόν \"%name%\" με αναγνωριστικό \"%id%\" δεν έχει αρκετά αποθέματα."
         }
     },
     "error": {
@@ -674,8 +679,10 @@
             "ProductNumberAllowanceError": "Μπορείτε να παραγγείλετε μόνο τα παρακάτω προϊόντα: \"%allowedValue%»",
             "ProductPriceError": "Δεν σας επιτρέπεται να αγοράσετε ένα προϊόν, που είναι ακριβότερο από %allowedValue%.",
             "BudgetSpendError": "Ο προϋπολογισμός δεν διαθέτει επαρκείς πόρους.",
+            "CategoryError": "Δεν επιτρέπεται να παραγγείλετε προϊόντα από την κατηγορία \"%allowedValue%\".",
             "OrderQuantityError": "Επιτρέπεται μόνο να τοποθετείτε %allowedValue% παραγγελίες κάθε %timeRestriction%.",
-            "OrderItemQuantityError": "Επιτρέπεται μόνο να παραγγείλετε %allowedValue% προϊόντα το καθένα %timeRestriction%."
+            "OrderItemQuantityError": "Επιτρέπεται μόνο να παραγγείλετε %allowedValue% προϊόντα το καθένα %timeRestriction%.",
+            "ProductHasNotEnoughStocks": "Το προϊόν \"%name%\" με αναγνωριστικό \"%id%\" δεν έχει αρκετά αποθέματα."
         }
     }
 }

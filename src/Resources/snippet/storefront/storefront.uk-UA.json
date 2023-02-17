@@ -36,7 +36,8 @@
         "sortingLabel": "Сортування",
         "next": "Наступна",
         "previous": "Попередня",
-        "formSubmit": "Надіслати"
+        "formSubmit": "Надіслати",
+        "listPricePreviously": "попередня ціна %price%"
     },
     "header": {
         "logoLink": "Перейти на домашню сторінку",
@@ -329,7 +330,7 @@
         "removeLineItem": "Вилучити продукт",
         "subtotalAmount": "Субтотальний",
         "summaryHeader": "Короткий зміст",
-        "lineItemContainerHeadline": "Містить",
+        "lineItemContainerHeadline": "Пакет продуктів містить",
         "lineItemContainerChangeLink": "змінити",
         "lineItemShowMore": "більше",
         "lineItemShowLess": "менше",
@@ -396,22 +397,31 @@
         "purchase-steps-quantity": "Товар «%name%» не доступний в цій кількості. Кількість змінено на %quantity%",
         "min-order-quantity": "Кількість товару «%name%\" не відповідала мінімальному порогу кількості замовлення. Кількість автоматично збільшена до %quantity%.",
         "shipping-method-blocked": "Спосіб доставки «%name%» заблоковано для вашого поточного кошика.",
+        "shipping-method-changed": "Доставка \"%oldShippingMethodName%\" недоступна для вашого поточного кошика, відправка була змінена на \"%newShippingMethodName%\".",
         "payment-method-blocked": "Спосіб оплати «%name%» заблоковано для вашого поточного кошика.",
+        "payment-method-changed": "Оплата «%oldPaymentMethodName%\" недоступна для вашого поточного кошика, платіж був змінений на \"%newPaymentMethodName%».",
         "lineItemDeliveryDate": "Термін доставки: %earliest% - %latest%",
         "promotion-discount-deleted": "Знижка «%name%» знята",
         "promotion-discount-added": "Додано знижку «%name%»",
         "promotion-not-found": "Акцію з кодом «%code%» знайти не вдалося.",
         "auto-promotion-not-found": "Акція «%name%» більше не діє!",
         "promotion-not-eligible": "Промокод дійсний - однак, не всі умови були дотримані і знижка не застосовувалася. Після виконання всіх умов знижка буде застосована автоматично.",
+        "promotion-excluded": "Одна або кілька знижок були зняті з кошика через конфлікти з іншими знижками. Після повторного виконання умов знижки будуть застосовані автоматично.",
         "shipping-address-blocked": "Доставка на обрану адресу доставки в даний час неможлива.",
         "billing-address-blocked": "Виставлення рахунків за обраною адресою неможливе.",
+        "shipping-address-invalid": "Обрана адреса доставки не є дійсною або неповною. Будь ласка, перевірте свої записи.",
+        "billing-address-invalid": "Обрана адреса для виставлення рахунків не є дійсною або неповною. Будь ласка, перевірте свої записи.",
         "customerCommentHeader": "Додаткова інформація",
         "customerCommentLabel": "Хочете розповісти нам що-небудь про своє замовлення?",
         "customerCommentPlaceholder": "Коментар тут...",
         "cart-merged-hint": "Поточний кошик може містити додаткові продукти, які були додані та збережені під час попереднього відвідування.",
         "collapseTriggerMore": "Показати ще",
         "collapseTriggerLess": "Показати менше",
-        "product-not-found": "Товар не вдалося знайти."
+        "product-not-found": "Товар не вдалося знайти.",
+        "salutation-missing": "У вашому профілі відсутня привітання, будь ласка, виберіть його під час оформлення замовлення.",
+        "salutation-missing-profile": "У вашому профілі не налаштовано привітання, будь ласка, встановіть один <a href=\"%url%\">тут</a>.",
+        "salutation-missing-billing-address": "Немає привітання налаштовано для вашої активної платіжної адреси, будь ласка, встановіть один <a href=\"%url%\">тут</a>.",
+        "salutation-missing-shipping-address": "Там немає привітання налаштований для вашої активної адреси доставки, будь ласка, встановіть один <a href=\"%url%\">тут</a>."
     },
     "listing": {
         "filterTitleText": "Фільтр",
@@ -435,6 +445,10 @@
         "filterRatingAndMore": "хв. %points%/%maxPoints%",
         "filterRangeMinLabel": "Мінімум",
         "filterRangeMaxLabel": "Максимум",
+        "filterRangeActiveMinLabel": "%displayName% з",
+        "filterRangeActiveMaxLabel": "%displayName% до",
+        "filterRangeErrorMessage": "Мінімальне значення не може бути вище максимального значення.",
+        "filterRangeLowerBoundErrorMessage": "Мінімальне і максимальне значення повинні бути більше або дорівнювати %lowerBound%.",
         "filterSubmitText": "Фільтр",
         "defaultProductSortingLabel": "Назва, за зростанням",
         "disabledFilterTooltip": "Цей фільтр не відображає жодних подальших результатів у поєднанні з вибраними фільтрами.",
@@ -470,6 +484,7 @@
         "subjectPlaceholder": "Введіть тему...",
         "commentLabel": "Коментар",
         "commentPlaceholder": "Введіть коментар...",
+        "privacyNotice": "Вибравши продовжити, ви підтверджуєте, що прочитали та погоджуєтесь з нашою <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%privacyUrl%\" href=\"%privacyUrl%\" title=\"Data protection information\">інформацією про захист даних</a>.",
         "formSubmit": "Надіслати",
         "success": "Ми отримали ваш контактний запит і обробимо його якомога швидше."
     },
@@ -540,6 +555,7 @@
         "headline": "Ваш список бажань",
         "itemDeleteSuccess": "Ви успішно вилучили продукт зі списку побажань.",
         "itemAddedSuccess": "Ви успішно додали товар до списку бажань.",
+        "duplicateItemError": "Товар вже доданий до списку бажань.",
         "currentlyNotAvailable": "В даний час недоступний",
         "manufacturerDisplayName": "Виробник",
         "deliveryTimeAvailable": "В наявності, час доставки %name%",
@@ -547,7 +563,8 @@
         "wishlistMergeHint": "Ваш список бажань може містити продукти, які було додано та збережено під час попереднього відвідування.",
         "wishlistEmptyHeader": "Ваш список побажань порожній",
         "wishlistEmptyDescription": "Слідкуйте за продуктами, які вам подобаються, додаючи їх до списку бажань.",
-        "deliveryTimeRestock": "{1} Доступно через 1 день, термін доставки %name%|] 1, Inf [Доступно через %restockTime% дні, час доставки %name%"
+        "deliveryTimeRestock": "{1} Доступно через 1 день, термін доставки %name%|] 1, Inf [Доступно через %restockTime% дні, час доставки %name%",
+        "deliveryShipping": "Цей продукт буде випущений на"
     },
     "footer": {
         "serviceHotlineHeadline": "Послуга «гаряча лінія»",
@@ -555,14 +572,21 @@
         "informationHeadline": "Інформація",
         "newsletterHeadline": "Інформаційний бюлетень",
         "serviceHotline": "Підтримка та консультування через: <a href=\"tel:+49180000000\">0180 - 000000</a> Пн-Пт, 9 ранку - 5 м",
+        "serviceContactLink": "Або через наш <a data-bs-toggle=\"modal\" data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"contact form\">контактну форму</a>.",
         "newsletterInput": "Ваша адреса електронної пошти",
         "newsletter": "Підпишіться на наш регулярний інформаційний бюлетень зараз, щоб слідкувати за останніми продуктами та спеціальними пропозиціями.",
+        "includeVat": "* Усі ціни з ПДВ плюс <a data-toggle=\"modal\" data-bs-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">вартість доставки</a> та можливі витрати на доставку, якщо не вказано інше.",
+        "excludeVat": "* Всі ціни без. ПДВ плюс <a data-toggle=\"modal\" data-bs-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">вартість доставки</a> і можливі витрати на доставку, якщо не вказано інше.",
         "copyrightInfo": "Реалізовано за допомогою магазинів"
     },
     "captcha": {
+        "googleReCaptcha": {
+            "dataProtectionInformation": "Цей сайт захищений reCAPTCHA та застосовуються Політика конфіденційності Google <a href=\"https://policies.google.com/privacy\"></a> та <a href=\"https://policies.google.com/terms\">Умови надання послуг</a> ."
+        },
         "basicCaptchaLabel": "Будь ласка, введіть символи, показані вище*"
     },
     "cookie": {
+        "message": "Цей веб-сайт використовує файли cookie, щоб забезпечити найкращий досвід. <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"More information\">Більше інформації...</a>",
         "deny": "Відхилити",
         "configure": "Налаштувати",
         "configuration": "Налаштування",
@@ -574,6 +598,7 @@
         "groupRequiredSession": "Сесія",
         "groupRequiredCsrf": "Захист від CSRF",
         "groupRequiredTimezone": "Часовий пояс",
+        "groupRequiredCaptcha": "Інтеграція з капчі",
         "groupStatistical": "Статистика",
         "groupStatisticalDescription": "Файли cookie, що використовуються для статистики та показників ефективності магазину.",
         "groupStatisticalGoogleAnalytics": "Google Аналітика",
@@ -589,6 +614,7 @@
             "feature": {
                 "label": {
                     "manufacturerNumber": "Номер виробника:",
+                    "ean": "ГТИН/EAN:",
                     "weight": "Вага:",
                     "width": "Ширина:",
                     "height": "Висота:",
@@ -605,7 +631,42 @@
         },
         "cms": {
             "vimeo": {
+                "privacyNotice": "Переглядаючи відео, ви погоджуєтеся, що ваші дані будуть передані до %platform% і що ви прочитали <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Privacy policy\">Політика конфіденційності</a>.",
                 "acceptButtonLabel": "Прийняти"
+            },
+            "defaultMedia": {
+                "preview_camera_large": {
+                    "title": "Камера",
+                    "alt": "Урожай Kodak фотоапарат з шкіряною оболонкою і ремінцем"
+                },
+                "preview_camera_small": {
+                    "title": "Камера",
+                    "alt": "Урожай Kodak фотоапарат з шкіряною оболонкою і ремінцем"
+                },
+                "preview_glasses_large": {
+                    "title": "Сонцезахисні окуляри",
+                    "alt": "Сонцезахисні окуляри із золотим каркасом на відбиваючій"
+                },
+                "preview_glasses_small": {
+                    "title": "Сонцезахисні окуляри",
+                    "alt": "Сонцезахисні окуляри із золотим каркасом на відбиваючій"
+                },
+                "preview_mountain_large": {
+                    "title": "Засніжені гори",
+                    "alt": "Скелясті гірські гряди з засніженими"
+                },
+                "preview_mountain_small": {
+                    "title": "Засніжені гори",
+                    "alt": "Скелясті гірські гряди з засніженими"
+                },
+                "preview_plant_large": {
+                    "title": "Завод",
+                    "alt": "Соковиті в білому горщику перед світло-блакитним фоном"
+                },
+                "preview_plant_small": {
+                    "title": "Завод",
+                    "alt": "Соковиті в білому горщику перед світло-блакитним фоном"
+                }
             }
         }
     }

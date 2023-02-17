@@ -36,7 +36,8 @@
         "sortingLabel": "Razvrstavanje",
         "next": "Dalje",
         "previous": "Prethodno",
-        "formSubmit": "Pošalji"
+        "formSubmit": "Pošalji",
+        "listPricePreviously": "prethodno %price%"
     },
     "header": {
         "logoLink": "Idi na početnu stranicu",
@@ -329,7 +330,7 @@
         "removeLineItem": "Ukloniti proizvod",
         "subtotalAmount": "Suma stavki",
         "summaryHeader": "Sažetak",
-        "lineItemContainerHeadline": "Sadrži",
+        "lineItemContainerHeadline": "Paket proizvoda sadrži",
         "lineItemContainerChangeLink": "promijenite",
         "lineItemShowMore": "još",
         "lineItemShowLess": "manje",
@@ -444,6 +445,10 @@
         "filterRatingAndMore": "Minimalno %points%/%maxPoints%",
         "filterRangeMinLabel": "Minimalno",
         "filterRangeMaxLabel": "Maksimalno",
+        "filterRangeActiveMinLabel": "%displayName% od",
+        "filterRangeActiveMaxLabel": "%displayName% do",
+        "filterRangeErrorMessage": "Minimalna vrijednost ne može biti veća od maksimalne vrijednosti.",
+        "filterRangeLowerBoundErrorMessage": "Minimalna i maksimalna vrijednost mora biti veća ili jednaka %lowerBound%.",
         "filterSubmitText": "Filter",
         "defaultProductSortingLabel": "Ime, uzlazno",
         "disabledFilterTooltip": "Ovaj filtar ne prikazuje daljnje rezultate u kombinaciji s odabranim filterima.",
@@ -479,6 +484,7 @@
         "subjectPlaceholder": "Unesite predmet...",
         "commentLabel": "Komentar",
         "commentPlaceholder": "Unesite komentar...",
+        "privacyNotice": "Odabirom Nastavi potvrđujete da ste pročitali i slažete se s našim <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%privacyUrl%\" href=\"%privacyUrl%\" title=\"Data protection information\">informacijama o zaštiti podataka</a>.",
         "formSubmit": "Podnijeti",
         "success": "Primili smo vaš zahtjev za kontakt i obradit ćemo ga u najkraćem mogućem roku."
     },
@@ -549,6 +555,7 @@
         "headline": "Vaša lista želja",
         "itemDeleteSuccess": "Uspješno ste uklonili proizvod sa svoje liste želja.",
         "itemAddedSuccess": "Uspješno ste dodali proizvod na svoju listu želja.",
+        "duplicateItemError": "Proizvod je već dodan na vašu listu želja.",
         "currentlyNotAvailable": "Trenutačno nije dostupno",
         "manufacturerDisplayName": "Proizvođač",
         "deliveryTimeAvailable": "Dostupno, vrijeme dostave %name%",
@@ -556,7 +563,8 @@
         "wishlistMergeHint": "Vaša lista želja može sadržavati proizvode koji su dodani i spremljeni tijekom prethodnog posjeta.",
         "wishlistEmptyHeader": "Vaša lista želja je prazna",
         "wishlistEmptyDescription": "Pratite proizvode koji vam se sviđaju dodavanjem na vašu listu želja.",
-        "deliveryTimeRestock": "{1} Dostupan u 1 danu, vrijeme isporuke %name%|] 1, Inf [Dostupan u %restockTime% dana, vrijeme isporuke %name%"
+        "deliveryTimeRestock": "{1} Dostupan u 1 danu, vrijeme isporuke %name%|] 1, Inf [Dostupan u %restockTime% dana, vrijeme isporuke %name%",
+        "deliveryShipping": "Ovaj će proizvod biti objavljen dana"
     },
     "footer": {
         "serviceHotlineHeadline": "Uslužna linija",
@@ -564,14 +572,21 @@
         "informationHeadline": "Informacije",
         "newsletterHeadline": "Newsletter",
         "serviceHotline": "Podrška i savjetovanje putem: <a href=\"tel:+49180000000\">0180 - 000000</a> Pon-Pet, 09:00-17:00",
+        "serviceContactLink": "Ili putem našeg <a data-bs-toggle=\"modal\" data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"contact form\">kontakt obrasca</a>.",
         "newsletterInput": "Vaša e-mail adresa",
         "newsletter": "Pretplatite se na naš redovni newsletter odmah da biste pratili najnovije proizvode i posebne ponude.",
+        "includeVat": "* Sve cijene s PDV-om plus <a data-toggle=\"modal\" data-bs-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">troškovi dostave</a> i mogući troškovi dostave, ako nije drugačije navedeno.",
+        "excludeVat": "* Sve cijene bez PDV plus <a data-toggle=\"modal\" data-bs-toggle=\"modal\" href=\"%url%\" data-url=\"%url%\">troškovi dostave</a> i mogući troškovi dostave, ako nije drugačije navedeno.",
         "copyrightInfo": "Realizirano sa Shopwareom"
     },
     "captcha": {
+        "googleReCaptcha": {
+            "dataProtectionInformation": "Ova stranica zaštićena je reCAPTCHA i primjenjuju se Google <a href=\"https://policies.google.com/privacy\">Pravila o privatnosti</a> i <a href=\"https://policies.google.com/terms\">Uvjeti pružanja usluge</a> ."
+        },
         "basicCaptchaLabel": "Molimo unesite gore navedene znakove"
     },
     "cookie": {
+        "message": "Ova web stranica koristi kolačiće kako bi se osiguralo najbolje moguće iskustvo. <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"More information\">Više informacija...</a>",
         "deny": "Odbij",
         "configure": "Prilagodi",
         "configuration": "Postavke",
@@ -583,6 +598,7 @@
         "groupRequiredSession": "Sesija",
         "groupRequiredCsrf": "CSRF zaštita",
         "groupRequiredTimezone": "Vremenska zona",
+        "groupRequiredCaptcha": "CAPTCHA integracija",
         "groupStatistical": "Statistika",
         "groupStatisticalDescription": "Kolačići koji se koriste za statistiku i metriku performansa trgovine.",
         "groupStatisticalGoogleAnalytics": "Google Analytics",
@@ -598,6 +614,7 @@
             "feature": {
                 "label": {
                     "manufacturerNumber": "Broj proizvođača:",
+                    "ean": "GTIN/EAN:",
                     "weight": "Težina:",
                     "width": "Širina:",
                     "height": "Visina:",
@@ -614,7 +631,42 @@
         },
         "cms": {
             "vimeo": {
+                "privacyNotice": "Pregledavanjem videozapisa slažete se da će vaši podaci biti preneseni na %platform% i da ste pročitali <a data-toggle=\"modal\" data-bs-toggle=\"modal\" data-url=\"%url%\" href=\"%url%\" title=\"Privacy policy\">Pravila o privatnosti</a>.",
                 "acceptButtonLabel": "Prihvati"
+            },
+            "defaultMedia": {
+                "preview_camera_large": {
+                    "title": "Kamera",
+                    "alt": "Vintage kodak fotoaparat s kožnim omotačem i remenom"
+                },
+                "preview_camera_small": {
+                    "title": "Kamera",
+                    "alt": "Vintage kodak fotoaparat s kožnim omotačem i remenom"
+                },
+                "preview_glasses_large": {
+                    "title": "Sunčane naočale",
+                    "alt": "Sunčane naočale zlatnog okvira na reflektirajućoj mramornoj površini"
+                },
+                "preview_glasses_small": {
+                    "title": "Sunčane naočale",
+                    "alt": "Sunčane naočale zlatnog okvira na reflektirajućoj mramornoj površini"
+                },
+                "preview_mountain_large": {
+                    "title": "Snijegom prekrivene planine",
+                    "alt": "Stjenoviti planinski greben sa snijegom prekrivenim vrhovima"
+                },
+                "preview_mountain_small": {
+                    "title": "Snijegom prekrivene planine",
+                    "alt": "Stjenoviti planinski greben sa snijegom prekrivenim vrhovima"
+                },
+                "preview_plant_large": {
+                    "title": "Biljni",
+                    "alt": "Sočan u bijelom loncu ispred svijetlo plavoj pozadini"
+                },
+                "preview_plant_small": {
+                    "title": "Biljni",
+                    "alt": "Sočan u bijelom loncu ispred svijetlo plavoj pozadini"
+                }
             }
         }
     }

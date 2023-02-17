@@ -1,16 +1,25 @@
 {
+    "global": {
+        "error-codes": {
+            "ACTION_VALID_TO_VIOLATION": "작업의 만료 날짜는 작업 시작 이후에 설정해야 합니다.",
+            "ACTION_DUPLICATE_NAME_VIOLATION": "이 이름은 이미 다른 작업에 사용되었습니다."
+        }
+    },
     "swag-enterprise-search": {
         "general": {
-            "mainMenuItemGeneral": "쇼핑웨어 기업 검색",
-            "mainMenuEntry": "쇼핑웨어 기업 검색"
+            "mainMenuItemGeneral": "샵웨어 고급 검색",
+            "mainMenuEntry": "샵웨어 고급 검색"
         },
         "index": {
-            "title": "엔터프라이즈 검색 구성",
+            "title": "고급 검색 구성",
             "buttonSave": "저장",
             "entityConfigTitle": "개요",
             "previewSearchTitle": "시사",
             "relevanceTitle": "관련성",
-            "boostingTitle": "부스팅"
+            "boostingTitle": "부스팅",
+            "synonymsTitle": "동의어",
+            "actionTitle": "동작",
+            "labelSalesChannelSelect": "판매 채널"
         },
         "types": {
             "category": "카테고리",
@@ -87,6 +96,34 @@
                 "placeholderOperatorSelect": "연산자 선택"
             }
         },
+        "synonyms": {
+            "title": "동의어",
+            "addsynonyms": "새 동의어",
+            "searchPlaceholder": "동의어 검색",
+            "messageEmptyTitle": "동의어 없음",
+            "messageEmptySubline": "동의어 관리",
+            "columnHeaders": {
+                "name": "이름",
+                "left": "왼쪽",
+                "right": "오른쪽",
+                "language": "언어",
+                "synonym": "동의어"
+            },
+            "detail": {
+                "name": "이름",
+                "synonym": "동의어",
+                "left": "왼쪽",
+                "right": "오른쪽",
+                "newsynonym": "새 동의어",
+                "cancelModal": "취소"
+            },
+            "explanation": {
+                "sameTitle": "동일한 동의어",
+                "same": "예: “Wi-Fi, WLAN, w-lan, 무선 네트워크”는 완전히 동일하며 “왼쪽” 열에만 입력해야 합니다.",
+                "expandingTitle": "동의어 정의",
+                "expanding": "예를 들어, 아이폰도 스마트폰이지만, 모든 스마트폰이 아이폰이기도 한 것은 아닙니다.이러한 구문은 다음과 같이 입력됩니다: “왼쪽”: “스마트 폰”, “오른쪽”: “아이폰, 아이폰, 아이폰, 아이폰, 스마트 폰”"
+            }
+        },
         "relevance": {
             "title": "검색 가능한 정보",
             "cancelModal": "취소",
@@ -121,6 +158,46 @@
                     "notEqualsAny": "중 하나와 동일하지 않습니다",
                     "notContains": "포함하지 않음",
                     "range": "범위"
+                }
+            }
+        },
+        "action": {
+            "title": "동작",
+            "addAction": "액션 추가",
+            "searchPlaceholder": "검색 액션",
+            "messageEmptyTitle": "아직 조치가 없습니다",
+            "messageEmptySubline": "여기에서 액션을 관리하세요.",
+            "columnHeaders": {
+                "name": "이름",
+                "type": "유형",
+                "active": "활성",
+                "validFrom": "에서 활성",
+                "validTo": "활성 상태"
+            },
+            "detail": {
+                "action": "액션",
+                "searchTerms": "검색어",
+                "name": "이름",
+                "active": "활성",
+                "validFrom": "에서 활성",
+                "validTo": "활성 상태",
+                "type": "유형",
+                "typePlaceholder": "유형 선택...",
+                "cancelModal": "취소",
+                "newAction": "새 액션"
+            },
+            "type": {
+                "forwardUrl": {
+                    "title": "전달 URL",
+                    "url": "URL"
+                },
+                "forwardProduct": {
+                    "title": "포워드 제품",
+                    "product": "제품"
+                },
+                "forwardCategory": {
+                    "title": "포워드 카테고리",
+                    "category": "카테고리"
                 }
             }
         }

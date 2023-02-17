@@ -1,16 +1,26 @@
 {
+    "global": {
+        "error-codes": {
+            "ACTION_VALID_TO_VIOLATION": "Datum vypršení platnosti akce musí být stanoveno po zahájení akce.",
+            "ACTION_DUPLICATE_NAME_VIOLATION": "Tento název již byl použit v jiné akci.",
+            "ACTION_SEARCH_TERM_DUPLICATE_TERM_VIOLATION": "Termín „{value}“ již byl použit v jiné akci."
+        }
+    },
     "swag-enterprise-search": {
         "general": {
-            "mainMenuItemGeneral": "Podnikové vyhledávání v obchodě",
-            "mainMenuEntry": "Podnikové vyhledávání v obchodě"
+            "mainMenuItemGeneral": "Shopware Pokročilé vyhledávání",
+            "mainMenuEntry": "Shopware Pokročilé vyhledávání"
         },
         "index": {
-            "title": "Konfigurace podnikového vyhledávání",
+            "title": "Konfigurace pokročilého vyhledávání",
             "buttonSave": "Uložit",
             "entityConfigTitle": "Přehled",
             "previewSearchTitle": "Náhled",
             "relevanceTitle": "Relevance",
-            "boostingTitle": "Posilování"
+            "boostingTitle": "Posilování",
+            "synonymsTitle": "Synonyma",
+            "actionTitle": "Akce",
+            "labelSalesChannelSelect": "Prodejní kanál"
         },
         "types": {
             "category": "Kategorie",
@@ -87,6 +97,34 @@
                 "placeholderOperatorSelect": "Vyberte operátora"
             }
         },
+        "synonyms": {
+            "title": "synonyma",
+            "addsynonyms": "Nové synonymum",
+            "searchPlaceholder": "Vyhledat synonymum",
+            "messageEmptyTitle": "Žádná synonyma",
+            "messageEmptySubline": "Správa synonym",
+            "columnHeaders": {
+                "name": "Název",
+                "left": "Vlevo",
+                "right": "Pravá",
+                "language": "Jazyk",
+                "synonym": "Synonymum"
+            },
+            "detail": {
+                "name": "Název",
+                "synonym": "Synonymum",
+                "left": "Vlevo",
+                "right": "Pravá",
+                "newsynonym": "Nové synonymum",
+                "cancelModal": "Přerušit"
+            },
+            "explanation": {
+                "sameTitle": "Stejná synonyma",
+                "same": "např. „wifi, wlan, w-lan, bezdrátová síť“ jsou zcela stejné a musí být zadány pouze ve sloupci „left“",
+                "expandingTitle": "Definování synonym",
+                "expanding": "např. iPhone je také chytrý telefon, ale ne každý smartphone je také iPhone. Takové konstrukty jsou zadány takto: „vlevo“: „smartphone“, „vpravo“: „iphone, i-phone, i telefon, smartphone“"
+            }
+        },
         "relevance": {
             "title": "Informace, které lze prohledávat",
             "cancelModal": "Zrušit",
@@ -121,6 +159,46 @@
                     "notEqualsAny": "se nerovná žádné z",
                     "notContains": "Neobsahuje",
                     "range": "Rozsah"
+                }
+            }
+        },
+        "action": {
+            "title": "Akce",
+            "addAction": "Přidat akci",
+            "searchPlaceholder": "Hledat Akce",
+            "messageEmptyTitle": "Zatím žádné akce",
+            "messageEmptySubline": "Zde můžete spravovat akce.",
+            "columnHeaders": {
+                "name": "Název",
+                "type": "Typ",
+                "active": "Aktivní",
+                "validFrom": "Aktivní od",
+                "validTo": "Aktivní do"
+            },
+            "detail": {
+                "action": "Akce",
+                "searchTerms": "Vyhledávací výrazy",
+                "name": "Název",
+                "active": "Aktivní",
+                "validFrom": "Aktivní od",
+                "validTo": "Aktivní do",
+                "type": "Typ",
+                "typePlaceholder": "Vyberte typ...",
+                "cancelModal": "Přerušit",
+                "newAction": "Nová akce"
+            },
+            "type": {
+                "forwardUrl": {
+                    "title": "Adresa URL pro předání",
+                    "url": "URL"
+                },
+                "forwardProduct": {
+                    "title": "Vpřed produkt",
+                    "product": "Výrobek"
+                },
+                "forwardCategory": {
+                    "title": "Kategorie vpřed",
+                    "category": "Kategorie"
                 }
             }
         }

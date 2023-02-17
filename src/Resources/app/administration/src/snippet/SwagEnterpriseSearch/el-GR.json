@@ -1,16 +1,26 @@
 {
+    "global": {
+        "error-codes": {
+            "ACTION_VALID_TO_VIOLATION": "Η ημερομηνία λήξης της ενέργειας πρέπει να οριστεί μετά την έναρξη της ενέργειας.",
+            "ACTION_DUPLICATE_NAME_VIOLATION": "Αυτό το όνομα έχει ήδη χρησιμοποιηθεί σε άλλη ενέργεια.",
+            "ACTION_SEARCH_TERM_DUPLICATE_TERM_VIOLATION": "Ο όρος «{value}» έχει ήδη χρησιμοποιηθεί σε άλλη δράση."
+        }
+    },
     "swag-enterprise-search": {
         "general": {
-            "mainMenuItemGeneral": "Αναζήτηση επιχειρήσεων καταστημάτων",
-            "mainMenuEntry": "Αναζήτηση επιχειρήσεων καταστημάτων"
+            "mainMenuItemGeneral": "Προχωρημένη αναζήτηση σε καταστήματα",
+            "mainMenuEntry": "Προχωρημένη αναζήτηση σε καταστήματα"
         },
         "index": {
-            "title": "Ρύθμιση παραμέτρων εταιρικής αναζήτησης",
+            "title": "Ρύθμιση παραμέτρων αναζήτησης για προχωρημένους",
             "buttonSave": "Αποθηκεύστε",
             "entityConfigTitle": "Επισκόπηση",
             "previewSearchTitle": "Προεπισκόπηση",
             "relevanceTitle": "Σχέσεις",
-            "boostingTitle": "Ενισχυτικές"
+            "boostingTitle": "Ενισχυτικές",
+            "synonymsTitle": "Συνώνυμα",
+            "actionTitle": "Ενέργειες",
+            "labelSalesChannelSelect": "Κανάλι Πωλήσεων"
         },
         "types": {
             "category": "Κατηγορία",
@@ -87,6 +97,34 @@
                 "placeholderOperatorSelect": "Επιλογή τελεστή"
             }
         },
+        "synonyms": {
+            "title": "συνώνυμα",
+            "addsynonyms": "Νέο συνώνυμο",
+            "searchPlaceholder": "Αναζήτηση συνώνυμο",
+            "messageEmptyTitle": "Χωρίς συνώνυμα",
+            "messageEmptySubline": "Διαχείριση συνωνύμων",
+            "columnHeaders": {
+                "name": "Ονομασία",
+                "left": "Αριστερά",
+                "right": "Δεξιά",
+                "language": "Γλώσσα",
+                "synonym": "Συνώνυμο"
+            },
+            "detail": {
+                "name": "Ονομασία",
+                "synonym": "Συνώνυμο",
+                "left": "Αριστερά",
+                "right": "Δεξιά",
+                "newsynonym": "Νέο συνώνυμο",
+                "cancelModal": "Ακύρωση"
+            },
+            "explanation": {
+                "sameTitle": "Ίσα συνώνυμα",
+                "same": "π.χ. «wifi, wlan, w-lan, ασύρματο δίκτυο» είναι εντελώς ίσα και πρέπει να αναγράφονται μόνο στη στήλη «αριστερά»",
+                "expandingTitle": "Ορισμός συνωνύμων",
+                "expanding": "Π.χ. ένα iPhone είναι επίσης ένα smartphone, αλλά δεν είναι όλα τα smartphone επίσης iPhone. Τέτοιες κατασκευές εισάγονται ως εξής: «αριστερά»: «smartphone», «δεξιά»: «iphone, i-phone, i phone, τηλέφωνο, smartphone»"
+            }
+        },
         "relevance": {
             "title": "Πληροφορίες με δυνατότητα αναζήτησης",
             "cancelModal": "Ακύρωση",
@@ -121,6 +159,46 @@
                     "notEqualsAny": "Δεν είναι ίση με οποιαδήποτε από",
                     "notContains": "Δεν περιέχει",
                     "range": "Εύρος"
+                }
+            }
+        },
+        "action": {
+            "title": "Ενέργειες",
+            "addAction": "Προσθήκη ενέργειας",
+            "searchPlaceholder": "Δράση αναζήτησης",
+            "messageEmptyTitle": "Καμία ενέργεια ακόμα",
+            "messageEmptySubline": "Διαχειριστείτε τις ενέργειες εδώ.",
+            "columnHeaders": {
+                "name": "Ονομασία",
+                "type": "Τύπος",
+                "active": "Ενεργός",
+                "validFrom": "Ενεργό από",
+                "validTo": "Ενεργό σε"
+            },
+            "detail": {
+                "action": "Δράση",
+                "searchTerms": "Όροι Αναζήτησης",
+                "name": "Ονομασία",
+                "active": "Ενεργός",
+                "validFrom": "Ενεργό από",
+                "validTo": "Ενεργό σε",
+                "type": "Τύπος",
+                "typePlaceholder": "Επιλέξτε τύπο...",
+                "cancelModal": "Ακύρωση",
+                "newAction": "Νέα Ενέργεια"
+            },
+            "type": {
+                "forwardUrl": {
+                    "title": "URL προώθησης",
+                    "url": "URL"
+                },
+                "forwardProduct": {
+                    "title": "Προώθηση προϊόντος",
+                    "product": "Προϊόν"
+                },
+                "forwardCategory": {
+                    "title": "Εμπρός Κατηγορία",
+                    "category": "Κατηγορία"
                 }
             }
         }

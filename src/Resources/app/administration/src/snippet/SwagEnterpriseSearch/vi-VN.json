@@ -1,16 +1,26 @@
 {
+    "global": {
+        "error-codes": {
+            "ACTION_VALID_TO_VIOLATION": "Ngày hết hạn của hành động phải được đặt sau khi bắt đầu hành động.",
+            "ACTION_DUPLICATE_NAME_VIOLATION": "Tên này đã được sử dụng trong một hành động khác.",
+            "ACTION_SEARCH_TERM_DUPLICATE_TERM_VIOLATION": "Thuật ngữ '{value}' đã được sử dụng trong một hành động khác."
+        }
+    },
     "swag-enterprise-search": {
         "general": {
-            "mainMenuItemGeneral": "Tìm kiếm doanh nghiệp Shopware",
-            "mainMenuEntry": "Tìm kiếm doanh nghiệp Shopware"
+            "mainMenuItemGeneral": "Tìm kiếm nâng cao Shopware",
+            "mainMenuEntry": "Tìm kiếm nâng cao Shopware"
         },
         "index": {
-            "title": "Cấu hình tìm kiếm doanh nghiệp",
+            "title": "Cấu hình tìm kiếm nâng cao",
             "buttonSave": "Lưu",
             "entityConfigTitle": "Tổng quan",
             "previewSearchTitle": "Xem trước",
             "relevanceTitle": "Relevance",
-            "boostingTitle": "Boostings"
+            "boostingTitle": "Boostings",
+            "synonymsTitle": "Từ đồng nghĩa",
+            "actionTitle": "Hành động",
+            "labelSalesChannelSelect": "Kênh bán hàng"
         },
         "types": {
             "category": "Thể loại",
@@ -87,6 +97,34 @@
                 "placeholderOperatorSelect": "Chọn một toán tử"
             }
         },
+        "synonyms": {
+            "title": "từ đồng nghĩa",
+            "addsynonyms": "Đồng nghĩa mới",
+            "searchPlaceholder": "Tìm kiếm đồng nghĩa",
+            "messageEmptyTitle": "Không có từ đồng nghĩa",
+            "messageEmptySubline": "Quản lý các từ đồng nghĩa",
+            "columnHeaders": {
+                "name": "Tên",
+                "left": "Trái",
+                "right": "Phải",
+                "language": "Ngôn ngữ",
+                "synonym": "Đồng nghĩa"
+            },
+            "detail": {
+                "name": "Tên",
+                "synonym": "Đồng nghĩa",
+                "left": "Trái",
+                "right": "Phải",
+                "newsynonym": "Đồng nghĩa mới",
+                "cancelModal": "Hủy"
+            },
+            "explanation": {
+                "sameTitle": "Từ đồng nghĩa bằng nhau",
+                "same": "Ví dụ: “wifi, wlan, w-lan, mạng không dây” là hoàn toàn bằng nhau và chỉ phải được nhập vào cột “trái”",
+                "expandingTitle": "Xác định từ đồng nghĩa",
+                "expanding": "Ví dụ: một chiếc iPhone cũng là một điện thoại thông minh, nhưng không phải mọi điện thoại thông minh cũng là một chiếc iPhone. Các cấu trúc như vậy được nhập như sau: “trái”: “smartphone”, “right”: “iphone, i-phone, i phone, smartphone”"
+            }
+        },
         "relevance": {
             "title": "Thông tin có thể tìm kiếm",
             "cancelModal": "Hủy",
@@ -121,6 +159,46 @@
                     "notEqualsAny": "Không bằng bất kỳ",
                     "notContains": "Không chứa",
                     "range": "Phạm vi"
+                }
+            }
+        },
+        "action": {
+            "title": "Hành động",
+            "addAction": "Thêm hành động",
+            "searchPlaceholder": "Tìm kiếm hành động",
+            "messageEmptyTitle": "Chưa có hành động nào",
+            "messageEmptySubline": "Quản lý các hành động ở đây.",
+            "columnHeaders": {
+                "name": "Tên",
+                "type": "Loại",
+                "active": "Đang hoạt động",
+                "validFrom": "Đang hoạt động từ",
+                "validTo": "Đang hoạt động đến"
+            },
+            "detail": {
+                "action": "Hành động",
+                "searchTerms": "cụm từ tìm kiếm",
+                "name": "Tên",
+                "active": "Đang hoạt động",
+                "validFrom": "Đang hoạt động từ",
+                "validTo": "Đang hoạt động đến",
+                "type": "Loại",
+                "typePlaceholder": "Chọn loại...",
+                "cancelModal": "Hủy",
+                "newAction": "Hành động mới"
+            },
+            "type": {
+                "forwardUrl": {
+                    "title": "Chuyển tiếp URL",
+                    "url": "URL"
+                },
+                "forwardProduct": {
+                    "title": "Sản phẩm chuyển tiếp",
+                    "product": "Sản Phẩm"
+                },
+                "forwardCategory": {
+                    "title": "Thể loại chuyển tiếp",
+                    "category": "Thể loại"
                 }
             }
         }

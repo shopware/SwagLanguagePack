@@ -9,7 +9,7 @@ namespace Swag\LanguagePack\Test;
 
 use PHPUnit\Framework\TestCase;
 use Shopware\Core\Framework\Context;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
 use Shopware\Core\Framework\Plugin\PluginDefinition;
@@ -22,13 +22,13 @@ class SwagLanguagePackTest extends TestCase
     use KernelTestBehaviour;
 
     /**
-     * @var EntityRepositoryInterface
+     * @var EntityRepository
      */
     private $pluginRepository;
 
     protected function setUp(): void
     {
-        /** @var EntityRepositoryInterface $pluginRepository */
+        /** @var EntityRepository $pluginRepository */
         $pluginRepository = $this->getContainer()->get(\sprintf('%s.repository', PluginDefinition::ENTITY_NAME));
         $this->pluginRepository = $pluginRepository;
     }

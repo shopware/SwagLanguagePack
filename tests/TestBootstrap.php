@@ -13,6 +13,8 @@ use Shopware\Core\TestBootstrapper;
 
 if (is_readable(__DIR__ . '/../../../../src/Core/TestBootstrapper.php')) {
     require __DIR__ . '/../../../../src/Core/TestBootstrapper.php';
+} else {
+    require __DIR__ . '/../vendor/shopware/core/TestBootstrapper.php';
 }
 
 $classLoader = (new TestBootstrapper())

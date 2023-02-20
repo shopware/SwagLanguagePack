@@ -7,7 +7,6 @@
 
 namespace Swag\LanguagePack\Test\Util\Lifecycle;
 
-use Doctrine\DBAL\Cache\ArrayStatement;
 use Doctrine\DBAL\Connection;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
@@ -63,8 +62,7 @@ class LifecycleTest extends TestCase
             ->willReturnOnConsecutiveCalls([false, true]);
 
         $connection->expects(static::atLeast(2))
-            ->method('executeQuery')
-            ->willReturn(new ArrayStatement([]));
+            ->method('executeQuery');
 
         /** @var EntityRepository $languageRepository */
         $languageRepository = $this->getContainer()->get('language.repository');

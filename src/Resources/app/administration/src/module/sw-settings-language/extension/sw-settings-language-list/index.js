@@ -32,7 +32,7 @@ Component.override('sw-settings-language-list', {
         },
 
         getPackLanguageLanguageIds() {
-            this.languageRepository.searchIds(this.packLanguageCriteria, Shopware.Context.api).then((result) => {
+            this.languageRepository.searchIds(this.packLanguageCriteria).then((result) => {
                 this.packLanguageLanguageIds = result.data;
             });
         },

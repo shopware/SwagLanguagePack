@@ -1,3 +1,6 @@
+# 3.0.0
+- LAN-131 - Kompatibilität für Shopware 6.5.0.0
+
 # 2.5.0
 - LAN-133 - Alle unterstützten Sprachen mit Community-Übersetzungen aktualisiert (Shopware Version 6.4.19.0)
 - LAN-133 - `src/Core/Content/PackLanguageRepositoryDecorator.php` als "deprecated" markiert, um es mit 3.0.0 zu entfernen

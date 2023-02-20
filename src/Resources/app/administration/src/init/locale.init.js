@@ -9,7 +9,7 @@ const criteria = (new Criteria())
 const resolve = Shopware.Plugin.addBootPromise();
 
 let errorLocale;
-packLanguageRepository.search(criteria, Shopware.Context.api).then((result) => {
+packLanguageRepository.search(criteria).then((result) => {
     result.aggregations.locales.buckets.forEach(({ key: locale }) => {
         if (Shopware.Locale.getByName(locale) === false) {
             errorLocale = locale;

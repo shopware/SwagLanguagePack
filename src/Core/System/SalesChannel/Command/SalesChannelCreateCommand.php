@@ -11,7 +11,7 @@ use Shopware\Core\Defaults;
 use Shopware\Core\Framework\Adapter\Console\ShopwareStyle;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\DefinitionInstanceRegistry;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\OrFilter;
@@ -41,13 +41,13 @@ class SalesChannelCreateCommand extends Command
 
     private DefinitionInstanceRegistry $definitionRegistry;
 
-    private EntityRepositoryInterface $languageRepository;
+    private EntityRepository $languageRepository;
 
     private SalesChannelCreator $salesChannelCreator;
 
     public function __construct(
         DefinitionInstanceRegistry $definitionRegistry,
-        EntityRepositoryInterface $languageRepository,
+        EntityRepository $languageRepository,
         SalesChannelCreator $salesChannelCreator
     ) {
         $this->definitionRegistry = $definitionRegistry;
@@ -113,7 +113,7 @@ class SalesChannelCreateCommand extends Command
 
             $io->listing($messages);
 
-            return 0;
+            return self::SUCCESS;
         }
 
         $io->text('Access tokens:');
@@ -127,7 +127,7 @@ class SalesChannelCreateCommand extends Command
 
         $table->render();
 
-        return 0;
+        return self::SUCCESS;
     }
 
     protected function getTypeId(): string

@@ -10,7 +10,7 @@ namespace Swag\LanguagePack\Storefront\Framework\Command;
 use Shopware\Core\Defaults;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\DefinitionInstanceRegistry;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
 use Shopware\Core\Maintenance\SalesChannel\Service\SalesChannelCreator;
@@ -23,13 +23,13 @@ class SalesChannelCreateStorefrontCommand extends SalesChannelCreateCommand
 {
     protected static $defaultName = 'sales-channel:create:storefront';
 
-    private EntityRepositoryInterface $snippetSetRepository;
+    private EntityRepository $snippetSetRepository;
 
     public function __construct(
         DefinitionInstanceRegistry $definitionRegistry,
-        EntityRepositoryInterface $languageRepository,
+        EntityRepository $languageRepository,
         SalesChannelCreator $salesChannelCreator,
-        EntityRepositoryInterface $snippetSetRepository
+        EntityRepository $snippetSetRepository
     ) {
         $this->snippetSetRepository = $snippetSetRepository;
 

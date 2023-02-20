@@ -8,7 +8,6 @@
 namespace Swag\LanguagePack\Util\Migration;
 
 use Doctrine\DBAL\Connection;
-use Doctrine\DBAL\FetchMode;
 use Shopware\Core\Framework\Uuid\Uuid;
 use Shopware\Core\System\Language\LanguageDefinition;
 use Swag\LanguagePack\PackLanguage\PackLanguageDefinition;
@@ -17,13 +16,10 @@ use Swag\LanguagePack\Util\Exception\MissingLocalesException;
 
 class MigrationHelper
 {
-    /**
-     * @var Connection
-     */
-    private $connection;
-
-    public function __construct(Connection $connection)
-    {
+    private Connection $connection;
+    public function __construct(
+        Connection $connection
+    ) {
         $this->connection = $connection;
     }
 
@@ -86,17 +82,12 @@ SQL;
 
         $packLanguages = [];
         $languages = [];
-        foreach ($data as $locale) {
-            $packLanguage = [
-                'id' => Uuid::randomBytes(),
-                'languageId' => $locale['languageId'],
-                'administrationActive' => 1,
-                'salesChannelActive' => (int) ($locale['languageId'] !== null),
-            ];
 
+        /** @var array<string, string|null> $locale */
+        foreach ($data as $locale) {
             if ($locale['languageId'] === null) {
                 $newLanguageId = Uuid::randomBytes();
-                $packLanguage['languageId'] = $newLanguageId;
+                $locale['languageId'] = $newLanguageId;
 
                 $languages[] = [
                     'id' => $newLanguageId,
@@ -105,6 +96,13 @@ SQL;
                     'translationCodeId' => $locale['id'],
                 ];
             }
+
+            $packLanguage = [
+                'id' => Uuid::randomBytes(),
+                'languageId' => $locale['languageId'],
+                'administrationActive' => 1,
+                'salesChannelActive' => 1,
+            ];
 
             $packLanguages[] = $packLanguage;
         }
@@ -149,7 +147,7 @@ SQL;
             [
                 'isos' => Connection::PARAM_STR_ARRAY,
             ]
-        )->fetchAll(FetchMode::ASSOCIATIVE);
+        )->fetchAllAssociative();
 
         $existingIsos = [];
         foreach ($existingSnippetSets as $snippetSet) {
@@ -200,12 +198,12 @@ SQL;
             $sql
         ));
 
-        return (bool) $result->fetch();
+        return (bool) $result->fetchOne();
     }
 
     /**
-     * @return array<mixed>
-     * @throws \Doctrine\DBAL\Exception
+     * @return array<string|int, array<string, mixed>>
+     * @throws MissingLocalesException
      */
     private function getLocales(): array
     {
@@ -217,7 +215,7 @@ SQL;
             $sql,
             [\array_values(SwagLanguagePack::SUPPORTED_LANGUAGES)],
             [Connection::PARAM_STR_ARRAY]
-        )->fetchAll();
+        )->fetchAllAssociative();
 
         if (\count(SwagLanguagePack::SUPPORTED_LANGUAGES) !== \count($locales)) {
             throw new MissingLocalesException($this->getMissingLocales($locales));
@@ -237,8 +235,8 @@ SQL;
     }
 
     /**
-     * @param array<mixed> $locales
-     * @return array<mixed>
+     * @param array<string|int, array<string, mixed>> $locales
+     * @return array<string|int, string>
      */
     private function getMissingLocales(array $locales): array
     {
@@ -252,9 +250,8 @@ SQL;
     }
 
     /**
-     * @param array<mixed> $locales
-     * @return array<mixed>
-     * @throws \Doctrine\DBAL\Exception
+     * @param array<string|int, array<string, mixed>> $locales
+     * @return array<string|int, array<string, mixed>|string>
      */
     private function createPackLanguageData(array $locales): array
     {
@@ -269,12 +266,12 @@ SQL;
             $sql,
             [\array_keys($locales)],
             [Connection::PARAM_STR_ARRAY]
-        )->fetchAll();
+        )->fetchAllAssociative();
 
         return \array_map(static function ($locale) use ($existingLanguages): array {
             $languageId = null;
             foreach ($existingLanguages as $language) {
-                if ($locale['code'] === $language['code']) {
+                if (isset($locale['code'], $language['code']) && $locale['code'] === $language['code']) {
                     $languageId = $language['id'];
 
                     break;

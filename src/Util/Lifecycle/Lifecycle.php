@@ -8,7 +8,7 @@
 namespace Swag\LanguagePack\Util\Lifecycle;
 
 use Doctrine\DBAL\Connection;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\MultiFilter;
@@ -25,18 +25,13 @@ use Swag\LanguagePack\Util\Exception\PackLanguagesStillInUseException;
 
 class Lifecycle
 {
-    /**
-     * @var Connection
-     */
-    private $connection;
+    private Connection $connection;
+    private EntityRepository $languageRepository;
 
-    /**
-     * @var EntityRepositoryInterface
-     */
-    private $languageRepository;
-
-    public function __construct(Connection $connection, EntityRepositoryInterface $languageRepository)
-    {
+    public function __construct(
+        Connection $connection,
+        EntityRepository $languageRepository
+    ) {
         $this->connection = $connection;
         $this->languageRepository = $languageRepository;
     }
@@ -114,7 +109,7 @@ SQL;
                 AND `CONSTRAINT_SCHEMA` = DATABASE();'
             );
 
-            $constraintExists = (bool) $this->connection->executeQuery($checkSql)->fetch();
+            $constraintExists = (bool) $this->connection->executeQuery($checkSql)->fetchOne();
 
             if (!$constraintExists) {
                 continue;
@@ -157,7 +152,7 @@ SQL;
                 LIKE "#column#";'
             );
 
-            $columnExists = (bool) $this->connection->executeQuery($checkSql)->fetch();
+            $columnExists = (bool) $this->connection->executeQuery($checkSql)->fetchOne();
 
             if (!$columnExists) {
                 continue;

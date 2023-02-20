@@ -10,24 +10,25 @@ namespace Swag\LanguagePack\Test\Core\Framework\DataAbstractionLayer\Write\Valid
 use PHPUnit\Framework\TestCase;
 use Shopware\Core\Defaults;
 use Shopware\Core\Framework\Context;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\Uuid\Uuid;
 use Shopware\Core\System\SalesChannel\SalesChannelDefinition;
 use Shopware\Core\System\SalesChannel\SalesChannelEntity;
+use Shopware\Core\Test\TestDefaults;
 use Swag\LanguagePack\Test\Helper\ServicesTrait;
 
 class SalesChannelValidatorTest extends TestCase
 {
     use ServicesTrait;
 
-    private EntityRepositoryInterface $salesChannelRepository;
+    private EntityRepository $salesChannelRepository;
 
     protected function setUp(): void
     {
         $container = $this->getContainer();
 
-        /** @var EntityRepositoryInterface $salesChannelRepository */
+        /** @var EntityRepository $salesChannelRepository */
         $salesChannelRepository = $container->get(\sprintf('%s.repository', SalesChannelDefinition::ENTITY_NAME));
         $this->salesChannelRepository = $salesChannelRepository;
     }
@@ -74,7 +75,7 @@ class SalesChannelValidatorTest extends TestCase
                 'languageId' => $languageId,
                 'languages' => [['id' => $languageId]],
                 'typeId' => Defaults::SALES_CHANNEL_TYPE_STOREFRONT,
-                'customerGroupId' => Defaults::FALLBACK_CUSTOMER_GROUP,
+                'customerGroupId' => TestDefaults::FALLBACK_CUSTOMER_GROUP,
                 'currencyId' => Defaults::CURRENCY,
                 'paymentMethodId' => $this->getValidPaymentMethodId(),
                 'shippingMethodId' => $this->getValidShippingMethodId(),

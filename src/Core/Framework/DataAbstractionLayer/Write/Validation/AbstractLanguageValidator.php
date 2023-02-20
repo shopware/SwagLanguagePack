@@ -8,8 +8,6 @@
 namespace Swag\LanguagePack\Core\Framework\DataAbstractionLayer\Write\Validation;
 
 use Doctrine\DBAL\Connection;
-use Doctrine\DBAL\Driver\ResultStatement;
-use Doctrine\DBAL\FetchMode;
 use Shopware\Core\Framework\DataAbstractionLayer\Write\Command\InsertCommand;
 use Shopware\Core\Framework\DataAbstractionLayer\Write\Command\UpdateCommand;
 use Shopware\Core\Framework\DataAbstractionLayer\Write\Command\WriteCommand;
@@ -27,10 +25,7 @@ use Symfony\Component\Validator\ConstraintViolationList;
  */
 abstract class AbstractLanguageValidator implements EventSubscriberInterface
 {
-    /**
-     * @var Connection
-     */
-    protected $connection;
+    protected Connection $connection;
 
     public function __construct(Connection $connection)
     {
@@ -44,6 +39,9 @@ abstract class AbstractLanguageValidator implements EventSubscriberInterface
         ];
     }
 
+    /**
+     * @throws WriteConstraintViolationException
+     */
     public function postValidate(PostWriteValidationEvent $event): void
     {
         $violationList = new ConstraintViolationList();
@@ -96,13 +94,9 @@ abstract class AbstractLanguageValidator implements EventSubscriberInterface
             ->where('language_id = :languageId')
             ->setParameter('languageId', $languageId)
             ->setMaxResults(1)
-            ->execute();
+            ->executeQuery();
 
-        if (!$statement instanceof ResultStatement) {
-            return false;
-        }
-
-        return (bool) $statement->fetch(FetchMode::COLUMN);
+        return (bool) $statement->fetchOne();
     }
 
     protected function isLanguageManagedByLanguagePack(string $languageId): bool
@@ -113,12 +107,8 @@ abstract class AbstractLanguageValidator implements EventSubscriberInterface
             ->where('id = :languageId')
             ->setParameter('languageId', $languageId)
             ->setMaxResults(1)
-            ->execute();
+            ->executeQuery();
 
-        if (!$statement instanceof ResultStatement) {
-            return false;
-        }
-
-        return (bool) $statement->fetch(FetchMode::COLUMN);
+        return (bool) $statement->fetchOne();
     }
 }

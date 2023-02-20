@@ -8,7 +8,7 @@
 namespace Swag\LanguagePack\Test\Helper;
 
 use Shopware\Core\Framework\Context;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
 use Shopware\Core\Framework\Test\TestCaseBase\IntegrationTestBehaviour;
@@ -21,7 +21,7 @@ trait ServicesTrait
 
     private function setSalesChannelActiveForLanguageByName(string $name, bool $salesChannelActive, Context $context): string
     {
-        /** @var EntityRepositoryInterface $packLanguageRepository */
+        /** @var EntityRepository $packLanguageRepository */
         $packLanguageRepository = $this->getContainer()->get(\sprintf('%s.repository', PackLanguageDefinition::ENTITY_NAME));
 
         $criteria = new Criteria();
@@ -43,7 +43,7 @@ trait ServicesTrait
 
     private function setSalesChannelActiveForLanguageByLocale(string $locale, bool $salesChannelActive, Context $context): string
     {
-        /** @var EntityRepositoryInterface $packLanguageRepository */
+        /** @var EntityRepository $packLanguageRepository */
         $packLanguageRepository = $this->getContainer()->get(\sprintf('%s.repository', PackLanguageDefinition::ENTITY_NAME));
 
         $criteria = new Criteria();
@@ -65,7 +65,7 @@ trait ServicesTrait
 
     private function setAdministrationActiveForLanguageByLocale(string $locale, bool $administrationActive, Context $context): string
     {
-        /** @var EntityRepositoryInterface $packLanguageRepository */
+        /** @var EntityRepository $packLanguageRepository */
         $packLanguageRepository = $this->getContainer()->get(\sprintf('%s.repository', PackLanguageDefinition::ENTITY_NAME));
 
         $criteria = new Criteria();

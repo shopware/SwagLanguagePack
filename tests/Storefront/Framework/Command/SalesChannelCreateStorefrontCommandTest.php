@@ -10,7 +10,7 @@ namespace Swag\LanguagePack\Test\Storefront\Framework\Command;
 use PHPUnit\Framework\TestCase;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\DefinitionInstanceRegistry;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
 use Shopware\Core\Framework\Test\TestCaseBase\IntegrationTestBehaviour;
@@ -28,11 +28,11 @@ class SalesChannelCreateStorefrontCommandTest extends TestCase
 {
     use IntegrationTestBehaviour;
 
-    private EntityRepositoryInterface $salesChannelRepository;
+    private EntityRepository $salesChannelRepository;
 
-    private EntityRepositoryInterface $languagePackLanguageRepository;
+    private EntityRepository $languagePackLanguageRepository;
 
-    private EntityRepositoryInterface $languageRepository;
+    private EntityRepository $languageRepository;
 
     private Context $context;
 
@@ -53,16 +53,16 @@ class SalesChannelCreateStorefrontCommandTest extends TestCase
         /** @var SalesChannelCreator $salesChannelCreator */
         $salesChannelCreator = $this->getContainer()->get(SalesChannelCreator::class);
 
-        /** @var EntityRepositoryInterface $snippetSetRepository */
+        /** @var EntityRepository $snippetSetRepository */
         $snippetSetRepository = $this->getContainer()->get('snippet_set.repository');
 
         $this->salesChannelRepository = $this->getContainer()->get('sales_channel.repository');
 
-        /** @var EntityRepositoryInterface $languageRepository */
+        /** @var EntityRepository $languageRepository */
         $languageRepository = $this->getContainer()->get('language.repository');
         $this->languageRepository = $languageRepository;
 
-        /** @var EntityRepositoryInterface $languagePackLanguageRepository */
+        /** @var EntityRepository $languagePackLanguageRepository */
         $languagePackLanguageRepository = $this->getContainer()->get('swag_language_pack_language.repository');
         $this->languagePackLanguageRepository = $languagePackLanguageRepository;
 
@@ -161,7 +161,7 @@ class SalesChannelCreateStorefrontCommandTest extends TestCase
         /** @var string[] $ids */
         $ids = $this->languagePackLanguageRepository->searchIds(new Criteria(), $this->context)->getIds();
 
-        $updateCommands = \array_map(function (string $id) use ($active): array {
+        $updateCommands = \array_map(static function (string $id) use ($active): array {
             return [
                 'id' => $id,
                 'salesChannelActive' => $active,

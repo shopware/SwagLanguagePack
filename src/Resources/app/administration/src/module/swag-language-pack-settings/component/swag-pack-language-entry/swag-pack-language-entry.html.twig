@@ -1,34 +1,34 @@
 {% block swag_pack_language_entry %}
-    <div class="swag-language-pack-entry">
+<div class="swag-language-pack-entry">
 
-        {% block swag_pack_language_entry_flag %}
-            <swag-language-pack-flag class="swag-language-pack-entry__flag" :locale="flagLocale"></swag-language-pack-flag>
+    {% block swag_pack_language_entry_flag %}
+    <swag-language-pack-flag class="swag-language-pack-entry__flag" :locale="flagLocale"/>
+    {% endblock %}
+
+    {% block swag_pack_language_entry_content %}
+    <div class="swag-language-pack-entry__content">
+
+        {% block swag_pack_language_entry_content_name %}
+        <div class="swag-language-pack-entry__name">
+            {{ label }}
+        </div>
         {% endblock %}
 
-        {% block swag_pack_language_entry_content %}
-            <div class="swag-language-pack-entry__content">
-
-                {% block swag_pack_language_entry_content_name %}
-                    <div class="swag-language-pack-entry__name">
-                        {{ label }}
-                    </div>
-                {% endblock %}
-
-                {% block swag_pack_language_entry_content_description %}
-                    <div class="swag-language-pack-entry__description">
-                        {{ description }}
-                    </div>
-                {% endblock %}
-
-            </div>
+        {% block swag_pack_language_entry_content_description %}
+        <div class="swag-language-pack-entry__description">
+            {{ description }}
+        </div>
         {% endblock %}
 
-        {% block swag_pack_language_entry_switch %}
-            <sw-switch-field
-                    v-model="value[field]"
-                    ref="packLanguageToggle"
-                    :disabled="disabled">
-            </sw-switch-field>
-        {% endblock %}
     </div>
+    {% endblock %}
+
+    {% block swag_pack_language_entry_switch %}
+    <sw-switch-field
+        v-model="value[field]"
+        ref="packLanguageToggle"
+        :disabled="disabled"
+    />
+    {% endblock %}
+</div>
 {% endblock %}

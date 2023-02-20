@@ -7,8 +7,6 @@
 
 namespace Swag\LanguagePack\Core\Framework\DataAbstractionLayer\Write\Validation;
 
-use Doctrine\DBAL\Driver\ResultStatement;
-use Doctrine\DBAL\FetchMode;
 use Shopware\Core\Framework\DataAbstractionLayer\Write\Command\WriteCommand;
 use Shopware\Core\Framework\Uuid\Uuid;
 use Shopware\Core\System\Language\LanguageDefinition;
@@ -65,13 +63,9 @@ class UserValidator extends AbstractLanguageValidator
             ->where('language.locale_id = :localeId')
             ->setParameter('localeId', $localeId)
             ->setMaxResults(1)
-            ->execute();
+            ->executeQuery();
 
-        if (!$statement instanceof ResultStatement) {
-            return false;
-        }
-
-        return (bool) $statement->fetch(FetchMode::COLUMN);
+        return (bool) $statement->fetchOne();
     }
 
     private function isLocaleManagedByLanguagePack(string $localeId): bool
@@ -82,12 +76,8 @@ class UserValidator extends AbstractLanguageValidator
             ->where('locale_id = :localeId')
             ->setParameter('localeId', $localeId)
             ->setMaxResults(1)
-            ->execute();
+            ->executeQuery();
 
-        if (!$statement instanceof ResultStatement) {
-            return false;
-        }
-
-        return (bool) $statement->fetch(FetchMode::COLUMN);
+        return (bool) $statement->fetchOne();
     }
 }

@@ -18,7 +18,7 @@ Module.register('swag-language-pack', {
     version: '1.0.0',
     targetVersion: '1.0.0',
     color: '#9AA8B5',
-    icon: 'default-action-settings',
+    icon: 'regular-cog',
 
     routes: {
         index: {
@@ -55,7 +55,7 @@ Module.register('swag-language-pack', {
     settingsItem: {
         group: 'plugins',
         to: 'swag.language.pack.index',
-        iconComponent: 'swag-language-pack-settings-icon',
+        icon: 'regular-language',
         backgroundEnabled: true,
         privilege: 'language.viewer',
     },

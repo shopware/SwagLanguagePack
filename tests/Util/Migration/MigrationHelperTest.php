@@ -8,11 +8,10 @@
 namespace Swag\LanguagePack\Test\Util\Migration;
 
 use Doctrine\DBAL\Connection;
-use Doctrine\DBAL\Driver\ResultStatement;
-use Doctrine\DBAL\FetchMode;
+use Doctrine\DBAL\Result;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\Plugin\Context\UninstallContext;
 use Shopware\Core\Framework\Test\TestCaseBase\BasicTestDataBehaviour;
 use Shopware\Core\Framework\Test\TestCaseBase\CacheTestBehaviour;
@@ -37,15 +36,9 @@ class MigrationHelperTest extends TestCase
     use SessionTestBehaviour;
     use RequestStackTestBehaviour;
 
-    /**
-     * @var MigrationHelper
-     */
-    private $migrationHelper;
+    private MigrationHelper $migrationHelper;
 
-    /**
-     * @var Connection
-     */
-    private $connection;
+    private Connection $connection;
 
     protected function setUp(): void
     {
@@ -146,7 +139,7 @@ class MigrationHelperTest extends TestCase
             ->method('keepUserData')
             ->willReturn(false);
 
-        /** @var EntityRepositoryInterface $languageRepository */
+        /** @var EntityRepository $languageRepository */
         $languageRepository = $this->getContainer()->get('language.repository');
 
         (new Lifecycle($this->connection, $languageRepository))
@@ -178,7 +171,7 @@ SQL;
             AND `TABLE_SCHEMA` = DATABASE();'
         );
 
-        return (bool) $this->connection->executeQuery($sql)->fetch();
+        return (bool) $this->connection->executeQuery($sql)->fetchOne();
     }
 
     private function doesLanguageColumnExist(): bool
@@ -190,13 +183,12 @@ SQL;
                 LIKE "#column#";'
         );
 
-        return (bool) $this->connection->executeQuery($sql)->fetch();
+        return (bool) $this->connection->executeQuery($sql)->fetchOne();
     }
 
     /**
      * @param array<int, string> $tables
      * @return array<string, int>
-     * @throws \Doctrine\DBAL\Exception
      */
     private function getTableCounts(array $tables): array
     {
@@ -209,7 +201,7 @@ SQL;
                 FROM `#table#`;'
             );
 
-            $results[$table] = (int) $this->connection->executeQuery($sql)->fetchColumn();
+            $results[$table] = (int) $this->connection->executeQuery($sql)->fetchOne();
         }
 
         return $results;
@@ -217,21 +209,20 @@ SQL;
 
     /**
      * @param array<string, string> $locales
-     * @return Connection|MockObject
      */
-    private function prepareLocaleConnectionMock(array $locales)
+    private function prepareLocaleConnectionMock(array $locales): Connection&MockObject
     {
         $connectionMock = $this->getMockBuilder(Connection::class)
             ->disableOriginalConstructor()
             ->getMock();
 
-        $resultStatementMock = $this->getMockBuilder(ResultStatement::class)
+        $resultStatementMock = $this->getMockBuilder(Result::class)
             ->disableOriginalConstructor()
             ->getMock();
 
         $resultStatementMock
             ->expects(static::once())
-            ->method('fetchAll')
+            ->method('fetchAllAssociative')
             ->willReturn($locales);
 
         $connectionMock
@@ -247,7 +238,7 @@ SQL;
         $sql = <<<SQL
 SELECT COUNT(DISTINCT `id`) FROM `snippet_set`;
 SQL;
-        $snippetSetCount = (int) $this->connection->executeQuery($sql)->fetch(FetchMode::COLUMN);
+        $snippetSetCount = (int) $this->connection->executeQuery($sql)->fetchOne();
 
         // de-DE & en-GB are system default languages so we have to add 2
         return $snippetSetCount === (\count(SwagLanguagePack::SUPPORTED_LANGUAGES) + 2);

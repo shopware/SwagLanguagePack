@@ -9,7 +9,7 @@ namespace Swag\LanguagePack;
 
 use Doctrine\DBAL\Connection;
 use Shopware\Core\Framework\Api\Acl\Role\AclRoleDefinition;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\Plugin;
 use Shopware\Core\Framework\Plugin\Context\DeactivateContext;
 use Shopware\Core\Framework\Plugin\Context\UninstallContext;
@@ -105,7 +105,7 @@ class SwagLanguagePack extends Plugin
         /** @var Connection $connection */
         $connection = $this->container->get(Connection::class);
 
-        /** @var EntityRepositoryInterface $languageRepository */
+        /** @var EntityRepository $languageRepository */
         $languageRepository = $this->container->get('language.repository');
 
         (new Lifecycle($connection, $languageRepository))->deactivate($deactivateContext);
@@ -118,7 +118,7 @@ class SwagLanguagePack extends Plugin
         /** @var Connection $connection */
         $connection = $this->container->get(Connection::class);
 
-        /** @var EntityRepositoryInterface $languageRepository */
+        /** @var EntityRepository $languageRepository */
         $languageRepository = $this->container->get('language.repository');
 
         (new Lifecycle($connection, $languageRepository))->uninstall($uninstallContext);

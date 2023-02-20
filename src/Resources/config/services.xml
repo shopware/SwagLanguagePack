@@ -15,11 +15,6 @@
             <tag name="shopware.entity.extension"/>
         </service>
 
-        <!-- Decorators -->
-        <service id="Swag\LanguagePack\Core\Content\PackLanguageRepositoryDecorator" decorates="swag_language_pack_language.repository">
-            <argument type="service" id="Swag\LanguagePack\Core\Content\PackLanguageRepositoryDecorator.inner"/>
-        </service>
-
         <!-- Override / replace the existing core command -->
         <service id="Swag\LanguagePack\Core\System\SalesChannel\Command\SalesChannelCreateCommand">
             <argument type="service" id="Shopware\Core\Framework\DataAbstractionLayer\DefinitionInstanceRegistry"/>

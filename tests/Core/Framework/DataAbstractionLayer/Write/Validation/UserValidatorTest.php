@@ -9,7 +9,7 @@ namespace Swag\LanguagePack\Test\Core\Framework\DataAbstractionLayer\Write\Valid
 
 use PHPUnit\Framework\TestCase;
 use Shopware\Core\Framework\Context;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\Uuid\Uuid;
 use Shopware\Core\System\User\UserDefinition;
@@ -20,16 +20,13 @@ class UserValidatorTest extends TestCase
 {
     use ServicesTrait;
 
-    /**
-     * @var EntityRepositoryInterface
-     */
-    private $userRepository;
+    private EntityRepository $userRepository;
 
     protected function setUp(): void
     {
         $container = $this->getContainer();
 
-        /** @var EntityRepositoryInterface $userRepository */
+        /** @var EntityRepository $userRepository */
         $userRepository = $container->get(\sprintf('%s.repository', UserDefinition::ENTITY_NAME));
         $this->userRepository = $userRepository;
     }

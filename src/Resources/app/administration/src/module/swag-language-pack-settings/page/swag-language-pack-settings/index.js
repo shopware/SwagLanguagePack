@@ -50,7 +50,7 @@ Component.register('swag-language-pack-settings', {
             return (new Criteria())
                 .addSorting(Criteria.sort('language.name', 'ASC'))
                 .addAssociation('language.salesChannels.domains')
-                .setLimit(null);
+                .addAssociation('language.locale');
         },
     },
 
@@ -74,7 +74,7 @@ Component.register('swag-language-pack-settings', {
         loadPackLanguages() {
             this.isLoading = true;
 
-            return this.packLanguageRepository.search(this.packLanguageCriteria, Shopware.Context.api).then((result) => {
+            return this.packLanguageRepository.search(this.packLanguageCriteria).then((result) => {
                 this.packLanguages = result;
             }).finally(() => {
                 this.isLoading = false;
@@ -97,7 +97,7 @@ Component.register('swag-language-pack-settings', {
             this.isLoading = true;
 
             return this.validateStates(this.packLanguages).then(() => {
-                return this.packLanguageRepository.saveAll(this.packLanguages, Shopware.Context.api).then(() => {
+                return this.packLanguageRepository.saveAll(this.packLanguages).then(() => {
                     this.hasChanges = true;
                     return this.resetInvalidUserLanguages();
                 }).catch(() => {
@@ -147,7 +147,7 @@ Component.register('swag-language-pack-settings', {
                 Criteria.equalsAny('localeId', invalidLocales),
             );
 
-            let invalidUsers = await this.userRepository.search(invalidUserCriteria, Shopware.Context.api);
+            let invalidUsers = await this.userRepository.search(invalidUserCriteria);
             invalidUsers = invalidUsers.reduce((accumulator, user) => {
                 user.localeId = this.fallbackLocaleId;
 
@@ -161,19 +161,16 @@ Component.register('swag-language-pack-settings', {
                 return accumulator;
             }, []);
 
-            return this.userRepository.saveAll(invalidUsers, Shopware.Context.api);
+            return this.userRepository.saveAll(invalidUsers);
         },
 
         async fetchInvalidLocaleIds() {
             const invalidAdminLanguagesCriteria = (new Criteria())
                 .addFilter(Criteria.equals('extensions.swagLanguagePackLanguage.administrationActive', false));
-            const invalidAdminLanguages = await this.languageRepository.search(
-                invalidAdminLanguagesCriteria,
-                Shopware.Context.api,
-            );
+            const invalidAdminLanguages = await this.languageRepository.search(invalidAdminLanguagesCriteria);
 
             const fallbackLanguageCriteria = (new Criteria()).setIds([Defaults.systemLanguageId]);
-            const fallbackLanguage = await this.languageRepository.search(fallbackLanguageCriteria, Shopware.Context.api);
+            const fallbackLanguage = await this.languageRepository.search(fallbackLanguageCriteria);
             this.fallbackLocaleId = fallbackLanguage.first().localeId;
 
             return invalidAdminLanguages.map(language => language.localeId);

@@ -10,9 +10,8 @@ namespace Swag\LanguagePack\Test\Core\System\SalesChannel\Command;
 use PHPUnit\Framework\TestCase;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\DefinitionInstanceRegistry;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
-use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
 use Shopware\Core\Framework\Test\TestCaseBase\CommandTestBehaviour;
 use Shopware\Core\Framework\Test\TestCaseBase\IntegrationTestBehaviour;
 use Shopware\Core\Maintenance\SalesChannel\Service\SalesChannelCreator;
@@ -21,7 +20,8 @@ use Shopware\Core\System\Language\LanguageEntity;
 use Shopware\Core\System\SalesChannel\SalesChannelDefinition;
 use Shopware\Core\System\SalesChannel\SalesChannelEntity;
 use Swag\LanguagePack\Core\System\SalesChannel\Command\SalesChannelCreateCommand;
-use Swag\LanguagePack\PackLanguage\PackLanguageEntity;
+use Swag\LanguagePack\PackLanguage\PackLanguageDefinition;
+use Swag\LanguagePack\SwagLanguagePack;
 use Symfony\Component\Console\Input\StringInput;
 use Symfony\Component\Console\Output\BufferedOutput;
 
@@ -34,26 +34,26 @@ class SalesChannelCreateCommandTest extends TestCase
 
     protected SalesChannelCreateCommand $overrideSalesChannelCreateCommand;
 
-    protected EntityRepositoryInterface $salesChannelRepository;
+    protected EntityRepository $salesChannelRepository;
 
-    protected EntityRepositoryInterface $languageRepository;
+    protected EntityRepository $languageRepository;
 
-    protected EntityRepositoryInterface $languagePackRepository;
+    protected EntityRepository $languagePackRepository;
 
     private Context $context;
 
     protected function setUp(): void
     {
-        /** @var EntityRepositoryInterface $salesChannelRepository */
+        /** @var EntityRepository $salesChannelRepository */
         $salesChannelRepository = $this->getContainer()->get(\sprintf('%s.repository', SalesChannelDefinition::ENTITY_NAME));
         $this->salesChannelRepository = $salesChannelRepository;
 
-        /** @var EntityRepositoryInterface $languageRepository */
+        /** @var EntityRepository $languageRepository */
         $languageRepository = $this->getContainer()->get(\sprintf('%s.repository', LanguageDefinition::ENTITY_NAME));
         $this->languageRepository = $languageRepository;
 
-        /** @var EntityRepositoryInterface $languagePackRepository */
-        $languagePackRepository = $this->getContainer()->get('swag_language_pack_language.repository');
+        /** @var EntityRepository $languagePackRepository */
+        $languagePackRepository = $this->getContainer()->get(\sprintf('%s.repository', PackLanguageDefinition::ENTITY_NAME));
         $this->languagePackRepository = $languagePackRepository;
 
         $this->context = Context::createDefaultContext();
@@ -71,7 +71,7 @@ class SalesChannelCreateCommandTest extends TestCase
         );
     }
 
-    public function testIfNewCommandSucceeds(): void
+    public function testIfCommandSucceeds(): void
     {
         $salesChannelId = 'ad1028c2a8ed46d2a24f189812b1a23c';
         $navigationCategoryId = $this->getValidCategoryId();
@@ -87,15 +87,14 @@ class SalesChannelCreateCommandTest extends TestCase
 
         // check the associated languages of the created sales channel
         $associatedLanguages = $this->getAssociatedLanguageLocalesOfSalesChannel($salesChannelId);
-        static::assertCount(2, $associatedLanguages);
+
+        static::assertStringContainsString('[OK] Sales channel has been created successfully.', $outputString);
         static::assertContains('en-GB', $associatedLanguages);
         static::assertContains('de-DE', $associatedLanguages);
     }
 
-    public function testIfNewCommandConsidersActivatedLanguages(): void
+    public function testIfCommandConsidersActivatedLanguages(): void
     {
-        $this->activateLanguageForSalesChannelUsage('fr-FR');
-
         $salesChannelId = 'ad1028c2a8ed46d2a24f189812b1a23b';
 
         $navigationCategoryId = $this->getValidCategoryId();
@@ -108,36 +107,12 @@ class SalesChannelCreateCommandTest extends TestCase
 
         $outputString = $output->fetch();
 
+        static::assertStringContainsString('[OK] Sales channel has been created successfully.', $outputString);
         static::assertStringNotContainsString('[ERROR]', $outputString);
 
         // check the associated languages of the created sales channel
         $associatedLanguages = $this->getAssociatedLanguageLocalesOfSalesChannel($salesChannelId);
-        static::assertCount(3, $associatedLanguages);
-        static::assertContains('en-GB', $associatedLanguages);
-        static::assertContains('de-DE', $associatedLanguages);
-        static::assertContains('fr-FR', $associatedLanguages);
-    }
-
-    protected function activateLanguageForSalesChannelUsage(string $localeCode): void
-    {
-        // fetch the language with the locale
-        $criteria = new Criteria();
-        $criteria->addAssociation('swagLanguagePackLanguage');
-        $criteria->addFilter(new EqualsFilter('locale.code', $localeCode));
-
-        /** @var LanguageEntity|null $result */
-        $result = $this->languageRepository->search($criteria, $this->context)->first();
-        static::assertNotNull($result);
-        /** @var PackLanguageEntity|null $languagePack */
-        $languagePack = $result->getExtension('swagLanguagePackLanguage');
-        static::assertNotNull($languagePack);
-
-        $this->languagePackRepository->update([
-            [
-                'id' => $languagePack->getId(),
-                'salesChannelActive' => true,
-            ],
-        ], $this->context);
+        static::assertCount(0, array_diff(SwagLanguagePack::BASE_SNIPPET_SET_LOCALES, $associatedLanguages));
     }
 
     /**
@@ -155,7 +130,7 @@ class SalesChannelCreateCommandTest extends TestCase
         $languages = $result->getLanguages();
         static::assertNotNull($languages);
 
-        return \array_map(function (LanguageEntity $lang) {
+        return \array_map(static function (LanguageEntity $lang) {
             $locale = $lang->getLocale();
             static::assertNotNull($locale);
 

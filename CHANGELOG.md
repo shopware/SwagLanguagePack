@@ -1,3 +1,6 @@
+# NEXT VERSION
+- LAN-135 - Fixed an error, where the domain modal only could be opened, when languages were deleted
+
 # 3.0.0
 - LAN-131 - Compatibility for Shopware 6.5.0.0
 

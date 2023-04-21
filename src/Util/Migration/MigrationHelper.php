@@ -7,6 +7,7 @@
 
 namespace Swag\LanguagePack\Util\Migration;
 
+use Doctrine\DBAL\ArrayParameterType;
 use Doctrine\DBAL\Connection;
 use Shopware\Core\Framework\Uuid\Uuid;
 use Shopware\Core\System\Language\LanguageDefinition;
@@ -145,7 +146,7 @@ SQL;
                 'isos' => SwagLanguagePack::BASE_SNIPPET_SET_LOCALES,
             ],
             [
-                'isos' => Connection::PARAM_STR_ARRAY,
+                'isos' => ArrayParameterType::STRING,
             ]
         )->fetchAllAssociative();
 
@@ -214,7 +215,7 @@ SQL;
         $locales = $this->connection->executeQuery(
             $sql,
             [\array_values(SwagLanguagePack::SUPPORTED_LANGUAGES)],
-            [Connection::PARAM_STR_ARRAY]
+            [ArrayParameterType::STRING]
         )->fetchAllAssociative();
 
         if (\count(SwagLanguagePack::SUPPORTED_LANGUAGES) !== \count($locales)) {
@@ -265,7 +266,7 @@ SQL;
         $existingLanguages = $this->connection->executeQuery(
             $sql,
             [\array_keys($locales)],
-            [Connection::PARAM_STR_ARRAY]
+            [ArrayParameterType::STRING]
         )->fetchAllAssociative();
 
         return \array_map(static function ($locale) use ($existingLanguages): array {

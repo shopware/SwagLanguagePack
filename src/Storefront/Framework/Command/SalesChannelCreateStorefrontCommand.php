@@ -14,25 +14,30 @@ use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
 use Shopware\Core\Maintenance\SalesChannel\Service\SalesChannelCreator;
+use Shopware\Core\System\Language\LanguageCollection;
+use Shopware\Core\System\Snippet\Aggregate\SnippetSet\SnippetSetCollection;
 use Swag\LanguagePack\Core\System\SalesChannel\Command\SalesChannelCreateCommand;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'sales-channel:create:storefront',
+    description: 'Creates a new storefront sales channel'
+)]
 class SalesChannelCreateStorefrontCommand extends SalesChannelCreateCommand
 {
-    protected static $defaultName = 'sales-channel:create:storefront';
-
-    private EntityRepository $snippetSetRepository;
-
+    /**
+     * @param EntityRepository<LanguageCollection> $languageRepository
+     * @param EntityRepository<SnippetSetCollection> $snippetSetRepository
+     */
     public function __construct(
-        DefinitionInstanceRegistry $definitionRegistry,
-        EntityRepository $languageRepository,
-        SalesChannelCreator $salesChannelCreator,
-        EntityRepository $snippetSetRepository
+        protected readonly DefinitionInstanceRegistry $definitionRegistry,
+        protected readonly EntityRepository $languageRepository,
+        protected readonly SalesChannelCreator $salesChannelCreator,
+        protected readonly EntityRepository $snippetSetRepository,
     ) {
-        $this->snippetSetRepository = $snippetSetRepository;
-
         parent::__construct(
             $definitionRegistry,
             $languageRepository,

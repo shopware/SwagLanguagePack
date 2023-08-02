@@ -12,6 +12,7 @@ use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\Uuid\Uuid;
+use Shopware\Core\System\User\UserCollection;
 use Shopware\Core\System\User\UserDefinition;
 use Shopware\Core\System\User\UserEntity;
 use Swag\LanguagePack\Test\Helper\ServicesTrait;
@@ -20,13 +21,16 @@ class UserValidatorTest extends TestCase
 {
     use ServicesTrait;
 
+    /**
+     * @var EntityRepository<UserCollection>
+     */
     private EntityRepository $userRepository;
 
     protected function setUp(): void
     {
         $container = $this->getContainer();
 
-        /** @var EntityRepository $userRepository */
+        /** @var EntityRepository<UserCollection> $userRepository */
         $userRepository = $container->get(\sprintf('%s.repository', UserDefinition::ENTITY_NAME));
         $this->userRepository = $userRepository;
     }
@@ -56,26 +60,22 @@ class UserValidatorTest extends TestCase
         static::assertNotNull($user);
 
         $this->expectExceptionMessage(\sprintf('The language bound to the locale with the id "%s" is disabled for the Administration.', $disabledLocaleId));
-        $this->userRepository->update([
-            [
-                'id' => $userId,
-                'localeId' => $disabledLocaleId,
-            ],
-        ], $context);
+        $this->userRepository->update([[
+            'id' => $userId,
+            'localeId' => $disabledLocaleId,
+        ]], $context);
     }
 
     private function createUser(string $userId, string $localeId, Context $context): void
     {
-        $this->userRepository->create([
-            [
-                'id' => $userId,
-                'localeId' => $localeId,
-                'username' => 'foo',
-                'password' => 'foobarbatz',
-                'firstName' => 'Olaf',
-                'lastName' => 'Olafson',
-                'email' => 'test@example.com',
-            ],
-        ], $context);
+        $this->userRepository->create([[
+            'id' => $userId,
+            'localeId' => $localeId,
+            'username' => 'foo',
+            'password' => 'foobarbatz',
+            'firstName' => 'Olaf',
+            'lastName' => 'Olafson',
+            'email' => 'test@example.com',
+        ]], $context);
     }
 }

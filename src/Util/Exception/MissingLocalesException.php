@@ -12,7 +12,7 @@ use Shopware\Core\Framework\ShopwareHttpException;
 class MissingLocalesException extends ShopwareHttpException
 {
     /**
-     * @param array<mixed> $localeCodes
+     * @param list<string>|array<int|string, string> $localeCodes
      */
     public function __construct(array $localeCodes)
     {

@@ -25,17 +25,18 @@ use Swag\LanguagePack\Util\Exception\PackLanguagesStillInUseException;
 
 class Lifecycle
 {
-    private Connection $connection;
-    private EntityRepository $languageRepository;
-
+    /**
+     * @param EntityRepository<LanguageCollection> $languageRepository
+     */
     public function __construct(
-        Connection $connection,
-        EntityRepository $languageRepository
+        private readonly Connection $connection,
+        private readonly EntityRepository $languageRepository
     ) {
-        $this->connection = $connection;
-        $this->languageRepository = $languageRepository;
     }
 
+    /**
+     * @deprecated tag:v4.0.0 - Will be removed without replacement
+     */
     public function deactivate(DeactivateContext $deactivateContext): void
     {
         $criteria = (new Criteria())->addFilter(
@@ -76,8 +77,10 @@ class Lifecycle
     private function deleteBaseSnippetSets(): void
     {
         $sql = <<<SQL
-DELETE FROM `snippet_set` WHERE `name` = :name AND `base_file` = :baseFile;
-SQL;
+            DELETE FROM `snippet_set`
+            WHERE `name` = :name
+              AND `base_file` = :baseFile;
+        SQL;
 
         foreach (SwagLanguagePack::BASE_SNIPPET_SET_LOCALES as $locale) {
             $this->connection->executeStatement(
@@ -105,8 +108,8 @@ SQL;
                 'SELECT *
                 FROM `information_schema`.`REFERENTIAL_CONSTRAINTS`
                 WHERE `CONSTRAINT_NAME` = "#constraint#"
-                AND `TABLE_NAME` = "#table#"
-                AND `CONSTRAINT_SCHEMA` = DATABASE();'
+                  AND `TABLE_NAME` = "#table#"
+                  AND `CONSTRAINT_SCHEMA` = DATABASE();'
             );
 
             $constraintExists = (bool) $this->connection->executeQuery($checkSql)->fetchOne();

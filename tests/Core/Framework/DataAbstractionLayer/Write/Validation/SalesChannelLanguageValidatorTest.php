@@ -11,6 +11,7 @@ use PHPUnit\Framework\TestCase;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\System\SalesChannel\Aggregate\SalesChannelLanguage\SalesChannelLanguageDefinition;
+use Shopware\Core\System\SalesChannel\SalesChannelCollection;
 use Shopware\Core\Test\TestDefaults;
 use Swag\LanguagePack\Test\Helper\ServicesTrait;
 
@@ -18,13 +19,16 @@ class SalesChannelLanguageValidatorTest extends TestCase
 {
     use ServicesTrait;
 
+    /**
+     * @var EntityRepository<SalesChannelCollection>
+     */
     private EntityRepository $salesChannelLanguageRepository;
 
     protected function setUp(): void
     {
         $container = $this->getContainer();
 
-        /** @var EntityRepository $salesChannelLanguageRepository */
+        /** @var EntityRepository<SalesChannelCollection> $salesChannelLanguageRepository */
         $salesChannelLanguageRepository = $container->get(\sprintf('%s.repository', SalesChannelLanguageDefinition::ENTITY_NAME));
         $this->salesChannelLanguageRepository = $salesChannelLanguageRepository;
     }
@@ -40,11 +44,9 @@ class SalesChannelLanguageValidatorTest extends TestCase
 
     private function createSalesChannelLanguage(string $languageId, Context $context): void
     {
-        $this->salesChannelLanguageRepository->create([
-            [
-                'salesChannelId' => TestDefaults::SALES_CHANNEL,
-                'languageId' => $languageId,
-            ],
-        ], $context);
+        $this->salesChannelLanguageRepository->create([[
+            'salesChannelId' => TestDefaults::SALES_CHANNEL,
+            'languageId' => $languageId,
+        ]], $context);
     }
 }

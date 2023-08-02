@@ -19,6 +19,8 @@ use Shopware\Core\Framework\DataAbstractionLayer\Write\WriteException;
 use Shopware\Core\Framework\Uuid\Uuid;
 use Shopware\Core\Framework\Validation\WriteConstraintViolationException;
 use Shopware\Core\Maintenance\SalesChannel\Service\SalesChannelCreator;
+use Shopware\Core\System\Language\LanguageCollection;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputInterface;
@@ -32,29 +34,24 @@ use Symfony\Component\Console\Output\OutputInterface;
  * for the sales channel creation.
  *
  * The reason it completely overrides the core command is that it wasn't possible to decorate or extend it
- * in a meaningful way (the `getAllIdsOf(...)` function was private). Also the version requirement of the core
+ * in a meaningful way (the `getAllIdsOf(...)` function was private). Also, the version requirement of the core
  * could not be raised to make that function protected.
  */
+#[AsCommand(
+    name: 'sales-channel:create',
+    description: 'Creates a new sales channel',
+)]
 class SalesChannelCreateCommand extends Command
 {
-    protected static $defaultName = 'sales-channel:create';
-
-    private DefinitionInstanceRegistry $definitionRegistry;
-
-    private EntityRepository $languageRepository;
-
-    private SalesChannelCreator $salesChannelCreator;
-
+    /**
+     * @param EntityRepository<LanguageCollection> $languageRepository
+     */
     public function __construct(
-        DefinitionInstanceRegistry $definitionRegistry,
-        EntityRepository $languageRepository,
-        SalesChannelCreator $salesChannelCreator
+        private readonly DefinitionInstanceRegistry $definitionRegistry,
+        private readonly EntityRepository $languageRepository,
+        private readonly SalesChannelCreator $salesChannelCreator
     ) {
-        $this->definitionRegistry = $definitionRegistry;
-        $this->languageRepository = $languageRepository;
-        $this->salesChannelCreator = $salesChannelCreator;
-
-        parent::__construct(self::$defaultName);
+        parent::__construct();
     }
 
     protected function configure(): void
@@ -145,7 +142,7 @@ class SalesChannelCreateCommand extends Command
     }
 
     /**
-     * @return array<mixed>
+     * @return list<string>|list<array<string, string>>
      */
     protected function getAllIdsOf(string $entity, Context $context): array
     {
@@ -156,7 +153,7 @@ class SalesChannelCreateCommand extends Command
     }
 
     /**
-     * @return array<mixed>
+     * @return list<string>|list<array<string, string>>
      */
     protected function getAllActiveLanguageIds(Context $context): array
     {

@@ -20,6 +20,7 @@ use Shopware\Core\Framework\Test\TestCaseBase\FilesystemBehaviour;
 use Shopware\Core\Framework\Test\TestCaseBase\KernelTestBehaviour;
 use Shopware\Core\Framework\Test\TestCaseBase\RequestStackTestBehaviour;
 use Shopware\Core\Framework\Test\TestCaseBase\SessionTestBehaviour;
+use Shopware\Core\System\Language\LanguageCollection;
 use Shopware\Core\System\Language\LanguageDefinition;
 use Swag\LanguagePack\PackLanguage\PackLanguageDefinition;
 use Swag\LanguagePack\SwagLanguagePack;
@@ -106,7 +107,6 @@ class MigrationHelperTest extends TestCase
         $locales['nonsense'] = 'non-sense';
         $locales['doesntExist'] = 'doesnt-exist';
 
-        /** @var Connection $connectionMock */
         $connectionMock = $this->prepareLocaleConnectionMock($locales);
 
         $this->migrationHelper->createPackLanguageTable();
@@ -139,7 +139,7 @@ class MigrationHelperTest extends TestCase
             ->method('keepUserData')
             ->willReturn(false);
 
-        /** @var EntityRepository $languageRepository */
+        /** @var EntityRepository<LanguageCollection> $languageRepository */
         $languageRepository = $this->getContainer()->get('language.repository');
 
         (new Lifecycle($this->connection, $languageRepository))

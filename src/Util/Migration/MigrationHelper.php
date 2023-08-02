@@ -17,34 +17,32 @@ use Swag\LanguagePack\Util\Exception\MissingLocalesException;
 
 class MigrationHelper
 {
-    private Connection $connection;
     public function __construct(
-        Connection $connection
+        private readonly Connection $connection
     ) {
-        $this->connection = $connection;
     }
 
     public function createPackLanguageTable(): void
     {
         $sql = <<<SQL
-CREATE TABLE IF NOT EXISTS `#table#` (
-    `id`                    BINARY(16)  NOT NULL,
-    `administration_active` TINYINT(1)  NULL DEFAULT '0',
-    `sales_channel_active`  TINYINT(1)  NULL DEFAULT '0',
-    `language_id`           BINARY(16)  NOT NULL,
-    `created_at`            DATETIME(3) NOT NULL,
-    `updated_at`            DATETIME(3) NULL,
-    PRIMARY KEY (`id`),
-    CONSTRAINT `fk.swag_language_pack_language_language`
-        FOREIGN KEY (`language_id`)
-        REFERENCES `language` (`id`)
-        ON DELETE RESTRICT
-        ON UPDATE CASCADE
-)
-ENGINE=InnoDB
-DEFAULT CHARSET=utf8mb4
-COLLATE=utf8mb4_unicode_ci;
-SQL;
+            CREATE TABLE IF NOT EXISTS `#table#` (
+                `id`                    BINARY(16)  NOT NULL,
+                `administration_active` TINYINT(1)  NULL DEFAULT '0',
+                `sales_channel_active`  TINYINT(1)  NULL DEFAULT '0',
+                `language_id`           BINARY(16)  NOT NULL,
+                `created_at`            DATETIME(3) NOT NULL,
+                `updated_at`            DATETIME(3) NULL,
+                PRIMARY KEY (`id`),
+                CONSTRAINT `fk.swag_language_pack_language_language`
+                    FOREIGN KEY (`language_id`)
+                    REFERENCES `language` (`id`)
+                    ON DELETE RESTRICT
+                    ON UPDATE CASCADE
+            )
+            ENGINE=InnoDB
+            DEFAULT CHARSET=utf8mb4
+            COLLATE=utf8mb4_unicode_ci;
+        SQL;
 
         $this->connection->executeStatement(\str_replace(
             ['#table#'],
@@ -60,11 +58,12 @@ SQL;
         }
 
         $sql = <<<SQL
-ALTER TABLE `#table#`
-ADD COLUMN `#column#` BINARY(16) NULL AFTER `parent_id`,
-ADD CONSTRAINT `fk.language_swag_language_pack_language`
-FOREIGN KEY (`#column#`) REFERENCES `#pack_language_table#` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
-SQL;
+            ALTER TABLE `#table#`
+            ADD COLUMN `#column#` BINARY(16) NULL AFTER `parent_id`,
+            ADD CONSTRAINT `fk.language_swag_language_pack_language`
+            FOREIGN KEY (`#column#`) REFERENCES `#pack_language_table#` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+        SQL;
+
         $this->connection->executeStatement(\str_replace(
             ['#table#', '#column#', '#pack_language_table#'],
             [
@@ -109,25 +108,25 @@ SQL;
         }
 
         $insertLanguagesSql = <<<SQL
-INSERT INTO `language` (`id`, `name`, `locale_id`, `translation_code_id`, `created_at`)
-VALUES (:id, :name, :localeId, :translationCodeId, NOW());
-SQL;
+            INSERT INTO `language` (`id`, `name`, `locale_id`, `translation_code_id`, `created_at`)
+            VALUES (:id, :name, :localeId, :translationCodeId, NOW());
+        SQL;
 
         foreach ($languages as $language) {
             $this->connection->executeStatement($insertLanguagesSql, $language);
         }
 
         $insertPackLanguagesSql = <<<SQL
-DELETE FROM `swag_language_pack_language`
-WHERE `language_id` = :languageId;
-
-INSERT INTO `swag_language_pack_language` (`id`, `language_id`, `administration_active`, `sales_channel_active`, `created_at`)
-VALUES (:id, :languageId, :administrationActive, :salesChannelActive, NOW());
-
-UPDATE `language`
-SET swag_language_pack_language_id = :id
-WHERE `id` = :languageId;
-SQL;
+            DELETE FROM `swag_language_pack_language`
+            WHERE `language_id` = :languageId;
+            
+            INSERT INTO `swag_language_pack_language` (`id`, `language_id`, `administration_active`, `sales_channel_active`, `created_at`)
+            VALUES (:id, :languageId, :administrationActive, :salesChannelActive, NOW());
+            
+            UPDATE `language`
+            SET swag_language_pack_language_id = :id
+            WHERE `id` = :languageId;
+        SQL;
 
         foreach ($packLanguages as $packLanguage) {
             $this->connection->executeStatement($insertPackLanguagesSql, $packLanguage);
@@ -137,8 +136,8 @@ SQL;
     public function createSnippetSets(): void
     {
         $sql = <<<SQL
-SELECT `id`, `iso` FROM `snippet_set` WHERE `name` LIKE 'BASE%' AND `iso` IN (:isos);
-SQL;
+            SELECT `id`, `iso` FROM `snippet_set` WHERE `name` LIKE 'BASE%' AND `iso` IN (:isos);
+        SQL;
 
         $existingSnippetSets = $this->connection->executeQuery(
             $sql,
@@ -166,9 +165,9 @@ SQL;
         }
 
         $insertSnippetSetSql = <<<SQL
-INSERT INTO `snippet_set` (`id`, `name`, `base_file`, `iso`, `created_at`) 
-VALUES (:id, :name, :baseFile, :iso, NOW())
-SQL;
+            INSERT INTO `snippet_set` (`id`, `name`, `base_file`, `iso`, `created_at`) 
+            VALUES (:id, :name, :baseFile, :iso, NOW())
+        SQL;
 
         foreach (SwagLanguagePack::BASE_SNIPPET_SET_LOCALES as $locale) {
             if (\in_array($locale, $existingIsos, true)) {
@@ -187,8 +186,8 @@ SQL;
     private function languageColumnAlreadyExists(): bool
     {
         $sql = <<<SQL
-SHOW COLUMNS FROM `#table#` LIKE '#column#';
-SQL;
+            SHOW COLUMNS FROM `#table#` LIKE '#column#';
+        SQL;
 
         $result = $this->connection->executeQuery(\str_replace(
             ['#table#', '#column#'],
@@ -203,14 +202,14 @@ SQL;
     }
 
     /**
-     * @return array<string|int, array<string, mixed>>
+     * @return array<mixed>
      * @throws MissingLocalesException
      */
     private function getLocales(): array
     {
         $sql = <<<SQL
-SELECT `id`, `code` FROM `locale` WHERE `code` IN (?);
-SQL;
+            SELECT `id`, `code` FROM `locale` WHERE `code` IN (?);
+        SQL;
 
         $locales = $this->connection->executeQuery(
             $sql,
@@ -257,11 +256,11 @@ SQL;
     private function createPackLanguageData(array $locales): array
     {
         $sql = <<<SQL
-SELECT lang.`id` as id, loc.`code` as code
-FROM `language` lang
-LEFT JOIN `locale` loc ON loc.`id` = lang.`translation_code_id`
-WHERE loc.`code` IN (?)
-SQL;
+            SELECT lang.`id` as id, loc.`code` as code
+            FROM `language` lang
+            LEFT JOIN `locale` loc ON loc.`id` = lang.`translation_code_id`
+            WHERE loc.`code` IN (?)
+        SQL;
 
         $existingLanguages = $this->connection->executeQuery(
             $sql,

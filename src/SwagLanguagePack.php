@@ -11,9 +11,10 @@ use Doctrine\DBAL\Connection;
 use Shopware\Core\Framework\Api\Acl\Role\AclRoleDefinition;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\Plugin;
-use Shopware\Core\Framework\Plugin\Context\DeactivateContext;
 use Shopware\Core\Framework\Plugin\Context\UninstallContext;
+use Shopware\Core\System\Language\LanguageCollection;
 use Swag\LanguagePack\Util\Lifecycle\Lifecycle;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class SwagLanguagePack extends Plugin
 {
@@ -98,27 +99,15 @@ class SwagLanguagePack extends Plugin
         ];
     }
 
-    public function deactivate(DeactivateContext $deactivateContext): void
-    {
-        parent::deactivate($deactivateContext);
-
-        /** @var Connection $connection */
-        $connection = $this->container->get(Connection::class);
-
-        /** @var EntityRepository $languageRepository */
-        $languageRepository = $this->container->get('language.repository');
-
-        (new Lifecycle($connection, $languageRepository))->deactivate($deactivateContext);
-    }
-
     public function uninstall(UninstallContext $uninstallContext): void
     {
         parent::uninstall($uninstallContext);
+        \assert($this->container instanceof ContainerInterface, 'Container is not set yet, please call setContainer() before calling boot(), see `src/Core/Kernel.php:186`.');
 
         /** @var Connection $connection */
         $connection = $this->container->get(Connection::class);
 
-        /** @var EntityRepository $languageRepository */
+        /** @var EntityRepository<LanguageCollection> $languageRepository */
         $languageRepository = $this->container->get('language.repository');
 
         (new Lifecycle($connection, $languageRepository))->uninstall($uninstallContext);

@@ -18,7 +18,7 @@ class PackLanguagesStillInUseException extends ShopwareHttpException
 
     public function __construct(LanguageCollection $languages)
     {
-        $names = \array_map(static function (LanguageEntity $language) {
+        $names = \array_map(static function (LanguageEntity $language): string {
             return $language->getName();
         }, $languages->getElements());
 

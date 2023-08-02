@@ -13,6 +13,7 @@ use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\Uuid\Uuid;
+use Shopware\Core\System\SalesChannel\SalesChannelCollection;
 use Shopware\Core\System\SalesChannel\SalesChannelDefinition;
 use Shopware\Core\System\SalesChannel\SalesChannelEntity;
 use Shopware\Core\Test\TestDefaults;
@@ -22,13 +23,16 @@ class SalesChannelValidatorTest extends TestCase
 {
     use ServicesTrait;
 
+    /**
+     * @var EntityRepository<SalesChannelCollection>
+     */
     private EntityRepository $salesChannelRepository;
 
     protected function setUp(): void
     {
         $container = $this->getContainer();
 
-        /** @var EntityRepository $salesChannelRepository */
+        /** @var EntityRepository<SalesChannelCollection> $salesChannelRepository */
         $salesChannelRepository = $container->get(\sprintf('%s.repository', SalesChannelDefinition::ENTITY_NAME));
         $this->salesChannelRepository = $salesChannelRepository;
     }
@@ -58,32 +62,28 @@ class SalesChannelValidatorTest extends TestCase
         static::assertNotNull($salesChannel);
 
         $this->expectExceptionMessage(\sprintf('The language with the id "%s" is disabled for all Sales Channels.', $disabledLanguageId));
-        $this->salesChannelRepository->update([
-            [
-                'id' => $salesChannelId,
-                'languageId' => $disabledLanguageId,
-                'languages' => [['id' => $disabledLanguageId]],
-            ],
-        ], $context);
+        $this->salesChannelRepository->update([[
+            'id' => $salesChannelId,
+            'languageId' => $disabledLanguageId,
+            'languages' => [['id' => $disabledLanguageId]],
+        ]], $context);
     }
 
     private function createSalesChannelWithLanguage(string $salesChannelId, string $languageId, Context $context): void
     {
-        $this->salesChannelRepository->create([
-            [
-                'id' => $salesChannelId,
-                'languageId' => $languageId,
-                'languages' => [['id' => $languageId]],
-                'typeId' => Defaults::SALES_CHANNEL_TYPE_STOREFRONT,
-                'customerGroupId' => TestDefaults::FALLBACK_CUSTOMER_GROUP,
-                'currencyId' => Defaults::CURRENCY,
-                'paymentMethodId' => $this->getValidPaymentMethodId(),
-                'shippingMethodId' => $this->getValidShippingMethodId(),
-                'countryId' => $this->getValidCountryId(),
-                'navigationCategoryId' => $this->getValidCategoryId(),
-                'accessKey' => 'S3cr3tfor3st',
-                'name' => 'Test SalesChannel',
-            ],
-        ], $context);
+        $this->salesChannelRepository->create([[
+            'id' => $salesChannelId,
+            'languageId' => $languageId,
+            'languages' => [['id' => $languageId]],
+            'typeId' => Defaults::SALES_CHANNEL_TYPE_STOREFRONT,
+            'customerGroupId' => TestDefaults::FALLBACK_CUSTOMER_GROUP,
+            'currencyId' => Defaults::CURRENCY,
+            'paymentMethodId' => $this->getValidPaymentMethodId(),
+            'shippingMethodId' => $this->getValidShippingMethodId(),
+            'countryId' => $this->getValidCountryId(),
+            'navigationCategoryId' => $this->getValidCategoryId(),
+            'accessKey' => 'S3cr3tfor3st',
+            'name' => 'Test SalesChannel',
+        ]], $context);
     }
 }

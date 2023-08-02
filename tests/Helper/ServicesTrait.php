@@ -12,6 +12,7 @@ use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
 use Shopware\Core\Framework\Test\TestCaseBase\IntegrationTestBehaviour;
+use Swag\LanguagePack\PackLanguage\PackLanguageCollection;
 use Swag\LanguagePack\PackLanguage\PackLanguageDefinition;
 use Swag\LanguagePack\PackLanguage\PackLanguageEntity;
 
@@ -21,7 +22,7 @@ trait ServicesTrait
 
     private function setSalesChannelActiveForLanguageByName(string $name, bool $salesChannelActive, Context $context): string
     {
-        /** @var EntityRepository $packLanguageRepository */
+        /** @var EntityRepository<PackLanguageCollection> $packLanguageRepository */
         $packLanguageRepository = $this->getContainer()->get(\sprintf('%s.repository', PackLanguageDefinition::ENTITY_NAME));
 
         $criteria = new Criteria();
@@ -31,19 +32,17 @@ trait ServicesTrait
         $first = $packLanguageRepository->search($criteria, $context)->first();
         static::assertNotNull($first);
 
-        $packLanguageRepository->update([
-            [
-                'id' => $first->getId(),
-                'salesChannelActive' => $salesChannelActive,
-            ],
-        ], $context);
+        $packLanguageRepository->update([[
+            'id' => $first->getId(),
+            'salesChannelActive' => $salesChannelActive,
+        ]], $context);
 
         return $first->getLanguageId();
     }
 
     private function setSalesChannelActiveForLanguageByLocale(string $locale, bool $salesChannelActive, Context $context): string
     {
-        /** @var EntityRepository $packLanguageRepository */
+        /** @var EntityRepository<PackLanguageCollection> $packLanguageRepository */
         $packLanguageRepository = $this->getContainer()->get(\sprintf('%s.repository', PackLanguageDefinition::ENTITY_NAME));
 
         $criteria = new Criteria();
@@ -53,19 +52,17 @@ trait ServicesTrait
         $first = $packLanguageRepository->search($criteria, $context)->first();
         static::assertNotNull($first);
 
-        $packLanguageRepository->update([
-            [
-                'id' => $first->getId(),
-                'salesChannelActive' => $salesChannelActive,
-            ],
-        ], $context);
+        $packLanguageRepository->update([[
+            'id' => $first->getId(),
+            'salesChannelActive' => $salesChannelActive,
+        ]], $context);
 
         return $first->getLanguage()->getLocaleId();
     }
 
     private function setAdministrationActiveForLanguageByLocale(string $locale, bool $administrationActive, Context $context): string
     {
-        /** @var EntityRepository $packLanguageRepository */
+        /** @var EntityRepository<PackLanguageCollection> $packLanguageRepository */
         $packLanguageRepository = $this->getContainer()->get(\sprintf('%s.repository', PackLanguageDefinition::ENTITY_NAME));
 
         $criteria = new Criteria();
@@ -75,12 +72,10 @@ trait ServicesTrait
         $first = $packLanguageRepository->search($criteria, $context)->first();
         static::assertNotNull($first);
 
-        $packLanguageRepository->update([
-            [
-                'id' => $first->getId(),
-                'administrationActive' => $administrationActive,
-            ],
-        ], $context);
+        $packLanguageRepository->update([[
+            'id' => $first->getId(),
+            'administrationActive' => $administrationActive,
+        ]], $context);
 
         return $first->getLanguage()->getLocaleId();
     }

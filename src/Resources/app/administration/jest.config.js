@@ -29,4 +29,8 @@ module.exports = {
     testMatch: [
         '<rootDir>/test/**/*.spec.js'
     ],
+
+    transformIgnorePatterns: [
+        '/node_modules/(?!(@shopware-ag/meteor-icon-kit|uuidv7|other)/)',
+    ],
 };

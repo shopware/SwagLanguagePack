@@ -15,6 +15,7 @@ use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\Uuid\Uuid;
 use Shopware\Core\System\SalesChannel\Aggregate\SalesChannelDomain\SalesChannelDomainDefinition;
 use Shopware\Core\System\SalesChannel\Aggregate\SalesChannelDomain\SalesChannelDomainEntity;
+use Shopware\Core\System\SalesChannel\SalesChannelCollection;
 use Shopware\Core\Test\TestDefaults;
 use Swag\LanguagePack\Test\Helper\ServicesTrait;
 
@@ -22,13 +23,16 @@ class SalesChannelDomainValidatorTest extends TestCase
 {
     use ServicesTrait;
 
+    /**
+     * @var EntityRepository<SalesChannelCollection>
+     */
     private EntityRepository $salesChannelDomainRepository;
 
     protected function setUp(): void
     {
         $container = $this->getContainer();
 
-        /** @var EntityRepository $salesChannelDomainRepository */
+        /** @var EntityRepository<SalesChannelCollection> $salesChannelDomainRepository */
         $salesChannelDomainRepository = $container->get(\sprintf('%s.repository', SalesChannelDomainDefinition::ENTITY_NAME));
         $this->salesChannelDomainRepository = $salesChannelDomainRepository;
     }

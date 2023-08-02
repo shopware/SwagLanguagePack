@@ -15,11 +15,14 @@ use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\Test\TestCaseBase\CommandTestBehaviour;
 use Shopware\Core\Framework\Test\TestCaseBase\IntegrationTestBehaviour;
 use Shopware\Core\Maintenance\SalesChannel\Service\SalesChannelCreator;
+use Shopware\Core\System\Language\LanguageCollection;
 use Shopware\Core\System\Language\LanguageDefinition;
 use Shopware\Core\System\Language\LanguageEntity;
+use Shopware\Core\System\SalesChannel\SalesChannelCollection;
 use Shopware\Core\System\SalesChannel\SalesChannelDefinition;
 use Shopware\Core\System\SalesChannel\SalesChannelEntity;
 use Swag\LanguagePack\Core\System\SalesChannel\Command\SalesChannelCreateCommand;
+use Swag\LanguagePack\PackLanguage\PackLanguageCollection;
 use Swag\LanguagePack\PackLanguage\PackLanguageDefinition;
 use Swag\LanguagePack\SwagLanguagePack;
 use Symfony\Component\Console\Input\StringInput;
@@ -34,25 +37,34 @@ class SalesChannelCreateCommandTest extends TestCase
 
     protected SalesChannelCreateCommand $overrideSalesChannelCreateCommand;
 
+    /**
+     * @var EntityRepository<SalesChannelCollection> $salesChannelRepository
+     */
     protected EntityRepository $salesChannelRepository;
 
+    /**
+     * @var EntityRepository<LanguageCollection> $languageRepository
+     */
     protected EntityRepository $languageRepository;
 
+    /**
+     * @var EntityRepository<PackLanguageCollection> $languagePackRepository
+     */
     protected EntityRepository $languagePackRepository;
 
     private Context $context;
 
     protected function setUp(): void
     {
-        /** @var EntityRepository $salesChannelRepository */
+        /** @var EntityRepository<SalesChannelCollection> $salesChannelRepository */
         $salesChannelRepository = $this->getContainer()->get(\sprintf('%s.repository', SalesChannelDefinition::ENTITY_NAME));
         $this->salesChannelRepository = $salesChannelRepository;
 
-        /** @var EntityRepository $languageRepository */
+        /** @var EntityRepository<LanguageCollection> $languageRepository */
         $languageRepository = $this->getContainer()->get(\sprintf('%s.repository', LanguageDefinition::ENTITY_NAME));
         $this->languageRepository = $languageRepository;
 
-        /** @var EntityRepository $languagePackRepository */
+        /** @var EntityRepository<PackLanguageCollection> $languagePackRepository */
         $languagePackRepository = $this->getContainer()->get(\sprintf('%s.repository', PackLanguageDefinition::ENTITY_NAME));
         $this->languagePackRepository = $languagePackRepository;
 
@@ -112,7 +124,7 @@ class SalesChannelCreateCommandTest extends TestCase
 
         // check the associated languages of the created sales channel
         $associatedLanguages = $this->getAssociatedLanguageLocalesOfSalesChannel($salesChannelId);
-        static::assertCount(0, array_diff(SwagLanguagePack::BASE_SNIPPET_SET_LOCALES, $associatedLanguages));
+        static::assertCount(0, \array_diff(SwagLanguagePack::BASE_SNIPPET_SET_LOCALES, $associatedLanguages));
     }
 
     /**
@@ -130,7 +142,7 @@ class SalesChannelCreateCommandTest extends TestCase
         $languages = $result->getLanguages();
         static::assertNotNull($languages);
 
-        return \array_map(static function (LanguageEntity $lang) {
+        return \array_map(static function (LanguageEntity $lang): string {
             $locale = $lang->getLocale();
             static::assertNotNull($locale);
 

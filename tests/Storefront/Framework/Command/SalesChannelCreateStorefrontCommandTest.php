@@ -17,9 +17,12 @@ use Shopware\Core\Framework\Test\TestCaseBase\IntegrationTestBehaviour;
 use Shopware\Core\Framework\Uuid\Uuid;
 use Shopware\Core\Maintenance\SalesChannel\Service\SalesChannelCreator;
 use Shopware\Core\System\Language\LanguageCollection;
+use Shopware\Core\System\SalesChannel\SalesChannelCollection;
 use Shopware\Core\System\SalesChannel\SalesChannelEntity;
+use Shopware\Core\System\Snippet\Aggregate\SnippetSet\SnippetSetCollection;
 use Shopware\Storefront\Storefront;
 use Swag\LanguagePack\Extension\LanguageExtension;
+use Swag\LanguagePack\PackLanguage\PackLanguageCollection;
 use Swag\LanguagePack\Storefront\Framework\Command\SalesChannelCreateStorefrontCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Tester\CommandTester;
@@ -28,10 +31,19 @@ class SalesChannelCreateStorefrontCommandTest extends TestCase
 {
     use IntegrationTestBehaviour;
 
+    /**
+     * @var EntityRepository<SalesChannelCollection> $salesChannelRepository
+     */
     private EntityRepository $salesChannelRepository;
 
+    /**
+     * @var EntityRepository<PackLanguageCollection> $languagePackLanguageRepository
+     */
     private EntityRepository $languagePackLanguageRepository;
 
+    /**
+     * @var EntityRepository<LanguageCollection> $languageRepository
+     */
     private EntityRepository $languageRepository;
 
     private Context $context;
@@ -53,16 +65,16 @@ class SalesChannelCreateStorefrontCommandTest extends TestCase
         /** @var SalesChannelCreator $salesChannelCreator */
         $salesChannelCreator = $this->getContainer()->get(SalesChannelCreator::class);
 
-        /** @var EntityRepository $snippetSetRepository */
+        /** @var EntityRepository<SnippetSetCollection> $snippetSetRepository */
         $snippetSetRepository = $this->getContainer()->get('snippet_set.repository');
 
         $this->salesChannelRepository = $this->getContainer()->get('sales_channel.repository');
 
-        /** @var EntityRepository $languageRepository */
+        /** @var EntityRepository<LanguageCollection> $languageRepository */
         $languageRepository = $this->getContainer()->get('language.repository');
         $this->languageRepository = $languageRepository;
 
-        /** @var EntityRepository $languagePackLanguageRepository */
+        /** @var EntityRepository<PackLanguageCollection> $languagePackLanguageRepository */
         $languagePackLanguageRepository = $this->getContainer()->get('swag_language_pack_language.repository');
         $this->languagePackLanguageRepository = $languagePackLanguageRepository;
 
@@ -96,6 +108,7 @@ class SalesChannelCreateStorefrontCommandTest extends TestCase
             '--navigationCategoryId' => $navigationCategoryId,
         ]);
 
+        /** @var ?SalesChannelEntity $storefront */
         $storefront = $this->salesChannelRepository->search($this->getStorefrontCriteria($storefrontId), $this->context)
             ->getEntities()->first();
 
@@ -111,9 +124,7 @@ class SalesChannelCreateStorefrontCommandTest extends TestCase
 
         $activeLanguageIds = $this->languageRepository->searchIds($criteria, $this->context)->getIds();
 
-        /**
-         * @var LanguageCollection $associatedLanguages
-         */
+        /** @var LanguageCollection $associatedLanguages */
         $associatedLanguages = $storefront->getLanguages();
         $associatedLanguageIds = \array_values($associatedLanguages->getIds());
 

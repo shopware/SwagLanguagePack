@@ -15,25 +15,13 @@ class PackLanguageEntity extends Entity
 {
     use EntityIdTrait;
 
-    /**
-     * @var bool
-     */
-    protected $administrationActive;
+    protected bool $administrationActive;
 
-    /**
-     * @var bool
-     */
-    protected $salesChannelActive;
+    protected bool $salesChannelActive;
 
-    /**
-     * @var string
-     */
-    protected $languageId;
+    protected string $languageId;
 
-    /**
-     * @var LanguageEntity
-     */
-    protected $language;
+    protected LanguageEntity $language;
 
     public function isAdministrationActive(): bool
     {

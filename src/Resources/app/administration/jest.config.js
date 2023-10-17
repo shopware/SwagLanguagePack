@@ -14,11 +14,6 @@ module.exports = {
         resolve(join(process.env.ADMIN_PATH, '/test/_setup/prepare_environment.js')),
     ],
 
-    moduleDirectories:[
-        '<rootDir>/node_modules',
-        resolve(join(process.env.ADMIN_PATH, '/node_modules')),
-    ],
-
     moduleNameMapper: {
         '^uuid$': require.resolve('uuid'),
         '^\@shopware-ag\/admin-extension-sdk\/es\/(.*)': resolve(join(process.env.ADMIN_PATH, '/node_modules')) + '/@shopware-ag/admin-extension-sdk/umd/$1',
@@ -29,7 +24,6 @@ module.exports = {
     testMatch: [
         '<rootDir>/test/**/*.spec.js'
     ],
-
     transformIgnorePatterns: [
         '/node_modules/(?!(@shopware-ag/meteor-icon-kit|uuidv7|other)/)',
     ],

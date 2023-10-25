@@ -1,11 +1,10 @@
-import template from './swag-sales-channel-defaults-select-filterable.html.twig';
-
 const { Component } = Shopware;
 const { Criteria } = Shopware.Data;
 
+/**
+ * @deprecated tag:v3.1.0 - Will be removed. USe `sw-sales-channel-defaults-select` instead
+ */
 Component.extend('swag-sales-channel-defaults-select-filterable', 'sw-sales-channel-defaults-select', {
-    template,
-
     props: {
         criteria: {
             type: Object,

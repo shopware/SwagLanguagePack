@@ -19,19 +19,26 @@
         {% endblock %}
 
         {% block swag_language_pack_settings_base_card_view_language_selection_languages %}
-        {% block swag_language_pack_settings_base_card_view_language_selection_language %}
+        <template
+            v-for="packLanguage in packLanguages"
+            :key="packLanguage.id"
+        >
+            {% block swag_language_pack_settings_base_card_view_language_selection_language %}
             <swag-pack-language-entry
-                v-for="packLanguage in packLanguages"
                 class="swag-language-pack-settings-base__entry"
-                :key="packLanguage.id"
+                {% if VUE3 %}
+                v-model:value="packLanguage"
+                {% else %}
                 :value="packLanguage"
+                {% endif %}
                 :field="`${settingsType}Active`"
                 :label="packLanguage.language.name"
                 :description="packLanguage.language.locale?.code"
                 :flag-locale="packLanguage.language.locale?.code"
                 :disabled="!acl.can('swag_language_pack_language:update')"
             />
-        {% endblock %}
+            {% endblock %}
+        </template>
         {% endblock %}
 
     </sw-card>

@@ -6,24 +6,24 @@ const artifactsPath = process.env.ARTIFACTS_PATH ? join(process.env.ARTIFACTS_PA
 process.env.ADMIN_PATH = admin_path;
 
 module.exports = {
+    displayName: {
+        name: 'LanguagePack Administration',
+        color: 'lime'
+    },
+
     preset: '@shopware-ag/jest-preset-sw6-admin',
 
     globals: {
         adminPath: process.env.ADMIN_PATH,
     },
 
-    displayName: {
-        name: 'LanguagePack Administration',
-        color: 'lime'
-    },
-
     reporters: [
         'default', [
             'jest-junit',
             {
-                'suiteName': 'SocialShopping Administration',
+                'suiteName': 'LanguagePack Administration',
                 'outputDirectory': artifactsPath,
-                'outputName': 'social-shopping-administration-jest.xml',
+                'outputName': 'language-pack-administration-jest.xml',
                 'uniqueOutputName': 'false'
             },
         ],

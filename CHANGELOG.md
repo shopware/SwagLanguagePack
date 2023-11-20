@@ -1,6 +1,7 @@
-# NEXT VERSION
+# 3.1.0
 - LAN-135 - Fixed an error, where the domain modal only could be opened, when languages were deleted
 - LAN-141 - Removed usage of `Swag\LanguagePack\Util\Lifecycle\Lifecycle::deactivate` in `Swag\LanguagePack\SwagLanguagePack.php` to not throw errors, when deinstalling the plugin with languages still in use to enable easier debugging and updating
+- LAN-147 - All supported languages got updated by community translations (Shopware version 6.5.6.1)
 - NEXT-29015 - Deprecated `swag-sales-channel-defaults-select-filterable`. It will be removed in 3.1.0. Use `sw-sales-channel-defaults-select` instead.
 
 # 3.0.0

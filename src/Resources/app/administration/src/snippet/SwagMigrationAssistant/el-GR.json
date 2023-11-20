@@ -81,10 +81,19 @@
                         "pluginLink": "Περισσότερες πληροφορίες σχετικά με το plugin"
                     },
                     "shopware6Api": {
-                        "contentTitle": "Απαιτείται ενσωμάτωση",
-                        "contentInformation": "Απαιτείται η δημιουργία ενσωμάτωσης στο σύστημα πηγής μέσω Ρυθμίσεων> Σύστημα > Ενσωματώσεις.",
-                        "pluginLink": "Περισσότερες πληροφορίες σχετικά με τις ενσωματώσεις",
-                        "link": "https://docs.shopware.com/en/shopware-6-en/settings/system/integrationen"
+                        "contentTitle": "Απαιτήσεις",
+                        "plugin": {
+                            "title": "Επέκταση",
+                            "description": "Εγκαταστήστε την επέκταση Βοηθός μετεγκατάστασης στο σύστημα προέλευσης.",
+                            "linkText": "Περισσότερα σχετικά με την επέκταση Βοηθός μετεγκατάστασης",
+                            "link": "https://store.shopware.com/en/swag257162657297f/migration-assistant.html"
+                        },
+                        "integration": {
+                            "title": "Ενσωμάτωση",
+                            "description": "Δημιουργήστε μια ενσωμάτωση στο σύστημα προέλευσης μέσω Ρυθμίσεις> Σύστημα > Ενσωματώσεις. Θα χρειαστείτε το δημιουργημένο αναγνωριστικό κλειδιού πρόσβασης και το μυστικό κλειδί πρόσβασης στο επόμενο βήμα.",
+                            "linkText": "Περισσότερα για τις ενσωματώσεις",
+                            "link": "https://docs.shopware.com/en/shopware-6-en/settings/system/integrationen"
+                        }
                     }
                 },
                 "credentials": {
@@ -232,7 +241,8 @@
                     "content": "Επιλέξτε τα δεδομένα που θέλετε να μετεγκαταστήσετε. Είναι δυνατό να συμπεριληφθούν δεδομένα plugin, καθώς και, εάν το plugin είναι ήδη διαθέσιμο για Shopware 6. Ελέγξτε για διαθεσιμότητα plugin στο Shopware λογαριασμό σας."
                 },
                 "migrationOverview": {
-                    "title": "Βήματα μετεγκατάστασης"
+                    "title": "Βήματα μετεγκατάστασης",
+                    "content": "1. Μια αυτόματη διαδικασία ελέγχει τα επιλεγμένα δεδομένα για ελλείπουσες αναθέσεις. Προετοιμαστείτε για να ολοκληρώσετε την αυτόματη διαδικασία προσθέτοντας μη αυτόματες αναθέσεις.{linebreak}2. Τα δεδομένα του καταστήματός σας διαβάζονται και εκχωρούνται.{linebreak}3. Όλα τα επιλεγμένα και σωστά εκχωρημένα δεδομένα μεταφέρονται στο Shopware 6.{linebreak}4. Τα στοιχεία πολυμέσων μεταφορτώνονται."
                 }
             },
             "selectDataCard": {
@@ -482,11 +492,20 @@
                     "information": "Σφάλμα εξουσιοδότησης. Τα δεδομένα πρόσβασής σας δεν είναι σωστά. Ελέγξτε το και προσπαθήστε ξανά."
                 },
                 "canNotConnectToServer": "Δεν υπάρχει σύνδεση με το διακομιστή. Ελέγξτε τη σύνδεση για προβλήματα.",
+                "customerExists": {
+                    "information": "Πελάτης με email \"{mail}\" υπάρχει ήδη. Δεν μπορείτε να προσθέσετε αυτόν τον χρήστη με αυτό το μήνυμα ηλεκτρονικού ταχυδρομείου στη βάση δεδομένων σας."
+                },
                 "gatewayNotFound": {
                     "information": "Η πύλη \"{notFoundGateway}\" δε βρέθηκε."
                 },
+                "gatewayRead": {
+                    "information": "Δεν ήταν δυνατή η ανάγνωση της πύλης \"{unreadableGateway}»."
+                },
                 "localeNotFound": {
                     "information": "Ο κωδικός καταχώρησης τοπικών ρυθμίσεων \"{notFoundCode}\" δεν βρέθηκε."
+                },
+                "migrationContextPropertyMissing": {
+                    "information": "Δεν βρέθηκε η απαιτούμενη ιδιότητα{notFoundProperty}\"\" για το περιβάλλον μετεγκατάστασης."
                 },
                 "migrationsWorkloadPropertyMissing": {
                     "information": "Η απαιτούμενη ιδιότητα \"{notFoundProperty}\" για το φόρτο εργασίας μετεγκατάστασης δεν βρέθηκε."
@@ -537,14 +556,16 @@
                     "description": "Δεν ήταν δυνατή η αντιγραφή του αρχείου προέλευσης. Αρχείο: {path}"
                 },
                 "SWAG_MIGRATION_CANNOT_CONVERT_CHILD_ENTITY": {
-                    "title": "Δεν ήταν δυνατή η μετατροπή της θυγατρικής οντότητας {entity}"
+                    "title": "Δεν ήταν δυνατή η μετατροπή της θυγατρικής οντότητας {entity}",
+                    "description": "Η {entity} θυγατρική οντότητα από τη {parentEntity} μητρική οντότητα με το αναγνωριστικό \"{parentSourceId}\" δεν μπόρεσε να μετατραπεί."
                 },
                 "SWAG_MIGRATION_CANNOT_CONVERT_ENTITY": {
                     "title": "Η οντότητα {entity} δεν ήταν δυνατή η μετατροπή",
                     "description": "Δεν ήταν δυνατή η μετατροπή της οντότητας {entity} με το αναγνωριστικό προέλευσης \"{sourceId}\"."
                 },
                 "SWAG_MIGRATION_CANNOT_GET_FILE": {
-                    "title": "Το αρχείο {entity} δεν μπορεί να μεταφορτωθεί/αντιγραφεί"
+                    "title": "Το αρχείο {entity} δεν μπορεί να μεταφορτωθεί/αντιγραφεί",
+                    "description": "Το {entity} αρχείο με το uri \"{uri}\" και το αναγνωριστικό πολυμέσων \"{sourceId}\" δεν μπορεί να μεταφορτωθεί/αντιγραφεί."
                 },
                 "SWAG_MIGRATION__COULD_NOT_READ_ENTITY_COUNT": {
                     "title": "Δεν ήταν δυνατή η ανάγνωση του αριθμού οντοτήτων",
@@ -567,7 +588,8 @@
                     "description": "Δεν βρέθηκε επεξεργαστής για το προφίλ \"{profileName}«, την πύλη \"{gatewayName}\" και την οντότητα \"{entity}\"."
                 },
                 "SWAG_MIGRATION_ENTITY_UNKNOWN": {
-                    "title": "Αδυναμία εύρεσης {entity}"
+                    "title": "Αδυναμία εύρεσης {entity}",
+                    "description": "Η {requiredForEntity} οντότητα με το αναγνωριστικό πηγής \"{requiredForSourceId}\" δεν μπορεί να βρει την εξαρτώμενη {entity} οντότητα με το αναγνωριστικό πηγής \"{sourceId}\"."
                 },
                 "SWAG_MIGRATION__INVALID_EMAIL_ADDRESS": {
                     "title": "Μη έγκυρη διεύθυνση ηλεκτρονικού ταχυδρομείου",

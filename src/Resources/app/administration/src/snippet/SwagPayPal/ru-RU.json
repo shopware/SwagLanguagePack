@@ -1,4 +1,479 @@
 {
+    "sw-privileges": {
+        "permissions": {
+            "parents": {
+                "swag_paypal": "PayPal"
+            },
+            "swag_paypal": {
+                "label": "Настройки PayPal"
+            },
+            "swag_paypal_disputes": {
+                "label": "Споры PayPal"
+            }
+        }
+    },
+    "sw-settings-payment-list": {
+        "needOnboardingTooltip": "Завершите регистрацию, чтобы активировать этот способ оплаты"
+    },
+    "sw-settings-payment-detail": {
+        "tooltip": "Перейдите в <a class=\"swag-paypal-go-to-settings-link\" href=\"#/swag/paypal/index\">Настройки расширения PayPal →</a> и активируйте платформу PayPal Commerce Platform, чтобы активировать этот способ оплаты."
+    },
+    "swag-paypal": {
+        "header": "PayPal",
+        "saleschannelCard": {
+            "button": {
+                "description": "Нажмите эту кнопку, чтобы включить PayPal и выбрать его по умолчанию в выбранном канале продаж",
+                "label": "Установить PayPal по умолчанию"
+            }
+        },
+        "tabs": {
+            "general": "Генеральной",
+            "storefront": "Презентация магазина"
+        },
+        "general": {
+            "mainMenuItemGeneral": "PayPal",
+            "descriptionTextModule": "Настройки PayPal"
+        },
+        "messageNotBlank": "Это значение не должно быть пустым.",
+        "settingForm": {
+            "testLive": "Учетные данные API тестирования",
+            "testSandbox": "Учетные данные API тестирования sandbox",
+            "checkout": {
+                "cardTitle": "Оплата через PayPal",
+                "settingsLink": "Настройки",
+                "header": "Больше способов оплаты с одним решением от PayPal",
+                "description": "PayPal Checkout — это новое универсальное решение, которое позволяет предлагать мощные гибкие функции обработки платежей на торговых площадках и других торговых платформах.",
+                "banner": "С помощью PayPal Checkout вы можете предлагать своим клиентам оплату счетом, кредитной картой и другими местными способами оплаты. PayPal Checkout поддерживает вас с помощью новейших технологий и обеспечивает максимальную гибкость. Вы сохраняете существующие способы оплаты, а комиссии остаются прежними! Активируйте PayPal Checkout и деактивируйте PayPal PLUS, чтобы избежать дублирования способов оплаты в вашем магазине. <a href=\"https://www.shopware.com/en/news/paypal-launches-new-product/?utm_source=product&utm_medium=sw6-onprem&utm_campaign=paypal-checkout&utm_content=link-en-blog\" target=\"_blank\">Дополнительная информация</a>",
+                "button": {
+                    "liveTitle": "Подключить аккаунт PayPal",
+                    "sandboxTitle": "Подключение учетной записи sandbox",
+                    "changeLiveTitle": "Подключить другую учетную запись",
+                    "changeSandboxTitle": "Подключение другой учетной записи песочницы",
+                    "onboardingLiveTitle": "Начать регистрацию оплаты PayPal",
+                    "onboardingSandboxTitle": "Начать регистрацию песочницы PayPal Checkout",
+                    "restartOnboardingLiveTitle": "Перезапустить регистрацию PayPal Checkout",
+                    "restartOnboardingSandboxTitle": "Перезапуск подключения песочницы PayPal Checkout"
+                },
+                "sandbox": {
+                    "label": "Песочница",
+                    "onlySandboxTooltip": "Пока вы подключили только учетную запись PayPal в песочнице.",
+                    "onlyLiveTooltip": "Пока вы подключены только к реальному счету PayPal.",
+                    "helpText": "Включите, если хотите протестировать интеграцию с PayPal."
+                },
+                "switch": {
+                    "label": "Активный"
+                },
+                "paymentMethodText": "Способы оплаты",
+                "showCredentials": "Показать учетные данные",
+                "appImageAlt": "PayPal",
+                "editDetail": "Редактирование сведений",
+                "startOnboardingButtonLabel": "Начать адаптацию",
+                "availabilityToolTip": {
+                    "bancontactapmhandler": "Bancontact доступен для следующих стран: Бельгия",
+                    "blikapmhandler": "BLIK доступен для следующих стран: Польша",
+                    "boletobancarioapmhandler": "Boleto Bancário доступна для следующих стран: Бразилия",
+                    "epsapmhandler": "eps доступен для следующих стран: Австрия",
+                    "giropayapmhandler": "Giropay доступен для следующих стран: Германия",
+                    "idealapmhandler": "iDeal доступен для следующих стран: Нидерланды",
+                    "multibancoapmhandler": "Multibanco доступна для следующих стран: Португалия",
+                    "mybankapmhandler": "MyBank доступен для следующих стран: Италия",
+                    "oxxoapmhandler": "OXXO доступна для следующих стран: Мексика",
+                    "p24apmhandler": "Przelewy24 доступна для следующих стран: Польша",
+                    "paylaterhandler": "Pay Later доступна для следующих стран: Австралия, Германия, Испания, Италия, Великобритания, Соединенные Штаты, Франция",
+                    "puihandler": "Оплата по счету доступна для следующих стран: Германия",
+                    "sepahandler": "SEPA Lastschrift доступна для следующих стран: Германия",
+                    "sofortapmhandler": "Sofort доступен для следующих стран: Австрия, Бельгия, Германия, Италия, Нидерланды, Испания, Великобритания",
+                    "venmohandler": "Venmo доступен для следующих стран: Соединенные Штаты",
+                    "trustlyapmhandler": "Trustly доступен для следующих стран: Эстония, Финляндия, Нидерланды, Швеция"
+                },
+                "onboardingStatusText": {
+                    "active": "Уполномоченный",
+                    "limited": "Ограниченный",
+                    "pending": "Ожидается авторизация",
+                    "ineligible": "Не имеет права",
+                    "inactive": "Необходима адаптация",
+                    "mybank": "Ограниченный"
+                },
+                "onboardingStatusTooltip": {
+                    "ineligible": "PayPal сообщила нам, что этот способ оплаты в настоящее время не подходит для вашей учетной записи.",
+                    "limited": "PayPal сообщила нам, что этот способ оплаты имеет некоторые ограничения для вашей учетной записи."
+                },
+                "paymentMethodStatusChangedSuccess": {
+                    "active": "Способ оплаты «{name}» теперь активен.",
+                    "inactive": "Способ оплаты «{name}» теперь неактивен."
+                },
+                "deactivatePayPalPlusModal": {
+                    "title": "Деактивировать PayPal ПЛЮС",
+                    "text": "Поздравляю! Переключившись на PayPal Checkout, вы продолжаете использовать все соответствующие способы оплаты, основанные на новейших технологиях.",
+                    "warning": "Избегайте отображения дублирующих способов оплаты и деактивируйте PayPal PLUS.",
+                    "button": {
+                        "deactivate": "Деактивировать PayPal ПЛЮС",
+                        "cancel": "Отмена"
+                    }
+                }
+            },
+            "credentials": {
+                "cardTitle": "Учетные данные API",
+                "clientId": {
+                    "label": "ID клиента",
+                    "tooltipText": "Идентификатор клиента REST API используется для аутентификации этого плагина с помощью PayPal API."
+                },
+                "clientSecret": {
+                    "label": "Секрет клиента",
+                    "tooltipText": "Секрет клиента REST API используется для аутентификации этого плагина с помощью PayPal API."
+                },
+                "merchantPayerId": {
+                    "label": "ID продавца PayPal",
+                    "tooltipText": "Идентификатор продавца PayPal, присвоенный вашей учетной записи PayPal (см. Деловая информация в настройках учетной записи PayPal)."
+                },
+                "clientIdSandbox": {
+                    "label": "ID клиента sandbox",
+                    "tooltipText": "Идентификатор клиента REST API используется во время тестирования для аутентификации этого плагина с помощью PayPal API."
+                },
+                "clientSecretSandbox": {
+                    "label": "Секрет клиента sandbox",
+                    "tooltipText": "Секрет клиента REST API используется во время тестирования для аутентификации этого плагина с помощью PayPal API."
+                },
+                "merchantPayerIdSandbox": {
+                    "label": "ID продавца PayPal в песочнице",
+                    "tooltipText": "Идентификатор продавца PayPal, присвоенный вашей песочнице PayPal (см. Деловая информация в настройках учетной записи PayPal)."
+                },
+                "sandbox": {
+                    "label": "Включить sandbox",
+                    "tooltipText": "Включите, если хотите протестировать интеграцию с PayPal."
+                },
+                "button": {
+                    "title": "Получить полномочия API",
+                    "titleSandbox": "Получить полномочия API sandbox",
+                    "messageFetchedError": "Повторите попытку или введите свои учетные данные вручную."
+                }
+            },
+            "behavior": {
+                "cardTitle": "Поведение",
+                "merchantLocation": {
+                    "label": "Местонахождение продавца",
+                    "germany": "Германия",
+                    "other": "Другое место проведения продавца"
+                },
+                "intent": {
+                    "label": "Приобретение платежей",
+                    "CAPTURE": "Автоматический сбор платежей (намерение CAPTURE)",
+                    "AUTHORIZE": "Сбор платежей вручную (намерение АВТОРИЗОВАТЬ)"
+                },
+                "submitCart": {
+                    "label": "Отправить корзину",
+                    "helpText": "Если эта опция активна, данные корзины будут отправлены в PayPal при оформлении заказа."
+                },
+                "brandName": {
+                    "label": "Ваше собственное фирменное наименование на странице PayPal",
+                    "tooltipText": "Этот текст будет отображаться в качестве фирменного наименования на странице оплаты PayPal."
+                },
+                "landingPage": {
+                    "label": "Целевая страница PayPal",
+                    "helpText": {
+                        "login": "Вход: Сайт PayPal отображает экран входа в систему в качестве целевой страницы.",
+                        "billing": "Регистрация: Сайт PayPal отображает регистрационную форму в качестве целевой страницы.",
+                        "no_preference": "Нет предпочтений: PayPal решает, какая страница отображается, в зависимости от предыдущего взаимодействия клиента с PayPal."
+                    },
+                    "options": {
+                        "login": "Войти",
+                        "billing": "Регистрация",
+                        "no_preference": "Нет предпочтений"
+                    }
+                },
+                "sendOrderNumber": {
+                    "label": "Отправить номер заказа",
+                    "helpText": "Если эта опция активна, номер заказа будет отправлен в PayPal в качестве идентификатора счета при оформлении заказа."
+                },
+                "orderNumberPrefix": {
+                    "label": "Префикс номера заказа",
+                    "tooltipText": "Этот текст помещается перед оригинальным номером заказа (например, MyShop_SW20001). Это помогает определить магазин, в котором была произведена оплата. Вы можете найти его в качестве идентификатора счета на панели управления PayPal."
+                },
+                "orderNumberSuffix": {
+                    "label": "Суффикс номера заказа",
+                    "tooltipText": "Этот текст помещается после оригинального номера заказа (например, SW20001_MyShop). Это помогает определить магазин, в котором была произведена оплата. Вы можете найти его в качестве идентификатора счета на панели управления PayPal."
+                },
+                "loggingLevel": {
+                    "label": "Отладка",
+                    "tooltipText": "При использовании расширенной отладки во время проверки записываются дополнительные данные для обнаружения потенциальных ошибок. Только для временного использования.",
+                    "options": {
+                        "basic": "Базовый",
+                        "advanced": "Продвинутый"
+                    }
+                },
+                "excludedProductIds": {
+                    "label": "Исключенные продукты",
+                    "tooltipText": "Выбранные здесь продукты нельзя приобрести через PayPal."
+                },
+                "excludedProductStreamIds": {
+                    "label": "Исключенные динамические группы продуктов",
+                    "tooltipText": "Продукты, включенные в выбранные здесь динамические группы продуктов, нельзя приобрести через PayPal."
+                }
+            },
+            "express": {
+                "cardTitle": "Ярлык экспресс-оформления заказа",
+                "ecsDetailEnabled": {
+                    "label": "«Оформление заказа через PayPal» на странице сведений",
+                    "helpText": "Если эта опция активна, кнопка Express Checkout будет отображаться на каждой странице сведений о продукте."
+                },
+                "ecsCartEnabled": {
+                    "label": "«Оформление заказа через PayPal» в корзине",
+                    "helpText": "Если эта опция активна, в корзине будет показана кнопка Express Checkout."
+                },
+                "ecsOffCanvasEnabled": {
+                    "label": "«Оформление заказа через PayPal» на нехолщовой корзине",
+                    "helpText": "Если эта опция активна, кнопка «Экспресс-оплата» появится на закрытой корзине."
+                },
+                "ecsLoginEnabled": {
+                    "label": "«Оформление заказа через PayPal» на странице входа",
+                    "helpText": "Если эта опция активна, кнопка Express Checkout будет отображаться на странице входа и регистрации."
+                },
+                "ecsListingEnabled": {
+                    "label": "«Оформление заказа через PayPal» на страницах объявлений",
+                    "helpText": "Если эта опция активна, кнопка Express Checkout будет отображаться на страницах списка."
+                },
+                "ecsButtonColor": {
+                    "label": "Цвет кнопки",
+                    "options": {
+                        "blue": "голубой",
+                        "black": "Черный",
+                        "gold": "Золото (рекомендуется)",
+                        "silver": "Серебро",
+                        "white": "белый"
+                    }
+                },
+                "ecsButtonShape": {
+                    "label": "Форма пуговицы",
+                    "options": {
+                        "pill": "Раунд",
+                        "rect": "Прямоугольные"
+                    }
+                },
+                "ecsSubmitCart": {
+                    "label": "Отправить корзину",
+                    "helpText": "Если эта опция активна, корзина будет отправлена в PayPal для экспресс-заказов."
+                },
+                "ecsButtonLanguageIso": {
+                    "label": "Язык кнопок",
+                    "helpText": "Если не установлен, будет использоваться язык канала продаж."
+                },
+                "ecsShowPayLater": {
+                    "label": "Отобразите кнопку «Оплатить позже» рядом с кнопкой «Оформить заказ через PayPal»",
+                    "helpText": "Кнопка «Оплатить позже» будет отображаться на тех же страницах и в том же дизайне, что и кнопка «Оформить заказ через PayPal»."
+                }
+            },
+            "installment": {
+                "cardTitle": "Баннер «Платите позже»"
+            },
+            "acdc": {
+                "cardTitle": "Кредитная или дебетовая карта",
+                "acdcForce3DS": {
+                    "label": "Выполнить транзакции только с 3D Secure",
+                    "helpText": "Транзакция не будет принята, если 3D Secure недоступен."
+                }
+            },
+            "pui": {
+                "cardTitle": "Оплата по счету",
+                "customerServiceInstructions": {
+                    "label": "Инструкции по обслуживанию клиентов для оплаты по счету",
+                    "helpText": "Эти инструкции будут отправлены в PayPal & RatePay и показаны в электронных письмах для клиента."
+                }
+            },
+            "spb": {
+                "cardTitle": "Умные платежные кнопки",
+                "spbCheckoutEnabled": {
+                    "label": "Включить кнопки смарт-оплаты"
+                },
+                "spbButtonLanguageIso": {
+                    "label": "Язык кнопок",
+                    "helpText": "Если не установлен, будет использоваться язык канала продаж."
+                },
+                "spbAlternativePaymentMethodsEnabled": {
+                    "label": "Включите альтернативные способы оплаты для кнопок Smart Payment Buttons.",
+                    "helpText": "Альтернативными способами оплаты являются кредитные и дебетовые карты и многое другое."
+                },
+                "spbShowPayLater": {
+                    "label": "Отобразите кнопку «Оплатить позже» рядом с кнопкой PayPal"
+                }
+            },
+            "plus": {
+                "cardTitle": "PayPal ПЛЮС",
+                "introduction": "<strong>PayPal PLUS:</strong> Полное универсальное платежное решение, включая PayPal, прямой дебет и кредитную карту. PayPal PLUS предлагает вашим клиентам полную гибкость в выборе предпочтительного способа оплаты. Ваши преимущества в качестве продавца? Упрощенный бухгалтерский учет с одним контрагентом, одним счетом и одним обзором транзакций, показывающим все входящие платежи. Вы получаете деньги сразу после того, как клиенты завершат процесс заказа.<br>Вы можете подать заявку на PayPal PLUS <a href='https://www.paypal.com/de/webapps/mpp/paypal-plus' target='_blank'>здесь</a>.",
+                "plusCheckoutEnabled": {
+                    "label": "Включить PayPal PLUS"
+                },
+                "hint": "Примечание: PayPal PLUS работает только с приобретением платежа «Продажа». Он будет установлен автоматически.",
+                "warning": {
+                    "active": "PayPal Checkout предоставляет вашим клиентам одни и те же способы оплаты, основанные на новейших технологиях. Активируйте PayPal Checkout сейчас и деактивируйте PayPal PLUS, чтобы избежать дублирования способов оплаты. <a href=\"https://www.shopware.com/en/news/paypal-launches-new-product/?utm_source=product&utm_medium=sw6-onprem&utm_campaign=paypal-checkout&utm_content=link-en-blog\" target=\"_blank\">Дополнительная информация</a>",
+                    "inactive": "Избегайте отображения дублирующих способов оплаты и деактивируйте PayPal PLUS. <a href=\"https://www.shopware.com/en/news/paypal-launches-new-product/?utm_source=product&utm_medium=sw6-onprem&utm_campaign=paypal-checkout&utm_content=link-en-blog\" target=\"_blank\">Дополнительная информация</a>"
+                }
+            },
+            "locale-field": {
+                "infobox": {
+                    "text": "Чтобы просмотреть список допустимых кодов локали, нажмите ",
+                    "href": "здесь"
+                },
+                "error": {
+                    "detail": "Код локали, который вы указали, не соответствует формату, требуемому PayPal. Допустимым форматом является «en_GB»."
+                }
+            },
+            "messageSaveSuccess": "Настройки PayPal сохранены.",
+            "messageTestSuccess": "Учетные данные API подтверждены.",
+            "messageTestError": "Учетные данные API не могут быть проверены.",
+            "messageWebhookCreated": "Вебхук зарегистрирован.",
+            "messageWebhookUpdated": "Веб-перехватчик обновлен.",
+            "messageWebhookError": "Веб-перехватчик не может быть сохранен. Произошли следующие ошибки:"
+        }
+    },
+    "swag-paypal-payment": {
+        "general": {
+            "title": "Заказы"
+        },
+        "tabs": {
+            "overview": "Обзор"
+        },
+        "paymentDetails": {
+            "cardTitle": "Платеж",
+            "invoice": {
+                "heading": "Сумма счета",
+                "totalAmount": "Всего:",
+                "subTotal": "Подытог:",
+                "shipping": "Доставка:",
+                "discount": "Скидка:",
+                "handling": "Плата за обработку:",
+                "insurance": "Страхование:",
+                "shipping_discount": "Скидка на доставку:"
+            },
+            "payment": {
+                "heading": "Детали оплаты",
+                "intent": "Намерения:",
+                "paymentId": "ID платежа:",
+                "cartId": "ID Корзины:",
+                "state": "Область:",
+                "createTime": "Время создания:",
+                "updateTime": "Время обновления:"
+            },
+            "customer": {
+                "heading": "Клиент",
+                "payerId": "ID плательщика:"
+            },
+            "error": {
+                "title": "Ошибка при получении платежных реквизитов из PayPal"
+            }
+        },
+        "puiDetails": {
+            "cardTitle": "Данные для оплаты счета",
+            "buttonCopy": "Копировать",
+            "bank": "Банк:",
+            "iban": "IBAN:",
+            "bic": "BIC:",
+            "accountHolder": "Владелец счета:",
+            "amount": "Сумма:",
+            "reference": "Артикул:"
+        },
+        "transactionHistory": {
+            "cardTitle": "История платежей",
+            "states": {
+                "authorization": "Авторизация",
+                "sale": "Распродажа",
+                "refund": "Возврат",
+                "capture": "Запись",
+                "order": "Заказ"
+            },
+            "types": {
+                "type": "Тип",
+                "amount": "Количество",
+                "createTime": "Создано",
+                "updateTime": "Обновлено",
+                "state": "Область",
+                "trackingId": "ID отслеживания",
+                "transactionFee": "Комиссия транзакции",
+                "paymentMode": "Форма оплаты"
+            }
+        },
+        "buttons": {
+            "label": {
+                "refund": "Создать новый возврат",
+                "capture": "Запись",
+                "void": "Отменить авторизацию"
+            }
+        },
+        "modal": {
+            "title": {
+                "refund": "Новый возврат",
+                "capture": "Запись",
+                "void": "Отменить авторизацию"
+            }
+        },
+        "refundAction": {
+            "successMessage": "Ваш возврат был успешным.",
+            "invoiceSelect": {
+                "label": "Выберите запись"
+            },
+            "refundAmount": {
+                "label": "Всего",
+                "helpText": "Сумма '0' приведет к возврату полной оплаты"
+            },
+            "refundDescription": {
+                "label": "Описание",
+                "placeholder": "Введите описание"
+            },
+            "refundReason": {
+                "label": "Причина",
+                "placeholder": "Введите причину"
+            },
+            "refundNoteToPayer": {
+                "label": "Примечание для плательщика",
+                "placeholder": "Введите примечание плательщику"
+            },
+            "refundInvoiceNumber": {
+                "label": "Номер счета",
+                "placeholder": "Введите номер счета"
+            },
+            "confirmButton": {
+                "text": "Выполнить"
+            }
+        },
+        "captureAction": {
+            "successMessage": "Ваша запись прошла успешно.",
+            "maxAmount": "Максимальная сумма",
+            "currentAmount": "Всего",
+            "captureInvoiceNumber": {
+                "label": "Номер инвойса",
+                "placeholder": "Введите номер накладной"
+            },
+            "captureNoteToPayer": {
+                "label": "Примечание для плательщика",
+                "placeholder": "Введите примечание плательщику"
+            },
+            "isFinal": "Это окончательный захват",
+            "isFinalHint": "Подсказка: помечено как окончательная запись, но не вся сумма должна быть записана.",
+            "button": {
+                "text": "Запись платежа"
+            }
+        },
+        "voidAction": {
+            "successMessage": "Платеж был успешно аннулирован.",
+            "confirm": {
+                "message": "Вы действительно хотите отменить этот платеж?",
+                "button": {
+                    "confirm": "Отменить авторизацию"
+                }
+            }
+        },
+        "errorPage": {
+            "title": "Платежные реквизиты отсутствуют",
+            "canceledPaymentContent": "Произошла ошибка при получении платежных реквизитов из PayPal. Если вы видите это сообщение, вероятно, это был платеж, который был отменен клиентом. Отмененные платежи будут удалены PayPal через некоторое время и больше не будут доступны.",
+            "sandboxLiveContent": "Произошла ошибка при получении платежных реквизитов из PayPal. Если вы видите это сообщение, вероятно, это был платеж, который был создан с включенной изолированной программной средой и теперь был запрошен с динамическими данными, или наоборот. Исправьте настройки PayPal или удалите тестовые заказы из системы.",
+            "other": "Произошла ошибка при получении платежных реквизитов из PayPal."
+        }
+    },
+    "sw-order-detail": {
+        "payPalCarrierLabel": "Перевозчик по умолчанию",
+        "payPalCarrierPlaceholder": "не задано",
+        "payPalCarrierHelpText": "Вы можете установить и изменить перевозчика по умолчанию для PayPal в <a class=\"sw-internal-link sw-internal-link--inline\" href=\"#/sw/settings/shipping/index\">способах доставки<sw-icon name=\"regular-long-arrow-right\" small /></a>. Однако это не повлияет на уже размещенные заказы.",
+        "payPalCarrierDescription": "Если вы хотите сменить оператора для этого заказа PayPal, <a target=\"_blank\" href=\"{orderLink}\">нажмите здесь</a>"
+    },
     "swag-paypal-pos": {
         "general": {
             "moduleTitle": "Цеттл от PayPal",
@@ -247,494 +722,6 @@
         "messageCloneError": "Не удалось перенести видимость продукта из другого канала продаж.",
         "messageWebhookRegisterError": "Веб-хук не может быть зарегистрирован в Zettle"
     },
-    "sw-privileges": {
-        "permissions": {
-            "parents": {
-                "swag_paypal": "PayPal"
-            },
-            "swag_paypal": {
-                "label": "Настройки PayPal"
-            },
-            "swag_paypal_disputes": {
-                "label": "Споры PayPal"
-            }
-        }
-    },
-    "sw-settings-payment-list": {
-        "needOnboardingTooltip": "Завершите регистрацию, чтобы активировать этот способ оплаты"
-    },
-    "sw-settings-payment-detail": {
-        "tooltip": "Перейдите в <a class=\"swag-paypal-go-to-settings-link\" href=\"#/swag/paypal/index\">Настройки расширения PayPal →</a> и активируйте платформу PayPal Commerce Platform, чтобы активировать этот способ оплаты."
-    },
-    "swag-paypal": {
-        "header": "PayPal",
-        "saleschannelCard": {
-            "button": {
-                "description": "Нажмите эту кнопку, чтобы включить PayPal и выбрать его по умолчанию в выбранном канале продаж",
-                "label": "Установить PayPal по умолчанию"
-            }
-        },
-        "shippingAlert": {
-            "title": "Доступно отслеживание посылок",
-            "message": "Теперь вы можете обеспечить отслеживание посылок, если вы выбрали перевозчика по умолчанию в <a href=\"#/sw/settings/shipping/index\">способах доставки →</a>."
-        },
-        "general": {
-            "mainMenuItemGeneral": "PayPal",
-            "descriptionTextModule": "Настройки PayPal"
-        },
-        "messageNotBlank": "Это значение не должно быть пустым.",
-        "settingForm": {
-            "testLive": "Учетные данные API тестирования",
-            "testSandbox": "Учетные данные API тестирования sandbox",
-            "checkout": {
-                "cardTitle": "Оплата через PayPal",
-                "settingsLink": "Настройки",
-                "header": "Больше способов оплаты с одним решением от PayPal",
-                "description": "PayPal Checkout — это новое универсальное решение, которое позволяет предлагать мощные гибкие функции обработки платежей на торговых площадках и других торговых платформах.",
-                "banner": "С помощью PayPal Checkout вы можете предлагать своим клиентам оплату счетом, кредитной картой и другими местными способами оплаты. PayPal Checkout поддерживает вас с помощью новейших технологий и обеспечивает максимальную гибкость. Вы сохраняете существующие способы оплаты, а комиссии остаются прежними! Активируйте PayPal Checkout и деактивируйте PayPal PLUS, чтобы избежать дублирования способов оплаты в вашем магазине. <a href=\"https://www.shopware.com/en/news/paypal-launches-new-product/?utm_source=product&utm_medium=sw6-onprem&utm_campaign=paypal-checkout&utm_content=link-en-blog\" target=\"_blank\">Дополнительная информация</a>",
-                "button": {
-                    "liveTitle": "Подключить аккаунт PayPal",
-                    "sandboxTitle": "Подключение учетной записи sandbox",
-                    "changeLiveTitle": "Подключить другую учетную запись",
-                    "changeSandboxTitle": "Подключение другой учетной записи песочницы",
-                    "onboardingLiveTitle": "Начать регистрацию оплаты PayPal",
-                    "onboardingSandboxTitle": "Начать регистрацию песочницы PayPal Checkout",
-                    "restartOnboardingLiveTitle": "Перезапустить регистрацию PayPal Checkout",
-                    "restartOnboardingSandboxTitle": "Перезапуск подключения песочницы PayPal Checkout"
-                },
-                "sandbox": {
-                    "label": "Песочница",
-                    "onlySandboxTooltip": "Пока вы подключили только учетную запись PayPal в песочнице.",
-                    "onlyLiveTooltip": "Пока вы подключены только к реальному счету PayPal.",
-                    "helpText": "Включите, если хотите протестировать интеграцию с PayPal."
-                },
-                "switch": {
-                    "label": "Активный"
-                },
-                "paymentMethodText": "Способы оплаты",
-                "showCredentials": "Показать учетные данные",
-                "appImageAlt": "PayPal",
-                "editDetail": "Редактирование сведений",
-                "startOnboardingButtonLabel": "Начать адаптацию",
-                "availabilityToolTip": {
-                    "bancontactapmhandler": "Bancontact доступен для следующих стран: Бельгия",
-                    "blikapmhandler": "BLIK доступен для следующих стран: Польша",
-                    "boletobancarioapmhandler": "Boleto Bancário доступна для следующих стран: Бразилия",
-                    "epsapmhandler": "eps доступен для следующих стран: Австрия",
-                    "giropayapmhandler": "Giropay доступен для следующих стран: Германия",
-                    "idealapmhandler": "iDeal доступен для следующих стран: Нидерланды",
-                    "multibancoapmhandler": "Multibanco доступна для следующих стран: Португалия",
-                    "mybankapmhandler": "MyBank доступен для следующих стран: Италия",
-                    "oxxoapmhandler": "OXXO доступна для следующих стран: Мексика",
-                    "p24apmhandler": "Przelewy24 доступна для следующих стран: Польша",
-                    "paylaterhandler": "Pay Later доступна для следующих стран: Австралия, Германия, Испания, Италия, Великобритания, Соединенные Штаты, Франция",
-                    "puihandler": "Оплата по счету доступна для следующих стран: Германия",
-                    "sepahandler": "SEPA Lastschrift доступна для следующих стран: Германия",
-                    "sofortapmhandler": "Sofort доступен для следующих стран: Австрия, Бельгия, Германия, Италия, Нидерланды, Испания, Великобритания",
-                    "venmohandler": "Venmo доступен для следующих стран: Соединенные Штаты",
-                    "trustlyapmhandler": "Trustly доступен для следующих стран: Эстония, Финляндия, Нидерланды, Швеция"
-                },
-                "onboardingStatusText": {
-                    "active": "Уполномоченный",
-                    "limited": "Ограниченный",
-                    "pending": "Ожидается авторизация",
-                    "ineligible": "Не имеет права",
-                    "inactive": "Необходима адаптация"
-                },
-                "onboardingStatusTooltip": {
-                    "ineligible": "PayPal сообщила нам, что этот способ оплаты в настоящее время не подходит для вашей учетной записи.",
-                    "limited": "PayPal сообщила нам, что этот способ оплаты имеет некоторые ограничения для вашей учетной записи."
-                },
-                "paymentMethodStatusChangedSuccess": {
-                    "active": "Способ оплаты «{name}» теперь активен.",
-                    "inactive": "Способ оплаты «{name}» теперь неактивен."
-                },
-                "deactivatePayPalPlusModal": {
-                    "title": "Деактивировать PayPal ПЛЮС",
-                    "text": "Поздравляю! Переключившись на PayPal Checkout, вы продолжаете использовать все соответствующие способы оплаты, основанные на новейших технологиях.",
-                    "warning": "Избегайте отображения дублирующих способов оплаты и деактивируйте PayPal PLUS.",
-                    "button": {
-                        "deactivate": "Деактивировать PayPal ПЛЮС",
-                        "cancel": "Отмена"
-                    }
-                }
-            },
-            "credentials": {
-                "cardTitle": "Учетные данные API",
-                "clientId": {
-                    "label": "ID клиента",
-                    "tooltipText": "Идентификатор клиента REST API используется для аутентификации этого плагина с помощью PayPal API."
-                },
-                "clientSecret": {
-                    "label": "Секрет клиента",
-                    "tooltipText": "Секрет клиента REST API используется для аутентификации этого плагина с помощью PayPal API."
-                },
-                "merchantPayerId": {
-                    "label": "ID продавца PayPal",
-                    "tooltipText": "Идентификатор продавца PayPal, присвоенный вашей учетной записи PayPal (см. Деловая информация в настройках учетной записи PayPal)."
-                },
-                "clientIdSandbox": {
-                    "label": "ID клиента sandbox",
-                    "tooltipText": "Идентификатор клиента REST API используется во время тестирования для аутентификации этого плагина с помощью PayPal API."
-                },
-                "clientSecretSandbox": {
-                    "label": "Секрет клиента sandbox",
-                    "tooltipText": "Секрет клиента REST API используется во время тестирования для аутентификации этого плагина с помощью PayPal API."
-                },
-                "merchantPayerIdSandbox": {
-                    "label": "ID продавца PayPal в песочнице",
-                    "tooltipText": "Идентификатор продавца PayPal, присвоенный вашей песочнице PayPal (см. Деловая информация в настройках учетной записи PayPal)."
-                },
-                "sandbox": {
-                    "label": "Включить sandbox",
-                    "tooltipText": "Включите, если хотите протестировать интеграцию с PayPal."
-                },
-                "button": {
-                    "title": "Получить полномочия API",
-                    "titleSandbox": "Получить полномочия API sandbox",
-                    "messageFetchedError": "Повторите попытку или введите свои учетные данные вручную."
-                }
-            },
-            "behavior": {
-                "cardTitle": "Поведение",
-                "merchantLocation": {
-                    "label": "Местонахождение продавца",
-                    "germany": "Германия",
-                    "other": "Другое место проведения продавца"
-                },
-                "intent": {
-                    "label": "Приобретение платежей",
-                    "CAPTURE": "Автоматический сбор платежей (намерение CAPTURE)",
-                    "AUTHORIZE": "Сбор платежей вручную (намерение АВТОРИЗОВАТЬ)"
-                },
-                "submitCart": {
-                    "label": "Отправить корзину",
-                    "helpText": "Если эта опция активна, данные корзины будут отправлены в PayPal при оформлении заказа."
-                },
-                "brandName": {
-                    "label": "Ваше собственное фирменное наименование на странице PayPal",
-                    "tooltipText": "Этот текст будет отображаться в качестве фирменного наименования на странице оплаты PayPal."
-                },
-                "landingPage": {
-                    "label": "Целевая страница PayPal",
-                    "helpText": {
-                        "login": "Вход: Сайт PayPal отображает экран входа в систему в качестве целевой страницы.",
-                        "billing": "Регистрация: Сайт PayPal отображает регистрационную форму в качестве целевой страницы.",
-                        "no_preference": "Нет предпочтений: PayPal решает, какая страница отображается, в зависимости от предыдущего взаимодействия клиента с PayPal."
-                    },
-                    "options": {
-                        "login": "Войти",
-                        "billing": "Регистрация",
-                        "no_preference": "Нет предпочтений"
-                    }
-                },
-                "sendOrderNumber": {
-                    "label": "Отправить номер заказа",
-                    "helpText": "Если эта опция активна, номер заказа будет отправлен в PayPal в качестве идентификатора счета при оформлении заказа."
-                },
-                "orderNumberPrefix": {
-                    "label": "Префикс номера заказа",
-                    "tooltipText": "Этот текст помещается перед оригинальным номером заказа (например, MyShop_SW20001). Это помогает определить магазин, в котором была произведена оплата. Вы можете найти его в качестве идентификатора счета на панели управления PayPal."
-                },
-                "orderNumberSuffix": {
-                    "label": "Суффикс номера заказа",
-                    "tooltipText": "Этот текст помещается после оригинального номера заказа (например, SW20001_MyShop). Это помогает определить магазин, в котором была произведена оплата. Вы можете найти его в качестве идентификатора счета на панели управления PayPal."
-                },
-                "loggingLevel": {
-                    "label": "Отладка",
-                    "tooltipText": "При использовании расширенной отладки во время проверки записываются дополнительные данные для обнаружения потенциальных ошибок. Только для временного использования.",
-                    "options": {
-                        "basic": "Базовый",
-                        "advanced": "Продвинутый"
-                    }
-                },
-                "excludedProductIds": {
-                    "label": "Исключенные продукты",
-                    "tooltipText": "Выбранные здесь продукты нельзя приобрести через PayPal."
-                },
-                "excludedProductStreamIds": {
-                    "label": "Исключенные динамические группы продуктов",
-                    "tooltipText": "Продукты, включенные в выбранные здесь динамические группы продуктов, нельзя приобрести через PayPal."
-                }
-            },
-            "express": {
-                "cardTitle": "PayPal Express Checkout",
-                "ecsDetailEnabled": {
-                    "label": "«Оплатить сейчас» на странице сведений",
-                    "helpText": "Если эта опция активна, кнопка Express Checkout будет отображаться на каждой странице сведений о продукте."
-                },
-                "ecsCartEnabled": {
-                    "label": "«Оплатить сейчас» в корзине",
-                    "helpText": "Если эта опция активна, в корзине будет показана кнопка Express Checkout."
-                },
-                "ecsOffCanvasEnabled": {
-                    "label": "«Оплатить сейчас» на тележке вне холста",
-                    "helpText": "Если эта опция активна, кнопка Express Checkout будет отображаться в корзине Off-Canvas."
-                },
-                "ecsLoginEnabled": {
-                    "label": "«Оплатить сейчас» на странице входа",
-                    "helpText": "Если эта опция активна, кнопка Express Checkout будет отображаться на странице входа и регистрации."
-                },
-                "ecsListingEnabled": {
-                    "label": "«Оплатить сейчас» на страницах листинга",
-                    "helpText": "Если эта опция активна, кнопка Express Checkout будет отображаться на страницах списка."
-                },
-                "ecsButtonColor": {
-                    "label": "Цвет кнопки",
-                    "options": {
-                        "blue": "голубой",
-                        "black": "Черный",
-                        "gold": "Золото",
-                        "silver": "Серебро",
-                        "white": "белый"
-                    }
-                },
-                "ecsButtonShape": {
-                    "label": "Форма пуговицы",
-                    "options": {
-                        "pill": "Раунд",
-                        "rect": "Прямоугольные"
-                    }
-                },
-                "ecsSubmitCart": {
-                    "label": "Отправить корзину",
-                    "helpText": "Если эта опция активна, корзина будет отправлена в PayPal для экспресс-заказов."
-                },
-                "ecsButtonLanguageIso": {
-                    "label": "Язык кнопок",
-                    "helpText": "Если не установлен, будет использоваться язык канала продаж."
-                }
-            },
-            "installment": {
-                "cardTitle": "Рассрочка",
-                "installmentBannerEnabled": {
-                    "label": "Включить баннер рассрочки"
-                }
-            },
-            "acdc": {
-                "cardTitle": "Кредитная или дебетовая карта",
-                "acdcForce3DS": {
-                    "label": "Выполнить транзакции только с 3D Secure",
-                    "helpText": "Транзакция не будет принята, если 3D Secure недоступен."
-                }
-            },
-            "pui": {
-                "cardTitle": "Оплата по счету",
-                "customerServiceInstructions": {
-                    "label": "Инструкции по обслуживанию клиентов для оплаты по счету",
-                    "helpText": "Эти инструкции будут отправлены в PayPal & RatePay и показаны в электронных письмах для клиента."
-                }
-            },
-            "spb": {
-                "cardTitle": "Оформление заказа PayPal с помощью смарт-кнопок",
-                "spbCheckoutEnabled": {
-                    "label": "Включить кнопки смарт-оплаты"
-                },
-                "spbButtonLanguageIso": {
-                    "label": "Язык кнопок",
-                    "helpText": "Если не установлен, будет использоваться язык канала продаж."
-                },
-                "spbAlternativePaymentMethodsEnabled": {
-                    "label": "Включите альтернативные способы оплаты для кнопок Smart Payment Buttons.",
-                    "helpText": "Альтернативными способами оплаты являются кредитные и дебетовые карты и многое другое."
-                },
-                "spbShowPayLater": {
-                    "label": "Отобразить отдельную кнопку «Оплатить позже»"
-                }
-            },
-            "plus": {
-                "cardTitle": "PayPal ПЛЮС",
-                "introduction": "<strong>PayPal PLUS:</strong> Полное универсальное платежное решение, включая PayPal, прямой дебет и кредитную карту. PayPal PLUS предлагает вашим клиентам полную гибкость в выборе предпочтительного способа оплаты. Ваши преимущества в качестве продавца? Упрощенный бухгалтерский учет с одним контрагентом, одним счетом и одним обзором транзакций, показывающим все входящие платежи. Вы получаете деньги сразу после того, как клиенты завершат процесс заказа.<br>Вы можете подать заявку на PayPal PLUS <a href='https://www.paypal.com/de/webapps/mpp/paypal-plus' target='_blank'>здесь</a>.",
-                "plusCheckoutEnabled": {
-                    "label": "Включить PayPal PLUS"
-                },
-                "hint": "Примечание: PayPal PLUS работает только с приобретением платежа «Продажа». Он будет установлен автоматически.",
-                "warning": {
-                    "active": "PayPal Checkout предоставляет вашим клиентам одни и те же способы оплаты, основанные на новейших технологиях. Активируйте PayPal Checkout сейчас и деактивируйте PayPal PLUS, чтобы избежать дублирования способов оплаты. <a href=\"https://www.shopware.com/en/news/paypal-launches-new-product/?utm_source=product&utm_medium=sw6-onprem&utm_campaign=paypal-checkout&utm_content=link-en-blog\" target=\"_blank\">Дополнительная информация</a>",
-                    "inactive": "Избегайте отображения дублирующих способов оплаты и деактивируйте PayPal PLUS. <a href=\"https://www.shopware.com/en/news/paypal-launches-new-product/?utm_source=product&utm_medium=sw6-onprem&utm_campaign=paypal-checkout&utm_content=link-en-blog\" target=\"_blank\">Дополнительная информация</a>"
-                }
-            },
-            "locale-field": {
-                "infobox": {
-                    "text": "Чтобы просмотреть список допустимых кодов локали, нажмите ",
-                    "href": "здесь"
-                },
-                "error": {
-                    "detail": "Код локали, который вы указали, не соответствует формату, требуемому PayPal. Допустимым форматом является «en_GB»."
-                }
-            },
-            "messageSaveSuccess": "Настройки PayPal сохранены.",
-            "messageTestSuccess": "Учетные данные API подтверждены.",
-            "messageTestError": "Учетные данные API не могут быть проверены.",
-            "messageWebhookCreated": "Вебхук зарегистрирован.",
-            "messageWebhookUpdated": "Веб-перехватчик обновлен.",
-            "messageWebhookError": "Веб-перехватчик не может быть сохранен. Произошли следующие ошибки:"
-        }
-    },
-    "swag-paypal-frw-credentials": {
-        "buttonGetCredentials": "Получить полномочия API",
-        "textIntroPayPal": "Чтобы запустить PayPal, вам нужно всего лишь предоставить свои учетные данные PayPal API.",
-        "labelClientId": "ID клиента",
-        "labelClientSecret": "Секрет клиента",
-        "labelMerchantPayerId": "ID продавца PayPal",
-        "labelClientIdSandbox": "Sandbox ID клиента",
-        "labelClientSecretSandbox": "Sandbox секрет клиента",
-        "labelMerchantPayerIdSandbox": "ID продавца PayPal в песочнице",
-        "labelSandbox": "Использование песочницы",
-        "tooltipSandbox": "В зависимости от активации Sandbox сохраняются отдельные учетные данные.",
-        "labelSetDefault": "Установить в качестве способа оплаты по умолчанию",
-        "tooltipSetDefault": "PayPal будет выбран в качестве способа оплаты по умолчанию для всех каналов продаж. Вы можете установить индивидуальные способы оплаты по умолчанию для каждого канала продаж в модуле настроек.",
-        "messageFetchedError": "Повторите попытку или используйте расширенные настройки, чтобы ввести свои учетные данные.",
-        "textFetchedSuccessful": "Учетные данные получены.",
-        "messageNoCredentials": "Учетные данные не предоставлены.",
-        "messageTestSuccess": "Учетные данные действительны."
-    },
-    "swag-paypal-settings-shipping-carrier": {
-        "cardTitle": "Перевозчик по умолчанию",
-        "cardHelpText": "Информация для отслеживания будет отправлена в PayPal",
-        "description": "PayPal предлагает отслеживание заказов, обработанных через PayPal. Чтобы использовать это, укажите перевозчика по умолчанию, который может быть перезаписан в заказах. Ознакомьтесь со списком всех поставщиков услуг доставки <a target=\"_blank\" href=\"https://developer.paypal.com/docs/tracking/reference/carriers/\">здесь</a>",
-        "inputLabel": "Код перевозчика",
-        "inputPlaceholder": "Введите код оператора PayPal (например, DHL_GLOBAL_ECOMMERCE)..."
-    },
-    "swag-paypal-payment": {
-        "general": {
-            "title": "Заказы"
-        },
-        "tabs": {
-            "overview": "Обзор"
-        },
-        "paymentDetails": {
-            "cardTitle": "Платеж",
-            "invoice": {
-                "heading": "Сумма счета",
-                "totalAmount": "Всего:",
-                "subTotal": "Подытог:",
-                "shipping": "Доставка:",
-                "discount": "Скидка:",
-                "handling": "Плата за обработку:",
-                "insurance": "Страхование:",
-                "shipping_discount": "Скидка на доставку:"
-            },
-            "payment": {
-                "heading": "Детали оплаты",
-                "intent": "Намерения:",
-                "paymentId": "ID платежа:",
-                "cartId": "ID Корзины:",
-                "state": "Область:",
-                "createTime": "Время создания:",
-                "updateTime": "Время обновления:"
-            },
-            "customer": {
-                "heading": "Клиент",
-                "payerId": "ID плательщика:"
-            },
-            "error": {
-                "title": "Ошибка при получении платежных реквизитов из PayPal"
-            }
-        },
-        "transactionHistory": {
-            "cardTitle": "История платежей",
-            "states": {
-                "authorization": "Авторизация",
-                "sale": "Распродажа",
-                "refund": "Возврат",
-                "capture": "Запись",
-                "order": "Заказ"
-            },
-            "types": {
-                "type": "Тип",
-                "amount": "Количество",
-                "createTime": "Создано",
-                "updateTime": "Обновлено",
-                "state": "Область",
-                "trackingId": "ID отслеживания",
-                "transactionFee": "Комиссия транзакции",
-                "paymentMode": "Форма оплаты"
-            }
-        },
-        "buttons": {
-            "label": {
-                "refund": "Создать новый возврат",
-                "capture": "Запись",
-                "void": "Отменить авторизацию"
-            }
-        },
-        "modal": {
-            "title": {
-                "refund": "Новый возврат",
-                "capture": "Запись",
-                "void": "Отменить авторизацию"
-            }
-        },
-        "refundAction": {
-            "successMessage": "Ваш возврат был успешным.",
-            "invoiceSelect": {
-                "label": "Выберите запись"
-            },
-            "refundAmount": {
-                "label": "Всего",
-                "helpText": "Сумма '0' приведет к возврату полной оплаты"
-            },
-            "refundDescription": {
-                "label": "Описание",
-                "placeholder": "Введите описание"
-            },
-            "refundReason": {
-                "label": "Причина",
-                "placeholder": "Введите причину"
-            },
-            "refundNoteToPayer": {
-                "label": "Примечание для плательщика",
-                "placeholder": "Введите примечание плательщику"
-            },
-            "refundInvoiceNumber": {
-                "label": "Номер счета",
-                "placeholder": "Введите номер счета"
-            },
-            "confirmButton": {
-                "text": "Выполнить"
-            }
-        },
-        "captureAction": {
-            "successMessage": "Ваша запись прошла успешно.",
-            "maxAmount": "Максимальная сумма",
-            "currentAmount": "Всего",
-            "captureInvoiceNumber": {
-                "label": "Номер инвойса",
-                "placeholder": "Введите номер накладной"
-            },
-            "captureNoteToPayer": {
-                "label": "Примечание для плательщика",
-                "placeholder": "Введите примечание плательщику"
-            },
-            "isFinal": "Это окончательный захват",
-            "isFinalHint": "Подсказка: помечено как окончательная запись, но не вся сумма должна быть записана.",
-            "button": {
-                "text": "Запись платежа"
-            }
-        },
-        "voidAction": {
-            "successMessage": "Платеж был успешно аннулирован.",
-            "confirm": {
-                "message": "Вы действительно хотите отменить этот платеж?",
-                "button": {
-                    "confirm": "Отменить авторизацию"
-                }
-            }
-        },
-        "errorPage": {
-            "title": "Платежные реквизиты отсутствуют",
-            "canceledPaymentContent": "Произошла ошибка при получении платежных реквизитов из PayPal. Если вы видите это сообщение, вероятно, это был платеж, который был отменен клиентом. Отмененные платежи будут удалены PayPal через некоторое время и больше не будут доступны.",
-            "sandboxLiveContent": "Произошла ошибка при получении платежных реквизитов из PayPal. Если вы видите это сообщение, вероятно, это был платеж, который был создан с включенной изолированной программной средой и теперь был запрошен с динамическими данными, или наоборот. Исправьте настройки PayPal или удалите тестовые заказы из системы.",
-            "other": "Произошла ошибка при получении платежных реквизитов из PayPal."
-        }
-    },
-    "sw-order-detail": {
-        "payPalCarrierLabel": "Перевозчик по умолчанию",
-        "payPalCarrierPlaceholder": "не задано",
-        "payPalCarrierHelpText": "Вы можете установить и изменить перевозчика по умолчанию для PayPal в <a class=\"sw-internal-link sw-internal-link--inline\" href=\"#/sw/settings/shipping/index\">способах доставки<sw-icon name=\"regular-long-arrow-right\" small /></a>. Однако это не повлияет на уже размещенные заказы.",
-        "payPalCarrierDescription": "Если вы хотите сменить оператора для этого заказа PayPal, <a target=\"_blank\" href=\"{orderLink}\">нажмите здесь</a>"
-    },
     "swag-paypal-disputes": {
         "general": {
             "mainMenuItemGeneral": "Споры PayPal",
@@ -771,5 +758,30 @@
             "rawDataCardTitle": "Необработанные данные",
             "copyButtonLabel": "Копирование необработанных данных"
         }
+    },
+    "swag-paypal-frw-credentials": {
+        "buttonGetCredentials": "Получить полномочия API",
+        "textIntroPayPal": "Чтобы запустить PayPal, вам нужно всего лишь предоставить свои учетные данные PayPal API.",
+        "labelClientId": "ID клиента",
+        "labelClientSecret": "Секрет клиента",
+        "labelMerchantPayerId": "ID продавца PayPal",
+        "labelClientIdSandbox": "Sandbox ID клиента",
+        "labelClientSecretSandbox": "Sandbox секрет клиента",
+        "labelMerchantPayerIdSandbox": "ID продавца PayPal в песочнице",
+        "labelSandbox": "Использование песочницы",
+        "tooltipSandbox": "В зависимости от активации Sandbox сохраняются отдельные учетные данные.",
+        "labelSetDefault": "Установить в качестве способа оплаты по умолчанию",
+        "tooltipSetDefault": "PayPal будет выбран в качестве способа оплаты по умолчанию для всех каналов продаж. Вы можете установить индивидуальные способы оплаты по умолчанию для каждого канала продаж в модуле настроек.",
+        "messageFetchedError": "Повторите попытку или используйте расширенные настройки, чтобы ввести свои учетные данные.",
+        "textFetchedSuccessful": "Учетные данные получены.",
+        "messageNoCredentials": "Учетные данные не предоставлены.",
+        "messageTestSuccess": "Учетные данные действительны."
+    },
+    "swag-paypal-settings-shipping-carrier": {
+        "cardTitle": "Перевозчик по умолчанию",
+        "cardHelpText": "Информация для отслеживания будет отправлена в PayPal",
+        "description": "PayPal предлагает отслеживание заказов, обработанных через PayPal. Чтобы использовать это, укажите перевозчика по умолчанию, который может быть перезаписан в заказах. Ознакомьтесь со списком всех поставщиков услуг доставки <a target=\"_blank\" href=\"https://developer.paypal.com/docs/tracking/reference/carriers/\">здесь</a>",
+        "inputLabel": "Код перевозчика",
+        "inputPlaceholder": "Введите код оператора PayPal (например, DHL_GLOBAL_ECOMMERCE)..."
     }
 }

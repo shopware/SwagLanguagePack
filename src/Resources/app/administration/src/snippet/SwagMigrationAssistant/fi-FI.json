@@ -81,10 +81,19 @@
                         "pluginLink": "Lisätietoja liitännäisestä"
                     },
                     "shopware6Api": {
-                        "contentTitle": "Integrointi vaaditaan",
-                        "contentInformation": "Sen on luotava integrointi lähdejärjestelmään valitsemalla Asetukset > Järjestelmä > Integrations.",
-                        "pluginLink": "Lisätietoja integraatioista",
-                        "link": "https://docs.shopware.com/en/shopware-6-en/settings/system/integrationen"
+                        "contentTitle": "Vaatimukset",
+                        "plugin": {
+                            "title": "Laajennus",
+                            "description": "Asenna Migration Assistant -laajennus lähdejärjestelmään.",
+                            "linkText": "Lisätietoja Migration Assistant -laajennuksesta",
+                            "link": "https://store.shopware.com/en/swag257162657297f/migration-assistant.html"
+                        },
+                        "integration": {
+                            "title": "integraatio",
+                            "description": "Luo integrointi lähdejärjestelmään valitsemalla Asetukset > Järjestelmä > Integraatiot. Tarvitset luodun käyttöavaimen tunnuksen ja salaisen käyttöavaimen seuraavassa vaiheessa.",
+                            "linkText": "Lisätietoja integraatioista",
+                            "link": "https://docs.shopware.com/en/shopware-6-en/settings/system/integrationen"
+                        }
                     }
                 },
                 "credentials": {
@@ -531,6 +540,7 @@
                     "description": "{missingEntity} , jossa on lähdetunnus \"{sourceId}\" ei löydy, mutta sitä tarvitaan {requiredFor}: lle."
                 },
                 "SWAG_MIGRATION__SHOPWARE_EMPTY_NECESSARY_DATA_FIELDS": {
+                    "title": "{entity} Yhteisöllä on tyhjä välttämätön kenttä",
                     "description": "{entity} entiteetillä, jonka lähdetunnus on \"{sourceId}\", ei ole tarvittavia tietoja kenttään \"{emptyField}”"
                 },
                 "SWAG_MIGRATION__SHOPWARE_UNSUPPORTED_OBJECT_TYPE": {
@@ -546,7 +556,16 @@
                     "description": "Lähdetiedostoa ei voitu kopioida. Tiedosto: {path}"
                 },
                 "SWAG_MIGRATION_CANNOT_CONVERT_CHILD_ENTITY": {
-                    "title": "{entity} -alimentiteettiä ei voitu muuntaa"
+                    "title": "{entity} -alimentiteettiä ei voitu muuntaa",
+                    "description": "{parentEntity} emoyksikön {entity} ala-entiteettiä, jonka tunnus on \"{parentSourceId}\", ei voitu muuntaa."
+                },
+                "SWAG_MIGRATION_CANNOT_CONVERT_ENTITY": {
+                    "title": "{entity} Yhteisöä ei voitu muuntaa",
+                    "description": "{entity} Entiteettiä, jolla on lähdetunnus \"{sourceId}\", ei voitu muuntaa."
+                },
+                "SWAG_MIGRATION_CANNOT_GET_FILE": {
+                    "title": "{entity} Tiedostoa ei voi ladata/kopioida",
+                    "description": "{entity} Tiedostoa, jossa on uri \"{uri}\" ja mediatunnus \"{sourceId}\", ei voi ladata/kopioida."
                 },
                 "SWAG_MIGRATION__COULD_NOT_READ_ENTITY_COUNT": {
                     "title": "Entiteetin määrää ei voitu lukea",
@@ -557,9 +576,11 @@
                     "description": "Profiilin \"{profileName}\" ja entiteetin \"{entity}\" tietojoukkoa ei löydy. Yksikköä, jonka tunnus on \"{sourceId}\", ei voitu käsitellä."
                 },
                 "SWAG_MIGRATION_ENTITY_ALREADY_EXISTS": {
-                    "title": "{entity} yhteisö on jo olemassa"
+                    "title": "{entity} yhteisö on jo olemassa",
+                    "description": "{entity} Entiteetti, jolla on lähdetunnus \"{sourceId}\", on jo olemassa eikä sitä voida kirjoittaa."
                 },
                 "SWAG_MIGRATION_ENTITY_FIELD_REASSIGNED": {
+                    "title": "{entity} Yhteisöllä on kenttä, joka on merkitty uudelleen",
                     "description": "{entity} entiteetti, jonka lähdetunnus on \"{sourceId}\", sai kentän \"{emptyField}\" korvattua sanoilla \"{replacementField}”."
                 },
                 "SWAG_MIGRATION__PROCESSOR_NOT_FOUND": {

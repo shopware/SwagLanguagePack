@@ -1,4 +1,480 @@
 {
+    "sw-privileges": {
+        "permissions": {
+            "parents": {
+                "swag_paypal": "PayPal"
+            },
+            "swag_paypal": {
+                "label": "Ustawienia systemu PayPal"
+            },
+            "swag_paypal_disputes": {
+                "label": "Spory PayPal"
+            }
+        }
+    },
+    "sw-settings-payment-list": {
+        "needOnboardingTooltip": "Ukończ wdrażanie, aby aktywować tę metodę płatności"
+    },
+    "sw-settings-payment-detail": {
+        "tooltip": "Przejdź do ustawień rozszerzenia <a class=\"swag-paypal-go-to-settings-link\" href=\"#/swag/paypal/index\">PayPal →</a> i aktywuj platformę PayPal Commerce Platform, aby aktywować tę metodę płatności."
+    },
+    "swag-paypal": {
+        "header": "PayPal",
+        "saleschannelCard": {
+            "button": {
+                "description": "Kliknij ten przycisk, aby włączyć system PayPal i wybrać go jako domyślny w wybranym kanale sprzedaży",
+                "label": "Ustaw system PayPal jako domyślny"
+            }
+        },
+        "tabs": {
+            "general": "Generał",
+            "storefront": "Prezentacja sklepu internetowego"
+        },
+        "general": {
+            "mainMenuItemGeneral": "PayPal",
+            "descriptionTextModule": "Ustawienia systemu PayPal"
+        },
+        "messageNotBlank": "Ta wartość nie powinna być pusta.",
+        "settingForm": {
+            "testLive": "Testuj poświadczenia interfejsu API",
+            "testSandbox": "Testuj poświadczenia interfejsu API obszaru izolowanego",
+            "checkout": {
+                "cardTitle": "PayPal Realizacja transakcji",
+                "settingsLink": "Ustawienia",
+                "header": "Więcej metod płatności dzięki jednemu rozwiązaniu z PayPal",
+                "description": "PayPal Checkout to nowe rozwiązanie typu all-in-one, które pozwala oferować zaawansowane funkcje elastycznego przetwarzania płatności na rynku i innych platformach handlowych.",
+                "banner": "Dzięki PayPal Checkout możesz zaoferować klientom płatności fakturą, kartą kredytową i innymi lokalnymi metodami płatności. PayPal Checkout wspiera Cię z najnowszymi technologiami i zapewnia najwyższą elastyczność. Zachowujesz istniejące metody płatności, a opłaty pozostają takie same! Aktywuj PayPal Checkout i dezaktywuj system PayPal PLUS, aby uniknąć zduplikowanych metod płatności w Twoim sklepie. <a href=\"https://www.shopware.com/en/news/paypal-launches-new-product/?utm_source=product&utm_medium=sw6-onprem&utm_campaign=paypal-checkout&utm_content=link-en-blog\" target=\"_blank\">Więcej informacji</a>",
+                "button": {
+                    "liveTitle": "Połącz konto PayPal",
+                    "sandboxTitle": "Połącz konto piaskownicy",
+                    "changeLiveTitle": "Połącz inne konto",
+                    "changeSandboxTitle": "Połącz inne konto piaskownicy",
+                    "onboardingLiveTitle": "Rozpocznij wdrażanie usługi PayPal Checkout",
+                    "onboardingSandboxTitle": "Rozpocznij wdrażanie piaskownicy PayPal Checkout",
+                    "restartOnboardingLiveTitle": "Uruchom ponownie wdrażanie płatności PayPal",
+                    "restartOnboardingSandboxTitle": "Uruchom ponownie wdrożenie piaskownicy PayPal Checkout"
+                },
+                "sandbox": {
+                    "label": "Piaskownica",
+                    "onlySandboxTooltip": "Do tej pory masz tylko konto PayPal w piaskownicy.",
+                    "onlyLiveTooltip": "Do tej pory masz tylko konto PayPal na żywo.",
+                    "helpText": "Włącz, jeśli chcesz przetestować integrację PayPal."
+                },
+                "switch": {
+                    "label": "Aktywny"
+                },
+                "paymentMethodText": "Metody płatności",
+                "showCredentials": "Pokaż poświadczenia",
+                "appImageAlt": "PayPal",
+                "editDetail": "Edytuj szczegóły",
+                "startOnboardingButtonLabel": "Rozpocznij wdrażanie",
+                "availabilityToolTip": {
+                    "bancontactapmhandler": "Bancontact jest dostępny dla następujących krajów: Belgium",
+                    "blikapmhandler": "BLIK jest dostępny dla następujących krajów: Polska",
+                    "boletobancarioapmhandler": "Boleto Bancário jest dostępny w następujących krajach: Brazylia",
+                    "epsapmhandler": "eps jest dostępny dla następujących krajów: Austria",
+                    "giropayapmhandler": "Giropay jest dostępny w następujących krajach: Niemcy",
+                    "idealapmhandler": "iDeal jest dostępny dla następujących krajów: Holandia",
+                    "multibancoapmhandler": "Multibanco jest dostępne dla następujących krajów: Portugalia",
+                    "mybankapmhandler": "MyBank jest dostępny dla następujących krajów: Włochy",
+                    "oxxoapmhandler": "OXXO jest dostępny dla następujących krajów: Meksyk",
+                    "p24apmhandler": "Przelewy24 jest dostępny dla następujących krajów: Polska",
+                    "paylaterhandler": "Płatność później jest dostępna dla następujących krajów: Australia, Francja, Niemcy, Włochy, Hiszpania, Wielka Brytania, Stany Zjednoczone",
+                    "puihandler": "Płatność za fakturą jest dostępna dla następujących krajów: Niemcy",
+                    "sepahandler": "SEPA Lastschrift jest dostępny w następujących krajach: Niemcy",
+                    "sofortapmhandler": "Sofort jest dostępny w następujących krajach: Austria, Belgia, Niemcy, Włochy, Holandia, Hiszpania, Wielka Brytania",
+                    "venmohandler": "Venmo jest dostępne w następujących krajach: United States",
+                    "trustlyapmhandler": "Trustly jest dostępny dla następujących krajów: Estonia, Finlandia, Holandia, Szwecja"
+                },
+                "onboardingStatusText": {
+                    "active": "Upoważniony",
+                    "limited": "Limitowany",
+                    "pending": "Oczekuje na autoryzację",
+                    "ineligible": "Niekwalifikowalny",
+                    "inactive": "Potrzebne wdrażanie",
+                    "mybank": "Limitowany"
+                },
+                "onboardingStatusTooltip": {
+                    "ineligible": "PayPal poinformował nas, że ta metoda płatności obecnie nie kwalifikuje się do Twojego konta.",
+                    "limited": "PayPal poinformował nas, że ta metoda płatności ma pewne ograniczenia dla Twojego konta."
+                },
+                "paymentMethodStatusChangedSuccess": {
+                    "active": "Metoda płatności „{name}” jest teraz aktywna.",
+                    "inactive": "Metoda płatności „{name}” jest teraz nieaktywna."
+                },
+                "deactivatePayPalPlusModal": {
+                    "title": "Dezaktywuj PayPal PLUS",
+                    "text": "Gratulacje Przechodząc na PayPal Checkout, nadal korzystasz ze wszystkich odpowiednich metod płatności — teraz opartych na najnowszej technologii.",
+                    "warning": "Unikaj wyświetlania zduplikowanych metod płatności i dezaktywuj system PayPal PLUS.",
+                    "button": {
+                        "deactivate": "Dezaktywuj PayPal PLUS",
+                        "cancel": "Anuluj"
+                    }
+                }
+            },
+            "credentials": {
+                "cardTitle": "Poświadczenia API",
+                "clientId": {
+                    "label": "ID klienta",
+                    "tooltipText": "Identyfikator klienta REST API służy do uwierzytelniania tej wtyczki za pomocą API PayPal."
+                },
+                "clientSecret": {
+                    "label": "Tajemnica klienta",
+                    "tooltipText": "Tajemnica klienta REST API służy do uwierzytelniania tej wtyczki za pomocą API PayPal."
+                },
+                "merchantPayerId": {
+                    "label": "Identyfikator handlowca PayPal",
+                    "tooltipText": "Identyfikator sprzedawcy PayPal przypisany do Twojego konta PayPal (zobacz Informacje o firmie w ustawieniach konta PayPal)."
+                },
+                "clientIdSandbox": {
+                    "label": "ID klienta piaskownicy",
+                    "tooltipText": "Identyfikator klienta REST API jest używany podczas testowania w celu uwierzytelnienia tej wtyczki za pomocą API PayPal."
+                },
+                "clientSecretSandbox": {
+                    "label": "Tajemnica klienta piaskownicy",
+                    "tooltipText": "Sekret klienta REST API jest używany podczas testowania w celu uwierzytelnienia tej wtyczki za pomocą API PayPal."
+                },
+                "merchantPayerIdSandbox": {
+                    "label": "Piaskownica identyfikator płatnika PayPal",
+                    "tooltipText": "Identyfikator PayPal Merchant przypisany do konta w piaskownicy PayPal (zobacz Informacje o firmie w ustawieniach konta PayPal)."
+                },
+                "sandbox": {
+                    "label": "Włącz piaskownicę",
+                    "tooltipText": "Włącz, jeśli chcesz przetestować integrację PayPal."
+                },
+                "button": {
+                    "title": "Pobierz poświadczenia interfejsu API",
+                    "titleSandbox": "Pobierz poświadczenia interfejsu API obszaru izolowanego",
+                    "messageFetchedError": "Spróbuj ponownie lub wprowadź swoje dane uwierzytelniające ręcznie."
+                }
+            },
+            "behavior": {
+                "cardTitle": "Zachowanie",
+                "merchantLocation": {
+                    "label": "Lokalizacja handlowca",
+                    "germany": "Niemcy",
+                    "other": "Inna lokalizacja handlowca"
+                },
+                "intent": {
+                    "label": "Nabycie płatności",
+                    "CAPTURE": "Automatyczne pobieranie płatności (Intent CAPTURE)",
+                    "AUTHORIZE": "Ręczne pobieranie płatności (intencja AUTORYZACJI)"
+                },
+                "submitCart": {
+                    "label": "Prześlij koszyk",
+                    "helpText": "Jeśli ta opcja jest aktywna, dane koszyka zostaną przesłane do systemu PayPal przy kasie."
+                },
+                "brandName": {
+                    "label": "Nazwa własnej marki na stronie PayPal",
+                    "tooltipText": "Ten tekst będzie wyświetlany jako nazwa marki na stronie płatności PayPal."
+                },
+                "landingPage": {
+                    "label": "Strona docelowa PayPal",
+                    "helpText": {
+                        "login": "Logowanie: Strona PayPal wyświetla ekran logowania jako stronę docelową.",
+                        "billing": "Rejestracja: Strona PayPal wyświetla formularz rejestracyjny jako stronę docelową.",
+                        "no_preference": "Brak preferencji: PayPal decyduje, która strona jest wyświetlana, w zależności od poprzedniej interakcji klienta z systemem PayPal."
+                    },
+                    "options": {
+                        "login": "Logowanie",
+                        "billing": "Rejestracja",
+                        "no_preference": "Brak preferencji"
+                    }
+                },
+                "sendOrderNumber": {
+                    "label": "Prześlij numer zamówienia",
+                    "helpText": "Jeśli ta opcja jest aktywna, numer zamówienia zostanie przesłany do systemu PayPal jako identyfikator faktury w momencie realizacji transakcji."
+                },
+                "orderNumberPrefix": {
+                    "label": "Przedrostek numeru zamówienia",
+                    "tooltipText": "Tekst ten jest umieszczany przed oryginalnym numerem zamówienia (np. myShop_SW20001). Pomaga to zidentyfikować sklep, w którym dokonano płatności. Można go znaleźć jako identyfikator faktury w pulpicie nawigacyjnym PayPal."
+                },
+                "orderNumberSuffix": {
+                    "label": "Sufiks numeru zamówienia",
+                    "tooltipText": "Tekst ten jest umieszczany po oryginalnym numerze zamówienia (np. SW20001_myShop). Pomaga to zidentyfikować sklep, w którym dokonano płatności. Można go znaleźć jako identyfikator faktury w pulpicie nawigacyjnym PayPal."
+                },
+                "loggingLevel": {
+                    "label": "Debugowanie",
+                    "tooltipText": "Podczas korzystania z zaawansowanego debugowania podczas realizacji transakcji rejestrowane są dodatkowe dane, aby wykryć potencjalne błędy. Wyłącznie do użytku tymczasowego.",
+                    "options": {
+                        "basic": "Podstawowe",
+                        "advanced": "Zaawansowane"
+                    }
+                },
+                "excludedProductIds": {
+                    "label": "Wykluczone produkty",
+                    "tooltipText": "Wybranych tutaj produktów nie można kupić w systemie PayPal."
+                },
+                "excludedProductStreamIds": {
+                    "label": "Wykluczone dynamiczne grupy produktów",
+                    "tooltipText": "Produktów wchodzących w skład wybranych tutaj grup produktów dynamicznych nie można kupować w systemie PayPal."
+                }
+            },
+            "express": {
+                "cardTitle": "Skrót Express Checkout",
+                "cardSubtitle": "Express Checkout zwiększa współczynnik konwersji w Twoim sklepie i nie stanowią ryzyka finansowego dla Ciebie jako sprzedawcy. Zalecamy ich aktywację. ",
+                "ecsDetailEnabled": {
+                    "label": "'PayPal Checkout' na stronie produktowej",
+                    "helpText": "Jeśli ta opcja jest aktywna, przycisk Express Checkout pojawi się na każdej stronie szczegółów produktu."
+                },
+                "ecsCartEnabled": {
+                    "label": "'PayPal Checkout' w koszyku",
+                    "helpText": "Jeśli ta opcja jest aktywna, na wózku pojawi się przycisk Express Checkout."
+                },
+                "ecsOffCanvasEnabled": {
+                    "label": "'PayPal Checkout' w koszyku off-canvas",
+                    "helpText": "Jeśli ta opcja jest aktywna, przycisk Express Checkout zostanie wyświetlony na koszyku poza płótnem."
+                },
+                "ecsLoginEnabled": {
+                    "label": "'PayPal Checkout' na stronie logowania",
+                    "helpText": "Jeśli ta opcja jest aktywna, przycisk Express Checkout pojawi się na stronie logowania i rejestracji."
+                },
+                "ecsListingEnabled": {
+                    "label": "'PayPal Checkout' na widoku kategorii",
+                    "helpText": "Jeśli ta opcja jest aktywna, przycisk Express Checkout pojawi się na stronach aukcji."
+                },
+                "ecsButtonColor": {
+                    "label": "Kolor przycisku",
+                    "options": {
+                        "blue": "Niebieska",
+                        "black": "Czarny",
+                        "gold": "Złoto (zalecane)",
+                        "silver": "Srebrna",
+                        "white": "Biały"
+                    }
+                },
+                "ecsButtonShape": {
+                    "label": "Kształt przycisku",
+                    "options": {
+                        "pill": "Runda",
+                        "rect": "Prostokątny"
+                    }
+                },
+                "ecsSubmitCart": {
+                    "label": "Prześlij koszyk",
+                    "helpText": "Jeśli ta opcja jest aktywna, koszyk zostanie przesłany do systemu PayPal w przypadku zamówień ekspresowych."
+                },
+                "ecsButtonLanguageIso": {
+                    "label": "Przycisk locale",
+                    "helpText": "Jeśli nie jest ustawiona, zostanie użyty język kanału sprzedaży."
+                },
+                "ecsShowPayLater": {
+                    "label": "Wyświetl przycisk „Zapłać później” obok przycisku „PayPal Checkout”",
+                    "helpText": "Przycisk „Zapłać później” będzie wyświetlany na tych samych stronach i w tym samym wyglądzie, co przycisk „PayPal Checkout”."
+                }
+            },
+            "installment": {
+                "cardTitle": "Baner „Zapłać później”"
+            },
+            "acdc": {
+                "cardTitle": "Karta kredytowa lub debetowa",
+                "acdcForce3DS": {
+                    "label": "Wykonuj transakcje tylko z 3D Secure",
+                    "helpText": "Transakcja nie zostanie zaakceptowana, jeśli 3D Secure jest niedostępny."
+                }
+            },
+            "pui": {
+                "cardTitle": "Płatność na fakturze",
+                "customerServiceInstructions": {
+                    "label": "Instrukcje obsługi klienta dotyczące płatności na fakturze",
+                    "helpText": "Instrukcje te zostaną przesłane do systemu PayPal & RatePay i wyświetlane w wiadomościach e-mail dla klienta."
+                }
+            },
+            "spb": {
+                "cardTitle": "Inteligentne przyciski płatności",
+                "spbCheckoutEnabled": {
+                    "label": "Włącz przyciski inteligentnej płatności"
+                },
+                "spbButtonLanguageIso": {
+                    "label": "Przycisk locale",
+                    "helpText": "Jeśli nie jest ustawiona, zostanie użyty język kanału sprzedaży."
+                },
+                "spbAlternativePaymentMethodsEnabled": {
+                    "label": "Włącz alternatywne metody płatności dla przycisków płatności inteligentnych.",
+                    "helpText": "Alternatywne metody płatności są kredyt- i karty debetowe i więcej."
+                },
+                "spbShowPayLater": {
+                    "label": "Wyświetl przycisk „Zapłać później” obok przycisku PayPal"
+                }
+            },
+            "plus": {
+                "cardTitle": "PayPal PLUS",
+                "introduction": "<strong>PayPal PLUS:</strong> Kompletne rozwiązanie do płatności typu „wszystko w jednym”, w tym PayPal, polecenie zapłaty i karta kredytowa. PayPal PLUS oferuje klientom pełną elastyczność w wyborze preferowanej metody płatności. Twoje zalety jako sprzedawcy? Łatwiejsze rozliczanie tylko z jedną stroną umawiającą się, jednym kontem i jednym przeglądem transakcji pokazującym wszystkie płatności przychodzące. Otrzymujesz pieniądze bezpośrednio po zakończeniu procesu zamówienia przez klientów.<br>Możesz ubiegać się o PayPal PLUS <a href='https://www.paypal.com/de/webapps/mpp/paypal-plus' target='_blank'>tutaj</a>.",
+                "plusCheckoutEnabled": {
+                    "label": "Włącz PayPal PLUS"
+                },
+                "hint": "Uwaga: PayPal PLUS działa tylko z nabyciem płatności „Sprzedaż”. Zostanie ona ustawiona automatycznie.",
+                "warning": {
+                    "active": "PayPal Checkout zapewnia klientom te same metody płatności — w oparciu o najnowsze technologie. Aktywuj PayPal Checkout teraz i dezaktywuj system PayPal PLUS, aby uniknąć wyświetlania zduplikowanych metod płatności. <a href=\"https://www.shopware.com/en/news/paypal-launches-new-product/?utm_source=product&utm_medium=sw6-onprem&utm_campaign=paypal-checkout&utm_content=link-en-blog\" target=\"_blank\">Więcej informacji</a>",
+                    "inactive": "Unikaj wyświetlania zduplikowanych metod płatności i dezaktywuj system PayPal PLUS. <a href=\"https://www.shopware.com/en/news/paypal-launches-new-product/?utm_source=product&utm_medium=sw6-onprem&utm_campaign=paypal-checkout&utm_content=link-en-blog\" target=\"_blank\">Więcej informacji</a>"
+                }
+            },
+            "locale-field": {
+                "infobox": {
+                    "text": "Aby wyświetlić listę poprawnych kodów ustawień narodowych, kliknij ",
+                    "href": "tutaj"
+                },
+                "error": {
+                    "detail": "Kod ustawień narodowych nie jest zgodny z formatem wymaganym przez system PayPal. Prawidłowy format to „en_GB”."
+                }
+            },
+            "messageSaveSuccess": "Ustawienia systemu PayPal zostały zapisane.",
+            "messageTestSuccess": "Poświadczenia interfejsu API zostały zatwierdzone.",
+            "messageTestError": "Nie można zweryfikować poświadczeń interfejsu API.",
+            "messageWebhookCreated": "Web-hook został zarejestrowany.",
+            "messageWebhookUpdated": "Hak webhook został zaktualizowany.",
+            "messageWebhookError": "Nie można zapisać haka webhook. Wystąpiły następujące błędy:"
+        }
+    },
+    "swag-paypal-payment": {
+        "general": {
+            "title": "Zamówienia"
+        },
+        "tabs": {
+            "overview": "Przegląd"
+        },
+        "paymentDetails": {
+            "cardTitle": "Płatność",
+            "invoice": {
+                "heading": "Kwota faktury",
+                "totalAmount": "Łączna kwota:",
+                "subTotal": "Suma częściowa:",
+                "shipping": "Wysyłka:",
+                "discount": "Rabat:",
+                "handling": "Opłata manipulacyjna:",
+                "insurance": "Ubezpieczenie:",
+                "shipping_discount": "Zniżka wysyłki:"
+            },
+            "payment": {
+                "heading": "Szczegóły płatności",
+                "intent": "Zamiar:",
+                "paymentId": "Identyfikator płatności:",
+                "cartId": "ID koszyka:",
+                "state": "Stan:",
+                "createTime": "Utwórz czas:",
+                "updateTime": "Czas aktualizacji:"
+            },
+            "customer": {
+                "heading": "Klient",
+                "payerId": "Identyfikator płatnika:"
+            },
+            "error": {
+                "title": "Błąd pobierania szczegółów płatności z systemu PayPal"
+            }
+        },
+        "puiDetails": {
+            "cardTitle": "Dane dotyczące płatności faktury",
+            "buttonCopy": "Kopiuj",
+            "bank": "Bank:",
+            "iban": "IBAN:",
+            "bic": "BIC:",
+            "accountHolder": "Posiadacz rachunku:",
+            "amount": "Kwota:",
+            "reference": "Numer referencyjny:"
+        },
+        "transactionHistory": {
+            "cardTitle": "Historia płatności",
+            "states": {
+                "authorization": "Autoryzacja",
+                "sale": "Sprzedaż",
+                "refund": "Refundacja",
+                "capture": "Capture",
+                "order": "Zamów"
+            },
+            "types": {
+                "type": "Typ",
+                "amount": "Kwota",
+                "createTime": "Utworzone",
+                "updateTime": "Aktualizacja",
+                "state": "Stan",
+                "trackingId": "ID śledzenia",
+                "transactionFee": "Opłata transakcyjna",
+                "paymentMode": "Tryb płatności"
+            }
+        },
+        "buttons": {
+            "label": {
+                "refund": "Utwórz nowy zwrot pieniędzy",
+                "capture": "Capture",
+                "void": "Anulowanie autoryzacji"
+            }
+        },
+        "modal": {
+            "title": {
+                "refund": "Nowy zwrot pieniędzy",
+                "capture": "Capture",
+                "void": "Anulowanie autoryzacji"
+            }
+        },
+        "refundAction": {
+            "successMessage": "Twój zwrot zakończył się sukcesem.",
+            "invoiceSelect": {
+                "label": "Wybierz przechwycenie"
+            },
+            "refundAmount": {
+                "label": "Kwota",
+                "helpText": "Kwota „0” spowoduje zwrot pełnej płatności"
+            },
+            "refundDescription": {
+                "label": "Opis",
+                "placeholder": "Wprowadź opis"
+            },
+            "refundReason": {
+                "label": "Powód",
+                "placeholder": "Podaj powód"
+            },
+            "refundNoteToPayer": {
+                "label": "Uwaga dla płatnika",
+                "placeholder": "Wprowadź notatkę do płatnika"
+            },
+            "refundInvoiceNumber": {
+                "label": "Numer faktury",
+                "placeholder": "Wprowadź numer faktury"
+            },
+            "confirmButton": {
+                "text": "Wykonaj"
+            }
+        },
+        "captureAction": {
+            "successMessage": "Twoje schwytanie się udało.",
+            "maxAmount": "Maksymalna kwota",
+            "currentAmount": "Kwota",
+            "captureInvoiceNumber": {
+                "label": "Numer faktury",
+                "placeholder": "Wprowadź numer faktury"
+            },
+            "captureNoteToPayer": {
+                "label": "Uwaga dla płatnika",
+                "placeholder": "Wprowadź notatkę do płatnika"
+            },
+            "isFinal": "To jest ostateczne schwytanie",
+            "isFinalHint": "Wskazówka: Oznaczone jako ostateczne przejęcie, chociaż nie cała kwota ma zostać przechwycona.",
+            "button": {
+                "text": "Przechwyć płatności"
+            }
+        },
+        "voidAction": {
+            "successMessage": "Płatność została pomyślnie unieważniona.",
+            "confirm": {
+                "message": "Czy na pewno chcesz anulować tę płatność?",
+                "button": {
+                    "confirm": "Anulowanie autoryzacji"
+                }
+            }
+        },
+        "errorPage": {
+            "title": "Szczegóły płatności nie są dostępne",
+            "canceledPaymentContent": "Wystąpił błąd podczas pobierania szczegółów płatności z systemu PayPal. Jeśli widzisz ten komunikat, prawdopodobnie była to płatność, która została anulowana przez klienta. Anulowane płatności zostaną usunięte przez PayPal po pewnym czasie i nie będą już dostępne.",
+            "sandboxLiveContent": "Wystąpił błąd podczas pobierania szczegółów płatności z systemu PayPal. Jeśli ten komunikat zostanie wyświetlony, prawdopodobnie była to płatność, która została utworzona z włączoną opcją piaskownicy i została zażądana z danymi na żywo lub odwrotnie. Skoryguj ustawienia systemu PayPal lub usuń zamówienia testowe z systemu.",
+            "other": "Wystąpił błąd podczas pobierania szczegółów płatności z systemu PayPal."
+        }
+    },
+    "sw-order-detail": {
+        "payPalCarrierLabel": "Domyślny przewoźnik",
+        "payPalCarrierPlaceholder": "nie ustawione",
+        "payPalCarrierHelpText": "Możesz ustawić i zmienić domyślnego przewoźnika dla PayPal w <a class=\"sw-internal-link sw-internal-link--inline\" href=\"#/sw/settings/shipping/index\">metody wysyłki<sw-icon name=\"regular-long-arrow-right\" small /></a>. Nie będzie to jednak miało wpływu na zamówienia, które zostały już złożone.",
+        "payPalCarrierDescription": "Jeśli chcesz zmienić przewoźnika dla tego zamówienia PayPal, <a target=\"_blank\" href=\"{orderLink}\">kliknij tutaj</a>"
+    },
     "swag-paypal-pos": {
         "general": {
             "moduleTitle": "Zettle przez PayPal",
@@ -247,494 +723,6 @@
         "messageCloneError": "Nie można przenieść widoczności produktu z innego kanału sprzedaży.",
         "messageWebhookRegisterError": "Hak webhook nie mógł zostać zarejestrowany w Zettle"
     },
-    "sw-privileges": {
-        "permissions": {
-            "parents": {
-                "swag_paypal": "PayPal"
-            },
-            "swag_paypal": {
-                "label": "Ustawienia systemu PayPal"
-            },
-            "swag_paypal_disputes": {
-                "label": "Spory PayPal"
-            }
-        }
-    },
-    "sw-settings-payment-list": {
-        "needOnboardingTooltip": "Ukończ wdrażanie, aby aktywować tę metodę płatności"
-    },
-    "sw-settings-payment-detail": {
-        "tooltip": "Przejdź do ustawień rozszerzenia <a class=\"swag-paypal-go-to-settings-link\" href=\"#/swag/paypal/index\">PayPal →</a> i aktywuj platformę PayPal Commerce Platform, aby aktywować tę metodę płatności."
-    },
-    "swag-paypal": {
-        "header": "PayPal",
-        "saleschannelCard": {
-            "button": {
-                "description": "Kliknij ten przycisk, aby włączyć system PayPal i wybrać go jako domyślny w wybranym kanale sprzedaży",
-                "label": "Ustaw system PayPal jako domyślny"
-            }
-        },
-        "shippingAlert": {
-            "title": "Dostępne śledzenie paczki",
-            "message": "Możesz teraz zapewnić śledzenie przesyłki, jeśli wybierzesz domyślnego przewoźnika w swoim <a href=\"#/sw/settings/shipping/index\">metody wysyłki →</a>."
-        },
-        "general": {
-            "mainMenuItemGeneral": "PayPal",
-            "descriptionTextModule": "Ustawienia systemu PayPal"
-        },
-        "messageNotBlank": "Ta wartość nie powinna być pusta.",
-        "settingForm": {
-            "testLive": "Testuj poświadczenia interfejsu API",
-            "testSandbox": "Testuj poświadczenia interfejsu API obszaru izolowanego",
-            "checkout": {
-                "cardTitle": "PayPal Realizacja transakcji",
-                "settingsLink": "Ustawienia",
-                "header": "Więcej metod płatności dzięki jednemu rozwiązaniu z PayPal",
-                "description": "PayPal Checkout to nowe rozwiązanie typu all-in-one, które pozwala oferować zaawansowane funkcje elastycznego przetwarzania płatności na rynku i innych platformach handlowych.",
-                "banner": "Dzięki PayPal Checkout możesz zaoferować klientom płatności fakturą, kartą kredytową i innymi lokalnymi metodami płatności. PayPal Checkout wspiera Cię z najnowszymi technologiami i zapewnia najwyższą elastyczność. Zachowujesz istniejące metody płatności, a opłaty pozostają takie same! Aktywuj PayPal Checkout i dezaktywuj system PayPal PLUS, aby uniknąć zduplikowanych metod płatności w Twoim sklepie. <a href=\"https://www.shopware.com/en/news/paypal-launches-new-product/?utm_source=product&utm_medium=sw6-onprem&utm_campaign=paypal-checkout&utm_content=link-en-blog\" target=\"_blank\">Więcej informacji</a>",
-                "button": {
-                    "liveTitle": "Połącz konto PayPal",
-                    "sandboxTitle": "Połącz konto piaskownicy",
-                    "changeLiveTitle": "Połącz inne konto",
-                    "changeSandboxTitle": "Połącz inne konto piaskownicy",
-                    "onboardingLiveTitle": "Rozpocznij wdrażanie usługi PayPal Checkout",
-                    "onboardingSandboxTitle": "Rozpocznij wdrażanie piaskownicy PayPal Checkout",
-                    "restartOnboardingLiveTitle": "Uruchom ponownie wdrażanie płatności PayPal",
-                    "restartOnboardingSandboxTitle": "Uruchom ponownie wdrożenie piaskownicy PayPal Checkout"
-                },
-                "sandbox": {
-                    "label": "Piaskownica",
-                    "onlySandboxTooltip": "Do tej pory masz tylko konto PayPal w piaskownicy.",
-                    "onlyLiveTooltip": "Do tej pory masz tylko konto PayPal na żywo.",
-                    "helpText": "Włącz, jeśli chcesz przetestować integrację PayPal."
-                },
-                "switch": {
-                    "label": "Aktywny"
-                },
-                "paymentMethodText": "Metody płatności",
-                "showCredentials": "Pokaż poświadczenia",
-                "appImageAlt": "PayPal",
-                "editDetail": "Edytuj szczegóły",
-                "startOnboardingButtonLabel": "Rozpocznij wdrażanie",
-                "availabilityToolTip": {
-                    "bancontactapmhandler": "Bancontact jest dostępny dla następujących krajów: Belgium",
-                    "blikapmhandler": "BLIK jest dostępny dla następujących krajów: Polska",
-                    "boletobancarioapmhandler": "Boleto Bancário jest dostępny w następujących krajach: Brazylia",
-                    "epsapmhandler": "eps jest dostępny dla następujących krajów: Austria",
-                    "giropayapmhandler": "Giropay jest dostępny w następujących krajach: Niemcy",
-                    "idealapmhandler": "iDeal jest dostępny dla następujących krajów: Holandia",
-                    "multibancoapmhandler": "Multibanco jest dostępne dla następujących krajów: Portugalia",
-                    "mybankapmhandler": "MyBank jest dostępny dla następujących krajów: Włochy",
-                    "oxxoapmhandler": "OXXO jest dostępny dla następujących krajów: Meksyk",
-                    "p24apmhandler": "Przelewy24 jest dostępny dla następujących krajów: Polska",
-                    "paylaterhandler": "Płatność później jest dostępna dla następujących krajów: Australia, Francja, Niemcy, Włochy, Hiszpania, Wielka Brytania, Stany Zjednoczone",
-                    "puihandler": "Płatność za fakturą jest dostępna dla następujących krajów: Niemcy",
-                    "sepahandler": "SEPA Lastschrift jest dostępny w następujących krajach: Niemcy",
-                    "sofortapmhandler": "Sofort jest dostępny w następujących krajach: Austria, Belgia, Niemcy, Włochy, Holandia, Hiszpania, Wielka Brytania",
-                    "venmohandler": "Venmo jest dostępne w następujących krajach: United States",
-                    "trustlyapmhandler": "Trustly jest dostępny dla następujących krajów: Estonia, Finlandia, Holandia, Szwecja"
-                },
-                "onboardingStatusText": {
-                    "active": "Upoważniony",
-                    "limited": "Limitowany",
-                    "pending": "Oczekuje na autoryzację",
-                    "ineligible": "Niekwalifikowalny",
-                    "inactive": "Potrzebne wdrażanie"
-                },
-                "onboardingStatusTooltip": {
-                    "ineligible": "PayPal poinformował nas, że ta metoda płatności obecnie nie kwalifikuje się do Twojego konta.",
-                    "limited": "PayPal poinformował nas, że ta metoda płatności ma pewne ograniczenia dla Twojego konta."
-                },
-                "paymentMethodStatusChangedSuccess": {
-                    "active": "Metoda płatności „{name}” jest teraz aktywna.",
-                    "inactive": "Metoda płatności „{name}” jest teraz nieaktywna."
-                },
-                "deactivatePayPalPlusModal": {
-                    "title": "Dezaktywuj PayPal PLUS",
-                    "text": "Gratulacje Przechodząc na PayPal Checkout, nadal korzystasz ze wszystkich odpowiednich metod płatności — teraz opartych na najnowszej technologii.",
-                    "warning": "Unikaj wyświetlania zduplikowanych metod płatności i dezaktywuj system PayPal PLUS.",
-                    "button": {
-                        "deactivate": "Dezaktywuj PayPal PLUS",
-                        "cancel": "Anuluj"
-                    }
-                }
-            },
-            "credentials": {
-                "cardTitle": "Poświadczenia API",
-                "clientId": {
-                    "label": "ID klienta",
-                    "tooltipText": "Identyfikator klienta REST API służy do uwierzytelniania tej wtyczki za pomocą API PayPal."
-                },
-                "clientSecret": {
-                    "label": "Tajemnica klienta",
-                    "tooltipText": "Tajemnica klienta REST API służy do uwierzytelniania tej wtyczki za pomocą API PayPal."
-                },
-                "merchantPayerId": {
-                    "label": "Identyfikator handlowca PayPal",
-                    "tooltipText": "Identyfikator sprzedawcy PayPal przypisany do Twojego konta PayPal (zobacz Informacje o firmie w ustawieniach konta PayPal)."
-                },
-                "clientIdSandbox": {
-                    "label": "ID klienta piaskownicy",
-                    "tooltipText": "Identyfikator klienta REST API jest używany podczas testowania w celu uwierzytelnienia tej wtyczki za pomocą API PayPal."
-                },
-                "clientSecretSandbox": {
-                    "label": "Tajemnica klienta piaskownicy",
-                    "tooltipText": "Sekret klienta REST API jest używany podczas testowania w celu uwierzytelnienia tej wtyczki za pomocą API PayPal."
-                },
-                "merchantPayerIdSandbox": {
-                    "label": "Piaskownica identyfikator płatnika PayPal",
-                    "tooltipText": "Identyfikator PayPal Merchant przypisany do konta w piaskownicy PayPal (zobacz Informacje o firmie w ustawieniach konta PayPal)."
-                },
-                "sandbox": {
-                    "label": "Włącz piaskownicę",
-                    "tooltipText": "Włącz, jeśli chcesz przetestować integrację PayPal."
-                },
-                "button": {
-                    "title": "Pobierz poświadczenia interfejsu API",
-                    "titleSandbox": "Pobierz poświadczenia interfejsu API obszaru izolowanego",
-                    "messageFetchedError": "Spróbuj ponownie lub wprowadź swoje dane uwierzytelniające ręcznie."
-                }
-            },
-            "behavior": {
-                "cardTitle": "Zachowanie",
-                "merchantLocation": {
-                    "label": "Lokalizacja handlowca",
-                    "germany": "Niemcy",
-                    "other": "Inna lokalizacja handlowca"
-                },
-                "intent": {
-                    "label": "Nabycie płatności",
-                    "CAPTURE": "Automatyczne pobieranie płatności (Intent CAPTURE)",
-                    "AUTHORIZE": "Ręczne pobieranie płatności (intencja AUTORYZACJI)"
-                },
-                "submitCart": {
-                    "label": "Prześlij koszyk",
-                    "helpText": "Jeśli ta opcja jest aktywna, dane koszyka zostaną przesłane do systemu PayPal przy kasie."
-                },
-                "brandName": {
-                    "label": "Nazwa własnej marki na stronie PayPal",
-                    "tooltipText": "Ten tekst będzie wyświetlany jako nazwa marki na stronie płatności PayPal."
-                },
-                "landingPage": {
-                    "label": "Strona docelowa PayPal",
-                    "helpText": {
-                        "login": "Logowanie: Strona PayPal wyświetla ekran logowania jako stronę docelową.",
-                        "billing": "Rejestracja: Strona PayPal wyświetla formularz rejestracyjny jako stronę docelową.",
-                        "no_preference": "Brak preferencji: PayPal decyduje, która strona jest wyświetlana, w zależności od poprzedniej interakcji klienta z systemem PayPal."
-                    },
-                    "options": {
-                        "login": "Logowanie",
-                        "billing": "Rejestracja",
-                        "no_preference": "Brak preferencji"
-                    }
-                },
-                "sendOrderNumber": {
-                    "label": "Prześlij numer zamówienia",
-                    "helpText": "Jeśli ta opcja jest aktywna, numer zamówienia zostanie przesłany do systemu PayPal jako identyfikator faktury w momencie realizacji transakcji."
-                },
-                "orderNumberPrefix": {
-                    "label": "Przedrostek numeru zamówienia",
-                    "tooltipText": "Tekst ten jest umieszczany przed oryginalnym numerem zamówienia (np. myShop_SW20001). Pomaga to zidentyfikować sklep, w którym dokonano płatności. Można go znaleźć jako identyfikator faktury w pulpicie nawigacyjnym PayPal."
-                },
-                "orderNumberSuffix": {
-                    "label": "Sufiks numeru zamówienia",
-                    "tooltipText": "Tekst ten jest umieszczany po oryginalnym numerze zamówienia (np. SW20001_myShop). Pomaga to zidentyfikować sklep, w którym dokonano płatności. Można go znaleźć jako identyfikator faktury w pulpicie nawigacyjnym PayPal."
-                },
-                "loggingLevel": {
-                    "label": "Debugowanie",
-                    "tooltipText": "Podczas korzystania z zaawansowanego debugowania podczas realizacji transakcji rejestrowane są dodatkowe dane, aby wykryć potencjalne błędy. Wyłącznie do użytku tymczasowego.",
-                    "options": {
-                        "basic": "Podstawowe",
-                        "advanced": "Zaawansowane"
-                    }
-                },
-                "excludedProductIds": {
-                    "label": "Wykluczone produkty",
-                    "tooltipText": "Wybranych tutaj produktów nie można kupić w systemie PayPal."
-                },
-                "excludedProductStreamIds": {
-                    "label": "Wykluczone dynamiczne grupy produktów",
-                    "tooltipText": "Produktów wchodzących w skład wybranych tutaj grup produktów dynamicznych nie można kupować w systemie PayPal."
-                }
-            },
-            "express": {
-                "cardTitle": "PayPal Express Kasa",
-                "ecsDetailEnabled": {
-                    "label": "„Zapłać teraz” na stronie szczegółów",
-                    "helpText": "Jeśli ta opcja jest aktywna, przycisk Express Checkout pojawi się na każdej stronie szczegółów produktu."
-                },
-                "ecsCartEnabled": {
-                    "label": "„Zapłać teraz” na koszyku",
-                    "helpText": "Jeśli ta opcja jest aktywna, na wózku pojawi się przycisk Express Checkout."
-                },
-                "ecsOffCanvasEnabled": {
-                    "label": "„Zapłać teraz” na koszyku poza płótnem",
-                    "helpText": "Jeśli ta opcja jest aktywna, przycisk Express Checkout pojawi się na wózku poza płótnem."
-                },
-                "ecsLoginEnabled": {
-                    "label": "„Zapłać teraz” na stronie logowania",
-                    "helpText": "Jeśli ta opcja jest aktywna, przycisk Express Checkout pojawi się na stronie logowania i rejestracji."
-                },
-                "ecsListingEnabled": {
-                    "label": "„Zapłać teraz” na stronach z listą",
-                    "helpText": "Jeśli ta opcja jest aktywna, przycisk Express Checkout pojawi się na stronach aukcji."
-                },
-                "ecsButtonColor": {
-                    "label": "Kolor przycisku",
-                    "options": {
-                        "blue": "Niebieska",
-                        "black": "Czarny",
-                        "gold": "Złoto",
-                        "silver": "Srebrna",
-                        "white": "Biały"
-                    }
-                },
-                "ecsButtonShape": {
-                    "label": "Kształt przycisku",
-                    "options": {
-                        "pill": "Runda",
-                        "rect": "Prostokątny"
-                    }
-                },
-                "ecsSubmitCart": {
-                    "label": "Prześlij koszyk",
-                    "helpText": "Jeśli ta opcja jest aktywna, koszyk zostanie przesłany do systemu PayPal w przypadku zamówień ekspresowych."
-                },
-                "ecsButtonLanguageIso": {
-                    "label": "Przycisk locale",
-                    "helpText": "Jeśli nie jest ustawiona, zostanie użyty język kanału sprzedaży."
-                }
-            },
-            "installment": {
-                "cardTitle": "Raty",
-                "installmentBannerEnabled": {
-                    "label": "Włącz baner ratalny"
-                }
-            },
-            "acdc": {
-                "cardTitle": "Karta kredytowa lub debetowa",
-                "acdcForce3DS": {
-                    "label": "Wykonuj transakcje tylko z 3D Secure",
-                    "helpText": "Transakcja nie zostanie zaakceptowana, jeśli 3D Secure jest niedostępny."
-                }
-            },
-            "pui": {
-                "cardTitle": "Płatność na fakturze",
-                "customerServiceInstructions": {
-                    "label": "Instrukcje obsługi klienta dotyczące płatności na fakturze",
-                    "helpText": "Instrukcje te zostaną przesłane do systemu PayPal & RatePay i wyświetlane w wiadomościach e-mail dla klienta."
-                }
-            },
-            "spb": {
-                "cardTitle": "PayPal Zamówienie za pomocą przycisków Smart Płatności",
-                "spbCheckoutEnabled": {
-                    "label": "Włącz przyciski inteligentnej płatności"
-                },
-                "spbButtonLanguageIso": {
-                    "label": "Przycisk locale",
-                    "helpText": "Jeśli nie jest ustawiona, zostanie użyty język kanału sprzedaży."
-                },
-                "spbAlternativePaymentMethodsEnabled": {
-                    "label": "Włącz alternatywne metody płatności dla przycisków płatności inteligentnych.",
-                    "helpText": "Alternatywne metody płatności są kredyt- i karty debetowe i więcej."
-                },
-                "spbShowPayLater": {
-                    "label": "Wyświetl Płacę później jako osobny przycisk"
-                }
-            },
-            "plus": {
-                "cardTitle": "PayPal PLUS",
-                "introduction": "<strong>PayPal PLUS:</strong> Kompletne rozwiązanie do płatności typu „wszystko w jednym”, w tym PayPal, polecenie zapłaty i karta kredytowa. PayPal PLUS oferuje klientom pełną elastyczność w wyborze preferowanej metody płatności. Twoje zalety jako sprzedawcy? Łatwiejsze rozliczanie tylko z jedną stroną umawiającą się, jednym kontem i jednym przeglądem transakcji pokazującym wszystkie płatności przychodzące. Otrzymujesz pieniądze bezpośrednio po zakończeniu procesu zamówienia przez klientów.<br>Możesz ubiegać się o PayPal PLUS <a href='https://www.paypal.com/de/webapps/mpp/paypal-plus' target='_blank'>tutaj</a>.",
-                "plusCheckoutEnabled": {
-                    "label": "Włącz PayPal PLUS"
-                },
-                "hint": "Uwaga: PayPal PLUS działa tylko z nabyciem płatności „Sprzedaż”. Zostanie ona ustawiona automatycznie.",
-                "warning": {
-                    "active": "PayPal Checkout zapewnia klientom te same metody płatności — w oparciu o najnowsze technologie. Aktywuj PayPal Checkout teraz i dezaktywuj system PayPal PLUS, aby uniknąć wyświetlania zduplikowanych metod płatności. <a href=\"https://www.shopware.com/en/news/paypal-launches-new-product/?utm_source=product&utm_medium=sw6-onprem&utm_campaign=paypal-checkout&utm_content=link-en-blog\" target=\"_blank\">Więcej informacji</a>",
-                    "inactive": "Unikaj wyświetlania zduplikowanych metod płatności i dezaktywuj system PayPal PLUS. <a href=\"https://www.shopware.com/en/news/paypal-launches-new-product/?utm_source=product&utm_medium=sw6-onprem&utm_campaign=paypal-checkout&utm_content=link-en-blog\" target=\"_blank\">Więcej informacji</a>"
-                }
-            },
-            "locale-field": {
-                "infobox": {
-                    "text": "Aby wyświetlić listę poprawnych kodów ustawień narodowych, kliknij ",
-                    "href": "tutaj"
-                },
-                "error": {
-                    "detail": "Kod ustawień narodowych nie jest zgodny z formatem wymaganym przez system PayPal. Prawidłowy format to „en_GB”."
-                }
-            },
-            "messageSaveSuccess": "Ustawienia systemu PayPal zostały zapisane.",
-            "messageTestSuccess": "Poświadczenia interfejsu API zostały zatwierdzone.",
-            "messageTestError": "Nie można zweryfikować poświadczeń interfejsu API.",
-            "messageWebhookCreated": "Web-hook został zarejestrowany.",
-            "messageWebhookUpdated": "Hak webhook został zaktualizowany.",
-            "messageWebhookError": "Nie można zapisać haka webhook. Wystąpiły następujące błędy:"
-        }
-    },
-    "swag-paypal-frw-credentials": {
-        "buttonGetCredentials": "Pobierz poświadczenia interfejsu API",
-        "textIntroPayPal": "Aby uruchomić system PayPal, wystarczy podać dane uwierzytelniające API PayPal.",
-        "labelClientId": "ID klienta",
-        "labelClientSecret": "Tajemnica klienta",
-        "labelMerchantPayerId": "Identyfikator handlowca PayPal",
-        "labelClientIdSandbox": "ID klienta piaskownicy",
-        "labelClientSecretSandbox": "Tajemnica klienta piaskownicy",
-        "labelMerchantPayerIdSandbox": "Piaskownica identyfikator płatnika PayPal",
-        "labelSandbox": "Użyj piaskownicy",
-        "tooltipSandbox": "W zależności od aktywacji obszaru izolowanego zapisywane są oddzielne poświadczenia.",
-        "labelSetDefault": "Ustaw jako domyślną metodę płatności",
-        "tooltipSetDefault": "PayPal zostanie ustawiona jako domyślna metoda płatności dla wszystkich kanałów sprzedaży. W module ustawień można ustawić indywidualne domyślne metody płatności dla każdego kanału sprzedaży.",
-        "messageFetchedError": "Spróbuj ponownie lub użyj ustawień zaawansowanych, aby podać swoje poświadczenia.",
-        "textFetchedSuccessful": "Poświadczenia zostały pobrane.",
-        "messageNoCredentials": "Nie podano żadnych poświadczeń.",
-        "messageTestSuccess": "Poświadczenia są prawidłowe."
-    },
-    "swag-paypal-settings-shipping-carrier": {
-        "cardTitle": "Domyślny przewoźnik",
-        "cardHelpText": "Informacje o śledzeniu zostaną wysłane do systemu PayPal",
-        "description": "PayPal oferuje śledzenie zamówień przetwarzanych za pośrednictwem systemu PayPal. Aby z tego skorzystać, określ domyślnego przewoźnika, który może zostać nadpisany w zamówieniach. Lista wszystkich dostawców usług żeglugowych <a target=\"_blank\" href=\"https://developer.paypal.com/docs/tracking/reference/carriers/\">znajdziesz tutaj</a>",
-        "inputLabel": "Kod przewoźnika",
-        "inputPlaceholder": "Wprowadź kod przewoźnika PayPal (np. DHL_GLOBAL_ECOMMERCE)..."
-    },
-    "swag-paypal-payment": {
-        "general": {
-            "title": "Zamówienia"
-        },
-        "tabs": {
-            "overview": "Przegląd"
-        },
-        "paymentDetails": {
-            "cardTitle": "Płatność",
-            "invoice": {
-                "heading": "Kwota faktury",
-                "totalAmount": "Łączna kwota:",
-                "subTotal": "Suma częściowa:",
-                "shipping": "Wysyłka:",
-                "discount": "Rabat:",
-                "handling": "Opłata manipulacyjna:",
-                "insurance": "Ubezpieczenie:",
-                "shipping_discount": "Zniżka wysyłki:"
-            },
-            "payment": {
-                "heading": "Szczegóły płatności",
-                "intent": "Zamiar:",
-                "paymentId": "Identyfikator płatności:",
-                "cartId": "ID koszyka:",
-                "state": "Stan:",
-                "createTime": "Utwórz czas:",
-                "updateTime": "Czas aktualizacji:"
-            },
-            "customer": {
-                "heading": "Klient",
-                "payerId": "Identyfikator płatnika:"
-            },
-            "error": {
-                "title": "Błąd pobierania szczegółów płatności z systemu PayPal"
-            }
-        },
-        "transactionHistory": {
-            "cardTitle": "Historia płatności",
-            "states": {
-                "authorization": "Autoryzacja",
-                "sale": "Sprzedaż",
-                "refund": "Refundacja",
-                "capture": "Capture",
-                "order": "Zamów"
-            },
-            "types": {
-                "type": "Typ",
-                "amount": "Kwota",
-                "createTime": "Utworzone",
-                "updateTime": "Aktualizacja",
-                "state": "Stan",
-                "trackingId": "ID śledzenia",
-                "transactionFee": "Opłata transakcyjna",
-                "paymentMode": "Tryb płatności"
-            }
-        },
-        "buttons": {
-            "label": {
-                "refund": "Utwórz nowy zwrot pieniędzy",
-                "capture": "Capture",
-                "void": "Anulowanie autoryzacji"
-            }
-        },
-        "modal": {
-            "title": {
-                "refund": "Nowy zwrot pieniędzy",
-                "capture": "Capture",
-                "void": "Anulowanie autoryzacji"
-            }
-        },
-        "refundAction": {
-            "successMessage": "Twój zwrot zakończył się sukcesem.",
-            "invoiceSelect": {
-                "label": "Wybierz przechwycenie"
-            },
-            "refundAmount": {
-                "label": "Kwota",
-                "helpText": "Kwota „0” spowoduje zwrot pełnej płatności"
-            },
-            "refundDescription": {
-                "label": "Opis",
-                "placeholder": "Wprowadź opis"
-            },
-            "refundReason": {
-                "label": "Powód",
-                "placeholder": "Podaj powód"
-            },
-            "refundNoteToPayer": {
-                "label": "Uwaga dla płatnika",
-                "placeholder": "Wprowadź notatkę do płatnika"
-            },
-            "refundInvoiceNumber": {
-                "label": "Numer faktury",
-                "placeholder": "Wprowadź numer faktury"
-            },
-            "confirmButton": {
-                "text": "Wykonaj"
-            }
-        },
-        "captureAction": {
-            "successMessage": "Twoje schwytanie się udało.",
-            "maxAmount": "Maksymalna kwota",
-            "currentAmount": "Kwota",
-            "captureInvoiceNumber": {
-                "label": "Numer faktury",
-                "placeholder": "Wprowadź numer faktury"
-            },
-            "captureNoteToPayer": {
-                "label": "Uwaga dla płatnika",
-                "placeholder": "Wprowadź notatkę do płatnika"
-            },
-            "isFinal": "To jest ostateczne schwytanie",
-            "isFinalHint": "Wskazówka: Oznaczone jako ostateczne przejęcie, chociaż nie cała kwota ma zostać przechwycona.",
-            "button": {
-                "text": "Przechwyć płatności"
-            }
-        },
-        "voidAction": {
-            "successMessage": "Płatność została pomyślnie unieważniona.",
-            "confirm": {
-                "message": "Czy na pewno chcesz anulować tę płatność?",
-                "button": {
-                    "confirm": "Anulowanie autoryzacji"
-                }
-            }
-        },
-        "errorPage": {
-            "title": "Szczegóły płatności nie są dostępne",
-            "canceledPaymentContent": "Wystąpił błąd podczas pobierania szczegółów płatności z systemu PayPal. Jeśli widzisz ten komunikat, prawdopodobnie była to płatność, która została anulowana przez klienta. Anulowane płatności zostaną usunięte przez PayPal po pewnym czasie i nie będą już dostępne.",
-            "sandboxLiveContent": "Wystąpił błąd podczas pobierania szczegółów płatności z systemu PayPal. Jeśli ten komunikat zostanie wyświetlony, prawdopodobnie była to płatność, która została utworzona z włączoną opcją piaskownicy i została zażądana z danymi na żywo lub odwrotnie. Skoryguj ustawienia systemu PayPal lub usuń zamówienia testowe z systemu.",
-            "other": "Wystąpił błąd podczas pobierania szczegółów płatności z systemu PayPal."
-        }
-    },
-    "sw-order-detail": {
-        "payPalCarrierLabel": "Domyślny przewoźnik",
-        "payPalCarrierPlaceholder": "nie ustawione",
-        "payPalCarrierHelpText": "Możesz ustawić i zmienić domyślnego przewoźnika dla PayPal w <a class=\"sw-internal-link sw-internal-link--inline\" href=\"#/sw/settings/shipping/index\">metody wysyłki<sw-icon name=\"regular-long-arrow-right\" small /></a>. Nie będzie to jednak miało wpływu na zamówienia, które zostały już złożone.",
-        "payPalCarrierDescription": "Jeśli chcesz zmienić przewoźnika dla tego zamówienia PayPal, <a target=\"_blank\" href=\"{orderLink}\">kliknij tutaj</a>"
-    },
     "swag-paypal-disputes": {
         "general": {
             "mainMenuItemGeneral": "Spory PayPal",
@@ -771,5 +759,30 @@
             "rawDataCardTitle": "Surowe dane",
             "copyButtonLabel": "Kopiuj surowe"
         }
+    },
+    "swag-paypal-frw-credentials": {
+        "buttonGetCredentials": "Pobierz poświadczenia interfejsu API",
+        "textIntroPayPal": "Aby uruchomić system PayPal, wystarczy podać dane uwierzytelniające API PayPal.",
+        "labelClientId": "ID klienta",
+        "labelClientSecret": "Tajemnica klienta",
+        "labelMerchantPayerId": "Identyfikator handlowca PayPal",
+        "labelClientIdSandbox": "ID klienta piaskownicy",
+        "labelClientSecretSandbox": "Tajemnica klienta piaskownicy",
+        "labelMerchantPayerIdSandbox": "Piaskownica identyfikator płatnika PayPal",
+        "labelSandbox": "Użyj piaskownicy",
+        "tooltipSandbox": "W zależności od aktywacji obszaru izolowanego zapisywane są oddzielne poświadczenia.",
+        "labelSetDefault": "Ustaw jako domyślną metodę płatności",
+        "tooltipSetDefault": "PayPal zostanie ustawiona jako domyślna metoda płatności dla wszystkich kanałów sprzedaży. W module ustawień można ustawić indywidualne domyślne metody płatności dla każdego kanału sprzedaży.",
+        "messageFetchedError": "Spróbuj ponownie lub użyj ustawień zaawansowanych, aby podać swoje poświadczenia.",
+        "textFetchedSuccessful": "Poświadczenia zostały pobrane.",
+        "messageNoCredentials": "Nie podano żadnych poświadczeń.",
+        "messageTestSuccess": "Poświadczenia są prawidłowe."
+    },
+    "swag-paypal-settings-shipping-carrier": {
+        "cardTitle": "Domyślny przewoźnik",
+        "cardHelpText": "Informacje o śledzeniu zostaną wysłane do systemu PayPal",
+        "description": "PayPal oferuje śledzenie zamówień przetwarzanych za pośrednictwem systemu PayPal. Aby z tego skorzystać, określ domyślnego przewoźnika, który może zostać nadpisany w zamówieniach. Lista wszystkich dostawców usług żeglugowych <a target=\"_blank\" href=\"https://developer.paypal.com/docs/tracking/reference/carriers/\">znajdziesz tutaj</a>",
+        "inputLabel": "Kod przewoźnika",
+        "inputPlaceholder": "Wprowadź kod przewoźnika PayPal (np. DHL_GLOBAL_ECOMMERCE)..."
     }
 }

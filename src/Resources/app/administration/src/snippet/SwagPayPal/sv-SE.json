@@ -1,4 +1,481 @@
 {
+    "sw-privileges": {
+        "permissions": {
+            "parents": {
+                "swag_paypal": "PayPal"
+            },
+            "swag_paypal": {
+                "label": "PayPal-inställningar"
+            },
+            "swag_paypal_disputes": {
+                "label": "PayPal-tvister"
+            }
+        }
+    },
+    "sw-settings-payment-list": {
+        "needOnboardingTooltip": "Slutför introduktionen för att aktivera den här betalningsmetoden"
+    },
+    "sw-settings-payment-detail": {
+        "tooltip": "Gå till <a class=\"swag-paypal-go-to-settings-link\" href=\"#/swag/paypal/index\">PayPal-tillägg →</a> och aktivera PayPal Commerce Platform för att aktivera denna betalningsmetod."
+    },
+    "swag-paypal": {
+        "header": "PayPal",
+        "saleschannelCard": {
+            "button": {
+                "description": "Klicka på den här knappen för att aktivera PayPal och välj den som standard i vald försäljningskanal",
+                "label": "Ange PayPal som standard"
+            }
+        },
+        "tabs": {
+            "general": "General",
+            "storefront": "Storefront-representation"
+        },
+        "general": {
+            "mainMenuItemGeneral": "PayPal",
+            "descriptionTextModule": "PayPal-inställningar"
+        },
+        "messageNotBlank": "Detta värde bör inte vara tomt.",
+        "settingForm": {
+            "testLive": "Referensuppgifter för Testa API",
+            "testSandbox": "Testa autentiseringsuppgifter för API i sandlådan",
+            "checkout": {
+                "cardTitle": "PayPal Checkout",
+                "settingsLink": "Inställningar",
+                "header": "Fler betalningsmetoder med en lösning från PayPal",
+                "description": "PayPal Checkout är den nya allt-i-ett lösning som låter dig erbjuda kraftfulla flexibile betalningsbehandling funktioner på marknadsplatser och andra handelsplattformar.",
+                "banner": "Med PayPal Checkout kan du erbjuda dina kunder betalning via faktura, kreditkort och andra lokala betalningsmetoder. PayPal Checkout hjälper dig med den senaste tekniken och ger dig högsta flexibilitet. Du behåller dina befintliga betalningsmetoder, och avgifterna förblir desamma! Aktivera PayPal Checkout och inaktivera PayPal PLUS för att undvika dubbla betalningsmetoder i din butik. <a href=\"https://www.shopware.com/en/news/paypal-launches-new-product/?utm_source=product&utm_medium=sw6-onprem&utm_campaign=paypal-checkout&utm_content=link-en-blog\" target=\"_blank\">Mer information</a>",
+                "button": {
+                    "liveTitle": "Anslut PayPal-konto",
+                    "sandboxTitle": "Anslut sandlåda konto",
+                    "changeLiveTitle": "Anslut ett annat konto",
+                    "changeSandboxTitle": "Anslut olika sandlådekonto",
+                    "onboardingLiveTitle": "Starta PayPal Checkout onboarding",
+                    "onboardingSandboxTitle": "Starta PayPal Checkout sandlåda onboarding",
+                    "restartOnboardingLiveTitle": "Starta om PayPal Checkout onboarding",
+                    "restartOnboardingSandboxTitle": "Starta om PayPal Checkout sandlåda onboarding"
+                },
+                "sandbox": {
+                    "label": "Sandlåda",
+                    "onlySandboxTooltip": "Du är bara ansluten till ett sandlåda PayPal-konto hittills.",
+                    "onlyLiveTooltip": "Du har bara anslutit ett live PayPal-konto hittills.",
+                    "helpText": "Aktivera, om du vill testa PayPal-integrationen."
+                },
+                "switch": {
+                    "label": "Aktiv"
+                },
+                "paymentMethodText": "Betalningsmetoder",
+                "showCredentials": "Visa inloggningsuppgifter",
+                "appImageAlt": "PayPal",
+                "editDetail": "Redigera detaljer",
+                "startOnboardingButtonLabel": "Starta registrering",
+                "availabilityToolTip": {
+                    "bancontactapmhandler": "Bancontact är tillgängligt för följande länder: Belgien",
+                    "blikapmhandler": "BLIK är tillgängligt i följande länder: Polen",
+                    "boletobancarioapmhandler": "Boleto Bancário är tillgängligt för följande länder: Brasilien",
+                    "epsapmhandler": "eps är tillgängligt i följande länder: Austria",
+                    "giropayapmhandler": "Giropay är tillgängligt för följande länder: Tyskland",
+                    "idealapmhandler": "iDeal är tillgängligt i följande länder: Netherlands",
+                    "multibancoapmhandler": "Multibanco är tillgängligt i följande länder: Portugal",
+                    "mybankapmhandler": "MyBank är tillgängligt i följande länder: Italien",
+                    "oxxoapmhandler": "OXXO är tillgängligt i följande länder: Mexiko",
+                    "p24apmhandler": "Przelewy24 är tillgängligt för följande länder: Polen",
+                    "paylaterhandler": "Betala senare är tillgängligt för följande länder: Australien, Frankrike, Tyskland, Italien, Spanien, Storbritannien, USA",
+                    "puihandler": "Betala mot faktura är tillgänglig för följande länder: Tyskland",
+                    "sepahandler": "SEPA Lastschrift är tillgängligt i följande länder: Tyskland",
+                    "sofortapmhandler": "Sofort är tillgängligt för följande länder: Österrike, Belgien, Tyskland, Italien, Nederländerna, Spanien, Storbritannien",
+                    "venmohandler": "Venmo är tillgängligt i följande länder: USA",
+                    "trustlyapmhandler": "Trustly är tillgängligt för följande länder: Estland, Finland, Nederländerna, Sverige"
+                },
+                "onboardingStatusText": {
+                    "active": "Auktoriserad",
+                    "limited": "Begränsad",
+                    "pending": "Tillstånd väntar",
+                    "ineligible": "Ej stödberättigande",
+                    "inactive": "Onboarding behövs",
+                    "mybank": "Begränsad"
+                },
+                "onboardingStatusTooltip": {
+                    "ineligible": "PayPal informerade oss om att denna betalningsmetod för närvarande inte är berättigad till ditt konto.",
+                    "limited": "PayPal informerade oss om att denna betalningsmetod har vissa begränsningar för ditt konto.",
+                    "mybank": "Handlare som aktiverar MyBank efter februari 2023 behöver manuellt godkännande av PayPal. Kontakta PayPals support för mer information om detta."
+                },
+                "paymentMethodStatusChangedSuccess": {
+                    "active": "Betalningsmetod \"{name}\" är nu aktiv.",
+                    "inactive": "Betalningsmetod \"{name}\" är nu inaktiv."
+                },
+                "deactivatePayPalPlusModal": {
+                    "title": "Inaktivera PayPal PLUS",
+                    "text": "Grattis! Genom att byta till PayPal Checkout fortsätter du att använda alla relevanta betalningsmetoder – nu baserat på den senaste tekniken.",
+                    "warning": "Undvik att visa dubbla betalningsmetoder och inaktivera PayPal PLUS.",
+                    "button": {
+                        "deactivate": "Inaktivera PayPal PLUS",
+                        "cancel": "Avbryt"
+                    }
+                }
+            },
+            "credentials": {
+                "cardTitle": "API-autentiseringsuppgifter",
+                "clientId": {
+                    "label": "Klient-ID",
+                    "tooltipText": "REST API-klient-ID används för att autentisera denna plugin med PayPals API."
+                },
+                "clientSecret": {
+                    "label": "Klientens hemlighet",
+                    "tooltipText": "REST API-klienthemligheten används för att autentisera denna plugin med PayPals API."
+                },
+                "merchantPayerId": {
+                    "label": "PayPal-handels-ID",
+                    "tooltipText": "PayPal Merchant ID som tilldelats ditt PayPal-konto (se Business Information i PayPal-kontoinställningar)."
+                },
+                "clientIdSandbox": {
+                    "label": "Klient-ID för sandlådan",
+                    "tooltipText": "REST API-klient-ID används vid testning för att autentisera denna plugin med PayPals API."
+                },
+                "clientSecretSandbox": {
+                    "label": "Hemlig sandlådeklient",
+                    "tooltipText": "REST API-klienthemligheten används vid testning för att autentisera denna plugin med PayPals API."
+                },
+                "merchantPayerIdSandbox": {
+                    "label": "PayPal-handels-ID i sandlåda",
+                    "tooltipText": "PayPal Merchant ID tilldelad till din PayPal sandlåda konto (se Business Information i PayPal-kontoinställningar)."
+                },
+                "sandbox": {
+                    "label": "Aktivera sandlåda",
+                    "tooltipText": "Aktivera, om du vill testa PayPal-integrationen."
+                },
+                "button": {
+                    "title": "Hämta API-autentiseringsuppgifter",
+                    "titleSandbox": "Hämta autentiseringsuppgifter för API i sandlådan",
+                    "messageFetchedError": "Försök igen eller ange dina inloggningsuppgifter manuellt."
+                }
+            },
+            "behavior": {
+                "cardTitle": "Uppförande",
+                "merchantLocation": {
+                    "label": "Merchant plats",
+                    "germany": "Tyskland",
+                    "other": "Annan handelsplats"
+                },
+                "intent": {
+                    "label": "Inköp av betalning",
+                    "CAPTURE": "Automatisk betalning inkassering (avsikt CAPTURE)",
+                    "AUTHORIZE": "Upphämtning av manuell betalning (avsikt AUKTORISERA)"
+                },
+                "submitCart": {
+                    "label": "Skicka varukorg",
+                    "helpText": "Om det här alternativet är aktivt skickas kundvagnsuppgifter till PayPal i kassan."
+                },
+                "brandName": {
+                    "label": "Ditt eget varumärke på PayPal-sidan",
+                    "tooltipText": "Texten kommer att visas som varumärkesnamn på PayPals betalningssida."
+                },
+                "landingPage": {
+                    "label": "PayPals landningssida",
+                    "helpText": {
+                        "login": "Logga in: PayPal-webbplatsen visar en inloggningsskärm som målsida.",
+                        "billing": "Registrering: PayPal-webbplatsen visar ett registreringsformulär som målsida.",
+                        "no_preference": "Ingen preferens: PayPal bestämmer vilken sida som visas, beroende på kundens tidigare interaktion med PayPal."
+                    },
+                    "options": {
+                        "login": "Logga in",
+                        "billing": "Registrering",
+                        "no_preference": "Ingen preferens"
+                    }
+                },
+                "sendOrderNumber": {
+                    "label": "Skicka beställningsnummer",
+                    "helpText": "Om det här alternativet är aktivt skickas beställningsnumret till PayPal som faktura-ID i kassan."
+                },
+                "orderNumberPrefix": {
+                    "label": "Prefix för ordernummer",
+                    "tooltipText": "Denna text placeras före det ursprungliga beställningsnumret (t.ex. MyShop_SW20001). Detta hjälper till att identifiera butiken där betalningen gjordes. Du hittar det som faktura-ID i din PayPal-instrumentpanel."
+                },
+                "orderNumberSuffix": {
+                    "label": "Suffix för ordernummer",
+                    "tooltipText": "Denna text placeras efter det ursprungliga beställningsnumret (t.ex. Sw20001_MyShop). Detta hjälper till att identifiera butiken där betalningen gjordes. Du hittar det som faktura-ID i din PayPal-instrumentpanel."
+                },
+                "loggingLevel": {
+                    "label": "Felsökning",
+                    "tooltipText": "Vid användning av avancerad felsökning registreras ytterligare data under kassan för att upptäcka eventuella fel. Endast för tillfällig användning.",
+                    "options": {
+                        "basic": "Grundläggande",
+                        "advanced": "Avancerad"
+                    }
+                },
+                "excludedProductIds": {
+                    "label": "Undantagna produkter",
+                    "tooltipText": "Produkter som väljs här kan inte köpas med PayPal."
+                },
+                "excludedProductStreamIds": {
+                    "label": "Exkluderade dynamiska produktgrupper",
+                    "tooltipText": "Produkter som ingår i de dynamiska produktgrupperna som väljs här kan inte köpas med PayPal."
+                }
+            },
+            "express": {
+                "cardTitle": "Express Checkout Genväg",
+                "cardSubtitle": "Express Checkouts ökar konverteringsfrekvensen i din butik och utgör ingen ekonomisk risk för dig som handlare. Det rekommenderas att hålla dem aktiverade. ",
+                "ecsDetailEnabled": {
+                    "label": "”PayPal Checkout” på detaljsidan",
+                    "helpText": "Om det här alternativet är aktivt visas knappen Express Checkout på varje produktdetaljsida."
+                },
+                "ecsCartEnabled": {
+                    "label": "”PayPal Checkout” på kundvagnen",
+                    "helpText": "Om det här alternativet är aktivt visas knappen Express Checkout i kundvagnen."
+                },
+                "ecsOffCanvasEnabled": {
+                    "label": "”PayPal Checkout” på kundvagnen utanför duken",
+                    "helpText": "Om det här alternativet är aktivt visas knappen Express Checkout på kundvagnen utanför duken."
+                },
+                "ecsLoginEnabled": {
+                    "label": "”PayPal Checkout” på inloggningssidan",
+                    "helpText": "Om det här alternativet är aktivt visas knappen Express Checkout på inloggnings- och registreringssidan."
+                },
+                "ecsListingEnabled": {
+                    "label": "”PayPal Checkout” på listningssidor",
+                    "helpText": "Om det här alternativet är aktivt visas knappen Express Checkout på listningssidor."
+                },
+                "ecsButtonColor": {
+                    "label": "Knappens färg",
+                    "options": {
+                        "blue": "Blå",
+                        "black": "Svart",
+                        "gold": "Guld (rekommenderas)",
+                        "silver": "Silver",
+                        "white": "Vit"
+                    }
+                },
+                "ecsButtonShape": {
+                    "label": "Knapp form",
+                    "options": {
+                        "pill": "Runda",
+                        "rect": "rektangulär"
+                    }
+                },
+                "ecsSubmitCart": {
+                    "label": "Skicka varukorg",
+                    "helpText": "Om det här alternativet är aktivt skickas kundvagnen till PayPal för Express-beställningar."
+                },
+                "ecsButtonLanguageIso": {
+                    "label": "Knappens språkinställning",
+                    "helpText": "Om den inte är inställd används försäljningskanalens språk."
+                },
+                "ecsShowPayLater": {
+                    "label": "Visa knappen ”Betala senare” bredvid knappen ”PayPal Checkout”",
+                    "helpText": "Knappen ”Betala senare” visas på samma sidor och i samma design som ”PayPal Checkout” -knappen."
+                }
+            },
+            "installment": {
+                "cardTitle": "”Betala senare” banner"
+            },
+            "acdc": {
+                "cardTitle": "Kredit- eller betalkort",
+                "acdcForce3DS": {
+                    "label": "Utför endast transaktioner med 3D Secure",
+                    "helpText": "Transaktion accepteras inte, om 3D Secure inte är tillgängligt."
+                }
+            },
+            "pui": {
+                "cardTitle": "Betala på faktura",
+                "customerServiceInstructions": {
+                    "label": "Instruktioner för kundservice för att betala på faktura",
+                    "helpText": "Dessa instruktioner kommer att lämnas till PayPal & RatePay och visas i e-post för kunden."
+                }
+            },
+            "spb": {
+                "cardTitle": "Smarta betalningsknappar",
+                "spbCheckoutEnabled": {
+                    "label": "Aktivera smarta betalningsknappar"
+                },
+                "spbButtonLanguageIso": {
+                    "label": "Knappens språkinställning",
+                    "helpText": "Om den inte är inställd används försäljningskanalens språk."
+                },
+                "spbAlternativePaymentMethodsEnabled": {
+                    "label": "Aktivera alternativa betalningsmetoder för Smart Payment Buttons.",
+                    "helpText": "Alternativa betalningsmetoder är kredit- och betalkort och mer."
+                },
+                "spbShowPayLater": {
+                    "label": "Visa knappen ”Betala senare” bredvid PayPal-knappen"
+                }
+            },
+            "plus": {
+                "cardTitle": "PayPal PLUS",
+                "introduction": "<strong>PayPal PLUS:</strong> Din kompletta allt-i-ett-betalningslösning inklusive PayPal, Autogiro och kreditkort. PayPal PLUS erbjuder dina kunder full flexibilitet i valet av betalningsmetod. Dina fördelar som säljare? Enklare redovisning med endast en avtalspart, ett konto och en transaktionsöversikt som visar alla inkommande betalningar. Du får dina pengar direkt efter att kunderna har slutfört beställningsprocessen.<br>Du kan ansöka om PayPal PLUS <a href='https://www.paypal.com/de/webapps/mpp/paypal-plus' target='_blank'>här</a>.",
+                "plusCheckoutEnabled": {
+                    "label": "Aktivera PayPal PLUS"
+                },
+                "hint": "Obs! PayPal PLUS fungerar endast med betalning förvärv ”Försäljning”. Det ställs in automatiskt.",
+                "warning": {
+                    "active": "PayPal Checkout tillhandahåller samma betalningsmetoder till dina kunder – baserat på den senaste tekniken. Aktivera PayPal Checkout nu och inaktivera PayPal PLUS för att undvika att visa dubbla betalningsmetoder. <a href=\"https://www.shopware.com/en/news/paypal-launches-new-product/?utm_source=product&utm_medium=sw6-onprem&utm_campaign=paypal-checkout&utm_content=link-en-blog\" target=\"_blank\">Mer information</a>",
+                    "inactive": "Undvik att visa dubbla betalningsmetoder och inaktivera PayPal PLUS. <a href=\"https://www.shopware.com/en/news/paypal-launches-new-product/?utm_source=product&utm_medium=sw6-onprem&utm_campaign=paypal-checkout&utm_content=link-en-blog\" target=\"_blank\">Mer information</a>"
+                }
+            },
+            "locale-field": {
+                "infobox": {
+                    "text": "Om du vill se en lista med giltiga språkkoder klickar du på ",
+                    "href": "här"
+                },
+                "error": {
+                    "detail": "Den språkkod du angav matchar inte formatet som krävs av PayPal. Ett giltigt format är ”en_GB”."
+                }
+            },
+            "messageSaveSuccess": "PayPal-inställningarna har sparats.",
+            "messageTestSuccess": "API-autentiseringsuppgifterna har validerats.",
+            "messageTestError": "API-autentiseringsuppgifterna kunde inte valideras.",
+            "messageWebhookCreated": "Webhook har registrerats.",
+            "messageWebhookUpdated": "Webhook har uppdaterats.",
+            "messageWebhookError": "Webhook kunde inte sparas. Följande fel uppstod:"
+        }
+    },
+    "swag-paypal-payment": {
+        "general": {
+            "title": "Order"
+        },
+        "tabs": {
+            "overview": "Översikt"
+        },
+        "paymentDetails": {
+            "cardTitle": "Betalning",
+            "invoice": {
+                "heading": "Faktura belopp",
+                "totalAmount": "Totalt belopp:",
+                "subTotal": "Delsumma:",
+                "shipping": "Frakt:",
+                "discount": "Rabatt:",
+                "handling": "Hanteringsavgift:",
+                "insurance": "Försäkring:",
+                "shipping_discount": "Fraktrabatt:"
+            },
+            "payment": {
+                "heading": "Betalningsuppgifter",
+                "intent": "Avsikter:",
+                "paymentId": "Betalnings-ID:",
+                "cartId": "Varukorg ID:",
+                "state": "Stat:",
+                "createTime": "Skapa tid:",
+                "updateTime": "Uppdateringstid:"
+            },
+            "customer": {
+                "heading": "Kund",
+                "payerId": "Betalarens ID:"
+            },
+            "error": {
+                "title": "Fel vid hämtning av betalningsinformation från PayPal"
+            }
+        },
+        "puiDetails": {
+            "cardTitle": "Faktura betalningsdata",
+            "buttonCopy": "Kopiera",
+            "bank": "Bank:",
+            "iban": "IBAN:",
+            "bic": "BIC:",
+            "accountHolder": "Kontoinnehavare:",
+            "amount": "Belopp:",
+            "reference": "Referens:"
+        },
+        "transactionHistory": {
+            "cardTitle": "Betalningshistorik",
+            "states": {
+                "authorization": "Tillstånd",
+                "sale": "Rea",
+                "refund": "Återbetalning",
+                "capture": "Fånga",
+                "order": "Beställ"
+            },
+            "types": {
+                "type": "Typ",
+                "amount": "Belopp",
+                "createTime": "Skapat",
+                "updateTime": "Uppdaterad",
+                "state": "stat",
+                "trackingId": "Spårnings ID",
+                "transactionFee": "Transaktionsavgift",
+                "paymentMode": "Betalningsläge"
+            }
+        },
+        "buttons": {
+            "label": {
+                "refund": "Skapa en ny återbetalning",
+                "capture": "Fånga",
+                "void": "Avbryt behörighet"
+            }
+        },
+        "modal": {
+            "title": {
+                "refund": "Ny återbetalning",
+                "capture": "Fånga",
+                "void": "Avbryt behörighet"
+            }
+        },
+        "refundAction": {
+            "successMessage": "Din återbetalning lyckades.",
+            "invoiceSelect": {
+                "label": "Välj fångst"
+            },
+            "refundAmount": {
+                "label": "Belopp",
+                "helpText": "Ett belopp på ”0” kommer att orsaka återbetalning av hela betalningen"
+            },
+            "refundDescription": {
+                "label": "Beskrivning",
+                "placeholder": "Ange en beskrivning"
+            },
+            "refundReason": {
+                "label": "Orsak",
+                "placeholder": "Ange en orsak"
+            },
+            "refundNoteToPayer": {
+                "label": "Meddelande till betalaren",
+                "placeholder": "Ange en anteckning till betalaren"
+            },
+            "refundInvoiceNumber": {
+                "label": "Faktura nummer",
+                "placeholder": "Ange ett fakturanummer"
+            },
+            "confirmButton": {
+                "text": "Kör"
+            }
+        },
+        "captureAction": {
+            "successMessage": "Din tillfångatagande lyckades.",
+            "maxAmount": "Maximalt belopp",
+            "currentAmount": "Belopp",
+            "captureInvoiceNumber": {
+                "label": "Faktura nummer",
+                "placeholder": "Ange ett fakturanummer"
+            },
+            "captureNoteToPayer": {
+                "label": "Meddelande till betalaren",
+                "placeholder": "Ange en anteckning till betalaren"
+            },
+            "isFinal": "Detta är den sista infångningen",
+            "isFinalHint": "Tips: Markerad som slutlig fångst, men inte hela beloppet ska fångas.",
+            "button": {
+                "text": "Fånga betalning"
+            }
+        },
+        "voidAction": {
+            "successMessage": "Betalningen ogiltigförklaras.",
+            "confirm": {
+                "message": "Vill du verkligen avbryta betalningen?",
+                "button": {
+                    "confirm": "Avbryt behörighet"
+                }
+            }
+        },
+        "errorPage": {
+            "title": "Betalningsuppgifter är inte tillgängliga",
+            "canceledPaymentContent": "Ett fel uppstod vid hämtning av betalningsinformation från PayPal. Om du ser det här meddelandet var det förmodligen en betalning som avbröts av kunden. Avbrutna betalningar kommer att tas bort av PayPal efter ett tag och är då inte längre tillgängliga.",
+            "sandboxLiveContent": "Ett fel uppstod vid hämtning av betalningsinformation från PayPal. Om du ser det här meddelandet var det förmodligen en betalning som skapades med sandlådan aktiverad och som nu har begärts med live-data, eller vice versa. Korrigera dina PayPal-inställningar eller ta bort testorder från systemet.",
+            "other": "Ett fel uppstod vid hämtning av betalningsinformation från PayPal."
+        }
+    },
+    "sw-order-detail": {
+        "payPalCarrierLabel": "Standard transportföretag",
+        "payPalCarrierPlaceholder": "inte inställd",
+        "payPalCarrierHelpText": "Du kan ställa in och ändra standardtransportföretaget för PayPal i <a class=\"sw-internal-link sw-internal-link--inline\" href=\"#/sw/settings/shipping/index\">fraktmetoder<sw-icon name=\"regular-long-arrow-right\" small /></a>. Detta kommer dock inte att ha någon effekt på beställningar som redan har gjorts.",
+        "payPalCarrierDescription": "Om du vill byta operatör för denna PayPal-order, <a target=\"_blank\" href=\"{orderLink}\">klicka här</a>"
+    },
     "swag-paypal-pos": {
         "general": {
             "moduleTitle": "Zettle från PayPal",
@@ -247,494 +724,6 @@
         "messageCloneError": "Kunde inte överföra produktsynlighet från en annan försäljningskanal.",
         "messageWebhookRegisterError": "Webbhook kunde inte registreras på Zettle"
     },
-    "sw-privileges": {
-        "permissions": {
-            "parents": {
-                "swag_paypal": "PayPal"
-            },
-            "swag_paypal": {
-                "label": "PayPal-inställningar"
-            },
-            "swag_paypal_disputes": {
-                "label": "PayPal-tvister"
-            }
-        }
-    },
-    "sw-settings-payment-list": {
-        "needOnboardingTooltip": "Slutför introduktionen för att aktivera den här betalningsmetoden"
-    },
-    "sw-settings-payment-detail": {
-        "tooltip": "Gå till <a class=\"swag-paypal-go-to-settings-link\" href=\"#/swag/paypal/index\">PayPal-tillägg →</a> och aktivera PayPal Commerce Platform för att aktivera denna betalningsmetod."
-    },
-    "swag-paypal": {
-        "header": "PayPal",
-        "saleschannelCard": {
-            "button": {
-                "description": "Klicka på den här knappen för att aktivera PayPal och välj den som standard i vald försäljningskanal",
-                "label": "Ange PayPal som standard"
-            }
-        },
-        "shippingAlert": {
-            "title": "Paketspårning tillgängligt",
-            "message": "Du kan nu tillhandahålla paketspårning om du väljer ett standardtransportföretag i din <a href=\"#/sw/settings/shipping/index\">fraktmetoder →</a>."
-        },
-        "general": {
-            "mainMenuItemGeneral": "PayPal",
-            "descriptionTextModule": "PayPal-inställningar"
-        },
-        "messageNotBlank": "Detta värde bör inte vara tomt.",
-        "settingForm": {
-            "testLive": "Referensuppgifter för Testa API",
-            "testSandbox": "Testa autentiseringsuppgifter för API i sandlådan",
-            "checkout": {
-                "cardTitle": "PayPal Checkout",
-                "settingsLink": "Inställningar",
-                "header": "Fler betalningsmetoder med en lösning från PayPal",
-                "description": "PayPal Checkout är den nya allt-i-ett lösning som låter dig erbjuda kraftfulla flexibile betalningsbehandling funktioner på marknadsplatser och andra handelsplattformar.",
-                "banner": "Med PayPal Checkout kan du erbjuda dina kunder betalning via faktura, kreditkort och andra lokala betalningsmetoder. PayPal Checkout hjälper dig med den senaste tekniken och ger dig högsta flexibilitet. Du behåller dina befintliga betalningsmetoder, och avgifterna förblir desamma! Aktivera PayPal Checkout och inaktivera PayPal PLUS för att undvika dubbla betalningsmetoder i din butik. <a href=\"https://www.shopware.com/en/news/paypal-launches-new-product/?utm_source=product&utm_medium=sw6-onprem&utm_campaign=paypal-checkout&utm_content=link-en-blog\" target=\"_blank\">Mer information</a>",
-                "button": {
-                    "liveTitle": "Anslut PayPal-konto",
-                    "sandboxTitle": "Anslut sandlåda konto",
-                    "changeLiveTitle": "Anslut ett annat konto",
-                    "changeSandboxTitle": "Anslut olika sandlådekonto",
-                    "onboardingLiveTitle": "Starta PayPal Checkout onboarding",
-                    "onboardingSandboxTitle": "Starta PayPal Checkout sandlåda onboarding",
-                    "restartOnboardingLiveTitle": "Starta om PayPal Checkout onboarding",
-                    "restartOnboardingSandboxTitle": "Starta om PayPal Checkout sandlåda onboarding"
-                },
-                "sandbox": {
-                    "label": "Sandlåda",
-                    "onlySandboxTooltip": "Du är bara ansluten till ett sandlåda PayPal-konto hittills.",
-                    "onlyLiveTooltip": "Du har bara anslutit ett live PayPal-konto hittills.",
-                    "helpText": "Aktivera, om du vill testa PayPal-integrationen."
-                },
-                "switch": {
-                    "label": "Aktiv"
-                },
-                "paymentMethodText": "Betalningsmetoder",
-                "showCredentials": "Visa inloggningsuppgifter",
-                "appImageAlt": "PayPal",
-                "editDetail": "Redigera detaljer",
-                "startOnboardingButtonLabel": "Starta registrering",
-                "availabilityToolTip": {
-                    "bancontactapmhandler": "Bancontact är tillgängligt för följande länder: Belgien",
-                    "blikapmhandler": "BLIK är tillgängligt i följande länder: Polen",
-                    "boletobancarioapmhandler": "Boleto Bancário är tillgängligt för följande länder: Brasilien",
-                    "epsapmhandler": "eps är tillgängligt i följande länder: Austria",
-                    "giropayapmhandler": "Giropay är tillgängligt för följande länder: Tyskland",
-                    "idealapmhandler": "iDeal är tillgängligt i följande länder: Netherlands",
-                    "multibancoapmhandler": "Multibanco är tillgängligt i följande länder: Portugal",
-                    "mybankapmhandler": "MyBank är tillgängligt i följande länder: Italien",
-                    "oxxoapmhandler": "OXXO är tillgängligt i följande länder: Mexiko",
-                    "p24apmhandler": "Przelewy24 är tillgängligt för följande länder: Polen",
-                    "paylaterhandler": "Betala senare är tillgängligt för följande länder: Australien, Frankrike, Tyskland, Italien, Spanien, Storbritannien, USA",
-                    "puihandler": "Betala mot faktura är tillgänglig för följande länder: Tyskland",
-                    "sepahandler": "SEPA Lastschrift är tillgängligt i följande länder: Tyskland",
-                    "sofortapmhandler": "Sofort är tillgängligt för följande länder: Österrike, Belgien, Tyskland, Italien, Nederländerna, Spanien, Storbritannien",
-                    "venmohandler": "Venmo är tillgängligt i följande länder: USA",
-                    "trustlyapmhandler": "Trustly är tillgängligt för följande länder: Estland, Finland, Nederländerna, Sverige"
-                },
-                "onboardingStatusText": {
-                    "active": "Auktoriserad",
-                    "limited": "Begränsad",
-                    "pending": "Tillstånd väntar",
-                    "ineligible": "Ej stödberättigande",
-                    "inactive": "Onboarding behövs"
-                },
-                "onboardingStatusTooltip": {
-                    "ineligible": "PayPal informerade oss om att denna betalningsmetod för närvarande inte är berättigad till ditt konto.",
-                    "limited": "PayPal informerade oss om att denna betalningsmetod har vissa begränsningar för ditt konto."
-                },
-                "paymentMethodStatusChangedSuccess": {
-                    "active": "Betalningsmetod \"{name}\" är nu aktiv.",
-                    "inactive": "Betalningsmetod \"{name}\" är nu inaktiv."
-                },
-                "deactivatePayPalPlusModal": {
-                    "title": "Inaktivera PayPal PLUS",
-                    "text": "Grattis! Genom att byta till PayPal Checkout fortsätter du att använda alla relevanta betalningsmetoder – nu baserat på den senaste tekniken.",
-                    "warning": "Undvik att visa dubbla betalningsmetoder och inaktivera PayPal PLUS.",
-                    "button": {
-                        "deactivate": "Inaktivera PayPal PLUS",
-                        "cancel": "Avbryt"
-                    }
-                }
-            },
-            "credentials": {
-                "cardTitle": "API-autentiseringsuppgifter",
-                "clientId": {
-                    "label": "Klient-ID",
-                    "tooltipText": "REST API-klient-ID används för att autentisera denna plugin med PayPals API."
-                },
-                "clientSecret": {
-                    "label": "Klientens hemlighet",
-                    "tooltipText": "REST API-klienthemligheten används för att autentisera denna plugin med PayPals API."
-                },
-                "merchantPayerId": {
-                    "label": "PayPal-handels-ID",
-                    "tooltipText": "PayPal Merchant ID som tilldelats ditt PayPal-konto (se Business Information i PayPal-kontoinställningar)."
-                },
-                "clientIdSandbox": {
-                    "label": "Klient-ID för sandlådan",
-                    "tooltipText": "REST API-klient-ID används vid testning för att autentisera denna plugin med PayPals API."
-                },
-                "clientSecretSandbox": {
-                    "label": "Hemlig sandlådeklient",
-                    "tooltipText": "REST API-klienthemligheten används vid testning för att autentisera denna plugin med PayPals API."
-                },
-                "merchantPayerIdSandbox": {
-                    "label": "PayPal-handels-ID i sandlåda",
-                    "tooltipText": "PayPal Merchant ID tilldelad till din PayPal sandlåda konto (se Business Information i PayPal-kontoinställningar)."
-                },
-                "sandbox": {
-                    "label": "Aktivera sandlåda",
-                    "tooltipText": "Aktivera, om du vill testa PayPal-integrationen."
-                },
-                "button": {
-                    "title": "Hämta API-autentiseringsuppgifter",
-                    "titleSandbox": "Hämta autentiseringsuppgifter för API i sandlådan",
-                    "messageFetchedError": "Försök igen eller ange dina inloggningsuppgifter manuellt."
-                }
-            },
-            "behavior": {
-                "cardTitle": "Uppförande",
-                "merchantLocation": {
-                    "label": "Merchant plats",
-                    "germany": "Tyskland",
-                    "other": "Annan handelsplats"
-                },
-                "intent": {
-                    "label": "Inköp av betalning",
-                    "CAPTURE": "Automatisk betalning inkassering (avsikt CAPTURE)",
-                    "AUTHORIZE": "Upphämtning av manuell betalning (avsikt AUKTORISERA)"
-                },
-                "submitCart": {
-                    "label": "Skicka varukorg",
-                    "helpText": "Om det här alternativet är aktivt skickas kundvagnsuppgifter till PayPal i kassan."
-                },
-                "brandName": {
-                    "label": "Ditt eget varumärke på PayPal-sidan",
-                    "tooltipText": "Texten kommer att visas som varumärkesnamn på PayPals betalningssida."
-                },
-                "landingPage": {
-                    "label": "PayPals landningssida",
-                    "helpText": {
-                        "login": "Logga in: PayPal-webbplatsen visar en inloggningsskärm som målsida.",
-                        "billing": "Registrering: PayPal-webbplatsen visar ett registreringsformulär som målsida.",
-                        "no_preference": "Ingen preferens: PayPal bestämmer vilken sida som visas, beroende på kundens tidigare interaktion med PayPal."
-                    },
-                    "options": {
-                        "login": "Logga in",
-                        "billing": "Registrering",
-                        "no_preference": "Ingen preferens"
-                    }
-                },
-                "sendOrderNumber": {
-                    "label": "Skicka beställningsnummer",
-                    "helpText": "Om det här alternativet är aktivt skickas beställningsnumret till PayPal som faktura-ID i kassan."
-                },
-                "orderNumberPrefix": {
-                    "label": "Prefix för ordernummer",
-                    "tooltipText": "Denna text placeras före det ursprungliga beställningsnumret (t.ex. MyShop_SW20001). Detta hjälper till att identifiera butiken där betalningen gjordes. Du hittar det som faktura-ID i din PayPal-instrumentpanel."
-                },
-                "orderNumberSuffix": {
-                    "label": "Suffix för ordernummer",
-                    "tooltipText": "Denna text placeras efter det ursprungliga beställningsnumret (t.ex. Sw20001_MyShop). Detta hjälper till att identifiera butiken där betalningen gjordes. Du hittar det som faktura-ID i din PayPal-instrumentpanel."
-                },
-                "loggingLevel": {
-                    "label": "Felsökning",
-                    "tooltipText": "Vid användning av avancerad felsökning registreras ytterligare data under kassan för att upptäcka eventuella fel. Endast för tillfällig användning.",
-                    "options": {
-                        "basic": "Grundläggande",
-                        "advanced": "Avancerad"
-                    }
-                },
-                "excludedProductIds": {
-                    "label": "Undantagna produkter",
-                    "tooltipText": "Produkter som väljs här kan inte köpas med PayPal."
-                },
-                "excludedProductStreamIds": {
-                    "label": "Exkluderade dynamiska produktgrupper",
-                    "tooltipText": "Produkter som ingår i de dynamiska produktgrupperna som väljs här kan inte köpas med PayPal."
-                }
-            },
-            "express": {
-                "cardTitle": "PayPal Express-kassan",
-                "ecsDetailEnabled": {
-                    "label": "”Betala nu” på detaljsidan",
-                    "helpText": "Om det här alternativet är aktivt visas knappen Express Checkout på varje produktdetaljsida."
-                },
-                "ecsCartEnabled": {
-                    "label": "”Betala nu” på kundvagnen",
-                    "helpText": "Om det här alternativet är aktivt visas knappen Express Checkout i kundvagnen."
-                },
-                "ecsOffCanvasEnabled": {
-                    "label": "”Betala nu” på Off-Canvas kundvagn",
-                    "helpText": "Om det här alternativet är aktivt visas knappen Express Checkout i kundvagnen utanför Canvas."
-                },
-                "ecsLoginEnabled": {
-                    "label": "”Betala nu” på inloggningssidan",
-                    "helpText": "Om det här alternativet är aktivt visas knappen Express Checkout på inloggnings- och registreringssidan."
-                },
-                "ecsListingEnabled": {
-                    "label": "”Betala nu” på noteringssidor",
-                    "helpText": "Om det här alternativet är aktivt visas knappen Express Checkout på listningssidor."
-                },
-                "ecsButtonColor": {
-                    "label": "Knappens färg",
-                    "options": {
-                        "blue": "Blå",
-                        "black": "Svart",
-                        "gold": "Guld",
-                        "silver": "Silver",
-                        "white": "Vit"
-                    }
-                },
-                "ecsButtonShape": {
-                    "label": "Knapp form",
-                    "options": {
-                        "pill": "Runda",
-                        "rect": "rektangulär"
-                    }
-                },
-                "ecsSubmitCart": {
-                    "label": "Skicka varukorg",
-                    "helpText": "Om det här alternativet är aktivt skickas kundvagnen till PayPal för Express-beställningar."
-                },
-                "ecsButtonLanguageIso": {
-                    "label": "Knappens språkinställning",
-                    "helpText": "Om den inte är inställd används försäljningskanalens språk."
-                }
-            },
-            "installment": {
-                "cardTitle": "Avbetalningar",
-                "installmentBannerEnabled": {
-                    "label": "Aktivera avbetalning banner"
-                }
-            },
-            "acdc": {
-                "cardTitle": "Kredit- eller betalkort",
-                "acdcForce3DS": {
-                    "label": "Utför endast transaktioner med 3D Secure",
-                    "helpText": "Transaktion accepteras inte, om 3D Secure inte är tillgängligt."
-                }
-            },
-            "pui": {
-                "cardTitle": "Betala på faktura",
-                "customerServiceInstructions": {
-                    "label": "Instruktioner för kundservice för att betala på faktura",
-                    "helpText": "Dessa instruktioner kommer att lämnas till PayPal & RatePay och visas i e-post för kunden."
-                }
-            },
-            "spb": {
-                "cardTitle": "PayPal-kassan med smarta betalningsknappar",
-                "spbCheckoutEnabled": {
-                    "label": "Aktivera smarta betalningsknappar"
-                },
-                "spbButtonLanguageIso": {
-                    "label": "Knappens språkinställning",
-                    "helpText": "Om den inte är inställd används försäljningskanalens språk."
-                },
-                "spbAlternativePaymentMethodsEnabled": {
-                    "label": "Aktivera alternativa betalningsmetoder för Smart Payment Buttons.",
-                    "helpText": "Alternativa betalningsmetoder är kredit- och betalkort och mer."
-                },
-                "spbShowPayLater": {
-                    "label": "Visa Betala senare som separat knapp"
-                }
-            },
-            "plus": {
-                "cardTitle": "PayPal PLUS",
-                "introduction": "<strong>PayPal PLUS:</strong> Din kompletta allt-i-ett-betalningslösning inklusive PayPal, Autogiro och kreditkort. PayPal PLUS erbjuder dina kunder full flexibilitet i valet av betalningsmetod. Dina fördelar som säljare? Enklare redovisning med endast en avtalspart, ett konto och en transaktionsöversikt som visar alla inkommande betalningar. Du får dina pengar direkt efter att kunderna har slutfört beställningsprocessen.<br>Du kan ansöka om PayPal PLUS <a href='https://www.paypal.com/de/webapps/mpp/paypal-plus' target='_blank'>här</a>.",
-                "plusCheckoutEnabled": {
-                    "label": "Aktivera PayPal PLUS"
-                },
-                "hint": "Obs! PayPal PLUS fungerar endast med betalning förvärv ”Försäljning”. Det ställs in automatiskt.",
-                "warning": {
-                    "active": "PayPal Checkout tillhandahåller samma betalningsmetoder till dina kunder – baserat på den senaste tekniken. Aktivera PayPal Checkout nu och inaktivera PayPal PLUS för att undvika att visa dubbla betalningsmetoder. <a href=\"https://www.shopware.com/en/news/paypal-launches-new-product/?utm_source=product&utm_medium=sw6-onprem&utm_campaign=paypal-checkout&utm_content=link-en-blog\" target=\"_blank\">Mer information</a>",
-                    "inactive": "Undvik att visa dubbla betalningsmetoder och inaktivera PayPal PLUS. <a href=\"https://www.shopware.com/en/news/paypal-launches-new-product/?utm_source=product&utm_medium=sw6-onprem&utm_campaign=paypal-checkout&utm_content=link-en-blog\" target=\"_blank\">Mer information</a>"
-                }
-            },
-            "locale-field": {
-                "infobox": {
-                    "text": "Om du vill se en lista med giltiga språkkoder klickar du på ",
-                    "href": "här"
-                },
-                "error": {
-                    "detail": "Den språkkod du angav matchar inte formatet som krävs av PayPal. Ett giltigt format är ”en_GB”."
-                }
-            },
-            "messageSaveSuccess": "PayPal-inställningarna har sparats.",
-            "messageTestSuccess": "API-autentiseringsuppgifterna har validerats.",
-            "messageTestError": "API-autentiseringsuppgifterna kunde inte valideras.",
-            "messageWebhookCreated": "Webhook har registrerats.",
-            "messageWebhookUpdated": "Webhook har uppdaterats.",
-            "messageWebhookError": "Webhook kunde inte sparas. Följande fel uppstod:"
-        }
-    },
-    "swag-paypal-frw-credentials": {
-        "buttonGetCredentials": "Hämta API-autentiseringsuppgifter",
-        "textIntroPayPal": "För att komma igång med PayPal behöver du bara ange dina autentiseringsuppgifter för PayPal API.",
-        "labelClientId": "Klient-ID",
-        "labelClientSecret": "Klientens hemlighet",
-        "labelMerchantPayerId": "PayPal-handels-ID",
-        "labelClientIdSandbox": "Klient-ID för sandlådan",
-        "labelClientSecretSandbox": "Hemlig sandlådeklient",
-        "labelMerchantPayerIdSandbox": "PayPal-handels-ID i sandlåda",
-        "labelSandbox": "Använd sandlåda",
-        "tooltipSandbox": "Beroende på aktivering av sandlådan sparas separata autentiseringsuppgifter.",
-        "labelSetDefault": "Ange som standardbetalningsmetod",
-        "tooltipSetDefault": "PayPal kommer att ställas in som standardbetalningsmetod för alla försäljningskanaler. Du kan ange enskilda standardbetalningsmetoder per försäljningskanal i inställningsmodulen.",
-        "messageFetchedError": "Försök igen eller använd de avancerade inställningarna för att ange dina autentiseringsuppgifter.",
-        "textFetchedSuccessful": "Referensuppgifterna har hämtats.",
-        "messageNoCredentials": "Inga inloggningsuppgifter har angetts.",
-        "messageTestSuccess": "Autentiseringsuppgifterna är giltiga."
-    },
-    "swag-paypal-settings-shipping-carrier": {
-        "cardTitle": "Standard transportföretag",
-        "cardHelpText": "Spårningsinformation skickas till PayPal",
-        "description": "PayPal erbjuder spårning av order som behandlas via PayPal Om du vill använda detta anger du ett standardtransportföretag som kan skrivas över i ordrarna. Hitta en lista över alla fraktleverantörer <a target=\"_blank\" href=\"https://developer.paypal.com/docs/tracking/reference/carriers/\">här</a>",
-        "inputLabel": "Carrier kod",
-        "inputPlaceholder": "Ange en PayPal-operatörskod (t.ex. DHL_GLOBAL_ECOMMERCE)..."
-    },
-    "swag-paypal-payment": {
-        "general": {
-            "title": "Order"
-        },
-        "tabs": {
-            "overview": "Översikt"
-        },
-        "paymentDetails": {
-            "cardTitle": "Betalning",
-            "invoice": {
-                "heading": "Faktura belopp",
-                "totalAmount": "Totalt belopp:",
-                "subTotal": "Delsumma:",
-                "shipping": "Frakt:",
-                "discount": "Rabatt:",
-                "handling": "Hanteringsavgift:",
-                "insurance": "Försäkring:",
-                "shipping_discount": "Fraktrabatt:"
-            },
-            "payment": {
-                "heading": "Betalningsuppgifter",
-                "intent": "Avsikter:",
-                "paymentId": "Betalnings-ID:",
-                "cartId": "Varukorg ID:",
-                "state": "Stat:",
-                "createTime": "Skapa tid:",
-                "updateTime": "Uppdateringstid:"
-            },
-            "customer": {
-                "heading": "Kund",
-                "payerId": "Betalarens ID:"
-            },
-            "error": {
-                "title": "Fel vid hämtning av betalningsinformation från PayPal"
-            }
-        },
-        "transactionHistory": {
-            "cardTitle": "Betalningshistorik",
-            "states": {
-                "authorization": "Tillstånd",
-                "sale": "Rea",
-                "refund": "Återbetalning",
-                "capture": "Fånga",
-                "order": "Beställ"
-            },
-            "types": {
-                "type": "Typ",
-                "amount": "Belopp",
-                "createTime": "Skapat",
-                "updateTime": "Uppdaterad",
-                "state": "stat",
-                "trackingId": "Spårnings ID",
-                "transactionFee": "Transaktionsavgift",
-                "paymentMode": "Betalningsläge"
-            }
-        },
-        "buttons": {
-            "label": {
-                "refund": "Skapa en ny återbetalning",
-                "capture": "Fånga",
-                "void": "Avbryt behörighet"
-            }
-        },
-        "modal": {
-            "title": {
-                "refund": "Ny återbetalning",
-                "capture": "Fånga",
-                "void": "Avbryt behörighet"
-            }
-        },
-        "refundAction": {
-            "successMessage": "Din återbetalning lyckades.",
-            "invoiceSelect": {
-                "label": "Välj fångst"
-            },
-            "refundAmount": {
-                "label": "Belopp",
-                "helpText": "Ett belopp på ”0” kommer att orsaka återbetalning av hela betalningen"
-            },
-            "refundDescription": {
-                "label": "Beskrivning",
-                "placeholder": "Ange en beskrivning"
-            },
-            "refundReason": {
-                "label": "Orsak",
-                "placeholder": "Ange en orsak"
-            },
-            "refundNoteToPayer": {
-                "label": "Meddelande till betalaren",
-                "placeholder": "Ange en anteckning till betalaren"
-            },
-            "refundInvoiceNumber": {
-                "label": "Faktura nummer",
-                "placeholder": "Ange ett fakturanummer"
-            },
-            "confirmButton": {
-                "text": "Kör"
-            }
-        },
-        "captureAction": {
-            "successMessage": "Din tillfångatagande lyckades.",
-            "maxAmount": "Maximalt belopp",
-            "currentAmount": "Belopp",
-            "captureInvoiceNumber": {
-                "label": "Faktura nummer",
-                "placeholder": "Ange ett fakturanummer"
-            },
-            "captureNoteToPayer": {
-                "label": "Meddelande till betalaren",
-                "placeholder": "Ange en anteckning till betalaren"
-            },
-            "isFinal": "Detta är den sista infångningen",
-            "isFinalHint": "Tips: Markerad som slutlig fångst, men inte hela beloppet ska fångas.",
-            "button": {
-                "text": "Fånga betalning"
-            }
-        },
-        "voidAction": {
-            "successMessage": "Betalningen ogiltigförklaras.",
-            "confirm": {
-                "message": "Vill du verkligen avbryta betalningen?",
-                "button": {
-                    "confirm": "Avbryt behörighet"
-                }
-            }
-        },
-        "errorPage": {
-            "title": "Betalningsuppgifter är inte tillgängliga",
-            "canceledPaymentContent": "Ett fel uppstod vid hämtning av betalningsinformation från PayPal. Om du ser det här meddelandet var det förmodligen en betalning som avbröts av kunden. Avbrutna betalningar kommer att tas bort av PayPal efter ett tag och är då inte längre tillgängliga.",
-            "sandboxLiveContent": "Ett fel uppstod vid hämtning av betalningsinformation från PayPal. Om du ser det här meddelandet var det förmodligen en betalning som skapades med sandlådan aktiverad och som nu har begärts med live-data, eller vice versa. Korrigera dina PayPal-inställningar eller ta bort testorder från systemet.",
-            "other": "Ett fel uppstod vid hämtning av betalningsinformation från PayPal."
-        }
-    },
-    "sw-order-detail": {
-        "payPalCarrierLabel": "Standard transportföretag",
-        "payPalCarrierPlaceholder": "inte inställd",
-        "payPalCarrierHelpText": "Du kan ställa in och ändra standardtransportföretaget för PayPal i <a class=\"sw-internal-link sw-internal-link--inline\" href=\"#/sw/settings/shipping/index\">fraktmetoder<sw-icon name=\"regular-long-arrow-right\" small /></a>. Detta kommer dock inte att ha någon effekt på beställningar som redan har gjorts.",
-        "payPalCarrierDescription": "Om du vill byta operatör för denna PayPal-order, <a target=\"_blank\" href=\"{orderLink}\">klicka här</a>"
-    },
     "swag-paypal-disputes": {
         "general": {
             "mainMenuItemGeneral": "PayPal-tvister",
@@ -771,5 +760,30 @@
             "rawDataCardTitle": "Rådata",
             "copyButtonLabel": "Kopiera rådata"
         }
+    },
+    "swag-paypal-frw-credentials": {
+        "buttonGetCredentials": "Hämta API-autentiseringsuppgifter",
+        "textIntroPayPal": "För att komma igång med PayPal behöver du bara ange dina autentiseringsuppgifter för PayPal API.",
+        "labelClientId": "Klient-ID",
+        "labelClientSecret": "Klientens hemlighet",
+        "labelMerchantPayerId": "PayPal-handels-ID",
+        "labelClientIdSandbox": "Klient-ID för sandlådan",
+        "labelClientSecretSandbox": "Hemlig sandlådeklient",
+        "labelMerchantPayerIdSandbox": "PayPal-handels-ID i sandlåda",
+        "labelSandbox": "Använd sandlåda",
+        "tooltipSandbox": "Beroende på aktivering av sandlådan sparas separata autentiseringsuppgifter.",
+        "labelSetDefault": "Ange som standardbetalningsmetod",
+        "tooltipSetDefault": "PayPal kommer att ställas in som standardbetalningsmetod för alla försäljningskanaler. Du kan ange enskilda standardbetalningsmetoder per försäljningskanal i inställningsmodulen.",
+        "messageFetchedError": "Försök igen eller använd de avancerade inställningarna för att ange dina autentiseringsuppgifter.",
+        "textFetchedSuccessful": "Referensuppgifterna har hämtats.",
+        "messageNoCredentials": "Inga inloggningsuppgifter har angetts.",
+        "messageTestSuccess": "Autentiseringsuppgifterna är giltiga."
+    },
+    "swag-paypal-settings-shipping-carrier": {
+        "cardTitle": "Standard transportföretag",
+        "cardHelpText": "Spårningsinformation skickas till PayPal",
+        "description": "PayPal erbjuder spårning av order som behandlas via PayPal Om du vill använda detta anger du ett standardtransportföretag som kan skrivas över i ordrarna. Hitta en lista över alla fraktleverantörer <a target=\"_blank\" href=\"https://developer.paypal.com/docs/tracking/reference/carriers/\">här</a>",
+        "inputLabel": "Carrier kod",
+        "inputPlaceholder": "Ange en PayPal-operatörskod (t.ex. DHL_GLOBAL_ECOMMERCE)..."
     }
 }

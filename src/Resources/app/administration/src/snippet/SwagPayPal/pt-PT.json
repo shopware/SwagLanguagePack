@@ -1,4 +1,479 @@
 {
+    "sw-privileges": {
+        "permissions": {
+            "parents": {
+                "swag_paypal": "PayPal"
+            },
+            "swag_paypal": {
+                "label": "Configurações do PayPal"
+            },
+            "swag_paypal_disputes": {
+                "label": "Disputas PayPal"
+            }
+        }
+    },
+    "sw-settings-payment-list": {
+        "needOnboardingTooltip": "Conclua a integração para ativar esse método de pagamento"
+    },
+    "sw-settings-payment-detail": {
+        "tooltip": "Vá para as <a class=\"swag-paypal-go-to-settings-link\" href=\"#/swag/paypal/index\">configurações da extensão do PayPal →</a> e ative a Plataforma de comércio do PayPal para ativar esse método de pagamento."
+    },
+    "swag-paypal": {
+        "header": "PayPal",
+        "saleschannelCard": {
+            "button": {
+                "description": "Clique neste botão para ativar o PayPal e selecione-o como padrão no Canal de Vendas selecionado",
+                "label": "Definir PayPal como padrão"
+            }
+        },
+        "tabs": {
+            "general": "Geral",
+            "storefront": "Apresentação da montra"
+        },
+        "general": {
+            "mainMenuItemGeneral": "PayPal",
+            "descriptionTextModule": "Configurações do PayPal"
+        },
+        "messageNotBlank": "Este valor não deve estar em branco.",
+        "settingForm": {
+            "testLive": "Teste as credenciais da API",
+            "testSandbox": "Testar credenciais da API do sandbox",
+            "checkout": {
+                "cardTitle": "Finalizar compra via PayPal",
+                "settingsLink": "Ajustes",
+                "header": "Mais formas de pagamento com uma solução do PayPal",
+                "description": "O PayPal Checkout é a nova solução completa que permite oferecer recursos poderosos e flexíveis de processamento de pagamentos nos mercados e em outras plataformas de comércio.",
+                "banner": "Com o PayPal Checkout, você pode oferecer aos seus clientes o pagamento por fatura, cartão de crédito e outros métodos de pagamento locais. O PayPal Checkout oferece suporte a você com a tecnologia mais recente e oferece a maior flexibilidade. Você mantém seus métodos de pagamento existentes e as taxas permanecem as mesmas! Ative o PayPal Checkout e desative o PayPal PLUS para evitar métodos de pagamento duplicados em sua loja. <a href=\"https://www.shopware.com/en/news/paypal-launches-new-product/?utm_source=product&utm_medium=sw6-onprem&utm_campaign=paypal-checkout&utm_content=link-en-blog\" target=\"_blank\">Mais informações</a>",
+                "button": {
+                    "liveTitle": "Conectar conta do PayPal",
+                    "sandboxTitle": "Conectar conta sandbox",
+                    "changeLiveTitle": "Conecte uma conta diferente",
+                    "changeSandboxTitle": "Conecte uma conta sandbox diferente",
+                    "onboardingLiveTitle": "Inicie a integração do PayPal Checkout",
+                    "onboardingSandboxTitle": "Inicie a integração do sandbox do PayPal Checkout",
+                    "restartOnboardingLiveTitle": "Reinicie a integração do PayPal Checkout",
+                    "restartOnboardingSandboxTitle": "Reinicie a integração do sandbox do PayPal Checkout"
+                },
+                "sandbox": {
+                    "label": "Caixa de areia",
+                    "onlySandboxTooltip": "Até o momento, você só está conectado a uma conta sandbox do PayPal.",
+                    "onlyLiveTooltip": "Até o momento, você só está conectado a uma conta ativa do PayPal.",
+                    "helpText": "Ative, se quiser testar a integração com o PayPal."
+                },
+                "switch": {
+                    "label": "Ativo"
+                },
+                "paymentMethodText": "Meios de pagamento",
+                "showCredentials": "Mostrar credenciais",
+                "appImageAlt": "PayPal",
+                "editDetail": "Editar detalhes",
+                "startOnboardingButtonLabel": "Comece a integração",
+                "availabilityToolTip": {
+                    "bancontactapmhandler": "O Bancontact está disponível para os seguintes países: Bélgica",
+                    "blikapmhandler": "O BLIK está disponível para os seguintes países: Polônia",
+                    "boletobancarioapmhandler": "O Boleto Bancário está disponível para os seguintes países: Brasil",
+                    "epsapmhandler": "O eps está disponível para os seguintes países: Áustria",
+                    "giropayapmhandler": "O Giropay está disponível para os seguintes países: Alemanha",
+                    "idealapmhandler": "O iDEAL está disponível para os seguintes países: Holanda",
+                    "multibancoapmhandler": "O Multibanco está disponível para os seguintes países: Portugal",
+                    "mybankapmhandler": "O MyBank está disponível para os seguintes países: Itália",
+                    "oxxoapmhandler": "O OXXO está disponível para os seguintes países: México",
+                    "p24apmhandler": "Przelewy24 está disponível para os seguintes países: Polônia",
+                    "paylaterhandler": "O Pay Later está disponível para os seguintes países: Austrália, França, Alemanha, Itália, Espanha, Reino Unido, Estados Unidos",
+                    "puihandler": "O pagamento mediante fatura está disponível para os seguintes países: Alemanha",
+                    "sepahandler": "O SEPA Lastschrift está disponível para os seguintes países: Alemanha",
+                    "sofortapmhandler": "O Sofort está disponível para os seguintes países: Áustria, Bélgica, Alemanha, Itália, Holanda, Espanha, Reino Unido",
+                    "venmohandler": "O Venmo está disponível para os seguintes países: Estados Unidos",
+                    "trustlyapmhandler": "O Trustly está disponível para os seguintes países: Estônia, Finlândia, Holanda, Suécia"
+                },
+                "onboardingStatusText": {
+                    "active": "Autorizado",
+                    "limited": "Limitado",
+                    "pending": "Autorização pendente",
+                    "ineligible": "Inelegível",
+                    "inactive": "Integração necessária",
+                    "mybank": "Limitado"
+                },
+                "onboardingStatusTooltip": {
+                    "ineligible": "O PayPal nos informou que esse método de pagamento atualmente não é elegível para sua conta.",
+                    "limited": "O PayPal nos informou que esse método de pagamento tem algumas limitações para sua conta."
+                },
+                "paymentMethodStatusChangedSuccess": {
+                    "active": "O método de pagamento \"{name}\" agora está ativo.",
+                    "inactive": "O método de pagamento \"{name}\" agora está inativo."
+                },
+                "deactivatePayPalPlusModal": {
+                    "title": "Desative o PayPal PLUS",
+                    "text": "Parabéns! Ao mudar para o PayPal Checkout, você continua usando todos os métodos de pagamento relevantes — agora com base na tecnologia mais recente.",
+                    "warning": "Evite exibir formas de pagamento duplicadas e desative o PayPal PLUS.",
+                    "button": {
+                        "deactivate": "Desative o PayPal PLUS",
+                        "cancel": "Cancelar"
+                    }
+                }
+            },
+            "credentials": {
+                "cardTitle": "Credenciais da API",
+                "clientId": {
+                    "label": "ID do cliente",
+                    "tooltipText": "O ID do cliente da API REST é usado para autenticar este plugin com a API do PayPal."
+                },
+                "clientSecret": {
+                    "label": "Segredo cliente",
+                    "tooltipText": "O segredo do cliente REST API é usado para autenticar este plugin com a API PayPal."
+                },
+                "merchantPayerId": {
+                    "label": "ID de comerciante do PayPal",
+                    "tooltipText": "O ID de comerciante do PayPal atribuído à sua conta do PayPal (consulte Informações comerciais nas configurações da conta do PayPal)."
+                },
+                "clientIdSandbox": {
+                    "label": "ID do cliente Sandbox",
+                    "tooltipText": "O ID do cliente da API REST é usado durante o teste para autenticar este plugin com a API do PayPal."
+                },
+                "clientSecretSandbox": {
+                    "label": "Segredo do cliente Sandbox",
+                    "tooltipText": "O segredo do cliente da API REST é usado durante o teste para autenticar este plugin com a API do PayPal."
+                },
+                "merchantPayerIdSandbox": {
+                    "label": "ID de comerciante do Sandbox PayPal",
+                    "tooltipText": "O ID de comerciante do PayPal atribuído à sua conta sandbox do PayPal (consulte Informações comerciais nas configurações da conta do PayPal)."
+                },
+                "sandbox": {
+                    "label": "Ativar sandbox",
+                    "tooltipText": "Ative, se quiser testar a integração com o PayPal."
+                },
+                "button": {
+                    "title": "Obter credenciais de API",
+                    "titleSandbox": "Obter credenciais de API de sandbox",
+                    "messageFetchedError": "Tente novamente ou insira suas credenciais manualmente."
+                }
+            },
+            "behavior": {
+                "cardTitle": "Comportamento",
+                "merchantLocation": {
+                    "label": "Localização do comerciante",
+                    "germany": "Alemanha",
+                    "other": "Outro local do comerciante"
+                },
+                "intent": {
+                    "label": "Aquisição de pagamentos",
+                    "CAPTURE": "Cobrança automática de pagamento (captura de intenção)",
+                    "AUTHORIZE": "Cobrança de pagamento manual (intenção AUTORIZAR)"
+                },
+                "submitCart": {
+                    "label": "Enviar carrinho",
+                    "helpText": "Se esta opção estiver ativa, os dados do carrinho serão enviados ao PayPal no momento da finalização da compra."
+                },
+                "brandName": {
+                    "label": "Seu próprio nome de marca na página PayPal",
+                    "tooltipText": "Este texto será exibido como o nome da marca na página de pagamento do PayPal."
+                },
+                "landingPage": {
+                    "label": "Página inicial do PayPal",
+                    "helpText": {
+                        "login": "Login: O site PayPal exibe uma tela de login como página de destino.",
+                        "billing": "Registro: O site do PayPal exibe um formulário de registro como página de destino.",
+                        "no_preference": "Sem preferência: PayPal decide qual página é mostrada, dependendo da interação anterior do cliente com PayPal."
+                    },
+                    "options": {
+                        "login": "Login",
+                        "billing": "Inscrição",
+                        "no_preference": "Sem preferência"
+                    }
+                },
+                "sendOrderNumber": {
+                    "label": "Enviar número do pedido",
+                    "helpText": "Se essa opção estiver ativa, o número do pedido será enviado ao PayPal como ID da fatura na finalização da compra."
+                },
+                "orderNumberPrefix": {
+                    "label": "Prefixo do número do pedido",
+                    "tooltipText": "Este texto é colocado antes do número do pedido original (por exemplo, MyShop_SW20001). Isso ajuda a identificar a loja onde o pagamento foi feito. Você pode encontrá-lo como ID da fatura no painel do PayPal."
+                },
+                "orderNumberSuffix": {
+                    "label": "Sufixo do número do pedido",
+                    "tooltipText": "Este texto é colocado após o número do pedido original (por exemplo, SW20001_MyShop). Isso ajuda a identificar a loja onde o pagamento foi feito. Você pode encontrá-lo como ID da fatura no painel do PayPal."
+                },
+                "loggingLevel": {
+                    "label": "Depuração",
+                    "tooltipText": "Ao usar a depuração avançada, dados adicionais são gravados durante a finalização da compra para detectar possíveis erros. Apenas para uso temporário.",
+                    "options": {
+                        "basic": "Básico",
+                        "advanced": "Avançado"
+                    }
+                },
+                "excludedProductIds": {
+                    "label": "Produtos excluídos",
+                    "tooltipText": "Os produtos selecionados aqui não podem ser comprados com o PayPal."
+                },
+                "excludedProductStreamIds": {
+                    "label": "Grupos de produtos dinâmicos excluídos",
+                    "tooltipText": "Os produtos incluídos nos grupos dinâmicos de produtos selecionados aqui não podem ser comprados com o PayPal."
+                }
+            },
+            "express": {
+                "cardTitle": "Atalho do Express Checkout",
+                "ecsDetailEnabled": {
+                    "label": "'PayPal Checkout' na página de detalhes",
+                    "helpText": "Se esta opção estiver ativa, o botão Checkout expresso será mostrado em cada página de detalhes do produto."
+                },
+                "ecsCartEnabled": {
+                    "label": "'PayPal Checkout' no carrinho",
+                    "helpText": "Se esta opção estiver ativa, o botão Checkout expresso será mostrado no carrinho."
+                },
+                "ecsOffCanvasEnabled": {
+                    "label": "'PayPal Checkout' no carrinho fora da tela",
+                    "helpText": "Se essa opção estiver ativa, o botão Express Checkout será exibido no carrinho fora da tela."
+                },
+                "ecsLoginEnabled": {
+                    "label": "'PayPal Checkout' na página de login",
+                    "helpText": "Se esta opção estiver ativa, o botão Checkout expresso será mostrado na página de login e registro."
+                },
+                "ecsListingEnabled": {
+                    "label": "'PayPal Checkout' nas páginas de listagem",
+                    "helpText": "Se esta opção estiver ativa, o botão Checkout expresso será mostrado nas páginas da listagem."
+                },
+                "ecsButtonColor": {
+                    "label": "Cor do botão",
+                    "options": {
+                        "blue": "Azul",
+                        "black": "Preto",
+                        "gold": "Ouro (recomendado)",
+                        "silver": "Prata",
+                        "white": "Branco"
+                    }
+                },
+                "ecsButtonShape": {
+                    "label": "Forma do botão",
+                    "options": {
+                        "pill": "Redondo",
+                        "rect": "Retangular"
+                    }
+                },
+                "ecsSubmitCart": {
+                    "label": "Enviar carrinho",
+                    "helpText": "Se esta opção estiver ativa, o carrinho será enviado ao PayPal para pedidos expressos."
+                },
+                "ecsButtonLanguageIso": {
+                    "label": "Localidade do botão",
+                    "helpText": "Se não estiver definido, o idioma do canal de vendas será usado."
+                },
+                "ecsShowPayLater": {
+                    "label": "Exibir o botão “Pagar depois” ao lado do botão “Finalizar compra do PayPal”",
+                    "helpText": "O botão “Pagar depois” será exibido nas mesmas páginas e com o mesmo design do botão “PayPal Checkout”."
+                }
+            },
+            "installment": {
+                "cardTitle": "Banner “Pague depois”"
+            },
+            "acdc": {
+                "cardTitle": "Cartão de crédito ou débito",
+                "acdcForce3DS": {
+                    "label": "Execute transações somente com o 3D Secure",
+                    "helpText": "A transação não será aceita se o 3D Secure não estiver disponível."
+                }
+            },
+            "pui": {
+                "cardTitle": "Pague após a fatura",
+                "customerServiceInstructions": {
+                    "label": "Instruções de atendimento ao cliente para pagamento por fatura",
+                    "helpText": "Essas instruções serão enviadas ao PayPal e RatePay e mostradas em e-mails para o cliente."
+                }
+            },
+            "spb": {
+                "cardTitle": "Botões de pagamento inteligentes",
+                "spbCheckoutEnabled": {
+                    "label": "Ativar botões de pagamento inteligente"
+                },
+                "spbButtonLanguageIso": {
+                    "label": "Localidade do botão",
+                    "helpText": "Se não estiver definido, o idioma do canal de vendas será usado."
+                },
+                "spbAlternativePaymentMethodsEnabled": {
+                    "label": "Ative os métodos de pagamento alternativos para os Botões de Pagamento Inteligente.",
+                    "helpText": "Métodos de pagamento alternativos são cartões de crédito e débito e muito mais."
+                },
+                "spbShowPayLater": {
+                    "label": "Exibir o botão “Pagar depois” ao lado do botão PayPal"
+                }
+            },
+            "plus": {
+                "cardTitle": "PayPal PLUS",
+                "introduction": "<strong>PayPal PLUS:</strong> Sua solução completa de pagamento tudo-em-um, incluindo PayPal, débito direto e cartão de crédito. O PayPal PLUS oferece aos seus clientes total flexibilidade na escolha do método de pagamento preferido. Suas vantagens como vendedor? Contabilidade mais fácil com apenas uma parte contratante, uma conta e uma visão geral da transação mostrando todos os pagamentos recebidos. Você recebe seu dinheiro diretamente após os clientes concluírem o processo de pedido.<br>Você pode solicitar o PayPal PLUS <a href='https://www.paypal.com/de/webapps/mpp/paypal-plus' target='_blank'>aqui</a>.",
+                "plusCheckoutEnabled": {
+                    "label": "Ativar PayPal PLUS"
+                },
+                "hint": "Nota: PayPal PLUS só funciona com a aquisição de pagamento “Venda”. Ele será definido automaticamente.",
+                "warning": {
+                    "active": "O PayPal Checkout oferece os mesmos métodos de pagamento para seus clientes, com base na tecnologia mais recente. Ative o PayPal Checkout agora e desative o PayPal PLUS para evitar a exibição de métodos de pagamento duplicados. <a href=\"https://www.shopware.com/en/news/paypal-launches-new-product/?utm_source=product&utm_medium=sw6-onprem&utm_campaign=paypal-checkout&utm_content=link-en-blog\" target=\"_blank\">Mais informações</a>",
+                    "inactive": "Evite exibir formas de pagamento duplicadas e desative o PayPal PLUS. <a href=\"https://www.shopware.com/en/news/paypal-launches-new-product/?utm_source=product&utm_medium=sw6-onprem&utm_campaign=paypal-checkout&utm_content=link-en-blog\" target=\"_blank\">Mais informações</a>"
+                }
+            },
+            "locale-field": {
+                "infobox": {
+                    "text": "Para ver uma lista de códigos de idioma válidos, clique ",
+                    "href": "aqui"
+                },
+                "error": {
+                    "detail": "O código de localidade fornecido não corresponde ao formato exigido pelo PayPal. Um formato válido é “pt_GB”."
+                }
+            },
+            "messageSaveSuccess": "As configurações do PayPal foram salvas.",
+            "messageTestSuccess": "As credenciais da API foram validadas.",
+            "messageTestError": "As credenciais da API não puderam ser validadas.",
+            "messageWebhookCreated": "O webhook foi registrado.",
+            "messageWebhookUpdated": "O webhook foi atualizado.",
+            "messageWebhookError": "O webhook não pôde ser salvo. Ocorreram os seguintes erros:"
+        }
+    },
+    "swag-paypal-payment": {
+        "general": {
+            "title": "Ordens"
+        },
+        "tabs": {
+            "overview": "Visão geral"
+        },
+        "paymentDetails": {
+            "cardTitle": "Pagamento",
+            "invoice": {
+                "heading": "Valor da fatura",
+                "totalAmount": "Montante total:",
+                "subTotal": "Subtotal:",
+                "shipping": "Envio:",
+                "discount": "Desconto:",
+                "handling": "Taxa de manuseio:",
+                "insurance": "Seguro:",
+                "shipping_discount": "Desconto de envio:"
+            },
+            "payment": {
+                "heading": "Detalhes do pagamento",
+                "intent": "Intenção:",
+                "paymentId": "ID do pagamento:",
+                "cartId": "ID do carrinho:",
+                "state": "Estado:",
+                "createTime": "Criar tempo:",
+                "updateTime": "Tempo de atualização:"
+            },
+            "customer": {
+                "heading": "Cliente",
+                "payerId": "ID do pagador:"
+            },
+            "error": {
+                "title": "Erro ao buscar detalhes de pagamento do PayPal"
+            }
+        },
+        "puiDetails": {
+            "cardTitle": "Dados de pagamento da fatura",
+            "buttonCopy": "Copiar",
+            "bank": "Banco:",
+            "iban": "IBAN:",
+            "bic": "BIC:",
+            "accountHolder": "Titular da conta:",
+            "amount": "Quantidade:",
+            "reference": "Referência:"
+        },
+        "transactionHistory": {
+            "cardTitle": "Histórico de Pagamentos",
+            "states": {
+                "authorization": "Autorização",
+                "sale": "Venda",
+                "refund": "Reembolso",
+                "capture": "Captura",
+                "order": "Encomenda"
+            },
+            "types": {
+                "type": "Tipo",
+                "amount": "Montante",
+                "createTime": "Criado",
+                "updateTime": "Atualizado",
+                "state": "Estado",
+                "trackingId": "ID de rastreamento",
+                "transactionFee": "Taxa de transação",
+                "paymentMode": "Modo de pagamento"
+            }
+        },
+        "buttons": {
+            "label": {
+                "refund": "Criar um novo reembolso",
+                "capture": "Captura",
+                "void": "Cancelar autorização"
+            }
+        },
+        "modal": {
+            "title": {
+                "refund": "Novo reembolso",
+                "capture": "Captura",
+                "void": "Cancelar autorização"
+            }
+        },
+        "refundAction": {
+            "successMessage": "Seu reembolso foi bem-sucedido.",
+            "invoiceSelect": {
+                "label": "Selecionar captura"
+            },
+            "refundAmount": {
+                "label": "Montante",
+                "helpText": "Um valor de '0' fará com que o reembolso do pagamento completo"
+            },
+            "refundDescription": {
+                "label": "Descrição",
+                "placeholder": "Insira uma descrição"
+            },
+            "refundReason": {
+                "label": "Razão",
+                "placeholder": "Insira um motivo"
+            },
+            "refundNoteToPayer": {
+                "label": "Nota ao pagador",
+                "placeholder": "Insira uma nota ao pagador"
+            },
+            "refundInvoiceNumber": {
+                "label": "Número da fatura",
+                "placeholder": "Insira um número de fatura"
+            },
+            "confirmButton": {
+                "text": "Executar"
+            }
+        },
+        "captureAction": {
+            "successMessage": "Sua captura foi bem sucedida.",
+            "maxAmount": "Montante máximo",
+            "currentAmount": "Montante",
+            "captureInvoiceNumber": {
+                "label": "Número da fatura",
+                "placeholder": "Insira um número de fatura"
+            },
+            "captureNoteToPayer": {
+                "label": "Nota ao pagador",
+                "placeholder": "Insira uma nota ao pagador"
+            },
+            "isFinal": "Esta é a captura final",
+            "isFinalHint": "Dica: Marcada como captura final, embora não o valor total seja capturado.",
+            "button": {
+                "text": "Captura de pagamento"
+            }
+        },
+        "voidAction": {
+            "successMessage": "O pagamento foi anulado com sucesso.",
+            "confirm": {
+                "message": "Deseja mesmo cancelar este pagamento?",
+                "button": {
+                    "confirm": "Cancelar autorização"
+                }
+            }
+        },
+        "errorPage": {
+            "title": "Detalhes de pagamento não disponíveis",
+            "canceledPaymentContent": "Ocorreu um erro ao recuperar detalhes de pagamento do PayPal. Se você vir esta mensagem, provavelmente foi um pagamento que foi cancelado pelo cliente. Os pagamentos cancelados serão excluídos pelo PayPal depois de um tempo e não estarão mais disponíveis.",
+            "sandboxLiveContent": "Ocorreu um erro ao recuperar detalhes de pagamento do PayPal. Se você vir essa mensagem, provavelmente foi um pagamento que foi criado com sandbox habilitado e agora foi solicitado com dados ativos, ou vice-versa. Corrija suas configurações do PayPal ou exclua pedidos de teste do sistema.",
+            "other": "Ocorreu um erro ao recuperar detalhes de pagamento do PayPal."
+        }
+    },
+    "sw-order-detail": {
+        "payPalCarrierLabel": "Transportadora padrão",
+        "payPalCarrierPlaceholder": "não definido",
+        "payPalCarrierHelpText": "Você pode definir e alterar a transportadora padrão do PayPal nos <a class=\"sw-internal-link sw-internal-link--inline\" href=\"#/sw/settings/shipping/index\">métodos de envio<sw-icon name=\"regular-long-arrow-right\" small /></a>. No entanto, isso não terá efeito nos pedidos que já foram feitos.",
+        "payPalCarrierDescription": "Se você quiser mudar a operadora para este pedido do PayPal, <a target=\"_blank\" href=\"{orderLink}\">clique aqui</a>"
+    },
     "swag-paypal-pos": {
         "general": {
             "moduleTitle": "Zettle por PayPal",
@@ -247,494 +722,6 @@
         "messageCloneError": "Não foi possível transferir a visibilidade do produto de outro Canal de Vendas.",
         "messageWebhookRegisterError": "O webhook não pôde ser registrado na Zettle"
     },
-    "sw-privileges": {
-        "permissions": {
-            "parents": {
-                "swag_paypal": "PayPal"
-            },
-            "swag_paypal": {
-                "label": "Configurações do PayPal"
-            },
-            "swag_paypal_disputes": {
-                "label": "Disputas PayPal"
-            }
-        }
-    },
-    "sw-settings-payment-list": {
-        "needOnboardingTooltip": "Conclua a integração para ativar esse método de pagamento"
-    },
-    "sw-settings-payment-detail": {
-        "tooltip": "Vá para as <a class=\"swag-paypal-go-to-settings-link\" href=\"#/swag/paypal/index\">configurações da extensão do PayPal →</a> e ative a Plataforma de comércio do PayPal para ativar esse método de pagamento."
-    },
-    "swag-paypal": {
-        "header": "PayPal",
-        "saleschannelCard": {
-            "button": {
-                "description": "Clique neste botão para ativar o PayPal e selecione-o como padrão no Canal de Vendas selecionado",
-                "label": "Definir PayPal como padrão"
-            }
-        },
-        "shippingAlert": {
-            "title": "Acompanhamento de pacotes disponível",
-            "message": "Agora você pode fornecer rastreamento de pacotes se selecionar uma transportadora padrão em seus <a href=\"#/sw/settings/shipping/index\">métodos de envio →</a>."
-        },
-        "general": {
-            "mainMenuItemGeneral": "PayPal",
-            "descriptionTextModule": "Configurações do PayPal"
-        },
-        "messageNotBlank": "Este valor não deve estar em branco.",
-        "settingForm": {
-            "testLive": "Teste as credenciais da API",
-            "testSandbox": "Testar credenciais da API do sandbox",
-            "checkout": {
-                "cardTitle": "Finalizar compra via PayPal",
-                "settingsLink": "Ajustes",
-                "header": "Mais formas de pagamento com uma solução do PayPal",
-                "description": "O PayPal Checkout é a nova solução completa que permite oferecer recursos poderosos e flexíveis de processamento de pagamentos nos mercados e em outras plataformas de comércio.",
-                "banner": "Com o PayPal Checkout, você pode oferecer aos seus clientes o pagamento por fatura, cartão de crédito e outros métodos de pagamento locais. O PayPal Checkout oferece suporte a você com a tecnologia mais recente e oferece a maior flexibilidade. Você mantém seus métodos de pagamento existentes e as taxas permanecem as mesmas! Ative o PayPal Checkout e desative o PayPal PLUS para evitar métodos de pagamento duplicados em sua loja. <a href=\"https://www.shopware.com/en/news/paypal-launches-new-product/?utm_source=product&utm_medium=sw6-onprem&utm_campaign=paypal-checkout&utm_content=link-en-blog\" target=\"_blank\">Mais informações</a>",
-                "button": {
-                    "liveTitle": "Conectar conta do PayPal",
-                    "sandboxTitle": "Conectar conta sandbox",
-                    "changeLiveTitle": "Conecte uma conta diferente",
-                    "changeSandboxTitle": "Conecte uma conta sandbox diferente",
-                    "onboardingLiveTitle": "Inicie a integração do PayPal Checkout",
-                    "onboardingSandboxTitle": "Inicie a integração do sandbox do PayPal Checkout",
-                    "restartOnboardingLiveTitle": "Reinicie a integração do PayPal Checkout",
-                    "restartOnboardingSandboxTitle": "Reinicie a integração do sandbox do PayPal Checkout"
-                },
-                "sandbox": {
-                    "label": "Caixa de areia",
-                    "onlySandboxTooltip": "Até o momento, você só está conectado a uma conta sandbox do PayPal.",
-                    "onlyLiveTooltip": "Até o momento, você só está conectado a uma conta ativa do PayPal.",
-                    "helpText": "Ative, se quiser testar a integração com o PayPal."
-                },
-                "switch": {
-                    "label": "Ativo"
-                },
-                "paymentMethodText": "Meios de pagamento",
-                "showCredentials": "Mostrar credenciais",
-                "appImageAlt": "PayPal",
-                "editDetail": "Editar detalhes",
-                "startOnboardingButtonLabel": "Comece a integração",
-                "availabilityToolTip": {
-                    "bancontactapmhandler": "O Bancontact está disponível para os seguintes países: Bélgica",
-                    "blikapmhandler": "O BLIK está disponível para os seguintes países: Polônia",
-                    "boletobancarioapmhandler": "O Boleto Bancário está disponível para os seguintes países: Brasil",
-                    "epsapmhandler": "O eps está disponível para os seguintes países: Áustria",
-                    "giropayapmhandler": "O Giropay está disponível para os seguintes países: Alemanha",
-                    "idealapmhandler": "O iDEAL está disponível para os seguintes países: Holanda",
-                    "multibancoapmhandler": "O Multibanco está disponível para os seguintes países: Portugal",
-                    "mybankapmhandler": "O MyBank está disponível para os seguintes países: Itália",
-                    "oxxoapmhandler": "O OXXO está disponível para os seguintes países: México",
-                    "p24apmhandler": "Przelewy24 está disponível para os seguintes países: Polônia",
-                    "paylaterhandler": "O Pay Later está disponível para os seguintes países: Austrália, França, Alemanha, Itália, Espanha, Reino Unido, Estados Unidos",
-                    "puihandler": "O pagamento mediante fatura está disponível para os seguintes países: Alemanha",
-                    "sepahandler": "O SEPA Lastschrift está disponível para os seguintes países: Alemanha",
-                    "sofortapmhandler": "O Sofort está disponível para os seguintes países: Áustria, Bélgica, Alemanha, Itália, Holanda, Espanha, Reino Unido",
-                    "venmohandler": "O Venmo está disponível para os seguintes países: Estados Unidos",
-                    "trustlyapmhandler": "O Trustly está disponível para os seguintes países: Estônia, Finlândia, Holanda, Suécia"
-                },
-                "onboardingStatusText": {
-                    "active": "Autorizado",
-                    "limited": "Limitado",
-                    "pending": "Autorização pendente",
-                    "ineligible": "Inelegível",
-                    "inactive": "Integração necessária"
-                },
-                "onboardingStatusTooltip": {
-                    "ineligible": "O PayPal nos informou que esse método de pagamento atualmente não é elegível para sua conta.",
-                    "limited": "O PayPal nos informou que esse método de pagamento tem algumas limitações para sua conta."
-                },
-                "paymentMethodStatusChangedSuccess": {
-                    "active": "O método de pagamento \"{name}\" agora está ativo.",
-                    "inactive": "O método de pagamento \"{name}\" agora está inativo."
-                },
-                "deactivatePayPalPlusModal": {
-                    "title": "Desative o PayPal PLUS",
-                    "text": "Parabéns! Ao mudar para o PayPal Checkout, você continua usando todos os métodos de pagamento relevantes — agora com base na tecnologia mais recente.",
-                    "warning": "Evite exibir formas de pagamento duplicadas e desative o PayPal PLUS.",
-                    "button": {
-                        "deactivate": "Desative o PayPal PLUS",
-                        "cancel": "Cancelar"
-                    }
-                }
-            },
-            "credentials": {
-                "cardTitle": "Credenciais da API",
-                "clientId": {
-                    "label": "ID do cliente",
-                    "tooltipText": "O ID do cliente da API REST é usado para autenticar este plugin com a API do PayPal."
-                },
-                "clientSecret": {
-                    "label": "Segredo cliente",
-                    "tooltipText": "O segredo do cliente REST API é usado para autenticar este plugin com a API PayPal."
-                },
-                "merchantPayerId": {
-                    "label": "ID de comerciante do PayPal",
-                    "tooltipText": "O ID de comerciante do PayPal atribuído à sua conta do PayPal (consulte Informações comerciais nas configurações da conta do PayPal)."
-                },
-                "clientIdSandbox": {
-                    "label": "ID do cliente Sandbox",
-                    "tooltipText": "O ID do cliente da API REST é usado durante o teste para autenticar este plugin com a API do PayPal."
-                },
-                "clientSecretSandbox": {
-                    "label": "Segredo do cliente Sandbox",
-                    "tooltipText": "O segredo do cliente da API REST é usado durante o teste para autenticar este plugin com a API do PayPal."
-                },
-                "merchantPayerIdSandbox": {
-                    "label": "ID de comerciante do Sandbox PayPal",
-                    "tooltipText": "O ID de comerciante do PayPal atribuído à sua conta sandbox do PayPal (consulte Informações comerciais nas configurações da conta do PayPal)."
-                },
-                "sandbox": {
-                    "label": "Ativar sandbox",
-                    "tooltipText": "Ative, se quiser testar a integração com o PayPal."
-                },
-                "button": {
-                    "title": "Obter credenciais de API",
-                    "titleSandbox": "Obter credenciais de API de sandbox",
-                    "messageFetchedError": "Tente novamente ou insira suas credenciais manualmente."
-                }
-            },
-            "behavior": {
-                "cardTitle": "Comportamento",
-                "merchantLocation": {
-                    "label": "Localização do comerciante",
-                    "germany": "Alemanha",
-                    "other": "Outro local do comerciante"
-                },
-                "intent": {
-                    "label": "Aquisição de pagamentos",
-                    "CAPTURE": "Cobrança automática de pagamento (captura de intenção)",
-                    "AUTHORIZE": "Cobrança de pagamento manual (intenção AUTORIZAR)"
-                },
-                "submitCart": {
-                    "label": "Enviar carrinho",
-                    "helpText": "Se esta opção estiver ativa, os dados do carrinho serão enviados ao PayPal no momento da finalização da compra."
-                },
-                "brandName": {
-                    "label": "Seu próprio nome de marca na página PayPal",
-                    "tooltipText": "Este texto será exibido como o nome da marca na página de pagamento do PayPal."
-                },
-                "landingPage": {
-                    "label": "Página inicial do PayPal",
-                    "helpText": {
-                        "login": "Login: O site PayPal exibe uma tela de login como página de destino.",
-                        "billing": "Registro: O site do PayPal exibe um formulário de registro como página de destino.",
-                        "no_preference": "Sem preferência: PayPal decide qual página é mostrada, dependendo da interação anterior do cliente com PayPal."
-                    },
-                    "options": {
-                        "login": "Login",
-                        "billing": "Inscrição",
-                        "no_preference": "Sem preferência"
-                    }
-                },
-                "sendOrderNumber": {
-                    "label": "Enviar número do pedido",
-                    "helpText": "Se essa opção estiver ativa, o número do pedido será enviado ao PayPal como ID da fatura na finalização da compra."
-                },
-                "orderNumberPrefix": {
-                    "label": "Prefixo do número do pedido",
-                    "tooltipText": "Este texto é colocado antes do número do pedido original (por exemplo, MyShop_SW20001). Isso ajuda a identificar a loja onde o pagamento foi feito. Você pode encontrá-lo como ID da fatura no painel do PayPal."
-                },
-                "orderNumberSuffix": {
-                    "label": "Sufixo do número do pedido",
-                    "tooltipText": "Este texto é colocado após o número do pedido original (por exemplo, SW20001_MyShop). Isso ajuda a identificar a loja onde o pagamento foi feito. Você pode encontrá-lo como ID da fatura no painel do PayPal."
-                },
-                "loggingLevel": {
-                    "label": "Depuração",
-                    "tooltipText": "Ao usar a depuração avançada, dados adicionais são gravados durante a finalização da compra para detectar possíveis erros. Apenas para uso temporário.",
-                    "options": {
-                        "basic": "Básico",
-                        "advanced": "Avançado"
-                    }
-                },
-                "excludedProductIds": {
-                    "label": "Produtos excluídos",
-                    "tooltipText": "Os produtos selecionados aqui não podem ser comprados com o PayPal."
-                },
-                "excludedProductStreamIds": {
-                    "label": "Grupos de produtos dinâmicos excluídos",
-                    "tooltipText": "Os produtos incluídos nos grupos dinâmicos de produtos selecionados aqui não podem ser comprados com o PayPal."
-                }
-            },
-            "express": {
-                "cardTitle": "PayPal Express Checkout",
-                "ecsDetailEnabled": {
-                    "label": "'Pague agora' na página de detalhes",
-                    "helpText": "Se esta opção estiver ativa, o botão Checkout expresso será mostrado em cada página de detalhes do produto."
-                },
-                "ecsCartEnabled": {
-                    "label": "'Pague agora' no carrinho",
-                    "helpText": "Se esta opção estiver ativa, o botão Checkout expresso será mostrado no carrinho."
-                },
-                "ecsOffCanvasEnabled": {
-                    "label": "'Pague agora' no carrinho Off-Canvas",
-                    "helpText": "Se esta opção estiver ativa, o botão Express Checkout será mostrado no carrinho Off-Canvas."
-                },
-                "ecsLoginEnabled": {
-                    "label": "'Pague agora' na página de login",
-                    "helpText": "Se esta opção estiver ativa, o botão Checkout expresso será mostrado na página de login e registro."
-                },
-                "ecsListingEnabled": {
-                    "label": "“Pague agora” nas páginas do anúncio",
-                    "helpText": "Se esta opção estiver ativa, o botão Checkout expresso será mostrado nas páginas da listagem."
-                },
-                "ecsButtonColor": {
-                    "label": "Cor do botão",
-                    "options": {
-                        "blue": "Azul",
-                        "black": "Preto",
-                        "gold": "Ouro",
-                        "silver": "Prata",
-                        "white": "Branco"
-                    }
-                },
-                "ecsButtonShape": {
-                    "label": "Forma do botão",
-                    "options": {
-                        "pill": "Redondo",
-                        "rect": "Retangular"
-                    }
-                },
-                "ecsSubmitCart": {
-                    "label": "Enviar carrinho",
-                    "helpText": "Se esta opção estiver ativa, o carrinho será enviado ao PayPal para pedidos expressos."
-                },
-                "ecsButtonLanguageIso": {
-                    "label": "Localidade do botão",
-                    "helpText": "Se não estiver definido, o idioma do canal de vendas será usado."
-                }
-            },
-            "installment": {
-                "cardTitle": "Parcelas",
-                "installmentBannerEnabled": {
-                    "label": "Ativar banner de parcelamento"
-                }
-            },
-            "acdc": {
-                "cardTitle": "Cartão de crédito ou débito",
-                "acdcForce3DS": {
-                    "label": "Execute transações somente com o 3D Secure",
-                    "helpText": "A transação não será aceita se o 3D Secure não estiver disponível."
-                }
-            },
-            "pui": {
-                "cardTitle": "Pague após a fatura",
-                "customerServiceInstructions": {
-                    "label": "Instruções de atendimento ao cliente para pagamento por fatura",
-                    "helpText": "Essas instruções serão enviadas ao PayPal e RatePay e mostradas em e-mails para o cliente."
-                }
-            },
-            "spb": {
-                "cardTitle": "PayPal Checkout com botões de pagamento inteligentes",
-                "spbCheckoutEnabled": {
-                    "label": "Ativar botões de pagamento inteligente"
-                },
-                "spbButtonLanguageIso": {
-                    "label": "Localidade do botão",
-                    "helpText": "Se não estiver definido, o idioma do canal de vendas será usado."
-                },
-                "spbAlternativePaymentMethodsEnabled": {
-                    "label": "Ative os métodos de pagamento alternativos para os Botões de Pagamento Inteligente.",
-                    "helpText": "Métodos de pagamento alternativos são cartões de crédito e débito e muito mais."
-                },
-                "spbShowPayLater": {
-                    "label": "Exibir botão Pagar mais tarde como separado"
-                }
-            },
-            "plus": {
-                "cardTitle": "PayPal PLUS",
-                "introduction": "<strong>PayPal PLUS:</strong> Sua solução completa de pagamento tudo-em-um, incluindo PayPal, débito direto e cartão de crédito. O PayPal PLUS oferece aos seus clientes total flexibilidade na escolha do método de pagamento preferido. Suas vantagens como vendedor? Contabilidade mais fácil com apenas uma parte contratante, uma conta e uma visão geral da transação mostrando todos os pagamentos recebidos. Você recebe seu dinheiro diretamente após os clientes concluírem o processo de pedido.<br>Você pode solicitar o PayPal PLUS <a href='https://www.paypal.com/de/webapps/mpp/paypal-plus' target='_blank'>aqui</a>.",
-                "plusCheckoutEnabled": {
-                    "label": "Ativar PayPal PLUS"
-                },
-                "hint": "Nota: PayPal PLUS só funciona com a aquisição de pagamento “Venda”. Ele será definido automaticamente.",
-                "warning": {
-                    "active": "O PayPal Checkout oferece os mesmos métodos de pagamento para seus clientes, com base na tecnologia mais recente. Ative o PayPal Checkout agora e desative o PayPal PLUS para evitar a exibição de métodos de pagamento duplicados. <a href=\"https://www.shopware.com/en/news/paypal-launches-new-product/?utm_source=product&utm_medium=sw6-onprem&utm_campaign=paypal-checkout&utm_content=link-en-blog\" target=\"_blank\">Mais informações</a>",
-                    "inactive": "Evite exibir formas de pagamento duplicadas e desative o PayPal PLUS. <a href=\"https://www.shopware.com/en/news/paypal-launches-new-product/?utm_source=product&utm_medium=sw6-onprem&utm_campaign=paypal-checkout&utm_content=link-en-blog\" target=\"_blank\">Mais informações</a>"
-                }
-            },
-            "locale-field": {
-                "infobox": {
-                    "text": "Para ver uma lista de códigos de idioma válidos, clique ",
-                    "href": "aqui"
-                },
-                "error": {
-                    "detail": "O código de localidade fornecido não corresponde ao formato exigido pelo PayPal. Um formato válido é “pt_GB”."
-                }
-            },
-            "messageSaveSuccess": "As configurações do PayPal foram salvas.",
-            "messageTestSuccess": "As credenciais da API foram validadas.",
-            "messageTestError": "As credenciais da API não puderam ser validadas.",
-            "messageWebhookCreated": "O webhook foi registrado.",
-            "messageWebhookUpdated": "O webhook foi atualizado.",
-            "messageWebhookError": "O webhook não pôde ser salvo. Ocorreram os seguintes erros:"
-        }
-    },
-    "swag-paypal-frw-credentials": {
-        "buttonGetCredentials": "Obter credenciais de API",
-        "textIntroPayPal": "Para colocar o PayPal em funcionamento, você só precisa fornecer suas credenciais de API do PayPal.",
-        "labelClientId": "ID do cliente",
-        "labelClientSecret": "Segredo cliente",
-        "labelMerchantPayerId": "ID de comerciante do PayPal",
-        "labelClientIdSandbox": "ID do cliente Sandbox",
-        "labelClientSecretSandbox": "Segredo do cliente Sandbox",
-        "labelMerchantPayerIdSandbox": "ID de comerciante do Sandbox PayPal",
-        "labelSandbox": "Usar sandbox",
-        "tooltipSandbox": "Dependendo da ativação da caixa de proteção, as credenciais separadas são salvas.",
-        "labelSetDefault": "Definir como método de pagamento padrão",
-        "tooltipSetDefault": "O PayPal será definido como método de pagamento padrão de todos os canais de vendas. Você pode definir métodos de pagamento padrão individuais por canal de vendas no módulo de configurações.",
-        "messageFetchedError": "Tente novamente ou use as configurações avançadas para fornecer suas credenciais.",
-        "textFetchedSuccessful": "Credenciais foram buscadas.",
-        "messageNoCredentials": "Não há credenciais fornecidas.",
-        "messageTestSuccess": "As credenciais são válidas."
-    },
-    "swag-paypal-settings-shipping-carrier": {
-        "cardTitle": "Transportadora padrão",
-        "cardHelpText": "As informações de rastreamento serão enviadas para o PayPal",
-        "description": "O PayPal oferece rastreamento para pedidos processados pelo PayPal. Para usar isso, especifique uma transportadora padrão, que pode ser substituída nos pedidos. Encontre uma lista de todos os fornecedores de frete <a target=\"_blank\" href=\"https://developer.paypal.com/docs/tracking/reference/carriers/\">aqui</a>",
-        "inputLabel": "Código da transportadora",
-        "inputPlaceholder": "Insira um código de operadora do PayPal (por exemplo, DHL_GLOBAL_ECOMMERCE)..."
-    },
-    "swag-paypal-payment": {
-        "general": {
-            "title": "Ordens"
-        },
-        "tabs": {
-            "overview": "Visão geral"
-        },
-        "paymentDetails": {
-            "cardTitle": "Pagamento",
-            "invoice": {
-                "heading": "Valor da fatura",
-                "totalAmount": "Montante total:",
-                "subTotal": "Subtotal:",
-                "shipping": "Envio:",
-                "discount": "Desconto:",
-                "handling": "Taxa de manuseio:",
-                "insurance": "Seguro:",
-                "shipping_discount": "Desconto de envio:"
-            },
-            "payment": {
-                "heading": "Detalhes do pagamento",
-                "intent": "Intenção:",
-                "paymentId": "ID do pagamento:",
-                "cartId": "ID do carrinho:",
-                "state": "Estado:",
-                "createTime": "Criar tempo:",
-                "updateTime": "Tempo de atualização:"
-            },
-            "customer": {
-                "heading": "Cliente",
-                "payerId": "ID do pagador:"
-            },
-            "error": {
-                "title": "Erro ao buscar detalhes de pagamento do PayPal"
-            }
-        },
-        "transactionHistory": {
-            "cardTitle": "Histórico de Pagamentos",
-            "states": {
-                "authorization": "Autorização",
-                "sale": "Venda",
-                "refund": "Reembolso",
-                "capture": "Captura",
-                "order": "Encomenda"
-            },
-            "types": {
-                "type": "Tipo",
-                "amount": "Montante",
-                "createTime": "Criado",
-                "updateTime": "Atualizado",
-                "state": "Estado",
-                "trackingId": "ID de rastreamento",
-                "transactionFee": "Taxa de transação",
-                "paymentMode": "Modo de pagamento"
-            }
-        },
-        "buttons": {
-            "label": {
-                "refund": "Criar um novo reembolso",
-                "capture": "Captura",
-                "void": "Cancelar autorização"
-            }
-        },
-        "modal": {
-            "title": {
-                "refund": "Novo reembolso",
-                "capture": "Captura",
-                "void": "Cancelar autorização"
-            }
-        },
-        "refundAction": {
-            "successMessage": "Seu reembolso foi bem-sucedido.",
-            "invoiceSelect": {
-                "label": "Selecionar captura"
-            },
-            "refundAmount": {
-                "label": "Montante",
-                "helpText": "Um valor de '0' fará com que o reembolso do pagamento completo"
-            },
-            "refundDescription": {
-                "label": "Descrição",
-                "placeholder": "Insira uma descrição"
-            },
-            "refundReason": {
-                "label": "Razão",
-                "placeholder": "Insira um motivo"
-            },
-            "refundNoteToPayer": {
-                "label": "Nota ao pagador",
-                "placeholder": "Insira uma nota ao pagador"
-            },
-            "refundInvoiceNumber": {
-                "label": "Número da fatura",
-                "placeholder": "Insira um número de fatura"
-            },
-            "confirmButton": {
-                "text": "Executar"
-            }
-        },
-        "captureAction": {
-            "successMessage": "Sua captura foi bem sucedida.",
-            "maxAmount": "Montante máximo",
-            "currentAmount": "Montante",
-            "captureInvoiceNumber": {
-                "label": "Número da fatura",
-                "placeholder": "Insira um número de fatura"
-            },
-            "captureNoteToPayer": {
-                "label": "Nota ao pagador",
-                "placeholder": "Insira uma nota ao pagador"
-            },
-            "isFinal": "Esta é a captura final",
-            "isFinalHint": "Dica: Marcada como captura final, embora não o valor total seja capturado.",
-            "button": {
-                "text": "Captura de pagamento"
-            }
-        },
-        "voidAction": {
-            "successMessage": "O pagamento foi anulado com sucesso.",
-            "confirm": {
-                "message": "Deseja mesmo cancelar este pagamento?",
-                "button": {
-                    "confirm": "Cancelar autorização"
-                }
-            }
-        },
-        "errorPage": {
-            "title": "Detalhes de pagamento não disponíveis",
-            "canceledPaymentContent": "Ocorreu um erro ao recuperar detalhes de pagamento do PayPal. Se você vir esta mensagem, provavelmente foi um pagamento que foi cancelado pelo cliente. Os pagamentos cancelados serão excluídos pelo PayPal depois de um tempo e não estarão mais disponíveis.",
-            "sandboxLiveContent": "Ocorreu um erro ao recuperar detalhes de pagamento do PayPal. Se você vir essa mensagem, provavelmente foi um pagamento que foi criado com sandbox habilitado e agora foi solicitado com dados ativos, ou vice-versa. Corrija suas configurações do PayPal ou exclua pedidos de teste do sistema.",
-            "other": "Ocorreu um erro ao recuperar detalhes de pagamento do PayPal."
-        }
-    },
-    "sw-order-detail": {
-        "payPalCarrierLabel": "Transportadora padrão",
-        "payPalCarrierPlaceholder": "não definido",
-        "payPalCarrierHelpText": "Você pode definir e alterar a transportadora padrão do PayPal nos <a class=\"sw-internal-link sw-internal-link--inline\" href=\"#/sw/settings/shipping/index\">métodos de envio<sw-icon name=\"regular-long-arrow-right\" small /></a>. No entanto, isso não terá efeito nos pedidos que já foram feitos.",
-        "payPalCarrierDescription": "Se você quiser mudar a operadora para este pedido do PayPal, <a target=\"_blank\" href=\"{orderLink}\">clique aqui</a>"
-    },
     "swag-paypal-disputes": {
         "general": {
             "mainMenuItemGeneral": "Disputas PayPal",
@@ -771,5 +758,30 @@
             "rawDataCardTitle": "Dados brutos",
             "copyButtonLabel": "Copiar dados brutos"
         }
+    },
+    "swag-paypal-frw-credentials": {
+        "buttonGetCredentials": "Obter credenciais de API",
+        "textIntroPayPal": "Para colocar o PayPal em funcionamento, você só precisa fornecer suas credenciais de API do PayPal.",
+        "labelClientId": "ID do cliente",
+        "labelClientSecret": "Segredo cliente",
+        "labelMerchantPayerId": "ID de comerciante do PayPal",
+        "labelClientIdSandbox": "ID do cliente Sandbox",
+        "labelClientSecretSandbox": "Segredo do cliente Sandbox",
+        "labelMerchantPayerIdSandbox": "ID de comerciante do Sandbox PayPal",
+        "labelSandbox": "Usar sandbox",
+        "tooltipSandbox": "Dependendo da ativação da caixa de proteção, as credenciais separadas são salvas.",
+        "labelSetDefault": "Definir como método de pagamento padrão",
+        "tooltipSetDefault": "O PayPal será definido como método de pagamento padrão de todos os canais de vendas. Você pode definir métodos de pagamento padrão individuais por canal de vendas no módulo de configurações.",
+        "messageFetchedError": "Tente novamente ou use as configurações avançadas para fornecer suas credenciais.",
+        "textFetchedSuccessful": "Credenciais foram buscadas.",
+        "messageNoCredentials": "Não há credenciais fornecidas.",
+        "messageTestSuccess": "As credenciais são válidas."
+    },
+    "swag-paypal-settings-shipping-carrier": {
+        "cardTitle": "Transportadora padrão",
+        "cardHelpText": "As informações de rastreamento serão enviadas para o PayPal",
+        "description": "O PayPal oferece rastreamento para pedidos processados pelo PayPal. Para usar isso, especifique uma transportadora padrão, que pode ser substituída nos pedidos. Encontre uma lista de todos os fornecedores de frete <a target=\"_blank\" href=\"https://developer.paypal.com/docs/tracking/reference/carriers/\">aqui</a>",
+        "inputLabel": "Código da transportadora",
+        "inputPlaceholder": "Insira um código de operadora do PayPal (por exemplo, DHL_GLOBAL_ECOMMERCE)..."
     }
 }

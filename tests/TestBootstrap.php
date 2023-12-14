@@ -27,10 +27,7 @@ $classLoader = (new TestBootstrapper())
 
 $classLoader->addPsr4('Swag\\LanguagePack\\Test\\', __DIR__);
 
-// build StaticAnalyzeKernel container for phpstan
-$testKernel = KernelLifecycleManager::getKernel();
-$pluginLoader = new DbalKernelPluginLoader($classLoader, null, $testKernel->getContainer()->get(Connection::class));
-$kernel = new StaticAnalyzeKernel('test', true, $pluginLoader, 'phpstan-test-cache-id');
-$kernel->boot();
+$kernel = KernelLifecycleManager::getKernel();
+$pluginLoader = new DbalKernelPluginLoader($classLoader, null, $kernel->getContainer()->get(Connection::class));
 
 return $classLoader;

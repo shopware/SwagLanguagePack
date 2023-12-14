@@ -1,9 +1,9 @@
 const { join, resolve } = require('path');
 
-const admin_path = process.env.ADMIN_PATH || resolve('../../../../../../../src/Administration/Resources/app/administration');
 const artifactsPath = process.env.ARTIFACTS_PATH ? join(process.env.ARTIFACTS_PATH, '/build/artifacts/jest') : 'coverage';
 
-process.env.ADMIN_PATH = admin_path;
+// declare fallback for default setup
+process.env.ADMIN_PATH = process.env.ADMIN_PATH || join(__dirname, '../../../../../../../src/Administration/Resources/app/administration');
 
 module.exports = {
     displayName: {
@@ -11,46 +11,59 @@ module.exports = {
         color: 'lime'
     },
 
-    preset: '@shopware-ag/jest-preset-sw6-admin',
-
+    preset: './node_modules/@shopware-ag/jest-preset-sw6-admin/jest-preset.js',
     globals: {
         adminPath: process.env.ADMIN_PATH,
     },
 
-    reporters: [
-        'default', [
-            'jest-junit',
-            {
-                'suiteName': 'LanguagePack Administration',
-                'outputDirectory': artifactsPath,
-                'outputName': 'language-pack-administration-jest.xml',
-                'uniqueOutputName': 'false'
-            },
-        ],
-    ],
+    rootDir: './',
 
-    setupFilesAfterEnv: [
-        resolve(join(process.env.ADMIN_PATH, '/test/_setup/prepare_environment.js')),
+    moduleDirectories:[
+        '<rootDir>/node_modules',
+        resolve(join(process.env.ADMIN_PATH, '/node_modules')),
     ],
-
-    moduleNameMapper: {
-        '^uuid$': require.resolve('uuid'),
-        '^\@shopware-ag\/admin-extension-sdk\/es\/(.*)': resolve(join(process.env.ADMIN_PATH, '/node_modules')) + '/@shopware-ag/admin-extension-sdk/umd/$1',
-        '^test(.*)$': '<rootDir>/test$1',
-        vue$: 'vue/dist/vue.common.dev.js',
-    },
 
     testMatch: [
-        '<rootDir>/test/**/*.spec.js'
+        '<rootDir>/test/**/*.spec.js',
     ],
 
     collectCoverage: true,
 
-    collectCoverageFrom: ['src/**/*.(t|j)s'],
-
     coverageDirectory: artifactsPath,
 
-    transformIgnorePatterns: [
-        '/node_modules/(?!(@shopware-ag/meteor-icon-kit|uuidv7|other)/)',
+    coverageReporters: [
+        'text',
+        'cobertura',
+        'html-spa',
     ],
+
+    collectCoverageFrom: [
+        '<rootDir>/src/**/Resources/app/administration/src/**/*.js',
+        '<rootDir>/src/**/Resources/app/administration/src/**/*.ts',
+    ],
+
+    coverageProvider: 'v8',
+
+    reporters: [
+        'default',
+        ['./node_modules/jest-junit/index.js', {
+            suiteName: 'LanguagePack Administration',
+            outputDirectory: artifactsPath,
+            outputName: 'administration.junit.xml',
+        }],
+    ],
+
+    moduleNameMapper: {
+        '^\@shopware-ag\/admin-extension-sdk\/es\/(.*)': resolve(join(process.env.ADMIN_PATH, '/node_modules')) + '/@shopware-ag/admin-extension-sdk/umd/$1',
+        '^@administration(.*)$': `${process.env.ADMIN_PATH}/src$1`,
+        vue$: '@vue/compat/dist/vue.cjs.js',
+    },
+
+    transformIgnorePatterns: [
+        '/node_modules/(?!(uuidv7|other)/)',
+    ],
+
+    testEnvironmentOptions: {
+        customExportConditions: ['node', 'node-addons'],
+    },
 };

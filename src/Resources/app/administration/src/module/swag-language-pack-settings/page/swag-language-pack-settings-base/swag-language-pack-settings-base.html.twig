@@ -26,11 +26,7 @@
             {% block swag_language_pack_settings_base_card_view_language_selection_language %}
             <swag-pack-language-entry
                 class="swag-language-pack-settings-base__entry"
-                {% if VUE3 %}
                 v-model:value="packLanguage"
-                {% else %}
-                :value="packLanguage"
-                {% endif %}
                 :field="`${settingsType}Active`"
                 :label="packLanguage.language.name"
                 :description="packLanguage.language.locale?.code"

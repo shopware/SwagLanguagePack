@@ -25,11 +25,7 @@
 
     {% block swag_pack_language_entry_switch %}
     <sw-switch-field
-        {% if VUE3 %}
         v-model:value="value[field]"
-        {% else %}
-        v-model="value[field]"
-        {% endif %}
         ref="packLanguageToggle"
         :disabled="disabled"
     />

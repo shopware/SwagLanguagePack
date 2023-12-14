@@ -1,26 +1,29 @@
-import { shallowMount } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 
-import swSalesChannelDetailDomains from 'src/module/sw-sales-channel/component/sw-sales-channel-detail-domains/index.js';
-Shopware.Component.register('sw-sales-channel-detail-domains',  swSalesChannelDetailDomains);
+import swSalesChannelDetailDomains from '@administration/module/sw-sales-channel/component/sw-sales-channel-detail-domains/index.js';
+import swSalesChannelDetailDomainsOverride from  './../src/module/sw-sales-channel-detail/component/sw-sales-channel-detail-domains/index.js';
 
-import './../src/module/sw-sales-channel-detail/component/sw-sales-channel-detail-domains/index.js';
+Shopware.Component.register('sw-sales-channel-detail-domains', swSalesChannelDetailDomains);
+Shopware.Component.override('sw-customer-detail', swSalesChannelDetailDomainsOverride);
 
 async function createWrapper(salesChannel) {
-    return shallowMount(await Shopware.Component.build('sw-sales-channel-detail-domains'), {
-        mocks: {
-            $tc: v => v,
-        },
-        provide: {
-            repositoryFactory: {
-                create: () => ({})
+    return mount(await Shopware.Component.build('sw-sales-channel-detail-domains'), {
+        global: {
+            mocks: {
+                $tc: v => v,
+            },
+            provide: {
+                repositoryFactory: {
+                    create: () => ({})
+                },
+            },
+            stubs: {
+                'sw-button': true,
+                'sw-card': true,
             },
         },
-        propsData: {
+        props: {
             salesChannel
-        },
-        stubs: {
-            'sw-button': true,
-            'sw-card': true,
         },
     });
 }
@@ -46,7 +49,7 @@ describe('sw-sales-channel-detail-domains', () => {
                         name: 'American English',
                     }
                 }
-            ]
+            ],
         });
 
         expect(wrapper.vm.snippetSetCriteria.filters).toEqual([{

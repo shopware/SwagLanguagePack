@@ -1,7 +1,7 @@
 {
     "name": "swag/language-pack",
     "description": "Language pack for Shopware 6",
-    "version": "3.1.0",
+    "version": "3.2.0",
     "type": "shopware-platform-plugin",
     "license": "MIT",
     "authors": [
@@ -10,9 +10,9 @@
         }
     ],
     "require": {
-        "shopware/core": "~6.5.0@RC",
-        "shopware/storefront": "~6.5.0@RC",
-        "shopware/administration": "~6.5.0@RC"
+        "shopware/core": "^6.5",
+        "shopware/storefront": "^6.5",
+        "shopware/administration": "^6.5"
     },
     "conflict": {
         "shopware/storefront": "<6,>=7",
@@ -75,8 +75,8 @@
     },
     "scripts": {
         "phpstan": [
-            "@php tests/TestBootstrap.php",
-            "../../../vendor/bin/phpstan"
+            "php tests/TestBootstrap.php",
+            "../../../vendor/bin/phpstan analyze"
         ]
     },
     "repositories": {

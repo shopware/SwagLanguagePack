@@ -1,3 +1,6 @@
+# 3.2.0
+- LAN-148 - Compatibility for Shopware 6.6.0.0
+
 # 3.1.0
 - LAN-135 - Fixed an error, where the domain modal only could be opened, when languages were deleted
 - LAN-141 - Removed usage of `Swag\LanguagePack\Util\Lifecycle\Lifecycle::deactivate` in `Swag\LanguagePack\SwagLanguagePack.php` to not throw errors, when deinstalling the plugin with languages still in use to enable easier debugging and updating

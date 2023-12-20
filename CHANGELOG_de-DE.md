@@ -1,4 +1,4 @@
-# 3.2.0
+# 4.0.0
 - LAN-148 - Kompatibilität für Shopware 6.6.0.0
 
 # 3.1.0

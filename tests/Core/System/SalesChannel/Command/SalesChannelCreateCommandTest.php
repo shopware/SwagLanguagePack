@@ -27,11 +27,11 @@ use Swag\LanguagePack\PackLanguage\PackLanguageDefinition;
 use Swag\LanguagePack\SwagLanguagePack;
 use Symfony\Component\Console\Input\StringInput;
 use Symfony\Component\Console\Output\BufferedOutput;
+use Symfony\Component\Console\Tester\CommandTester;
 
 class SalesChannelCreateCommandTest extends TestCase
 {
     use IntegrationTestBehaviour;
-    use CommandTestBehaviour;
 
     protected SalesChannelCreateCommand $salesChannelCreateCommand;
 
@@ -87,13 +87,14 @@ class SalesChannelCreateCommandTest extends TestCase
     {
         $salesChannelId = 'ad1028c2a8ed46d2a24f189812b1a23c';
         $navigationCategoryId = $this->getValidCategoryId();
+        $tester = new CommandTester($this->salesChannelCreateCommand);
+        $result = $tester->execute([
+            '--id' => $salesChannelId,
+            '--navigationCategoryId' => $navigationCategoryId,
+        ]);
+        static::assertSame(0, $result);
 
-        $input = new StringInput("--id=$salesChannelId --navigationCategoryId=$navigationCategoryId");
-        $output = new BufferedOutput();
-
-        $this->runCommand($this->salesChannelCreateCommand, $input, $output);
-
-        $outputString = $output->fetch();
+        $outputString = $tester->getDisplay();
 
         static::assertStringNotContainsString('[ERROR]', $outputString);
 
@@ -111,13 +112,14 @@ class SalesChannelCreateCommandTest extends TestCase
 
         $navigationCategoryId = $this->getValidCategoryId();
 
-        $input = new StringInput("--id=$salesChannelId --navigationCategoryId=$navigationCategoryId");
+        $tester = new CommandTester($this->salesChannelCreateCommand);
+        $result = $tester->execute([
+            '--id' => $salesChannelId,
+            '--navigationCategoryId' => $navigationCategoryId,
+        ]);
+        static::assertSame(0, $result);
 
-        $output = new BufferedOutput();
-
-        $this->runCommand($this->salesChannelCreateCommand, $input, $output);
-
-        $outputString = $output->fetch();
+        $outputString = $tester->getDisplay();
 
         static::assertStringContainsString('[OK] Sales channel has been created successfully.', $outputString);
         static::assertStringNotContainsString('[ERROR]', $outputString);

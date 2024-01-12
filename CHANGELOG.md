@@ -1,5 +1,8 @@
 # 4.0.0
 - LAN-148 - Compatibility for Shopware 6.6.0.0
+- LAN-149 - Removed deprecated component `sw-sales-channel-defaults-select-filterable` to use its ancestor `sw-sales-channel-defaults-select` instead
+- LAN-149 - Removed deprecated method `Swag\LanguagePack\Util\Lifecycle\Lifecycle::deactivate()` without replacement
+- LAN-149 - Removed deprecated folder `src/Resources/app/storefront/src/scss` since its use is now to be found in the core
 
 # 3.1.0
 - LAN-135 - Fixed an error, where the domain modal only could be opened, when languages were deleted

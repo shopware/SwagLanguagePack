@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 /*
  * (c) shopware AG <info@shopware.com>
  * For the full copyright and license information, please view the LICENSE
@@ -31,8 +33,7 @@ class Lifecycle
     public function __construct(
         private readonly Connection $connection,
         private readonly EntityRepository $languageRepository
-    ) {
-    }
+    ) {}
 
     /**
      * @deprecated tag:v4.0.0 - Will be removed without replacement

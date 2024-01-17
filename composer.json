@@ -75,15 +75,9 @@
     },
     "scripts": {
         "phpstan": [
-            "php tests/TestBootstrap.php",
+            "php ../../../src/Core/DevOps/StaticAnalyze/phpstan-bootstrap.php",
             "../../../vendor/bin/phpstan analyze"
-        ]
-    },
-    "repositories": {
-        "platform-packages": {
-            "type": "path",
-            "url": "../../../src/*",
-            "canonical": true
-        }
+        ],
+        "cs-fix": "nix-shell -p php82Packages.php-cs-fixer --run 'php-cs-fixer fix --rules=@PER-CS2.0 .'"
     }
 }

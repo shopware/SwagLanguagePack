@@ -22,4 +22,6 @@ for language in $SUPPORTED_LANGUAGES; do
     copy_language_files "$language"
 done
 
+rm -rf translations
+
 echo "Finished downloading translations!"

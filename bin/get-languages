@@ -1,0 +1,11 @@
+#!/usr/bin/env php
+<?php declare(strict_types=1);
+
+use Swag\LanguagePack\SwagLanguagePack;
+
+$platformRoot = dirname(__DIR__, 4);
+
+require $platformRoot . '/vendor/autoload.php';
+
+echo implode(' ', SwagLanguagePack::SUPPORTED_LANGUAGES);
+exit(0);

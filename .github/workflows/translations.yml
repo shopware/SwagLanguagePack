@@ -1,0 +1,41 @@
+name: Translations
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+  schedule:
+    - cron: '0 3 * * *'
+
+jobs:
+  update_translations:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup Shopware
+        uses: shopware/setup-shopware@main
+        with:
+          shopware-version: trunk
+
+      - name: Clone Extension
+        uses: actions/checkout@v4
+        with:
+          path: custom/plugins/${{ github.event.repository.name }}
+
+      - name: Install extension with Composer
+        run: composer require $(composer -d custom/plugins/${{ github.event.repository.name }} config name)
+
+      - name: Download translations
+        run: ./bin/download-translations.sh
+
+      - name: Push translations
+        run: |
+          if [[ -z $(git status -s) ]]; then
+            echo "No changes detected"
+            exit 0
+          fi
+          git config user.name shopwareBot
+          git config user.email github-actions@github.com
+          git add ./src
+          git commit -m "Update translations ${{ github.event.created_at }}"
+          git push

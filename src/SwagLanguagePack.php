@@ -114,4 +114,9 @@ class SwagLanguagePack extends Plugin
 
         (new Lifecycle($connection, $languageRepository))->uninstall($uninstallContext);
     }
+
+    public function executeComposerCommands(): bool
+    {
+        return true;
+    }
 }

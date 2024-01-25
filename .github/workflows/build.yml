@@ -4,8 +4,9 @@ on:
   push:
     branches:
       - master
+
 jobs:
   build:
     uses: shopware/github-actions/.github/workflows/build-zip.yml@main
     with:
-      extensionName: SwagLanguagePack
+      extensionName: ${{ github.event.repository.name }}

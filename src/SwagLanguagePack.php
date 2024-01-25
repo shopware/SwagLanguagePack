@@ -14,8 +14,10 @@ use Shopware\Core\Framework\Api\Acl\Role\AclRoleDefinition;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\Plugin;
 use Shopware\Core\Framework\Plugin\Context\UninstallContext;
+use Shopware\Core\Framework\Plugin\Context\UpdateContext;
 use Shopware\Core\System\Language\LanguageCollection;
 use Swag\LanguagePack\Util\Lifecycle\Lifecycle;
+use Swag\LanguagePack\Util\Migration\MigrationHelper;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class SwagLanguagePack extends Plugin
@@ -103,7 +105,6 @@ class SwagLanguagePack extends Plugin
 
     public function uninstall(UninstallContext $uninstallContext): void
     {
-        parent::uninstall($uninstallContext);
         \assert($this->container instanceof ContainerInterface, 'Container is not set yet, please call setContainer() before calling boot(), see `src/Core/Kernel.php:186`.');
 
         /** @var Connection $connection */
@@ -115,8 +116,16 @@ class SwagLanguagePack extends Plugin
         (new Lifecycle($connection, $languageRepository))->uninstall($uninstallContext);
     }
 
-    public function executeComposerCommands(): bool
+    public function update(UpdateContext $updateContext): void
     {
-        return true;
+        \assert($this->container instanceof ContainerInterface, 'Container is not set yet, please call setContainer() before calling boot(), see `src/Core/Kernel.php:186`.');
+
+        /** @var Connection $connection */
+        $connection = $this->container->get(Connection::class);
+
+        $migrationHelper = new MigrationHelper($connection);
+
+        $migrationHelper->createPackLanguages();
+        $migrationHelper->createSnippetSets();
     }
 }

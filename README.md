@@ -1,6 +1,6 @@
 # SwagLanguagePack
 
-## A unified language extension for [Shopware 6](https://github.com/shopware/platform).
+## A unified language extension for [Shopware 6](https://github.com/shopware/shopware).
 
 ### Description
 

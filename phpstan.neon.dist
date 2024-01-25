@@ -13,11 +13,6 @@ parameters:
         constantHassers: false
         containerXmlPath: '../../../var/cache/phpstan_dev/Shopware_Core_DevOps_StaticAnalyze_StaticAnalyzeKernelPhpstan_devDebugContainer.xml'
         consoleApplicationLoader: ../../../src/Core/DevOps/StaticAnalyze/console-application.php
-    excludePaths:
-        - vendor
-        - var
-        - ecs.php
-        - tests/TestBootstrap.php
     paths:
         - src
         - tests
@@ -25,6 +20,3 @@ parameters:
         return_type: 99
         param_type: 99
         property_type: 84
-    ignoreErrors:
-        -
-            message: "#^Service \"swag_language_pack_language.repository\" is not registered in the container.$#"

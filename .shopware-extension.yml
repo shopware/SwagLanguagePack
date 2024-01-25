@@ -1,0 +1,8 @@
+changelog:
+  enabled: true
+  pattern: '^LAN-\d+'
+  variables:
+    ticket: '^(LAN-\d+)\s'
+  template: |
+    {{range .Commits}}- [{{ .Message }}](https://issues.shopware.com/issues/{{ .Variables.ticket }})
+    {{end}}

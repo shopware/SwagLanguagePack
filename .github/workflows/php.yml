@@ -1,0 +1,34 @@
+name: PHP
+on:
+  pull_request:
+    paths:
+      - '**/*.php'
+      - .github/workflows/php.yml
+  push:
+    paths:
+      - '**/*.php'
+    branches:
+      - master
+  workflow_dispatch:
+  schedule:
+    - cron: '0 3 * * *'
+
+jobs:
+  cs:
+    if: github.event_name != 'schedule'
+    uses: shopware/github-actions/.github/workflows/cs-fixer.yml@main
+
+  phpstan:
+    uses: shopware/github-actions/.github/workflows/phpstan.yml@main
+    with:
+      extensionName: ${{ github.event.repository.name }}
+      shopwareVersion: trunk
+
+  phpunit:
+    uses: shopware/github-actions/.github/workflows/phpunit.yml@main
+    with:
+      extensionName: ${{ github.event.repository.name }}
+      shopwareVersion: trunk
+      uploadCoverage: true
+    secrets:
+      codecovToken: ${{ secrets.CODECOV_TOKEN }}

@@ -37,7 +37,7 @@ jobs:
             exit 0
           fi
           git config user.name shopwareBot
-          git config user.email github-actions@github.com
+          git config user.email development@shopware.com
           git add ./src
-          git commit -m "Update translations ${{ github.event.created_at }}"
+          git commit -m "Update translations $(date +%Y-%m-%d)"
           git push

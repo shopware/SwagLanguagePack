@@ -26,9 +26,11 @@ jobs:
         run: composer require $(composer -d custom/plugins/${{ github.event.repository.name }} config name)
 
       - name: Download translations
+        working-directory: custom/plugins/${{ github.event.repository.name }}
         run: ./bin/download-translations.sh
 
       - name: Push translations
+        working-directory: custom/plugins/${{ github.event.repository.name }}
         run: |
           if [[ -z $(git status -s) ]]; then
             echo "No changes detected"

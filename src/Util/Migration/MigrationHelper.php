@@ -37,7 +37,7 @@ class MigrationHelper
                 CONSTRAINT `fk.swag_language_pack_language_language`
                     FOREIGN KEY (`language_id`)
                     REFERENCES `language` (`id`)
-                    ON DELETE RESTRICT
+                    ON DELETE CASCADE
                     ON UPDATE CASCADE
             )
             ENGINE=InnoDB

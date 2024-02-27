@@ -10,7 +10,6 @@ declare(strict_types=1);
 namespace Swag\LanguagePack\Test\Util\Exception;
 
 use PHPUnit\Framework\TestCase;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityCollection;
 use Shopware\Core\System\Language\LanguageCollection;
 use Shopware\Core\System\Language\LanguageEntity;
 use Swag\LanguagePack\Util\Exception\PackLanguagesStillInUseException;

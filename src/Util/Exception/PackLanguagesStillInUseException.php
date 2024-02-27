@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 namespace Swag\LanguagePack\Util\Exception;
 
-use Shopware\Core\Framework\DataAbstractionLayer\EntityCollection;
 use Shopware\Core\Framework\ShopwareHttpException;
 use Shopware\Core\System\Language\LanguageCollection;
 use Shopware\Core\System\Language\LanguageEntity;

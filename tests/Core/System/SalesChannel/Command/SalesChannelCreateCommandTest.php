@@ -14,7 +14,6 @@ use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\DefinitionInstanceRegistry;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
-use Shopware\Core\Framework\Test\TestCaseBase\CommandTestBehaviour;
 use Shopware\Core\Framework\Test\TestCaseBase\IntegrationTestBehaviour;
 use Shopware\Core\Maintenance\SalesChannel\Service\SalesChannelCreator;
 use Shopware\Core\System\Language\LanguageCollection;
@@ -27,8 +26,6 @@ use Swag\LanguagePack\Core\System\SalesChannel\Command\SalesChannelCreateCommand
 use Swag\LanguagePack\PackLanguage\PackLanguageCollection;
 use Swag\LanguagePack\PackLanguage\PackLanguageDefinition;
 use Swag\LanguagePack\SwagLanguagePack;
-use Symfony\Component\Console\Input\StringInput;
-use Symfony\Component\Console\Output\BufferedOutput;
 use Symfony\Component\Console\Tester\CommandTester;
 
 class SalesChannelCreateCommandTest extends TestCase

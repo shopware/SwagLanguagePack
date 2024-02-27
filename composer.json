@@ -78,6 +78,6 @@
             "php ../../../src/Core/DevOps/StaticAnalyze/phpstan-bootstrap.php",
             "../../../vendor/bin/phpstan analyze"
         ],
-        "cs-fix": "nix-shell -p php82Packages.php-cs-fixer --run 'php-cs-fixer fix --rules=@PER-CS2.0 .'"
+        "cs-fix": "nix-shell -p php82Packages.php-cs-fixer --run 'php-cs-fixer fix --rules=@PER-CS2.0,no_unused_imports .'"
     }
 }

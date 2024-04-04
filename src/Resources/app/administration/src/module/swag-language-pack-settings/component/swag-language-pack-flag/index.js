@@ -15,10 +15,11 @@ Component.register('swag-language-pack-flag', {
     },
 
     computed: {
-        flagComponentName() {
-            const prefix = 'swag-language-pack-flag-';
-            const countryCode = this.locale.split('-')[1].toLowerCase();
-            return `${prefix}${countryCode}`;
+        assetFilter() {
+            return Shopware.Filter.getByName('asset');
+        },
+        countryCode() {
+            return this.locale.split('-')[1].toLowerCase();
         },
     },
 });

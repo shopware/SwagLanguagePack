@@ -22,9 +22,9 @@ use Symfony\Component\Validator\ConstraintViolationList;
  */
 class UserValidator extends AbstractLanguageValidator
 {
-    protected function getSupportedCommandDefinitionClass(): string
+    protected function getSupportedEntity(): string
     {
-        return UserDefinition::class;
+        return UserDefinition::ENTITY_NAME;
     }
 
     protected function validate(WriteCommand $command, ConstraintViolationList $violationList): void

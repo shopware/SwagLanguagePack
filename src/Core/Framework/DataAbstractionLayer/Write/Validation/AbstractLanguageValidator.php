@@ -52,7 +52,7 @@ abstract class AbstractLanguageValidator implements EventSubscriberInterface
         $violationList = new ConstraintViolationList();
         foreach ($event->getCommands() as $command) {
             if (!($command instanceof InsertCommand || $command instanceof UpdateCommand)
-                || $command->getDefinition()->getClass() !== $this->getSupportedCommandDefinitionClass()
+                || $command->getEntityName() !== $this->getSupportedEntity()
             ) {
                 continue;
             }
@@ -65,7 +65,7 @@ abstract class AbstractLanguageValidator implements EventSubscriberInterface
         }
     }
 
-    abstract protected function getSupportedCommandDefinitionClass(): string;
+    abstract protected function getSupportedEntity(): string;
 
     protected function validate(WriteCommand $command, ConstraintViolationList $violationList): void
     {

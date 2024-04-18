@@ -16,8 +16,8 @@ use Shopware\Core\System\SalesChannel\SalesChannelDefinition;
  */
 class SalesChannelValidator extends AbstractLanguageValidator
 {
-    protected function getSupportedCommandDefinitionClass(): string
+    protected function getSupportedEntity(): string
     {
-        return SalesChannelDefinition::class;
+        return SalesChannelDefinition::ENTITY_NAME;
     }
 }

@@ -16,8 +16,8 @@ use Shopware\Core\System\SalesChannel\Aggregate\SalesChannelDomain\SalesChannelD
  */
 class SalesChannelDomainValidator extends AbstractLanguageValidator
 {
-    protected function getSupportedCommandDefinitionClass(): string
+    protected function getSupportedEntity(): string
     {
-        return SalesChannelDomainDefinition::class;
+        return SalesChannelDomainDefinition::ENTITY_NAME;
     }
 }

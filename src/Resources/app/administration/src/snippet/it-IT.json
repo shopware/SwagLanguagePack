@@ -1,6 +1,9 @@
 {
     "entityCategories": {
         "additional_privileges": {
+            "entities": {
+                "api_feature_flag_toggle": "Attivazione del flag delle funzionalità API"
+            },
             "title": "Calcoli aggiuntivi"
         },
         "admin_user": {
@@ -497,6 +500,7 @@
             "INVALID_URL": "Ti preghiamo di inserire un URL valido.",
             "PARENT_MUST_NOT_BE_EMPTY": "L'erede di questo campo non deve essere vuoto.",
             "SHOPWARE_INVALID_IP": "Ti preghiamo di inserire un indirizzo IP valido.",
+            "SHOPWARE_INVALID_IP_CIDR": "Inserisci un indirizzo IP valido o un indirizzo IP valido con maschera CIDR.",
             "c1051bb4-d103-4f74-8988-acbcafc7fdc3": "Questo campo non deve essere vuoto."
         },
         "notification": {
@@ -741,6 +745,7 @@
                 "orderCustomFieldRule": "Ordina con campo personalizzato",
                 "orderDeliveryStatusRule": "Stato della consegna",
                 "orderDocumentTypeRule": "Ordina con documento",
+                "orderDocumentTypeSentRule": "Ordina con documento inviato",
                 "orderStatusRule": "Stato dell'ordine",
                 "orderTagRule": "Ordina con etichetta",
                 "orderTotalAmountRule": "Valore totale degli ordini completati (finiti)",
@@ -839,6 +844,21 @@
                     "placeholder": "Seleziona operatore..."
                 }
             },
+            "customerDaysSinceFirstLogin": {
+                "daysPassed": {
+                    "placeholder": "@:sw-product.settingsform.placeholderTime"
+                }
+            },
+            "customerDaysSinceLastLogin": {
+                "daysPassed": {
+                    "placeholder": "@:sw-product.settingsform.placeholderTime"
+                }
+            },
+            "customerDaysSinceLastOrder": {
+                "daysPassed": {
+                    "placeholder": "@:sw-product.settingsform.placeholderTime"
+                }
+            },
             "customerEmail": {
                 "email": {
                     "placeholder": "@:global.sw-condition.condition.emailRule.placeholder"
@@ -879,11 +899,11 @@
                 }
             },
             "promotionCodeOfType": {
-                "promotionCodeOfType": {
+                "promotionCodeType": {
                     "options": {
-                        "fixed": "@:global.sw-condition.condition.promotionCodeOfTypeRule.fixed",
-                        "global": "@:global.sw-condition.condition.promotionCodeOfTypeRule.global",
-                        "individual": "@:global.sw-condition.condition.promotionCodeOfTypeRule.individual"
+                        "fixed": "@:global.sw-condition.condition.promozioneoftyperule.FIXED",
+                        "global": "@:global.sw-condition.condition.codice promozionale di tipo Rule.global",
+                        "individual": "@:global.sw-condition.condition.codice promozionale di tipo Rule.Individual"
                     }
                 }
             },
@@ -950,6 +970,9 @@
             "labelSettingsPreviewImages": "Visualizza anteprime delle immagini",
             "maximumSelectionExceed": "Quantità massima di articoli selezionati",
             "tooltipListSettings": "Impostazioni elenco"
+        },
+        "sw-desktop": {
+            "stagingBarText": "Il negozio è in modalità staging."
         },
         "sw-duplicated-media": {
             "buttonRename": "Rinomina file",
@@ -1165,26 +1188,26 @@
         },
         "sw-media-modal-folder-settings": {
             "labelDefaultFolder": "Posizione multimediale predefinita per",
-            "labelEditList": "Modifica l’elenco",
             "labelFolderName": "Nome",
             "labelGenerateThumbnails": "Genera thumbnails per questa cartella",
             "labelInheritSettings": "Acquisisci le impostazioni dalla cartella sovrapposta",
             "labelKeepProportions": "Mantieni rapporto di dimensione",
             "labelSettings": "Impostazioni",
-            "labelStopEdit": "Concludi modifica",
             "labelSystem": "Cartella di sistema",
             "labelThumbnailQuality": "Qualità thumbnail",
             "labelThumbnailSize": "Dimensioni thumbnail",
             "labelThumbnails": "Thumbnails",
             "notification": {
                 "error": {
-                    "message": "Errore durante il salvataggio delle impostazioni."
+                    "message": "Errore durante il salvataggio delle impostazioni.",
+                    "messageThumbnailSizeExisted": "La dimensione della miniatura esiste già."
                 },
                 "success": {
                     "message": "Le impostazioni sono state salvate con successo."
                 }
             },
-            "placeholderDefaultFolder": "Seleziona entità..."
+            "placeholderDefaultFolder": "Seleziona entità...",
+            "tooltipCanNotDeleteThumbnailSize": "Questa dimensione di anteprima non può essere eliminata perché è attualmente in uso."
         },
         "sw-media-modal-move": {
             "buttonMove": "Sposta",
@@ -1301,7 +1324,9 @@
             "addIpAddress": "Aggiungi indirizzo IP",
             "enterValidIp": "Ti preghiamo di inserire un indirizzo IPv4 o IPv6 valido",
             "knownIps": {
-                "you": "Tu"
+                "you": "Tu",
+                "youIPv6Block56": "Tu e gli altri (stesso endsite)",
+                "youIPv6Block64": "Tu e gli altri (rete domestica)"
             }
         },
         "sw-multi-tag-select": {
@@ -2166,6 +2191,11 @@
                     "label": "Modulo"
                 }
             },
+            "html": {
+                "html": {
+                    "label": "HTML"
+                }
+            },
             "image": {
                 "image": {
                     "label": "Immagine, centrata"
@@ -2392,9 +2422,11 @@
                 "backgroundMediaModeContain": "Includi",
                 "backgroundMediaModeCover": "Riempi",
                 "blockBottomMarginField": "Distanza inferiore",
+                "blockCategoryApp": "App",
                 "blockCategoryCommerce": "Commerce",
                 "blockCategoryFavorite": "Preferiti",
                 "blockCategoryForm": "Modulo",
+                "blockCategoryHtml": "HTML",
                 "blockCategoryImage": "Immagini",
                 "blockCategorySelection": "Categoria blocco",
                 "blockCategorySidebar": "Sidebar",
@@ -2565,6 +2597,13 @@
                         "subject": "Oggetto*",
                         "subscribeToNewsletter": "Abbonati alla newsletter"
                     },
+                    "newsletter": {
+                        "label": {
+                            "firstName": "Nome",
+                            "lastName": "Cognome",
+                            "salutation": "Appellativo"
+                        }
+                    },
                     "placeholder": {
                         "email": "john {'@'} doe.com",
                         "firstName": "John",
@@ -2627,10 +2666,17 @@
                     }
                 }
             },
+            "html": {
+                "config": {
+                    "warning": "Il codice HTML non filtrato può comportare rischi per la sicurezza. Inserisci solo codice HTML proveniente da fonti attendibili e verifica le modifiche prima di pubblicarle."
+                },
+                "label": "HTML"
+            },
             "image": {
                 "config": {
                     "label": {
                         "linkNewTab": "Apri link nella nuova scheda",
+                        "linkTo": "Destinazione del link",
                         "minHeight": "Altezza minima",
                         "minHeightHelpText": "Inserisci l'altezza minima con l'unità desiderata. Ad esempio: 200 px"
                     },
@@ -2866,6 +2912,7 @@
             "placeholderSearchBar": "Cerca layout..."
         },
         "list": {
+            "gridHeaderAssignedPages": "Pagine assegnate",
             "gridHeaderAssignment": "Categorie assegnate",
             "gridHeaderAssignments": "Assegnazioni",
             "gridHeaderCreated": "Creato",
@@ -3046,6 +3093,7 @@
         "baseInfo": {
             "contactEmail": "Indirizzo e-mail",
             "contentActive": "Attivo | Non attivo",
+            "contentConfirmed": "Confermato | Non confermato",
             "emptyBoundSalesChannel": "Tutti",
             "emptyTextBirthday": "nessuna informazione",
             "emptyTextLogin": "Ancora nessun login",
@@ -3056,6 +3104,7 @@
             "labelBoundSalesChannel": "Canale di vendita",
             "labelCampaignCode": "Codice campagna",
             "labelCompany": "Ditta",
+            "labelConfirmed": "Stato dell'indirizzo email",
             "labelCustomerGroup": "Categoria di clienti",
             "labelCustomerNumber": "Codice cliente",
             "labelDefaultPayment": "Modalità di pagamento standard",
@@ -4344,6 +4393,7 @@
             "exportActivityLabel": "Attività di esportazione",
             "exportLabel": "Esporta",
             "exportVariants": "Esporta varianti prodotto",
+            "messageExportError": "Impossibile creare il file di esportazione. | Impossibile creare il file di esportazione. Scarica il file «record non validi» per ulteriori informazioni.",
             "messageExportStarted": "Esportazione avviata.",
             "messageExportSuccess": "Esportazione di \"{profile}\" completata.",
             "showLogLabel": "Visualizza log",
@@ -4569,6 +4619,9 @@
                 "labelSocialMediaDescription": "Descrizione",
                 "labelSocialMediaTitle": "Titolo",
                 "labelUrl": "URL SEO",
+                "notification": {
+                    "noLayoutAssigned": "Per questa pagina di destinazione, non è stato assegnato alcun layout. Senza un layout, la landing page non è accessibile tramite SEO."
+                },
                 "placeholderKeywords": "Inserisci una o più parole chiave...",
                 "placeholderMetaDescription": "Inserisci una meta descrizione...",
                 "placeholderMetaTitle": "Inserisci meta titolo...",
@@ -5608,6 +5661,7 @@
                 "api_action_cache_index": "Indicizzatore di trigger",
                 "api_action_cache_info": "Leggi le informazioni sulla cache",
                 "api_action_container-cache_delete": "Elimina cache contenitore",
+                "api_feature_flag_toggle": "Attiva/disattiva i contrassegni delle funzionalità",
                 "api_info_me": "Leggi le informazioni utente API",
                 "api_info_ping": "Aggiorna token di autenticazione",
                 "api_proxy_switch-customer": "Agire per conto di un cliente",
@@ -6198,6 +6252,7 @@
             "placeholderReleaseDate": "Inserisci una data di rilascio...",
             "placeholderRestockTime": "Intervallo di riapprovvigionamento...",
             "placeholderStock": "Inserisci la scorta disponibile...",
+            "placeholderTime": "ad esempio 31...",
             "placeholderWeight": "ad es. 0,4...",
             "placeholderWidth": "ad es. 500..."
         },
@@ -6320,6 +6375,7 @@
             "closeModal": "Acquisisci",
             "columnAll": "Visibile",
             "columnLinkOnly": "Nascondi nelle inserzioni e cerca",
+            "columnSalesChannel": "Canale di vendita",
             "columnSearchOnly": "Nascondi nelle inserzioni",
             "errorMessage": "Impossibile caricare la configurazione predefinita del canale di vendita.",
             "labelVisibility": "Visibilità",
@@ -7177,6 +7233,7 @@
             "maintenanceModeTitle": "Modalità di manutenzione",
             "messageAPIError": "Non è stato possibile generare la password API.",
             "messageActivateWithoutThemeError": "Non è ancora possibile attivare il canale di vendita \"{name}\". Ad ogni canale di vendita attivo deve essere assegnato un tema.",
+            "messageDeleteDomainError": "Il dominio \"{url}\" non può essere eliminato perché è collegato alle esportazioni di prodotti esistenti.",
             "messageSaveError": "Non è stato possibile salvare il canale di vendita \"{name}\". Ti preghiamo di controllare le informazioni immesse.",
             "messageSaveSuccess": "Canale di vendita \"{name}\" salvato.",
             "navigation": "Navigazione",
@@ -8277,7 +8334,18 @@
         "detail": {
             "buttonCancel": "Interrompi",
             "buttonSave": "Salva",
+            "delete": {
+                "modal": {
+                    "buttonCancel": "Interrompi",
+                    "buttonDelete": "Cancella",
+                    "textConfirmation": "Vuoi davvero eliminare questo metodo di pagamento?"
+                },
+                "textAlert": "Questo metodo di pagamento viene utilizzato nelle regole, nei canali di vendita o negli ordini e non può quindi essere eliminato.",
+                "textButton": "Elimina metodo di pagamento",
+                "textHeadline": "Elimina metodo di pagamento"
+            },
             "helpTextTechnicalName": "Il nome tecnico viene utilizzato per fare riferimento al metodo di pagamento. È unico e obbligatorio per tutti i metodi di pagamento e spedizione dalla versione 6.7.0.0 in poi. La modifica del nome tecnico può interrompere le integrazioni di pagamento esistenti.",
+            "hintTextTechnicalName": "Sarà richiesto dalla versione 6.7.0 in poi",
             "labelActive": "Attivo",
             "labelAfterOrderEnabled": "Consenti cambio della modalità di pagamento dopo la conclusione dell’ordine",
             "labelDescription": "Descrizione",
@@ -8712,6 +8780,7 @@
             "buttonSave": "Salva",
             "helpTextTechnicalName": "Il nome tecnico viene utilizzato per identificare in modo univoco il metodo di spedizione. Una successiva modifica al nome tecnico può far sì che le integrazioni di spedizione che si basano su di esso non funzionino più.",
             "helpTextTrackingUrl": "Inserisci l'URL di tracciamento del corriere e inserisci \"%s\" come segnaposto in cui si troverebbe il codice di tracciamento effettivo. Il codice di tracciamento viene inserito automaticamente dai singoli ordini.",
+            "hintTextTechnicalName": "Sarà richiesto dalla versione 6.7.0 in poi",
             "labelActive": "Attivo",
             "labelBasicInfo": "Informazioni base",
             "labelDeliveryTime": "Tempo di consegna",
@@ -9228,6 +9297,9 @@
             "textHeadline": "Condivisione dei dati"
         }
     },
+    "sw-settings-usage-data-general": {
+        "tabHeadline": "Generale"
+    },
     "sw-shortcut-overview": {
         "function": "Funzione",
         "functionAddCategory": "Aggiungi categoria",
@@ -9391,15 +9463,6 @@
             "textDeleteMultipleConfirm": "Sei sicuro di voler cancellar i \"{count}\" elementi selezionati?"
         }
     },
-    "sw-usage-data": {
-        "sw-settings-usage-data-intro": {
-            "description": "Aiutaci a creare prodotti e servizi migliori, consentendoci di raccogliere i dati di utilizzo dalla tua Amministrazione di Shopware. Utilizzando le tecniche di protezione della privacy più recenti, ci assicuriamo che i dati raccolti non siano associabili a te o al tuo negozio. Non raccogliamo le informazioni su alcun cliente.",
-            "headline": "Migliorare collettivamente Shopware",
-            "learnMore": "Scopri di più",
-            "learnMoreUrl": "https://shopware.com/en/privacy/",
-            "title": "Dati di utilizzo"
-        }
-    },
     "sw-usage-data-consent-banner": {
         "acceptDataCollection": "Sono d'accordo",
         "checkListDataSharing": {
@@ -9422,8 +9485,6 @@
             },
             "orderData": "Dati dell'ordine",
             "storeData": "Archivia dati",
-            "title": "Dati che stiamo raccogliendo:",
-            "titleNotAccepted": "Dati che raccoglieremo:",
             "usageData": "Condivisione dei dati"
         },
         "confirmAuthorization": "Facendo clic su «Accetto», confermi di essere autorizzato a stipulare questo accordo per conto della tua azienda.",

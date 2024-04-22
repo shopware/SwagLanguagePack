@@ -1,6 +1,9 @@
 {
     "entityCategories": {
         "additional_privileges": {
+            "entities": {
+                "api_feature_flag_toggle": "API funkciju karodziņa pārslēgšana"
+            },
             "title": "Papildus atļaujas"
         },
         "admin_user": {
@@ -497,6 +500,7 @@
             "INVALID_URL": "Lūdzu ievadiet derīgu url.",
             "PARENT_MUST_NOT_BE_EMPTY": "Šī lauka mantotājs nedrīkst būt tukšs.",
             "SHOPWARE_INVALID_IP": "Lūdzu ievadiet derīgu IP adresi.",
+            "SHOPWARE_INVALID_IP_CIDR": "Lūdzu, ievadiet derīgu IP adresi vai derīgu IP adresi ar CIDR masku.",
             "c1051bb4-d103-4f74-8988-acbcafc7fdc3": "Šis lauks nedrīkst būt tukšs."
         },
         "notification": {
@@ -741,6 +745,7 @@
                 "orderCustomFieldRule": "Pasūtījums ar pielāgotu lauku",
                 "orderDeliveryStatusRule": "Piegādes statuss",
                 "orderDocumentTypeRule": "Pasūtīt ar dokumentu",
+                "orderDocumentTypeSentRule": "Pasūtījums ar nosūtīto dokumentu",
                 "orderStatusRule": "Pasūtījuma statuss",
                 "orderTagRule": "Pasūtīt ar tagu",
                 "orderTotalAmountRule": "Pabeigto (pabeigto) pasūtījumu kopējā vērtība",
@@ -839,6 +844,21 @@
                     "placeholder": "Izvēlieties operatoru..."
                 }
             },
+            "customerDaysSinceFirstLogin": {
+                "daysPassed": {
+                    "placeholder": "@:SW-Product.SettingsForm.PlaceholderTime"
+                }
+            },
+            "customerDaysSinceLastLogin": {
+                "daysPassed": {
+                    "placeholder": "@:SW-Product.SettingsForm.PlaceholderTime"
+                }
+            },
+            "customerDaysSinceLastOrder": {
+                "daysPassed": {
+                    "placeholder": "@:SW-Product.SettingsForm.PlaceholderTime"
+                }
+            },
             "customerEmail": {
                 "email": {
                     "placeholder": "@:global.sw-condition.condition.emailRule.placeholder"
@@ -879,11 +899,11 @@
                 }
             },
             "promotionCodeOfType": {
-                "promotionCodeOfType": {
+                "promotionCodeType": {
                     "options": {
-                        "fixed": "@:global.sw-condition.condition.promotionCodeOfTypeRule.fixed",
-                        "global": "@:global.sw-condition.condition.promotionCodeOfTypeRule.global",
-                        "individual": "@:global.sw-condition.condition.promotionCodeOfTypeRule.individual"
+                        "fixed": "@:Global.sw-Condition.Condition.PromotionCodeofTyPerule.Fixed",
+                        "global": "@:Global.sw-Condition.Condition.PromotionCodeofTyPerule.Global",
+                        "individual": "@:Global.sw-Condition.Condition.PromotionCodeofTyperule.Individual"
                     }
                 }
             },
@@ -950,6 +970,9 @@
             "labelSettingsPreviewImages": "Rādīt priekšskata attēlus",
             "maximumSelectionExceed": "Maksimālais atlasīto vienumu daudzums",
             "tooltipListSettings": "Saraksta iestatījumi"
+        },
+        "sw-desktop": {
+            "stagingBarText": "Veikals ir iestudējuma režīmā."
         },
         "sw-duplicated-media": {
             "buttonRename": "Pārdēvēt failu",
@@ -1165,26 +1188,26 @@
         },
         "sw-media-modal-folder-settings": {
             "labelDefaultFolder": "Noklusējuma mediju atrašanās vieta",
-            "labelEditList": "Labot sarakstu",
             "labelFolderName": "Nosaukums",
             "labelGenerateThumbnails": "Ģenerēt priekšskata attēlus šai mapei",
             "labelInheritSettings": "Pārmantot iestatījumus no vecāku mapes",
             "labelKeepProportions": "Saglabājiet izmēru proporcijas",
             "labelSettings": "Iestatījumi",
-            "labelStopEdit": "Beigt labot",
             "labelSystem": "Sistēmas mape",
             "labelThumbnailQuality": "Sīktēla kvalitāte",
             "labelThumbnailSize": "Sīktēla izmērs",
             "labelThumbnails": "Sīktēli",
             "notification": {
                 "error": {
-                    "message": "Kļūda saglabājot iestatījumus."
+                    "message": "Kļūda saglabājot iestatījumus.",
+                    "messageThumbnailSizeExisted": "Sīktēla izmērs jau pastāv."
                 },
                 "success": {
                     "message": "Iestatījumi ir saglabāti."
                 }
             },
-            "placeholderDefaultFolder": "Izvēlieties entītiju..."
+            "placeholderDefaultFolder": "Izvēlieties entītiju...",
+            "tooltipCanNotDeleteThumbnailSize": "Šo sīktēla izmēru nevar izdzēst, jo tas pašlaik tiek izmantots."
         },
         "sw-media-modal-move": {
             "buttonMove": "Pārvietot",
@@ -1301,7 +1324,9 @@
             "addIpAddress": "Pievienot IP adresi",
             "enterValidIp": "Lūdzu ievadiet derīgu IPv4 vai IPv6 adresi",
             "knownIps": {
-                "you": "Jūs"
+                "you": "Jūs",
+                "youIPv6Block56": "Jūs un citi (viena un tā pati gala vietne)",
+                "youIPv6Block64": "Jūs un citi (mājas tīkls)"
             }
         },
         "sw-multi-tag-select": {
@@ -2166,6 +2191,11 @@
                     "label": "Forma"
                 }
             },
+            "html": {
+                "html": {
+                    "label": "HTML"
+                }
+            },
             "image": {
                 "image": {
                     "label": "Attēls laukumā"
@@ -2392,9 +2422,11 @@
                 "backgroundMediaModeContain": "Satur",
                 "backgroundMediaModeCover": "Vāks",
                 "blockBottomMarginField": "Atkāpe no apakšmalas",
+                "blockCategoryApp": "Lietotnes",
                 "blockCategoryCommerce": "Tirdzniecība",
                 "blockCategoryFavorite": "Izlase",
                 "blockCategoryForm": "Forma",
+                "blockCategoryHtml": "HTML",
                 "blockCategoryImage": "Attēli",
                 "blockCategorySelection": "Bloka kategorija",
                 "blockCategorySidebar": "Sānjosla",
@@ -2565,6 +2597,13 @@
                         "subject": "Subjekta līnija*",
                         "subscribeToNewsletter": "Parakstīties uz Jaunumiem"
                     },
+                    "newsletter": {
+                        "label": {
+                            "firstName": "Vārds",
+                            "lastName": "Uzvārds",
+                            "salutation": "Sveiciens"
+                        }
+                    },
                     "placeholder": {
                         "email": "john {'@'} doe.com",
                         "firstName": "Jānis",
@@ -2627,10 +2666,17 @@
                     }
                 }
             },
+            "html": {
+                "config": {
+                    "warning": "Nefiltrēts HTML kods var radīt drošības riskus. Lūdzu, ievietojiet tikai HTML kodu no uzticamiem avotiem un pārbaudiet izmaiņas pirms to publicēšanas."
+                },
+                "label": "HTML"
+            },
             "image": {
                 "config": {
                     "label": {
                         "linkNewTab": "Atvērt saiti jaunā cilnē",
+                        "linkTo": "Saites mērķis",
                         "minHeight": "Minimālais augstums",
                         "minHeightHelpText": "Ievadiet minimālo augstumu ar vēlamo vienību. Piemēram: 200px"
                     },
@@ -2866,6 +2912,7 @@
             "placeholderSearchBar": "Meklēt izkārtojumus..."
         },
         "list": {
+            "gridHeaderAssignedPages": "Piešķirtās lapas",
             "gridHeaderAssignment": "Piešķirtās kategorijas",
             "gridHeaderAssignments": "Uzdevumi",
             "gridHeaderCreated": "Izveidots",
@@ -3046,6 +3093,7 @@
         "baseInfo": {
             "contactEmail": "E-pasta adrese",
             "contentActive": "Aktīvs | Neaktīvs",
+            "contentConfirmed": "Apstiprināts | Neapstiprināts",
             "emptyBoundSalesChannel": "Visi",
             "emptyTextBirthday": "Nav informācijas",
             "emptyTextLogin": "Nav pieteikšanās",
@@ -3056,6 +3104,7 @@
             "labelBoundSalesChannel": "Pārdošanas kanāls",
             "labelCampaignCode": "Akcijas kods",
             "labelCompany": "Uzņēmums",
+            "labelConfirmed": "E-pasta adreses statuss",
             "labelCustomerGroup": "Klientu grupa",
             "labelCustomerNumber": "Klienta numurs",
             "labelDefaultPayment": "Standarta maksāšanas veids",
@@ -4344,6 +4393,7 @@
             "exportActivityLabel": "Eksportēt aktivitāti",
             "exportLabel": "Eksportēt",
             "exportVariants": "Eksportēt produkta variantus",
+            "messageExportError": "Eksportēšanas failu nevarēja izveidot. | Eksportēšanas failu nevarēja izveidot. Lūdzu, lejupielādējiet failu “nederīgi ieraksti” vai vairāk informācijas.",
             "messageExportStarted": "Eksportēšana sākta.",
             "messageExportSuccess": "Eksportēt \"{profile}\" pabeigts.",
             "showLogLabel": "Rādīt log failu",
@@ -4569,6 +4619,9 @@
                 "labelSocialMediaDescription": "Apraksts",
                 "labelSocialMediaTitle": "Virsraksts",
                 "labelUrl": "SEO URL",
+                "notification": {
+                    "noLayoutAssigned": "Šai galvenajai lapai nav piešķirts neviens izkārtojums. Bez izkārtojuma galvenā lapa nav pieejama, izmantojot SEO."
+                },
                 "placeholderKeywords": "Ievadiet vienu vai vairākus atslēgvārdus...",
                 "placeholderMetaDescription": "Ievadiet meta aprakstu...",
                 "placeholderMetaTitle": "Ievadiet meta nosaukumu...",
@@ -5608,6 +5661,7 @@
                 "api_action_cache_index": "Trigera indeksētājs",
                 "api_action_cache_info": "Lasīt kešatmiņas informāciju",
                 "api_action_container-cache_delete": "Dzēst konteinera keš",
+                "api_feature_flag_toggle": "Pārslēgt funkciju karodziņus",
                 "api_info_me": "Lasīt savu API lietotāja informāciju",
                 "api_info_ping": "Atsvaidzināt auth marķieri",
                 "api_proxy_switch-customer": "Darbība klienta vārdā",
@@ -6198,6 +6252,7 @@
             "placeholderReleaseDate": "Ievadīt izdošanas datumu...",
             "placeholderRestockTime": "Ievadiet krājuma atjaunošanas laiku...",
             "placeholderStock": "Ievadiet daudzumu krājumā...",
+            "placeholderTime": "piemēram, 31...",
             "placeholderWeight": "piem. 0.4...",
             "placeholderWidth": "piem. 500..."
         },
@@ -6320,6 +6375,7 @@
             "closeModal": "Pielietot",
             "columnAll": "Redzams",
             "columnLinkOnly": "Paslēpt sarakstos un meklēšanā",
+            "columnSalesChannel": "Pārdošanas kanāls",
             "columnSearchOnly": "Paslēpt sarakstos",
             "errorMessage": "Nespēj ielādēt noklusējuma pārdošanas kanāla konfigurāciju.",
             "labelVisibility": "Pārdošanas kanāli",
@@ -7177,6 +7233,7 @@
             "maintenanceModeTitle": "Apkopes režīms",
             "messageAPIError": "Neizdevās izveidot API pieejas atslēgu.",
             "messageActivateWithoutThemeError": "Nevarēja aktivizēt pārdošanas kanālu “{name}”. Aktīvajiem pārdošanas kanāliem jābūt saistītiem ar tēmu.",
+            "messageDeleteDomainError": "Domēnu \"{url}\" nevarēja izdzēst, jo tas ir saistīts ar esošo produktu eksportu.",
             "messageSaveError": "Pārdošanas kanālu \"{name}\" nevarēja saglabāt. Lūdzu, pārbaudiet savus ierakstus.",
             "messageSaveSuccess": "Pārdošanas kanāls \"{name}\" saglabāts.",
             "navigation": "Navigācija",
@@ -8277,7 +8334,18 @@
         "detail": {
             "buttonCancel": "Atcelt",
             "buttonSave": "Saglabāt",
+            "delete": {
+                "modal": {
+                    "buttonCancel": "Atcelt",
+                    "buttonDelete": "Dzēst",
+                    "textConfirmation": "Vai tiešām vēlaties dzēst šo maksājuma veidu?"
+                },
+                "textAlert": "Šī maksājuma metode tiek izmantota noteikumos, pārdošanas kanālos vai pasūtījumos, tāpēc to nevar izdzēst.",
+                "textButton": "Dzēst maksājuma veidu",
+                "textHeadline": "Dzēst maksājuma veidu"
+            },
             "helpTextTechnicalName": "Tehniskais nosaukums tiek izmantots, lai norādītu uz maksājuma veidu. Tas ir unikāls un nepieciešams visiem maksājumu un piegādes veidiem, sākot no versijas 6.7.0.0. Tehniskā nosaukuma maiņa var pārtraukt esošās maksājumu integrācijas.",
+            "hintTextTechnicalName": "Būs nepieciešams, sākot no versijas 6.7.0",
             "labelActive": "Aktīvs",
             "labelAfterOrderEnabled": "Atļaut mainīt maksājumus pēc izrakstīšanās",
             "labelDescription": "Apraksts",
@@ -8712,6 +8780,7 @@
             "buttonSave": "Saglabāt",
             "helpTextTechnicalName": "Tehniskais nosaukums tiek izmantots, lai unikāli identificētu piegādes metodi. Turpmākas tehniskā nosaukuma izmaiņas var izraisīt pārvadājumu integrācijas, kas uz to balstās, vairs nedarbosies.",
             "helpTextTrackingUrl": "Ievadiet piegādes pakalpojumu sniedzēja izsekošanas URL un ievietojiet \"%s\" kā vietturīti, kur būtu faktiskais izsekošanas kods. Izsekošanas kods tiek automātiski ievietots no atsevišķiem pasūtījumiem.",
+            "hintTextTechnicalName": "Būs nepieciešams, sākot no versijas 6.7.0",
             "labelActive": "Aktīvs",
             "labelBasicInfo": "Pamatinformācija",
             "labelDeliveryTime": "Piegādes laiks",
@@ -9228,6 +9297,9 @@
             "textHeadline": "Datu koplietošana"
         }
     },
+    "sw-settings-usage-data-general": {
+        "tabHeadline": "Vispārīgi"
+    },
     "sw-shortcut-overview": {
         "function": "Funkcija",
         "functionAddCategory": "Pievienot kategoriju",
@@ -9391,15 +9463,6 @@
             "textDeleteMultipleConfirm": "Vai tiešām vēlaties dzēst \"{count}\" iezīmēto vienību?"
         }
     },
-    "sw-usage-data": {
-        "sw-settings-usage-data-intro": {
-            "description": "Palīdziet mums veidot labākus produktus un pakalpojumus, ļaujot mums apkopot lietojuma datus no jūsu Shopware administrācijas. Izmantojot jaunākās privātuma saglabāšanas metodes, mēs nodrošinām, ka apkopotos datus nevar saistīt ar jums vai jūsu veikalu. Mēs nevācam nekādu klientu informāciju.",
-            "headline": "Shopware uzlabošana kolektīvi",
-            "learnMore": "Uzzināt vairāk",
-            "learnMoreUrl": "https://shopware.com/en/privacy/",
-            "title": "Lietojuma dati"
-        }
-    },
     "sw-usage-data-consent-banner": {
         "acceptDataCollection": "Piekrītu",
         "checkListDataSharing": {
@@ -9422,17 +9485,15 @@
             },
             "orderData": "Pasūtījuma dati",
             "storeData": "Glabājiet datus",
-            "title": "Dati, kurus mēs apkopojam:",
-            "titleNotAccepted": "Dati, kurus mēs apkoposim:",
-            "usageData": "Datu koplietošana"
+            "usageData": "Lietošanas dati"
         },
         "confirmAuthorization": "Noklikšķinot uz “Piekrītu”, jūs apstiprināt, ka esat pilnvarots noslēgt šo līgumu sava uzņēmuma vārdā.",
         "declineDataCollection": "Ne šobrīd",
         "fullDetailsDescription": "Pilna informācija par šo līgumu atrodama vietnē {link}. {fullDetailsDescriptionNotAccepted}",
-        "fullDetailsDescriptionNotAccepted": "Jūs vienmēr varat jebkurā laikā atteikties no datu koplietošanas. Pievienojieties mums e-komercijas nākotnes veidošanā, daloties ar mums savus datus!",
+        "fullDetailsDescriptionNotAccepted": "Jūs jebkurā laikā varat atteikties no datu koplietošanas.",
         "headline": "E-komercijas nākotnes veidošana",
-        "improvingDescription": "Mēs pastāvīgi uzlabojam pakalpojumus, kurus mēs jums sniedzam. Lai spertu nākamo soli, mēs analizējam jūsu datus, izmantojot tādas metodes kā mašīnmācīšanās (piemēram, modeļu atpazīšana), lai izstrādātu un uzlabotu mūsu produktu. Jūsu dati tiks izmantoti arī, lai izstrādātu uz datiem balstītus pakalpojumus, kas paredzēti, lai uzlabotu jūsu biznesa panākumus.",
-        "improvingDescriptionNotAccepted": "Mēs pastāvīgi uzlabojam pakalpojumus, kurus mēs jums sniedzam. Lai spertu nākamo soli, mēs vēlamies analizēt jūsu datus, izmantojot tādas metodes kā mašīnmācīšanās (piemēram, modeļu atpazīšana), lai izstrādātu un uzlabotu mūsu produktu. Jūsu dati tiks izmantoti arī, lai izstrādātu uz datiem balstītus pakalpojumus, kas paredzēti, lai uzlabotu jūsu biznesa panākumus.",
+        "improvingDescription": "Mēs pastāvīgi uzlabojam pakalpojumus, kurus mēs jums sniedzam. Lai spertu nākamo soli, mēs analizējam jūsu datus, izmantojot tādas metodes kā mašīnmācīšanās (piemēram, modeļu atpazīšana), lai izstrādātu un uzlabotu mūsu produktu. Jūsu dati tiks izmantoti arī, lai izstrādātu uz datiem balstītus pakalpojumus, kas paredzēti, lai uzlabotu jūsu biznesa panākumus. Šie ir dati, kurus mēs apkopojam:",
+        "improvingDescriptionNotAccepted": "Mēs pastāvīgi uzlabojam pakalpojumus, kurus mēs jums sniedzam. Lai spertu nākamo soli, mēs vēlamies analizēt jūsu datus, izmantojot tādas metodes kā mašīnmācīšanās (piemēram, modeļu atpazīšana), lai izstrādātu un uzlabotu mūsu produktu. Jūsu dati tiks izmantoti arī, lai izstrādātu uz datiem balstītus pakalpojumus, kas paredzēti, lai uzlabotu jūsu biznesa panākumus. Šie ir dati, kurus mēs apkoposim:",
         "privacyPolicy": "shopware.com/lv/data-use-details",
         "privacyPolicyLink": "https://www.shopware.com/en/data-use-details/",
         "rejectedMessage": "Jūs jebkurā laikā varat noslēgt līgumu un tādējādi dot ieguldījumu un gūt labumu no mūsu pakalpojumu pastāvīgās attīstības, ļaujot koplietot datus savā {link}",

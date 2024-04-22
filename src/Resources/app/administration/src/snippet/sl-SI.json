@@ -1,6 +1,9 @@
 {
     "entityCategories": {
         "additional_privileges": {
+            "entities": {
+                "api_feature_flag_toggle": "Preklop zastavice funkcije API"
+            },
             "title": "Dodatna dovoljenja"
         },
         "admin_user": {
@@ -497,6 +500,7 @@
             "INVALID_URL": "Prosimo, vnesite veljaven URL.",
             "PARENT_MUST_NOT_BE_EMPTY": "Dedič tega polja ne sme biti prazen.",
             "SHOPWARE_INVALID_IP": "Vnesite veljaven IP naslov.",
+            "SHOPWARE_INVALID_IP_CIDR": "Prosimo, vnesite veljaven naslov IP ali veljaven IP-naslov z CIDR masko.",
             "c1051bb4-d103-4f74-8988-acbcafc7fdc3": "To polje ne sme biti prazno."
         },
         "notification": {
@@ -741,6 +745,7 @@
                 "orderCustomFieldRule": "Naročilo s poljem po meri",
                 "orderDeliveryStatusRule": "Status dobave",
                 "orderDocumentTypeRule": "Naročilo z dokumentom",
+                "orderDocumentTypeSentRule": "Naročilo s poslanim dokumentom",
                 "orderStatusRule": "Status naročila",
                 "orderTagRule": "Naročilo z oznako",
                 "orderTotalAmountRule": "Skupna vrednost izpolnjenih (opravljenih) naročil",
@@ -839,6 +844,21 @@
                     "placeholder": "Izberite operatorja..."
                 }
             },
+            "customerDaysSinceFirstLogin": {
+                "daysPassed": {
+                    "placeholder": "@:SW-Product.SettingsForm.PlaceholderTime"
+                }
+            },
+            "customerDaysSinceLastLogin": {
+                "daysPassed": {
+                    "placeholder": "@:SW-Product.SettingsForm.PlaceholderTime"
+                }
+            },
+            "customerDaysSinceLastOrder": {
+                "daysPassed": {
+                    "placeholder": "@:SW-Product.SettingsForm.PlaceholderTime"
+                }
+            },
             "customerEmail": {
                 "email": {
                     "placeholder": "@:global.sw-condition.condition.emailRule.placeholder"
@@ -879,11 +899,11 @@
                 }
             },
             "promotionCodeOfType": {
-                "promotionCodeOfType": {
+                "promotionCodeType": {
                     "options": {
-                        "fixed": "@:global.sw-condition.condition.promotionCodeOfTypeRule.fixed",
-                        "global": "@:global.sw-condition.condition.promotionCodeOfTypeRule.global",
-                        "individual": "@:global.sw-condition.condition.promotionCodeOfTypeRule.individual"
+                        "fixed": "@:Global.sw-Condition.Condition.PromotionCodeOfTyPerule.Fixed",
+                        "global": "@:Global.sw-Condition.Condition.PromotionCodeofTyPerule.Global",
+                        "individual": "@:Global.sw-Condition.Condition.PromotionCodeofTyPerule.Individual"
                     }
                 }
             },
@@ -950,6 +970,9 @@
             "labelSettingsPreviewImages": "Prikaži predogled slik",
             "maximumSelectionExceed": "Najvišji znesek izbranih postavk",
             "tooltipListSettings": "Nastavitve seznama"
+        },
+        "sw-desktop": {
+            "stagingBarText": "Trgovina je v načinu uprizoritve."
         },
         "sw-duplicated-media": {
             "buttonRename": "Preimenuj datoteko",
@@ -1165,26 +1188,26 @@
         },
         "sw-media-modal-folder-settings": {
             "labelDefaultFolder": "Privzeta medijska lokacija za",
-            "labelEditList": "Uredi seznam",
             "labelFolderName": "Ime",
             "labelGenerateThumbnails": "Ustvarjanje sličic za to mapo",
             "labelInheritSettings": "Dedovanje nastavitev iz nadrejene mape",
             "labelKeepProportions": "Ohranite razmerje stranic",
             "labelSettings": "Nastavitve",
-            "labelStopEdit": "Ustavi urejanje",
             "labelSystem": "Sistemska mapa",
             "labelThumbnailQuality": "Kakovost sličic",
             "labelThumbnailSize": "Velikost sličic",
             "labelThumbnails": "Sličice",
             "notification": {
                 "error": {
-                    "message": "Napaka pri shranjevanju nastavitev."
+                    "message": "Napaka pri shranjevanju nastavitev.",
+                    "messageThumbnailSizeExisted": "Velikost sličice že obstaja."
                 },
                 "success": {
                     "message": "Nastavitve so bile shranjene."
                 }
             },
-            "placeholderDefaultFolder": "Izberite entiteto..."
+            "placeholderDefaultFolder": "Izberite entiteto...",
+            "tooltipCanNotDeleteThumbnailSize": "Te velikosti sličice ni mogoče izbrisati, ker je trenutno v uporabi."
         },
         "sw-media-modal-move": {
             "buttonMove": "Premakni",
@@ -1301,7 +1324,9 @@
             "addIpAddress": "Dodaj naslov IP",
             "enterValidIp": "Vnesite veljaven naslov IPv4 ali IPv6",
             "knownIps": {
-                "you": "Vi"
+                "you": "Vi",
+                "youIPv6Block56": "Vi in drugi (ista končna stran)",
+                "youIPv6Block64": "Vi in drugi (domače omrežje)"
             }
         },
         "sw-multi-tag-select": {
@@ -2166,6 +2191,11 @@
                     "label": "Obrazec"
                 }
             },
+            "html": {
+                "html": {
+                    "label": "HTML"
+                }
+            },
             "image": {
                 "image": {
                     "label": "Slika, škatla"
@@ -2392,9 +2422,11 @@
                 "backgroundMediaModeContain": "Vsebujejo",
                 "backgroundMediaModeCover": "Cover",
                 "blockBottomMarginField": "Spodnji rob",
+                "blockCategoryApp": "Aplikacije",
                 "blockCategoryCommerce": "Trgovina",
                 "blockCategoryFavorite": "Priljubljene",
                 "blockCategoryForm": "Obrazec",
+                "blockCategoryHtml": "HTML",
                 "blockCategoryImage": "Slike",
                 "blockCategorySelection": "Kategorija bloka",
                 "blockCategorySidebar": "Stranska vrstica",
@@ -2565,6 +2597,13 @@
                         "subject": "Predmet vrstice*",
                         "subscribeToNewsletter": "Naročite se na e-novice"
                     },
+                    "newsletter": {
+                        "label": {
+                            "firstName": "Ime",
+                            "lastName": "Priimek",
+                            "salutation": "Pozdravanje"
+                        }
+                    },
                     "placeholder": {
                         "email": "john {'@'} doe.com",
                         "firstName": "John",
@@ -2627,10 +2666,17 @@
                     }
                 }
             },
+            "html": {
+                "config": {
+                    "warning": "Nefiltrirana koda HTML lahko povzroči varnostna tveganja. Prosimo, vstavite samo kodo HTML iz zaupanja vrednih virov in preizkusite spremembe, preden jih objavite."
+                },
+                "label": "HTML"
+            },
             "image": {
                 "config": {
                     "label": {
                         "linkNewTab": "Odpri povezavo v novem zavihku",
+                        "linkTo": "Cilj povezave",
                         "minHeight": "Najmanjša višina",
                         "minHeightHelpText": "Vnesite najmanjšo višino z želeno enoto. Na primer: 200px"
                     },
@@ -2866,6 +2912,7 @@
             "placeholderSearchBar": "Išči postavitve..."
         },
         "list": {
+            "gridHeaderAssignedPages": "Dodeljene strani",
             "gridHeaderAssignment": "Dodeljene kategorije",
             "gridHeaderAssignments": "Naloge",
             "gridHeaderCreated": "Ustvarjeno",
@@ -3046,6 +3093,7 @@
         "baseInfo": {
             "contactEmail": "E-poštni naslov",
             "contentActive": "Aktivno | Neaktivno",
+            "contentConfirmed": "Potrjeno | Nepotrjeno",
             "emptyBoundSalesChannel": "Vse",
             "emptyTextBirthday": "Ni podatkov",
             "emptyTextLogin": "Še ni prijave",
@@ -3056,6 +3104,7 @@
             "labelBoundSalesChannel": "Prodajni kanal",
             "labelCampaignCode": "Koda kampanje",
             "labelCompany": "Podjetje",
+            "labelConfirmed": "Stanje e-poštnega naslova",
             "labelCustomerGroup": "Skupina strank",
             "labelCustomerNumber": "Številka stranke",
             "labelDefaultPayment": "Način privzetega plačila",
@@ -4344,6 +4393,7 @@
             "exportActivityLabel": "Izvozna dejavnost",
             "exportLabel": "Izvoz",
             "exportVariants": "Variante izvoznega izdelka",
+            "messageExportError": "Izvozne datoteke ni bilo mogoče ustvariti. | Izvozne datoteke ni mogoče ustvariti. Prenesite datoteko »neveljavni zapisi« ali več informacij.",
             "messageExportStarted": "Izvoz se je začel.",
             "messageExportSuccess": "Izvoz \"{profile}\" zaključen.",
             "showLogLabel": "Pokaži dnevniško datoteko",
@@ -4569,6 +4619,9 @@
                 "labelSocialMediaDescription": "Opis",
                 "labelSocialMediaTitle": "Naslov",
                 "labelUrl": "SEO URL",
+                "notification": {
+                    "noLayoutAssigned": "Za to ciljno stran ni dodeljena nobena postavitev. Brez postavitve ciljna stran ni dostopna prek SEO."
+                },
                 "placeholderKeywords": "Vnesite eno ali več ključnih besed...",
                 "placeholderMetaDescription": "Vnesite meta opis...",
                 "placeholderMetaTitle": "Vnesite meta naslov...",
@@ -5608,6 +5661,7 @@
                 "api_action_cache_index": "Sprožilni indeks",
                 "api_action_cache_info": "Informacije o predpomnilniku",
                 "api_action_container-cache_delete": "Brisanje predpomnilnika posode",
+                "api_feature_flag_toggle": "Preklopi zastavice funkcij",
                 "api_info_me": "Preberite lastne podatke o uporabniku API",
                 "api_info_ping": "Osveži žeton za avte",
                 "api_proxy_switch-customer": "Delujte v imenu stranke",
@@ -6198,6 +6252,7 @@
             "placeholderReleaseDate": "Vnesite datum izdaje...",
             "placeholderRestockTime": "Vnesite čas obnove v dnevih...",
             "placeholderStock": "Vpišite količino na zalogi...",
+            "placeholderTime": "npr. 31...",
             "placeholderWeight": "npr. 0,4...",
             "placeholderWidth": "npr. 500..."
         },
@@ -6320,6 +6375,7 @@
             "closeModal": "Uporabi",
             "columnAll": "Vidno",
             "columnLinkOnly": "Skrij v oglase in iskanje",
+            "columnSalesChannel": "Prodajni kanal",
             "columnSearchOnly": "Skrij v oglase",
             "errorMessage": "Ni mogoče naložiti privzete konfiguracije Sales Channel.",
             "labelVisibility": "Prodajne poti",
@@ -7177,6 +7233,7 @@
             "maintenanceModeTitle": "Vzdrževalni način",
             "messageAPIError": "Ni mogoče ustvariti ključa za dostop API.",
             "messageActivateWithoutThemeError": "Sales Channel \"{name}\" ni bilo mogoče aktivirati. Aktivni prodajni kanali morajo imeti povezano temo.",
+            "messageDeleteDomainError": "Domene \"{url}\" ni bilo mogoče izbrisati, ker je povezana z obstoječim izvozom izdelkov.",
             "messageSaveError": "Prodajnega kanala \"{name}\" ni bilo mogoče shraniti. Prosimo, preverite svoje vnose.",
             "messageSaveSuccess": "Prodaja Channel \"{name}\" shranjena.",
             "navigation": "Navigacija",
@@ -8277,7 +8334,18 @@
         "detail": {
             "buttonCancel": "Prekliči",
             "buttonSave": "Shrani",
+            "delete": {
+                "modal": {
+                    "buttonCancel": "Prekliči",
+                    "buttonDelete": "Izbriši",
+                    "textConfirmation": "Ali res želite izbrisati ta način plačila?"
+                },
+                "textAlert": "Ta način plačila se uporablja v pravilih, prodajnih kanalih ali naročilih in ga zato ni mogoče izbrisati.",
+                "textButton": "Izbriši način plačila",
+                "textHeadline": "Izbriši način plačila"
+            },
             "helpTextTechnicalName": "Tehnično ime se uporablja za sklicevanje na način plačila. Je edinstven in potreben za vse načine plačila in pošiljanja od različice 6.7.0.0 naprej. Spreminjanje tehničnega imena lahko prekine obstoječe integracije plačil.",
+            "hintTextTechnicalName": "Zahtevana bo od različice 6.7.0 naprej",
             "labelActive": "Aktivni",
             "labelAfterOrderEnabled": "Dovoli spremembo plačila po blagajni",
             "labelDescription": "Opis",
@@ -8712,6 +8780,7 @@
             "buttonSave": "Shrani",
             "helpTextTechnicalName": "Tehnično ime se uporablja za edinstveno identifikacijo načina pošiljanja. Kasnejša sprememba tehničnega imena lahko povzroči, da integracije pošiljanja, ki se zanašajo na to, ne bodo več delovale.",
             "helpTextTrackingUrl": "Vnesite URL za sledenje ponudnika pošiljanja in vstavite \"%s\" kot označbo mesta, kjer bi bila dejanska koda za sledenje. Koda za sledenje se samodejno vstavi iz posameznih naročil.",
+            "hintTextTechnicalName": "Zahtevana bo od različice 6.7.0 naprej",
             "labelActive": "Aktivni",
             "labelBasicInfo": "Osnovne informacije",
             "labelDeliveryTime": "Čas dobave",
@@ -9228,6 +9297,9 @@
             "textHeadline": "Skupna raba podatkov"
         }
     },
+    "sw-settings-usage-data-general": {
+        "tabHeadline": "Splošno"
+    },
     "sw-shortcut-overview": {
         "function": "Funkcija",
         "functionAddCategory": "Dodaj kategorijo",
@@ -9391,15 +9463,6 @@
             "textDeleteMultipleConfirm": "Ali ste prepričani, da želite izbrisati izbrane elemente \"{count}\"?"
         }
     },
-    "sw-usage-data": {
-        "sw-settings-usage-data-intro": {
-            "description": "Pomagajte nam zgraditi boljše izdelke in storitve, tako da nam omogočite zbiranje podatkov o uporabi iz vaše administracije Shopware. Z uporabo najnovejših tehnik ohranjanja zasebnosti poskrbimo, da zbranih podatkov ni mogoče povezati z vami ali vašo trgovino. Ne zbiramo nobenih podatkov o strankah.",
-            "headline": "Skupno izboljšanje Shopware",
-            "learnMore": "Več o tem",
-            "learnMoreUrl": "https://shopware.com/en/privacy/",
-            "title": "Podatki o uporabi"
-        }
-    },
     "sw-usage-data-consent-banner": {
         "acceptDataCollection": "Strinjam se",
         "checkListDataSharing": {
@@ -9422,8 +9485,6 @@
             },
             "orderData": "Podatki o naročilu",
             "storeData": "Shranjevanje podatkov",
-            "title": "Podatki, ki jih zbiramo:",
-            "titleNotAccepted": "Podatki, ki jih bomo zbirali:",
             "usageData": "Skupna raba podatkov"
         },
         "confirmAuthorization": "S klikom na« Strinjam se »potrjujete, da ste pooblaščeni za sklenitev te pogodbe v imenu vašega podjetja.",

@@ -1,6 +1,9 @@
 {
     "entityCategories": {
         "additional_privileges": {
+            "entities": {
+                "api_feature_flag_toggle": "एपीआई फीचर फ्लैग टॉगल"
+            },
             "title": "अतिरिक्त अनुमतियाँ"
         },
         "admin_user": {
@@ -497,6 +500,7 @@
             "INVALID_URL": "कृपया एक वैध यूआरएल दर्ज करें।",
             "PARENT_MUST_NOT_BE_EMPTY": "इस फ़ील्ड का इनहेरिटर खाली नहीं होना चाहिए।",
             "SHOPWARE_INVALID_IP": "कृपया एक वैध आईपी पता दर्ज करें।",
+            "SHOPWARE_INVALID_IP_CIDR": "कृपया CIDR मास्क के साथ एक मान्य IP पता या एक मान्य IP पता दर्ज करें।",
             "c1051bb4-d103-4f74-8988-acbcafc7fdc3": "यह फ़ील्ड खाली नहीं होना चाहिए।"
         },
         "notification": {
@@ -741,6 +745,7 @@
                 "orderCustomFieldRule": "कस्टम फ़ील्ड के साथ ऑर्डर करें",
                 "orderDeliveryStatusRule": "डिलीवरी की स्थिति",
                 "orderDocumentTypeRule": "दस्तावेज़ के साथ ऑर्डर करें",
+                "orderDocumentTypeSentRule": "भेजे गए दस्तावेज़ के साथ ऑर्डर करें",
                 "orderStatusRule": "ऑर्डर स्थिति",
                 "orderTagRule": "टैग के साथ ऑर्डर करें",
                 "orderTotalAmountRule": "पूर्ण किए गए (पूर्ण) आदेशों का कुल मूल्य",
@@ -839,6 +844,21 @@
                     "placeholder": "ऑपरेटर चुनें..."
                 }
             },
+            "customerDaysSinceFirstLogin": {
+                "daysPassed": {
+                    "placeholder": "@:sw-product.settingsform.placeholdertime"
+                }
+            },
+            "customerDaysSinceLastLogin": {
+                "daysPassed": {
+                    "placeholder": "@:sw-product.settingsform.placeholdertime"
+                }
+            },
+            "customerDaysSinceLastOrder": {
+                "daysPassed": {
+                    "placeholder": "@:sw-product.settingsform.placeholdertime"
+                }
+            },
             "customerEmail": {
                 "email": {
                     "placeholder": "@:global.sw-condition.condition.emailRule.placeholder"
@@ -879,11 +899,11 @@
                 }
             },
             "promotionCodeOfType": {
-                "promotionCodeOfType": {
+                "promotionCodeType": {
                     "options": {
-                        "fixed": "@:global.sw-condition.condition.promotionCodeOfTypeRule.fixed",
-                        "global": "@:global.sw-condition.condition.promotionCodeOfTypeRule.global",
-                        "individual": "@:global.sw-condition.condition.promotionCodeOfTypeRule.individual"
+                        "fixed": "@:global.sw-condition.condition.typerule.fixed का प्रमोशन कोड",
+                        "global": "@:global.sw-condition.condition.TypeRule.global का प्रमोशन कोड",
+                        "individual": "@:global.sw-condition.condition.typerule.individual का प्रचार कोड"
                     }
                 }
             },
@@ -950,6 +970,9 @@
             "labelSettingsPreviewImages": "पूर्वावलोकन चित्र दिखाएँ",
             "maximumSelectionExceed": "चुने गए आइटमों की अधिकतम मात्रा",
             "tooltipListSettings": "सूची सेटिंग्स"
+        },
+        "sw-desktop": {
+            "stagingBarText": "शॉप स्टेजिंग मोड में है।"
         },
         "sw-duplicated-media": {
             "buttonRename": "फ़ाइल का नाम बदलें",
@@ -1165,26 +1188,26 @@
         },
         "sw-media-modal-folder-settings": {
             "labelDefaultFolder": "के लिए डिफ़ॉल्ट मीडिया स्थान",
-            "labelEditList": "सूची संपादित करें",
             "labelFolderName": "नाम",
             "labelGenerateThumbnails": "इस फ़ोल्डर के लिए थंबनेल उत्पन्न करें",
             "labelInheritSettings": "पैरेंट फ़ोल्डर से सेटिंग्स प्राप्त करें",
             "labelKeepProportions": "पहलू अनुपात रखें",
             "labelSettings": "सेटिंग्स",
-            "labelStopEdit": "संपादन बंद करें",
             "labelSystem": "तंत्र फ़ोल्डर",
             "labelThumbnailQuality": "थंबनेल गुणवत्ता",
             "labelThumbnailSize": "थंबनेल आकार",
             "labelThumbnails": "थंबनेल",
             "notification": {
                 "error": {
-                    "message": "सेटिंग सहेजते समय त्रुटि।"
+                    "message": "सेटिंग सहेजते समय त्रुटि।",
+                    "messageThumbnailSizeExisted": "थंबनेल का आकार पहले से मौजूद है।"
                 },
                 "success": {
                     "message": "सेटिंग्स सहेजी गई हैं।"
                 }
             },
-            "placeholderDefaultFolder": "एंटिटी चुनें..."
+            "placeholderDefaultFolder": "एंटिटी चुनें...",
+            "tooltipCanNotDeleteThumbnailSize": "इस थंबनेल आकार को हटाया नहीं जा सकता क्योंकि यह वर्तमान में उपयोग में है।"
         },
         "sw-media-modal-move": {
             "buttonMove": "ले जाएँ",
@@ -1301,7 +1324,9 @@
             "addIpAddress": "आईपी पता जोड़ें",
             "enterValidIp": "कृपया एक वैध IPv4 या IPv6 पता दर्ज करें",
             "knownIps": {
-                "you": "आप"
+                "you": "आप",
+                "youIPv6Block56": "आप और अन्य (एक ही एंडसाइट)",
+                "youIPv6Block64": "आप और अन्य (होम नेटवर्क)"
             }
         },
         "sw-multi-tag-select": {
@@ -2166,6 +2191,11 @@
                     "label": "फॉर्म"
                 }
             },
+            "html": {
+                "html": {
+                    "label": "एचटीएमएल"
+                }
+            },
             "image": {
                 "image": {
                     "label": "छवि, बॉक्सिंग"
@@ -2392,9 +2422,11 @@
                 "backgroundMediaModeContain": "इसमें शामिल",
                 "backgroundMediaModeCover": "कवर",
                 "blockBottomMarginField": "निचला हाशिया",
+                "blockCategoryApp": "ऐप्लिकेशन",
                 "blockCategoryCommerce": "व्यापार",
                 "blockCategoryFavorite": "पसंदीदा",
                 "blockCategoryForm": "फॉर्म",
+                "blockCategoryHtml": "एचटीएमएल",
                 "blockCategoryImage": "छवियाँ",
                 "blockCategorySelection": "ब्लॉक श्रेणी",
                 "blockCategorySidebar": "साइडबार",
@@ -2565,6 +2597,13 @@
                         "subject": "विषय पंक्ति*",
                         "subscribeToNewsletter": "न्यूज़लेटर की सदस्यता लें"
                     },
+                    "newsletter": {
+                        "label": {
+                            "firstName": "प्रथम नाम",
+                            "lastName": "अंतिम नाम",
+                            "salutation": "अभिवादन"
+                        }
+                    },
                     "placeholder": {
                         "email": "जॉन {'@'} doe.com",
                         "firstName": "जॉन",
@@ -2627,10 +2666,17 @@
                     }
                 }
             },
+            "html": {
+                "config": {
+                    "warning": "अनफ़िल्टर्ड HTML कोड से सुरक्षा जोखिम हो सकते हैं। कृपया विश्वसनीय स्रोतों से केवल HTML कोड डालें और उन्हें प्रकाशित करने से पहले अपने परिवर्तनों की जाँच करें।"
+                },
+                "label": "एचटीएमएल"
+            },
             "image": {
                 "config": {
                     "label": {
                         "linkNewTab": "नए टैब में लिंक खोलें",
+                        "linkTo": "लिंक टारगेट",
                         "minHeight": "न्यूनतम ऊंचाई",
                         "minHeightHelpText": "अपनी इच्छित इकाई के साथ न्यूनतम ऊंचाई दर्ज करें। उदाहरण के लिए: 200px"
                     },
@@ -2866,6 +2912,7 @@
             "placeholderSearchBar": "लेआउट खोजें..."
         },
         "list": {
+            "gridHeaderAssignedPages": "असाइन किए गए पेज",
             "gridHeaderAssignment": "सौंपा श्रेणियाँ",
             "gridHeaderAssignments": "असाइनमेंट",
             "gridHeaderCreated": "बनाया गया",
@@ -3046,6 +3093,7 @@
         "baseInfo": {
             "contactEmail": "ईमेल पता",
             "contentActive": "सक्रिय | निष्क्रिय",
+            "contentConfirmed": "पुष्टि की गई | अपुष्ट",
             "emptyBoundSalesChannel": "सब",
             "emptyTextBirthday": "कोई जानकारी नहीं",
             "emptyTextLogin": "अभी तक कोई लॉगिन नहीं",
@@ -3056,6 +3104,7 @@
             "labelBoundSalesChannel": "बिक्री चैनल",
             "labelCampaignCode": "अभियान कोड",
             "labelCompany": "कम्पनी",
+            "labelConfirmed": "ईमेल पते की स्थिति",
             "labelCustomerGroup": "ग्राहक समूह",
             "labelCustomerNumber": "ग्राहक संख्या",
             "labelDefaultPayment": "डिफ़ॉल्ट भुगतान विधि",
@@ -4344,6 +4393,7 @@
             "exportActivityLabel": "गतिविधि निर्यात करें",
             "exportLabel": "निर्यात",
             "exportVariants": "उत्पाद वेरिएंट निर्यात करें",
+            "messageExportError": "एक्सपोर्ट फ़ाइल नहीं बनाई जा सकी. | एक्सपोर्ट फ़ाइल नहीं बनाई जा सकी। कृपया “अमान्य रिकॉर्ड” फ़ाइल या अधिक जानकारी डाउनलोड करें।",
             "messageExportStarted": "निर्यात शुरू हुआ।",
             "messageExportSuccess": "निर्यात \"{profile}\" पूरा हुआ।",
             "showLogLabel": "लॉग फ़ाइल दिखाएँ",
@@ -4569,6 +4619,9 @@
                 "labelSocialMediaDescription": "विवरण",
                 "labelSocialMediaTitle": "शीर्षक",
                 "labelUrl": "एसईओ यूआरएल",
+                "notification": {
+                    "noLayoutAssigned": "इस लैंडिंग पेज के लिए, कोई लेआउट असाइन नहीं किया गया है। लेआउट के बिना, लैंडिंग पेज SEO के माध्यम से एक्सेस नहीं किया जा सकता है।"
+                },
                 "placeholderKeywords": "एक या अधिक कीवर्ड दर्ज करें...",
                 "placeholderMetaDescription": "मेटा विवरण भरें...",
                 "placeholderMetaTitle": "मेटा शीर्षक भरें...",
@@ -5608,6 +5661,7 @@
                 "api_action_cache_index": "ट्रिगर इंडेक्सर",
                 "api_action_cache_info": "कैश जानकारी पढ़ें",
                 "api_action_container-cache_delete": "कंटेनर कैश मिटाएँ",
+                "api_feature_flag_toggle": "टॉगल फीचर फ्लैग",
                 "api_info_me": "अपनी एपीआई उपयोगकर्ता जानकारी पढ़ें",
                 "api_info_ping": "ऑथ टोकन रीफ्रेश करें",
                 "api_proxy_switch-customer": "ग्राहक की ओर से कार्रवाई करें",
@@ -6198,6 +6252,7 @@
             "placeholderReleaseDate": "रिलीज तारीख़ भरें...",
             "placeholderRestockTime": "दिनों में रीस्टॉक समय दर्ज करें...",
             "placeholderStock": "स्टॉक में मात्रा दर्ज करें...",
+            "placeholderTime": "उदाहरण के लिए 31...",
             "placeholderWeight": "उदाहरण के लिए 0.4...",
             "placeholderWidth": "उदाहरण के लिए 500..."
         },
@@ -6320,6 +6375,7 @@
             "closeModal": "लागू करें",
             "columnAll": "दृश्यमान",
             "columnLinkOnly": "लिस्टिंग और खोज में छुपाएं",
+            "columnSalesChannel": "बिक्री चैनल",
             "columnSearchOnly": "लिस्टिंग में छुपाएँ",
             "errorMessage": "डिफ़ॉल्ट विक्रय चैनल कॉन्फ़िगरेशन लोड करने में असमर्थ।",
             "labelVisibility": "बिक्री चैनल",
@@ -7177,6 +7233,7 @@
             "maintenanceModeTitle": "रखरखाव मोड",
             "messageAPIError": "API पहुँच कुंजी उत्पन्न करने में असमर्थ।",
             "messageActivateWithoutThemeError": "बिक्री चैनल \"{name}\" सक्रिय नहीं किया जा सका। सक्रिय बिक्री चैनलों को एक विषय संबद्ध करने की आवश्यकता है।",
+            "messageDeleteDomainError": "डोमेन \"{url}\" को हटाया नहीं जा सका क्योंकि यह मौजूदा उत्पाद निर्यात से जुड़ा हुआ है।",
             "messageSaveError": "बिक्री चैनल \"{name}\" सहेजा नहीं जा सका। कृपया अपनी प्रविष्टियों की जाँच करें।",
             "messageSaveSuccess": "बिक्री चैनल \"{name}\" बचाया।",
             "navigation": "नेविगेशन",
@@ -8277,7 +8334,18 @@
         "detail": {
             "buttonCancel": "रद्द करें",
             "buttonSave": "सहेजें",
+            "delete": {
+                "modal": {
+                    "buttonCancel": "रद्द करें",
+                    "buttonDelete": "मिटाएँ",
+                    "textConfirmation": "क्या आप वास्तव में इस भुगतान विधि को हटाना चाहते हैं?"
+                },
+                "textAlert": "इस भुगतान विधि का उपयोग नियमों, बिक्री चैनलों या आदेशों में किया जाता है और इसलिए इसे हटाया नहीं जा सकता है।",
+                "textButton": "भुगतान विधि मिटाएँ",
+                "textHeadline": "भुगतान विधि मिटाएँ"
+            },
             "helpTextTechnicalName": "तकनीकी नाम का उपयोग भुगतान विधि को संदर्भित करने के लिए किया जाता है। यह अद्वितीय है और संस्करण 6.7.0.0 के बाद से सभी भुगतान और शिपिंग विधियों के लिए आवश्यक है। तकनीकी नाम बदलने से मौजूदा भुगतान एकीकरण टूट सकते हैं।",
+            "hintTextTechnicalName": "संस्करण 6.7.0 के बाद से आवश्यक होगा",
             "labelActive": "सक्रिय",
             "labelAfterOrderEnabled": "चेकआउट के बाद भुगतान परिवर्तन की अनुमति दें",
             "labelDescription": "विवरण",
@@ -8712,6 +8780,7 @@
             "buttonSave": "सहेजें",
             "helpTextTechnicalName": "तकनीकी नाम का उपयोग विशिष्ट रूप से शिपिंग विधि की पहचान करने के लिए किया जाता है। तकनीकी नाम में बाद में बदलाव के कारण उस पर निर्भर शिपिंग इंटीग्रेशन अब काम नहीं कर सकते हैं।",
             "helpTextTrackingUrl": "शिपिंग प्रदाता का ट्रैकिंग URL दर्ज करें और प्लेसहोल्डर के रूप में \"%s\" डालें जहां वास्तविक ट्रैकिंग कोड होगा। ट्रैकिंग कोड स्वचालित रूप से अलग-अलग ऑर्डर से डाला जाता है।",
+            "hintTextTechnicalName": "संस्करण 6.7.0 के बाद से आवश्यक होगा",
             "labelActive": "सक्रिय",
             "labelBasicInfo": "बुनियादी जानकारी",
             "labelDeliveryTime": "डिलीवरी का समय",
@@ -9228,6 +9297,9 @@
             "textHeadline": "डेटा शेयरिंग"
         }
     },
+    "sw-settings-usage-data-general": {
+        "tabHeadline": "साधारण"
+    },
     "sw-shortcut-overview": {
         "function": "फंक्शन",
         "functionAddCategory": "श्रेणी जोड़ें",
@@ -9391,15 +9463,6 @@
             "textDeleteMultipleConfirm": "क्या आप निश्चित हैं कि आप \"{count}\" चयनित तत्वों को मिटाना चाहते हैं?"
         }
     },
-    "sw-usage-data": {
-        "sw-settings-usage-data-intro": {
-            "description": "हमें आपके शॉपवेयर प्रशासन से उपयोग डेटा एकत्र करने की अनुमति देकर बेहतर उत्पाद और सेवाएँ बनाने में मदद करें। नवीनतम गोपनीयता संरक्षण तकनीकों का उपयोग करते हुए, हम यह सुनिश्चित करते हैं कि एकत्रित डेटा आपके या आपकी दुकान से संबद्ध नहीं हो सकता। हम ग्राहक की कोई भी जानकारी एकत्र नहीं करते हैं।",
-            "headline": "सामूहिक रूप से शॉपवेयर में सुधार करना",
-            "learnMore": "और अधिक जानें",
-            "learnMoreUrl": "https://shopware.com/en/privacy/",
-            "title": "उपयोग डेटा"
-        }
-    },
     "sw-usage-data-consent-banner": {
         "acceptDataCollection": "मैं सहमत हूँ",
         "checkListDataSharing": {
@@ -9422,8 +9485,6 @@
             },
             "orderData": "डेटा ऑर्डर करें",
             "storeData": "डेटा स्टोर करें",
-            "title": "डेटा जो हम इकट्ठा कर रहे हैं:",
-            "titleNotAccepted": "डेटा हम एकत्रित करेंगे:",
             "usageData": "डेटा शेयरिंग"
         },
         "confirmAuthorization": "“सहमत” पर क्लिक करके, आप पुष्टि करते हैं कि आप अपनी कंपनी की ओर से इस अनुबंध में प्रवेश करने के लिए अधिकृत हैं।",

@@ -1,6 +1,9 @@
 {
     "entityCategories": {
         "additional_privileges": {
+            "entities": {
+                "api_feature_flag_toggle": "Chuyển đổi cờ tính năng API"
+            },
             "title": "Các quyền bổ sung"
         },
         "admin_user": {
@@ -497,6 +500,7 @@
             "INVALID_URL": "Vui lòng nhập một url hợp lệ.",
             "PARENT_MUST_NOT_BE_EMPTY": "Người thừa kế của trường này không được để trống.",
             "SHOPWARE_INVALID_IP": "Vui lòng nhập địa chỉ IP hợp lệ.",
+            "SHOPWARE_INVALID_IP_CIDR": "Vui lòng nhập địa chỉ IP hợp lệ hoặc địa chỉ IP hợp lệ với mặt nạ CIDR.",
             "c1051bb4-d103-4f74-8988-acbcafc7fdc3": "Trường này không được trống."
         },
         "notification": {
@@ -741,6 +745,7 @@
                 "orderCustomFieldRule": "Đặt hàng với trường tùy chỉnh",
                 "orderDeliveryStatusRule": "Trạng thái giao hàng",
                 "orderDocumentTypeRule": "Đặt hàng với tài liệu",
+                "orderDocumentTypeSentRule": "Đặt hàng với tài liệu đã gửi",
                 "orderStatusRule": "Trạng thái đơn hàng",
                 "orderTagRule": "Đặt hàng với thẻ",
                 "orderTotalAmountRule": "Tổng giá trị của các lệnh đã hoàn thành (đã thực hiện)",
@@ -839,6 +844,21 @@
                     "placeholder": "Chọn toán tử..."
                 }
             },
+            "customerDaysSinceFirstLogin": {
+                "daysPassed": {
+                    "placeholder": "@: sw-product.settingsForm.PlaceHolderTime"
+                }
+            },
+            "customerDaysSinceLastLogin": {
+                "daysPassed": {
+                    "placeholder": "@: sw-product.settingsForm.PlaceHolderTime"
+                }
+            },
+            "customerDaysSinceLastOrder": {
+                "daysPassed": {
+                    "placeholder": "@: sw-product.settingsForm.PlaceHolderTime"
+                }
+            },
             "customerEmail": {
                 "email": {
                     "placeholder": "@:global.sw-condition.condition.emailRule.placeholder"
@@ -879,11 +899,11 @@
                 }
             },
             "promotionCodeOfType": {
-                "promotionCodeOfType": {
+                "promotionCodeType": {
                     "options": {
-                        "fixed": "@:global.sw-condition.condition.promotionCodeOfTypeRule.fixed",
-                        "global": "@:global.sw-condition.condition.promotionCodeOfTypeRule.global",
-                        "individual": "@:global.sw-condition.condition.promotionCodeOfTypeRule.individual"
+                        "fixed": "@: global.sw-condition.condition.promotionCodeOfTyperule.Fixed",
+                        "global": "@: global.sw-condition.condition.promotioncodeoftyperule.global",
+                        "individual": "@: global.sw-condition.condition.promotioncodeoftyperule.individual"
                     }
                 }
             },
@@ -950,6 +970,9 @@
             "labelSettingsPreviewImages": "Hiện ảnh xem trước",
             "maximumSelectionExceed": "Số lượng tối đa các mục được chọn",
             "tooltipListSettings": "Thiết đặt danh sách"
+        },
+        "sw-desktop": {
+            "stagingBarText": "Cửa hàng đang ở chế độ dàn dựng."
         },
         "sw-duplicated-media": {
             "buttonRename": "Đổi tên tệp",
@@ -1165,26 +1188,26 @@
         },
         "sw-media-modal-folder-settings": {
             "labelDefaultFolder": "Vị trí phương tiện mặc định cho",
-            "labelEditList": "Sửa danh sách",
             "labelFolderName": "Tên",
             "labelGenerateThumbnails": "Tạo hình thu nhỏ cho thư mục này",
             "labelInheritSettings": "Kế thừa thiết đặt từ thư mục mẹ",
             "labelKeepProportions": "Giữ tỉ lệ khung hình",
             "labelSettings": "Thiết đặt",
-            "labelStopEdit": "Dừng chỉnh sửa",
             "labelSystem": "Thư mục hệ thống",
             "labelThumbnailQuality": "Chất lượng hình thu nhỏ",
             "labelThumbnailSize": "Kích thước hình thu nhỏ",
             "labelThumbnails": "Hình thu nhỏ",
             "notification": {
                 "error": {
-                    "message": "Lỗi trong khi lưu cài đặt."
+                    "message": "Lỗi trong khi lưu cài đặt.",
+                    "messageThumbnailSizeExisted": "Kích thước hình thu nhỏ đã tồn tại."
                 },
                 "success": {
                     "message": "Cài đặt đã được lưu."
                 }
             },
-            "placeholderDefaultFolder": "Chọn thực thể..."
+            "placeholderDefaultFolder": "Chọn thực thể...",
+            "tooltipCanNotDeleteThumbnailSize": "Kích thước hình thu nhỏ này không thể bị xóa vì nó hiện đang được sử dụng."
         },
         "sw-media-modal-move": {
             "buttonMove": "Di chuyển",
@@ -1301,7 +1324,9 @@
             "addIpAddress": "Thêm địa chỉ IP",
             "enterValidIp": "Vui lòng nhập địa chỉ IPv4 hoặc IPv6 hợp lệ",
             "knownIps": {
-                "you": "Bạn"
+                "you": "Bạn",
+                "youIPv6Block56": "Bạn và những người khác (cùng một trang cuối)",
+                "youIPv6Block64": "Bạn và những người khác (mạng gia đình)"
             }
         },
         "sw-multi-tag-select": {
@@ -2166,6 +2191,11 @@
                     "label": "Biểu mẫu"
                 }
             },
+            "html": {
+                "html": {
+                    "label": "HTML"
+                }
+            },
             "image": {
                 "image": {
                     "label": "Hình ảnh, đóng hộp"
@@ -2392,9 +2422,11 @@
                 "backgroundMediaModeContain": "Chứa",
                 "backgroundMediaModeCover": "Bìa",
                 "blockBottomMarginField": "Lề dưới",
+                "blockCategoryApp": "Ứng dụng",
                 "blockCategoryCommerce": "thương mại",
                 "blockCategoryFavorite": "Yêu thích",
                 "blockCategoryForm": "Biểu mẫu",
+                "blockCategoryHtml": "HTML",
                 "blockCategoryImage": "Hình ảnh",
                 "blockCategorySelection": "Thể loại khối",
                 "blockCategorySidebar": "Thanh bên",
@@ -2565,6 +2597,13 @@
                         "subject": "Dòng chủ đề*",
                         "subscribeToNewsletter": "Đăng ký nhận bản tin"
                     },
+                    "newsletter": {
+                        "label": {
+                            "firstName": "Tên",
+                            "lastName": "Họ",
+                            "salutation": "Lời chào"
+                        }
+                    },
                     "placeholder": {
                         "email": "john {'@'} doe.com",
                         "firstName": "John",
@@ -2627,10 +2666,17 @@
                     }
                 }
             },
+            "html": {
+                "config": {
+                    "warning": "Mã HTML không được lọc có thể dẫn đến rủi ro bảo mật. Vui lòng chỉ chèn mã HTML từ các nguồn đáng tin cậy và kiểm tra các thay đổi của bạn trước khi xuất bản chúng."
+                },
+                "label": "HTML"
+            },
             "image": {
                 "config": {
                     "label": {
                         "linkNewTab": "Mở liên kết trong tab mới",
+                        "linkTo": "Mục tiêu liên kết",
                         "minHeight": "Chiều cao tối thiểu",
                         "minHeightHelpText": "Nhập chiều cao tối thiểu với đơn vị mong muốn của bạn. Ví dụ: 200px"
                     },
@@ -2866,6 +2912,7 @@
             "placeholderSearchBar": "Tìm kiếm bố trí..."
         },
         "list": {
+            "gridHeaderAssignedPages": "Các trang được chỉ định",
             "gridHeaderAssignment": "Danh mục được gán",
             "gridHeaderAssignments": "Bài tập",
             "gridHeaderCreated": "Đã tạo",
@@ -3046,6 +3093,7 @@
         "baseInfo": {
             "contactEmail": "Địa chỉ email",
             "contentActive": "Đang hoạt động | Không hoạt động",
+            "contentConfirmed": "Đã xác nhận | Chưa xác nhận",
             "emptyBoundSalesChannel": "Tất cả",
             "emptyTextBirthday": "Không có thông tin",
             "emptyTextLogin": "Chưa đăng nhập",
@@ -3056,6 +3104,7 @@
             "labelBoundSalesChannel": "Kênh bán hàng",
             "labelCampaignCode": "Mã chiến dịch",
             "labelCompany": "Công ty",
+            "labelConfirmed": "Trạng thái địa chỉ email",
             "labelCustomerGroup": "Nhóm khách hàng",
             "labelCustomerNumber": "Số khách hàng",
             "labelDefaultPayment": "Phương thức thanh toán mặc định",
@@ -4344,6 +4393,7 @@
             "exportActivityLabel": "Hoạt động xuất",
             "exportLabel": "Xuất",
             "exportVariants": "Xuất các biến thể sản phẩm",
+            "messageExportError": "Không thể tạo tệp xuất | Không thể tạo tệp xuất. Vui lòng tải xuống tệp “hồ sơ không hợp lệ” hoặc thêm thông tin.",
             "messageExportStarted": "Xuất bắt đầu.",
             "messageExportSuccess": "Xuất \"{profile}\" đã hoàn tất.",
             "showLogLabel": "Hiển thị tệp nhật ký",
@@ -4569,6 +4619,9 @@
                 "labelSocialMediaDescription": "Mô tả",
                 "labelSocialMediaTitle": "Tiêu đề",
                 "labelUrl": "URL SEO",
+                "notification": {
+                    "noLayoutAssigned": "Đối với trang đích này, không có bố cục nào được chỉ định. Nếu không có bố cục, trang đích không thể truy cập được thông qua SEO."
+                },
                 "placeholderKeywords": "Nhập một hoặc nhiều từ khóa...",
                 "placeholderMetaDescription": "Nhập mô tả meta...",
                 "placeholderMetaTitle": "Nhập meta title...",
@@ -5608,6 +5661,7 @@
                 "api_action_cache_index": "Bộ chỉ mục kích hoạt",
                 "api_action_cache_info": "Đọc thông tin bộ nhớ cache",
                 "api_action_container-cache_delete": "Xóa bộ nhớ cache vùng chứa",
+                "api_feature_flag_toggle": "Chuyển đổi cờ tính năng",
                 "api_info_me": "Đọc thông tin người dùng api riêng",
                 "api_info_ping": "Làm mới mã thông báo xác nhận",
                 "api_proxy_switch-customer": "Hành động thay mặt cho khách hàng",
@@ -6198,6 +6252,7 @@
             "placeholderReleaseDate": "Nhập ngày phát hành...",
             "placeholderRestockTime": "Nhập thời gian restock theo ngày...",
             "placeholderStock": "Nhập số lượng trong kho...",
+            "placeholderTime": "ví dụ: 31...",
             "placeholderWeight": "Ví dụ: 0,4...",
             "placeholderWidth": "Ví dụ: 500..."
         },
@@ -6320,6 +6375,7 @@
             "closeModal": "Nộp đơn",
             "columnAll": "Có thể nhìn thấy",
             "columnLinkOnly": "Ẩn trong Danh sách và tìm kiếm",
+            "columnSalesChannel": "Kênh bán hàng",
             "columnSearchOnly": "Ẩn trong Danh sách",
             "errorMessage": "Không thể tải cấu hình kênh bán hàng mặc định.",
             "labelVisibility": "Kênh bán hàng",
@@ -7177,6 +7233,7 @@
             "maintenanceModeTitle": "Chế độ bảo trì",
             "messageAPIError": "Không thể tạo khóa truy cập API.",
             "messageActivateWithoutThemeError": "Không thể kích hoạt kênh bán hàng \"{name}\". Kênh bán hàng đang hoạt động cần phải có một chủ đề được liên kết.",
+            "messageDeleteDomainError": "Không thể xóa tên miền \"{url}\" vì nó được liên kết với các sản phẩm xuất hiện có.",
             "messageSaveError": "Không thể lưu kênh bán hàng \"{name}\". Vui lòng kiểm tra mục nhập của bạn.",
             "messageSaveSuccess": "Kênh bán hàng \"{name}\" đã lưu.",
             "navigation": "Điều hướng",
@@ -8277,7 +8334,18 @@
         "detail": {
             "buttonCancel": "Hủy",
             "buttonSave": "Lưu",
+            "delete": {
+                "modal": {
+                    "buttonCancel": "Hủy",
+                    "buttonDelete": "Xoá",
+                    "textConfirmation": "Bạn có thực sự muốn xóa phương thức thanh toán này không?"
+                },
+                "textAlert": "Phương thức thanh toán này được sử dụng trong các quy tắc, Kênh bán hàng hoặc đơn đặt hàng và do đó không thể bị xóa.",
+                "textButton": "Xóa phương thức thanh toán",
+                "textHeadline": "Xóa phương thức thanh toán"
+            },
             "helpTextTechnicalName": "Tên kỹ thuật được sử dụng để tham chiếu phương thức thanh toán. Nó là duy nhất và bắt buộc cho tất cả các phương thức thanh toán và vận chuyển từ phiên bản 6.7.0.0 trở đi. Thay đổi tên kỹ thuật có thể phá vỡ các tích hợp thanh toán hiện có.",
+            "hintTextTechnicalName": "Sẽ được yêu cầu từ phiên bản 6.7.0 trở đi",
             "labelActive": "Đang hoạt động",
             "labelAfterOrderEnabled": "Cho phép thay đổi thanh toán sau khi thanh toán",
             "labelDescription": "Mô tả",
@@ -8712,6 +8780,7 @@
             "buttonSave": "Lưu",
             "helpTextTechnicalName": "Tên kỹ thuật được sử dụng để xác định duy nhất phương thức vận chuyển. Một sự thay đổi tiếp theo đối với tên kỹ thuật có thể khiến các tích hợp vận chuyển dựa vào nó không còn hoạt động nữa.",
             "helpTextTrackingUrl": "Nhập URL theo dõi của nhà cung cấp dịch vụ vận chuyển và chèn \"%s\" làm chỗ chứa mã theo dõi thực tế. Mã theo dõi được tự động chèn từ các đơn đặt hàng riêng lẻ.",
+            "hintTextTechnicalName": "Sẽ được yêu cầu từ phiên bản 6.7.0 trở đi",
             "labelActive": "Đang hoạt động",
             "labelBasicInfo": "Thông tin cơ bản",
             "labelDeliveryTime": "Thời gian giao hàng",
@@ -9228,6 +9297,9 @@
             "textHeadline": "Chia sẻ dữ liệu"
         }
     },
+    "sw-settings-usage-data-general": {
+        "tabHeadline": "Chung"
+    },
     "sw-shortcut-overview": {
         "function": "Hàm",
         "functionAddCategory": "Thêm thể loại",
@@ -9391,15 +9463,6 @@
             "textDeleteMultipleConfirm": "Bạn có chắc muốn xóa các phần tử \"{count}\" được chọn không?"
         }
     },
-    "sw-usage-data": {
-        "sw-settings-usage-data-intro": {
-            "description": "Giúp chúng tôi xây dựng các sản phẩm và dịch vụ tốt hơn bằng cách cho phép chúng tôi thu thập dữ liệu sử dụng từ Quản trị phần mềm mua sắm của bạn. Sử dụng các kỹ thuật bảo vệ quyền riêng tư mới nhất, chúng tôi đảm bảo rằng dữ liệu thu thập được không thể được liên kết với bạn hoặc cửa hàng của bạn. Chúng tôi không thu thập bất kỳ thông tin khách hàng nào.",
-            "headline": "Cải thiện Shopware tập thể",
-            "learnMore": "Tìm hiểu thêm",
-            "learnMoreUrl": "https://shopware.com/en/privacy/",
-            "title": "Dữ liệu sử dụng"
-        }
-    },
     "sw-usage-data-consent-banner": {
         "acceptDataCollection": "Đồng ý",
         "checkListDataSharing": {
@@ -9422,8 +9485,6 @@
             },
             "orderData": "Dữ liệu đặt hàng",
             "storeData": "Lưu trữ dữ liệu",
-            "title": "Dữ liệu chúng tôi đang thu thập:",
-            "titleNotAccepted": "Dữ liệu chúng tôi sẽ thu thập:",
             "usageData": "Chia sẻ dữ liệu"
         },
         "confirmAuthorization": "Bằng cách nhấp vào “Đồng ý”, bạn xác nhận rằng bạn được ủy quyền tham gia vào thỏa thuận này thay mặt cho công ty của bạn.",

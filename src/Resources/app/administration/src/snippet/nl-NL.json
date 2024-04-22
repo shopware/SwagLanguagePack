@@ -1,6 +1,9 @@
 {
     "entityCategories": {
         "additional_privileges": {
+            "entities": {
+                "api_feature_flag_toggle": "Schakel tussen de vlaggen van de API-functie"
+            },
             "title": "Aanvullende bevoegdheden"
         },
         "admin_user": {
@@ -497,6 +500,7 @@
             "INVALID_URL": "Vul een geldige URL in.",
             "PARENT_MUST_NOT_BE_EMPTY": "De erfgenaam van dit veld mag niet leeg zijn.",
             "SHOPWARE_INVALID_IP": "Vul een geldig IP-adres in.",
+            "SHOPWARE_INVALID_IP_CIDR": "Voer een geldig IP-adres of een geldig IP-adres met een CIDR-masker in.",
             "c1051bb4-d103-4f74-8988-acbcafc7fdc3": "Dit veld mag niet leeg zijn."
         },
         "notification": {
@@ -741,6 +745,7 @@
                 "orderCustomFieldRule": "Bestellen met een aangepast veld",
                 "orderDeliveryStatusRule": "Leveringsstatus",
                 "orderDocumentTypeRule": "Bestellen met document",
+                "orderDocumentTypeSentRule": "Bestelling met verzonden document",
                 "orderStatusRule": "Bestelstatus",
                 "orderTagRule": "Bestellen met tag",
                 "orderTotalAmountRule": "Totale waarde van voltooide (voltooide) bestellingen",
@@ -839,6 +844,21 @@
                     "placeholder": "Selecteer de operator..."
                 }
             },
+            "customerDaysSinceFirstLogin": {
+                "daysPassed": {
+                    "placeholder": "@:sw-product.settingsform.PlaceholderTime"
+                }
+            },
+            "customerDaysSinceLastLogin": {
+                "daysPassed": {
+                    "placeholder": "@:sw-product.settingsform.PlaceholderTime"
+                }
+            },
+            "customerDaysSinceLastOrder": {
+                "daysPassed": {
+                    "placeholder": "@:sw-product.settingsform.PlaceholderTime"
+                }
+            },
             "customerEmail": {
                 "email": {
                     "placeholder": "@:global.sw-condition.condition.emailRule.placeholder"
@@ -879,11 +899,11 @@
                 }
             },
             "promotionCodeOfType": {
-                "promotionCodeOfType": {
+                "promotionCodeType": {
                     "options": {
-                        "fixed": "@:global.sw-condition.condition.promotionCodeOfTypeRule.fixed",
-                        "global": "@:global.sw-condition.condition.promotionCodeOfTypeRule.global",
-                        "individual": "@:global.sw-condition.condition.promotionCodeOfTypeRule.individual"
+                        "fixed": "@:global.sw-condition.condition.Promotiecode van het type ULE.Fixed",
+                        "global": "@:global.sw-condition.condition.Promotiecode van het type Ule.global",
+                        "individual": "@:global.sw-condition.Condition.Promotiecode van het type ULE.Individual"
                     }
                 }
             },
@@ -950,6 +970,9 @@
             "labelSettingsPreviewImages": "Voorbeelden tonen",
             "maximumSelectionExceed": "Maximaal aantal geselecteerde items",
             "tooltipListSettings": "Lijstinstellingen"
+        },
+        "sw-desktop": {
+            "stagingBarText": "De winkel bevindt zich in de staging-modus."
         },
         "sw-duplicated-media": {
             "buttonRename": "Bestandsnaam wijzigen",
@@ -1165,26 +1188,26 @@
         },
         "sw-media-modal-folder-settings": {
             "labelDefaultFolder": "Standaardmedialocatie voor",
-            "labelEditList": "Lijst bewerken",
             "labelFolderName": "Naam",
             "labelGenerateThumbnails": "Thumbnails voor deze map genereren",
             "labelInheritSettings": "Instellingen van bovenliggende map overnemen",
             "labelKeepProportions": "Hoogte-breedteverhouding bewaren",
             "labelSettings": "Instellingen",
-            "labelStopEdit": "Bewerken beëindigen",
             "labelSystem": "Systeemmap",
             "labelThumbnailQuality": "Thumbnail-kwaliteit",
             "labelThumbnailSize": "Thumbnail grootte",
             "labelThumbnails": "Thumbnails",
             "notification": {
                 "error": {
-                    "message": "Fout bij het opslaan van de instellingen."
+                    "message": "Fout bij het opslaan van de instellingen.",
+                    "messageThumbnailSizeExisted": "De miniatuurgrootte bestaat al."
                 },
                 "success": {
                     "message": "Instellingen opgeslagen."
                 }
             },
-            "placeholderDefaultFolder": "Entiteit selecteren..."
+            "placeholderDefaultFolder": "Entiteit selecteren...",
+            "tooltipCanNotDeleteThumbnailSize": "Deze miniatuurgrootte kan niet worden verwijderd omdat deze momenteel in gebruik is."
         },
         "sw-media-modal-move": {
             "buttonMove": "Verplaatsen",
@@ -1301,7 +1324,9 @@
             "addIpAddress": "IP-adres toevoegen",
             "enterValidIp": "Voer een geldig IPv4- of IPv6-adres in",
             "knownIps": {
-                "you": "Jij"
+                "you": "Jij",
+                "youIPv6Block56": "Jij en anderen (dezelfde eindsite)",
+                "youIPv6Block64": "Jij en anderen (thuisnetwerk)"
             }
         },
         "sw-multi-tag-select": {
@@ -1547,7 +1572,7 @@
         "applyChanges": "Wijzigingen toepassen",
         "changeTypes": {
             "add": "Aanmaken",
-            "clear": "Verwijderen",
+            "clear": "Leeghalen",
             "overwrite": "Overschrijven",
             "remove": "Verwijderen"
         },
@@ -2166,6 +2191,11 @@
                     "label": "Formulier"
                 }
             },
+            "html": {
+                "html": {
+                    "label": "HTML"
+                }
+            },
             "image": {
                 "image": {
                     "label": "Afbeelding, ingesloten"
@@ -2392,9 +2422,11 @@
                 "backgroundMediaModeContain": "Bevatten",
                 "backgroundMediaModeCover": "Bedekking",
                 "blockBottomMarginField": "Ondermarge",
+                "blockCategoryApp": "Apps",
                 "blockCategoryCommerce": "Handel",
                 "blockCategoryFavorite": "Favorieten",
                 "blockCategoryForm": "Formulier",
+                "blockCategoryHtml": "HTML",
                 "blockCategoryImage": "Afbeeldingen",
                 "blockCategorySelection": "Blokcategorie",
                 "blockCategorySidebar": "Zijbalk",
@@ -2565,6 +2597,13 @@
                         "subject": "Onderwerp*",
                         "subscribeToNewsletter": "Nieuwsbrief abonneren"
                     },
+                    "newsletter": {
+                        "label": {
+                            "firstName": "Voornaam",
+                            "lastName": "Achternaam",
+                            "salutation": "Aanhef"
+                        }
+                    },
                     "placeholder": {
                         "email": "john {'@'} doe.com",
                         "firstName": "Jan",
@@ -2627,10 +2666,17 @@
                     }
                 }
             },
+            "html": {
+                "config": {
+                    "warning": "Ongefilterde HTML-code kan leiden tot veiligheidsrisico's. Voeg alleen HTML-code van betrouwbare bronnen in en test je wijzigingen voordat je ze publiceert."
+                },
+                "label": "HTML"
+            },
             "image": {
                 "config": {
                     "label": {
                         "linkNewTab": "Open link in nieuw tabblad",
+                        "linkTo": "Doel van de link",
                         "minHeight": "Minimale hoogte",
                         "minHeightHelpText": "Voer de minimale hoogte in bij de gewenste eenheid. Bijvoorbeeld: 200px"
                     },
@@ -2866,6 +2912,7 @@
             "placeholderSearchBar": "Lay-outs zoeken..."
         },
         "list": {
+            "gridHeaderAssignedPages": "Toegewezen pagina's",
             "gridHeaderAssignment": "Toegewezen categorieën",
             "gridHeaderAssignments": "Opdrachten",
             "gridHeaderCreated": "Aangemaakt",
@@ -3046,6 +3093,7 @@
         "baseInfo": {
             "contactEmail": "E-mailadres",
             "contentActive": "Actief | Inactief",
+            "contentConfirmed": "Bevestigd | Onbevestigd",
             "emptyBoundSalesChannel": "Alle",
             "emptyTextBirthday": "niet opgegeven",
             "emptyTextLogin": "nog geen login",
@@ -3056,6 +3104,7 @@
             "labelBoundSalesChannel": "Kanaal voor verkoop",
             "labelCampaignCode": "Campagnecode",
             "labelCompany": "Bedrijfsnaam",
+            "labelConfirmed": "Status van het e-mailadres",
             "labelCustomerGroup": "Klantgroep",
             "labelCustomerNumber": "Klantnummer",
             "labelDefaultPayment": "Standaard betaalwijze",
@@ -4344,6 +4393,7 @@
             "exportActivityLabel": "Exportactiviteit",
             "exportLabel": "Export",
             "exportVariants": "Productvarianten exporteren",
+            "messageExportError": "Exportbestand kon niet worden aangemaakt. | Exportbestand kon niet worden aangemaakt. Download het bestand „ongeldige records” of meer informatie.",
             "messageExportStarted": "Exporteren is begonnen.",
             "messageExportSuccess": "Export \"{profile}\" voltooid.",
             "showLogLabel": "Log tonen",
@@ -4569,6 +4619,9 @@
                 "labelSocialMediaDescription": "Beschrijving",
                 "labelSocialMediaTitle": "Titel",
                 "labelUrl": "SEO URL",
+                "notification": {
+                    "noLayoutAssigned": "Voor deze landingspagina is geen lay-out toegewezen. Zonder een lay-out is de landingspagina niet toegankelijk via SEO."
+                },
                 "placeholderKeywords": "Voer een of meer trefwoorden in...",
                 "placeholderMetaDescription": "Voer een metabeschrijving in...",
                 "placeholderMetaTitle": "Voer de meta titel in...",
@@ -5608,6 +5661,7 @@
                 "api_action_cache_index": "Trigger indexer",
                 "api_action_cache_info": "Cache info lezen",
                 "api_action_container-cache_delete": "Containercache verwijderen",
+                "api_feature_flag_toggle": "Functievlaggen in- en uitschakelen",
                 "api_info_me": "Eigen API-gebruikersinfo lezen",
                 "api_info_ping": "Auth-token vernieuwen",
                 "api_proxy_switch-customer": "Handelen namens een klant",
@@ -5878,7 +5932,7 @@
             "tabProperties": "Eigenschappen toewijzen",
             "tabReviews": "Beoordelingen",
             "tabSeo": "SEO",
-            "tabSpecifications": "specificaties",
+            "tabSpecifications": "Specificaties",
             "tabVariation": "Varianten",
             "textHeadline": "Nieuw product"
         },
@@ -6198,6 +6252,7 @@
             "placeholderReleaseDate": "Voer een publicatiedatum in …",
             "placeholderRestockTime": "Opvulinterval ...",
             "placeholderStock": "Voer een magazijnvoorraad in …",
+            "placeholderTime": "bijvoorbeeld 31...",
             "placeholderWeight": "bijv. 0,4 ...",
             "placeholderWidth": "bijv. 500 ..."
         },
@@ -6320,6 +6375,7 @@
             "closeModal": "Toepassen",
             "columnAll": "zichtbaar",
             "columnLinkOnly": "Verbergen in aanbiedingen en zoeken",
+            "columnSalesChannel": "Verkoopkanaal",
             "columnSearchOnly": "Verbergen in aanbiedingen",
             "errorMessage": "Kan standaardconfiguratie voor verkoopkanaal niet laden.",
             "labelVisibility": "Zichtbaarheid",
@@ -7177,6 +7233,7 @@
             "maintenanceModeTitle": "Onderhoudsmodus",
             "messageAPIError": "De API-sleutel kon niet worden gegenereerd.",
             "messageActivateWithoutThemeError": "Het verkoopkanaal \"{name}\" kan nog niet geactiveerd worden. Actieve verkoopkanalen moeten aan een theme gekoppeld worden.",
+            "messageDeleteDomainError": "Het domein \"{url}\" kon niet worden verwijderd omdat het gekoppeld is aan bestaande productexporten.",
             "messageSaveError": "Het verkoopkanaal \"{name}\" kon niet worden opgeslagen. Controleer je ingevoerde gegevens.",
             "messageSaveSuccess": "Verkoopkanaal \"{name}\" opgeslagen.",
             "navigation": "Navigatie",
@@ -8277,7 +8334,18 @@
         "detail": {
             "buttonCancel": "Annuleren",
             "buttonSave": "Opslaan",
+            "delete": {
+                "modal": {
+                    "buttonCancel": "Annuleren",
+                    "buttonDelete": "Verwijderen",
+                    "textConfirmation": "Wil je deze betaalmethode echt verwijderen?"
+                },
+                "textAlert": "Deze betaalmethode wordt gebruikt in regels, verkoopkanalen of bestellingen en kan daarom niet worden verwijderd.",
+                "textButton": "Betaalmethode verwijderen",
+                "textHeadline": "Betaalmethode verwijderen"
+            },
             "helpTextTechnicalName": "De technische naam wordt gebruikt om naar de betalingsmethode te verwijzen. Het is uniek en vereist voor alle betalings- en verzendmethoden vanaf versie 6.7.0.0. Het wijzigen van de technische naam kan bestaande betalingsintegraties verbreken.",
+            "hintTextTechnicalName": "Is vereist vanaf versie 6.7.0",
             "labelActive": "Actief",
             "labelAfterOrderEnabled": "Als betaalwijze achteraf accepteren ",
             "labelDescription": "Beschrijving",
@@ -8712,6 +8780,7 @@
             "buttonSave": "Opslaan",
             "helpTextTechnicalName": "De technische naam wordt gebruikt om de verzendmethode uniek te identificeren. Een latere wijziging van de technische naam kan ertoe leiden dat verzendintegraties die ervan afhankelijk zijn, niet meer werken.",
             "helpTextTrackingUrl": "Voer de tracking-URL van de verzendprovider in en plaats \"%s\" als tijdelijke aanduiding waar de daadwerkelijke trackingcode zou staan. De trackingcode wordt automatisch ingevoegd bij de afzonderlijke bestellingen.",
+            "hintTextTechnicalName": "Is vereist vanaf versie 6.7.0",
             "labelActive": "Actief",
             "labelBasicInfo": "Basisinformatie",
             "labelDeliveryTime": "Levertijd",
@@ -9228,6 +9297,9 @@
             "textHeadline": "Het delen van gegevens"
         }
     },
+    "sw-settings-usage-data-general": {
+        "tabHeadline": "Generaal"
+    },
     "sw-shortcut-overview": {
         "function": "Functie",
         "functionAddCategory": "Categorie toevoegen",
@@ -9391,15 +9463,6 @@
             "textDeleteMultipleConfirm": "Wil je de \"{count}\" geselecteerde elementen echt verwijderen?"
         }
     },
-    "sw-usage-data": {
-        "sw-settings-usage-data-intro": {
-            "description": "Help ons om betere producten en diensten te bouwen door ons in staat te stellen gebruiksgegevens te verzamelen uit uw Shopware-administratie. Met behulp van de nieuwste technieken voor het behoud van de privacy zorgen we ervoor dat de verzamelde gegevens niet aan u of uw winkel kunnen worden gekoppeld. We verzamelen geen klantinformatie.",
-            "headline": "Shopware collectief verbeteren",
-            "learnMore": "Leer meer",
-            "learnMoreUrl": "https://shopware.com/en/privacy/",
-            "title": "Gebruiksgegevens"
-        }
-    },
     "sw-usage-data-consent-banner": {
         "acceptDataCollection": "Mee eens",
         "checkListDataSharing": {
@@ -9422,8 +9485,6 @@
             },
             "orderData": "Bestelgegevens",
             "storeData": "Gegevens opslaan",
-            "title": "Gegevens die we verzamelen:",
-            "titleNotAccepted": "Gegevens die we zullen verzamelen:",
             "usageData": "Het delen van gegevens"
         },
         "confirmAuthorization": "Door op „Akkoord” te klikken, bevestigt u dat u bevoegd bent om deze overeenkomst namens uw bedrijf aan te gaan.",

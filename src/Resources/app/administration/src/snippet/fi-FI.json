@@ -1,6 +1,9 @@
 {
     "entityCategories": {
         "additional_privileges": {
+            "entities": {
+                "api_feature_flag_toggle": "API-ominaisuuden lipun vaihto"
+            },
             "title": "Lisäoikeudet"
         },
         "admin_user": {
@@ -497,6 +500,7 @@
             "INVALID_URL": "Kirjoita kelvollinen URL-osoite.",
             "PARENT_MUST_NOT_BE_EMPTY": "Tämän kentän perillinen ei saa olla tyhjä.",
             "SHOPWARE_INVALID_IP": "Anna kelvollinen IP-osoite.",
+            "SHOPWARE_INVALID_IP_CIDR": "Anna kelvollinen IP-osoite tai kelvollinen IP-osoite, jossa on CIDR-peite.",
             "c1051bb4-d103-4f74-8988-acbcafc7fdc3": "Tämä kenttä ei saa olla tyhjä."
         },
         "notification": {
@@ -741,6 +745,7 @@
                 "orderCustomFieldRule": "Tilaa mukautetulla kentällä",
                 "orderDeliveryStatusRule": "Toimituksen tila",
                 "orderDocumentTypeRule": "Tilaa asiakirjalla",
+                "orderDocumentTypeSentRule": "Tilaa lähetetyllä asiakirjalla",
                 "orderStatusRule": "Tilauksen tila",
                 "orderTagRule": "Tilaa tunnisteella",
                 "orderTotalAmountRule": "Valmiiden (tehtyjen) tilausten kokonaisarvo",
@@ -839,6 +844,21 @@
                     "placeholder": "Valitse operaattori..."
                 }
             },
+            "customerDaysSinceFirstLogin": {
+                "daysPassed": {
+                    "placeholder": "@:sw-product.settingsform.placeholderTime"
+                }
+            },
+            "customerDaysSinceLastLogin": {
+                "daysPassed": {
+                    "placeholder": "@:sw-product.settingsform.placeholderTime"
+                }
+            },
+            "customerDaysSinceLastOrder": {
+                "daysPassed": {
+                    "placeholder": "@:sw-product.settingsform.placeholderTime"
+                }
+            },
             "customerEmail": {
                 "email": {
                     "placeholder": "@:global.sw-condition.condition.emailRule.placeholder"
@@ -879,11 +899,11 @@
                 }
             },
             "promotionCodeOfType": {
-                "promotionCodeOfType": {
+                "promotionCodeType": {
                     "options": {
-                        "fixed": "@:global.sw-condition.condition.promotionCodeOfTypeRule.fixed",
-                        "global": "@:global.sw-condition.condition.promotionCodeOfTypeRule.global",
-                        "individual": "@:global.sw-condition.condition.promotionCodeOfTypeRule.individual"
+                        "fixed": "@: global.sw-Condition.Condition.PromotionCodeOfTyperule.Fixed",
+                        "global": "@:global.sw-Condition.Condition.PromotionCodeOfTyperule.global",
+                        "individual": "@:global.sw-Condition.Condition.PromotionCodeOfTyperule.individual"
                     }
                 }
             },
@@ -950,6 +970,9 @@
             "labelSettingsPreviewImages": "Näytä esikatselu",
             "maximumSelectionExceed": "Valittujen kohteiden enimmäismäärä",
             "tooltipListSettings": "Luettelon asetukset"
+        },
+        "sw-desktop": {
+            "stagingBarText": "Kauppa on lavastustilassa."
         },
         "sw-duplicated-media": {
             "buttonRename": "Nimeä tiedosto uudelleen",
@@ -1165,26 +1188,26 @@
         },
         "sw-media-modal-folder-settings": {
             "labelDefaultFolder": "Median oletussijainti",
-            "labelEditList": "Muokkaa luettelo",
             "labelFolderName": "Nimi",
             "labelGenerateThumbnails": "Luo miniatyyrejä tälle kansiolle",
             "labelInheritSettings": "Peri asetukset pääkansiosta",
             "labelKeepProportions": "Pidä kuvasuhde",
             "labelSettings": "Asetukset",
-            "labelStopEdit": "Lopeta muokkaaminen",
             "labelSystem": "Järjestelmäkansio",
             "labelThumbnailQuality": "Miniatyyrien laatu",
             "labelThumbnailSize": "Pikkukuvan koko",
             "labelThumbnails": "Miniatyyrit",
             "notification": {
                 "error": {
-                    "message": "Virhe tallennettaessa asetuksia."
+                    "message": "Virhe tallennettaessa asetuksia.",
+                    "messageThumbnailSizeExisted": "Pikkukuvan koko on jo olemassa."
                 },
                 "success": {
                     "message": "Asetukset on tallennettu."
                 }
             },
-            "placeholderDefaultFolder": "Valitse entiteetti..."
+            "placeholderDefaultFolder": "Valitse entiteetti...",
+            "tooltipCanNotDeleteThumbnailSize": "Tätä pikkukuvakokoa ei voi poistaa, koska se on tällä hetkellä käytössä."
         },
         "sw-media-modal-move": {
             "buttonMove": "Siirrä",
@@ -1301,7 +1324,9 @@
             "addIpAddress": "Lisää IP-osoite",
             "enterValidIp": "Anna kelvollinen IPv4- tai IPv6-osoite",
             "knownIps": {
-                "you": "Sinä"
+                "you": "Sinä",
+                "youIPv6Block56": "Sinä ja muut (sama loppusivusto)",
+                "youIPv6Block64": "Sinä ja muut (kotiverkko)"
             }
         },
         "sw-multi-tag-select": {
@@ -2166,6 +2191,11 @@
                     "label": "Lomake"
                 }
             },
+            "html": {
+                "html": {
+                    "label": "HTML"
+                }
+            },
             "image": {
                 "image": {
                     "label": "Kuva, laatikkomainen"
@@ -2392,9 +2422,11 @@
                 "backgroundMediaModeContain": "Sisältää",
                 "backgroundMediaModeCover": "Kansi",
                 "blockBottomMarginField": "Alaraja",
+                "blockCategoryApp": "Sovellukset",
                 "blockCategoryCommerce": "kaupankäynti",
                 "blockCategoryFavorite": "Suosikit",
                 "blockCategoryForm": "Lomake",
+                "blockCategoryHtml": "HTML",
                 "blockCategoryImage": "Kuvat",
                 "blockCategorySelection": "Lohko luokka",
                 "blockCategorySidebar": "Sivupalkki",
@@ -2565,6 +2597,13 @@
                         "subject": "Aiherivi*",
                         "subscribeToNewsletter": "Tilaa uutiskirje"
                     },
+                    "newsletter": {
+                        "label": {
+                            "firstName": "Etunimi",
+                            "lastName": "Sukunimi",
+                            "salutation": "Tervehdys"
+                        }
+                    },
                     "placeholder": {
                         "email": "john {'@'} doe.com",
                         "firstName": "John",
@@ -2627,10 +2666,17 @@
                     }
                 }
             },
+            "html": {
+                "config": {
+                    "warning": "Suodattamaton HTML-koodi voi johtaa turvallisuusriskeihin. Lisää HTML-koodi vain luotettavista lähteistä ja testaa muutokset ennen niiden julkaisemista."
+                },
+                "label": "HTML"
+            },
             "image": {
                 "config": {
                     "label": {
                         "linkNewTab": "Avaa linkki uuteen välilehteen",
+                        "linkTo": "Linkkikohde",
                         "minHeight": "Vähimmäiskorkeus",
                         "minHeightHelpText": "Syötä minimikorkeus haluamallasi yksiköllä. Esimerkiksi: 200px"
                     },
@@ -2866,6 +2912,7 @@
             "placeholderSearchBar": "Etsi asetteluja..."
         },
         "list": {
+            "gridHeaderAssignedPages": "Määritetyt sivut",
             "gridHeaderAssignment": "Määritetyt luok",
             "gridHeaderAssignments": "Tehtävät",
             "gridHeaderCreated": "Luonut",
@@ -3046,6 +3093,7 @@
         "baseInfo": {
             "contactEmail": "Sähköpostiosoite",
             "contentActive": "Aktiivinen | Passiivinen",
+            "contentConfirmed": "Vahvistettu | Vahvistamaton",
             "emptyBoundSalesChannel": "Kaikki",
             "emptyTextBirthday": "Ei tietoa",
             "emptyTextLogin": "Ei kirjautumista vielä",
@@ -3056,6 +3104,7 @@
             "labelBoundSalesChannel": "Myyntikanava",
             "labelCampaignCode": "Kampanjan koodi",
             "labelCompany": "Yritys",
+            "labelConfirmed": "Sähköpostiosoitteen tila",
             "labelCustomerGroup": "Asiakasryhmä",
             "labelCustomerNumber": "Asiakkaan numero",
             "labelDefaultPayment": "Maksutapa oletusarvoisesti",
@@ -4344,6 +4393,7 @@
             "exportActivityLabel": "Vientitoiminta",
             "exportLabel": "vienti",
             "exportVariants": "Tuotteiden vientituot",
+            "messageExportError": "Vientitiedostoa ei voitu luoda. | Vientitiedostoa ei voitu luoda. Lataa ”virheelliset tietueet” -tiedosto tai lisätietoja.",
             "messageExportStarted": "Vienti alkoi.",
             "messageExportSuccess": "Vie \"{profile}\" valmis.",
             "showLogLabel": "Näytä logitiedosto",
@@ -4569,6 +4619,9 @@
                 "labelSocialMediaDescription": "Kuvaus",
                 "labelSocialMediaTitle": "Nimike",
                 "labelUrl": "SEO URL",
+                "notification": {
+                    "noLayoutAssigned": "Tälle aloitussivulle ei ole määritetty asettelua. Ilman asettelua aloitussivulle ei pääse hakukoneoptimoinnin kautta."
+                },
                 "placeholderKeywords": "Kirjoita yksi tai useampi avainsana...",
                 "placeholderMetaDescription": "Kirjoita metakuvaus...",
                 "placeholderMetaTitle": "Kirjoita meta title...",
@@ -5608,6 +5661,7 @@
                 "api_action_cache_index": "Liipaisimen indeksointi",
                 "api_action_cache_info": "Lue välimuistin tiedot",
                 "api_action_container-cache_delete": "Poista kontin välimuisti",
+                "api_feature_flag_toggle": "Vaihda ominaisuusliput",
                 "api_info_me": "Lue omat api käyttäjätiedot",
                 "api_info_ping": "Päivitä auth-tunnuksen",
                 "api_proxy_switch-customer": "Toimi asiakkaan puolesta",
@@ -6198,6 +6252,7 @@
             "placeholderReleaseDate": "Anna julkaisupäivä...",
             "placeholderRestockTime": "Syötä retock aika päivinä...",
             "placeholderStock": "Syötä määrä varastossa...",
+            "placeholderTime": "esim. 31...",
             "placeholderWeight": "esim. 0,4...",
             "placeholderWidth": "esim. 500..."
         },
@@ -6320,6 +6375,7 @@
             "closeModal": "Käytä",
             "columnAll": "Näkyvä",
             "columnLinkOnly": "Piilota listauksissa ja hae",
+            "columnSalesChannel": "Myyntikanava",
             "columnSearchOnly": "Piilota listauksissa",
             "errorMessage": "Myyntikanavan oletusmäärityksiä ei voi ladata.",
             "labelVisibility": "Myyntikanavat",
@@ -7177,6 +7233,7 @@
             "maintenanceModeTitle": "Huoltotila",
             "messageAPIError": "API-käyttöavainta ei voi luoda.",
             "messageActivateWithoutThemeError": "Myyntikanavaa \"{name}\" ei voitu aktivoida. Aktiivisiin myyntikanaviin on liitettävä teema.",
+            "messageDeleteDomainError": "Verkkotunnusta \"{url}\" ei voitu poistaa, koska se on linkitetty olemassa olevaan tuotevientiin.",
             "messageSaveError": "Myyntikanavaa \"{name}\" ei voitu tallentaa. Ole hyvä ja tarkista merkinnät.",
             "messageSaveSuccess": "Myyntikanava \"{name}\" tallennettu.",
             "navigation": "Suunnistus",
@@ -8277,7 +8334,18 @@
         "detail": {
             "buttonCancel": "Peruuta",
             "buttonSave": "Tallenna",
+            "delete": {
+                "modal": {
+                    "buttonCancel": "Peruuta",
+                    "buttonDelete": "Poista",
+                    "textConfirmation": "Haluatko todella poistaa tämän maksutavan?"
+                },
+                "textAlert": "Tätä maksutapaa käytetään säännöissä, myyntikanavissa tai tilauksissa, joten sitä ei voi poistaa.",
+                "textButton": "Poista maksutapa",
+                "textHeadline": "Poista maksutapa"
+            },
             "helpTextTechnicalName": "Teknistä nimeä käytetään viittaamaan maksutapaan. Se on ainutlaatuinen ja vaaditaan kaikille maksu- ja toimitustavoille versiosta 6.7.0.0 alkaen. Teknisen nimen muuttaminen voi rikkoa olemassa olevia maksuintegraatioita.",
+            "hintTextTechnicalName": "Vaaditaan versiosta 6.7.0 alkaen",
             "labelActive": "Aktiivinen",
             "labelAfterOrderEnabled": "Salli maksun muutos kassalla",
             "labelDescription": "Kuvaus",
@@ -8712,6 +8780,7 @@
             "buttonSave": "Tallenna",
             "helpTextTechnicalName": "Teknistä nimeä käytetään yksilöimään lähetystapa. Teknisen nimen myöhempi muutos voi aiheuttaa sen, että siihen perustuvat lähetysintegraatiot eivät enää toimi.",
             "helpTextTrackingUrl": "Anna toimittajan seuranta-URL-osoite ja lisää paikkamerkiksi \"%s\" varsinaisen seurantakoodin sijainnin. Seurantakoodi lisätään automaattisesti yksittäisistä tilauksista.",
+            "hintTextTechnicalName": "Vaaditaan versiosta 6.7.0 alkaen",
             "labelActive": "Aktiivinen",
             "labelBasicInfo": "Perustiedot",
             "labelDeliveryTime": "Toimitusaika",
@@ -9228,6 +9297,9 @@
             "textHeadline": "Tietojen jakaminen"
         }
     },
+    "sw-settings-usage-data-general": {
+        "tabHeadline": "Kenraali"
+    },
     "sw-shortcut-overview": {
         "function": "Toiminto",
         "functionAddCategory": "Lisää luokka",
@@ -9391,15 +9463,6 @@
             "textDeleteMultipleConfirm": "Oletko varma, että haluat poistaa ”{count}” valitut elementit?"
         }
     },
-    "sw-usage-data": {
-        "sw-settings-usage-data-intro": {
-            "description": "Auta meitä rakentamaan parempia tuotteita ja palveluita antamalla meille mahdollisuuden kerätä käyttötietoja Shopware-hallinnostasi. Käyttämällä uusimpia yksityisyyden suojaustekniikoita varmistamme, että kerättyjä tietoja ei voida yhdistää sinuun tai kauppaasi. Emme kerää asiakastietoja.",
-            "headline": "Shopwaren parantaminen kollektiivisesti",
-            "learnMore": "Lue lisää",
-            "learnMoreUrl": "https://shopware.com/en/privacy/",
-            "title": "Käyttötiedot"
-        }
-    },
     "sw-usage-data-consent-banner": {
         "acceptDataCollection": "Samaa mieltä",
         "checkListDataSharing": {
@@ -9422,8 +9485,6 @@
             },
             "orderData": "Tilaustiedot",
             "storeData": "Tallenna tiedot",
-            "title": "Keräämämme tiedot:",
-            "titleNotAccepted": "Keräämämme tiedot:",
             "usageData": "Tietojen jakaminen"
         },
         "confirmAuthorization": "Napsauttamalla ”Hyväksyn” vahvistat, että sinulla on valtuudet tehdä tämä sopimus yrityksesi puolesta.",

@@ -1,6 +1,9 @@
 {
     "entityCategories": {
         "additional_privileges": {
+            "entities": {
+                "api_feature_flag_toggle": "Перемикання прапора функції API"
+            },
             "title": "Додаткові дозволи"
         },
         "admin_user": {
@@ -497,6 +500,7 @@
             "INVALID_URL": "Будь ласка, введіть коректну адресу URL.",
             "PARENT_MUST_NOT_BE_EMPTY": "Спадкоємець цього поля не повинен бути порожнім.",
             "SHOPWARE_INVALID_IP": "Будь ласка, введіть коректну IP-адресу.",
+            "SHOPWARE_INVALID_IP_CIDR": "Будь ласка, введіть дійсну IP-адресу або дійсну IP-адресу з маскою CIDR.",
             "c1051bb4-d103-4f74-8988-acbcafc7fdc3": "Це поле не повинно бути порожнім."
         },
         "notification": {
@@ -741,6 +745,7 @@
                 "orderCustomFieldRule": "Замовлення з користувальницьким полем",
                 "orderDeliveryStatusRule": "Статус доставки",
                 "orderDocumentTypeRule": "Замовлення з документом",
+                "orderDocumentTypeSentRule": "Замовлення з відправленим документом",
                 "orderStatusRule": "Статус замовлення",
                 "orderTagRule": "Замовити з тегом",
                 "orderTotalAmountRule": "Загальна вартість виконаних (виконаних) замовлень",
@@ -839,6 +844,21 @@
                     "placeholder": "Виберіть оператор..."
                 }
             },
+            "customerDaysSinceFirstLogin": {
+                "daysPassed": {
+                    "placeholder": "@:sw-Product.SettingsForm.PlaceHolderTime"
+                }
+            },
+            "customerDaysSinceLastLogin": {
+                "daysPassed": {
+                    "placeholder": "@:sw-Product.SettingsForm.PlaceHolderTime"
+                }
+            },
+            "customerDaysSinceLastOrder": {
+                "daysPassed": {
+                    "placeholder": "@:sw-Product.SettingsForm.PlaceHolderTime"
+                }
+            },
             "customerEmail": {
                 "email": {
                     "placeholder": "@:global.sw-condition.condition.emailRule.placeholder"
@@ -879,11 +899,11 @@
                 }
             },
             "promotionCodeOfType": {
-                "promotionCodeOfType": {
+                "promotionCodeType": {
                     "options": {
-                        "fixed": "@:global.sw-condition.condition.promotionCodeOfTypeRule.fixed",
-                        "global": "@:global.sw-condition.condition.promotionCodeOfTypeRule.global",
-                        "individual": "@:global.sw-condition.condition.promotionCodeOfTypeRule.individual"
+                        "fixed": "@:глобальний.sw-умов.умов.Промокод промоутипу.Виправлено",
+                        "global": "@:глобальний.sw-умов.умов.промокодОфтиперуле.глобальний",
+                        "individual": "@:глобальна.sw-умов.умов.Промокодтипперул.Індивідуальний"
                     }
                 }
             },
@@ -950,6 +970,9 @@
             "labelSettingsPreviewImages": "Показувати зображення попереднього перегляду",
             "maximumSelectionExceed": "Максимальна кількість вибраних елементів",
             "tooltipListSettings": "Параметри списку"
+        },
+        "sw-desktop": {
+            "stagingBarText": "Магазин знаходиться в режимі постановки."
         },
         "sw-duplicated-media": {
             "buttonRename": "Перейменувати файл",
@@ -1165,26 +1188,26 @@
         },
         "sw-media-modal-folder-settings": {
             "labelDefaultFolder": "Типове розташування носія для",
-            "labelEditList": "Редагувати список",
             "labelFolderName": "Назва",
             "labelGenerateThumbnails": "Створити мініатюри для цієї теки",
             "labelInheritSettings": "Успадковувати параметри з батьківської папки",
             "labelKeepProportions": "Зберігати співвідношення сторін",
             "labelSettings": "Налаштування",
-            "labelStopEdit": "Припинити редагування",
             "labelSystem": "Системна папка",
             "labelThumbnailQuality": "Якість мініатюр",
             "labelThumbnailSize": "Розмір мініатюри",
             "labelThumbnails": "Мініатюри",
             "notification": {
                 "error": {
-                    "message": "Помилка при збереженні налаштувань."
+                    "message": "Помилка при збереженні налаштувань.",
+                    "messageThumbnailSizeExisted": "Розмір мініатюри вже існує."
                 },
                 "success": {
                     "message": "Налаштування збережено."
                 }
             },
-            "placeholderDefaultFolder": "Виберіть сутність..."
+            "placeholderDefaultFolder": "Виберіть сутність...",
+            "tooltipCanNotDeleteThumbnailSize": "Цей розмір мініатюри неможливо видалити, оскільки він зараз використовується."
         },
         "sw-media-modal-move": {
             "buttonMove": "Переміщення",
@@ -1301,7 +1324,9 @@
             "addIpAddress": "Додати IP-адресу",
             "enterValidIp": "Будь ласка, введіть коректну IPv4 або IPv6 адресу",
             "knownIps": {
-                "you": "Ви"
+                "you": "Ви",
+                "youIPv6Block56": "Ви та інші (той самий кінцевий сайт)",
+                "youIPv6Block64": "Ви та інші (домашня мережа)"
             }
         },
         "sw-multi-tag-select": {
@@ -2166,6 +2191,11 @@
                     "label": "Форма"
                 }
             },
+            "html": {
+                "html": {
+                    "label": "HTML"
+                }
+            },
             "image": {
                 "image": {
                     "label": "Зображення, в коробці"
@@ -2392,9 +2422,11 @@
                 "backgroundMediaModeContain": "Містить",
                 "backgroundMediaModeCover": "Кришка",
                 "blockBottomMarginField": "Нижній край",
+                "blockCategoryApp": "Додатки",
                 "blockCategoryCommerce": "Комерція",
                 "blockCategoryFavorite": "Вибране",
                 "blockCategoryForm": "Форма",
+                "blockCategoryHtml": "HTML",
                 "blockCategoryImage": "Зображення",
                 "blockCategorySelection": "Категорія блоку",
                 "blockCategorySidebar": "Бічна панель",
@@ -2565,6 +2597,13 @@
                         "subject": "Тема рядка*",
                         "subscribeToNewsletter": "Підписатися на розсилку"
                     },
+                    "newsletter": {
+                        "label": {
+                            "firstName": "Ім’я",
+                            "lastName": "Прізвище",
+                            "salutation": "Вітація"
+                        }
+                    },
                     "placeholder": {
                         "email": "Джон {'@'} дое.com",
                         "firstName": "Джон",
@@ -2627,10 +2666,17 @@
                     }
                 }
             },
+            "html": {
+                "config": {
+                    "warning": "Нефільтрований HTML-код може призвести до ризиків безпеки. Будь ласка, вставляйте HTML-код лише з надійних джерел та перевірте свої зміни перед їх публікацією."
+                },
+                "label": "HTML"
+            },
             "image": {
                 "config": {
                     "label": {
                         "linkNewTab": "Відкрити посилання у новій вкладці",
+                        "linkTo": "Цільове посилання",
                         "minHeight": "Мінімальна висота",
                         "minHeightHelpText": "Введіть мінімальну висоту з потрібною одиницею. Наприклад: 200px"
                     },
@@ -2866,6 +2912,7 @@
             "placeholderSearchBar": "Пошук макетів..."
         },
         "list": {
+            "gridHeaderAssignedPages": "Призначені сторінки",
             "gridHeaderAssignment": "Присвоєні категорії",
             "gridHeaderAssignments": "Завдання",
             "gridHeaderCreated": "Створено",
@@ -3046,6 +3093,7 @@
         "baseInfo": {
             "contactEmail": "Адреса електронної пошти",
             "contentActive": "Активний | Неактивний",
+            "contentConfirmed": "Підтверджено | Непідтверджено",
             "emptyBoundSalesChannel": "Всі",
             "emptyTextBirthday": "Немає інформації",
             "emptyTextLogin": "Ще немає авторизації",
@@ -3056,6 +3104,7 @@
             "labelBoundSalesChannel": "Канал продажів",
             "labelCampaignCode": "Код кампанії",
             "labelCompany": "Компанія",
+            "labelConfirmed": "Статус адреси електронної пошти",
             "labelCustomerGroup": "Група клієнтів",
             "labelCustomerNumber": "Номер клієнта",
             "labelDefaultPayment": "Спосіб оплати за замовчуванням",
@@ -4344,6 +4393,7 @@
             "exportActivityLabel": "Експортна діяльність",
             "exportLabel": "Експорт",
             "exportVariants": "Експортувати варіанти продуктів",
+            "messageExportError": "Не вдалося створити файл експорту | Не вдалося створити файл експорту. Будь ласка, завантажте файл «недійсні записи» або додаткову інформацію.",
             "messageExportStarted": "Експорт почався.",
             "messageExportSuccess": "Експорт \"{profile}\" завершено.",
             "showLogLabel": "Показати файл журналу",
@@ -4569,6 +4619,9 @@
                 "labelSocialMediaDescription": "Опис",
                 "labelSocialMediaTitle": "Назва",
                 "labelUrl": "SEO URL",
+                "notification": {
+                    "noLayoutAssigned": "Для цієї цільової сторінки не призначено макет. Без макета цільова сторінка недоступна через SEO."
+                },
                 "placeholderKeywords": "Введіть одне або декілька ключових слів...",
                 "placeholderMetaDescription": "Введіть мета-опис...",
                 "placeholderMetaTitle": "Введіть метазаголовок...",
@@ -5608,6 +5661,7 @@
                 "api_action_cache_index": "Тригер індексування",
                 "api_action_cache_info": "Читати дані кешу",
                 "api_action_container-cache_delete": "Видалити кеш контейнера",
+                "api_feature_flag_toggle": "Перемикання прапорців функцій",
                 "api_info_me": "Читати власні дані користувача api",
                 "api_info_ping": "Оновити маркер автентифікації",
                 "api_proxy_switch-customer": "Діяти від імені замовника",
@@ -6198,6 +6252,7 @@
             "placeholderReleaseDate": "Введіть дату випуску...",
             "placeholderRestockTime": "Введіть час переакції у днях...",
             "placeholderStock": "Введіть кількість на складі...",
+            "placeholderTime": "напр. 31...",
             "placeholderWeight": "наприклад 0,4...",
             "placeholderWidth": "наприклад 500..."
         },
@@ -6320,6 +6375,7 @@
             "closeModal": "Застосувати",
             "columnAll": "Видно",
             "columnLinkOnly": "Сховати в списках і шукати",
+            "columnSalesChannel": "Канал продажів",
             "columnSearchOnly": "Сховати в списках",
             "errorMessage": "Не вдалося завантажити конфігурацію каналу продажів за промовчанням.",
             "labelVisibility": "Канали продажів",
@@ -7177,6 +7233,7 @@
             "maintenanceModeTitle": "Режим технічного обслуговування",
             "messageAPIError": "Не вдалося створити ключ доступу API.",
             "messageActivateWithoutThemeError": "Канал продажів «{name}» не вдалося активувати. Активні канали продажів повинні мати тему, пов'язану.",
+            "messageDeleteDomainError": "Не вдалося видалити домен \"{url}\", оскільки він пов'язаний з існуючим експортом продуктів.",
             "messageSaveError": "Канал продажів «{name}» не вдалося зберегти. Будь ласка, перевірте ваші записи.",
             "messageSaveSuccess": "Канал продажів «{name}» збережено.",
             "navigation": "навігація",
@@ -8277,7 +8334,18 @@
         "detail": {
             "buttonCancel": "Скасувати",
             "buttonSave": "Зберегти",
+            "delete": {
+                "modal": {
+                    "buttonCancel": "Скасувати",
+                    "buttonDelete": "Видалити",
+                    "textConfirmation": "Ви дійсно хочете видалити цей спосіб оплати?"
+                },
+                "textAlert": "Цей спосіб оплати використовується в правилах, каналах продажів або замовленнях і тому не може бути видалений.",
+                "textButton": "Видалити спосіб оплати",
+                "textHeadline": "Видалити спосіб оплати"
+            },
             "helpTextTechnicalName": "Технічна назва використовується для посилання на спосіб оплати. Він унікальний і необхідний для всіх способів оплати та доставки з версії 6.7.0.0 і далі. Зміна технічної назви може порушити існуючі інтеграції платежів.",
+            "hintTextTechnicalName": "Буде потрібно з версії 6.7.0 і далі",
             "labelActive": "Активний",
             "labelAfterOrderEnabled": "Дозволити зміну платежу після оформлення замовлення",
             "labelDescription": "Опис",
@@ -8712,6 +8780,7 @@
             "buttonSave": "Зберегти",
             "helpTextTechnicalName": "Технічна назва використовується для однозначної ідентифікації способу доставки. Подальша зміна технічної назви може призвести до того, що інтеграції доставки, які покладаються на нього, більше не працюватимуть.",
             "helpTextTrackingUrl": "Введіть URL-адресу відстеження постачальника доставки та вставте \"%s\" як заповнювач, де буде фактичний код відстеження. Код відстеження автоматично вставляється з окремих замовлень.",
+            "hintTextTechnicalName": "Буде потрібно з версії 6.7.0 і далі",
             "labelActive": "Активний",
             "labelBasicInfo": "Основна інформація",
             "labelDeliveryTime": "Термін доставки",
@@ -9228,6 +9297,9 @@
             "textHeadline": "Обмін даними"
         }
     },
+    "sw-settings-usage-data-general": {
+        "tabHeadline": "Загальний"
+    },
     "sw-shortcut-overview": {
         "function": "Функція",
         "functionAddCategory": "Додати категорію",
@@ -9391,15 +9463,6 @@
             "textDeleteMultipleConfirm": "Ви дійсно хочете вилучити вибрані елементи \"{count}\"?"
         }
     },
-    "sw-usage-data": {
-        "sw-settings-usage-data-intro": {
-            "description": "Допоможіть нам створювати кращі продукти та послуги, надаючи нам змогу збирати дані про використання від адміністрації Shopware. Використовуючи новітні методи збереження конфіденційності, ми гарантуємо, що зібрані дані не можуть бути пов'язані з вами або вашим магазином. Ми не збираємо жодної інформації про клієнтів.",
-            "headline": "Удосконалення Shopware колективно",
-            "learnMore": "Дізнайтеся більше",
-            "learnMoreUrl": "https://shopware.com/en/privacy/",
-            "title": "Дані про використання"
-        }
-    },
     "sw-usage-data-consent-banner": {
         "acceptDataCollection": "Погодьтеся",
         "checkListDataSharing": {
@@ -9422,8 +9485,6 @@
             },
             "orderData": "Дані замовлення",
             "storeData": "Зберігати дані",
-            "title": "Дані, які ми збираємо:",
-            "titleNotAccepted": "Дані, які ми збираємо:",
             "usageData": "Обмін даними"
         },
         "confirmAuthorization": "Натискаючи «Згоден», ви підтверджуєте, що маєте право укладати цю угоду від імені вашої компанії.",

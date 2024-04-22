@@ -1,6 +1,9 @@
 {
     "entityCategories": {
         "additional_privileges": {
+            "entities": {
+                "api_feature_flag_toggle": "Flaga API Feature"
+            },
             "title": "Dodatkowe uprawnienia"
         },
         "admin_user": {
@@ -497,6 +500,7 @@
             "INVALID_URL": "Wprowadź prawidłowy adres URL.",
             "PARENT_MUST_NOT_BE_EMPTY": "Spadkobierca tego pola nie może być pusty.",
             "SHOPWARE_INVALID_IP": "Wprowadź prawidłowy adres IP.",
+            "SHOPWARE_INVALID_IP_CIDR": "Wprowadź prawidłowy adres IP lub prawidłowy adres IP z maską CIDR.",
             "c1051bb4-d103-4f74-8988-acbcafc7fdc3": "To pole nie może być puste."
         },
         "notification": {
@@ -741,6 +745,7 @@
                 "orderCustomFieldRule": "Zamówienie z polem niestandardowym",
                 "orderDeliveryStatusRule": "Status dostawy",
                 "orderDocumentTypeRule": "Zamówienie z dokumentem",
+                "orderDocumentTypeSentRule": "Zamówienie z wysłanym dokumentem",
                 "orderStatusRule": "Status zamówienia",
                 "orderTagRule": "Zamów z tagiem",
                 "orderTotalAmountRule": "Łączna wartość zrealizowanych (wykonanych) zamówień",
@@ -839,6 +844,21 @@
                     "placeholder": "Wybierz operatora..."
                 }
             },
+            "customerDaysSinceFirstLogin": {
+                "daysPassed": {
+                    "placeholder": "@:SW-Product.SettingsForm.PlaceholderTime"
+                }
+            },
+            "customerDaysSinceLastLogin": {
+                "daysPassed": {
+                    "placeholder": "@:SW-Product.SettingsForm.PlaceholderTime"
+                }
+            },
+            "customerDaysSinceLastOrder": {
+                "daysPassed": {
+                    "placeholder": "@:SW-Product.SettingsForm.PlaceholderTime"
+                }
+            },
             "customerEmail": {
                 "email": {
                     "placeholder": "@:global.sw-condition.condition.emailRule.placeholder"
@@ -879,11 +899,11 @@
                 }
             },
             "promotionCodeOfType": {
-                "promotionCodeOfType": {
+                "promotionCodeType": {
                     "options": {
-                        "fixed": "@:global.sw-condition.condition.promotionCodeOfTypeRule.fixed",
-                        "global": "@:global.sw-condition.condition.promotionCodeOfTypeRule.global",
-                        "individual": "@:global.sw-condition.condition.promotionCodeOfTypeRule.individual"
+                        "fixed": "@:Global.sw-Condition.Condition.PromotionCodeOfTyPerule.Fixed",
+                        "global": "@:Global.sw-Condition.Condition.PromotionCodeofTyPerule.Global",
+                        "individual": "@:Global.sw-Condition.Condition.PromotionCodeofTyperule.Individual"
                     }
                 }
             },
@@ -950,6 +970,9 @@
             "labelSettingsPreviewImages": "Wyświetl miniatury",
             "maximumSelectionExceed": "Maksymalna ilość wybranych przedmiotów",
             "tooltipListSettings": "Ustawienia list"
+        },
+        "sw-desktop": {
+            "stagingBarText": "Sklep jest w trybie inscenizacji."
         },
         "sw-duplicated-media": {
             "buttonRename": "Zmień nazwę pliku",
@@ -1165,26 +1188,26 @@
         },
         "sw-media-modal-folder-settings": {
             "labelDefaultFolder": "Domyślna lokalizacja multimediów dla",
-            "labelEditList": "Edytuj listę",
             "labelFolderName": "Nazwa",
             "labelGenerateThumbnails": "Wygeneruj pliki z miniaturami dla tego folderu",
             "labelInheritSettings": "Zastosuj ustawienia z powyższego folderu",
             "labelKeepProportions": "Zachowaj proporcje",
             "labelSettings": "Ustawienia",
-            "labelStopEdit": "Zakończ edycję",
             "labelSystem": "Folder systemowy",
             "labelThumbnailQuality": "Jakość miniatur",
             "labelThumbnailSize": "Rozmiar miniatur",
             "labelThumbnails": "Pliki z miniaturami",
             "notification": {
                 "error": {
-                    "message": "Błąd przy zapisywaniu ustawień."
+                    "message": "Błąd przy zapisywaniu ustawień.",
+                    "messageThumbnailSizeExisted": "Rozmiar miniatury już istnieje."
                 },
                 "success": {
                     "message": "Ustawienia zostały zapisane."
                 }
             },
-            "placeholderDefaultFolder": "Wybierz element..."
+            "placeholderDefaultFolder": "Wybierz element...",
+            "tooltipCanNotDeleteThumbnailSize": "Tego rozmiaru miniatury nie można usunąć, ponieważ jest aktualnie używany."
         },
         "sw-media-modal-move": {
             "buttonMove": "Zmień lokalizację",
@@ -1301,7 +1324,9 @@
             "addIpAddress": "Dodaj adres IP",
             "enterValidIp": "Wprowadź prawidłowy adres IPv4 lub IPv6",
             "knownIps": {
-                "you": "Ty"
+                "you": "Ty",
+                "youIPv6Block56": "Ty i inni (ta sama strona końcowa)",
+                "youIPv6Block64": "Ty i inni (sieć domowa)"
             }
         },
         "sw-multi-tag-select": {
@@ -2166,6 +2191,11 @@
                     "label": "Formularz"
                 }
             },
+            "html": {
+                "html": {
+                    "label": "HTML"
+                }
+            },
             "image": {
                 "image": {
                     "label": "Obraz, wyśrodkowany"
@@ -2392,9 +2422,11 @@
                 "backgroundMediaModeContain": "Zawrzyj",
                 "backgroundMediaModeCover": "Wypełnij",
                 "blockBottomMarginField": "Dolny odstęp",
+                "blockCategoryApp": "Aplikacje",
                 "blockCategoryCommerce": "Handel",
                 "blockCategoryFavorite": "Ulubione",
                 "blockCategoryForm": "Formularz",
+                "blockCategoryHtml": "HTML",
                 "blockCategoryImage": "Obrazy",
                 "blockCategorySelection": "Kategoria bloku",
                 "blockCategorySidebar": "Pasek boczny",
@@ -2565,6 +2597,13 @@
                         "subject": "Temat*",
                         "subscribeToNewsletter": "Zapisz się do newslettera"
                     },
+                    "newsletter": {
+                        "label": {
+                            "firstName": "Imię",
+                            "lastName": "Nazwisko",
+                            "salutation": "Zwrot"
+                        }
+                    },
                     "placeholder": {
                         "email": "jan{'@'}nowak.com",
                         "firstName": "John",
@@ -2627,10 +2666,17 @@
                     }
                 }
             },
+            "html": {
+                "config": {
+                    "warning": "Niefiltrowany kod HTML może prowadzić do zagrożenia bezpieczeństwa. Proszę wstawiać tylko kod HTML z zaufanych źródeł i przetestować zmiany przed ich opublikowaniem."
+                },
+                "label": "HTML"
+            },
             "image": {
                 "config": {
                     "label": {
                         "linkNewTab": "Otwórz link w nowym oknie",
+                        "linkTo": "Element docelowy linku",
                         "minHeight": "Minimalna wysokość",
                         "minHeightHelpText": "Wprowadź minimalną wysokość z żądaną jednostką. Na przykład: 200px"
                     },
@@ -2866,6 +2912,7 @@
             "placeholderSearchBar": "Przeszukaj układy..."
         },
         "list": {
+            "gridHeaderAssignedPages": "Przypisane strony",
             "gridHeaderAssignment": "Przypisane kategorie",
             "gridHeaderAssignments": "Przydziały",
             "gridHeaderCreated": "Utworzono",
@@ -3046,6 +3093,7 @@
         "baseInfo": {
             "contactEmail": "Adres e-mail",
             "contentActive": "Aktywne | Nieaktywne",
+            "contentConfirmed": "Potwierdzone | Niepotwierdzone",
             "emptyBoundSalesChannel": "Wszystkie",
             "emptyTextBirthday": "nie podano",
             "emptyTextLogin": "Na razie brak logowania",
@@ -3056,6 +3104,7 @@
             "labelBoundSalesChannel": "Kanał sprzedaży",
             "labelCampaignCode": "Kod kampanii",
             "labelCompany": "Firma",
+            "labelConfirmed": "Status adresu e-mail",
             "labelCustomerGroup": "Grupa klientów",
             "labelCustomerNumber": "Numer klienta",
             "labelDefaultPayment": "Standardowa metoda płatności",
@@ -3675,7 +3724,7 @@
             },
             "sw-extension-uninstall-modal": {
                 "alert": "Czy na pewno chcesz odinstalować rozszerzenie?",
-                "buttonLabel": "odinstalować",
+                "buttonLabel": "Odinstaluj",
                 "description": "Jeśli odinstalujesz rozszerzenie, nie możesz go już używać.",
                 "helpTextRemovePluginData": "Ostrzeżenie: Wszystkie dane aplikacji zostaną trwale usunięte. Ten proces jest nieodwracalny.",
                 "labelRemovePluginData": "Trwałe usuwanie wszystkich danych aplikacji",
@@ -4344,6 +4393,7 @@
             "exportActivityLabel": "Aktywność eksportu",
             "exportLabel": "Eksportuj",
             "exportVariants": "Eksportuj warianty produktów",
+            "messageExportError": "Nie można utworzyć pliku eksportu. | Nie można utworzyć pliku eksportu. Pobierz plik „nieprawidłowe rekordy” lub więcej informacji.",
             "messageExportStarted": "Rozpoczęto eksport",
             "messageExportSuccess": "Eksport \"{profile}\" zakończony.",
             "showLogLabel": "Wyświetl rejestr",
@@ -4569,6 +4619,9 @@
                 "labelSocialMediaDescription": "Opis",
                 "labelSocialMediaTitle": "Tytuł",
                 "labelUrl": "SEO URL",
+                "notification": {
+                    "noLayoutAssigned": "Dla tej strony docelowej żaden układ nie został przypisany. Bez układu strona docelowa nie jest dostępna za pośrednictwem SEO."
+                },
                 "placeholderKeywords": "Wprowadź jedno lub więcej słów kluczowych...",
                 "placeholderMetaDescription": "Wprowadź opis meta...",
                 "placeholderMetaTitle": "Wprowadź meta title...",
@@ -5608,6 +5661,7 @@
                 "api_action_cache_index": "Indekser wyzwalający",
                 "api_action_cache_info": "Odczyt informacji cache",
                 "api_action_container-cache_delete": "Usuń bufor kontenera",
+                "api_feature_flag_toggle": "Przełącz flagi funkcji",
                 "api_info_me": "Czytaj własne informacje o użytkowniku api",
                 "api_info_ping": "Odśwież token auth",
                 "api_proxy_switch-customer": "Działaj w imieniu klienta",
@@ -6198,6 +6252,7 @@
             "placeholderReleaseDate": "Wprowadź datę ustawienia...",
             "placeholderRestockTime": "Interwał uzupełniania magazynu...",
             "placeholderStock": "Wprowadź dostępność na magazynie...",
+            "placeholderTime": "np. 31...",
             "placeholderWeight": "np. 0,4...",
             "placeholderWidth": "np. 500..."
         },
@@ -6320,6 +6375,7 @@
             "closeModal": "Przejmij",
             "columnAll": "Widoczne",
             "columnLinkOnly": "Ukryj w aukcjach i wyszukaj",
+            "columnSalesChannel": "Kanał sprzedaży",
             "columnSearchOnly": "Ukryj w aukcjach",
             "errorMessage": "Nie można załadować domyślnej konfiguracji kanału sprzedaży.",
             "labelVisibility": "Zasięg widoczności",
@@ -7177,6 +7233,7 @@
             "maintenanceModeTitle": "Tryb konserwacji",
             "messageAPIError": "Klucz API nie został wygenerowany.",
             "messageActivateWithoutThemeError": "Nie można jeszcze aktywować kanału sprzedaży \"{name}\". Aktywne kanały sprzedaży muszą mieć przyporządkowany temat.",
+            "messageDeleteDomainError": "Domena \"{url}\" nie może zostać usunięta, ponieważ jest powiązana z istniejącym eksportem produktów.",
             "messageSaveError": "Nie zapisano kanału sprzedaży \"{name}\". Sprawdź wprowadzone dane.",
             "messageSaveSuccess": "Zapisano kanał sprzedaży „{name}”.",
             "navigation": "Nawigacja",
@@ -8277,7 +8334,18 @@
         "detail": {
             "buttonCancel": "Anuluj",
             "buttonSave": "Zapisz",
+            "delete": {
+                "modal": {
+                    "buttonCancel": "Anuluj",
+                    "buttonDelete": "Usuń",
+                    "textConfirmation": "Czy naprawdę chcesz usunąć tę metodę płatności?"
+                },
+                "textAlert": "Ta metoda płatności jest używana w regułach, kanałach sprzedaży lub zamówieniach i dlatego nie można jej usunąć.",
+                "textButton": "Usuń metodę płatności",
+                "textHeadline": "Usuń metodę płatności"
+            },
             "helpTextTechnicalName": "Nazwa techniczna służy do odniesienia do metody płatności. Jest unikalny i wymagany dla wszystkich metod płatności i wysyłki od wersji 6.7.0.0. Zmiana nazwy technicznej może przerwać istniejące integracje płatności.",
+            "hintTextTechnicalName": "Będzie wymagany od wersji 6.7.0",
             "labelActive": "Aktywny",
             "labelAfterOrderEnabled": "Zezwól na zmianę metody płatności po zakończeniu realizacji zamówienia",
             "labelDescription": "Opis",
@@ -8712,6 +8780,7 @@
             "buttonSave": "Zapisz",
             "helpTextTechnicalName": "Nazwa techniczna służy do jednoznacznej identyfikacji metody wysyłki. Kolejna zmiana nazwy technicznej może spowodować, że integracje wysyłkowe, które na niej polegają, przestaną działać.",
             "helpTextTrackingUrl": "Tutaj możesz wpisać adres URL dostawcy usług kurierskich. Zamiast rzeczywistego numeru przesyłki należy użyć '%s' jako znak zastępczy. W tym momencie oprogramowanie Shopware automatycznie wprowadzi właściwy kod dla każdego zamówienia, jeśli jest on zachowany w szczegółach zamówienia.",
+            "hintTextTechnicalName": "Będzie wymagany od wersji 6.7.0",
             "labelActive": "Aktywny",
             "labelBasicInfo": "Informacja podstawowa",
             "labelDeliveryTime": "Czas dostawy",
@@ -9228,6 +9297,9 @@
             "textHeadline": "Telemetria"
         }
     },
+    "sw-settings-usage-data-general": {
+        "tabHeadline": "Ogólne"
+    },
     "sw-shortcut-overview": {
         "function": "Funkcja",
         "functionAddCategory": "Dodaj kategorię",
@@ -9391,15 +9463,6 @@
             "textDeleteMultipleConfirm": "Czy na pewno chcesz usunąć \"{count}\" wybrane elementy/wybranych elementów?"
         }
     },
-    "sw-usage-data": {
-        "sw-settings-usage-data-intro": {
-            "description": "Pomóż nam tworzyć lepsze produkty i usługi, umożliwiając nam zbieranie danych o użytkowaniu z Panelu Administracyjnego Shopware. Korzystając z najnowszych technik ochrony prywatności, upewniamy się, że zebrane dane nie mogą być powiązane z Tobą lub Twoim sklepem. Nie zbieramy żadnych informacji o klientach.",
-            "headline": "Wspólne ulepszanie Shopware",
-            "learnMore": "Dowiedz się więcej",
-            "learnMoreUrl": "https://shopware.com/en/privacy/",
-            "title": "Telemetria"
-        }
-    },
     "sw-usage-data-consent-banner": {
         "acceptDataCollection": "Zgadzam się",
         "checkListDataSharing": {
@@ -9422,8 +9485,6 @@
             },
             "orderData": "Dane zamówienia",
             "storeData": "Przechowywanie danych",
-            "title": "Dane, które zbieramy:",
-            "titleNotAccepted": "Dane, które będziemy zbierać:",
             "usageData": "Telemetria"
         },
         "confirmAuthorization": "Klikając „Zgadzam się”, potwierdzasz, że jesteś uprawniony do zawarcia niniejszej umowy w imieniu swojej firmy.",

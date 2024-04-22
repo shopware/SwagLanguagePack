@@ -1,6 +1,9 @@
 {
     "entityCategories": {
         "additional_privileges": {
+            "entities": {
+                "api_feature_flag_toggle": "API özellik bayrağı geçişi"
+            },
             "title": "Ek izinler"
         },
         "admin_user": {
@@ -497,6 +500,7 @@
             "INVALID_URL": "Lütfen geçerli bir url girin.",
             "PARENT_MUST_NOT_BE_EMPTY": "Bu alanın mirasçısı boş olmamalıdır.",
             "SHOPWARE_INVALID_IP": "Lütfen geçerli bir IP adresi girin.",
+            "SHOPWARE_INVALID_IP_CIDR": "Lütfen geçerli bir IP adresi veya CIDR maskesi olan geçerli bir IP adresi girin.",
             "c1051bb4-d103-4f74-8988-acbcafc7fdc3": "Bu alan boş olmamalıdır."
         },
         "notification": {
@@ -741,6 +745,7 @@
                 "orderCustomFieldRule": "Özel alan ile sipariş",
                 "orderDeliveryStatusRule": "Teslimat durumu",
                 "orderDocumentTypeRule": "Belgeli sipariş",
+                "orderDocumentTypeSentRule": "Gönderilen belge ile sipariş",
                 "orderStatusRule": "Sipariş durumu",
                 "orderTagRule": "Etiketli sipariş",
                 "orderTotalAmountRule": "Tamamlanmış (tamamlanmış) siparişlerin toplam değeri",
@@ -839,6 +844,21 @@
                     "placeholder": "Operatör seç..."
                 }
             },
+            "customerDaysSinceFirstLogin": {
+                "daysPassed": {
+                    "placeholder": "@:sw-product.settingsForm.PlaceHolderTime"
+                }
+            },
+            "customerDaysSinceLastLogin": {
+                "daysPassed": {
+                    "placeholder": "@:sw-product.settingsForm.PlaceHolderTime"
+                }
+            },
+            "customerDaysSinceLastOrder": {
+                "daysPassed": {
+                    "placeholder": "@:sw-product.settingsForm.PlaceHolderTime"
+                }
+            },
             "customerEmail": {
                 "email": {
                     "placeholder": "@:global.sw-condition.condition.emailRule.placeholder"
@@ -879,11 +899,11 @@
                 }
             },
             "promotionCodeOfType": {
-                "promotionCodeOfType": {
+                "promotionCodeType": {
                     "options": {
-                        "fixed": "@:global.sw-condition.condition.promotionCodeOfTypeRule.fixed",
-                        "global": "@:global.sw-condition.condition.promotionCodeOfTypeRule.global",
-                        "individual": "@:global.sw-condition.condition.promotionCodeOfTypeRule.individual"
+                        "fixed": "@:global.sw-Condition.Condition.PromotionCodeOfTyperule.Fixed",
+                        "global": "@:global.sw-Condition.Condition.PromotionCodeOfTyperule.global",
+                        "individual": "@:global.sw-Condition.Condition.PromotionCodeOfTyperule.individual"
                     }
                 }
             },
@@ -950,6 +970,9 @@
             "labelSettingsPreviewImages": "Önizleme resimlerini göster",
             "maximumSelectionExceed": "Seçilen maksimum öğe miktarı",
             "tooltipListSettings": "Liste ayarları"
+        },
+        "sw-desktop": {
+            "stagingBarText": "Mağaza hazırlama modundadır."
         },
         "sw-duplicated-media": {
             "buttonRename": "Dosyayı yeniden adlandırma",
@@ -1165,26 +1188,26 @@
         },
         "sw-media-modal-folder-settings": {
             "labelDefaultFolder": "Varsayılan medya konumu",
-            "labelEditList": "Listeyi düzenle",
             "labelFolderName": "İsim",
             "labelGenerateThumbnails": "Bu klasör için küçük resimler oluştur",
             "labelInheritSettings": "Ayarları üst klasörden miras",
             "labelKeepProportions": "En boy oranını koru",
             "labelSettings": "Ayarlar",
-            "labelStopEdit": "Düzenlemeyi durdurma",
             "labelSystem": "Sistem klasörü",
             "labelThumbnailQuality": "Küçük resim kalitesi",
             "labelThumbnailSize": "Küçük resim boyutu",
             "labelThumbnails": "Küçük Resimler",
             "notification": {
                 "error": {
-                    "message": "Ayarları kaydederken hata oluştu."
+                    "message": "Ayarları kaydederken hata oluştu.",
+                    "messageThumbnailSizeExisted": "Küçük resim boyutu zaten var."
                 },
                 "success": {
                     "message": "Ayarlar kaydedildi."
                 }
             },
-            "placeholderDefaultFolder": "Varlık seç..."
+            "placeholderDefaultFolder": "Varlık seç...",
+            "tooltipCanNotDeleteThumbnailSize": "Bu küçük resim boyutu şu anda kullanımda olduğu için silinemez."
         },
         "sw-media-modal-move": {
             "buttonMove": "Taşı",
@@ -1301,7 +1324,9 @@
             "addIpAddress": "IP adresi ekle",
             "enterValidIp": "Lütfen geçerli bir IPv4 veya IPv6 adresi girin",
             "knownIps": {
-                "you": "Sen"
+                "you": "Sen",
+                "youIPv6Block56": "Siz ve diğerleri (aynı son site)",
+                "youIPv6Block64": "Siz ve diğerleri (ev ağı)"
             }
         },
         "sw-multi-tag-select": {
@@ -2166,6 +2191,11 @@
                     "label": "Form"
                 }
             },
+            "html": {
+                "html": {
+                    "label": "HTML"
+                }
+            },
             "image": {
                 "image": {
                     "label": "Resim, kutulu"
@@ -2392,9 +2422,11 @@
                 "backgroundMediaModeContain": "İçermek",
                 "backgroundMediaModeCover": "Kapak",
                 "blockBottomMarginField": "Alt kenar boşluğu",
+                "blockCategoryApp": "Uygulamalar",
                 "blockCategoryCommerce": "Ticaret",
                 "blockCategoryFavorite": "Favoriler",
                 "blockCategoryForm": "Form",
+                "blockCategoryHtml": "HTML",
                 "blockCategoryImage": "Görüntüler",
                 "blockCategorySelection": "Blok kategorisi",
                 "blockCategorySidebar": "Kenar Çubuğu",
@@ -2565,6 +2597,13 @@
                         "subject": "Konu satırı*",
                         "subscribeToNewsletter": "Bültene abone olun"
                     },
+                    "newsletter": {
+                        "label": {
+                            "firstName": "İlk isim",
+                            "lastName": "Soyadı",
+                            "salutation": "Selamlama"
+                        }
+                    },
                     "placeholder": {
                         "email": "john {'@'} doe.com",
                         "firstName": "John",
@@ -2627,10 +2666,17 @@
                     }
                 }
             },
+            "html": {
+                "config": {
+                    "warning": "Filtrelenmemiş HTML kodu güvenlik risklerine yol açabilir. Lütfen yalnızca güvenilir kaynaklardan HTML kodu ekleyin ve değişikliklerinizi yayınlamadan önce test edin."
+                },
+                "label": "HTML"
+            },
             "image": {
                 "config": {
                     "label": {
                         "linkNewTab": "Bağlantıyı yeni sekmede aç",
+                        "linkTo": "Bağlantı hedefi",
                         "minHeight": "Minimum yükseklik",
                         "minHeightHelpText": "İstediğiniz ünite ile minimum yüksekliği girin. Örneğin: 200px"
                     },
@@ -2866,6 +2912,7 @@
             "placeholderSearchBar": "Düzenleri ara..."
         },
         "list": {
+            "gridHeaderAssignedPages": "Atanmış sayfalar",
             "gridHeaderAssignment": "Atanan kategoriler",
             "gridHeaderAssignments": "Ödevler",
             "gridHeaderCreated": "Oluşturuldu",
@@ -3046,6 +3093,7 @@
         "baseInfo": {
             "contactEmail": "E-posta adresi",
             "contentActive": "Aktif | Etkin Olmayan",
+            "contentConfirmed": "Onaylandı | Onaylanmamış",
             "emptyBoundSalesChannel": "Tümü",
             "emptyTextBirthday": "Bilgi yok",
             "emptyTextLogin": "Henüz giriş yok",
@@ -3056,6 +3104,7 @@
             "labelBoundSalesChannel": "Satış Kanalı",
             "labelCampaignCode": "Kampanya kodu",
             "labelCompany": "Şirket",
+            "labelConfirmed": "E-posta adresi durumu",
             "labelCustomerGroup": "Müşteri grubu",
             "labelCustomerNumber": "Müşteri numarası",
             "labelDefaultPayment": "Varsayılan ödeme yöntemi",
@@ -4344,6 +4393,7 @@
             "exportActivityLabel": "Aktivite verme",
             "exportLabel": "Aktar",
             "exportVariants": "Ürün varyantlarını dışa aktarma",
+            "messageExportError": "Dışa aktarma dosyası oluşturulamadı. | Dışa aktarma dosyası oluşturulamadı. Lütfen “geçersiz kayıtlar” dosyasını veya daha fazla bilgiyi indirin.",
             "messageExportStarted": "İhracat başladı.",
             "messageExportSuccess": "İhracat \"{profile}\" tamamlandı.",
             "showLogLabel": "Günlük dosyasını göster",
@@ -4569,6 +4619,9 @@
                 "labelSocialMediaDescription": "Açıklama",
                 "labelSocialMediaTitle": "Başlık",
                 "labelUrl": "SEO URL",
+                "notification": {
+                    "noLayoutAssigned": "Bu açılış sayfası için herhangi bir düzen atanmadı. Bir düzen olmadan, açılış sayfasına SEO aracılığıyla erişilemez."
+                },
                 "placeholderKeywords": "Bir veya daha fazla anahtar kelime girin...",
                 "placeholderMetaDescription": "Bir meta açıklama girin...",
                 "placeholderMetaTitle": "Meta başlığı girin...",
@@ -5608,6 +5661,7 @@
                 "api_action_cache_index": "Tetik indeksleyici",
                 "api_action_cache_info": "Önbellek bilgilerini oku",
                 "api_action_container-cache_delete": "Kapsayıcı önbelleği sil",
+                "api_feature_flag_toggle": "Özellik bayraklarını aç/kapat",
                 "api_info_me": "Kendi api kullanıcı bilgilerini oku",
                 "api_info_ping": "Yotlatma belirtecini yenile",
                 "api_proxy_switch-customer": "Müşteri adına hareket edin",
@@ -6198,6 +6252,7 @@
             "placeholderReleaseDate": "Çıkış tarihini girin...",
             "placeholderRestockTime": "Gün olarak yeniden stok süresini girin...",
             "placeholderStock": "Stokta miktar girin...",
+            "placeholderTime": "örn. 31...",
             "placeholderWeight": "Örneğin 0,4...",
             "placeholderWidth": "örn. 500..."
         },
@@ -6320,6 +6375,7 @@
             "closeModal": "Başvurun",
             "columnAll": "Görünür",
             "columnLinkOnly": "Liste Kayıtlarında gizleme ve arama",
+            "columnSalesChannel": "Satış Kanalı",
             "columnSearchOnly": "Liste Kayıtlarında Gizle",
             "errorMessage": "Varsayılan Satış Kanalı yapılandırması yüklenemiyor.",
             "labelVisibility": "Satış Kanalları",
@@ -7177,6 +7233,7 @@
             "maintenanceModeTitle": "Bakım modu",
             "messageAPIError": "API erişim anahtarı oluşturulamıyor.",
             "messageActivateWithoutThemeError": "Satış Kanalı \"{name}\" etkinleştirilemedi. Aktif Satış Kanallarının ilişkili bir temaya sahip olması gerekir.",
+            "messageDeleteDomainError": "Mevcut ürün dışa aktarımlarıyla bağlantılı olduğu için \"{url}\" etki alanı silinemedi.",
             "messageSaveError": "Satış Kanalı \"{name}\" kaydedilemedi. Lütfen girişlerinizi kontrol edin.",
             "messageSaveSuccess": "Satış Kanalı \"{name}\" kaydedildi.",
             "navigation": "Navigasyon",
@@ -8277,7 +8334,18 @@
         "detail": {
             "buttonCancel": "İptal",
             "buttonSave": "Kaydet",
+            "delete": {
+                "modal": {
+                    "buttonCancel": "İptal",
+                    "buttonDelete": "Sil",
+                    "textConfirmation": "Bu ödeme yöntemini gerçekten silmek istiyor musunuz?"
+                },
+                "textAlert": "Bu ödeme yöntemi kurallarda, Satış Kanallarında veya siparişlerde kullanılır ve bu nedenle silinemez.",
+                "textButton": "Ödeme yöntemini sil",
+                "textHeadline": "Ödeme yöntemini sil"
+            },
             "helpTextTechnicalName": "Teknik isim ödeme yöntemine atıfta bulunmak için kullanılır. Benzersizdir ve 6.7.0.0 sürümünden itibaren tüm ödeme ve nakliye yöntemleri için gereklidir. Teknik adı değiştirmek mevcut ödeme entegrasyonlarını bozabilir.",
+            "hintTextTechnicalName": "6.7.0 sürümünden itibaren gerekli olacaktır",
             "labelActive": "Aktif",
             "labelAfterOrderEnabled": "Ödeme işleminden sonra ödeme değişikliğine izin ver",
             "labelDescription": "Açıklama",
@@ -8712,6 +8780,7 @@
             "buttonSave": "Kaydet",
             "helpTextTechnicalName": "Teknik ad, nakliye yöntemini benzersiz bir şekilde tanımlamak için kullanılır. Teknik adın ardından yapılan bir değişiklik, ona dayanan nakliye entegrasyonlarının artık çalışmamasına neden olabilir.",
             "helpTextTrackingUrl": "Gönderim sağlayıcısının izleme URL'sini girin ve gerçek izleme kodunun olacağı yer tutucu olarak \"%s\" ekleyin. İzleme kodu, bireysel siparişlerden otomatik olarak eklenir.",
+            "hintTextTechnicalName": "6.7.0 sürümünden itibaren gerekli olacaktır",
             "labelActive": "Aktif",
             "labelBasicInfo": "Temel bilgiler",
             "labelDeliveryTime": "Teslimat süresi",
@@ -9228,6 +9297,9 @@
             "textHeadline": "Veri paylaşımı"
         }
     },
+    "sw-settings-usage-data-general": {
+        "tabHeadline": "General"
+    },
     "sw-shortcut-overview": {
         "function": "Fonksiyon",
         "functionAddCategory": "Kategori ekle",
@@ -9391,15 +9463,6 @@
             "textDeleteMultipleConfirm": "Seçilen öğeleri \"{count}\" silmek istediğinizden emin misiniz?"
         }
     },
-    "sw-usage-data": {
-        "sw-settings-usage-data-intro": {
-            "description": "Shopware Yönetiminizden kullanım verileri toplamamıza izin vererek daha iyi ürünler ve hizmetler oluşturmamıza yardımcı olun. En son gizlilik koruma tekniklerini kullanarak, toplanan verilerin sizinle veya mağazanızla ilişkilendirilemediğinden emin oluruz. Herhangi bir müşteri bilgisi toplamıyoruz.",
-            "headline": "Shopware'i toplu olarak iyileştirme",
-            "learnMore": "Daha fazla bilgi edinin",
-            "learnMoreUrl": "https://shopware.com/tr/privacy/",
-            "title": "Kullanım verileri"
-        }
-    },
     "sw-usage-data-consent-banner": {
         "acceptDataCollection": "Katılıyorum",
         "checkListDataSharing": {
@@ -9422,8 +9485,6 @@
             },
             "orderData": "Sipariş verileri",
             "storeData": "Verileri sakla",
-            "title": "Topladığımız veriler:",
-            "titleNotAccepted": "Toplayacağımız veriler:",
             "usageData": "Veri paylaşımı"
         },
         "confirmAuthorization": "“Kabul Et” i tıklayarak, şirketiniz adına bu sözleşmeye girmeye yetkili olduğunuzu onaylarsınız.",

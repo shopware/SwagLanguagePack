@@ -1,6 +1,9 @@
 {
     "entityCategories": {
         "additional_privileges": {
+            "entities": {
+                "api_feature_flag_toggle": "Skift til API-funktionsflag"
+            },
             "title": "Yderligere tilladelser"
         },
         "admin_user": {
@@ -497,6 +500,7 @@
             "INVALID_URL": "Indtast en valid Url.",
             "PARENT_MUST_NOT_BE_EMPTY": "Dette felts arvtager må ikke være tom.",
             "SHOPWARE_INVALID_IP": "Indtast en valid IP adresse.",
+            "SHOPWARE_INVALID_IP_CIDR": "Indtast venligst en gyldig IP-adresse eller en gyldig IP-adresse med CIDR-maske.",
             "c1051bb4-d103-4f74-8988-acbcafc7fdc3": "Dette felt må ikke være tomt."
         },
         "notification": {
@@ -741,6 +745,7 @@
                 "orderCustomFieldRule": "Bestil med brugerdefineret felt",
                 "orderDeliveryStatusRule": "Leveringsstatus",
                 "orderDocumentTypeRule": "Bestil med dokument",
+                "orderDocumentTypeSentRule": "Bestil med sendt dokument",
                 "orderStatusRule": "Ordre status",
                 "orderTagRule": "Bestil med tag",
                 "orderTotalAmountRule": "Total værdi for afsluttede ordrer",
@@ -839,6 +844,21 @@
                     "placeholder": "Vælg operatør..."
                 }
             },
+            "customerDaysSinceFirstLogin": {
+                "daysPassed": {
+                    "placeholder": "@: sw-product.settingsform.placeholderTime"
+                }
+            },
+            "customerDaysSinceLastLogin": {
+                "daysPassed": {
+                    "placeholder": "@: sw-product.settingsform.placeholderTime"
+                }
+            },
+            "customerDaysSinceLastOrder": {
+                "daysPassed": {
+                    "placeholder": "@: sw-product.settingsform.placeholderTime"
+                }
+            },
             "customerEmail": {
                 "email": {
                     "placeholder": "@:global.sw-condition.condition.emailRule.placeholder"
@@ -879,11 +899,11 @@
                 }
             },
             "promotionCodeOfType": {
-                "promotionCodeOfType": {
+                "promotionCodeType": {
                     "options": {
-                        "fixed": "@:global.sw-condition.condition.promotionCodeOfTypeRule.fixed",
-                        "global": "@:global.sw-condition.condition.promotionCodeOfTypeRule.global",
-                        "individual": "@:global.sw-condition.condition.promotionCodeOfTypeRule.individual"
+                        "fixed": "@: global.sw-condition.condition.promotionCodeOfTyperule.Fixed",
+                        "global": "@: global.sw-condition.condition.promotioncodeoftyperule.global",
+                        "individual": "@: global.sw-Condition.Condition.PromotionCodeOfTyperule.Individual"
                     }
                 }
             },
@@ -950,6 +970,9 @@
             "labelSettingsPreviewImages": "Vis preview billeder",
             "maximumSelectionExceed": "Maksimalt antal valgte varer",
             "tooltipListSettings": "Listeindstillinger"
+        },
+        "sw-desktop": {
+            "stagingBarText": "Butikken er i iscenesættelsestilstand."
         },
         "sw-duplicated-media": {
             "buttonRename": "Omdøb fil",
@@ -1165,26 +1188,26 @@
         },
         "sw-media-modal-folder-settings": {
             "labelDefaultFolder": "Standard medieplacering for",
-            "labelEditList": "Redigér liste",
             "labelFolderName": "Navn",
             "labelGenerateThumbnails": "Generer thumbnails til denne mappe",
             "labelInheritSettings": "Arv indstillinger fra overordnet mappe",
             "labelKeepProportions": "Bevar aspect ratio",
             "labelSettings": "Indstillinger",
-            "labelStopEdit": "Stop redigering",
             "labelSystem": "Systemmappe",
             "labelThumbnailQuality": "Thumbnail kvalitet",
             "labelThumbnailSize": "Thumbnail størrelse",
             "labelThumbnails": "Thumbnail",
             "notification": {
                 "error": {
-                    "message": "Fejl under gemning af indstillinger."
+                    "message": "Fejl under gemning af indstillinger.",
+                    "messageThumbnailSizeExisted": "Miniaturestørrelsen findes allerede."
                 },
                 "success": {
                     "message": "Indstillingsværdier er gemt."
                 }
             },
-            "placeholderDefaultFolder": "Vælg enhed..."
+            "placeholderDefaultFolder": "Vælg enhed...",
+            "tooltipCanNotDeleteThumbnailSize": "Denne miniaturestørrelse kan ikke slettes, fordi den i øjeblikket er i brug."
         },
         "sw-media-modal-move": {
             "buttonMove": "Flyt",
@@ -1301,7 +1324,9 @@
             "addIpAddress": "Tilføj IP-adresse",
             "enterValidIp": "Indtast en valid IPv4 eller IPv6 adresse",
             "knownIps": {
-                "you": "Dig"
+                "you": "Dig",
+                "youIPv6Block56": "Dig og andre (samme slutside)",
+                "youIPv6Block64": "Dig og andre (hjemmenetværk)"
             }
         },
         "sw-multi-tag-select": {
@@ -2166,6 +2191,11 @@
                     "label": "Formular"
                 }
             },
+            "html": {
+                "html": {
+                    "label": "HTML"
+                }
+            },
             "image": {
                 "image": {
                     "label": "Billede, fast bredde"
@@ -2392,9 +2422,11 @@
                 "backgroundMediaModeContain": "Indhold",
                 "backgroundMediaModeCover": "Forsidebillede",
                 "blockBottomMarginField": "Bundmargen",
+                "blockCategoryApp": "Apps",
                 "blockCategoryCommerce": "E-handel",
                 "blockCategoryFavorite": "Favoritter",
                 "blockCategoryForm": "Formular",
+                "blockCategoryHtml": "HTML",
                 "blockCategoryImage": "Billeder",
                 "blockCategorySelection": "Blok - kategori",
                 "blockCategorySidebar": "Sidebar",
@@ -2565,6 +2597,13 @@
                         "subject": "Emnefelt*",
                         "subscribeToNewsletter": "Tilmeld nyhedsbrev"
                     },
+                    "newsletter": {
+                        "label": {
+                            "firstName": "Fornavn",
+                            "lastName": "Efternavn",
+                            "salutation": "Salutation"
+                        }
+                    },
                     "placeholder": {
                         "email": "john {'@'} doe.com",
                         "firstName": "John",
@@ -2627,10 +2666,17 @@
                     }
                 }
             },
+            "html": {
+                "config": {
+                    "warning": "Ufiltreret HTML-kode kan føre til sikkerhedsrisici. Indsæt kun HTML-kode fra pålidelige kilder, og test dine ændringer, før du offentliggør dem."
+                },
+                "label": "HTML"
+            },
             "image": {
                 "config": {
                     "label": {
                         "linkNewTab": "Åbn link i ny fane",
+                        "linkTo": "Linkmål",
                         "minHeight": "Minimum højde",
                         "minHeightHelpText": "Indtast minimumshøjden med din ønskede enhed. For eksempel: 200px"
                     },
@@ -2866,6 +2912,7 @@
             "placeholderSearchBar": "Søg i layout..."
         },
         "list": {
+            "gridHeaderAssignedPages": "Tildelte sider",
             "gridHeaderAssignment": "Tildelte kategorier",
             "gridHeaderAssignments": "Opgaver",
             "gridHeaderCreated": "Oprettet",
@@ -3046,6 +3093,7 @@
         "baseInfo": {
             "contactEmail": "Email adresse",
             "contentActive": "Aktiv | Inaktiv",
+            "contentConfirmed": "Bekræftet | Ubekræftet",
             "emptyBoundSalesChannel": "Alle",
             "emptyTextBirthday": "Ingen information",
             "emptyTextLogin": "Intet login endnu",
@@ -3056,6 +3104,7 @@
             "labelBoundSalesChannel": "Salgskanal",
             "labelCampaignCode": "Kampagne kode",
             "labelCompany": "Virksomhed",
+            "labelConfirmed": "E-mail-adressestatus",
             "labelCustomerGroup": "Kundegruppe",
             "labelCustomerNumber": "Kundenummer",
             "labelDefaultPayment": "Standard Betalingsmetode",
@@ -4344,6 +4393,7 @@
             "exportActivityLabel": "Eksportaktivitet",
             "exportLabel": "Eksport",
             "exportVariants": "Eksportér produktvarianter",
+            "messageExportError": "Eksportfil kunne ikke oprettes. | Eksportfil kunne ikke oprettes. Download filen „ugyldige poster“ eller flere oplysninger.",
             "messageExportStarted": "Eksportering startet.",
             "messageExportSuccess": "Eksport \"{profile}\" afsluttet.",
             "showLogLabel": "Vis logfil",
@@ -4569,6 +4619,9 @@
                 "labelSocialMediaDescription": "Beskrivelse",
                 "labelSocialMediaTitle": "Titel",
                 "labelUrl": "SEO URL",
+                "notification": {
+                    "noLayoutAssigned": "Der er ikke tildelt noget layout til denne destinationsside. Uden et layout er destinationssiden ikke tilgængelig via SEO."
+                },
                 "placeholderKeywords": "Indtast et eller flere nøgleord...",
                 "placeholderMetaDescription": "Indtast en metabeskrivelse...",
                 "placeholderMetaTitle": "Indtast meta- titel...",
@@ -5608,6 +5661,7 @@
                 "api_action_cache_index": "Trigger indexer",
                 "api_action_cache_info": "Læs cache- info",
                 "api_action_container-cache_delete": "Slet cache for containere",
+                "api_feature_flag_toggle": "Skift funktionsflag",
                 "api_info_me": "Læs egen API-brugerinfo",
                 "api_info_ping": "Opdater auth- token",
                 "api_proxy_switch-customer": "Agere på vegne af kunder",
@@ -6198,6 +6252,7 @@
             "placeholderReleaseDate": "Indtast udgivelsesdato...",
             "placeholderRestockTime": "Indtast tid indtil varen er på lager i hele dage...",
             "placeholderStock": "Indtast antal på lager...",
+            "placeholderTime": "f.eks. 31...",
             "placeholderWeight": "f.eks. 0.4...",
             "placeholderWidth": "f.eks. 500..."
         },
@@ -6320,6 +6375,7 @@
             "closeModal": "Anvend",
             "columnAll": "Synlig",
             "columnLinkOnly": "Skjul i Annoncer og søg",
+            "columnSalesChannel": "Salgskanal",
             "columnSearchOnly": "Skjul i Annoncer",
             "errorMessage": "Kan ikke indlæse standardkonfiguration af salgskanal.",
             "labelVisibility": "Salgskanaler",
@@ -7177,6 +7233,7 @@
             "maintenanceModeTitle": "Vedligeholdelsestilstand",
             "messageAPIError": "Det var ikke muligt at oprette en API nøgle.",
             "messageActivateWithoutThemeError": "Salgskanal \"{name}\" kunne ikke aktiveres. Aktive salgskanaler skal først have et tema tilknyttet.",
+            "messageDeleteDomainError": "Domænet \"{url}\" kunne ikke slettes, fordi det er knyttet til eksisterende produkteksport.",
             "messageSaveError": "Salgskanalen \"{name}\" kunne ikke gemmes.",
             "messageSaveSuccess": "Sales Channel \"{name}\" gemt.",
             "navigation": "Navigation",
@@ -8277,7 +8334,18 @@
         "detail": {
             "buttonCancel": "Annullér",
             "buttonSave": "Gem",
+            "delete": {
+                "modal": {
+                    "buttonCancel": "Annullér",
+                    "buttonDelete": "Slet",
+                    "textConfirmation": "Vil du virkelig slette denne betalingsmetode?"
+                },
+                "textAlert": "Denne betalingsmetode anvendes i regler, salgskanaler eller ordrer og kan derfor ikke slettes.",
+                "textButton": "Slet betalingsmetode",
+                "textHeadline": "Slet betalingsmetode"
+            },
             "helpTextTechnicalName": "Det tekniske navn bruges til at henvise til betalingsmetoden. Det er unikt og påkrævet for alle betalings- og forsendelsesmetoder fra version 6.7.0.0 og fremefter. Ændring af det tekniske navn kan ødelægge eksisterende betalingsintegrationer.",
+            "hintTextTechnicalName": "Vil være påkrævet fra version 6.7.0 og fremefter",
             "labelActive": "Aktiv",
             "labelAfterOrderEnabled": "Tillad betaling efter checkout",
             "labelDescription": "Beskrivelse",
@@ -8712,6 +8780,7 @@
             "buttonSave": "Gem",
             "helpTextTechnicalName": "Det tekniske navn bruges til entydigt at identificere forsendelsesmetoden. En efterfølgende ændring af det tekniske navn kan medføre, at forsendelsesintegrationer, der er afhængige af det, ikke længere fungerer.",
             "helpTextTrackingUrl": "Du kan indtaste leverandørens sporings-URL her. Udskift bare den faktiske forsendelseskode med '%s' som en pladsholder, Shopware vil derefter indsætte den korrekte kode for hver ordre automatisk, forudsat at der findes en i ordredetaljerne.",
+            "hintTextTechnicalName": "Vil være påkrævet fra version 6.7.0 og fremefter",
             "labelActive": "Aktiv",
             "labelBasicInfo": "Basisinformation",
             "labelDeliveryTime": "Leveringstid",
@@ -9228,6 +9297,9 @@
             "textHeadline": "Brugsdata"
         }
     },
+    "sw-settings-usage-data-general": {
+        "tabHeadline": "Generel"
+    },
     "sw-shortcut-overview": {
         "function": "Funktion",
         "functionAddCategory": "Tilføj kategori",
@@ -9391,15 +9463,6 @@
             "textDeleteMultipleConfirm": "Er du helt sikker på du vil slette de {count} valgte elementer?"
         }
     },
-    "sw-usage-data": {
-        "sw-settings-usage-data-intro": {
-            "description": "Hjælp os med at opbygge bedre produkter og tjenester ved at give os mulighed for at indsamle brugsdata fra din Shopware-administration. Ved hjælp af de nyeste teknikker til beskyttelse af personlige oplysninger sørger vi for, at de indsamlede data ikke kan knyttes til dig eller din butik. Vi indsamler ingen kundeoplysninger.",
-            "headline": "Forbedring af Shopware kollektivt",
-            "learnMore": "Lær mere",
-            "learnMoreUrl": "https://shopware.com/en/privacy/",
-            "title": "Brugsdata"
-        }
-    },
     "sw-usage-data-consent-banner": {
         "acceptDataCollection": "Enig",
         "checkListDataSharing": {
@@ -9422,8 +9485,6 @@
             },
             "orderData": "Bestillingsdata",
             "storeData": "Opbevar data",
-            "title": "Data, vi indsamler:",
-            "titleNotAccepted": "Data, vi indsamler:",
             "usageData": "Brugsdata"
         },
         "confirmAuthorization": "Ved at klikke på „Accepter“ bekræfter du, at du er autoriseret til at indgå denne aftale på vegne af din virksomhed.",

@@ -1,6 +1,9 @@
 {
     "entityCategories": {
         "additional_privileges": {
+            "entities": {
+                "api_feature_flag_toggle": "Přepínání příznaku funkce API"
+            },
             "title": "Další oprávnění"
         },
         "admin_user": {
@@ -497,6 +500,7 @@
             "INVALID_URL": "Zadejte platnou adresu URL.",
             "PARENT_MUST_NOT_BE_EMPTY": "Dědic tohoto pole nesmí být prázdný.",
             "SHOPWARE_INVALID_IP": "Zadejte platnou IP adresu.",
+            "SHOPWARE_INVALID_IP_CIDR": "Zadejte prosím platnou IP adresu nebo platnou IP adresu s maskou CIDR.",
             "c1051bb4-d103-4f74-8988-acbcafc7fdc3": "Toto pole nesmí být prázdné."
         },
         "notification": {
@@ -741,6 +745,7 @@
                 "orderCustomFieldRule": "Objednávka s vlastním polem",
                 "orderDeliveryStatusRule": "Stav dodávky",
                 "orderDocumentTypeRule": "Objednávka s dokumentem",
+                "orderDocumentTypeSentRule": "Objednávka s odeslaným dokumentem",
                 "orderStatusRule": "Stav objednávky",
                 "orderTagRule": "Objednat se značkou",
                 "orderTotalAmountRule": "Celková hodnota dokončených (hotových) objednávek",
@@ -839,6 +844,21 @@
                     "placeholder": "Vyberte operátor..."
                 }
             },
+            "customerDaysSinceFirstLogin": {
+                "daysPassed": {
+                    "placeholder": "@: sw-product.settingsForm.PlaceHolderTime"
+                }
+            },
+            "customerDaysSinceLastLogin": {
+                "daysPassed": {
+                    "placeholder": "@: sw-product.settingsForm.PlaceHolderTime"
+                }
+            },
+            "customerDaysSinceLastOrder": {
+                "daysPassed": {
+                    "placeholder": "@: sw-product.settingsForm.PlaceHolderTime"
+                }
+            },
             "customerEmail": {
                 "email": {
                     "placeholder": "@:global.sw-condition.condition.emailRule.placeholder"
@@ -879,11 +899,11 @@
                 }
             },
             "promotionCodeOfType": {
-                "promotionCodeOfType": {
+                "promotionCodeType": {
                     "options": {
-                        "fixed": "@:global.sw-condition.condition.promotionCodeOfTypeRule.fixed",
-                        "global": "@:global.sw-condition.condition.promotionCodeOfTypeRule.global",
-                        "individual": "@:global.sw-condition.condition.promotionCodeOfTypeRule.individual"
+                        "fixed": "@: global.sw-condition.condition.promotionCodeOfTyperule.Fixed",
+                        "global": "@: global.sw-condition.condition.promotionCodeOfTyperule.global",
+                        "individual": "@:global.sw-condition.condition.promotionCodeOfTyperule.individual"
                     }
                 }
             },
@@ -950,6 +970,9 @@
             "labelSettingsPreviewImages": "Zobrazit náhledy obrázků",
             "maximumSelectionExceed": "Maximální počet vybraných položek",
             "tooltipListSettings": "Nastavení seznamu"
+        },
+        "sw-desktop": {
+            "stagingBarText": "Obchod je v režimu inscenace."
         },
         "sw-duplicated-media": {
             "buttonRename": "Přejmenovat soubor",
@@ -1165,26 +1188,26 @@
         },
         "sw-media-modal-folder-settings": {
             "labelDefaultFolder": "Výchozí umístění médií pro",
-            "labelEditList": "Upravit seznam",
             "labelFolderName": "Název",
             "labelGenerateThumbnails": "Generovat miniatury pro tuto složku",
             "labelInheritSettings": "Převzít nastavení nadřazené složky",
             "labelKeepProportions": "Zachovat poměr stran",
             "labelSettings": "Nastavení",
-            "labelStopEdit": "Ukončit úpravy",
             "labelSystem": "Systémová složka",
             "labelThumbnailQuality": "Kvalita miniatur",
             "labelThumbnailSize": "Velikost miniatur",
             "labelThumbnails": "Miniatury",
             "notification": {
                 "error": {
-                    "message": "Chyba při ukládání nastavení."
+                    "message": "Chyba při ukládání nastavení.",
+                    "messageThumbnailSizeExisted": "Velikost miniatury již existuje."
                 },
                 "success": {
                     "message": "Nastavení úspěšně uloženo"
                 }
             },
-            "placeholderDefaultFolder": "Vyberte entitu..."
+            "placeholderDefaultFolder": "Vyberte entitu...",
+            "tooltipCanNotDeleteThumbnailSize": "Tuto velikost miniatury nelze odstranit, protože se právě používá."
         },
         "sw-media-modal-move": {
             "buttonMove": "Přesunout",
@@ -1301,7 +1324,9 @@
             "addIpAddress": "Přidat IP adresu",
             "enterValidIp": "Zadejte platnou adresu IPv4 nebo IPv6",
             "knownIps": {
-                "you": "Ty"
+                "you": "Ty",
+                "youIPv6Block56": "Vy a ostatní (stejný koncový server)",
+                "youIPv6Block64": "Vy a ostatní (domácí síť)"
             }
         },
         "sw-multi-tag-select": {
@@ -2166,6 +2191,11 @@
                     "label": "Formulář"
                 }
             },
+            "html": {
+                "html": {
+                    "label": "HTML"
+                }
+            },
             "image": {
                 "image": {
                     "label": "Obrázek, vystředěný"
@@ -2392,9 +2422,11 @@
                 "backgroundMediaModeContain": "Obsahovat",
                 "backgroundMediaModeCover": "Naplnit",
                 "blockBottomMarginField": "Mezera dole",
+                "blockCategoryApp": "Aplikace",
                 "blockCategoryCommerce": "Komerce",
                 "blockCategoryFavorite": "Oblíbené",
                 "blockCategoryForm": "Formulář",
+                "blockCategoryHtml": "HTML",
                 "blockCategoryImage": "Obrázky",
                 "blockCategorySelection": "Kategorie bloku",
                 "blockCategorySidebar": "Boční panel",
@@ -2557,13 +2589,20 @@
                         "lastName": "Příjmení*",
                         "message": "Vaše zpráva*",
                         "newsletterSubmit": "Další",
-                        "phone": "Telefonní číslo",
-                        "privacy": "Ochrana dat",
+                        "phone": "Telefonní číslo*",
+                        "privacy": "Soukromí*",
                         "salutation": "Oslovení*",
                         "salutationUndisclosed": "Žádný údaj",
                         "send": "Odeslat",
                         "subject": "Věc*",
                         "subscribeToNewsletter": "Přihlásit se k odběru novinek"
+                    },
+                    "newsletter": {
+                        "label": {
+                            "firstName": "Jméno",
+                            "lastName": "Příjmení",
+                            "salutation": "Oslovení"
+                        }
                     },
                     "placeholder": {
                         "email": "john {'@'} doe.com",
@@ -2627,10 +2666,17 @@
                     }
                 }
             },
+            "html": {
+                "config": {
+                    "warning": "Nefiltrovaný kód HTML může vést k bezpečnostním rizikům. Vložte prosím pouze kód HTML z důvěryhodných zdrojů a otestujte změny před jejich publikováním."
+                },
+                "label": "HTML"
+            },
             "image": {
                 "config": {
                     "label": {
                         "linkNewTab": "Odkaz k otevření na nové kartě",
+                        "linkTo": "Cíl odkazu",
                         "minHeight": "Minimální výška",
                         "minHeightHelpText": "Zadejte minimální výšku s požadovanou jednotkou. Například: 200px"
                     },
@@ -2866,6 +2912,7 @@
             "placeholderSearchBar": "Prohledávání rozvržení..."
         },
         "list": {
+            "gridHeaderAssignedPages": "Přiřazené stránky",
             "gridHeaderAssignment": "Přiřazené kategorie",
             "gridHeaderAssignments": "Úkoly",
             "gridHeaderCreated": "Vytvořeno",
@@ -3046,6 +3093,7 @@
         "baseInfo": {
             "contactEmail": "E-mailová adresa",
             "contentActive": "Aktivní | Neaktivní",
+            "contentConfirmed": "Potvrzeno | Nepotvrzeno",
             "emptyBoundSalesChannel": "Všechny",
             "emptyTextBirthday": "žádný údaj",
             "emptyTextLogin": "Dosud žádné přihlášení",
@@ -3056,6 +3104,7 @@
             "labelBoundSalesChannel": "Prodejní kanál",
             "labelCampaignCode": "Kód kampaně",
             "labelCompany": "Firma",
+            "labelConfirmed": "Stav e-mailové adresy",
             "labelCustomerGroup": "Skupina zákazníků",
             "labelCustomerNumber": "Zákaznické číslo",
             "labelDefaultPayment": "Standardní způsob platby",
@@ -4344,6 +4393,7 @@
             "exportActivityLabel": "Činnost exportu",
             "exportLabel": "Export",
             "exportVariants": "Export variant produktů",
+            "messageExportError": "Soubor exportu nelze vytvořit. | Nelze vytvořit soubor exportu. Stáhněte si soubor „neplatné záznamy“ nebo více informací.",
             "messageExportStarted": "Export byl spuštěn.",
             "messageExportSuccess": "Export \"{profile}\" dokončen.",
             "showLogLabel": "Zobrazit protokol",
@@ -4569,6 +4619,9 @@
                 "labelSocialMediaDescription": "Popis",
                 "labelSocialMediaTitle": "Titul",
                 "labelUrl": "SEO URL",
+                "notification": {
+                    "noLayoutAssigned": "Pro tuto vstupní stránku nebylo přiřazeno žádné rozložení. Bez rozvržení není vstupní stránka přístupná prostřednictvím SEO."
+                },
                 "placeholderKeywords": "Zadejte jedno nebo více klíčových slov...",
                 "placeholderMetaDescription": "Zadejte meta popis...",
                 "placeholderMetaTitle": "Zadejte titul meta...",
@@ -5608,6 +5661,7 @@
                 "api_action_cache_index": "Indexer spouštěcí",
                 "api_action_cache_info": "Číst informace o mezipaměti",
                 "api_action_container-cache_delete": "Odstranit kontejner cache",
+                "api_feature_flag_toggle": "Přepnout příznaky funkcí",
                 "api_info_me": "Přečtěte si vlastní info o uživateli API",
                 "api_info_ping": "Aktualizovat token auth",
                 "api_proxy_switch-customer": "Jednat jménem zákazníka",
@@ -6198,6 +6252,7 @@
             "placeholderReleaseDate": "Zadejte datum nastavení...",
             "placeholderRestockTime": "Interval doplňování...",
             "placeholderStock": "Zadejte stav zásob skladem...",
+            "placeholderTime": "např. 31...",
             "placeholderWeight": "například 0,4...",
             "placeholderWidth": "například 500..."
         },
@@ -6320,6 +6375,7 @@
             "closeModal": "Převzít",
             "columnAll": "Viditelné",
             "columnLinkOnly": "Skrýt v seznamu a hledání",
+            "columnSalesChannel": "Prodejní kanál",
             "columnSearchOnly": "Skrýt v seznamu",
             "errorMessage": "Nelze načíst výchozí konfiguraci prodejního kanálu.",
             "labelVisibility": "Viditelnost",
@@ -7177,6 +7233,7 @@
             "maintenanceModeTitle": "Režim údržby",
             "messageAPIError": "Klíč API nelze vygenerovat.",
             "messageActivateWithoutThemeError": "Prodejní kanál \"{name}\" ještě nelze aktivovat. Aktivní prodejní kanály musí mít přiřazené téma.",
+            "messageDeleteDomainError": "Doménu \"{url}\" nelze smazat, protože je propojená s existujícími exporty produktů.",
             "messageSaveError": "Prodejní kanál \"{name}\" nelze uložit. Zkontrolujte svá zadání.",
             "messageSaveSuccess": "Prodejní kanál \"{name}\" uložen.",
             "navigation": "Navigace",
@@ -8277,7 +8334,18 @@
         "detail": {
             "buttonCancel": "Přerušit",
             "buttonSave": "Uložit",
+            "delete": {
+                "modal": {
+                    "buttonCancel": "Přerušit",
+                    "buttonDelete": "Smazat",
+                    "textConfirmation": "Opravdu chcete smazat tuto platební metodu?"
+                },
+                "textAlert": "Tento způsob platby se používá v pravidlech, prodejních kanálech nebo objednávkách, a proto jej nelze odstranit.",
+                "textButton": "Smazat způsob platby",
+                "textHeadline": "Smazat způsob platby"
+            },
             "helpTextTechnicalName": "Technický název se používá k odkazu na způsob platby. Je jedinečný a vyžadován pro všechny způsoby platby a dopravy od verze 6.7.0.0 a dále. Změna technického názvu může narušit stávající platební integrace.",
+            "hintTextTechnicalName": "Bude vyžadováno od verze 6.7.0 a dále",
             "labelActive": "Aktivní",
             "labelAfterOrderEnabled": "Změnu způsobu platby povolit po dokončení objednávky",
             "labelDescription": "Popis",
@@ -8712,6 +8780,7 @@
             "buttonSave": "Uložit",
             "helpTextTechnicalName": "Technický název se používá k jednoznačné identifikaci způsobu přepravy. Následná změna technického názvu může způsobit, že integrace přepravy, které se na něm spoléhají, již nebudou fungovat.",
             "helpTextTrackingUrl": "Sem můžete zadat Tracking URL poskytovatele služeb dopravy ke sledování zásilky. Namísto skutečného čísla zásilky využijte jako zástupný řetězec '%s'. Shopware pak v případech, kdy je kód udržován v podrobnostech objednávky, zadá na toto místo automaticky pro každou objednávku správný kód.",
+            "hintTextTechnicalName": "Bude vyžadováno od verze 6.7.0 a dále",
             "labelActive": "Aktivní",
             "labelBasicInfo": "Základní informace",
             "labelDeliveryTime": "Dodací lhůta",
@@ -9228,6 +9297,9 @@
             "textHeadline": "Údaje o použití"
         }
     },
+    "sw-settings-usage-data-general": {
+        "tabHeadline": "generál"
+    },
     "sw-shortcut-overview": {
         "function": "Funkce",
         "functionAddCategory": "Přidat kategorii",
@@ -9391,15 +9463,6 @@
             "textDeleteMultipleConfirm": "Chcete opravdu smazat počet vybraných prvků: \"{count}\"?"
         }
     },
-    "sw-usage-data": {
-        "sw-settings-usage-data-intro": {
-            "description": "Pomozte nám vytvářet lepší produkty a služby tím, že nám umožníte shromažďovat údaje o používání z vaší správy Shopware. Pomocí nejnovějších technik ochrany soukromí dbáme na to, aby shromážděná data nemohla být spojena s vámi nebo vaším obchodem. Neshromažďujeme žádné informace o zákaznících.",
-            "headline": "Společné zlepšování Shopware",
-            "learnMore": "Dozvědět se více",
-            "learnMoreUrl": "https://shopware.com/en/privacy/",
-            "title": "Údaje o použití"
-        }
-    },
     "sw-usage-data-consent-banner": {
         "acceptDataCollection": "Souhlasím",
         "checkListDataSharing": {
@@ -9422,8 +9485,6 @@
             },
             "orderData": "Údaje o objednávce",
             "storeData": "Uložit data",
-            "title": "Údaje, které shromažďujeme:",
-            "titleNotAccepted": "Údaje, které budeme shromažďovat:",
             "usageData": "Údaje o použití"
         },
         "confirmAuthorization": "Kliknutím na „Souhlasím“ potvrzujete, že jste oprávněni uzavřít tuto smlouvu jménem vaší společnosti.",

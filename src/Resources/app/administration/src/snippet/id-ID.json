@@ -1,6 +1,9 @@
 {
     "entityCategories": {
         "additional_privileges": {
+            "entities": {
+                "api_feature_flag_toggle": "Toggle flag fitur API"
+            },
             "title": "Izin tambahan"
         },
         "admin_user": {
@@ -497,6 +500,7 @@
             "INVALID_URL": "Sila masukkan url yang valid.",
             "PARENT_MUST_NOT_BE_EMPTY": "Pewaris bidang ini tidak boleh kosong.",
             "SHOPWARE_INVALID_IP": "Sila masukkan alamat IP yang valid.",
+            "SHOPWARE_INVALID_IP_CIDR": "Harap masukkan alamat IP yang valid atau alamat IP yang valid dengan topeng CIDR.",
             "c1051bb4-d103-4f74-8988-acbcafc7fdc3": "Bidang ini tidak boleh kosong."
         },
         "notification": {
@@ -741,6 +745,7 @@
                 "orderCustomFieldRule": "Pesan dengan kolom khusus",
                 "orderDeliveryStatusRule": "Status pengiriman",
                 "orderDocumentTypeRule": "Pesan dengan dokumen",
+                "orderDocumentTypeSentRule": "Pesan dengan dokumen terkirim",
                 "orderStatusRule": "Satus pesanan",
                 "orderTagRule": "Memesan dengan tag",
                 "orderTotalAmountRule": "Total nilai order yang telah selesai (selesai)",
@@ -839,6 +844,21 @@
                     "placeholder": "Pilih operator..."
                 }
             },
+            "customerDaysSinceFirstLogin": {
+                "daysPassed": {
+                    "placeholder": "@: sw-product.settingsForm.placeholderTime"
+                }
+            },
+            "customerDaysSinceLastLogin": {
+                "daysPassed": {
+                    "placeholder": "@: sw-product.settingsForm.placeholderTime"
+                }
+            },
+            "customerDaysSinceLastOrder": {
+                "daysPassed": {
+                    "placeholder": "@: sw-product.settingsForm.placeholderTime"
+                }
+            },
             "customerEmail": {
                 "email": {
                     "placeholder": "@:global.sw-condition.condition.emailRule.placeholder"
@@ -879,11 +899,11 @@
                 }
             },
             "promotionCodeOfType": {
-                "promotionCodeOfType": {
+                "promotionCodeType": {
                     "options": {
-                        "fixed": "@:global.sw-condition.condition.promotionCodeOfTypeRule.fixed",
-                        "global": "@:global.sw-condition.condition.promotionCodeOfTypeRule.global",
-                        "individual": "@:global.sw-condition.condition.promotionCodeOfTypeRule.individual"
+                        "fixed": "@: global.sw-condition.condition.promotionCodeOfTyperule.Fixed",
+                        "global": "@: global.sw-condition.condition.promotioncodeoftyperule.global",
+                        "individual": "@: global.sw-condition.condition.promotionCodeOfTyperule.individual"
                     }
                 }
             },
@@ -950,6 +970,9 @@
             "labelSettingsPreviewImages": "Tampilkan gambar pratinjau",
             "maximumSelectionExceed": "Jumlah maksimum item yang dipilih",
             "tooltipListSettings": "Daftar pengaturan"
+        },
+        "sw-desktop": {
+            "stagingBarText": "Toko dalam mode pementasan."
         },
         "sw-duplicated-media": {
             "buttonRename": "Menamai berkas",
@@ -1165,26 +1188,26 @@
         },
         "sw-media-modal-folder-settings": {
             "labelDefaultFolder": "Lokasi media default untuk",
-            "labelEditList": "Daftar edit",
             "labelFolderName": "Nama",
             "labelGenerateThumbnails": "Mengembalikan thumbnail untuk folder ini",
             "labelInheritSettings": "Mewarisi pengaturan dari folder induk",
             "labelKeepProportions": "Peetahankan aspek rasio",
             "labelSettings": "Pengaturan",
-            "labelStopEdit": "Berhenti mengedit",
             "labelSystem": "Sistem folder",
             "labelThumbnailQuality": "Kualitas thumbnail",
             "labelThumbnailSize": "Ukuran thumbnail",
             "labelThumbnails": "Thumbnail",
             "notification": {
                 "error": {
-                    "message": "Kesalahan saat menyimpan pengaturan."
+                    "message": "Kesalahan saat menyimpan pengaturan.",
+                    "messageThumbnailSizeExisted": "Ukuran thumbnail sudah ada."
                 },
                 "success": {
                     "message": "Pengaturan sudah disimpan."
                 }
             },
-            "placeholderDefaultFolder": "Pilih entitas..."
+            "placeholderDefaultFolder": "Pilih entitas...",
+            "tooltipCanNotDeleteThumbnailSize": "Ukuran thumbnail ini tidak dapat dihapus karena saat ini sedang digunakan."
         },
         "sw-media-modal-move": {
             "buttonMove": "Pindah",
@@ -1301,7 +1324,9 @@
             "addIpAddress": "Tambah alamat IP",
             "enterValidIp": "Harap masukkan alamat IPv4 atau IPv6 yang valid",
             "knownIps": {
-                "you": "Anda"
+                "you": "Anda",
+                "youIPv6Block56": "Anda dan orang lain (situs akhir yang sama)",
+                "youIPv6Block64": "Anda dan orang lain (jaringan rumah)"
             }
         },
         "sw-multi-tag-select": {
@@ -2166,6 +2191,11 @@
                     "label": "Formulir"
                 }
             },
+            "html": {
+                "html": {
+                    "label": "HTML"
+                }
+            },
             "image": {
                 "image": {
                     "label": "Gambar, kotak"
@@ -2392,9 +2422,11 @@
                 "backgroundMediaModeContain": "Memuat",
                 "backgroundMediaModeCover": "Sampul",
                 "blockBottomMarginField": "Margin bawah",
+                "blockCategoryApp": "Apps",
                 "blockCategoryCommerce": "Pwrdagangan",
                 "blockCategoryFavorite": "Favorit",
                 "blockCategoryForm": "Formulir",
+                "blockCategoryHtml": "HTML",
                 "blockCategoryImage": "Gambar",
                 "blockCategorySelection": "Kategori di blok",
                 "blockCategorySidebar": "Bilahsamping",
@@ -2565,6 +2597,13 @@
                         "subject": "Baris subyek*",
                         "subscribeToNewsletter": "Berlangganan newsletter"
                     },
+                    "newsletter": {
+                        "label": {
+                            "firstName": "Nama depan",
+                            "lastName": "Nama belakang",
+                            "salutation": "Salam"
+                        }
+                    },
                     "placeholder": {
                         "email": "john {'@'} lakukan.com",
                         "firstName": "John",
@@ -2627,10 +2666,17 @@
                     }
                 }
             },
+            "html": {
+                "config": {
+                    "warning": "Kode HTML yang tidak difilter dapat menyebabkan risiko keamanan. Harap hanya memasukkan kode HTML dari sumber tepercaya dan uji perubahan Anda sebelum menerbitkannya."
+                },
+                "label": "HTML"
+            },
             "image": {
                 "config": {
                     "label": {
                         "linkNewTab": "Buka tautan di tab baru",
+                        "linkTo": "Target tautan",
                         "minHeight": "Tinggi minimum",
                         "minHeightHelpText": "Masukkan ketinggian minimum dengan unit yang Anda inginkan. Sebagai contoh: 200px"
                     },
@@ -2866,6 +2912,7 @@
             "placeholderSearchBar": "Cari layout..."
         },
         "list": {
+            "gridHeaderAssignedPages": "Halaman yang ditugaskan",
             "gridHeaderAssignment": "Kategori ditetapkan",
             "gridHeaderAssignments": "Penugasan",
             "gridHeaderCreated": "Dibuat",
@@ -3046,6 +3093,7 @@
         "baseInfo": {
             "contactEmail": "Alamat surel",
             "contentActive": "Aktif|tidak aktif",
+            "contentConfirmed": "Dikonfirmasi | Belum dikonfirmasi",
             "emptyBoundSalesChannel": "Semua",
             "emptyTextBirthday": "Tidak ada informasi",
             "emptyTextLogin": "Belum login",
@@ -3056,6 +3104,7 @@
             "labelBoundSalesChannel": "Sales Channel",
             "labelCampaignCode": "Kode kampanye",
             "labelCompany": "Perusahaan",
+            "labelConfirmed": "Status alamat email",
             "labelCustomerGroup": "Kelompok pelanggan",
             "labelCustomerNumber": "Nomor pelanggan",
             "labelDefaultPayment": "Metode pembayaran default",
@@ -4344,6 +4393,7 @@
             "exportActivityLabel": "Ekspor aktivitas",
             "exportLabel": "Ekspor",
             "exportVariants": "Ekspor varian produk",
+            "messageExportError": "File ekspor tidak dapat dibuat. | File ekspor tidak dapat dibuat. Silakan unduh file “catatan tidak valid” atau informasi lebih lanjut.",
             "messageExportStarted": "Ekspor dimulai.",
             "messageExportSuccess": "Ekspor \"{profile}\" selesai.",
             "showLogLabel": "Tampilkan berkas log",
@@ -4569,6 +4619,9 @@
                 "labelSocialMediaDescription": "Deskripsi",
                 "labelSocialMediaTitle": "Judul",
                 "labelUrl": "URL SEO",
+                "notification": {
+                    "noLayoutAssigned": "Untuk halaman arahan ini, tidak ada tata letak yang ditetapkan. Tanpa tata letak, landing page tidak dapat diakses melalui SEO."
+                },
                 "placeholderKeywords": "Masukkan satu atau lebih kata kunci...",
                 "placeholderMetaDescription": "Masukkan deskripsi meta...",
                 "placeholderMetaTitle": "Masukkan judul meta...",
@@ -5608,6 +5661,7 @@
                 "api_action_cache_index": "Pemicu pengindeks",
                 "api_action_cache_info": "Baca info cache",
                 "api_action_container-cache_delete": "Hapus cache kontainer",
+                "api_feature_flag_toggle": "Alihkan bendera fitur",
                 "api_info_me": "Baca info pengguna api sendiri",
                 "api_info_ping": "Segarkan token auth",
                 "api_proxy_switch-customer": "Bertindak atas nama pelanggan",
@@ -6198,6 +6252,7 @@
             "placeholderReleaseDate": "Masukkan tanggal rilis...",
             "placeholderRestockTime": "Masukkan persediaan waktu dalam hari...",
             "placeholderStock": "Masukkan kuantitas di persediaan...",
+            "placeholderTime": "misalnya 31...",
             "placeholderWeight": "contoh 0,4...",
             "placeholderWidth": "contoh 500..."
         },
@@ -6320,6 +6375,7 @@
             "closeModal": "Terapkan",
             "columnAll": "Terlihat",
             "columnLinkOnly": "Sembunyikan di Daftar dan pencarian",
+            "columnSalesChannel": "Jalur penjualan",
             "columnSearchOnly": "Sembunyikan di Daftar",
             "errorMessage": "Tidak dapat memuat konfigurasi saluran penjualan default.",
             "labelVisibility": "Jalur penjualan",
@@ -7177,6 +7233,7 @@
             "maintenanceModeTitle": "Mode pemeliharaan",
             "messageAPIError": "Tidak bisa menghasilkan kunci akses API.",
             "messageActivateWithoutThemeError": "Sales Channel \"{name}\" tidak dapat diaktifkan. Saluran Penjualan Aktif harus memiliki tema yang terkait.",
+            "messageDeleteDomainError": "Domain \"{url}\" tidak dapat dihapus karena terkait dengan ekspor produk yang ada.",
             "messageSaveError": "Jalur penjualan \"{name}\" tidak bisa disimpan. Silahkan periksa entri anda.",
             "messageSaveSuccess": "Sales Channel \"{name}\" disimpan.",
             "navigation": "Navigasi",
@@ -8277,7 +8334,18 @@
         "detail": {
             "buttonCancel": "Batal",
             "buttonSave": "Simpan",
+            "delete": {
+                "modal": {
+                    "buttonCancel": "Batal",
+                    "buttonDelete": "Hapus",
+                    "textConfirmation": "Apakah Anda benar-benar ingin menghapus metode pembayaran ini?"
+                },
+                "textAlert": "Metode pembayaran ini digunakan dalam aturan, Saluran Penjualan atau pesanan dan karenanya tidak dapat dihapus.",
+                "textButton": "Hapus metode pembayaran",
+                "textHeadline": "Hapus metode pembayaran"
+            },
             "helpTextTechnicalName": "Nama teknis digunakan untuk merujuk metode pembayaran. Ini unik dan diperlukan untuk semua metode pembayaran dan pengiriman dari versi 6.7.0.0 dan seterusnya. Mengubah nama teknis dapat merusak integrasi pembayaran yang ada.",
+            "hintTextTechnicalName": "Akan diperlukan dari versi 6.7.0 dan seterusnya",
             "labelActive": "Aktif",
             "labelAfterOrderEnabled": "Izinkan perubahan pembayaran setelah checkout",
             "labelDescription": "Deskripsi",
@@ -8712,6 +8780,7 @@
             "buttonSave": "Simpan",
             "helpTextTechnicalName": "Nama teknis digunakan untuk mengidentifikasi metode pengiriman secara unik. Perubahan selanjutnya pada nama teknis dapat menyebabkan integrasi pengiriman yang bergantung padanya tidak lagi berfungsi.",
             "helpTextTrackingUrl": "Masukkan URL pelacakan penyedia pengiriman dan masukkan \"%s\" sebagai placeholder di mana kode pelacakan sebenarnya berada. Kode pelacakan secara otomatis dimasukkan dari pesanan individu.",
+            "hintTextTechnicalName": "Akan diperlukan dari versi 6.7.0 dan seterusnya",
             "labelActive": "Aktif",
             "labelBasicInfo": "Informasi dasar",
             "labelDeliveryTime": "Waktu pengiriman",
@@ -9228,6 +9297,9 @@
             "textHeadline": "Berbagi data"
         }
     },
+    "sw-settings-usage-data-general": {
+        "tabHeadline": "Umum"
+    },
     "sw-shortcut-overview": {
         "function": "Fungsi",
         "functionAddCategory": "Tambah kategori",
@@ -9391,15 +9463,6 @@
             "textDeleteMultipleConfirm": "Anda yakin ingin menghapus {count}\" elemen yang dipilih?"
         }
     },
-    "sw-usage-data": {
-        "sw-settings-usage-data-intro": {
-            "description": "Bantu kami membangun produk dan layanan yang lebih baik dengan mengizinkan kami mengumpulkan data penggunaan dari Administrasi Shopware Anda. Dengan menggunakan teknik perlindungan privasi terbaru, kami memastikan bahwa data yang dikumpulkan tidak dapat dikaitkan dengan Anda atau toko Anda. Kami tidak mengumpulkan informasi pelanggan apa pun.",
-            "headline": "Meningkatkan Shopware secara kolektif",
-            "learnMore": "Pelajari lebih lanjut",
-            "learnMoreUrl": "https://shopware.com/en/privacy/",
-            "title": "Penggunaan data"
-        }
-    },
     "sw-usage-data-consent-banner": {
         "acceptDataCollection": "Setuju",
         "checkListDataSharing": {
@@ -9422,8 +9485,6 @@
             },
             "orderData": "Data pesanan",
             "storeData": "Simpan data",
-            "title": "Data yang kami kumpulkan:",
-            "titleNotAccepted": "Data yang akan kami kumpulkan:",
             "usageData": "Berbagi data"
         },
         "confirmAuthorization": "Dengan mengklik “Setuju”, Anda mengonfirmasi bahwa Anda berwenang untuk masuk ke dalam perjanjian ini atas nama perusahaan Anda.",

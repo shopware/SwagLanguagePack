@@ -1,6 +1,9 @@
 {
     "entityCategories": {
         "additional_privileges": {
+            "entities": {
+                "api_feature_flag_toggle": "Prepínanie príznakov funkcie API"
+            },
             "title": "Ďalšie povolenia"
         },
         "admin_user": {
@@ -497,6 +500,7 @@
             "INVALID_URL": "Zadajte platnú adresu URL.",
             "PARENT_MUST_NOT_BE_EMPTY": "Dedič tohto poľa nesmie byť prázdny.",
             "SHOPWARE_INVALID_IP": "Zadajte platnú IP adresu.",
+            "SHOPWARE_INVALID_IP_CIDR": "Zadajte platnú IP adresu alebo platnú IP adresu s CIDR maskou.",
             "c1051bb4-d103-4f74-8988-acbcafc7fdc3": "Toto pole nesmie byť prázdne."
         },
         "notification": {
@@ -741,6 +745,7 @@
                 "orderCustomFieldRule": "Objednať s vlastným poľom",
                 "orderDeliveryStatusRule": "Stav doručenia",
                 "orderDocumentTypeRule": "Objednať s dokumentom",
+                "orderDocumentTypeSentRule": "Objednávka s odoslaným dokumentom",
                 "orderStatusRule": "Stav objednávky",
                 "orderTagRule": "Objednať so značkou",
                 "orderTotalAmountRule": "Celková hodnota dokončených (hotovo) objednávok",
@@ -839,6 +844,21 @@
                     "placeholder": "Vyberte operátor..."
                 }
             },
+            "customerDaysSinceFirstLogin": {
+                "daysPassed": {
+                    "placeholder": "@:SW-Product.SettingsForm.PlaceholderTime"
+                }
+            },
+            "customerDaysSinceLastLogin": {
+                "daysPassed": {
+                    "placeholder": "@:SW-Product.SettingsForm.PlaceholderTime"
+                }
+            },
+            "customerDaysSinceLastOrder": {
+                "daysPassed": {
+                    "placeholder": "@:SW-Product.SettingsForm.PlaceholderTime"
+                }
+            },
             "customerEmail": {
                 "email": {
                     "placeholder": "@:global.sw-condition.condition.emailRule.placeholder"
@@ -879,11 +899,11 @@
                 }
             },
             "promotionCodeOfType": {
-                "promotionCodeOfType": {
+                "promotionCodeType": {
                     "options": {
-                        "fixed": "@:global.sw-condition.condition.promotionCodeOfTypeRule.fixed",
-                        "global": "@:global.sw-condition.condition.promotionCodeOfTypeRule.global",
-                        "individual": "@:global.sw-condition.condition.promotionCodeOfTypeRule.individual"
+                        "fixed": "@:Global.sw-Condition.Condition.PromotionCodeofTyPerule.Fixed",
+                        "global": "@:Global.sw-Condition.Condition.PromotionCodeofTyPerule.Global",
+                        "individual": "@:Global.sw-Condition.Condition.PromotionCodeofTyperule.Individual"
                     }
                 }
             },
@@ -950,6 +970,9 @@
             "labelSettingsPreviewImages": "Zobraziť náhľad obrázkov",
             "maximumSelectionExceed": "Maximálny počet vybraných položiek",
             "tooltipListSettings": "Nastavenia zoznamu"
+        },
+        "sw-desktop": {
+            "stagingBarText": "Obchod je v režime inscenácie."
         },
         "sw-duplicated-media": {
             "buttonRename": "Premenovať súbor",
@@ -1165,26 +1188,26 @@
         },
         "sw-media-modal-folder-settings": {
             "labelDefaultFolder": "Predvolené umiestnenie médií",
-            "labelEditList": "Upraviť zoznam",
             "labelFolderName": "Meno",
             "labelGenerateThumbnails": "Generovanie miniatúr pre tento priečinok",
             "labelInheritSettings": "Zdediť nastavenia z nadradeného priečinka",
             "labelKeepProportions": "Zachovať pomer strán",
             "labelSettings": "Nastavenia",
-            "labelStopEdit": "Zastaviť úpravy",
             "labelSystem": "Systémový priečinok",
             "labelThumbnailQuality": "Kvalita miniatúry",
             "labelThumbnailSize": "Veľkosť miniatúry",
             "labelThumbnails": "Miniatúry",
             "notification": {
                 "error": {
-                    "message": "Chyba pri ukladaní nastavení."
+                    "message": "Chyba pri ukladaní nastavení.",
+                    "messageThumbnailSizeExisted": "Veľkosť miniatúry už existuje."
                 },
                 "success": {
                     "message": "Nastavenia boli uložené."
                 }
             },
-            "placeholderDefaultFolder": "Vyberte entitu..."
+            "placeholderDefaultFolder": "Vyberte entitu...",
+            "tooltipCanNotDeleteThumbnailSize": "Túto veľkosť miniatúry nemožno odstrániť, pretože sa momentálne používa."
         },
         "sw-media-modal-move": {
             "buttonMove": "Presunúť",
@@ -1301,7 +1324,9 @@
             "addIpAddress": "Pridať IP adresu",
             "enterValidIp": "Zadajte platnú IPv4 alebo IPv6 adresu",
             "knownIps": {
-                "you": "Vy"
+                "you": "Vy",
+                "youIPv6Block56": "Vy a ostatní (rovnaká koncová stránka)",
+                "youIPv6Block64": "Vy a ostatní (domáca sieť)"
             }
         },
         "sw-multi-tag-select": {
@@ -2166,6 +2191,11 @@
                     "label": "Formulár"
                 }
             },
+            "html": {
+                "html": {
+                    "label": "HTML"
+                }
+            },
             "image": {
                 "image": {
                     "label": "Obrázok v boxe"
@@ -2392,9 +2422,11 @@
                 "backgroundMediaModeContain": "Obsahujú",
                 "backgroundMediaModeCover": "Kryt",
                 "blockBottomMarginField": "Spodný okraj",
+                "blockCategoryApp": "Aplikácie",
                 "blockCategoryCommerce": "obchod",
                 "blockCategoryFavorite": "Obľúbené",
                 "blockCategoryForm": "Formulár",
+                "blockCategoryHtml": "HTML",
                 "blockCategoryImage": "Obrázky",
                 "blockCategorySelection": "Kategória bloku",
                 "blockCategorySidebar": "Bočný panel",
@@ -2565,6 +2597,13 @@
                         "subject": "Predmet riadku*",
                         "subscribeToNewsletter": "Prihlásiť sa k odberu newslet"
                     },
+                    "newsletter": {
+                        "label": {
+                            "firstName": "Krstné meno",
+                            "lastName": "Priezvisko",
+                            "salutation": "Pozdrav"
+                        }
+                    },
                     "placeholder": {
                         "email": "john {'@'} doe.com",
                         "firstName": "John",
@@ -2627,10 +2666,17 @@
                     }
                 }
             },
+            "html": {
+                "config": {
+                    "warning": "Nefiltrovaný HTML kód môže viesť k bezpečnostným rizikám. Prosím, vložte iba kód HTML z dôveryhodných zdrojov a pred ich zverejnením otestujte svoje zmeny."
+                },
+                "label": "HTML"
+            },
             "image": {
                 "config": {
                     "label": {
                         "linkNewTab": "Otvoriť odkaz na novej karte",
+                        "linkTo": "Cieľ odkazu",
                         "minHeight": "Minimálna výška",
                         "minHeightHelpText": "Zadajte minimálnu výšku s požadovanou jednotkou. Napríklad: 200px"
                     },
@@ -2866,6 +2912,7 @@
             "placeholderSearchBar": "Vyhľadávanie rozloženia..."
         },
         "list": {
+            "gridHeaderAssignedPages": "Priradené stránky",
             "gridHeaderAssignment": "Priradené kategórie",
             "gridHeaderAssignments": "Priradenia",
             "gridHeaderCreated": "Vytvorené",
@@ -3046,6 +3093,7 @@
         "baseInfo": {
             "contactEmail": "E-mailová adresa",
             "contentActive": "Aktívne | Neaktívne",
+            "contentConfirmed": "Potvrdené | Nepotvrdené",
             "emptyBoundSalesChannel": "Všetky",
             "emptyTextBirthday": "Žiadne informácie",
             "emptyTextLogin": "Zatiaľ žiadne prihlásenie",
@@ -3056,6 +3104,7 @@
             "labelBoundSalesChannel": "Predajný kanál",
             "labelCampaignCode": "Kód kampane",
             "labelCompany": "Spoločnosť",
+            "labelConfirmed": "Stav e-mailovej adresy",
             "labelCustomerGroup": "Skupina zákazníkov",
             "labelCustomerNumber": "Zákaznícke číslo",
             "labelDefaultPayment": "Štandardná metóda platby",
@@ -4344,6 +4393,7 @@
             "exportActivityLabel": "Vývozná činnosť",
             "exportLabel": "Exportovať",
             "exportVariants": "Exportovať varianty produktov",
+            "messageExportError": "Exportný súbor sa nepodarilo vytvoriť. | Exportový súbor sa nepodarilo vytvoriť. Stiahnite si súbor „neplatné záznamy“ alebo ďalšie informácie.",
             "messageExportStarted": "Export začal.",
             "messageExportSuccess": "Export \"{profile}\" dokončený.",
             "showLogLabel": "Zobraziť súbor denníka",
@@ -4569,6 +4619,9 @@
                 "labelSocialMediaDescription": "Opis",
                 "labelSocialMediaTitle": "Názov",
                 "labelUrl": "SEO URL",
+                "notification": {
+                    "noLayoutAssigned": "Pre túto vstupnú stránku nebolo priradené žiadne rozloženie. Bez rozloženia nie je vstupná stránka prístupná prostredníctvom SEO."
+                },
                 "placeholderKeywords": "Zadajte jedno alebo viac kľúčových slov...",
                 "placeholderMetaDescription": "Zadajte meta popis...",
                 "placeholderMetaTitle": "Zadajte názov meta...",
@@ -5608,6 +5661,7 @@
                 "api_action_cache_index": "Indexer spúšťača",
                 "api_action_cache_info": "Čítanie informácií o cache",
                 "api_action_container-cache_delete": "Odstrániť vyrovnávaciu pamäť",
+                "api_feature_flag_toggle": "Prepnúť vlajky funkcií",
                 "api_info_me": "Prečítajte si vlastné užívateľské informácie o rozhraní API",
                 "api_info_ping": "Obnoviť auth token",
                 "api_proxy_switch-customer": "Konať v mene zákazníka",
@@ -6198,6 +6252,7 @@
             "placeholderReleaseDate": "Zadajte dátum vydania...",
             "placeholderRestockTime": "Zadajte čas zásob v dňoch...",
             "placeholderStock": "Zadajte množstvo na sklade...",
+            "placeholderTime": "napr. 31...",
             "placeholderWeight": "napr. 0,4...",
             "placeholderWidth": "napr. 500..."
         },
@@ -6320,6 +6375,7 @@
             "closeModal": "Použiť",
             "columnAll": "Viditeľné",
             "columnLinkOnly": "Skryť v zozname a vyhľadávanie",
+            "columnSalesChannel": "Predajný kanál",
             "columnSearchOnly": "Skryť v zozname",
             "errorMessage": "Nepodarilo sa načítať predvolenú konfiguráciu predajného kanála",
             "labelVisibility": "Predajné kanály",
@@ -7177,6 +7233,7 @@
             "maintenanceModeTitle": "Režim údržby",
             "messageAPIError": "Nie je možné generovať API prístupový kľúč.",
             "messageActivateWithoutThemeError": "Predajný kanál \"{name}\" sa nedá aktivovať. Aktívne predajné kanály musia mať priradený motív.",
+            "messageDeleteDomainError": "Doménu \"{url}\" nebolo možné odstrániť, pretože je prepojená s existujúcim exportom produktov.",
             "messageSaveError": "Predajný kanál \"{name}\" sa nepodarilo uložiť. Prosím skontrolujte svoje záznamy.",
             "messageSaveSuccess": "Predajný kanál \"{name}\" uložený.",
             "navigation": "Navigácia",
@@ -8277,7 +8334,18 @@
         "detail": {
             "buttonCancel": "Zrušiť",
             "buttonSave": "Uložiť",
+            "delete": {
+                "modal": {
+                    "buttonCancel": "Zrušiť",
+                    "buttonDelete": "Odstrániť",
+                    "textConfirmation": "Naozaj chcete odstrániť tento spôsob platby?"
+                },
+                "textAlert": "Tento spôsob platby sa používa v pravidlách, predajných kanáloch alebo objednávkach, a preto ho nemožno odstrániť.",
+                "textButton": "Odstrániť spôsob platby",
+                "textHeadline": "Odstrániť spôsob platby"
+            },
             "helpTextTechnicalName": "Technický názov sa používa na odkaz na spôsob platby. Je jedinečný a vyžaduje sa pre všetky spôsoby platby a dopravy od verzie 6.7.0.0. Zmena technického názvu môže narušiť existujúce platobné integrácie.",
+            "hintTextTechnicalName": "Vyžaduje sa od verzie 6.7.0",
             "labelActive": "Aktívny",
             "labelAfterOrderEnabled": "Povoliť zmenu platby po zaplatení",
             "labelDescription": "Opis",
@@ -8712,6 +8780,7 @@
             "buttonSave": "Uložiť",
             "helpTextTechnicalName": "Technický názov sa používa na jednoznačnú identifikáciu spôsobu prepravy. Následná zmena technického názvu môže spôsobiť, že integrácie prepravy, ktoré sa naň spoliehajú, už nebudú fungovať.",
             "helpTextTrackingUrl": "Zadajte adresu URL sledovania poskytovateľa dopravy a vložte „%s“ ako zástupný symbol, kde by bol skutočný kód sledovania. Sledovací kód sa automaticky vkladá z jednotlivých objednávok.",
+            "hintTextTechnicalName": "Vyžaduje sa od verzie 6.7.0",
             "labelActive": "Aktívny",
             "labelBasicInfo": "Základné informácie",
             "labelDeliveryTime": "Dodacia lehota",
@@ -9228,6 +9297,9 @@
             "textHeadline": "Zdieľanie údajov"
         }
     },
+    "sw-settings-usage-data-general": {
+        "tabHeadline": "generál"
+    },
     "sw-shortcut-overview": {
         "function": "Funkcia",
         "functionAddCategory": "Pridať kategóriu",
@@ -9391,15 +9463,6 @@
             "textDeleteMultipleConfirm": "Naozaj chcete odstrániť vybraté prvky \"{count}“?"
         }
     },
-    "sw-usage-data": {
-        "sw-settings-usage-data-intro": {
-            "description": "Pomôžte nám vytvárať lepšie produkty a služby tým, že nám umožníte zhromažďovať údaje o používaní z vašej správy Shopware Administration. Pomocou najnovších techník ochrany súkromia zabezpečujeme, aby zhromaždené údaje nebolo možné priradiť k vám alebo vášmu obchodu. Nezhromažďujeme žiadne informácie o zákazníkoch.",
-            "headline": "Zlepšenie Shopware kolektívne",
-            "learnMore": "Prečítajte si viac",
-            "learnMoreUrl": "https://shopware.com/en/privacy/",
-            "title": "Údaje o používaní"
-        }
-    },
     "sw-usage-data-consent-banner": {
         "acceptDataCollection": "Súhlasím",
         "checkListDataSharing": {
@@ -9422,8 +9485,6 @@
             },
             "orderData": "Údaje objednávky",
             "storeData": "Ukladať údaje",
-            "title": "Údaje, ktoré zhromažďujeme:",
-            "titleNotAccepted": "Údaje, ktoré budeme zhromažďovať:",
             "usageData": "Zdieľanie údajov"
         },
         "confirmAuthorization": "Kliknutím na tlačidlo „Súhlasím“ potvrdzujete, že ste oprávnení uzavrieť túto zmluvu v mene vašej spoločnosti.",

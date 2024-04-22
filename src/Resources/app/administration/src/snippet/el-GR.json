@@ -1,6 +1,9 @@
 {
     "entityCategories": {
         "additional_privileges": {
+            "entities": {
+                "api_feature_flag_toggle": "Εναλλαγή σημαίας χαρακτηριστικών API"
+            },
             "title": "Πρόσθετα δικαιώματα"
         },
         "admin_user": {
@@ -497,6 +500,7 @@
             "INVALID_URL": "Παρακαλώ εισάγετε ένα έγκυρο url.",
             "PARENT_MUST_NOT_BE_EMPTY": "Ο κληρονόμος αυτού του πεδίου δεν πρέπει να είναι κενός.",
             "SHOPWARE_INVALID_IP": "Εισαγάγετε μια έγκυρη διεύθυνση IP.",
+            "SHOPWARE_INVALID_IP_CIDR": "Εισαγάγετε μια έγκυρη διεύθυνση IP ή μια έγκυρη διεύθυνση IP με μάσκα CIDR.",
             "c1051bb4-d103-4f74-8988-acbcafc7fdc3": "Αυτό το πεδίο δεν πρέπει να είναι κενό."
         },
         "notification": {
@@ -741,6 +745,7 @@
                 "orderCustomFieldRule": "Παραγγελία με προσαρμοσμένο πεδίο",
                 "orderDeliveryStatusRule": "Κατάσταση παράδοσης",
                 "orderDocumentTypeRule": "Παραγγελία με έγγραφο",
+                "orderDocumentTypeSentRule": "Παραγγελία με απεσταλμένο έγγραφο",
                 "orderStatusRule": "Κατάσταση παραγγελίας",
                 "orderTagRule": "Παραγγελία με ετικέτα",
                 "orderTotalAmountRule": "Συνολική αξία ολοκληρωμένων (ολοκληρωμένων) παραγγελιών",
@@ -839,6 +844,21 @@
                     "placeholder": "Επιλογή τελεστή..."
                 }
             },
+            "customerDaysSinceFirstLogin": {
+                "daysPassed": {
+                    "placeholder": "@:sw-Product.settingsForm.PlaceHolderTime"
+                }
+            },
+            "customerDaysSinceLastLogin": {
+                "daysPassed": {
+                    "placeholder": "@:sw-Product.settingsForm.PlaceHolderTime"
+                }
+            },
+            "customerDaysSinceLastOrder": {
+                "daysPassed": {
+                    "placeholder": "@:sw-Product.settingsForm.PlaceHolderTime"
+                }
+            },
             "customerEmail": {
                 "email": {
                     "placeholder": "@:global.sw-condition.condition.emailRule.placeholder"
@@ -879,11 +899,11 @@
                 }
             },
             "promotionCodeOfType": {
-                "promotionCodeOfType": {
+                "promotionCodeType": {
                     "options": {
-                        "fixed": "@:global.sw-condition.condition.promotionCodeOfTypeRule.fixed",
-                        "global": "@:global.sw-condition.condition.promotionCodeOfTypeRule.global",
-                        "individual": "@:global.sw-condition.condition.promotionCodeOfTypeRule.individual"
+                        "fixed": "@:Global.sw-συνθήκη.συνθήκη.Κώδικας προώθησης του τύπου Perule.σταθερό",
+                        "global": "@:Παγκόσμια.sw-Συνθήκη.Συνθήκη.Κώδικας προώθησηςΟφτυροπήρουλες.Παγκόσμιος",
+                        "individual": "@:Global.sw-Συνθήκη.Συνθήκη.Κώδικας προώθησης του τύπου Perule.Ατομικό"
                     }
                 }
             },
@@ -950,6 +970,9 @@
             "labelSettingsPreviewImages": "Εμφάνιση εικόνων προεπισκόπησης",
             "maximumSelectionExceed": "Μέγιστος αριθμός επιλεγμένων στοιχείων",
             "tooltipListSettings": "Ρυθμίσεις λίστας"
+        },
+        "sw-desktop": {
+            "stagingBarText": "Το κατάστημα βρίσκεται σε λειτουργία σταδιοποίησης."
         },
         "sw-duplicated-media": {
             "buttonRename": "Μετονομασία αρχείου",
@@ -1165,26 +1188,26 @@
         },
         "sw-media-modal-folder-settings": {
             "labelDefaultFolder": "Προεπιλεγμένη θέση μέσου αποθήκευσης για",
-            "labelEditList": "Επεξεργασία λίστας",
             "labelFolderName": "Ονομασία",
             "labelGenerateThumbnails": "Δημιουργία μικρογραφιών για αυτόν το φάκελο",
             "labelInheritSettings": "Κληρονομίες ρυθμίσεων από τον γονικό φάκελο",
             "labelKeepProportions": "Διατήρηση αναλογίας διαστάσεων",
             "labelSettings": "Ρυθμίσεις",
-            "labelStopEdit": "Διακοπή επεξεργασίας",
             "labelSystem": "Φάκελος συστήματος",
             "labelThumbnailQuality": "Ποιότητα μικρογραφιών",
             "labelThumbnailSize": "Μέγεθος μικρογραφίας",
             "labelThumbnails": "Μικρογραφίες",
             "notification": {
                 "error": {
-                    "message": "Σφάλμα κατά την αποθήκευση των ρυθμίσεων."
+                    "message": "Σφάλμα κατά την αποθήκευση των ρυθμίσεων.",
+                    "messageThumbnailSizeExisted": "Το μέγεθος της μικρογραφίας υπάρχει ήδη."
                 },
                 "success": {
                     "message": "Οι ρυθμίσεις έχουν αποθηκευτεί."
                 }
             },
-            "placeholderDefaultFolder": "Επιλογή οντότητας..."
+            "placeholderDefaultFolder": "Επιλογή οντότητας...",
+            "tooltipCanNotDeleteThumbnailSize": "Αυτό το μέγεθος μικρογραφίας δεν μπορεί να διαγραφεί επειδή χρησιμοποιείται αυτήν τη στιγμή."
         },
         "sw-media-modal-move": {
             "buttonMove": "Μετακινήστε",
@@ -1301,7 +1324,9 @@
             "addIpAddress": "Προσθήκη διεύθυνσης IP",
             "enterValidIp": "Εισαγάγετε μια έγκυρη διεύθυνση IPv4 ή IPv6",
             "knownIps": {
-                "you": "Εσένα"
+                "you": "Εσένα",
+                "youIPv6Block56": "Εσείς και άλλοι (ίδιος τελικός ιστότοπος)",
+                "youIPv6Block64": "Εσείς και άλλοι (οικιακό δίκτυο)"
             }
         },
         "sw-multi-tag-select": {
@@ -2166,6 +2191,11 @@
                     "label": "Μορφή"
                 }
             },
+            "html": {
+                "html": {
+                    "label": "HTML"
+                }
+            },
             "image": {
                 "image": {
                     "label": "Εικόνα, σε κουτί"
@@ -2392,9 +2422,11 @@
                 "backgroundMediaModeContain": "Περιέχουν",
                 "backgroundMediaModeCover": "Κάλυμμα",
                 "blockBottomMarginField": "Κάτω περιθώριο",
+                "blockCategoryApp": "Εφαρμογές",
                 "blockCategoryCommerce": "Εμπόριο",
                 "blockCategoryFavorite": "Αγαπημένα",
                 "blockCategoryForm": "Μορφή",
+                "blockCategoryHtml": "HTML",
                 "blockCategoryImage": "Εικόνες",
                 "blockCategorySelection": "Κατηγορία μπλοκ",
                 "blockCategorySidebar": "Πλευρική γραμμή",
@@ -2565,6 +2597,13 @@
                         "subject": "Γραμμή Θεμάτων*",
                         "subscribeToNewsletter": "Εγγραφείτε στο newsletter"
                     },
+                    "newsletter": {
+                        "label": {
+                            "firstName": "Όνομα",
+                            "lastName": "Επώνυμο",
+                            "salutation": "Χαιρετισμός"
+                        }
+                    },
                     "placeholder": {
                         "email": "Τζον {'@'} κάνετε.com",
                         "firstName": "Γιάννης",
@@ -2627,10 +2666,17 @@
                     }
                 }
             },
+            "html": {
+                "config": {
+                    "warning": "Ο μη φιλτραρισμένος κώδικας HTML μπορεί να οδηγήσει σε κινδύνους ασφαλείας. Εισαγάγετε μόνο κώδικα HTML από αξιόπιστες πηγές και δοκιμάστε τις αλλαγές σας πριν τις δημοσιεύσετε."
+                },
+                "label": "HTML"
+            },
             "image": {
                 "config": {
                     "label": {
                         "linkNewTab": "Άνοιγμα συνδέσμου σε νέα καρτέλα",
+                        "linkTo": "Στόχος σύνδεσης",
                         "minHeight": "Ελάχιστο ύψος",
                         "minHeightHelpText": "Εισάγετε το ελάχιστο ύψος με τη μονάδα που επιθυμείτε. Για παράδειγμα: 200px"
                     },
@@ -2866,6 +2912,7 @@
             "placeholderSearchBar": "Διατάξεις αναζήτησης..."
         },
         "list": {
+            "gridHeaderAssignedPages": "Εκχωρημένες σελίδες",
             "gridHeaderAssignment": "Αναχωρούνται κατηγορίες",
             "gridHeaderAssignments": "Αναθέσεις",
             "gridHeaderCreated": "Δημιουργήθηκε",
@@ -3046,6 +3093,7 @@
         "baseInfo": {
             "contactEmail": "Διεύθυνση ηλεκτρονικού ταχυδρομείου",
             "contentActive": "Ενεργό | Ανενεργό",
+            "contentConfirmed": "Επιβεβαιωμένο | Μη Επιβεβαιωμένο",
             "emptyBoundSalesChannel": "Όλα",
             "emptyTextBirthday": "Καμία πληροφορία",
             "emptyTextLogin": "Δεν υπάρχει σύνδεση ακόμα",
@@ -3056,6 +3104,7 @@
             "labelBoundSalesChannel": "Κανάλι Πωλήσεων",
             "labelCampaignCode": "Κωδικός καμπάνιας",
             "labelCompany": "Εταιρία",
+            "labelConfirmed": "Κατάσταση διεύθυνσης ηλεκτρονικού ταχυδρομείου",
             "labelCustomerGroup": "Ομάδα πελατών",
             "labelCustomerNumber": "Αριθμός πελάτη",
             "labelDefaultPayment": "Προκαθορισμένη μέθοδος πληρωμής",
@@ -4344,6 +4393,7 @@
             "exportActivityLabel": "Εξαγωγική δραστηριότητα",
             "exportLabel": "Εξαγωγή",
             "exportVariants": "Εξαγωγή παραλλαγών προϊόντων",
+            "messageExportError": "Δεν ήταν δυνατή η δημιουργία αρχείου εξαγωγής. | Δεν ήταν δυνατή η δημιουργία αρχείου εξαγωγής. Κάντε λήψη του αρχείου «μη έγκυρες εγγραφές» ή περισσότερες πληροφορίες.",
             "messageExportStarted": "Ξεκίνησε η εξαγωγή.",
             "messageExportSuccess": "Η εξαγωγή \"{profile}\" ολοκληρώθηκε.",
             "showLogLabel": "Εμφάνιση αρχείου καταγραφής",
@@ -4569,6 +4619,9 @@
                 "labelSocialMediaDescription": "Περιγραφή",
                 "labelSocialMediaTitle": "Τίτλος",
                 "labelUrl": "SEO URL",
+                "notification": {
+                    "noLayoutAssigned": "Για αυτήν τη σελίδα προορισμού, δεν έχει εκχωρηθεί διάταξη. Χωρίς διάταξη, η σελίδα προορισμού δεν είναι προσβάσιμη μέσω SEO."
+                },
                 "placeholderKeywords": "Εισάγετε μία ή περισσότερες λέξεις-κλειδιά...",
                 "placeholderMetaDescription": "Εισάγετε μια μετα-περιγραφή...",
                 "placeholderMetaTitle": "Εισάγετε τον μετα-τίτλο...",
@@ -5608,6 +5661,7 @@
                 "api_action_cache_index": "Ευρετήριο σκανδάλης",
                 "api_action_cache_info": "Ανάγνωση πληροφοριών προσωρινής μνήμης",
                 "api_action_container-cache_delete": "Διαγραφή cache κοντέινερ",
+                "api_feature_flag_toggle": "Εναλλαγή σημαιών χαρακτηριστικών",
                 "api_info_me": "Διαβάστε τις δικές σας πληροφορίες χρήστη api",
                 "api_info_ping": "Ανανέωση διακριτικού ελέγχου",
                 "api_proxy_switch-customer": "Πράξη για λογαριασμό πελάτη",
@@ -6198,6 +6252,7 @@
             "placeholderReleaseDate": "Εισάγετε ημερομηνία κυκλοφορίας...",
             "placeholderRestockTime": "Εισάγετε το χρόνο ανασύστωσης σε ημέρες...",
             "placeholderStock": "Εισάγετε ποσότητα στο απόθεμα...",
+            "placeholderTime": "π.χ. 31...",
             "placeholderWeight": "π.χ. 0,4...",
             "placeholderWidth": "π.χ. 500..."
         },
@@ -6320,6 +6375,7 @@
             "closeModal": "Εφαρμογή",
             "columnAll": "Ορατή",
             "columnLinkOnly": "Απόκρυψη σε καταχωρήσεις και αναζήτηση",
+            "columnSalesChannel": "Κανάλι Πωλήσεων",
             "columnSearchOnly": "Απόκρυψη σε Καταχωρήσεις",
             "errorMessage": "Δεν είναι δυνατή η φόρτωση προεπιλεγμένης ρύθμισης παραμέτρων καναλιού πωλήσεων.",
             "labelVisibility": "Κανάλια Πωλήσεων",
@@ -7177,6 +7233,7 @@
             "maintenanceModeTitle": "Λειτουργία συντήρησης",
             "messageAPIError": "Δεν είναι δυνατή η δημιουργία κλειδιού πρόσβασης API.",
             "messageActivateWithoutThemeError": "Το κανάλι πωλήσεων \"{name}\" δεν ήταν δυνατό να ενεργοποιηθεί. Τα Ενεργά κανάλια πωλήσεων πρέπει να έχουν συσχετισμένο θέμα.",
+            "messageDeleteDomainError": "Δεν ήταν δυνατή η διαγραφή του τομέα \"{url}\" επειδή συνδέεται με υπάρχουσες εξαγωγές προϊόντων.",
             "messageSaveError": "Δεν ήταν δυνατή η αποθήκευση του καναλιού πωλήσεων \"{name}\". Παρακαλώ ελέγξτε τις καταχωρήσεις σας.",
             "messageSaveSuccess": "Το κανάλι πωλήσεων \"{name}\" αποθηκεύτηκε.",
             "navigation": "Πλοήγηση",
@@ -8277,7 +8334,18 @@
         "detail": {
             "buttonCancel": "Ακύρωση",
             "buttonSave": "Αποθηκεύστε",
+            "delete": {
+                "modal": {
+                    "buttonCancel": "Ακύρωση",
+                    "buttonDelete": "Διαγραφή",
+                    "textConfirmation": "Θέλετε πραγματικά να διαγράψετε αυτόν τον τρόπο πληρωμής;"
+                },
+                "textAlert": "Αυτός ο τρόπος πληρωμής χρησιμοποιείται σε κανόνες, κανάλια πωλήσεων ή παραγγελίες και επομένως δεν μπορεί να διαγραφεί.",
+                "textButton": "Διαγραφή τρόπου πληρωμής",
+                "textHeadline": "Διαγραφή τρόπου πληρωμής"
+            },
             "helpTextTechnicalName": "Η τεχνική ονομασία χρησιμοποιείται για την αναφορά του τρόπου πληρωμής. Είναι μοναδικό και απαιτείται για όλες τις μεθόδους πληρωμής και αποστολής από την έκδοση 6.7.0.0 και μετά. Η αλλαγή του τεχνικού ονόματος μπορεί να σπάσει τις υπάρχουσες ενσωματώσεις πληρωμών.",
+            "hintTextTechnicalName": "Θα απαιτηθεί από την έκδοση 6.7.0 και μετά",
             "labelActive": "Ενεργός",
             "labelAfterOrderEnabled": "Δυνατότητα αλλαγής πληρωμής μετά την ολοκλήρωση της παραγγελίας",
             "labelDescription": "Περιγραφή",
@@ -8712,6 +8780,7 @@
             "buttonSave": "Αποθηκεύστε",
             "helpTextTechnicalName": "Η τεχνική ονομασία χρησιμοποιείται για τον μοναδικό προσδιορισμό της μεθόδου αποστολής. Μια μεταγενέστερη αλλαγή στο τεχνικό όνομα μπορεί να προκαλέσει την παύση λειτουργίας των ενοποιήσεων αποστολής που βασίζονται σε αυτήν.",
             "helpTextTrackingUrl": "Μπορείτε να εισάγετε εδώ το URL παρακολούθησης του παρόχου αποστολής. Απλά αντικαταστήστε τον πραγματικό κωδικό αποστολής με το '%s' ως σύμβολο κράτησης θέσης, το Shopware θα εισάγει αυτόματα τον σωστό κωδικό για κάθε παραγγελία, δεδομένου ότι παρέχεται στις λεπτομέρειες της παραγγελίας.",
+            "hintTextTechnicalName": "Θα απαιτηθεί από την έκδοση 6.7.0 και μετά",
             "labelActive": "Ενεργός",
             "labelBasicInfo": "Βασικές πληροφορίες",
             "labelDeliveryTime": "Χρόνος παράδοσης",
@@ -9228,6 +9297,9 @@
             "textHeadline": "Δεδομένα χρήσης"
         }
     },
+    "sw-settings-usage-data-general": {
+        "tabHeadline": "στρατηγός"
+    },
     "sw-shortcut-overview": {
         "function": "Συνάρτηση",
         "functionAddCategory": "Προσθήκη κατηγορίας",
@@ -9391,15 +9463,6 @@
             "textDeleteMultipleConfirm": "Είστε βέβαιοι ότι θέλετε να διαγράψετε τα \"{count}\" επιλεγμένα στοιχεία;"
         }
     },
-    "sw-usage-data": {
-        "sw-settings-usage-data-intro": {
-            "description": "Βοηθήστε μας να δημιουργήσουμε καλύτερα προϊόντα και υπηρεσίες επιτρέποντάς μας να συλλέγουμε δεδομένα χρήσης από τη Διαχείριση Shopware. Χρησιμοποιώντας τις πιο πρόσφατες τεχνικές διατήρησης απορρήτου, διασφαλίζουμε ότι τα δεδομένα που συλλέγονται δεν μπορούν να συσχετιστούν με εσάς ή το κατάστημά σας. Δεν συλλέγουμε πληροφορίες πελατών.",
-            "headline": "Βελτίωση του Shopware συλλογικά",
-            "learnMore": "Μάθετε περισσότερα",
-            "learnMoreUrl": "https://shopware.com/en/privacy/",
-            "title": "Δεδομένα χρήσης"
-        }
-    },
     "sw-usage-data-consent-banner": {
         "acceptDataCollection": "Συμφωνώ",
         "checkListDataSharing": {
@@ -9422,8 +9485,6 @@
             },
             "orderData": "Στοιχεία παραγγελίας",
             "storeData": "Αποθηκεύστε τα δεδομένα",
-            "title": "Δεδομένα που συλλέγουμε:",
-            "titleNotAccepted": "Δεδομένα που θα συλλέξουμε:",
             "usageData": "Δεδομένα χρήσης"
         },
         "confirmAuthorization": "Κάνοντας κλικ στο «Συμφωνώ», επιβεβαιώνετε ότι είστε εξουσιοδοτημένοι να συνάψετε αυτήν τη συμφωνία για λογαριασμό της εταιρείας σας.",

@@ -1,6 +1,9 @@
 {
     "entityCategories": {
         "additional_privileges": {
+            "entities": {
+                "api_feature_flag_toggle": "API funkciójelző váltása"
+            },
             "title": "További engedélyek"
         },
         "admin_user": {
@@ -497,6 +500,7 @@
             "INVALID_URL": "Adjon meg egy érvényes URL-t.",
             "PARENT_MUST_NOT_BE_EMPTY": "A mező örököse nem lehet üres.",
             "SHOPWARE_INVALID_IP": "Adjon meg egy érvényes IP-címet.",
+            "SHOPWARE_INVALID_IP_CIDR": "Kérjük, adjon meg érvényes IP-címet vagy érvényes IP-címet CIDR maszkkal.",
             "c1051bb4-d103-4f74-8988-acbcafc7fdc3": "Ez a mező nem lehet üres."
         },
         "notification": {
@@ -741,6 +745,7 @@
                 "orderCustomFieldRule": "Rendelés egyéni mezővel",
                 "orderDeliveryStatusRule": "Szállítási állapot",
                 "orderDocumentTypeRule": "Rendelés dokumentummal",
+                "orderDocumentTypeSentRule": "Rendelés elküldött dokumentummal",
                 "orderStatusRule": "Megrendelés állapota",
                 "orderTagRule": "Rendelés címkével",
                 "orderTotalAmountRule": "A teljesített (kész) megbízások összértéke",
@@ -839,6 +844,21 @@
                     "placeholder": "Operátor kiválasztása..."
                 }
             },
+            "customerDaysSinceFirstLogin": {
+                "daysPassed": {
+                    "placeholder": "@:SW-Product.SettingsForm.PlaceholderTime"
+                }
+            },
+            "customerDaysSinceLastLogin": {
+                "daysPassed": {
+                    "placeholder": "@:SW-Product.SettingsForm.PlaceholderTime"
+                }
+            },
+            "customerDaysSinceLastOrder": {
+                "daysPassed": {
+                    "placeholder": "@:SW-Product.SettingsForm.PlaceholderTime"
+                }
+            },
             "customerEmail": {
                 "email": {
                     "placeholder": "@:global.sw-condition.condition.emailRule.placeholder"
@@ -879,11 +899,11 @@
                 }
             },
             "promotionCodeOfType": {
-                "promotionCodeOfType": {
+                "promotionCodeType": {
                     "options": {
-                        "fixed": "@:global.sw-condition.condition.promotionCodeOfTypeRule.fixed",
-                        "global": "@:global.sw-condition.condition.promotionCodeOfTypeRule.global",
-                        "individual": "@:global.sw-condition.condition.promotionCodeOfTypeRule.individual"
+                        "fixed": "@:Global.sw-Condition.Condition.PromotionCodeofTyPerule.Fixed",
+                        "global": "@:Global.sw-Condition.Condition.PromotionCodeofTyPerule.Global",
+                        "individual": "@:Global.sw-Condition.Condition.PromotionCodeofTyPerule.Individual"
                     }
                 }
             },
@@ -950,6 +970,9 @@
             "labelSettingsPreviewImages": "Előnézeti képek megjelenítése",
             "maximumSelectionExceed": "A kiválasztott elemek maximális mennyisége",
             "tooltipListSettings": "Lista beállítások"
+        },
+        "sw-desktop": {
+            "stagingBarText": "Az üzlet színpadozási módban van."
         },
         "sw-duplicated-media": {
             "buttonRename": "Fájl átnevezése",
@@ -1165,26 +1188,26 @@
         },
         "sw-media-modal-folder-settings": {
             "labelDefaultFolder": "Alapértelmezett hordozóhely",
-            "labelEditList": "Lista szerkesztése",
             "labelFolderName": "Név",
             "labelGenerateThumbnails": "Miniatűrök generálása ehhez a mappához",
             "labelInheritSettings": "Beállítások öröklése a szülőmappából",
             "labelKeepProportions": "Képarány megtartása",
             "labelSettings": "Beállítások",
-            "labelStopEdit": "Szerkesztés leállítása",
             "labelSystem": "Rendszer mappa",
             "labelThumbnailQuality": "Miniatűrök minősége",
             "labelThumbnailSize": "Miniatűr méret",
             "labelThumbnails": "Miniatűrök",
             "notification": {
                 "error": {
-                    "message": "Hiba történt a beállítások mentése közben."
+                    "message": "Hiba történt a beállítások mentése közben.",
+                    "messageThumbnailSizeExisted": "A miniatűr mérete már létezik."
                 },
                 "success": {
                     "message": "A beállítások elmentésre kerültek."
                 }
             },
-            "placeholderDefaultFolder": "Entitás kiválasztása..."
+            "placeholderDefaultFolder": "Entitás kiválasztása...",
+            "tooltipCanNotDeleteThumbnailSize": "Ez a miniatűr méret nem törölhető, mert jelenleg használatban van."
         },
         "sw-media-modal-move": {
             "buttonMove": "Mozgás",
@@ -1301,7 +1324,9 @@
             "addIpAddress": "IP-cím hozzáadása",
             "enterValidIp": "Adjon meg egy érvényes IPv4 vagy IPv6 címet",
             "knownIps": {
-                "you": "Te"
+                "you": "Te",
+                "youIPv6Block56": "Ön és mások (ugyanaz a végoldal)",
+                "youIPv6Block64": "Ön és mások (otthoni hálózat)"
             }
         },
         "sw-multi-tag-select": {
@@ -2166,6 +2191,11 @@
                     "label": "Forma"
                 }
             },
+            "html": {
+                "html": {
+                    "label": "HTML"
+                }
+            },
             "image": {
                 "image": {
                     "label": "Kép, dobozos"
@@ -2392,9 +2422,11 @@
                 "backgroundMediaModeContain": "tartalmaz",
                 "backgroundMediaModeCover": "Cover",
                 "blockBottomMarginField": "Alsó margó",
+                "blockCategoryApp": "Alkalmazások",
                 "blockCategoryCommerce": "kereskedelem",
                 "blockCategoryFavorite": "Kedvencek",
                 "blockCategoryForm": "Forma",
+                "blockCategoryHtml": "HTML",
                 "blockCategoryImage": "Képek",
                 "blockCategorySelection": "Blokk kategória",
                 "blockCategorySidebar": "Oldalsáv",
@@ -2565,6 +2597,13 @@
                         "subject": "Tárgy sor*",
                         "subscribeToNewsletter": "Feliratkozás hírlevélre"
                     },
+                    "newsletter": {
+                        "label": {
+                            "firstName": "Keresztnév",
+                            "lastName": "Vezetéknév",
+                            "salutation": "Köszöntés"
+                        }
+                    },
                     "placeholder": {
                         "email": "john {'@'} doe.com",
                         "firstName": "János",
@@ -2627,10 +2666,17 @@
                     }
                 }
             },
+            "html": {
+                "config": {
+                    "warning": "A szűretlen HTML-kód biztonsági kockázatokhoz vezethet. Kérjük, csak megbízható forrásokból származó HTML-kódot illessze be, és tesztelje a módosításokat, mielőtt közzétenné"
+                },
+                "label": "HTML"
+            },
             "image": {
                 "config": {
                     "label": {
                         "linkNewTab": "Hivatkozás megnyitása új lapon",
+                        "linkTo": "Link cél",
                         "minHeight": "Minimális magasság",
                         "minHeightHelpText": "Adja meg a minimális magasságot a kívánt egységgel. Például: 200px"
                     },
@@ -2866,6 +2912,7 @@
             "placeholderSearchBar": "Elrendezések keresése..."
         },
         "list": {
+            "gridHeaderAssignedPages": "Hozzárendelt oldalak",
             "gridHeaderAssignment": "Címzett kategóriák",
             "gridHeaderAssignments": "Feladások",
             "gridHeaderCreated": "Létrehozott",
@@ -3046,6 +3093,7 @@
         "baseInfo": {
             "contactEmail": "E-mail cím",
             "contentActive": "Aktív | Inaktív",
+            "contentConfirmed": "Megerősített | Nem megerősített",
             "emptyBoundSalesChannel": "Minden",
             "emptyTextBirthday": "Nincs információ",
             "emptyTextLogin": "Még nincs bejelentkezés",
@@ -3056,6 +3104,7 @@
             "labelBoundSalesChannel": "Értékesítési csatorna",
             "labelCampaignCode": "Kampány kódja",
             "labelCompany": "Cég",
+            "labelConfirmed": "E-mail cím állapota",
             "labelCustomerGroup": "Ügyfélcsoport",
             "labelCustomerNumber": "Ügyfélszám",
             "labelDefaultPayment": "Alapértelmezett fizetési mód",
@@ -4344,6 +4393,7 @@
             "exportActivityLabel": "Exportálási tevékenység",
             "exportLabel": "Export",
             "exportVariants": "Termék változatok exportálása",
+            "messageExportError": "Exportfájl nem hozható létre. | Exportfájl létrehozása nem sikerült. Kérjük, töltse le az „érvénytelen rekordok” fájlt vagy további információkat.",
             "messageExportStarted": "Az export megkezdődött.",
             "messageExportSuccess": "A \"{profile}\" exportálása befejeződött.",
             "showLogLabel": "Naplófájl megjelenítése",
@@ -4569,6 +4619,9 @@
                 "labelSocialMediaDescription": "Leírás",
                 "labelSocialMediaTitle": "Cím",
                 "labelUrl": "SEO URL",
+                "notification": {
+                    "noLayoutAssigned": "Ehhez a céloldalhoz nincs hozzárendelve elrendezés. Elrendezés nélkül a céloldal nem érhető el SEO-n keresztül."
+                },
                 "placeholderKeywords": "Adjon meg egy vagy több kulcsszót...",
                 "placeholderMetaDescription": "Adjon meg egy meta leírást...",
                 "placeholderMetaTitle": "Adja meg a meta címét...",
@@ -5608,6 +5661,7 @@
                 "api_action_cache_index": "Trigger indexer",
                 "api_action_cache_info": "Gyorsítótár-információ",
                 "api_action_container-cache_delete": "Tárológyorsítótár törlése",
+                "api_feature_flag_toggle": "Funkciózászlók váltása",
                 "api_info_me": "Saját API felhasználói információk olvasása",
                 "api_info_ping": "Auth jogkivonat frissítése",
                 "api_proxy_switch-customer": "Ügyfelünk nevében járjon el",
@@ -6198,6 +6252,7 @@
             "placeholderReleaseDate": "Adja meg a kiadás dátumát...",
             "placeholderRestockTime": "Adja meg az állománypótlási időt napokban...",
             "placeholderStock": "Adja meg a készleten lévő mennyiséget...",
+            "placeholderTime": "pl. 31...",
             "placeholderWeight": "pl. 0,4...",
             "placeholderWidth": "pl. 500..."
         },
@@ -6320,6 +6375,7 @@
             "closeModal": "Jelentkezés",
             "columnAll": "Látható",
             "columnLinkOnly": "Elrejtés a listákban és a keresésben",
+            "columnSalesChannel": "Értékesítési csatorna",
             "columnSearchOnly": "Elrejtés a listákban",
             "errorMessage": "Nem sikerült betölteni az alapértelmezett értékesítési csatorna konfigurációt.",
             "labelVisibility": "Értékesítési csatornák",
@@ -7177,6 +7233,7 @@
             "maintenanceModeTitle": "Karbantartási mód",
             "messageAPIError": "Nem sikerült API-hozzáférési kulcsot generálni.",
             "messageActivateWithoutThemeError": "A „{name}” értékesítési csatorna nem aktiválható. Az aktív értékesítési csatornáknak témához kell rendelniük.",
+            "messageDeleteDomainError": "A \"{url}\" tartomány nem törölhető, mert a meglévő termékexportáláshoz kapcsolódik.",
             "messageSaveError": "A „{name}” értékesítési csatorna nem menthető. Kérjük, ellenőrizze a bejegyzéseit.",
             "messageSaveSuccess": "Értékesítési csatorna \"{name}\" mentve.",
             "navigation": "Navigáció",
@@ -8277,7 +8334,18 @@
         "detail": {
             "buttonCancel": "Mégse",
             "buttonSave": "Mentés",
+            "delete": {
+                "modal": {
+                    "buttonCancel": "Mégse",
+                    "buttonDelete": "Törlés",
+                    "textConfirmation": "Tényleg törölni szeretné ezt a fizetési módot?"
+                },
+                "textAlert": "Ezt a fizetési módot a szabályokban, az értékesítési csatornákban vagy a megrendelésekben használják, ezért nem törölhető.",
+                "textButton": "Fizetési mód törlése",
+                "textHeadline": "Fizetési mód törlése"
+            },
             "helpTextTechnicalName": "A műszaki név a fizetési mód hivatkozására szolgál. Egyedülálló és a 6.7.0.0 verziótól kezdve minden fizetési és szállítási mód esetén szükséges. A műszaki név megváltoztatása megszakíthatja a meglévő fizetési integrációkat.",
+            "hintTextTechnicalName": "A 6.7.0 verziótól kezdve szükséges lesz",
             "labelActive": "Aktív",
             "labelAfterOrderEnabled": "Fizetés módosításának engedélyezése a fizetés után",
             "labelDescription": "Leírás",
@@ -8712,6 +8780,7 @@
             "buttonSave": "Mentés",
             "helpTextTechnicalName": "A műszaki név a szállítási mód egyedi azonosítására szolgál. A műszaki név későbbi módosítása miatt a rá támaszkodó szállítási integrációk már nem működnek.",
             "helpTextTrackingUrl": "Írja be a szállítási szolgáltató követési URL-jét, és írja be a \"%s\" helytartóként, ahol a tényleges nyomkövetési kód lenne. A nyomkövetési kód automatikusan bekerül az egyes megrendelésekből.",
+            "hintTextTechnicalName": "A 6.7.0 verziótól kezdve szükséges lesz",
             "labelActive": "Aktív",
             "labelBasicInfo": "Alapvető információk",
             "labelDeliveryTime": "Szállítási idő",
@@ -9228,6 +9297,9 @@
             "textHeadline": "Adatmegosztás"
         }
     },
+    "sw-settings-usage-data-general": {
+        "tabHeadline": "Általános"
+    },
     "sw-shortcut-overview": {
         "function": "függvény",
         "functionAddCategory": "Kategória hozzáadása",
@@ -9391,15 +9463,6 @@
             "textDeleteMultipleConfirm": "Biztosan törölni szeretné a \"{count}\" kijelölt elemeket?"
         }
     },
-    "sw-usage-data": {
-        "sw-settings-usage-data-intro": {
-            "description": "Segítsen nekünk jobb termékek és szolgáltatások felépítésében azáltal, hogy lehetővé teszi számunkra, hogy használati adatokat gyűjtsünk a Shopware Administration-től. A legújabb adatvédelmi megőrzési technikák alkalmazásával gondoskodunk arról, hogy az összegyűjtött adatok ne kapcsolódjanak Önhöz vagy üzletéhez. Nem gyűjtünk semmilyen ügyfélinformációt.",
-            "headline": "A Shopware együttes fejlesztése",
-            "learnMore": "Tudjon meg többet",
-            "learnMoreUrl": "https://shopware.com/en/privacy/",
-            "title": "Használati adatok"
-        }
-    },
     "sw-usage-data-consent-banner": {
         "acceptDataCollection": "Egyetértek",
         "checkListDataSharing": {
@@ -9422,8 +9485,6 @@
             },
             "orderData": "Rendelési adatok",
             "storeData": "Adatok tárolása",
-            "title": "Az általunk gyűjtött adatok:",
-            "titleNotAccepted": "Az általunk gyűjtött adatok:",
             "usageData": "Adatmegosztás"
         },
         "confirmAuthorization": "Az „Elfogadom” gombra kattintva megerősíti, hogy jogosult vállalata nevében megkötni ezt a megállapodást.",

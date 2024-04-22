@@ -1,6 +1,9 @@
 {
     "entityCategories": {
         "additional_privileges": {
+            "entities": {
+                "api_feature_flag_toggle": "Comutare a steagului caracteristicilor API"
+            },
             "title": "Permisiuni suplimentare"
         },
         "admin_user": {
@@ -497,6 +500,7 @@
             "INVALID_URL": "Vă rugăm să introduceți un URL valid.",
             "PARENT_MUST_NOT_BE_EMPTY": "Moștenitorul acestui câmp nu trebuie să fie gol.",
             "SHOPWARE_INVALID_IP": "Vă rugăm să introduceţi o adresă IP validă.",
+            "SHOPWARE_INVALID_IP_CIDR": "Vă rugăm să introduceți o adresă IP validă sau o adresă IP validă cu mască CIDR.",
             "c1051bb4-d103-4f74-8988-acbcafc7fdc3": "Acest câmp nu trebuie să fie gol."
         },
         "notification": {
@@ -741,6 +745,7 @@
                 "orderCustomFieldRule": "Comandă cu câmp personalizat",
                 "orderDeliveryStatusRule": "Starea livrării",
                 "orderDocumentTypeRule": "Comandă cu document",
+                "orderDocumentTypeSentRule": "Comanda cu documentul trimis",
                 "orderStatusRule": "Starea comenzii",
                 "orderTagRule": "Comandă cu etichetă",
                 "orderTotalAmountRule": "Valoarea totală a comenzilor finalizate (finalizate)",
@@ -839,6 +844,21 @@
                     "placeholder": "Selectează operatorul..."
                 }
             },
+            "customerDaysSinceFirstLogin": {
+                "daysPassed": {
+                    "placeholder": "@:sw-product.settingsForm.PlaceHolderTime"
+                }
+            },
+            "customerDaysSinceLastLogin": {
+                "daysPassed": {
+                    "placeholder": "@:sw-product.settingsForm.PlaceHolderTime"
+                }
+            },
+            "customerDaysSinceLastOrder": {
+                "daysPassed": {
+                    "placeholder": "@:sw-product.settingsForm.PlaceHolderTime"
+                }
+            },
             "customerEmail": {
                 "email": {
                     "placeholder": "@:global.sw-condition.condition.emailRule.placeholder"
@@ -879,11 +899,11 @@
                 }
             },
             "promotionCodeOfType": {
-                "promotionCodeOfType": {
+                "promotionCodeType": {
                     "options": {
-                        "fixed": "@:global.sw-condition.condition.promotionCodeOfTypeRule.fixed",
-                        "global": "@:global.sw-condition.condition.promotionCodeOfTypeRule.global",
-                        "individual": "@:global.sw-condition.condition.promotionCodeOfTypeRule.individual"
+                        "fixed": "@:global.sw-condition.condition.promotionCodeOfTyperule.Fixed",
+                        "global": "@:global.sw-condition.condition.promotioncodeoftyperule.global",
+                        "individual": "@:global.sw-condition.condition.promotionCodeOfTyperule.individual"
                     }
                 }
             },
@@ -950,6 +970,9 @@
             "labelSettingsPreviewImages": "Afișarea imaginilor de previzualizare",
             "maximumSelectionExceed": "Cantitatea maximă de elemente selectate",
             "tooltipListSettings": "Setări listă"
+        },
+        "sw-desktop": {
+            "stagingBarText": "Magazinul este în modul de punere în scenă."
         },
         "sw-duplicated-media": {
             "buttonRename": "Redenumire fișier",
@@ -1165,26 +1188,26 @@
         },
         "sw-media-modal-folder-settings": {
             "labelDefaultFolder": "Locația media implicită pentru",
-            "labelEditList": "Editare listă",
             "labelFolderName": "Nume",
             "labelGenerateThumbnails": "Generează miniaturi pentru acest folder",
             "labelInheritSettings": "Moștenirea setărilor din folderul părinte",
             "labelKeepProportions": "Păstrează raportul de aspect",
             "labelSettings": "Setări",
-            "labelStopEdit": "Opriți editarea",
             "labelSystem": "Dosar sistem",
             "labelThumbnailQuality": "Calitate miniatură",
             "labelThumbnailSize": "Dimensiune miniatură",
             "labelThumbnails": "Miniaturi",
             "notification": {
                 "error": {
-                    "message": "Eroare la salvarea setărilor."
+                    "message": "Eroare la salvarea setărilor.",
+                    "messageThumbnailSizeExisted": "Dimensiunea miniaturii există deja."
                 },
                 "success": {
                     "message": "Setările au fost salvate."
                 }
             },
-            "placeholderDefaultFolder": "Selectați entitatea..."
+            "placeholderDefaultFolder": "Selectați entitatea...",
+            "tooltipCanNotDeleteThumbnailSize": "Această dimensiune a miniaturii nu poate fi ștearsă deoarece este utilizată în prezent."
         },
         "sw-media-modal-move": {
             "buttonMove": "Mutare",
@@ -1301,7 +1324,9 @@
             "addIpAddress": "Adaugă adresa IP",
             "enterValidIp": "Introduceți o adresă IPv4 sau IPv6 validă",
             "knownIps": {
-                "you": "Tu"
+                "you": "Tu",
+                "youIPv6Block56": "Tu și alții (același site final)",
+                "youIPv6Block64": "Tu și alții (rețea de domiciliu)"
             }
         },
         "sw-multi-tag-select": {
@@ -2166,6 +2191,11 @@
                     "label": "Formular"
                 }
             },
+            "html": {
+                "html": {
+                    "label": "HTML"
+                }
+            },
             "image": {
                 "image": {
                     "label": "Imagine, în cutie"
@@ -2392,9 +2422,11 @@
                 "backgroundMediaModeContain": "Conține",
                 "backgroundMediaModeCover": "Acoperire",
                 "blockBottomMarginField": "Marginea inferioară",
+                "blockCategoryApp": "Aplicații",
                 "blockCategoryCommerce": "Comerț",
                 "blockCategoryFavorite": "Favorite",
                 "blockCategoryForm": "Formular",
+                "blockCategoryHtml": "HTML",
                 "blockCategoryImage": "Imagini",
                 "blockCategorySelection": "Categorie bloc",
                 "blockCategorySidebar": "Bara laterală",
@@ -2565,6 +2597,13 @@
                         "subject": "Linie subiect*",
                         "subscribeToNewsletter": "Aboneaza-te la newsletter"
                     },
+                    "newsletter": {
+                        "label": {
+                            "firstName": "Prenume",
+                            "lastName": "Nume de familie",
+                            "salutation": "Salutare"
+                        }
+                    },
                     "placeholder": {
                         "email": "john {'@'} face.com",
                         "firstName": "Ion",
@@ -2627,10 +2666,17 @@
                     }
                 }
             },
+            "html": {
+                "config": {
+                    "warning": "Codul HTML nefiltrat poate duce la riscuri de securitate. Vă rugăm să introduceți numai cod HTML din surse de încredere și să testați modificările înainte de a le publica."
+                },
+                "label": "HTML"
+            },
             "image": {
                 "config": {
                     "label": {
                         "linkNewTab": "Deschiderea linkului în filă nouă",
+                        "linkTo": "Link țintă",
                         "minHeight": "Înălțime minimă",
                         "minHeightHelpText": "Introduceți înălțimea minimă cu unitatea dorită. De exemplu: 200px"
                     },
@@ -2866,6 +2912,7 @@
             "placeholderSearchBar": "Aspecte de căutare..."
         },
         "list": {
+            "gridHeaderAssignedPages": "Pagini atribuite",
             "gridHeaderAssignment": "Categorii atribuite",
             "gridHeaderAssignments": "Misiuni",
             "gridHeaderCreated": "Creat",
@@ -3046,6 +3093,7 @@
         "baseInfo": {
             "contactEmail": "Adresă de e-mail",
             "contentActive": "Activ | Inactiv",
+            "contentConfirmed": "Confirmat | Neconfirmat",
             "emptyBoundSalesChannel": "Toate",
             "emptyTextBirthday": "Nicio informaţie",
             "emptyTextLogin": "Nici o autentificare încă",
@@ -3056,6 +3104,7 @@
             "labelBoundSalesChannel": "Canal de vânzări",
             "labelCampaignCode": "Codul campaniei",
             "labelCompany": "Companie",
+            "labelConfirmed": "Starea adresei de e-mail",
             "labelCustomerGroup": "Grup de clienți",
             "labelCustomerNumber": "Număr de client",
             "labelDefaultPayment": "Metoda de plată implicită",
@@ -4344,6 +4393,7 @@
             "exportActivityLabel": "Activitate de export",
             "exportLabel": "Export",
             "exportVariants": "Export variante de produse",
+            "messageExportError": "Fișierul de export nu a putut fi creat. | Fișierul de export nu a putut fi creat. Vă rugăm să descărcați fișierul „înregistrări nevalide” sau mai multe informații.",
             "messageExportStarted": "Exportul a început.",
             "messageExportSuccess": "Export \"{profile}\" finalizat.",
             "showLogLabel": "Arată fișierul jurnal",
@@ -4569,6 +4619,9 @@
                 "labelSocialMediaDescription": "Descriere",
                 "labelSocialMediaTitle": "Titlu",
                 "labelUrl": "SEO URL",
+                "notification": {
+                    "noLayoutAssigned": "Pentru această pagină de destinație, nu a fost atribuit niciun aspect. Fără un aspect, pagina de destinație nu este accesibilă prin SEO."
+                },
                 "placeholderKeywords": "Introduceți unul sau mai multe cuvinte cheie...",
                 "placeholderMetaDescription": "Introduceți o meta descriere...",
                 "placeholderMetaTitle": "Introduceţi meta title...",
@@ -5608,6 +5661,7 @@
                 "api_action_cache_index": "Indexer declanșator",
                 "api_action_cache_info": "Citirea informațiilor cache",
                 "api_action_container-cache_delete": "Şterge memoria cache",
+                "api_feature_flag_toggle": "Comutați steagurile caracteristicilor",
                 "api_info_me": "Citiți informațiile proprii ale utilizatorului API",
                 "api_info_ping": "Reîmprospătare simbol auth",
                 "api_proxy_switch-customer": "Acționați în numele unui client",
@@ -6198,6 +6252,7 @@
             "placeholderReleaseDate": "Introduceţi data lansării...",
             "placeholderRestockTime": "Introduceți timpul de repopulare în zile...",
             "placeholderStock": "Introduceți cantitatea în stoc...",
+            "placeholderTime": "de exemplu, 31...",
             "placeholderWeight": "de exemplu 0,4...",
             "placeholderWidth": "ex. 500..."
         },
@@ -6320,6 +6375,7 @@
             "closeModal": "Aplica",
             "columnAll": "vizibil",
             "columnLinkOnly": "Ascundeți în Listări și căutați",
+            "columnSalesChannel": "Canal de vânzări",
             "columnSearchOnly": "Ascunde în Listări",
             "errorMessage": "Imposibil de încărcat configurația implicită a canalului de vânzări.",
             "labelVisibility": "Canale de vânzări",
@@ -7177,6 +7233,7 @@
             "maintenanceModeTitle": "Mod de întreținere",
             "messageAPIError": "Imposibil de generat cheia de acces API.",
             "messageActivateWithoutThemeError": "Canalul de vânzări \"{name}\" nu a putut fi activat. Canalele de vânzări active trebuie să aibă o temă asociată.",
+            "messageDeleteDomainError": "Domeniul \"{url}\" nu a putut fi șters deoarece este legat de exporturile de produse existente.",
             "messageSaveError": "Canalul de vânzări „{name}” nu a putut fi salvat. Vă rugăm să verificați intrările.",
             "messageSaveSuccess": "Vânzări canal \"{name}\" salvat.",
             "navigation": "Navigare",
@@ -8277,7 +8334,18 @@
         "detail": {
             "buttonCancel": "Anulare",
             "buttonSave": "Salvează",
+            "delete": {
+                "modal": {
+                    "buttonCancel": "Anulare",
+                    "buttonDelete": "Șterge",
+                    "textConfirmation": "Chiar doriți să ștergeți această metodă de plată?"
+                },
+                "textAlert": "Această metodă de plată este utilizată în reguli, canale de vânzare sau comenzi și, prin urmare, nu poate fi ștearsă.",
+                "textButton": "Ștergeți metoda de plată",
+                "textHeadline": "Ștergeți metoda de plată"
+            },
             "helpTextTechnicalName": "Denumirea tehnică este utilizată pentru a face referire la metoda de plată. Este unic și necesar pentru toate metodele de plată și expediere începând cu versiunea 6.7.0.0. Schimbarea denumirii tehnice poate rupe integrările de plată existente.",
+            "hintTextTechnicalName": "Va fi necesar începând cu versiunea 6.7.0",
             "labelActive": "Activ",
             "labelAfterOrderEnabled": "Permite modificarea plății după finalizarea comenzii",
             "labelDescription": "Descriere",
@@ -8712,6 +8780,7 @@
             "buttonSave": "Salvează",
             "helpTextTechnicalName": "Denumirea tehnică este utilizată pentru a identifica în mod unic metoda de expediere. O modificare ulterioară a denumirii tehnice poate face ca integrările de expediere care se bazează pe acesta să nu mai funcționeze.",
             "helpTextTrackingUrl": "Introduceți adresa URL de urmărire a furnizorului de expediere și introduceți „%s” ca substituent unde ar fi codul de urmărire real. Codul de urmărire este introdus automat din comenzile individuale.",
+            "hintTextTechnicalName": "Va fi necesar începând cu versiunea 6.7.0",
             "labelActive": "Activ",
             "labelBasicInfo": "Informații de bază",
             "labelDeliveryTime": "Timp de livrare",
@@ -9228,6 +9297,9 @@
             "textHeadline": "Partajarea datelor"
         }
     },
+    "sw-settings-usage-data-general": {
+        "tabHeadline": "General"
+    },
     "sw-shortcut-overview": {
         "function": "Funcția",
         "functionAddCategory": "Adaugă categorie",
@@ -9391,15 +9463,6 @@
             "textDeleteMultipleConfirm": "Sunteți sigur că doriți să ștergeți „{count}” elementele selectate?"
         }
     },
-    "sw-usage-data": {
-        "sw-settings-usage-data-intro": {
-            "description": "Ajutați-ne să construim produse și servicii mai bune, permițându-ne să colectăm date de utilizare de la Administrația dvs. Shopware. Folosind cele mai recente tehnici de păstrare a confidențialității, ne asigurăm că datele colectate nu pot fi asociate cu dvs. sau cu magazinul dvs. Nu colectăm informații despre clienți.",
-            "headline": "Îmbunătățirea Shopware colectiv",
-            "learnMore": "Aflați mai multe",
-            "learnMoreUrl": "https://shopware.com/en/privacy/",
-            "title": "Date de utilizare"
-        }
-    },
     "sw-usage-data-consent-banner": {
         "acceptDataCollection": "Sunt de acord",
         "checkListDataSharing": {
@@ -9422,8 +9485,6 @@
             },
             "orderData": "Date de comandă",
             "storeData": "Stocarea datelor",
-            "title": "Datele pe care le colectăm:",
-            "titleNotAccepted": "Datele pe care le vom colecta:",
             "usageData": "Partajarea datelor"
         },
         "confirmAuthorization": "Făcând clic pe „Sunt de acord”, confirmați că sunteți autorizat să încheiați acest acord în numele companiei dvs.",

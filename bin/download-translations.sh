@@ -2,7 +2,7 @@ function copy_language_files() {
     echo "Copying language files for $1..."
     cp -R translations/translations/"$1"/Platform/Core/messages.json src/Resources/snippet/core/messages."$1".base.json
     cp -R translations/translations/"$1"/Platform/Storefront/storefront.json src/Resources/snippet/storefront/storefront."$1".json
-    cp -R translations/translations/"$1"Platform/Administration/administration.json src/Resources/app/administration/src/snippet/"$1".json
+    cp -R translations/translations/"$1"/Platform/Administration/administration.json src/Resources/app/administration/src/snippet/"$1".json
 
     for plugin in translations/translations/"$1"/Plugins/*; do
         plugin_name=$(basename "$plugin")

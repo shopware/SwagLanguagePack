@@ -120,10 +120,10 @@ class MigrationHelper
         $insertPackLanguagesSql = <<<SQL
             DELETE FROM `swag_language_pack_language`
             WHERE `language_id` = :languageId;
-            
+
             INSERT INTO `swag_language_pack_language` (`id`, `language_id`, `administration_active`, `sales_channel_active`, `created_at`)
             VALUES (:id, :languageId, :administrationActive, :salesChannelActive, NOW());
-            
+
             UPDATE `language`
             SET swag_language_pack_language_id = :id
             WHERE `id` = :languageId;
@@ -137,7 +137,7 @@ class MigrationHelper
     public function createSnippetSets(): void
     {
         $sql = <<<SQL
-            SELECT `id`, `iso` FROM `snippet_set` WHERE `name` LIKE 'BASE%' AND `iso` IN (:isos);
+            SELECT `id`, `iso`, `name` FROM `snippet_set` WHERE (`name` LIKE 'BASE%' OR `name` LIKE 'LanguagePack%') AND `iso` IN (:isos);
         SQL;
 
         $existingSnippetSets = $this->connection->executeQuery(
@@ -153,11 +153,16 @@ class MigrationHelper
         $existingIsos = [];
         foreach ($existingSnippetSets as $snippetSet) {
             $existingIsos[] = $snippetSet['iso'];
+            $snippetSetName = \sprintf('LanguagePack %s', $snippetSet['iso']);
+
+            if ($snippetSet['name'] === $snippetSetName) {
+                continue;
+            }
 
             $this->connection->update(
                 'snippet_set',
                 [
-                    'name' => \sprintf('LanguagePack %s', $snippetSet['iso']),
+                    'name' => $snippetSetName,
                 ],
                 [
                     'id' => $snippetSet['id'],
@@ -166,7 +171,7 @@ class MigrationHelper
         }
 
         $insertSnippetSetSql = <<<SQL
-            INSERT INTO `snippet_set` (`id`, `name`, `base_file`, `iso`, `created_at`) 
+            INSERT INTO `snippet_set` (`id`, `name`, `base_file`, `iso`, `created_at`)
             VALUES (:id, :name, :baseFile, :iso, NOW())
         SQL;
 

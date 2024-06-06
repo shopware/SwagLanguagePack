@@ -126,6 +126,10 @@ class MigrationHelperTest extends TestCase
 
         $this->migrationHelper->createSnippetSets();
         static::assertTrue($this->databaseHasBaseSnippetSetsForPackLanguages());
+
+        // test again for duplicates, for example when plugin update is triggered
+        $this->migrationHelper->createSnippetSets();
+        static::assertTrue($this->databaseHasBaseSnippetSetsForPackLanguages());
     }
 
     private function uninstallPluginAndDeleteLanguages(): void

@@ -1,0 +1,10 @@
+# 4.5.0
+- [Update translations 2024-07-09](https://issues.shopware.com/issues/)
+- [Update translations 2024-07-09](https://issues.shopware.com/issues/)
+- [Update translations 2024-07-05](https://issues.shopware.com/issues/)
+- [Update translations 2024-07-04](https://issues.shopware.com/issues/)
+- [Update translations 2024-07-03](https://issues.shopware.com/issues/)
+- [Update translations 2024-06-29](https://issues.shopware.com/issues/)
+- [Update translations 2024-06-28](https://issues.shopware.com/issues/)
+- [Update translations 2024-06-27](https://issues.shopware.com/issues/)
+- [Update translations 2024-06-26](https://issues.shopware.com/issues/)

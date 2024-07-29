@@ -12,13 +12,14 @@ module.exports = {
     },
 
     preset: './node_modules/@shopware-ag/jest-preset-sw6-admin/jest-preset.js',
+
     globals: {
         adminPath: process.env.ADMIN_PATH,
     },
 
     rootDir: './',
 
-    moduleDirectories:[
+    moduleDirectories: [
         '<rootDir>/node_modules',
         resolve(join(process.env.ADMIN_PATH, '/node_modules')),
     ],
@@ -34,27 +35,21 @@ module.exports = {
     coverageReporters: [
         'text',
         'cobertura',
-        'html-spa',
     ],
 
     collectCoverageFrom: [
-        '<rootDir>/src/**/Resources/app/administration/src/**/*.js',
-        '<rootDir>/src/**/Resources/app/administration/src/**/*.ts',
+        '<rootDir>/src/**/*.(j|t)s',
     ],
 
     coverageProvider: 'v8',
 
-    reporters: [
-        'default',
-        ['./node_modules/jest-junit/index.js', {
-            suiteName: 'LanguagePack Administration',
-            outputDirectory: artifactsPath,
-            outputName: 'administration.junit.xml',
-        }],
+
+    setupFilesAfterEnv: [
+        resolve(join(process.env.ADMIN_PATH, '/test/_setup/prepare_environment.js')),
     ],
 
     moduleNameMapper: {
-        '^\@shopware-ag\/admin-extension-sdk\/es\/(.*)': resolve(join(process.env.ADMIN_PATH, '/node_modules')) + '/@shopware-ag/admin-extension-sdk/umd/$1',
+        '^\@shopware-ag\/meteor-admin-sdk\/es\/(.*)': `${process.env.ADMIN_PATH}/node_modules/@shopware-ag/meteor-admin-sdk/umd/$1`,
         '^@administration(.*)$': `${process.env.ADMIN_PATH}/src$1`,
         vue$: '@vue/compat/dist/vue.cjs.js',
     },
@@ -66,4 +61,13 @@ module.exports = {
     testEnvironmentOptions: {
         customExportConditions: ['node', 'node-addons'],
     },
+
+    reporters: [
+        'default',
+        ['./node_modules/jest-junit/index.js', {
+            suiteName: 'LanguagePack Administration',
+            outputDirectory: artifactsPath,
+            outputName: 'administration.junit.xml',
+        }],
+    ],
 };

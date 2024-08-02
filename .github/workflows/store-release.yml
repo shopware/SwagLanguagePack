@@ -1,6 +1,8 @@
 name: Release to Store
 on:
   workflow_dispatch:
+  schedule:
+    -   cron: '0 3 * * *' // TBD
 jobs:
   build:
     uses: shopware/github-actions/.github/workflows/store-release.yml@main

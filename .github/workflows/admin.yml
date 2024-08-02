@@ -1,12 +1,12 @@
 name: Administration
 on:
   pull_request:
-    paths:
-      - '**/*.js'
-      - '**/*.ts'
-      - '**/*.html'
-      - '**/*.html.twig'
-      - .github/workflows/admin.yml
+    # paths:
+    #   - '**/*.js'
+    #   - '**/*.ts'
+    #   - '**/*.html'
+    #   - '**/*.html.twig'
+    #   - .github/workflows/admin.yml
   push:
     paths:
       - '**/*.js'
@@ -20,11 +20,13 @@ on:
     - cron: '0 3 * * *'
 
 jobs:
-  unit:
-    uses: shopware/github-actions/.github/workflows/admin-jest.yml@main
-    with:
-      extensionName: ${{ github.event.repository.name }}
-      shopwareVersion: trunk
-      uploadCoverage: true
-    secrets:
-      codecovToken: ${{ secrets.CODECOV_TOKEN }}
+  jest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: shopware/github-actions/.github/actions/admin-jest@add-composite-actions
+        with:
+          extensionName: ${{ github.event.repository.name }}
+          shopwareVersion: trunk
+          uploadCoverage: true
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

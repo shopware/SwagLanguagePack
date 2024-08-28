@@ -7,6 +7,7 @@
         "businessEvents": {
             "checkout_order_return_created": "Tilauksen palautus luotu",
             "order_approval_pending_order_requested": "Pyydetty odottava tilaus",
+            "quote_admin_requested": "Lainaus järjestelmänvalvoja pyysi",
             "quote_change_request": "Tarjouksen muutospyyntö",
             "quote_requested": "Tarjous pyydetty",
             "state_enter_b2b_components_pending_order_state_approved": "Odottava tilaus hyväksytty",
@@ -198,7 +199,7 @@
                     "states": "Tuotteen tilat"
                 },
                 "tags": {
-                    "name": "tunnisteita"
+                    "name": "Tunnisteet"
                 },
                 "type": "Tyyppi"
             },
@@ -244,7 +245,7 @@
                 "sales": "Myynti",
                 "stock": "Varasto",
                 "tags": {
-                    "name": "tunnisteita"
+                    "name": "Tunnisteet"
                 },
                 "unit": {
                     "name": "Yksikön nimi",
@@ -700,6 +701,7 @@
         },
         "triggers": {
             "accepted": "Hyväksytty",
+            "adminRequested": "Järjestelmänvalvoja pyysi",
             "approved": "Hyväksytty",
             "changeRequest": "Muutospyyntö",
             "created": "Luonut",
@@ -1320,6 +1322,7 @@
             "image_saved_to_folder_message": "Kuva \"{imageName}\" tallennettiin \"{folderName}\" -kansioon",
             "image_saved_to_folder_title": "Tallennettu kuva onnistuneesti!",
             "save-error-msg": "Virhe tallennuksessa, en tiedä tarkalleen...",
+            "scene-not-found-msg": "Kohtausta ei löytynyt",
             "scene-save-success-msg": "Kohtaus tallennettu onnistuneesti."
         },
         "sidebar": {
@@ -1348,7 +1351,8 @@
                     "label": "Käytössä"
                 },
                 "intensity": {
-                    "label": "Voimakkuus"
+                    "label": "Voimakkuus",
+                    "placeholder": "Anna intensiteetti..."
                 },
                 "name": {
                     "label": "Valon nimi",
@@ -1383,9 +1387,15 @@
                 }
             },
             "model": {
+                "addModel": "Lisää kolmiulotteinen objekti",
+                "copy": "(Kopio)",
+                "dropIt": "Pudota se",
                 "name": {
                     "label": "Mallin nimi",
                     "placeholder": "Nimi"
+                },
+                "noObjectCard": {
+                    "textContent": "Kohtauksessa ei ole kolmiulotteisia objekteja"
                 },
                 "placeOnFloor": "Aseta lattialle",
                 "position": {
@@ -1402,7 +1412,8 @@
                 "upload": {
                     "label": "Lataa malli",
                     "placeholder": "Valitse malli"
-                }
+                },
+                "visible": "Näkyvä"
             },
             "pov": {
                 "create": {

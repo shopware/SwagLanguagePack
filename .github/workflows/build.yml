@@ -6,7 +6,10 @@ on:
       - master
 
 jobs:
-  build:
-    uses: shopware/github-actions/.github/workflows/build-zip.yml@main
-    with:
-      extensionName: ${{ github.event.repository.name }}
+  phpunit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: build
+        uses: shopware/github-actions/build-zip@main
+        with:
+          extensionName: ${{ github.event.repository.name }}

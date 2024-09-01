@@ -20,11 +20,23 @@ on:
     - cron: '0 3 * * *'
 
 jobs:
-  unit:
-    uses: shopware/github-actions/.github/workflows/admin-jest.yml@main
-    with:
-      extensionName: ${{ github.event.repository.name }}
-      shopwareVersion: trunk
-      uploadCoverage: true
-    secrets:
-      codecovToken: ${{ secrets.CODECOV_TOKEN }}
+  jest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: shopware/github-actions/setup-extension@add-setup-extension-action
+        with:
+          extensionName: ${{ github.event.repository.name }}
+          install: true
+          installAdmin: true
+      - name: Jest Unit Tests
+        shell: bash
+        working-directory: custom/plugins/${{ github.event.repository.name }}/src/Resources/app/administration
+        run: npm run unit -- --coverage
+      - name: Upload Coverage
+        uses: codecov/codecov-action@v4
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        with:
+          root_dir: ${{ github.workspace }}/custom/plugins/${{ inputs.extensionName }}
+          working-directory: ${{ github.workspace }}/custom/plugins/${{ inputs.extensionName }}
+          directory: ${{ github.workspace }}/custom/plugins/${{ inputs.extensionName }}/src/Resources/app/administration

@@ -54,8 +54,8 @@ class PackLanguageDefinition extends EntityDefinition
     {
         return new FieldCollection([
             (new IdField('id', 'id'))->addFlags(new PrimaryKey(), new Required()),
-            (new BoolField('administration_active', 'administrationActive')),
-            (new BoolField('sales_channel_active', 'salesChannelActive')),
+            new BoolField('administration_active', 'administrationActive'),
+            new BoolField('sales_channel_active', 'salesChannelActive'),
             (new FkField('language_id', 'languageId', LanguageDefinition::class))
                 ->addFlags(new Required()),
 
@@ -64,7 +64,7 @@ class PackLanguageDefinition extends EntityDefinition
                 'language_id',
                 'id',
                 LanguageDefinition::class,
-                true
+                true,
             ))->addFlags(new RestrictDelete()),
         ]);
     }

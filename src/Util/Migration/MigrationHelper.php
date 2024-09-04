@@ -20,7 +20,7 @@ use Swag\LanguagePack\Util\Exception\MissingLocalesException;
 class MigrationHelper
 {
     public function __construct(
-        private readonly Connection $connection
+        private readonly Connection $connection,
     ) {}
 
     public function createPackLanguageTable(): void
@@ -48,7 +48,7 @@ class MigrationHelper
         $this->connection->executeStatement(\str_replace(
             ['#table#'],
             [PackLanguageDefinition::ENTITY_NAME],
-            $sql
+            $sql,
         ));
     }
 
@@ -72,7 +72,7 @@ class MigrationHelper
                 PackLanguageDefinition::PACK_LANGUAGE_FOREIGN_KEY_STORAGE_NAME,
                 PackLanguageDefinition::ENTITY_NAME,
             ],
-            $sql
+            $sql,
         ));
     }
 
@@ -147,7 +147,7 @@ class MigrationHelper
             ],
             [
                 'isos' => ArrayParameterType::STRING,
-            ]
+            ],
         )->fetchAllAssociative();
 
         $existingIsos = [];
@@ -166,7 +166,7 @@ class MigrationHelper
                 ],
                 [
                     'id' => $snippetSet['id'],
-                ]
+                ],
             );
         }
 
@@ -201,15 +201,16 @@ class MigrationHelper
                 LanguageDefinition::ENTITY_NAME,
                 PackLanguageDefinition::PACK_LANGUAGE_FOREIGN_KEY_STORAGE_NAME,
             ],
-            $sql
+            $sql,
         ));
 
         return (bool) $result->fetchOne();
     }
 
     /**
-     * @return array<mixed>
      * @throws MissingLocalesException
+     *
+     * @return array<mixed>
      */
     private function getLocales(): array
     {
@@ -220,7 +221,7 @@ class MigrationHelper
         $locales = $this->connection->executeQuery(
             $sql,
             [\array_values(SwagLanguagePack::SUPPORTED_LANGUAGES)],
-            [ArrayParameterType::STRING]
+            [ArrayParameterType::STRING],
         )->fetchAllAssociative();
 
         if (\count(SwagLanguagePack::SUPPORTED_LANGUAGES) !== \count($locales)) {
@@ -242,6 +243,7 @@ class MigrationHelper
 
     /**
      * @param array<string|int, array<string, mixed>> $locales
+     *
      * @return array<string|int, string>
      */
     private function getMissingLocales(array $locales): array
@@ -251,12 +253,13 @@ class MigrationHelper
 
         return \array_diff(
             $supportedLanguages,
-            \array_column($locales, 'code')
+            \array_column($locales, 'code'),
         );
     }
 
     /**
      * @param array<string|int, array<string, mixed>> $locales
+     *
      * @return array<string|int, array<string, mixed>|string>
      */
     private function createPackLanguageData(array $locales): array
@@ -271,7 +274,7 @@ class MigrationHelper
         $existingLanguages = $this->connection->executeQuery(
             $sql,
             [\array_keys($locales)],
-            [ArrayParameterType::STRING]
+            [ArrayParameterType::STRING],
         )->fetchAllAssociative();
 
         return \array_map(static function ($locale) use ($existingLanguages): array {

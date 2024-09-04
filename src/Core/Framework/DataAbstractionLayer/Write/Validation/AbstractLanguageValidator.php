@@ -86,8 +86,8 @@ abstract class AbstractLanguageValidator implements EventSubscriberInterface
                 [$languageId],
                 null,
                 $command->getPath(),
-                $languageId
-            )
+                $languageId,
+            ),
         );
     }
 

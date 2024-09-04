@@ -155,7 +155,7 @@ class MigrationHelperTest extends TestCase
             ['#table#'],
             [LanguageDefinition::ENTITY_NAME],
             'DELETE FROM `#table#`
-            WHERE `name` NOT IN ("Deutsch", "English");'
+            WHERE `name` NOT IN ("Deutsch", "English");',
         );
 
         $this->connection->executeStatement($sql);
@@ -174,7 +174,7 @@ SQL;
             'SELECT *
             FROM `information_schema`.`TABLES`
             WHERE `TABLE_NAME` = "#table#"
-            AND `TABLE_SCHEMA` = DATABASE();'
+            AND `TABLE_SCHEMA` = DATABASE();',
         );
 
         return (bool) $this->connection->executeQuery($sql)->fetchOne();
@@ -186,7 +186,7 @@ SQL;
             ['#table#', '#column#'],
             [LanguageDefinition::ENTITY_NAME, PackLanguageDefinition::PACK_LANGUAGE_FOREIGN_KEY_STORAGE_NAME],
             'SHOW COLUMNS FROM `#table#`
-                LIKE "#column#";'
+                LIKE "#column#";',
         );
 
         return (bool) $this->connection->executeQuery($sql)->fetchOne();
@@ -204,7 +204,7 @@ SQL;
                 ['#table#'],
                 [$table],
                 'SELECT COUNT(*) as `count`
-                FROM `#table#`;'
+                FROM `#table#`;',
             );
 
             $results[$table] = (int) $this->connection->executeQuery($sql)->fetchOne();

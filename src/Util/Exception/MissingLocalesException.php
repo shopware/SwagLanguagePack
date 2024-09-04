@@ -20,7 +20,7 @@ class MissingLocalesException extends ShopwareHttpException
     {
         parent::__construct(
             'No LocaleEntities associated to the following locale codes: {{ localeCodes }}',
-            ['localeCodes' => \implode(', ', $localeCodes)]
+            ['localeCodes' => \implode(', ', $localeCodes)],
         );
     }
 

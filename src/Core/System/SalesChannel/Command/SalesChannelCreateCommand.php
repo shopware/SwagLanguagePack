@@ -51,7 +51,7 @@ class SalesChannelCreateCommand extends Command
     public function __construct(
         private readonly DefinitionInstanceRegistry $definitionRegistry,
         private readonly EntityRepository $languageRepository,
-        private readonly SalesChannelCreator $salesChannelCreator
+        private readonly SalesChannelCreator $salesChannelCreator,
     ) {
         parent::__construct();
     }
@@ -144,7 +144,6 @@ class SalesChannelCreateCommand extends Command
     }
 
     /**
-     *
      * @return array<null>
      */
     protected function getSalesChannelConfiguration(InputInterface $input, OutputInterface $output): array

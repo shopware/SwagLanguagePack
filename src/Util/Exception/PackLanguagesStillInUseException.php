@@ -24,10 +24,10 @@ class PackLanguagesStillInUseException extends ShopwareHttpException
         }, $languages->getElements());
 
         parent::__construct(
-            "The following languages provided by Shopware's LanguagePack are still used by Sales Channels: {{ names }}",
+            'The following languages provided by Shopware\'s LanguagePack are still used by Sales Channels: {{ names }}',
             [
                 'names' => \implode(', ', $names),
-            ]
+            ],
         );
     }
 

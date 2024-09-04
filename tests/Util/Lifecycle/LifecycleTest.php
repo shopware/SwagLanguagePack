@@ -66,7 +66,7 @@ class LifecycleTest extends TestCase
             '',
             '',
             $this->createMock(MigrationCollection::class),
-            $keepUserData
+            $keepUserData,
         );
     }
 

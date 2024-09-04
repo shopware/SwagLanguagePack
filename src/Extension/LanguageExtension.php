@@ -33,8 +33,8 @@ class LanguageExtension extends EntityExtension
                 'id',
                 'language_id',
                 PackLanguageDefinition::class,
-                false
-            ))->addFlags(new SetNullOnDelete())
+                false,
+            ))->addFlags(new SetNullOnDelete()),
         );
     }
 }

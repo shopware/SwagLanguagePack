@@ -32,7 +32,7 @@ class Migration1708692685AlterPackLanguageTable extends MigrationStep
         $connection->executeStatement(\str_replace(
             ['#table#'],
             [PackLanguageDefinition::ENTITY_NAME],
-            $sql
+            $sql,
         ));
     }
 

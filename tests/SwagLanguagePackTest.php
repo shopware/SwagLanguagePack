@@ -44,7 +44,7 @@ class SwagLanguagePackTest extends TestCase
     {
         $criteria = new Criteria();
         $criteria->addFilter(
-            new EqualsFilter('baseClass', SwagLanguagePack::class)
+            new EqualsFilter('baseClass', SwagLanguagePack::class),
         );
 
         /** @var PluginEntity|null $plugin */
@@ -69,17 +69,17 @@ class SwagLanguagePackTest extends TestCase
                     LEFT JOIN `language` ON `language`.`locale_id` = `locale`.`id`
                     WHERE `locale`.`code` = :code
             SQL,
-            ['code' => $lastLocale]
+            ['code' => $lastLocale],
         );
 
         $connection->executeStatement(
             'DELETE FROM `swag_language_pack_language` WHERE `language_id` = :languageId',
-            ['languageId' => $languageId]
+            ['languageId' => $languageId],
         );
 
         $connection->executeStatement(
             'DELETE FROM `language` WHERE `id` = :languageId',
-            ['languageId' => $languageId]
+            ['languageId' => $languageId],
         );
 
         static::assertNotEquals($languageCountBefore, $connection->fetchOne('SELECT COUNT(*) FROM `language`'));

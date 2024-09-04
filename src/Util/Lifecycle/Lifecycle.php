@@ -32,7 +32,7 @@ class Lifecycle
      */
     public function __construct(
         private readonly Connection $connection,
-        private readonly EntityRepository $languageRepository
+        private readonly EntityRepository $languageRepository,
     ) {}
 
     /**
@@ -48,10 +48,10 @@ class Lifecycle
                 new NotFilter('AND', [
                     new EqualsFilter(
                         \sprintf('%s.id', LanguageExtension::PACK_LANGUAGE_ASSOCIATION_PROPERTY_NAME),
-                        null
+                        null,
                     ),
                 ]),
-            ])
+            ]),
         )->addSorting(new FieldSorting('name', 'ASC'));
 
         $result = $this->languageRepository->search($criteria, $deactivateContext->getContext());
@@ -89,7 +89,7 @@ class Lifecycle
                 [
                     'name' => \sprintf('LanguagePack %s', $locale),
                     'baseFile' => \sprintf('messages.%s', $locale),
-                ]
+                ],
             );
         }
     }
@@ -110,7 +110,7 @@ class Lifecycle
                 FROM `information_schema`.`REFERENTIAL_CONSTRAINTS`
                 WHERE `CONSTRAINT_NAME` = "#constraint#"
                   AND `TABLE_NAME` = "#table#"
-                  AND `CONSTRAINT_SCHEMA` = DATABASE();'
+                  AND `CONSTRAINT_SCHEMA` = DATABASE();',
             );
 
             $constraintExists = (bool) $this->connection->executeQuery($checkSql)->fetchOne();
@@ -123,7 +123,7 @@ class Lifecycle
                 $replaceVariables,
                 $dropColumn,
                 'ALTER TABLE `#table#`
-                    DROP FOREIGN KEY `#constraint#`;'
+                    DROP FOREIGN KEY `#constraint#`;',
             );
 
             $this->connection->executeStatement($dropSql);
@@ -153,7 +153,7 @@ class Lifecycle
                 $replaceVariables,
                 $dropColumn,
                 'SHOW COLUMNS FROM `#table#`
-                LIKE "#column#";'
+                LIKE "#column#";',
             );
 
             $columnExists = (bool) $this->connection->executeQuery($checkSql)->fetchOne();
@@ -166,7 +166,7 @@ class Lifecycle
                 $replaceVariables,
                 $dropColumn,
                 'ALTER TABLE `#table#`
-                        DROP COLUMN `#column#`;'
+                        DROP COLUMN `#column#`;',
             );
 
             $this->connection->executeStatement($dropSql);

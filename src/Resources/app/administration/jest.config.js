@@ -66,4 +66,8 @@ module.exports = {
     testEnvironmentOptions: {
         customExportConditions: ['node', 'node-addons'],
     },
+
+    setupFilesAfterEnv: [
+        './test/setup.js',
+    ],
 };

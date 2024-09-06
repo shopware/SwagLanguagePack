@@ -210,7 +210,7 @@ class MigrationHelper
     /**
      * @throws MissingLocalesException
      *
-     * @return array<mixed>
+     * @return array<string, array<string, mixed>>
      */
     private function getLocales(): array
     {

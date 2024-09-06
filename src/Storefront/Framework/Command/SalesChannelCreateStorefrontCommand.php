@@ -26,7 +26,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'sales-channel:create:storefront',
-    description: 'Creates a new storefront sales channel'
+    description: 'Creates a new storefront sales channel',
 )]
 class SalesChannelCreateStorefrontCommand extends SalesChannelCreateCommand
 {
@@ -43,7 +43,7 @@ class SalesChannelCreateStorefrontCommand extends SalesChannelCreateCommand
         parent::__construct(
             $definitionRegistry,
             $languageRepository,
-            $salesChannelCreator
+            $salesChannelCreator,
         );
     }
 

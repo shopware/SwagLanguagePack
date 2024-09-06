@@ -84,7 +84,7 @@ class SalesChannelCreateStorefrontCommandTest extends TestCase
             $definitionRegistry,
             $this->languageRepository,
             $salesChannelCreator,
-            $snippetSetRepository
+            $snippetSetRepository,
         );
 
         $this->context = Context::createDefaultContext();
@@ -120,8 +120,8 @@ class SalesChannelCreateStorefrontCommandTest extends TestCase
         $criteria->addFilter(
             new EqualsFilter(
                 \sprintf('%s.id', LanguageExtension::PACK_LANGUAGE_ASSOCIATION_PROPERTY_NAME),
-                null
-            )
+                null,
+            ),
         );
 
         $activeLanguageIds = $this->languageRepository->searchIds($criteria, $this->context)->getIds();
@@ -134,7 +134,7 @@ class SalesChannelCreateStorefrontCommandTest extends TestCase
 
         static::assertEquals(
             \sort($activeLanguageIds),
-            \sort($associatedLanguageIds)
+            \sort($associatedLanguageIds),
         );
     }
 
@@ -165,7 +165,7 @@ class SalesChannelCreateStorefrontCommandTest extends TestCase
 
         static::assertEquals(
             \sort($activeLanguageIds),
-            \sort($associatedLanguageIds)
+            \sort($associatedLanguageIds),
         );
     }
 

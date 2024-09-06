@@ -51,7 +51,7 @@ class SalesChannelCreateCommand extends Command
     public function __construct(
         private readonly DefinitionInstanceRegistry $definitionRegistry,
         private readonly EntityRepository $languageRepository,
-        private readonly SalesChannelCreator $salesChannelCreator
+        private readonly SalesChannelCreator $salesChannelCreator,
     ) {
         parent::__construct();
     }
@@ -78,6 +78,15 @@ class SalesChannelCreateCommand extends Command
         $context = Context::createDefaultContext();
 
         try {
+            /** @var list<string> $languages */
+            $languages = $this->getAllActiveLanguageIds($context);
+
+            /** @var list<string> $paymentMethods */
+            $paymentMethods = $this->getAllIdsOf('payment_method', $context);
+
+            /** @var list<string> $countries */
+            $countries = $this->getAllIdsOf('country', $context);
+
             $accessKey = $this->salesChannelCreator->createSalesChannel(
                 $input->getOption('id'),
                 $input->getOption('name') ?? 'Headless',
@@ -90,10 +99,10 @@ class SalesChannelCreateCommand extends Command
                 $input->getOption('customerGroupId'),
                 $input->getOption('navigationCategoryId'),
                 null,
-                $this->getAllActiveLanguageIds($context),
+                $languages,
                 $input->getOption('shippingMethodId') ? [$input->getOption('shippingMethodId')] : null,
-                $this->getAllIdsOf('payment_method', $context),
-                $this->getAllIdsOf('country', $context),
+                $paymentMethods,
+                $countries,
                 $this->getSalesChannelConfiguration($input, $output),
             );
 
@@ -135,7 +144,6 @@ class SalesChannelCreateCommand extends Command
     }
 
     /**
-     *
      * @return array<null>
      */
     protected function getSalesChannelConfiguration(InputInterface $input, OutputInterface $output): array

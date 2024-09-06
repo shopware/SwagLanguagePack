@@ -20,7 +20,7 @@ class MissingLocalesExceptionTest extends TestCase
 
         static::assertSame(
             'No LocaleEntities associated to the following locale codes: doesnt-EXIST, thatis-NOLOCALE',
-            $exception->getMessage()
+            $exception->getMessage(),
         );
         static::assertSame('SWAG_LANGUAGE_PACK__PACK_LANGUAGES_WITHOUT_LOCALES', $exception->getErrorCode());
     }

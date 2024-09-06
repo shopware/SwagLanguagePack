@@ -1,10 +1,9 @@
 import { mount } from '@vue/test-utils';
 
 import swSalesChannelDetailDomains from '@administration/module/sw-sales-channel/component/sw-sales-channel-detail-domains/index.js';
-import swSalesChannelDetailDomainsOverride from  './../src/module/sw-sales-channel-detail/component/sw-sales-channel-detail-domains/index.js';
+import  './../src/module/sw-sales-channel-detail/component/sw-sales-channel-detail-domains/index.js';
 
 Shopware.Component.register('sw-sales-channel-detail-domains', swSalesChannelDetailDomains);
-Shopware.Component.override('sw-customer-detail', swSalesChannelDetailDomainsOverride);
 
 async function createWrapper(salesChannel) {
     return mount(await Shopware.Component.build('sw-sales-channel-detail-domains'), {

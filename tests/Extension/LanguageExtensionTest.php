@@ -37,8 +37,8 @@ class LanguageExtensionTest extends TestCase
                     'id',
                     'language_id',
                     PackLanguageDefinition::class,
-                    false
-                ))->addFlags(new SetNullOnDelete())
+                    false,
+                ))->addFlags(new SetNullOnDelete()),
             );
 
         (new LanguageExtension())->extendFields($collection);
@@ -48,7 +48,7 @@ class LanguageExtensionTest extends TestCase
     {
         static::assertSame(
             LanguageDefinition::class,
-            (new LanguageExtension())->getDefinitionClass()
+            (new LanguageExtension())->getDefinitionClass(),
         );
     }
 }

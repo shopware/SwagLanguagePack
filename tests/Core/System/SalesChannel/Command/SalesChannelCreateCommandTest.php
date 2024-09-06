@@ -78,7 +78,7 @@ class SalesChannelCreateCommandTest extends TestCase
         $this->salesChannelCreateCommand = new SalesChannelCreateCommand(
             $definitionRegistry,
             $languageRepository,
-            $salesChannelCreator
+            $salesChannelCreator,
         );
     }
 

@@ -46,8 +46,8 @@ class UserValidator extends AbstractLanguageValidator
                 [$localeId],
                 null,
                 $command->getPath(),
-                $localeId
-            )
+                $localeId,
+            ),
         );
     }
 
@@ -60,7 +60,7 @@ class UserValidator extends AbstractLanguageValidator
                 'packLanguage',
                 LanguageDefinition::ENTITY_NAME,
                 'language',
-                'packLanguage.language_id = language.id'
+                'packLanguage.language_id = language.id',
             )
             ->where('language.locale_id = :localeId')
             ->setParameter('localeId', $localeId)

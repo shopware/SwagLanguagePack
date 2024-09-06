@@ -54,7 +54,7 @@ module.exports = {
     ],
 
     moduleNameMapper: {
-        '^\@shopware-ag\/admin-extension-sdk\/es\/(.*)': resolve(join(process.env.ADMIN_PATH, '/node_modules')) + '/@shopware-ag/admin-extension-sdk/umd/$1',
+        '^\@shopware-ag/meteor-admin-sdk/es(.*)$': process.env.ADMIN_PATH + '/node_modules/\@shopware-ag/meteor-admin-sdk/umd$1',
         '^@administration(.*)$': `${process.env.ADMIN_PATH}/src$1`,
         vue$: '@vue/compat/dist/vue.cjs.js',
     },
@@ -66,4 +66,8 @@ module.exports = {
     testEnvironmentOptions: {
         customExportConditions: ['node', 'node-addons'],
     },
+
+    setupFilesAfterEnv: [
+        './test/setup.js',
+    ],
 };

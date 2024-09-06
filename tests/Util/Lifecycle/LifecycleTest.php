@@ -31,7 +31,7 @@ class LifecycleTest extends TestCase
 
         $connection->expects(static::atLeast(4))
             ->method('executeStatement')
-            ->willReturnOnConsecutiveCalls([false, true]);
+            ->willReturn(true);
 
         $connection->expects(static::atLeast(2))
             ->method('executeQuery');
@@ -66,7 +66,7 @@ class LifecycleTest extends TestCase
             '',
             '',
             $this->createMock(MigrationCollection::class),
-            $keepUserData
+            $keepUserData,
         );
     }
 

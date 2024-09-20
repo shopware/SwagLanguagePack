@@ -22,6 +22,7 @@ use Shopware\Core\Framework\Test\TestCaseBase\FilesystemBehaviour;
 use Shopware\Core\Framework\Test\TestCaseBase\KernelTestBehaviour;
 use Shopware\Core\Framework\Test\TestCaseBase\RequestStackTestBehaviour;
 use Shopware\Core\Framework\Test\TestCaseBase\SessionTestBehaviour;
+use Shopware\Core\Framework\Uuid\Uuid;
 use Shopware\Core\System\Language\LanguageCollection;
 use Shopware\Core\System\Language\LanguageDefinition;
 use Swag\LanguagePack\PackLanguage\PackLanguageDefinition;
@@ -42,6 +43,44 @@ class MigrationHelperTest extends TestCase
     private MigrationHelper $migrationHelper;
 
     private Connection $connection;
+
+    private function createFrenchPackLanguage(): void
+    {
+        $frenchLocale = $this->connection->executeQuery(<<<'SQL'
+            SELECT `locale`.`id` AS `locale_id`, `language`.`id` AS `language_id`
+            FROM `locale`
+            LEFT JOIN `language` ON `locale`.`id` = `language`.`locale_id`
+            WHERE `code` = 'fr-FR';
+        SQL)->fetchOne();
+
+        $insertLanguagesSql = <<<'SQL'
+            INSERT INTO `language` (`id`, `name`, `locale_id`, `translation_code_id`, `created_at`)
+            VALUES (:id, :name, :localeId, :translationCodeId, NOW());
+        SQL;
+
+        $this->connection->executeStatement($insertLanguagesSql, [
+            'id' => Uuid::randomBytes(),
+            'name' => 'Français',
+            'localeId' => $frenchLocale['locale_id'],
+            'translationCodeId' => '1',
+        ]);
+
+        $insertPackLanguagesSql = <<<'SQL'
+            INSERT INTO `swag_language_pack_language` (`id`, `language_id`, `administration_active`, `sales_channel_active`, `created_at`)
+            VALUES (:id, :languageId, :administrationActive, :salesChannelActive, NOW());
+
+            UPDATE `language`
+            SET swag_language_pack_language_id = :id
+            WHERE `id` = :languageId;
+        SQL;
+
+        $this->connection->executeStatement($insertPackLanguagesSql, [
+            'id' => Uuid::randomBytes(),
+            'languageId' => $frenchLocale['language_id'],
+            'administrationActive' => 1,
+            'salesChannelActive' => 1,
+        ]);
+    }
 
     protected function setUp(): void
     {
@@ -103,6 +142,29 @@ class MigrationHelperTest extends TestCase
         static::assertEquals(\count(SwagLanguagePack::SUPPORTED_LANGUAGES), $counts[PackLanguageDefinition::ENTITY_NAME]);
     }
 
+    public function testCreatePackLanguagesCorrectlyEvenWithAlreadyInstalledPackLanguages(): void
+    {
+        $tables = [PackLanguageDefinition::ENTITY_NAME, LanguageDefinition::ENTITY_NAME];
+        $this->migrationHelper->createPackLanguageTable();
+        $this->migrationHelper->alterLanguageAddPackLanguageColumn();
+
+        $counts = $this->getTableCounts($tables);
+        static::assertEquals(2, $counts[LanguageDefinition::ENTITY_NAME]);
+        static::assertEquals(0, $counts[PackLanguageDefinition::ENTITY_NAME]);
+
+        // Simulate already having one language installed
+        $this->createFrenchPackLanguage();
+        $counts = $this->getTableCounts($tables);
+        static::assertEquals(3, $counts[LanguageDefinition::ENTITY_NAME]);
+        static::assertEquals(1, $counts[PackLanguageDefinition::ENTITY_NAME]);
+
+        $this->migrationHelper->createPackLanguages();
+
+        $counts = $this->getTableCounts($tables);
+        static::assertEquals(\count(SwagLanguagePack::SUPPORTED_LANGUAGES) + 2, $counts[LanguageDefinition::ENTITY_NAME]);
+        static::assertEquals(\count(SwagLanguagePack::SUPPORTED_LANGUAGES), $counts[PackLanguageDefinition::ENTITY_NAME]);
+    }
+
     public function testMissingLocaleWhileCreating(): void
     {
         $locales = SwagLanguagePack::SUPPORTED_LANGUAGES;
@@ -154,15 +216,18 @@ class MigrationHelperTest extends TestCase
         $sql = \str_replace(
             ['#table#'],
             [LanguageDefinition::ENTITY_NAME],
-            'DELETE FROM `#table#`
-            WHERE `name` NOT IN ("Deutsch", "English");',
+            <<<'SQL'
+                DELETE FROM `#table#`
+                WHERE `name` NOT IN ("Deutsch", "English");
+            SQL,
         );
 
         $this->connection->executeStatement($sql);
 
-        $deleteSnippetSetsSql = <<<SQL
-DELETE FROM `snippet_set` WHERE `name` NOT IN ("BASE de-DE", "BASE en-GB");
-SQL;
+        $deleteSnippetSetsSql = <<<'SQL'
+            DELETE FROM `snippet_set`
+            WHERE `name` NOT IN ("BASE de-DE", "BASE en-GB");
+        SQL;
         $this->connection->executeStatement($deleteSnippetSetsSql);
     }
 
@@ -171,10 +236,12 @@ SQL;
         $sql = \str_replace(
             ['#table#'],
             [PackLanguageDefinition::ENTITY_NAME],
-            'SELECT *
-            FROM `information_schema`.`TABLES`
-            WHERE `TABLE_NAME` = "#table#"
-            AND `TABLE_SCHEMA` = DATABASE();',
+            <<<'SQL'
+                SELECT *
+                FROM `information_schema`.`TABLES`
+                WHERE `TABLE_NAME` = "#table#"
+                AND `TABLE_SCHEMA` = DATABASE();
+            SQL,
         );
 
         return (bool) $this->connection->executeQuery($sql)->fetchOne();
@@ -185,8 +252,10 @@ SQL;
         $sql = \str_replace(
             ['#table#', '#column#'],
             [LanguageDefinition::ENTITY_NAME, PackLanguageDefinition::PACK_LANGUAGE_FOREIGN_KEY_STORAGE_NAME],
-            'SHOW COLUMNS FROM `#table#`
-                LIKE "#column#";',
+            <<<'SQL'
+                SHOW COLUMNS FROM `#table#`
+                LIKE "#column#";
+            SQL,
         );
 
         return (bool) $this->connection->executeQuery($sql)->fetchOne();
@@ -203,8 +272,10 @@ SQL;
             $sql = \str_replace(
                 ['#table#'],
                 [$table],
-                'SELECT COUNT(*) as `count`
-                FROM `#table#`;',
+                <<<'SQL'
+                    SELECT COUNT(*) as `count`
+                    FROM `#table#`;
+                SQL,
             );
 
             $results[$table] = (int) $this->connection->executeQuery($sql)->fetchOne();
@@ -241,9 +312,10 @@ SQL;
 
     private function databaseHasBaseSnippetSetsForPackLanguages(): bool
     {
-        $sql = <<<SQL
-SELECT COUNT(DISTINCT `id`) FROM `snippet_set`;
-SQL;
+        $sql = <<<'SQL'
+            SELECT COUNT(DISTINCT `id`)
+            FROM `snippet_set`;
+        SQL;
         $snippetSetCount = (int) $this->connection->executeQuery($sql)->fetchOne();
 
         // de-DE & en-GB are system default languages so we have to add 2

@@ -11,6 +11,9 @@ namespace Swag\LanguagePack\Util\Exception;
 
 use Shopware\Core\Framework\ShopwareHttpException;
 
+/**
+ * @deprecated tag:v5.0.0 - Will be removed. Use LanguagePackException::installingPackLanguagesWithoutLocales() instead
+ */
 class MissingLocalesException extends ShopwareHttpException
 {
     /**
@@ -18,14 +21,16 @@ class MissingLocalesException extends ShopwareHttpException
      */
     public function __construct(array $localeCodes)
     {
+        $languagePackException = LanguagePackException::installWithoutLocales($localeCodes);
+
         parent::__construct(
-            'No LocaleEntities associated to the following locale codes: {{ localeCodes }}',
-            ['localeCodes' => \implode(', ', $localeCodes)],
+            $languagePackException->getMessage(),
+            $languagePackException->getParameters(),
         );
     }
 
     public function getErrorCode(): string
     {
-        return 'SWAG_LANGUAGE_PACK__PACK_LANGUAGES_WITHOUT_LOCALES';
+        return LanguagePackException::INSTALL_WITHOUT_LOCALES;
     }
 }

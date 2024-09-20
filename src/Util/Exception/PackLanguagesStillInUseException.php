@@ -11,23 +11,21 @@ namespace Swag\LanguagePack\Util\Exception;
 
 use Shopware\Core\Framework\ShopwareHttpException;
 use Shopware\Core\System\Language\LanguageCollection;
-use Shopware\Core\System\Language\LanguageEntity;
 
+/**
+ * @deprecated tag:v5.0.0 - Will be removed. Use LanguagePackException::packLanguagesStillInUse() instead
+ */
 class PackLanguagesStillInUseException extends ShopwareHttpException
 {
-    public const ERROR_CODE = 'SWAG_LANGUAGE_PACK_LANGUAGE__STILL_IN_USE_IN_SALES_CHANNEL';
+    public const ERROR_CODE = LanguagePackException::PACK_LANGUAGES_STILL_IN_USE;
 
     public function __construct(LanguageCollection $languages)
     {
-        $names = \array_map(static function (LanguageEntity $language): string {
-            return $language->getName();
-        }, $languages->getElements());
+        $languagePackException = LanguagePackException::packLanguagesStillInUse($languages);
 
         parent::__construct(
-            'The following languages provided by Shopware\'s LanguagePack are still used by Sales Channels: {{ names }}',
-            [
-                'names' => \implode(', ', $names),
-            ],
+            $languagePackException->getMessage(),
+            $languagePackException->getParameters(),
         );
     }
 

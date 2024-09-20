@@ -44,44 +44,6 @@ class MigrationHelperTest extends TestCase
 
     private Connection $connection;
 
-    private function createFrenchPackLanguage(): void
-    {
-        $frenchLocale = $this->connection->executeQuery(<<<'SQL'
-            SELECT `locale`.`id` AS `locale_id`, `language`.`id` AS `language_id`
-            FROM `locale`
-            LEFT JOIN `language` ON `locale`.`id` = `language`.`locale_id`
-            WHERE `code` = 'fr-FR';
-        SQL)->fetchOne();
-
-        $insertLanguagesSql = <<<'SQL'
-            INSERT INTO `language` (`id`, `name`, `locale_id`, `translation_code_id`, `created_at`)
-            VALUES (:id, :name, :localeId, :translationCodeId, NOW());
-        SQL;
-
-        $this->connection->executeStatement($insertLanguagesSql, [
-            'id' => Uuid::randomBytes(),
-            'name' => 'Français',
-            'localeId' => $frenchLocale['locale_id'],
-            'translationCodeId' => '1',
-        ]);
-
-        $insertPackLanguagesSql = <<<'SQL'
-            INSERT INTO `swag_language_pack_language` (`id`, `language_id`, `administration_active`, `sales_channel_active`, `created_at`)
-            VALUES (:id, :languageId, :administrationActive, :salesChannelActive, NOW());
-
-            UPDATE `language`
-            SET swag_language_pack_language_id = :id
-            WHERE `id` = :languageId;
-        SQL;
-
-        $this->connection->executeStatement($insertPackLanguagesSql, [
-            'id' => Uuid::randomBytes(),
-            'languageId' => $frenchLocale['language_id'],
-            'administrationActive' => 1,
-            'salesChannelActive' => 1,
-        ]);
-    }
-
     protected function setUp(): void
     {
         /** @var Connection $connection */
@@ -153,7 +115,7 @@ class MigrationHelperTest extends TestCase
         static::assertEquals(0, $counts[PackLanguageDefinition::ENTITY_NAME]);
 
         // Simulate already having one language installed
-        $this->createFrenchPackLanguage();
+        $this->createMockPackLanguage();
         $counts = $this->getTableCounts($tables);
         static::assertEquals(3, $counts[LanguageDefinition::ENTITY_NAME]);
         static::assertEquals(1, $counts[PackLanguageDefinition::ENTITY_NAME]);
@@ -320,5 +282,44 @@ class MigrationHelperTest extends TestCase
 
         // de-DE & en-GB are system default languages so we have to add 2
         return $snippetSetCount === (\count(SwagLanguagePack::SUPPORTED_LANGUAGES) + 2);
+    }
+
+    private function createMockPackLanguage(): void
+    {
+        $localeId = $this->connection->executeQuery(<<<'SQL'
+            SELECT `locale`.`id` AS `locale_id`
+            FROM `locale`
+            LEFT JOIN `language` ON `locale`.`id` = `language`.`locale_id`
+            WHERE `code` = 'fr-FR';
+        SQL)->fetchOne();
+
+        $insertLanguagesSql = <<<'SQL'
+            INSERT INTO `language` (`id`, `name`, `locale_id`, `translation_code_id`, `created_at`)
+            VALUES (:id, :name, :localeId, :translationCodeId, NOW());
+        SQL;
+
+        $languageId = Uuid::randomBytes();
+        $this->connection->executeStatement($insertLanguagesSql, [
+            'id' => $languageId,
+            'name' => 'Français',
+            'localeId' => $localeId,
+            'translationCodeId' => $localeId,
+        ]);
+
+        $insertPackLanguagesSql = <<<'SQL'
+            INSERT INTO `swag_language_pack_language` (`id`, `language_id`, `administration_active`, `sales_channel_active`, `created_at`)
+            VALUES (:id, :languageId, :administrationActive, :salesChannelActive, NOW());
+
+            UPDATE `language`
+            SET swag_language_pack_language_id = :id
+            WHERE `id` = :languageId;
+        SQL;
+
+        $this->connection->executeStatement($insertPackLanguagesSql, [
+            'id' => Uuid::randomBytes(),
+            'languageId' => $languageId,
+            'administrationActive' => 1,
+            'salesChannelActive' => 1,
+        ]);
     }
 }

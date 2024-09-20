@@ -15,7 +15,7 @@ use Shopware\Core\Framework\Uuid\Uuid;
 use Shopware\Core\System\Language\LanguageDefinition;
 use Swag\LanguagePack\PackLanguage\PackLanguageDefinition;
 use Swag\LanguagePack\SwagLanguagePack;
-use Swag\LanguagePack\Util\Exception\MissingLocalesException;
+use Swag\LanguagePack\Util\Exception\LanguagePackException;
 
 class MigrationHelper
 {
@@ -25,7 +25,7 @@ class MigrationHelper
 
     public function createPackLanguageTable(): void
     {
-        $sql = <<<SQL
+        $sql = <<<'SQL'
             CREATE TABLE IF NOT EXISTS `#table#` (
                 `id`                    BINARY(16)  NOT NULL,
                 `administration_active` TINYINT(1)  NULL DEFAULT '0',
@@ -58,7 +58,7 @@ class MigrationHelper
             return;
         }
 
-        $sql = <<<SQL
+        $sql = <<<'SQL'
             ALTER TABLE `#table#`
             ADD COLUMN `#column#` BINARY(16) NULL AFTER `parent_id`,
             ADD CONSTRAINT `fk.language_swag_language_pack_language`
@@ -133,8 +133,11 @@ class MigrationHelper
 
     public function createSnippetSets(): void
     {
-        $sql = <<<SQL
-            SELECT `id`, `iso`, `name` FROM `snippet_set` WHERE (`name` LIKE 'BASE%' OR `name` LIKE 'LanguagePack%') AND `iso` IN (:isos);
+        $sql = <<<'SQL'
+            SELECT `id`, `iso`, `name`
+            FROM `snippet_set`
+            WHERE (`name` LIKE 'BASE%' OR `name` LIKE 'LanguagePack%')
+              AND `iso` IN (:isos);
         SQL;
 
         $existingSnippetSets = $this->connection->executeQuery(
@@ -167,7 +170,7 @@ class MigrationHelper
             );
         }
 
-        $insertSnippetSetSql = <<<SQL
+        $insertSnippetSetSql = <<<'SQL'
             INSERT INTO `snippet_set` (`id`, `name`, `base_file`, `iso`, `created_at`)
             VALUES (:id, :name, :baseFile, :iso, NOW())
         SQL;
@@ -188,7 +191,7 @@ class MigrationHelper
 
     private function languageColumnAlreadyExists(): bool
     {
-        $sql = <<<SQL
+        $sql = <<<'SQL'
             SHOW COLUMNS FROM `#table#` LIKE '#column#';
         SQL;
 
@@ -205,13 +208,14 @@ class MigrationHelper
     }
 
     /**
-     * @throws MissingLocalesException
+     * @throws LanguagePackException
      *
      * @return array<string, array<string, mixed>>
      */
     private function getLocales(): array
     {
-        $requiredLocales = $this->connection->executeQuery(<<<'SQL'
+        $requiredLocales = $this->connection->executeQuery(
+            <<<'SQL'
                 SELECT `id`, `code`
                 FROM `locale`
                 WHERE `code` IN (?)
@@ -219,12 +223,13 @@ class MigrationHelper
             [\array_values(SwagLanguagePack::SUPPORTED_LANGUAGES)],
             [ArrayParameterType::STRING],
         )->fetchAllAssociative();
-        
+
         if (\count(SwagLanguagePack::SUPPORTED_LANGUAGES) !== \count($requiredLocales)) {
-            throw new MissingLocalesException($this->getMissingLocales($requiredLocales));
+            throw LanguagePackException::installWithoutLocales($this->getMissingLocales($requiredLocales));
         }
 
-        $alreadyInstalledLocales = $this->connection->executeQuery(<<<'SQL'
+        $alreadyInstalledLocales = $this->connection->executeQuery(
+            <<<'SQL'
                 SELECT `locale`.`code`
                 FROM `locale`
                 JOIN `language` ON `language`.`locale_id` = `locale`.`id`
@@ -273,7 +278,7 @@ class MigrationHelper
      */
     private function createPackLanguageData(array $locales): array
     {
-        $sql = <<<SQL
+        $sql = <<<'SQL'
             SELECT lang.`id` as id, loc.`code` as code
             FROM `language` lang
             LEFT JOIN `locale` loc ON loc.`id` = lang.`translation_code_id`

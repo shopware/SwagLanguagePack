@@ -17,7 +17,7 @@ class Migration1708692685AlterPackLanguageTable extends MigrationStep
 
     public function update(Connection $connection): void
     {
-        $sql = <<<SQL
+        $sql = <<<'SQL'
             ALTER TABLE `#table#`
                 DROP FOREIGN KEY `fk.swag_language_pack_language_language`;
 

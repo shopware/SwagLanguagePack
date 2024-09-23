@@ -23,7 +23,7 @@ use Shopware\Core\System\Language\LanguageDefinition;
 use Swag\LanguagePack\Extension\LanguageExtension;
 use Swag\LanguagePack\PackLanguage\PackLanguageDefinition;
 use Swag\LanguagePack\SwagLanguagePack;
-use Swag\LanguagePack\Util\Exception\PackLanguagesStillInUseException;
+use Swag\LanguagePack\Util\Exception\LanguagePackException;
 
 class Lifecycle
 {
@@ -59,7 +59,8 @@ class Lifecycle
         if ($result->getTotal() > 0) {
             /** @var LanguageCollection $languages */
             $languages = $result->getEntities();
-            throw new PackLanguagesStillInUseException($languages);
+
+            throw LanguagePackException::packLanguagesStillInUse($languages);
         }
     }
 
@@ -77,7 +78,7 @@ class Lifecycle
 
     private function deleteBaseSnippetSets(): void
     {
-        $sql = <<<SQL
+        $sql = <<<'SQL'
             DELETE FROM `snippet_set`
             WHERE `name` = :name
               AND `base_file` = :baseFile;

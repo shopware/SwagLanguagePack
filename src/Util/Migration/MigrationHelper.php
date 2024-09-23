@@ -15,7 +15,7 @@ use Shopware\Core\Framework\Uuid\Uuid;
 use Shopware\Core\System\Language\LanguageDefinition;
 use Swag\LanguagePack\PackLanguage\PackLanguageDefinition;
 use Swag\LanguagePack\SwagLanguagePack;
-use Swag\LanguagePack\Util\Exception\MissingLocalesException;
+use Swag\LanguagePack\Util\Exception\LanguagePackException;
 
 class MigrationHelper
 {
@@ -25,7 +25,7 @@ class MigrationHelper
 
     public function createPackLanguageTable(): void
     {
-        $sql = <<<SQL
+        $sql = <<<'SQL'
             CREATE TABLE IF NOT EXISTS `#table#` (
                 `id`                    BINARY(16)  NOT NULL,
                 `administration_active` TINYINT(1)  NULL DEFAULT '0',
@@ -58,7 +58,7 @@ class MigrationHelper
             return;
         }
 
-        $sql = <<<SQL
+        $sql = <<<'SQL'
             ALTER TABLE `#table#`
             ADD COLUMN `#column#` BINARY(16) NULL AFTER `parent_id`,
             ADD CONSTRAINT `fk.language_swag_language_pack_language`
@@ -108,7 +108,7 @@ class MigrationHelper
             $packLanguages[] = $packLanguage;
         }
 
-        $insertLanguagesSql = <<<SQL
+        $insertLanguagesSql = <<<'SQL'
             INSERT INTO `language` (`id`, `name`, `locale_id`, `translation_code_id`, `created_at`)
             VALUES (:id, :name, :localeId, :translationCodeId, NOW());
         SQL;
@@ -117,10 +117,7 @@ class MigrationHelper
             $this->connection->executeStatement($insertLanguagesSql, $language);
         }
 
-        $insertPackLanguagesSql = <<<SQL
-            DELETE FROM `swag_language_pack_language`
-            WHERE `language_id` = :languageId;
-
+        $insertPackLanguagesSql = <<<'SQL'
             INSERT INTO `swag_language_pack_language` (`id`, `language_id`, `administration_active`, `sales_channel_active`, `created_at`)
             VALUES (:id, :languageId, :administrationActive, :salesChannelActive, NOW());
 
@@ -136,8 +133,11 @@ class MigrationHelper
 
     public function createSnippetSets(): void
     {
-        $sql = <<<SQL
-            SELECT `id`, `iso`, `name` FROM `snippet_set` WHERE (`name` LIKE 'BASE%' OR `name` LIKE 'LanguagePack%') AND `iso` IN (:isos);
+        $sql = <<<'SQL'
+            SELECT `id`, `iso`, `name`
+            FROM `snippet_set`
+            WHERE (`name` LIKE 'BASE%' OR `name` LIKE 'LanguagePack%')
+              AND `iso` IN (:isos);
         SQL;
 
         $existingSnippetSets = $this->connection->executeQuery(
@@ -170,7 +170,7 @@ class MigrationHelper
             );
         }
 
-        $insertSnippetSetSql = <<<SQL
+        $insertSnippetSetSql = <<<'SQL'
             INSERT INTO `snippet_set` (`id`, `name`, `base_file`, `iso`, `created_at`)
             VALUES (:id, :name, :baseFile, :iso, NOW())
         SQL;
@@ -191,7 +191,7 @@ class MigrationHelper
 
     private function languageColumnAlreadyExists(): bool
     {
-        $sql = <<<SQL
+        $sql = <<<'SQL'
             SHOW COLUMNS FROM `#table#` LIKE '#column#';
         SQL;
 
@@ -208,37 +208,51 @@ class MigrationHelper
     }
 
     /**
-     * @throws MissingLocalesException
+     * @throws LanguagePackException
      *
      * @return array<string, array<string, mixed>>
      */
     private function getLocales(): array
     {
-        $sql = <<<SQL
-            SELECT `id`, `code` FROM `locale` WHERE `code` IN (?);
-        SQL;
-
-        $locales = $this->connection->executeQuery(
-            $sql,
+        $requiredLocales = $this->connection->executeQuery(
+            <<<'SQL'
+                SELECT `id`, `code`
+                FROM `locale`
+                WHERE `code` IN (?)
+            SQL,
             [\array_values(SwagLanguagePack::SUPPORTED_LANGUAGES)],
             [ArrayParameterType::STRING],
         )->fetchAllAssociative();
 
-        if (\count(SwagLanguagePack::SUPPORTED_LANGUAGES) !== \count($locales)) {
-            throw new MissingLocalesException($this->getMissingLocales($locales));
+        if (\count(SwagLanguagePack::SUPPORTED_LANGUAGES) !== \count($requiredLocales)) {
+            throw LanguagePackException::installWithoutLocales($this->getMissingLocales($requiredLocales));
         }
 
-        $enhancedLocales = [];
-        foreach (SwagLanguagePack::SUPPORTED_LANGUAGES as $name => $code) {
-            foreach ($locales as $locale) {
-                if ($code === $locale['code']) {
-                    $locale['name'] = $name;
-                    $enhancedLocales[$code] = $locale;
-                }
+        $alreadyInstalledLocales = $this->connection->executeQuery(
+            <<<'SQL'
+                SELECT `locale`.`code`
+                FROM `locale`
+                JOIN `language` ON `language`.`locale_id` = `locale`.`id`
+                JOIN `swag_language_pack_language` pack_language ON pack_language.`language_id` = `language`.`id`
+            SQL,
+            [\array_values(SwagLanguagePack::SUPPORTED_LANGUAGES)],
+            [ArrayParameterType::STRING],
+        )->fetchAllAssociative();
+
+        $languageNames = array_flip(SwagLanguagePack::SUPPORTED_LANGUAGES);
+
+        return array_reduce($requiredLocales, static function (array $accumulator, array $requiredLocale) use ($alreadyInstalledLocales, $languageNames) {
+            if (!\in_array($requiredLocale['code'], \array_column($alreadyInstalledLocales, 'code'), true)) {
+                $currentCode = $requiredLocale['code'];
+
+                $accumulator[$currentCode] = array_merge(
+                    $requiredLocale,
+                    ['name' => $languageNames[$currentCode]],
+                );
             }
-        }
 
-        return $enhancedLocales;
+            return $accumulator;
+        }, []);
     }
 
     /**
@@ -264,7 +278,7 @@ class MigrationHelper
      */
     private function createPackLanguageData(array $locales): array
     {
-        $sql = <<<SQL
+        $sql = <<<'SQL'
             SELECT lang.`id` as id, loc.`code` as code
             FROM `language` lang
             LEFT JOIN `locale` loc ON loc.`id` = lang.`translation_code_id`
@@ -277,7 +291,7 @@ class MigrationHelper
             [ArrayParameterType::STRING],
         )->fetchAllAssociative();
 
-        return \array_map(static function ($locale) use ($existingLanguages): array {
+        return \array_map(static function (array $locale) use ($existingLanguages): array {
             $languageId = null;
             foreach ($existingLanguages as $language) {
                 if (isset($locale['code'], $language['code']) && $locale['code'] === $language['code']) {

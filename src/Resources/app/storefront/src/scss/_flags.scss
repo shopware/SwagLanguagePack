@@ -15,7 +15,11 @@ $countryCodes: ad, ae, af, ag, ai, al, am, ao, aq, ar, as, at, au, aw, ax, az, b
 
     @each $countryCode in $countryCodes {
         &.country-#{$countryCode} {
-            background-image: url("#{$sw-asset-public-url}/bundles/swaglanguagepack/static/flags/#{$countryCode}.svg");
+            @if variable-exists(sw-asset-global_asset-url) {
+                background-image: url("#{$sw-asset-global_asset-url}/bundles/swaglanguagepack/static/flags/#{$countryCode}.svg");
+            } @else {
+                background-image: url("#{$sw-asset-public-url}/bundles/swaglanguagepack/static/flags/#{$countryCode}.svg");
+            }
         }
     }
 }

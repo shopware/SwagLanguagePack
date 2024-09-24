@@ -1,0 +1,13 @@
+# 4.9.0
+- [Update translations 2024-09-24](https://issues.shopware.com/issues/)
+- [LAN-176 - fix language flags in cloud](https://issues.shopware.com/issues/)
+- [Update translations 2024-09-23](https://issues.shopware.com/issues/)
+- [LAN-172 - Replace exceptions with new pattern](https://issues.shopware.com/issues/)
+- [LAN-172 - Keep language settings after update](https://issues.shopware.com/issues/)
+- [LAN-177 - improved type](https://issues.shopware.com/issues/)
+- [LAN-177 - fix jest tests](https://issues.shopware.com/issues/)
+- [LAN-177 - update jest preset](https://issues.shopware.com/issues/)
+- [LAN-177 - improve ecs setup](https://issues.shopware.com/issues/)
+- [LAN-177 - fix cs](https://issues.shopware.com/issues/)
+- [LAN-177 - fix php tests](https://issues.shopware.com/issues/)
+- [Update translations 2024-08-31](https://issues.shopware.com/issues/)

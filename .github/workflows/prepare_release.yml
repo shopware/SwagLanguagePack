@@ -4,6 +4,11 @@ on:
   schedule:
     # Every Friday at 06:15 AM UTC
     - cron: "15 6 * * 5"
+
+permissions:
+  contents: read
+  id-token: write
+
 jobs:
   prepare_release:
     runs-on: ubuntu-latest
@@ -53,3 +58,4 @@ jobs:
   release:
     needs: prepare_release
     uses: shopware/SwagLanguagePack/.github/workflows/store-release.yml@master
+    secrets: inherit

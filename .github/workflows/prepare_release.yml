@@ -55,7 +55,3 @@ jobs:
           git add .
           git commit -m "Prepare release $(jq -r '.version' composer.json)"
           git push
-  release:
-    needs: prepare_release
-    uses: shopware/SwagLanguagePack/.github/workflows/store-release.yml@master
-    secrets: inherit

@@ -1,7 +1,10 @@
 name: Release to Store
 on:
-  workflow_call:
   workflow_dispatch:
+  workflow_run:
+    workflows: ["Prepare Release"]
+    types:
+      - completed
 jobs:
   build:
     uses: shopware/github-actions/.github/workflows/store-release.yml@main

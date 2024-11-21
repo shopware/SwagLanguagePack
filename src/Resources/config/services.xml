@@ -53,5 +53,10 @@
             <argument type="service" id="Doctrine\DBAL\Connection"/>
             <tag name="kernel.event_subscriber"/>
         </service>
+
+        <service id="Swag\LanguagePack\Core\Maintenance\System\Service\ShopConfiguratorDecorator" decorates="Shopware\Core\Maintenance\System\Service\ShopConfigurator">
+            <argument type="service" id="Swag\LanguagePack\Core\Maintenance\System\Service\ShopConfiguratorDecorator.inner"/>
+            <argument type="service" id="Doctrine\DBAL\Connection"/>
+        </service>
     </services>
 </container>

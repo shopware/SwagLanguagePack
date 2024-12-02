@@ -29,5 +29,7 @@ class Migration1605167857AddPackLanguage extends MigrationStep
         $migrationHelper->createSnippetSets();
     }
 
-    public function updateDestructive(Connection $connection): void {}
+    public function updateDestructive(Connection $connection): void
+    {
+    }
 }

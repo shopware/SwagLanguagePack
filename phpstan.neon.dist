@@ -1,10 +1,8 @@
 includes:
-    - ../../../vendor/phpstan/phpstan/conf/bleedingEdge.neon
+    - ../../../src/Core/DevOps/StaticAnalyze/PHPStan/common.neon
 
 parameters:
-    level: 8
     tmpDir: var/cache/phpstan
-    inferPrivatePropertyTypeFromConstructor: true
 
     bootstrapFiles:
         - ../../../src/Core/DevOps/StaticAnalyze/phpstan-bootstrap.php
@@ -22,8 +20,9 @@ parameters:
             paths:
                 - tests/*Test.php
 
-        -
-            message: '#has typehint with deprecated class Shopware\\Core\\Maintenance\\SalesChannel\\Service\\SalesChannelCreator#'
+        - # Remove once minimum required SW version is 6.6.1.0
+            message: '#Method Context::createDefaultContext\(\) should not be used in CLI context\. Use Context::createCLIContext\(\) instead#'
 
-        -
-            message: '#Fetching class constant class of deprecated class Shopware\\Core\\Maintenance\\SalesChannel\\Service\\SalesChannelCreator#'
+        - # Remove with SW 6.7 compatibility
+            message: '#Call to deprecated method getEntityName.*Extension#'
+        - message: '#deprecated class Shopware\\Core\\Maintenance\\SalesChannel\\Service\\SalesChannelCreator#'

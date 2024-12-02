@@ -21,7 +21,8 @@ class MigrationHelper
 {
     public function __construct(
         private readonly Connection $connection,
-    ) {}
+    ) {
+    }
 
     public function createPackLanguageTable(): void
     {
@@ -84,7 +85,6 @@ class MigrationHelper
         $packLanguages = [];
         $languages = [];
 
-        /** @var array<string, string|null> $locale */
         foreach ($data as $locale) {
             if ($locale['languageId'] === null) {
                 $newLanguageId = Uuid::randomBytes();
@@ -272,9 +272,9 @@ class MigrationHelper
     }
 
     /**
-     * @param array<string|int, array<string, mixed>> $locales
+     * @param array<string, array<string, mixed>> $locales
      *
-     * @return array<string|int, array<string, mixed>|string>
+     * @return array<string, array<string, mixed>>
      */
     private function createPackLanguageData(array $locales): array
     {

@@ -107,7 +107,6 @@ class SwagLanguagePack extends Plugin
     {
         \assert($this->container instanceof ContainerInterface, 'Container is not set yet, please call setContainer() before calling boot(), see `src/Core/Kernel.php:186`.');
 
-        /** @var Connection $connection */
         $connection = $this->container->get(Connection::class);
 
         /** @var EntityRepository<LanguageCollection> $languageRepository */
@@ -120,7 +119,6 @@ class SwagLanguagePack extends Plugin
     {
         \assert($this->container instanceof ContainerInterface, 'Container is not set yet, please call setContainer() before calling boot(), see `src/Core/Kernel.php:186`.');
 
-        /** @var Connection $connection */
         $connection = $this->container->get(Connection::class);
 
         $migrationHelper = new MigrationHelper($connection);

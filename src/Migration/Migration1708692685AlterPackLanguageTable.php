@@ -36,5 +36,7 @@ class Migration1708692685AlterPackLanguageTable extends MigrationStep
         ));
     }
 
-    public function updateDestructive(Connection $connection): void {}
+    public function updateDestructive(Connection $connection): void
+    {
+    }
 }

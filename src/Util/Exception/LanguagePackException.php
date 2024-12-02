@@ -28,7 +28,7 @@ class LanguagePackException extends HttpException
         return new self(
             Response::HTTP_INTERNAL_SERVER_ERROR,
             self::INSTALL_WITHOUT_LOCALES,
-            sprintf('No LocaleEntities associated to the following locale codes: %s', \implode(', ', $localeCodes)),
+            \sprintf('No LocaleEntities associated to the following locale codes: %s', \implode(', ', $localeCodes)),
         );
     }
 
@@ -41,7 +41,7 @@ class LanguagePackException extends HttpException
         return new self(
             Response::HTTP_INTERNAL_SERVER_ERROR,
             self::PACK_LANGUAGES_STILL_IN_USE,
-            sprintf('The following languages provided by Shopware\'s LanguagePack are still used by Sales Channels: %s', \implode(', ', $names)),
+            \sprintf('The following languages provided by Shopware\'s LanguagePack are still used by Sales Channels: %s', \implode(', ', $names)),
         );
     }
 }

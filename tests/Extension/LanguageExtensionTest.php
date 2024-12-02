@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 namespace Swag\LanguagePack\Test\Extension;
 
-use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\Flag\SetNullOnDelete;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\OneToOneAssociationField;
@@ -22,7 +21,6 @@ class LanguageExtensionTest extends TestCase
 {
     public function testExtendFieldsAddsOneToOneAssociationField(): void
     {
-        /** @var MockObject|FieldCollection $collection */
         $collection = $this->getMockBuilder(FieldCollection::class)
             ->disableOriginalConstructor()
             ->onlyMethods(['add'])
@@ -47,8 +45,8 @@ class LanguageExtensionTest extends TestCase
     public function testGetDefinitionClassReturnsCmsSectionDefinitionClass(): void
     {
         static::assertSame(
-            LanguageDefinition::class,
-            (new LanguageExtension())->getDefinitionClass(),
+            LanguageDefinition::ENTITY_NAME,
+            (new LanguageExtension())->getEntityName(),
         );
     }
 }

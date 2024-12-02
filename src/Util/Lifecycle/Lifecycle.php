@@ -33,7 +33,8 @@ class Lifecycle
     public function __construct(
         private readonly Connection $connection,
         private readonly EntityRepository $languageRepository,
-    ) {}
+    ) {
+    }
 
     /**
      * @deprecated tag:v4.0.0 - Will be removed without replacement
@@ -57,7 +58,6 @@ class Lifecycle
         $result = $this->languageRepository->search($criteria, $deactivateContext->getContext());
 
         if ($result->getTotal() > 0) {
-            /** @var LanguageCollection $languages */
             $languages = $result->getEntities();
 
             throw LanguagePackException::packLanguagesStillInUse($languages);

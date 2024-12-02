@@ -29,26 +29,6 @@ eslint: administration-lint ## Synonym to 'administration-lint'
 eslint-fix: administration-fix ## Synonym to 'administration-fix'
 .PHONY: eslint-fix
 
-ecs-fix: ## Run easy coding style in fix mode
-	php ../../../dev-ops/analyze/vendor/bin/ecs check --fix --config=../../../vendor/shopware/platform/easy-coding-standard.php src tests\
-		&& php ../../../dev-ops/analyze/vendor/bin/ecs check --fix --config=easy-coding-standard.php src tests
-.PHONY: ecs-fix
-
-ecs-dry: ## Run easy coding style in dry mode
-	php ../../../dev-ops/analyze/vendor/bin/ecs check --config=../../../vendor/shopware/platform/easy-coding-standard.php src tests\
-		&& php ../../../dev-ops/analyze/vendor/bin/ecs check --config=easy-coding-standard.php src tests
-.PHONY: ecs-dry
-
-phpstan: ## Run phpstan
-	php bin/phpstan-config-generator.php \
- 		&& composer dump-autoload \
- 		&& php ../../../dev-ops/analyze/vendor/bin/phpstan analyze --configuration phpstan.neon --autoload-file=../../../vendor/autoload.php src tests
-.PHONY: phpstan
-
-psalm: ## Run vimeo psalm
-	php ../../../dev-ops/analyze/vendor/bin/psalm --config=psalm.xml --threads=2 --diff --show-info=false
-.PHONY: psalm
-
 phpunit: ## Run phpunit; Accepts an additional argument "FILTER='search term'"
 	composer dump-autoload \
         && ./../../../vendor/bin/phpunit --filter "$(FILTER)"

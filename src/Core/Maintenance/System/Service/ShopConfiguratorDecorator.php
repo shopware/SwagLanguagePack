@@ -4,6 +4,7 @@ namespace Swag\LanguagePack\Core\Maintenance\System\Service;
 
 use Doctrine\DBAL\Connection;
 use Shopware\Core\Defaults;
+use Shopware\Core\Framework\DataAbstractionLayer\Doctrine\RetryableTransaction;
 use Shopware\Core\Framework\Uuid\Uuid;
 use Shopware\Core\Maintenance\System\Service\ShopConfigurator;
 
@@ -24,38 +25,37 @@ class ShopConfiguratorDecorator extends ShopConfigurator
 
     public function setDefaultLanguage(string $locale): void
     {
-        $currentDefault = $this->getCurrentSystemLanguage();
+        $previousDefault = $this->getCurrentSystemLanguage();
         $newDefault = $this->getLanguageByLocale($locale);
 
         $this->getDecorated()->setDefaultLanguage($locale);
 
-        if ($currentDefault['id'] === $newDefault['id']) {
+        if ($previousDefault['id'] === $newDefault['id']) {
             return;
         }
 
-        $this->swapLanguagePackLanguageReferences($newDefault);
+        $this->swapLanguagePackLanguageReferences($newDefault, $previousDefault);
     }
 
-    private function swapLanguagePackLanguageReferences(array $newDefault): void
+    private function swapLanguagePackLanguageReferences(array $newDefault, array $previousDefault): void
     {
-        $this->connection->executeStatement(
-            'UPDATE language
-             SET swag_language_pack_language_id = null
-             WHERE id = :id',
-            [
-                'id' => $newDefault['id'],
-            ]
-        );
+        RetryableTransaction::retryable($this->connection, function (Connection $connection) use ($newDefault, $previousDefault): void {
+            $statement = $connection->prepare('
+                UPDATE language
+                SET swag_language_pack_language_id = :referenceId
+                WHERE id = :id
+            ');
 
-        $this->connection->executeStatement(
-            'UPDATE language
-             SET swag_language_pack_language_id = :referenceId
-             WHERE id = :id',
-            [
-                'id' => Defaults::LANGUAGE_SYSTEM,
+            $statement->executeStatement([
+                'id' => $previousDefault['id'],
                 'referenceId' => $newDefault['swag_language_pack_language_id'],
-            ]
-        );
+            ]);
+
+            $statement->executeStatement([
+                'id' => $newDefault['id'],
+                'referenceId' => $previousDefault['swag_language_pack_language_id'],
+            ]);
+        });
     }
 
     /**

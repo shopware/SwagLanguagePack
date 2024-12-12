@@ -3,21 +3,8 @@ const { warn } = Shopware.Utils.debug;
 
 const languageRepository = Shopware.Service('repositoryFactory').create('language');
 const criteria = (new Criteria())
-    .addIncludes({
-        language: [
-            'id',
-            'locale',
-            'swagLanguagePackLanguage',
-        ],
-        locale: [
-            'code',
-        ],
-        swagLanguagePackLanguage: [
-            'administrationActive',
-        ],
-    })
-    .addAssociation('locale')
     .addAssociation('swagLanguagePackLanguage')
+    .addAssociation('locale')
     .addFilter(Criteria.not('AND', [Criteria.equals('swagLanguagePackLanguage.administrationActive', false)]));
 
 const resolve = Shopware.Plugin.addBootPromise();

@@ -25,35 +25,35 @@ class ShopConfiguratorDecorator extends ShopConfigurator
 
     public function setDefaultLanguage(string $locale): void
     {
-        $previousDefault = $this->getCurrentSystemLanguage();
         $newDefault = $this->getLanguageByLocale($locale);
+        $currentDefault = $this->getCurrentSystemLanguage();
 
         $this->getDecorated()->setDefaultLanguage($locale);
 
-        if ($previousDefault['id'] === $newDefault['id']) {
+        if ($currentDefault['language_pack_id'] === $newDefault['language_pack_id']) {
             return;
         }
 
-        $this->swapLanguagePackLanguageReferences($newDefault, $previousDefault);
+        $this->swapLanguagePackLanguageReferences($currentDefault, $newDefault);
     }
 
-    private function swapLanguagePackLanguageReferences(array $newDefault, array $previousDefault): void
+    private function swapLanguagePackLanguageReferences(array $currentDefault, array $newDefault): void
     {
-        RetryableTransaction::retryable($this->connection, function (Connection $connection) use ($newDefault, $previousDefault): void {
+        RetryableTransaction::retryable($this->connection, function (Connection $connection) use ($currentDefault, $newDefault): void {
             $statement = $connection->prepare('
-                UPDATE language
-                SET swag_language_pack_language_id = :referenceId
+                UPDATE swag_language_pack_language
+                SET language_id = :languageId
                 WHERE id = :id
             ');
 
             $statement->executeStatement([
-                'id' => $previousDefault['id'],
-                'referenceId' => $newDefault['swag_language_pack_language_id'],
+                'languageId' => $currentDefault['language_id'],
+                'id' => $newDefault['language_pack_id'],
             ]);
 
             $statement->executeStatement([
-                'id' => $newDefault['id'],
-                'referenceId' => $previousDefault['swag_language_pack_language_id'],
+                'languageId' => $newDefault['language_id'],
+                'id' => $currentDefault['language_pack_id'],
             ]);
         });
     }
@@ -64,8 +64,9 @@ class ShopConfiguratorDecorator extends ShopConfigurator
     private function getCurrentSystemLanguage(): ?array
     {
         return $this->connection->fetchAssociative(
-            'SELECT id, swag_language_pack_language_id
+            'SELECT language.id as language_id, swag_language_pack_language.id as language_pack_id
              FROM language
+             RIGHT JOIN swag_language_pack_language ON language.id = swag_language_pack_language.language_id
              WHERE language.id = :languageId',
             ['languageId' => Uuid::fromHexToBytes(Defaults::LANGUAGE_SYSTEM)]
         ) ?: null;
@@ -77,12 +78,12 @@ class ShopConfiguratorDecorator extends ShopConfigurator
     private function getLanguageByLocale(string $locale): ?array
     {
         return $this->connection->fetchAssociative(
-            'SELECT language.id, language.swag_language_pack_language_id
-             FROM `language`
+            'SELECT language.id as language_id, swag_language_pack_language.id as language_pack_id
+             FROM language
              INNER JOIN locale ON locale.id = language.translation_code_id
+             RIGHT JOIN swag_language_pack_language ON language.id = swag_language_pack_language.language_id
              WHERE LOWER(locale.code) = LOWER(:locale)',
             ['locale' => $locale]
         ) ?: null;
     }
-
 }

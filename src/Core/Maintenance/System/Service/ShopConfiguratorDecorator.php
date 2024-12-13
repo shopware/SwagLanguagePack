@@ -8,6 +8,9 @@ use Shopware\Core\Framework\DataAbstractionLayer\Doctrine\RetryableTransaction;
 use Shopware\Core\Framework\Uuid\Uuid;
 use Shopware\Core\Maintenance\System\Service\ShopConfigurator;
 
+/**
+ * @internal
+ */
 class ShopConfiguratorDecorator extends ShopConfigurator
 {
     public function __construct(
@@ -23,6 +26,10 @@ class ShopConfiguratorDecorator extends ShopConfigurator
         return $this->decorated;
     }
 
+    /**
+     * @param string $locale
+     * @return void
+     */
     public function setDefaultLanguage(string $locale): void
     {
         $newDefault = $this->getLanguageByLocale($locale);
@@ -30,36 +37,62 @@ class ShopConfiguratorDecorator extends ShopConfigurator
 
         $this->getDecorated()->setDefaultLanguage($locale);
 
-        if ($currentDefault['language_pack_id'] === $newDefault['language_pack_id']) {
+        if ($currentDefault['language_pack_id'] ?? null === $newDefault['language_pack_id'] ?? null) {
             return;
         }
 
         $this->swapLanguagePackLanguageReferences($currentDefault, $newDefault);
     }
 
-    private function swapLanguagePackLanguageReferences(array $currentDefault, array $newDefault): void
+    /**
+     * @param array{language_id: string, language_pack_id: string}|null $currentDefault
+     * @param array{language_id: string, language_pack_id: string}|null $newDefault
+     * @return void
+     */
+    private function swapLanguagePackLanguageReferences(?array $currentDefault, ?array $newDefault): void
     {
         RetryableTransaction::retryable($this->connection, function (Connection $connection) use ($currentDefault, $newDefault): void {
             $statement = $connection->prepare('
                 UPDATE swag_language_pack_language
-                SET language_id = :languageId
-                WHERE id = :id
+                SET language_id = CASE id
+                    WHEN :idA THEN :languageIdB
+                    WHEN :idB THEN :languageIdA
+                    ELSE language_id
+                    END
+                WHERE id IN (:idA, :idB)
             ');
 
             $statement->executeStatement([
-                'languageId' => $currentDefault['language_id'],
-                'id' => $newDefault['language_pack_id'],
+                'languageIdA' => $currentDefault['language_id'],
+                'languageIdB' => $newDefault['language_id'],
+                'idA' => $currentDefault['language_pack_id'],
+                'idB' => $newDefault['language_pack_id'],
             ]);
+        });
+
+        RetryableTransaction::retryable($this->connection, function (Connection $connection) use ($currentDefault, $newDefault): void {
+            $statement = $connection->prepare('
+                UPDATE language
+                SET swag_language_pack_language_id = CASE id
+                    WHEN :idA THEN :languagePackIdB
+                    WHEN :idB THEN :languagePackIdA
+                    ELSE swag_language_pack_language_id
+                    END
+                WHERE id IN (:idA, :idB)
+            ');
 
             $statement->executeStatement([
-                'languageId' => $newDefault['language_id'],
-                'id' => $currentDefault['language_pack_id'],
+                'idA' => $currentDefault['language_id'],
+                'idB' => $newDefault['language_id'],
+                'languagePackIdA' => $currentDefault['language_pack_id'],
+                'languagePackIdB' => $newDefault['language_pack_id'],
             ]);
         });
     }
 
     /**
-     * @return array<string, string>|null
+     * @return array{language_id: string, language_pack_id: string}|null
+     * @throws \Doctrine\DBAL\Driver\Exception
      */
     private function getCurrentSystemLanguage(): ?array
     {
@@ -73,7 +106,8 @@ class ShopConfiguratorDecorator extends ShopConfigurator
     }
 
     /**
-     * @return array<string, string>|null
+     * @return array{language_id: string, language_pack_id: string}|null
+     * @throws \Doctrine\DBAL\Driver\Exception
      */
     private function getLanguageByLocale(string $locale): ?array
     {

@@ -73,6 +73,7 @@ class Lifecycle
         $this->deleteBaseSnippetSets();
         $this->dropConstraints();
         $this->dropTables();
+        $this->dropColumns();
     }
 
     private function deleteBaseSnippetSets(): void

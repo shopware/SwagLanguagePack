@@ -16,7 +16,6 @@ use Shopware\Core\Framework\DataAbstractionLayer\Write\Command\WriteCommand;
 use Shopware\Core\Framework\DataAbstractionLayer\Write\Validation\PostWriteValidationEvent;
 use Shopware\Core\Framework\Uuid\Uuid;
 use Shopware\Core\Framework\Validation\WriteConstraintViolationException;
-use Shopware\Core\System\Language\LanguageDefinition;
 use Swag\LanguagePack\PackLanguage\PackLanguageDefinition;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Validator\ConstraintViolation;
@@ -107,9 +106,9 @@ abstract class AbstractLanguageValidator implements EventSubscriberInterface
     protected function isLanguageManagedByLanguagePack(string $languageId): bool
     {
         $statement = $this->connection->createQueryBuilder()
-            ->select('swag_language_pack_language_id')
-            ->from(LanguageDefinition::ENTITY_NAME)
-            ->where('id = :languageId')
+            ->select('id')
+            ->from(PackLanguageDefinition::ENTITY_NAME)
+            ->where('language_id = :languageId')
             ->setParameter('languageId', $languageId)
             ->setMaxResults(1)
             ->executeQuery();

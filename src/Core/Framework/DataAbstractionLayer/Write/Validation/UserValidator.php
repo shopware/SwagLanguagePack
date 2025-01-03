@@ -73,9 +73,15 @@ class UserValidator extends AbstractLanguageValidator
     private function isLocaleManagedByLanguagePack(string $localeId): bool
     {
         $statement = $this->connection->createQueryBuilder()
-            ->select('swag_language_pack_language_id')
-            ->from(LanguageDefinition::ENTITY_NAME)
-            ->where('locale_id = :localeId')
+            ->select('packLanguage.id')
+            ->from(PackLanguageDefinition::ENTITY_NAME, 'packLanguage')
+            ->leftJoin(
+                'packLanguage',
+                LanguageDefinition::ENTITY_NAME,
+                'language',
+                'packLanguage.language_id = language.id',
+            )
+            ->where('language.locale_id = :localeId')
             ->setParameter('localeId', $localeId)
             ->setMaxResults(1)
             ->executeQuery();

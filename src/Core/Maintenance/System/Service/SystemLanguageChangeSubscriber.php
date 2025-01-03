@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Swag\LanguagePack\Core\Maintenance\System\Service;
 
@@ -39,7 +39,6 @@ class SystemLanguageChangeSubscriber implements EventSubscriberInterface
 
     /**
      * @param array<string, string|null> $mapping
-     * @return void
      */
     private function swapLanguagePackLanguageReferences(array $mapping): void
     {
@@ -88,10 +87,9 @@ class SystemLanguageChangeSubscriber implements EventSubscriberInterface
     }
 
     /**
-     * @param string $newDefaultId
-     * @param string $previousDefaultId
-     * @return array<string, string|null>
      * @throws \Doctrine\DBAL\Exception
+     *
+     * @return array<string, string|null>
      */
     private function getLanguagePackIds(string $newDefaultId, string $previousDefaultId): array
     {
@@ -103,7 +101,7 @@ class SystemLanguageChangeSubscriber implements EventSubscriberInterface
              WHERE language.id IN (:previousId, :newId)',
             [
                 'previousId' => $previousDefaultId,
-                'newId' => $newDefaultId
+                'newId' => $newDefaultId,
             ],
         );
 

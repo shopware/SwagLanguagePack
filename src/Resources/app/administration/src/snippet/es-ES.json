@@ -624,6 +624,7 @@
                 "AddAndCondition": "Añadir condición AND",
                 "AddOrCondition": "Agregar condición OR",
                 "AddSubCondition": "Añadir subcondiciones",
+                "adminSalesChannelSourceRule": "Aplicable en la administración",
                 "alwaysValidRule": "Siempre aplicable",
                 "and": "Y",
                 "billingCityRule": "Dirección de facturación: Ciudad",
@@ -644,7 +645,7 @@
                 "createAfter": "Crear después",
                 "createBefore": "Crear antes",
                 "currencyRule": "Moneda",
-                "customerAffiliateCodeRule": "Código de afiliado",
+                "customerAffiliateCodeRule": "Código de afiliado (cliente)",
                 "customerAgeRule": "Edad del cliente",
                 "customerBirthdayRule": "Fecha de nacimiento del cliente",
                 "customerCampaignCodeRule": "Código de campaña",
@@ -801,6 +802,11 @@
             "placeholderErrorMessage": "No se pueden guardar marcadores de posición."
         },
         "sw-condition-generic": {
+            "adminSalesChannelSource": {
+                "hasAdminSalesChannelSource": {
+                    "placeholder": "Seleccione una condición..."
+                }
+            },
             "cartLineItemDimensionHeight": {
                 "amount": {
                     "placeholder": "@:sw-product.settingsForm.placeholderHeight"
@@ -968,8 +974,12 @@
             }
         },
         "sw-data-grid": {
+            "actionsMenu": "Abrir menú de acciones",
+            "columnsActions": "Acciones de columna",
             "labelColumnHide": "Ocultar columna",
             "labelDeSelectAll": "Deselecionar todos",
+            "labelSelectAll": "Seleccionar todos",
+            "labelSelected": "Seleccionado",
             "labelSelectionCount": "Seleccionado:",
             "labelSettingsCompactMode": "Utilizar el modo compacto",
             "labelSettingsPreviewImages": "Mostrar imágenes de vista previa",
@@ -1306,7 +1316,8 @@
                     "message": "Ningún archivo guardado correctamente. | Un archivo guardado correctamente. | {count} / {total} archivos guardados correctamente.",
                     "title": "Carga de medios"
                 }
-            }
+            },
+            "switchMode": "Cambiar el modo de carga"
         },
         "sw-media-url-form": {
             "example": "https://www.ejemplo.es",
@@ -1338,12 +1349,19 @@
             "addData": "Añadir entrada",
             "enterValidData": "Ingrese un valor válido..."
         },
+        "sw-page": {
+            "backButton": "Atrás"
+        },
         "sw-pagination": {
-            "labelItemsPerPage": "Entradas por página:"
+            "labelItemsPerPage": "Entradas por página:",
+            "nextPage": "Ir a la página siguiente",
+            "page": "Ir a la página {page}",
+            "previousPage": "Ir a la página anterior"
         },
         "sw-price-field": {
             "labelPriceGross": "Precio (bruto)",
-            "labelPriceNet": "Precio (neto)"
+            "labelPriceNet": "Precio (neto)",
+            "toggleLinkedCurrency": "Alternar el enlace entre el precio bruto y el neto"
         },
         "sw-product-image": {
             "context": {
@@ -1411,6 +1429,9 @@
         },
         "sw-select": {
             "messageNoResults": "No se han encontrado resultados para \"{term}\"."
+        },
+        "sw-select-base": {
+            "buttonClear": "Borrar todos los elementos"
         },
         "sw-select-result-list": {
             "messageNoResults": "No se han encontrado resultados."
@@ -2816,15 +2837,22 @@
             },
             "productSlider": {
                 "config": {
+                    "helpText": {
+                        "displayMode": "<strong>Original:</strong> Las imágenes se ajustan a la altura o el ancho de la caja del producto para que siempre quepan en el área designada. Las imágenes nunca se amplían.<br><br><strong>Altura fija:</strong> Las imágenes se escalan según el alto o el ancho de la caja del producto, para que siempre quepan en el área designada. Las imágenes se pueden ampliar.<br><br><strong>Recortado:</strong> Las imágenes se ajustan a la altura o anchura de la caja del producto. Cualquier desbordamiento se recorta.",
+                        "minWidth": "Introduzca el ancho mínimo con la unidad deseada. Por ejemplo: 200px"
+                    },
                     "label": {
                         "border": "Borde",
                         "minWidth": "Anchura mínima",
                         "navigation": "Navegación",
+                        "navigationArrows": "Navegación por flechas",
+                        "navigationPositionInside": "Interior",
+                        "navigationPositionNone": "No hay",
+                        "navigationPositionOutside": "Exterior",
                         "productAssignmentType": "Asignar productos",
                         "productStreamChoice": "Grupo de productos dinámicos",
                         "productStreamLimit": "Número máximo de productos",
                         "productStreamSorting": "Clasificación",
-                        "rotate": "Cambio automático",
                         "selection": "Productos",
                         "title": "Control deslizante título"
                     },
@@ -2902,10 +2930,12 @@
                         "showPortrait": "Mostrar la imagen de perfil del autor del vídeo",
                         "showTitle": "Mostrar el título del vídeo",
                         "start": "Iniciar vídeo desde",
-                        "videoId": "Enlace de vídeo"
+                        "videoId": "Enlace de vídeo",
+                        "videoTitle": "Título del vídeo"
                     },
                     "placeholder": {
-                        "videoId": "Introducir enlace de vídeo..."
+                        "videoId": "Introducir enlace de vídeo...",
+                        "videoTitle": "Introduzca un título descriptivo..."
                     }
                 },
                 "label": "Vídeo Vimeo"
@@ -2988,6 +3018,9 @@
     },
     "sw-confirm-modal": {
         "defaultText": "¿Estás seguro de que quieres continuar?"
+    },
+    "sw-context-button": {
+        "ariaLabel": "Abrir menú contextual"
     },
     "sw-country-state-detail": {
         "buttonCancel": "Cancelar",
@@ -4580,6 +4613,9 @@
             "startImportLabel": "Iniciar importación"
         }
     },
+    "sw-in-app-purchase-checkout": {
+        "exsTitle": "Activar la tienda de extensiones de Shopware"
+    },
     "sw-inactivity-login": {
         "general": {
             "description": "Inactividad: inicio de sesión",
@@ -4887,6 +4923,7 @@
                 "copyTooltip": "Copiar al portapapeles",
                 "labelContextMenuAddToMailTemplate": "Añadir como anexo",
                 "labelTestMail": "Dirección del destinatario",
+                "languageNotAssignedToSalesChannel": "El idioma actual no está asignado al canal de ventas seleccionado.",
                 "placeholderTestMail": "tienda {'@'} example.com",
                 "titleShowAvailableVariables": "Variables",
                 "titleShowPreview": "Mostrar vista previa",
@@ -6663,7 +6700,7 @@
             "cardSearchableElements": {
                 "buttonDeselect": "Deselecionar todos",
                 "buttonReset": "Restablecer al valor predeterminado",
-                "buttonSelect": "Selecionar todos",
+                "buttonSelect": "Seleccionar todos",
                 "description": "Defina el contenido que se puede buscar para cada módulo y entrada.",
                 "title": "Elementos que se pueden buscar"
             },
@@ -7489,6 +7526,7 @@
             "warningUnservedLanguage": "El idioma <b>{list}</b> no está asignado a ningún dominio. Para utilizar este idioma en su canal de ventas, cree primero el dominio correspondiente. | Los idiomas <b>{list}</b> no están asignados a ningún dominio. Para utilizar estos idiomas en su canal de ventas, cree primero los dominios respectivos."
         },
         "general": {
+            "addSalesChannel": "Crear canal de venta",
             "manageSalesChannels": "Gestiona canales de venta",
             "titleMenuItems": "Canales de venta",
             "titleMenuMoreItems": "Más",
@@ -9489,6 +9527,9 @@
         "sectionSpecialShortcuts": "Atajos de teclado especiales",
         "title": "Atajos de teclado"
     },
+    "sw-sidebar-collapse": {
+        "collapseIndicator": "Ocultar la barra lateral"
+    },
     "sw-sidebar-filter-panel": {
         "resetButton": "Restablecer todo"
     },
@@ -9572,6 +9613,11 @@
             "textDeleteConfirm": "¿Realmente deseas eliminar el elemento \"{name}\"?",
             "textDeleteMultipleConfirm": "¿Realmente deseas eliminar los \"{count}\" elementos seleccionados?"
         }
+    },
+    "sw-tree-item": {
+        "childrenLabel": "Subelementos para \"{name}\"",
+        "toggleItem": "Alternar elemento \"{name}\"",
+        "toggleTreeItem": "Alternar elemento \"{name}\" en el árbol"
     },
     "sw-usage-data-consent-banner": {
         "acceptDataCollection": "Estoy de acuerdo",

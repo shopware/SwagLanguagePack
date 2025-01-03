@@ -9,7 +9,9 @@ declare(strict_types=1);
 
 namespace Swag\LanguagePack\Util\Lifecycle;
 
+use Doctrine\DBAL\ArrayParameterType;
 use Doctrine\DBAL\Connection;
+use Shopware\Core\Defaults;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
@@ -33,7 +35,8 @@ class Lifecycle
     public function __construct(
         private readonly Connection $connection,
         private readonly EntityRepository $languageRepository,
-    ) {}
+    ) {
+    }
 
     /**
      * @deprecated tag:v4.0.0 - Will be removed without replacement
@@ -57,7 +60,6 @@ class Lifecycle
         $result = $this->languageRepository->search($criteria, $deactivateContext->getContext());
 
         if ($result->getTotal() > 0) {
-            /** @var LanguageCollection $languages */
             $languages = $result->getEntities();
 
             throw LanguagePackException::packLanguagesStillInUse($languages);
@@ -66,6 +68,8 @@ class Lifecycle
 
     public function uninstall(UninstallContext $uninstallContext): void
     {
+        $this->updateInvalidUserLanguages();
+
         if ($uninstallContext->keepUserData()) {
             return;
         }
@@ -74,6 +78,32 @@ class Lifecycle
         $this->dropConstraints();
         $this->dropTables();
         $this->dropColumns();
+    }
+
+    private function updateInvalidUserLanguages(): void
+    {
+        $this->connection->executeStatement(
+            <<<'SQL'
+                UPDATE `user`
+                SET `locale_id` = (
+                    SELECT `locale_id`
+                    FROM `language`
+                    WHERE `id` = UNHEX(:languageId)
+                )
+                WHERE `locale_id` IN (
+                    SELECT `id`
+                    FROM `locale`
+                    WHERE `code` IN (:locales)
+                );
+            SQL,
+            [
+                'languageId' => Defaults::LANGUAGE_SYSTEM,
+                'locales' => array_values(SwagLanguagePack::SUPPORTED_LANGUAGES),
+            ],
+            [
+                'locales' => ArrayParameterType::STRING,
+            ],
+        );
     }
 
     private function deleteBaseSnippetSets(): void

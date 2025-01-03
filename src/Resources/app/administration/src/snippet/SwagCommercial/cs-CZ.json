@@ -719,6 +719,7 @@
             "declined": "Odmítl",
             "done": "Hotovo",
             "draft": "Draft",
+            "draftCreated": "Vytvořeno konceptu",
             "employee": "Zaměstnanec",
             "expired": "Platnost vypršela",
             "inReview": "V přehledu",
@@ -834,10 +835,12 @@
             "list": {
                 "actionCancelDelayedAction": "Přerušit",
                 "actionExecuteDelayedAction": "Spustit nyní",
+                "actionShowError": "Zobrazit chybu",
                 "btnExecuteAll": "Proveďte vše",
                 "buttonExecute": "Provést",
                 "cancelWarningMessage": "Opravdu chcete smazat tuto zpožděnou akci?",
                 "columnCustomer": "Zákazník",
+                "columnError": "Stav",
                 "columnName": "Zpožděná akce nebo stav",
                 "columnOrderNumber": "Č. objednávky",
                 "columnRemainingTime": "Zbývající čas",
@@ -876,6 +879,11 @@
                 "selectorDelayAction": "Přidat zpoždění (WAIT)",
                 "warningText": "Pro tento tok jsou naplánovány akce. Jakékoli změny tohoto toku neovlivní akce, které jsou již naplánovány."
             }
+        },
+        "errorModal": {
+            "defaultMessage": "Při provádění zpožděného toku došlo k neznámé chybě.",
+            "logFileHint": "Další informace naleznete v souboru protokolu.",
+            "title": "Chyba při spuštění zpožděného toku"
         },
         "labelDelayedAction": "Zpožděné akce",
         "list": {
@@ -1197,6 +1205,7 @@
             "labelTotalDiscount": "Sleva",
             "labelVAT": "DPH ({number}%)",
             "messageCreateSuccess": "Citace \"{quoteNumber}\" byla vytvořena.",
+            "messageEmptyDocument": "Zatím nebyly přidány žádné dokumenty",
             "messageEmptyItem": "Dosud neexistují žádné položky",
             "messageNoFoundItem": "Nebyly nalezeny žádné položky",
             "messageSaveAsDraftSuccess": "Citace \"{quoteNumber}\" byla uložena jako koncept.",
@@ -1328,6 +1337,11 @@
             "placeholderSearchBar": "Hledat scény...",
             "title": "Editor scén"
         },
+        "mediaModal": {
+            "primitives": {
+                "tabTitle": "Primitivy"
+            }
+        },
         "notification": {
             "image_root_folder_name": "Kořen",
             "image_saved_to_folder_message": "Obrázek \"{imageName}\" byl uložen ve složce \"{folderName}“",
@@ -1342,7 +1356,12 @@
                     "label": "Pozice"
                 }
             },
+            "group": {
+                "options": "Možnosti",
+                "positionRotationScale": "Poloha, rotace a měřítko"
+            },
             "light": {
+                "add": "Přidejte světlo",
                 "color": {
                     "label": "Barva"
                 },
@@ -1369,8 +1388,11 @@
                     "label": "Název světla",
                     "placeholder": "Název"
                 },
+                "options": "Možnosti",
                 "position": {
-                    "label": "Pozice"
+                    "label": "Pozice",
+                    "locked": "Uzamčený",
+                    "reset": "Vrátit zpět"
                 },
                 "preset": {
                     "bright": "Jasné světlo",
@@ -1389,18 +1411,44 @@
                     "label": "Světlo",
                     "placeholder": "Vyberte světlo"
                 },
+                "settings": {
+                    "label": "Nastavení",
+                    "placeholder": "Vyberte nastavení..."
+                },
                 "title": "Světla",
                 "type": {
                     "ambient": "Okolní prostředí",
                     "label": "Typ",
                     "placeholder": "Vyberte typ světla",
-                    "point": "Bod"
+                    "point": "Bod",
+                    "scene": "Světlo scény"
                 }
             },
             "model": {
+                "addGroup": "Přidat skupinu",
                 "addModel": "Přidání 3D objektu",
                 "copy": "(Kopírovat)",
                 "dropIt": "Zahoď to",
+                "hide": "Skrýt",
+                "lock": "Zámek",
+                "locked": "Uzamčený",
+                "material": {
+                    "color": {
+                        "label": "Barva"
+                    },
+                    "label": "Materiál",
+                    "metalness": {
+                        "helperText": "Vlastnost kovovost materiálu určuje, jak „kovový“ je povrch. Čím kovnější je povrch, tím více odráží své okolí a tím méně viditelná je jeho barva (albedo). ",
+                        "label": "Kovovost"
+                    },
+                    "preset": {
+                        "placeholder": "Vybrat předvolbu..."
+                    },
+                    "roughness": {
+                        "helperText": "Vlastnost Drsnost materiálu určuje, jak „drsný“ je povrch. Drsný povrch má mnoho vrcholů a údolí, takže světlo se odrazí různými způsoby a vytváří rozptýlenou barvu.",
+                        "label": "Drsnost"
+                    }
+                },
                 "name": {
                     "label": "Název modelu",
                     "placeholder": "Název"
@@ -1408,10 +1456,14 @@
                 "noObjectCard": {
                     "textContent": "Žádné 3D objekty ve scéně"
                 },
+                "options": "Možnosti",
                 "placeOnFloor": "Umístěte na podlahu",
                 "position": {
-                    "label": "Pozice"
+                    "label": "Pozice",
+                    "locked": "Uzamčený",
+                    "reset": "Vrátit zpět"
                 },
+                "positionRotationScale": "Poloha, rotace a měřítko",
                 "reset": "Vrátit zpět",
                 "rotation": {
                     "label": "Rotace"
@@ -1419,7 +1471,9 @@
                 "scale": {
                     "label": "Měřítko"
                 },
+                "show": "Zobrazit",
                 "title": "Modelka",
+                "unlock": "Odemknout",
                 "upload": {
                     "label": "Nahrát model",
                     "placeholder": "Zvolte model"
@@ -1427,6 +1481,7 @@
                 "visible": "Viditelné"
             },
             "pov": {
+                "add": "Přidat kameru",
                 "create": {
                     "perspective": "Nový fotoaparát",
                     "prefix": "Kamera"
@@ -1437,15 +1492,19 @@
                 "duplicate": {
                     "label": "Duplikovat"
                 },
-                "locked": {
-                    "label": "Uzamkněte transformace"
-                },
+                "locked": "Uzamčený",
                 "name": {
                     "label": "Název fotoaparátu",
                     "placeholder": "Název"
                 },
+                "options": "Možnosti",
                 "position": {
                     "label": "Pozice"
+                },
+                "positionRotation": "Poloha a rotace",
+                "reset": "Vrátit zpět",
+                "rotation": {
+                    "label": "Rotace"
                 },
                 "select": {
                     "label": "Kamera",

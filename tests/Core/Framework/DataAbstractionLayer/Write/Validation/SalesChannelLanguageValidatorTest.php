@@ -38,7 +38,7 @@ class SalesChannelLanguageValidatorTest extends TestCase
     public function testCreatingASalesChannelLanguageWithADeactivatedLanguageFails(): void
     {
         $context = Context::createDefaultContext();
-        $languageId = $this->setSalesChannelActiveForLanguageByName('Dansk', false, $context);
+        $languageId = $this->prepareSalesChannelActiveForLanguageByName('Dansk', false, $context);
 
         $this->expectExceptionMessage(\sprintf('The language with the id "%s" is disabled for all Sales Channels.', $languageId));
         $this->createSalesChannelLanguage($languageId, $context);

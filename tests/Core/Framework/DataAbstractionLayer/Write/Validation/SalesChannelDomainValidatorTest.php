@@ -16,7 +16,6 @@ use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\Uuid\Uuid;
 use Shopware\Core\System\SalesChannel\Aggregate\SalesChannelDomain\SalesChannelDomainDefinition;
-use Shopware\Core\System\SalesChannel\Aggregate\SalesChannelDomain\SalesChannelDomainEntity;
 use Shopware\Core\System\SalesChannel\SalesChannelCollection;
 use Shopware\Core\Test\TestDefaults;
 use Swag\LanguagePack\Test\Helper\ServicesTrait;
@@ -42,7 +41,7 @@ class SalesChannelDomainValidatorTest extends TestCase
     public function testCreatingASalesChannelDomainWithADeactivatedLanguageFails(): void
     {
         $context = Context::createDefaultContext();
-        $languageId = $this->setSalesChannelActiveForLanguageByName('Dansk', false, $context);
+        $languageId = $this->prepareSalesChannelActiveForLanguageByName('Dansk', false, $context);
 
         $this->expectExceptionMessage(\sprintf('The language with the id "%s" is disabled for all Sales Channels.', $languageId));
         $this->createSalesChannelDomain(Uuid::randomHex(), $languageId, $context);
@@ -51,15 +50,14 @@ class SalesChannelDomainValidatorTest extends TestCase
     public function testUpdatingASalesChannelDomainToADisabledLanguageFails(): void
     {
         $context = Context::createDefaultContext();
-        $enabledLanguageId = $this->setSalesChannelActiveForLanguageByName('Dansk', true, $context);
-        $disabledLanguageId = $this->setSalesChannelActiveForLanguageByName('Français', false, $context);
+        $enabledLanguageId = $this->prepareSalesChannelActiveForLanguageByName('Dansk', true, $context);
+        $disabledLanguageId = $this->prepareSalesChannelActiveForLanguageByName('Français', false, $context);
 
         $domainId = Uuid::randomHex();
         $this->createSalesChannelDomain($domainId, $enabledLanguageId, $context);
 
         $criteria = new Criteria([$domainId]);
 
-        /** @var SalesChannelDomainEntity|null $domain */
         $domain = $this->salesChannelDomainRepository->search($criteria, $context)->first();
         static::assertNotNull($domain);
 

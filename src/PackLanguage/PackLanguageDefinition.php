@@ -59,6 +59,7 @@ class PackLanguageDefinition extends EntityDefinition
             (new FkField('language_id', 'languageId', LanguageDefinition::class))
                 ->addFlags(new Required()),
 
+            /** @phpstan-ignore shopware.associationAutoload (association needs to be loaded with every language) */
             (new OneToOneAssociationField(
                 LanguageDefinition::ENTITY_NAME,
                 'language_id',

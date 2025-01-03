@@ -25,8 +25,8 @@ use Swag\LanguagePack\SwagLanguagePack;
 
 class SwagLanguagePackTest extends TestCase
 {
-    use KernelTestBehaviour;
     use DatabaseTransactionBehaviour;
+    use KernelTestBehaviour;
 
     /**
      * @var EntityRepository<PluginCollection>
@@ -47,7 +47,6 @@ class SwagLanguagePackTest extends TestCase
             new EqualsFilter('baseClass', SwagLanguagePack::class),
         );
 
-        /** @var PluginEntity|null $plugin */
         $plugin = $this->pluginRepository->search($criteria, Context::createDefaultContext())->first();
 
         static::assertNotNull($plugin, 'Plugin needs to be installed to run testsuite');

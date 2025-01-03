@@ -21,7 +21,6 @@ use Shopware\Core\System\Language\LanguageDefinition;
 use Shopware\Core\System\Language\LanguageEntity;
 use Shopware\Core\System\SalesChannel\SalesChannelCollection;
 use Shopware\Core\System\SalesChannel\SalesChannelDefinition;
-use Shopware\Core\System\SalesChannel\SalesChannelEntity;
 use Swag\LanguagePack\Core\System\SalesChannel\Command\SalesChannelCreateCommand;
 use Swag\LanguagePack\PackLanguage\PackLanguageCollection;
 use Swag\LanguagePack\PackLanguage\PackLanguageDefinition;
@@ -37,17 +36,17 @@ class SalesChannelCreateCommandTest extends TestCase
     protected SalesChannelCreateCommand $overrideSalesChannelCreateCommand;
 
     /**
-     * @var EntityRepository<SalesChannelCollection> $salesChannelRepository
+     * @var EntityRepository<SalesChannelCollection>
      */
     protected EntityRepository $salesChannelRepository;
 
     /**
-     * @var EntityRepository<LanguageCollection> $languageRepository
+     * @var EntityRepository<LanguageCollection>
      */
     protected EntityRepository $languageRepository;
 
     /**
-     * @var EntityRepository<PackLanguageCollection> $languagePackRepository
+     * @var EntityRepository<PackLanguageCollection>
      */
     protected EntityRepository $languagePackRepository;
 
@@ -69,10 +68,8 @@ class SalesChannelCreateCommandTest extends TestCase
 
         $this->context = Context::createDefaultContext();
 
-        /** @var DefinitionInstanceRegistry $definitionRegistry */
         $definitionRegistry = $this->getContainer()->get(DefinitionInstanceRegistry::class);
 
-        /** @var SalesChannelCreator $salesChannelCreator */
         $salesChannelCreator = $this->getContainer()->get(SalesChannelCreator::class);
 
         $this->salesChannelCreateCommand = new SalesChannelCreateCommand(
@@ -137,8 +134,7 @@ class SalesChannelCreateCommandTest extends TestCase
         $criteria = new Criteria([$salesChannelId]);
         $criteria->addAssociation('languages.locale');
 
-        /** @var SalesChannelEntity|null $result */
-        $result = $this->salesChannelRepository->search($criteria, $this->context)->first();
+        $result = $this->salesChannelRepository->search($criteria, $this->context)->getEntities()->first();
         static::assertNotNull($result);
         $languages = $result->getLanguages();
         static::assertNotNull($languages);

@@ -624,6 +624,7 @@
                 "AddAndCondition": "Ajouter une condition AND",
                 "AddOrCondition": "Ajouter une condition OR",
                 "AddSubCondition": "Ajouter des sous-conditions",
+                "adminSalesChannelSourceRule": "Applicable à l'administration",
                 "alwaysValidRule": "Toujours exact",
                 "and": "Et",
                 "billingCityRule": "Adresse de facturation : Ville",
@@ -644,10 +645,10 @@
                 "createAfter": "Créer après",
                 "createBefore": "Créer avant",
                 "currencyRule": "Devise",
-                "customerAffiliateCodeRule": "Code affilié",
+                "customerAffiliateCodeRule": "Code d'affiliation (client)",
                 "customerAgeRule": "Âge du client",
                 "customerBirthdayRule": "Date de naissance du client",
-                "customerCampaignCodeRule": "Code de la campagne",
+                "customerCampaignCodeRule": "Code de la campagne (client)",
                 "customerCreatedByAdminRule": "Client créé par l'administrateur",
                 "customerCustomFieldRule": "Client avec champ personnalisé",
                 "customerDaysSinceFirstLogin": "Temps écoulé depuis la première connexion",
@@ -712,7 +713,7 @@
                 "lineItemInCategoryRule": "Article dans la catégorie",
                 "lineItemInProductStreamRule": "Article dans un groupe de produits dynamique",
                 "lineItemIsNewRule": "Article marqué comme « nouveau »",
-                "lineItemListPriceRatioRule": "Article avec rapport prix/prix catalogue en pourcentage",
+                "lineItemListPriceRatioRule": "Article avec rapport prix/prix catalogue",
                 "lineItemListPriceRule": "Article avec prix catalogue",
                 "lineItemNoveltyRule": "Nouveautés",
                 "lineItemOfManufacturerRule": "Article avec fabricant",
@@ -801,6 +802,11 @@
             "placeholderErrorMessage": "Les espaces réservés n'ont pas pu être enregistrés."
         },
         "sw-condition-generic": {
+            "adminSalesChannelSource": {
+                "hasAdminSalesChannelSource": {
+                    "placeholder": "Sélectionnez une condition..."
+                }
+            },
             "cartLineItemDimensionHeight": {
                 "amount": {
                     "placeholder": "@:sw-product.settingsForm.placeholderHeight"
@@ -968,8 +974,12 @@
             }
         },
         "sw-data-grid": {
+            "actionsMenu": "Ouvrir le menu des actions",
+            "columnsActions": "Actions sur les colonnes",
             "labelColumnHide": "Masquer la colonne",
             "labelDeSelectAll": "Tout désélectionner",
+            "labelSelectAll": "Tout sélectionner",
+            "labelSelected": "Sélectionné",
             "labelSelectionCount": "Sélection :",
             "labelSettingsCompactMode": "Activer le mode compact",
             "labelSettingsPreviewImages": "Afficher les images d'aperçu",
@@ -1306,7 +1316,8 @@
                     "message": "Aucun fichier enregistré. | Un fichier enregistré. | {count} / {total} fichiers enregistrés.",
                     "title": "Télécharger les médias"
                 }
-            }
+            },
+            "switchMode": "Changer de mode de téléchargement"
         },
         "sw-media-url-form": {
             "example": "https://www.exemple.fr",
@@ -1338,12 +1349,19 @@
             "addData": "Ajouter une entrée",
             "enterValidData": "Entrez une valeur valide..."
         },
+        "sw-page": {
+            "backButton": "Retour"
+        },
         "sw-pagination": {
-            "labelItemsPerPage": "Entrées par page :"
+            "labelItemsPerPage": "Entrées par page :",
+            "nextPage": "Page suivante",
+            "page": "Aller à la page {page}",
+            "previousPage": "Page précédente"
         },
         "sw-price-field": {
             "labelPriceGross": "Prix (brut)",
-            "labelPriceNet": "Prix (net)"
+            "labelPriceNet": "Prix (net)",
+            "toggleLinkedCurrency": "Basculer le lien entre le prix brut et le prix net"
         },
         "sw-product-image": {
             "context": {
@@ -1411,6 +1429,9 @@
         },
         "sw-select": {
             "messageNoResults": "Aucun résultat n'a été trouvé pour \"{term}\"."
+        },
+        "sw-select-base": {
+            "buttonClear": "Effacer tous les éléments"
         },
         "sw-select-result-list": {
             "messageNoResults": "Aucun résultat trouvé."
@@ -2647,10 +2668,10 @@
                         "autoSlide": "Glissage automatique",
                         "autoplayTimeout": "Retard",
                         "displayMode": "Mode affichage",
-                        "displayModeContain": "Contenir",
-                        "displayModeCover": "Remplir",
-                        "displayModeStandard": "Par défaut",
-                        "displayModeStretch": "Parcours",
+                        "displayModeContain": "Hauteur fixe",
+                        "displayModeCover": "Tondu",
+                        "displayModeStandard": "Originale",
+                        "displayModeStretch": "Mis à l'échelle",
                         "horizontalAlign": "Alignement horizontal",
                         "horizontalAlignCenter": "Centre",
                         "horizontalAlignLeft": "Gauche",
@@ -2816,15 +2837,22 @@
             },
             "productSlider": {
                 "config": {
+                    "helpText": {
+                        "displayMode": "<strong>Original :</strong> Les images sont redimensionnées en fonction de la hauteur ou de la largeur de la boîte du produit, de sorte qu'elles s'insèrent toujours dans la zone désignée. Les images ne sont jamais redimensionnées.<br><br><strong>Hauteur fixe :</strong> Les images sont redimensionnées en fonction de la hauteur ou de la largeur de la boîte du produit, de sorte qu'elles s'insèrent toujours dans la zone désignée. Les images peuvent être agrandies.<br><br><strong>Recadré :</strong> Les images sont redimensionnées en fonction de la hauteur ou de la largeur de la boîte du produit. Tout débordement est supprimé.",
+                        "minWidth": "Entrez la largeur minimale avec l'unité souhaitée. Par exemple : 200 pixels"
+                    },
                     "label": {
                         "border": "Cadre",
                         "minWidth": "Largeur minimale",
                         "navigation": "Navigation",
+                        "navigationArrows": "Navigation fléchée",
+                        "navigationPositionInside": "Intérieur",
+                        "navigationPositionNone": "Aucun",
+                        "navigationPositionOutside": "Extérieur",
                         "productAssignmentType": "Affectation produit",
                         "productStreamChoice": "Groupe de produits dynamique",
                         "productStreamLimit": "Nombre maximal de produits",
                         "productStreamSorting": "Tri",
-                        "rotate": "Changement automatique",
                         "selection": "Produits",
                         "title": "Titre du carrousel"
                     },
@@ -2902,10 +2930,12 @@
                         "showPortrait": "Afficher l'image de profil de l'auteur de la vidéo",
                         "showTitle": "Afficher le titre de la vidéo",
                         "start": "Lire la vidéo à partir de",
-                        "videoId": "Lien Vimeo"
+                        "videoId": "Lien Vimeo",
+                        "videoTitle": "Titre de la vidéo"
                     },
                     "placeholder": {
-                        "videoId": "Entrez le lien de la vidéo..."
+                        "videoId": "Entrez le lien de la vidéo...",
+                        "videoTitle": "Entrez un titre descriptif..."
                     }
                 },
                 "label": "Vidéo Vimeo"
@@ -2988,6 +3018,9 @@
     },
     "sw-confirm-modal": {
         "defaultText": "Êtes-vous sûr de vouloir continuer ?"
+    },
+    "sw-context-button": {
+        "ariaLabel": "Ouvrir le menu contextuel"
     },
     "sw-country-state-detail": {
         "buttonCancel": "Annuler",
@@ -4580,6 +4613,9 @@
             "startImportLabel": "Démarrer l'importation"
         }
     },
+    "sw-in-app-purchase-checkout": {
+        "exsTitle": "Activez le Shopware Extension Store"
+    },
     "sw-inactivity-login": {
         "general": {
             "description": "Inactivité-Login",
@@ -4887,6 +4923,7 @@
                 "copyTooltip": "Copier dans le presse-papiers.",
                 "labelContextMenuAddToMailTemplate": "Ajouter en tant que pièce jointe",
                 "labelTestMail": "Adresse du destinataire",
+                "languageNotAssignedToSalesChannel": "La langue actuelle n'est pas attribuée au canal de vente sélectionné.",
                 "placeholderTestMail": "shop{'@'}exemple.fr",
                 "titleShowAvailableVariables": "Variables",
                 "titleShowPreview": "Afficher l'aperçu",
@@ -7489,6 +7526,7 @@
             "warningUnservedLanguage": "La langue n' <b>{list}</b> est attribuée à aucun domaine. Pour utiliser cette langue dans votre canal de vente, créez d'abord un domaine correspondant. | Les langues ne <b>{list}</b> sont attribuées à aucun domaine. Pour utiliser ces langues dans votre canal de vente, créez d'abord les domaines correspondants."
         },
         "general": {
+            "addSalesChannel": "Créer un canal de vente",
             "manageSalesChannels": "Gérer les canaux de vente",
             "titleMenuItems": "Canaux de vente",
             "titleMenuMoreItems": "Plus",
@@ -9489,6 +9527,9 @@
         "sectionSpecialShortcuts": "Raccourcis clavier spéciaux",
         "title": "Raccourcis clavier"
     },
+    "sw-sidebar-collapse": {
+        "collapseIndicator": "Réduire la barre latérale"
+    },
     "sw-sidebar-filter-panel": {
         "resetButton": "Réinitialiser tout"
     },
@@ -9572,6 +9613,11 @@
             "textDeleteConfirm": "Voulez-vous vraiment supprimer l'élément \"{name}\" ?",
             "textDeleteMultipleConfirm": "Voulez-vous vraiment supprimer les \"{count}\" éléments sélectionnés ?"
         }
+    },
+    "sw-tree-item": {
+        "childrenLabel": "Sous-éléments pour « {name} »",
+        "toggleItem": "Activer/désactiver l'élément « {name} »",
+        "toggleTreeItem": "Activer/désactiver l'élément « {name} » de l'arborescence"
     },
     "sw-usage-data-consent-banner": {
         "acceptDataCollection": "D'accord",

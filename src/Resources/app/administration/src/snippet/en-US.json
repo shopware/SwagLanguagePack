@@ -288,6 +288,9 @@
         }
     },
     "global": {
+        "accessibility": {
+            "optionWarning": "In the interest of accessibility, it is not recommended to activate this option."
+        },
         "businessEvents": {
             "checkout_customer_before_login": "Customer has requested login",
             "checkout_customer_changed-payment-method": "Customer changes payment",
@@ -603,6 +606,7 @@
             "linkLogout": "Logout",
             "linkMinimizeMenu": "Collapse menu",
             "navigation": {
+                "label": "Main navigation",
                 "mainMenuItemCatalogue": "Catalogs",
                 "mainMenuItemContent": "Content",
                 "mainMenuItemMarketing": "Marketing"
@@ -624,6 +628,7 @@
                 "AddAndCondition": "Add AND condition",
                 "AddOrCondition": "Add OR condition",
                 "AddSubCondition": "Add subconditions",
+                "adminSalesChannelSourceRule": "Applicable in Administration",
                 "alwaysValidRule": "Always valid",
                 "and": "And",
                 "billingCityRule": "Billing address: City",
@@ -736,7 +741,6 @@
                 "lineItemVariantValueRule": "Item with variant value",
                 "lineItemWithQuantityRule": "Item quantity",
                 "lineItemsInCartCountRule": "Quantity of distinct items",
-                "no": "No",
                 "not-found": {
                     "error-message": "Condition type {type} was not found. The condition includes the field: {fields} | The condition type {type} was not found. The conditions include the fields: {fields}",
                     "label": "Condition was not found"
@@ -746,7 +750,7 @@
                 "orderAffiliateCodeRule": "Affiliate code (order)",
                 "orderCampaignCodeRule": "Campaign code (order)",
                 "orderCountRule": "Quantity of completed orders",
-                "orderCreatedByAdminRule": "Order created by admin",
+                "orderCreatedByAdminRule": "Order created by administrator (flow)",
                 "orderCustomFieldRule": "Order with custom field",
                 "orderDeliveryStatusRule": "Delivery status",
                 "orderDocumentTypeRule": "Order with document",
@@ -780,7 +784,6 @@
                 "weightOfCartRule": "Total weight of all products",
                 "withTime": "Including timestamp",
                 "withoutTime": "Excluding timestamp",
-                "yes": "Yes",
                 "zipCodeWildcardPlaceholder": "Use \"*\" as a wildcard character..."
             },
             "dataErrorMessage": "Required fields not filled.",
@@ -801,6 +804,11 @@
             "placeholderErrorMessage": "Placeholder cannot be saved."
         },
         "sw-condition-generic": {
+            "adminSalesChannelSource": {
+                "hasAdminSalesChannelSource": {
+                    "placeholder": "Select condition..."
+                }
+            },
             "cartLineItemDimensionHeight": {
                 "amount": {
                     "placeholder": "@:sw-product.settingsForm.placeholderHeight"
@@ -884,23 +892,23 @@
             },
             "orderCreatedByAdmin": {
                 "shouldOrderBeCreatedByAdmin": {
-                    "placeholder": "Select condition ..."
+                    "placeholder": "Select condition..."
                 }
             },
             "orderStatus": {
                 "operator": {
-                    "placeholder": "Select operator ..."
+                    "placeholder": "Select operator..."
                 },
                 "stateIds": {
-                    "placeholder": "Select state ..."
+                    "placeholder": "Select state..."
                 }
             },
             "orderTransactionStatus": {
                 "operator": {
-                    "placeholder": "Select operator ..."
+                    "placeholder": "Select operator..."
                 },
                 "stateIds": {
-                    "placeholder": "Select state ..."
+                    "placeholder": "Select state..."
                 }
             },
             "promotionCodeOfType": {
@@ -968,8 +976,12 @@
             }
         },
         "sw-data-grid": {
+            "actionsMenu": "Open actions menu",
+            "columnsActions": "Column actions",
             "labelColumnHide": "Hide column",
             "labelDeSelectAll": "Deselect all",
+            "labelSelectAll": "Select all",
+            "labelSelected": "Selected",
             "labelSelectionCount": "Selected:",
             "labelSettingsCompactMode": "Use compact view",
             "labelSettingsPreviewImages": "Show preview images",
@@ -1306,7 +1318,8 @@
                     "message": "No file has been saved. | File has been saved. | {count} / {total} files have been saved.",
                     "title": "Media upload"
                 }
-            }
+            },
+            "switchMode": "Switch upload mode"
         },
         "sw-media-url-form": {
             "example": "https://www.example.com",
@@ -1338,12 +1351,19 @@
             "addData": "Add new entry",
             "enterValidData": "Enter a valid value..."
         },
+        "sw-page": {
+            "backButton": "Go back"
+        },
         "sw-pagination": {
-            "labelItemsPerPage": "Items per page:"
+            "labelItemsPerPage": "Items per page:",
+            "nextPage": "Go to next page",
+            "page": "Go to page {page}",
+            "previousPage": "Go to previous page"
         },
         "sw-price-field": {
             "labelPriceGross": "Price (gross)",
-            "labelPriceNet": "Price (net)"
+            "labelPriceNet": "Price (net)",
+            "toggleLinkedCurrency": "Toggle link between gross and net price"
         },
         "sw-product-image": {
             "context": {
@@ -1412,6 +1432,9 @@
         "sw-select": {
             "messageNoResults": "No results found for \"{term}\"."
         },
+        "sw-select-base": {
+            "buttonClear": "Clear all elements"
+        },
         "sw-select-result-list": {
             "messageNoResults": "No results found."
         },
@@ -1429,6 +1452,9 @@
             "labelEntityAddedSuccess": "The {entity} with the name \"{term}\" was created successfully.",
             "messageNoResults": "No results found for \"{term}\".",
             "valuePlaceholder": "Select..."
+        },
+        "sw-skip-link": {
+            "label": "Skip to content"
         },
         "sw-snippet-field": {
             "tooltip": "Edit and translate snippet"
@@ -1532,7 +1558,6 @@
                 "messageErrorFetchButtons": "An error occurred while fetching your app actions."
             },
             "sw-app-app-url-changed-modal": {
-                "cancellation": "Cancel",
                 "confirmation": "Confirm",
                 "error": "Error while changing domain for apps",
                 "explanation": "Installed apps are still connected with the old domain and won't work with the new domain. There are three options from here to proceed.",
@@ -1576,10 +1601,8 @@
     "sw-bulk-edit": {
         "applyChanges": "Apply changes",
         "changeTypes": {
-            "add": "Add",
             "clear": "Clear",
-            "overwrite": "Overwrite",
-            "remove": "Remove"
+            "overwrite": "Overwrite"
         },
         "customer": {
             "account": {
@@ -1665,9 +1688,6 @@
             },
             "messageBeforeTabLeave": "Bulk edits are being made. If you close the tab, not all changes may be applied.",
             "process": {
-                "buttons": {
-                    "cancel": "Cancel"
-                },
                 "description": "Depending on the amount of changes, this may take a while.",
                 "helpText": "Please be aware that manual changes to one of the selected items during the bulk edit process may yield unwanted results.",
                 "title": "Bulk edit - In process"
@@ -2305,9 +2325,6 @@
         },
         "components": {
             "cmsLayoutAssignmentModal": {
-                "confirmChanges": "Apply",
-                "confirmChangesConfirm": "Apply",
-                "confirmChangesRestorePrev": "Discard",
                 "confirmChangesText": "Do you want to apply your changes?",
                 "confirmChangesTextCategories": "You have removed layout assignments from categories. If you confirm these changes, those categories will no longer have a layout assigned.",
                 "confirmChangesTextCategoriesAssignedLayouts": "Some of the selected categories already have a layout assigned. If you proceed those previous assignments will be replaced with the current layout.",
@@ -2355,7 +2372,6 @@
                 "tabShopPages": "Shop pages"
             },
             "cmsLayoutModal": {
-                "actionCancel": "Cancel",
                 "actionConfirm": "Save",
                 "headline": "Landing page / product listing",
                 "modalTitle": "Select layout"
@@ -2370,7 +2386,6 @@
                 "edit": "Edit",
                 "emptyText": "No layout assigned",
                 "modal": {
-                    "buttonCancel": "Cancel",
                     "buttonDelete": "Delete",
                     "buttonRename": "Rename",
                     "renameModalTitle": "Rename layout",
@@ -2401,7 +2416,6 @@
             }
         },
         "createWizard": {
-            "abortCreation": "Cancel",
             "chooseNameTitle": "How do you want to label your new layout?",
             "choosePageTypeHelpText": "These different layout types will help you find existing layouts faster. You may change the layout type afterwards at any time via the layout settings.",
             "choosePageTypeTitle": "What kind of page would you like to create?",
@@ -2420,8 +2434,8 @@
             },
             "label": {
                 "addBlocks": "Add blocks via drag & drop",
-                "backgroundColorField": "Colour",
-                "backgroundColorLabel": "Background colour",
+                "backgroundColorField": "Color",
+                "backgroundColorLabel": "Background color",
                 "backgroundMediaField": "Image",
                 "backgroundMediaLabel": "Background image",
                 "backgroundMediaMode": "Image mode",
@@ -2449,7 +2463,6 @@
                 "blockSizingOptionBoxed": "Boxed content",
                 "blockSizingOptionFull": "Full width",
                 "blockTopMarginField": "Top margin",
-                "buttonElementChangeAbort": "Cancel",
                 "buttonElementSettingsConfirm": "Done",
                 "buttonMappingAction": "Data mapping",
                 "buttonMappingRemoveAction": "Remove data mapping",
@@ -2634,7 +2647,7 @@
                         "mediaUpload": "Upload an image"
                     },
                     "helpText": {
-                        "autoSlide": "The slide will be slided automatically.",
+                        "autoSlide": "The images transition automatically.",
                         "autoplayTimeout": "The millisecond duration for how long the slide should stay still.",
                         "displayMode": "<strong>Original:</strong> The image is displayed in its original resolution or shrunk down to current CMS page's width.<br><br><strong>Scaled:</strong> The image is scaled to the CMS page's width without any height restrictions.<br><br><strong>Cropped:</strong> The image is scaled to the current CMS page's width. Any vertical overflow is cropped to the configured maximum height.",
                         "speed": "The millisecond duration of the sliding animation."
@@ -2644,7 +2657,7 @@
                     },
                     "label": {
                         "alignment": "Alignment",
-                        "autoSlide": "Auto slide",
+                        "autoSlide": "Automatic image transition",
                         "autoplayTimeout": "Delay",
                         "displayMode": "Display mode",
                         "displayModeContain": "Contain",
@@ -2816,15 +2829,22 @@
             },
             "productSlider": {
                 "config": {
+                    "helpText": {
+                        "displayMode": "<strong>Original:</strong> The images are scaled to the height or width of the product box, so that they always fit into their designated area. The images are never scaled up.<br><br><strong>Fixed height:</strong> The images are scaled to the height or width of the product box, so that they always fit into their designated area. The images can be scaled up.<br><br><strong>Cropped:</strong> The images are scaled to the height or width of the product box. Any overflow is cropped.",
+                        "minWidth": "Enter the minimum width with your desired unit. For example: 200px"
+                    },
                     "label": {
                         "border": "Border",
                         "minWidth": "Minimal width",
                         "navigation": "Navigation",
+                        "navigationArrows": "Arrow navigation",
+                        "navigationPositionInside": "Inside",
+                        "navigationPositionNone": "None",
+                        "navigationPositionOutside": "Outside",
                         "productAssignmentType": "Product assignment",
                         "productStreamChoice": "Dynamic product group",
                         "productStreamLimit": "Maximum number of products",
                         "productStreamSorting": "Sorting",
-                        "rotate": "Automatic sliding",
                         "selection": "Products",
                         "title": "Slider title"
                     },
@@ -2902,10 +2922,12 @@
                         "showPortrait": "Show picture of the creator",
                         "showTitle": "Show video title",
                         "start": "Start video at",
-                        "videoId": "Video link"
+                        "videoId": "Video link",
+                        "videoTitle": "Video title"
                     },
                     "placeholder": {
-                        "videoId": "Enter a video link..."
+                        "videoId": "Enter a video link...",
+                        "videoTitle": "Enter a descriptive title..."
                     }
                 },
                 "label": "Vimeo video"
@@ -2989,8 +3011,10 @@
     "sw-confirm-modal": {
         "defaultText": "Are you sure you want to proceed?"
     },
+    "sw-context-button": {
+        "ariaLabel": "Open context menu"
+    },
     "sw-country-state-detail": {
-        "buttonCancel": "Cancel",
         "buttonSave": "Save",
         "createNewStateError": "Cannot create a region with the currently selected language. Please create a region using the default system language first.",
         "emptySubline": "Add a region",
@@ -3171,7 +3195,6 @@
             "placeholderAccountType": "Select customer type..."
         },
         "detail": {
-            "buttonCancel": "Cancel",
             "buttonEdit": "Edit",
             "buttonSave": "Save",
             "labelCreatedByAdmin": "Created by admin",
@@ -3183,10 +3206,7 @@
             "tabGeneral": "General"
         },
         "detailAddresses": {
-            "buttonAdd": "Add",
             "buttonAddAddress": "Add address",
-            "buttonApply": "Apply",
-            "buttonCancel": "Cancel",
             "buttonClose": "Close",
             "buttonDelete": "Delete",
             "buttonSaveAndSelect": "Save and select",
@@ -3307,7 +3327,6 @@
         },
         "list": {
             "buttonAddCustomer": "Add customer",
-            "buttonCancel": "Cancel",
             "buttonDelete": "Delete",
             "columnActions": "Action(s)",
             "columnActive": "Active",
@@ -3970,7 +3989,6 @@
             "takeMinutes": "This may take a few minutes."
         },
         "welcome": {
-            "cancelLanguageSwitch": "Cancel",
             "confirmLanguageSwitch": "Change language",
             "headlineChangeLanguage": "Install additional languages",
             "headlineWelcome": "Welcome to the Shopware 6 Administration",
@@ -4485,7 +4503,6 @@
             "addProfileLabel": "Add profile",
             "advancedDescription": "Identifiers are used to unambiguously determine updateable entities and thus have to be unique.",
             "advancedTab": "Advanced settings",
-            "cancelLabel": "Cancel",
             "caretsLabel": "Caret (^)",
             "categoriesLabel": "Categories",
             "closeProfileLabel": "Close profile",
@@ -4580,6 +4597,9 @@
             "startImportLabel": "Start import"
         }
     },
+    "sw-in-app-purchase-checkout": {
+        "exsTitle": "Activate the Shopware Extension Store"
+    },
     "sw-inactivity-login": {
         "general": {
             "description": "Inactivity-Login",
@@ -4602,7 +4622,6 @@
         "detail": {
             "buttonApply": "Save integration",
             "buttonApplyEdit": "Save changes",
-            "buttonCancel": "Cancel",
             "buttonCreateNewApiKeys": "Create new API key",
             "buttonDelete": "Delete",
             "confirmDelete": "Are you sure you want to delete this integration?",
@@ -4797,7 +4816,6 @@
                 "placeholderSalesChannels": "Choose related Sales Channels...",
                 "titleCard": "Information"
             },
-            "buttonCancel": "Cancel",
             "buttonSave": "Save",
             "footer": {
                 "labelHtml": "HTML",
@@ -4825,7 +4843,6 @@
         },
         "list": {
             "buttonAddMailHeaderFooter": "Add header and footer",
-            "buttonCancel": "Cancel",
             "buttonDelete": "Delete",
             "columnDescription": "Description",
             "columnName": "Name",
@@ -4857,7 +4874,6 @@
                 "placeholderSalesChannels": "Select Sales Channels...",
                 "titleCard": "Information"
             },
-            "buttonCancel": "Cancel",
             "buttonSave": "Save",
             "mailText": {
                 "labelContentHtml": "HTML",
@@ -4887,6 +4903,7 @@
                 "copyTooltip": "Copy to clipboard.",
                 "labelContextMenuAddToMailTemplate": "Add as attachment",
                 "labelTestMail": "Recipient address",
+                "languageNotAssignedToSalesChannel": "The current language is not assigned to the selected sales channel.",
                 "placeholderTestMail": "Enter email address...",
                 "titleShowAvailableVariables": "Variables",
                 "titleShowPreview": "Show preview",
@@ -4909,9 +4926,7 @@
             "placeholderSearchBar": "Search email templates..."
         },
         "list": {
-            "buttonAdd": "Add",
             "buttonAddMailTemplate": "Add email template",
-            "buttonCancel": "Cancel",
             "buttonDelete": "Delete",
             "columnDescription": "Description",
             "columnFilename": "File name",
@@ -4938,7 +4953,6 @@
     },
     "sw-manufacturer": {
         "detail": {
-            "buttonCancel": "Cancel",
             "buttonSave": "Save",
             "cardTitleManufacturerInfo": "Manufacturer information",
             "labelDescription": "Description",
@@ -4995,7 +5009,7 @@
         },
         "sidebar": {
             "actions": {
-                "ar": "Activate AR View",
+                "ar": "Activate AR view",
                 "arHelpText": "AR function enabled when presented in the storefront. You can change the default in <a href=\"{settingsLink}\">the 3D settings</a>.",
                 "copyLink": "Copy link",
                 "delete": "Delete",
@@ -5056,14 +5070,12 @@
             "labelSortBySizeDsc": "Size, desc."
         },
         "sw-media-modal": {
-            "labelButtonCancel": "Cancel",
             "labelButtonSaveSelection": "Add media",
             "labelTabItemLibrary": "Media Library",
             "labelTabItemUpload": "Upload files",
             "titleModal": "Choose media"
         },
         "sw-media-modal-v2": {
-            "labelButtonCancel": "Cancel",
             "labelButtonSaveSelection": "Add media",
             "labelTabItemLibrary": "Media Library",
             "labelTabItemUpload": "Upload files",
@@ -5152,7 +5164,6 @@
             }
         },
         "create": {
-            "buttonCancelOrder": "Cancel",
             "buttonSaveOrder": "Save order",
             "messageFetchCustomerAddressesError": "An error occurred during fetching customer addresses",
             "messageSaveError": "Order could not be saved.",
@@ -5625,7 +5636,6 @@
         },
         "list": {
             "buttonAddOrder": "Add order",
-            "buttonCancel": "Cancel",
             "buttonDelete": "Delete",
             "columnAffiliateCode": "Affiliate code",
             "columnAmount": "Total",
@@ -5930,7 +5940,7 @@
         },
         "basicForm": {
             "highlightHelpText": {
-                "label": "Highlighted products are marked with a brightly coloured label and the word \"Tip\" in all product listings. You can adjust the label's colour by changing the option \"Notice\" in {themeLink} settings. You can also alter the label's text by editing the corresponding {snippetLink}.",
+                "label": "Highlighted products are marked with a brightly colored label and the word \"Tip\" in all product listings. You can adjust the label's color by changing the option \"Notice\" in {themeLink} settings. You can also alter the label's text by editing the corresponding {snippetLink}.",
                 "snippetLinkText": "text snippet",
                 "themeLinkText": "themes"
             },
@@ -5970,7 +5980,6 @@
             "buttonDeleteCrossSelling": "Delete",
             "buttonRestoreCrossSellingInheritance": "Restore inheritance",
             "cardTitleCrossSelling": "Cross Selling",
-            "deleteButtonCancel": "Cancel",
             "deleteButtonDelete": "Delete",
             "deleteConfirmText": "Are you sure you want to delete the Cross Selling configuration?",
             "deleteConfirmTitle": "Delete Cross Selling",
@@ -5999,13 +6008,11 @@
             "productStreamType": "Dynamic product group",
             "releaseDateAscendingSortingType": "Release date, ascending",
             "releaseDateDescendingSortingType": "Release date, descending",
-            "restoreInheritanceButtonCancel": "Cancel",
             "restoreInheritanceButtonRestore": "Restore inheritance",
             "restoreInheritanceConfirmText": "Are you sure you want to restore the Cross Selling inheritance? All Cross Selling configurations of this variant will be deleted.",
             "restoreInheritanceConfirmTitle": "Restore Cross Selling inheritance"
         },
         "detail": {
-            "buttonCancel": "Cancel",
             "buttonSave": "Save",
             "buttonSaveAndNew": "Save and create new",
             "buttonSaveDuplicate": "Save and duplicate",
@@ -6138,7 +6145,6 @@
         "list": {
             "buttonAddDownloadableProduct": "Add digital product",
             "buttonAddProduct": "Add product",
-            "buttonCancel": "Cancel",
             "buttonDelete": "Delete",
             "buttonDuplicate": "Duplicate",
             "columnActions": "Action(s)",
@@ -6281,7 +6287,6 @@
             "messageEmptySubline": "You can search the reviews of other products.",
             "messageEmptyTitle": "Product not reviewed yet",
             "modal": {
-                "buttonCancel": "Cancel",
                 "buttonDelete": "Delete",
                 "confirmText": "Do you really want to delete this review?",
                 "confirmTitle": "Delete review"
@@ -6354,12 +6359,10 @@
         },
         "variations": {
             "backVariationsButton": "Back",
-            "cancelVariationsButton": "Cancel",
             "configuratorCardTitle": "Variant generator",
             "configuratorModal": {
                 "addNewRestriction": "Exclude values",
                 "addVariantsOnly": "Add variants only",
-                "cancel": "Cancel",
                 "defineRestrictions": "Value exclusion",
                 "deleteCombination": "Delete",
                 "deleteRestriction": "Delete",
@@ -6392,7 +6395,6 @@
             },
             "deleteVariationsButton": "Delete all variants",
             "deliveryModal": {
-                "cancel": "Cancel",
                 "listing": "Product listings",
                 "listingExplanation": "Choose between two modes of display. Either display one single product, or expand several individual variants, determined by their associated property values.",
                 "listingExplanationModeMainProduct": "Choose a variant that will be the preselected on the product detail page.",
@@ -6430,7 +6432,6 @@
             "generatedListColumnVariation": "Name",
             "generatedListContextMenuDelete": "Delete",
             "generatedListContextMenuEdit": "Edit",
-            "generatedListDeleteModalButtonCancel": "Cancel",
             "generatedListDeleteModalButtonDelete": "Delete",
             "generatedListDeleteModalMessage": "Do you really want to delete this variant?",
             "generatedListDeleteModalMessagePlural": "Do you really want to delete these variants?",
@@ -6461,7 +6462,6 @@
         },
         "visibility": {
             "bodyVisibility": "Add Sales Channels in which this product should be displayed. You may further define the product visibility for each Storefront Sales Channel via the link below.",
-            "closeModal": "Apply",
             "columnAll": "Visible",
             "columnLinkOnly": "Hide in listings and search",
             "columnSalesChannel": "Sales Channel",
@@ -6480,7 +6480,6 @@
             "conditionsAlertHeading": "Not enough permissions"
         },
         "detail": {
-            "buttonCancel": "Cancel",
             "buttonOpenPreview": "Preview",
             "buttonSave": "Save",
             "labelDescription": "Description",
@@ -6773,7 +6772,6 @@
                     "buttonDeleteDiscount": "Delete discount",
                     "card": "Discount",
                     "delete": {
-                        "buttonCancel": "Cancel",
                         "buttonDelete": "Delete discount",
                         "confirmText": "Do you really want to delete this discount from the promotion?",
                         "confirmTitle": "Delete discount"
@@ -6831,6 +6829,7 @@
                             "title": "Add new codes"
                         },
                         "columnCode": "Code",
+                        "columnCreatedAt": "Generated at",
                         "columnCustomer": "Customer",
                         "columnRedeemed": "Redeemed",
                         "description": "Individual promotion codes",
@@ -7046,6 +7045,7 @@
             "columnValidFrom": "Valid from",
             "columnValidUntil": "Valid until",
             "descriptionEmpty": "Boost your sales by discounting your products and services.",
+            "duplicatePromotionInfo": "Promotion codes are not duplicated and need to be generated again.",
             "placeholderSearchBar": "Search promotions...",
             "textDeleteConfirm": "Are you sure you want to delete the promotion \"{name}\"?",
             "textTitle": "Promotions",
@@ -7062,12 +7062,10 @@
             "addOption": "Add value",
             "addOptionNotPossible": "Property values can only be added in the default language",
             "alphanumericSortingType": "Alphanumeric",
-            "buttonApply": "Apply",
-            "buttonCancel": "Cancel",
             "buttonSave": "Save",
             "cardTitle": "Property values",
             "cardTitleGroupInfo": "Basic information",
-            "colorDisplayType": "Colour",
+            "colorDisplayType": "Color",
             "contextMenuOptionDelete": "Delete",
             "contextMenuOptionResetDelete": "Restore",
             "contextMenuOptionView": "Edit",
@@ -7076,7 +7074,7 @@
             "labelFilterable": "Display in product filters",
             "labelMediaUpload": "Default image",
             "labelName": "Name",
-            "labelOptionColor": "Colour",
+            "labelOptionColor": "Color",
             "labelOptionMedia": "Image",
             "labelOptionName": "Name",
             "labelOptionPosition": "Position",
@@ -7109,7 +7107,6 @@
         },
         "list": {
             "buttonAddProperty": "Add property",
-            "buttonCancel": "Cancel",
             "buttonDelete": "Delete",
             "columnDescription": "Description",
             "columnFilterable": "Display in product filter",
@@ -7256,8 +7253,6 @@
             },
             "basicinformationLink": "Change default maintenance layout here",
             "buttonAddDomain": "Add domain",
-            "buttonCloseDeleteDomainModal": "Cancel",
-            "buttonCloseDeleteModal": "Cancel",
             "buttonConfirmDelete": "Delete",
             "buttonConfirmDeleteDomain": "Delete",
             "buttonCopyApiKeyButton": "Copy API key",
@@ -7418,7 +7413,6 @@
                     "message": {
                         "template-applied-message": "Template data has been applied, but not yet saved. Please save this Sales Channel to keep the changes."
                     },
-                    "modal-cancel": "Cancel",
                     "modal-confirm": "Apply template",
                     "modal-message": "If you apply the template, existing data in this Sales Channel will be overwritten. Settings and template tabs will be subject to these changes.",
                     "modal-title": "Apply template",
@@ -7489,6 +7483,7 @@
             "warningUnservedLanguage": "The language <b>{list}</b> is not assigned to a domain. In order to use this language in your Sales Channel, create a respective domain first. | The languages <b>{list}</b> are not assigned to any domain. In order to use these languages in your Sales Channel, create the respective domains first."
         },
         "general": {
+            "addSalesChannel": "Add Sales Channel",
             "manageSalesChannels": "Manage Sales Channels",
             "titleMenuItems": "Sales Channels",
             "titleMenuMoreItems": "More",
@@ -7516,7 +7511,6 @@
         "modal": {
             "buttonAddChannel": "Add Sales Channel",
             "buttonBack": "Back",
-            "buttonCancel": "Cancel",
             "buttonShowDetails": "Show details",
             "messageNoProductStreams": "In order to use product comparisons a dynamic product group has to be created first.",
             "title": "Add Sales Channel",
@@ -7619,7 +7613,6 @@
         },
         "modal": {
             "actions": {
-                "cancel": "Cancel",
                 "clear": "Clear"
             },
             "message": "Are you sure you want to clear all caches?",
@@ -7682,7 +7675,6 @@
         "detail": {
             "baseCurrency": "Base currency",
             "buttonAddCountryState": "Add state/region",
-            "buttonCancel": "Cancel",
             "buttonInsertSnippet": "Insert snippet",
             "buttonResetMarkup": "Reset address markup",
             "buttonSave": "Save",
@@ -7745,7 +7737,6 @@
         },
         "list": {
             "buttonAddCountry": "Add country",
-            "buttonCancel": "Cancel",
             "buttonDelete": "Delete",
             "columnActive": "Active",
             "columnIso": "ISO2",
@@ -7772,7 +7763,6 @@
         },
         "detail": {
             "buttonAddCountry": "Add country",
-            "buttonCancel": "Cancel",
             "buttonSave": "Save",
             "currencyCountry": {
                 "countryColumn": "Country",
@@ -7815,7 +7805,6 @@
         },
         "list": {
             "buttonAddCurrency": "Add currency",
-            "buttonCancel": "Cancel",
             "buttonDelete": "Delete",
             "columnDecimalPrecision": "Decimal place",
             "columnFactor": "Factor",
@@ -7850,9 +7839,7 @@
         "customField": {
             "detail": {
                 "buttonAddOption": "Add option",
-                "buttonCancel": "Cancel",
                 "buttonEditApply": "Apply changes",
-                "buttonSaveApply": "Add",
                 "helpTextEntitySelect": "The entity type cannot be changed once the custom field has been created.",
                 "helpTextMultiSelect": "The multi select option cannot be toggled once the custom field has been created.",
                 "infoText": "If a custom field is created, the according snippet for all of your snippet sets will be created as well. The snippet will be named \"customFields.{name}\".",
@@ -7872,7 +7859,6 @@
                 "labelMax": "Max.",
                 "labelMin": "Min.",
                 "labelMultiSelect": "Multi select",
-                "labelNo": "No",
                 "labelNumberType": "Number type",
                 "labelOption": "Option {count}:",
                 "labelPlaceholder": "Placeholder",
@@ -7880,7 +7866,6 @@
                 "labelTechnicalName": "Technical name",
                 "labelTime": "Time",
                 "labelTimeForm": "24-hour time format",
-                "labelYes": "Yes",
                 "placeholderCustomFieldType": "Select...",
                 "titleEditCustomField": "Edit custom field",
                 "titleNewCustomField": "New custom field",
@@ -7923,7 +7908,6 @@
             "detail": {
                 "addCustomField": "New custom field",
                 "buttonApply": "Save",
-                "buttonCancel": "Cancel",
                 "buttonSave": "Save",
                 "emptyStateDescription": "Before you can add a custom field you have to save this set.",
                 "entityTypeRequired": "Please select an entity type.",
@@ -7942,7 +7926,6 @@
             },
             "list": {
                 "buttonAdd": "Add new set",
-                "buttonCancel": "Cancel",
                 "buttonDelete": "Delete",
                 "columnName": "Label",
                 "contextMenuEdit": "Edit",
@@ -7955,7 +7938,7 @@
         },
         "types": {
             "checkbox": "Checkbox",
-            "colorpicker": "Colour picker",
+            "colorpicker": "Color picker",
             "date": "Date/time field",
             "entity": "Entity select",
             "media": "Media field",
@@ -7979,7 +7962,6 @@
             "registrationForm": "Custom signup form"
         },
         "general": {
-            "buttonCancel": "Cancel",
             "buttonCreate": "Add customer group",
             "buttonSave": "Save",
             "mainMenuItemGeneral": "Customer groups",
@@ -7991,7 +7973,6 @@
         },
         "modal": {
             "seoUrl": {
-                "cancel": "Cancel",
                 "exampleUrl": "Example URL",
                 "generate": "Generate",
                 "salesChannel": "Sales Channel",
@@ -8040,7 +8021,6 @@
             "textHeadlineNew": "New delivery time"
         },
         "general": {
-            "buttonCancel": "Cancel",
             "buttonCreate": "Add delivery time",
             "buttonSave": "Save",
             "description": "Settings module for managing delivery times",
@@ -8064,7 +8044,6 @@
     "sw-settings-document": {
         "detail": {
             "assignmentCard": "Assignment",
-            "buttonCancel": "Cancel",
             "buttonSave": "Save",
             "companyCard": "Company settings",
             "configCard": "Settings",
@@ -8121,7 +8100,6 @@
         },
         "list": {
             "buttonAddDocument": "Add document",
-            "buttonCancel": "Cancel",
             "buttonDelete": "Delete",
             "columnAssignment": "Assignment",
             "columnName": "Technical name",
@@ -8136,7 +8114,6 @@
     },
     "sw-settings-language": {
         "detail": {
-            "buttonCancel": "Cancel",
             "buttonSave": "Save",
             "labelIsoCode": "ISO code",
             "labelLocale": "Locale",
@@ -8159,7 +8136,6 @@
         },
         "list": {
             "buttonAddLanguage": "Add language",
-            "buttonCancel": "Cancel",
             "buttonDelete": "Delete",
             "columnDefault": "Default",
             "columnInherit": "Inherit from",
@@ -8326,6 +8302,14 @@
             },
             "host": "Host",
             "host-placeholder": "Enter a host name...",
+            "oauth-client-id": "Client ID",
+            "oauth-client-id-placeholder": "Enter the client ID...",
+            "oauth-client-secret": "Client Secret",
+            "oauth-client-secret-placeholder": "Enter the client secret...",
+            "oauth-scope": "OAuth Scope",
+            "oauth-scope-placeholder": "Enter the OAuth scope...",
+            "oauth-url": "OAuth URL",
+            "oauth-url-placeholder": "Enter the OAuth URL...",
             "password": "Password",
             "password-placeholder": "Enter a password...",
             "port": "Port",
@@ -8357,7 +8341,8 @@
             "env-file": "Use environment's configuration",
             "local-agent": "Local email agent",
             "local-helptext": "This option uses your system‘s default mailer (Sendmail). Make sure Sendmail works and is available in your own hosting environment.",
-            "smtp-server": "SMTP server"
+            "smtp-server": "SMTP server",
+            "smtp-server-oauth": "SMTP server with OAuth 2"
         },
         "sendmail": {
             "async": "Asynchronous mail dispatch",
@@ -8421,7 +8406,6 @@
         },
         "list": {
             "buttonAddNumberRange": "Add number range",
-            "buttonCancel": "Cancel",
             "buttonDelete": "Delete",
             "columnAssignment": "Assignment",
             "columnName": "Name",
@@ -8436,11 +8420,9 @@
     },
     "sw-settings-payment": {
         "detail": {
-            "buttonCancel": "Cancel",
             "buttonSave": "Save",
             "delete": {
                 "modal": {
-                    "buttonCancel": "Cancel",
                     "buttonDelete": "Delete",
                     "textConfirmation": "Do you really want to delete this payment method?"
                 },
@@ -8478,7 +8460,6 @@
         },
         "list": {
             "buttonAddPaymentMethod": "Add payment method",
-            "buttonCancel": "Cancel",
             "buttonDelete": "Delete",
             "columnActive": "Active",
             "columnDescription": "Description",
@@ -8534,7 +8515,6 @@
         },
         "list": {
             "buttonAddEssentialCharacteristics": "Create new",
-            "buttonCancel": "Cancel",
             "buttonDelete": "Delete",
             "columnDescription": "Description",
             "columnTemplate": "Template",
@@ -8546,8 +8526,6 @@
             "textHeadline": "Essential characteristics"
         },
         "modal": {
-            "buttonAdd": "Add",
-            "buttonCancel": "Cancel",
             "buttonNext": "Next",
             "label": {
                 "description": "Description",
@@ -8605,7 +8583,6 @@
             },
             "associationsLoadingError": "Unable to load rule assignments.",
             "buttonAddAssignment": "Add assignment",
-            "buttonCancel": "Cancel",
             "buttonSave": "Save",
             "groups": {
                 "cart": "Shopping cart",
@@ -8743,7 +8720,6 @@
             "placeholderNewSalutation": "New salutation..."
         },
         "general": {
-            "buttonCancel": "Cancel",
             "buttonCreate": "Add salutation",
             "buttonSave": "Save",
             "mainMenuItemGeneral": "Salutations",
@@ -8884,7 +8860,6 @@
             "weight": "Weight"
         },
         "detail": {
-            "buttonCancel": "Cancel",
             "buttonSave": "Save",
             "helpTextTechnicalName": "The technical name is used to uniquely identify the shipping method. A subsequent change to the technical name can cause shipping integrations that rely on it to no longer work.",
             "helpTextTrackingUrl": "Enter the tracking URL of the shipping provider and insert \"%s\" as a placeholder where the actual tracking code would be. The tracking code is automatically inserted from the individual orders.",
@@ -8927,7 +8902,6 @@
         },
         "list": {
             "buttonAddShippingMethod": "Add shipping method",
-            "buttonCancel": "Cancel",
             "buttonDelete": "Delete",
             "columnActive": "Active",
             "columnDescription": "Description",
@@ -8953,7 +8927,6 @@
             "addNewShippingPrice": "Add pricing level",
             "any": "∞",
             "buttonAddAdditionalPriceMatrix": "Add price matrix",
-            "buttonCancel": "Cancel",
             "buttonDelete": "Delete",
             "buttonLoadAllPrices": "Load all prices",
             "calculationLineItemCount": "Product quantity",
@@ -8973,8 +8946,6 @@
             "columnWeightEnd": "to...",
             "columnWeightStart": "Weight from...",
             "contextMenuDeletePrice": "Delete pricing level",
-            "contextMenuDuplicatePrice": "Duplicate pricing level",
-            "contextMenuModifyPrice": "Change price rule",
             "deleteMatrixContextLabel": "Delete price matrix",
             "deletionNotPossibleMessage": "At least one price tier needed. Try deleting the entire pricing rule instead.",
             "duplicateMatrixContextLabel": "Duplicate price matrix",
@@ -9070,7 +9041,6 @@
         },
         "updateModal": {
             "actions": {
-                "cancel": "Cancel",
                 "goToUpdate": "Update now",
                 "install": "Install"
             },
@@ -9092,7 +9062,6 @@
     },
     "sw-settings-snippet": {
         "detail": {
-            "buttonCancel": "Cancel",
             "buttonSave": "Save",
             "cardGeneralTitle": "Information",
             "cardSnippetSetsTitle": "Translations",
@@ -9126,7 +9095,6 @@
         },
         "list": {
             "buttonAdd": "New snippet",
-            "buttonCancel": "Cancel",
             "buttonDelete": "Delete",
             "buttonEmpty": "Back to standard snippets",
             "columnHeaderGridColumnTitleSet": "Snippet set",
@@ -9151,7 +9119,6 @@
         },
         "setList": {
             "buttonAddSet": "Add snippet set",
-            "buttonCancel": "Cancel",
             "buttonClone": "Copy",
             "buttonDelete": "Delete",
             "buttonEditSet": "Edit snippets",
@@ -9268,7 +9235,6 @@
             "bulkMergeTitle": "Merge tags",
             "bulkMerging": "Merging",
             "buttonAddTag": "Add tag",
-            "buttonCancel": "Cancel",
             "buttonDelete": "Delete",
             "columnConnections": "Assignments",
             "columnName": "Tag",
@@ -9291,7 +9257,6 @@
     },
     "sw-settings-tax": {
         "detail": {
-            "buttonCancel": "Cancel",
             "buttonSave": "Save",
             "defaultTaxHelpText": "This tax rate will be preselected when creating new products. This can only be set for one single tax rate.",
             "defaultTaxLabel": "Use as default",
@@ -9313,7 +9278,6 @@
         },
         "list": {
             "buttonAddTax": "Add tax",
-            "buttonCancel": "Cancel",
             "buttonDelete": "Delete",
             "columnDefault": "Default",
             "columnDefaultTaxRate": "Tax rate",
@@ -9358,7 +9322,6 @@
             "emptyStateDescription": "Add individual tax rates for different countries.",
             "labelActiveFrom": "Active from",
             "labelAppliesOn": "Applies to",
-            "labelCancel": "Cancel",
             "labelCountryName": "Country",
             "labelCreateNew": "Add country",
             "labelFromZipCode": "From...",
@@ -9489,6 +9452,9 @@
         "sectionSpecialShortcuts": "Special shortcuts",
         "title": "Keyboard shortcuts"
     },
+    "sw-sidebar-collapse": {
+        "collapseIndicator": "Collapse sidebar"
+    },
     "sw-sidebar-filter-panel": {
         "resetButton": "Reset all"
     },
@@ -9573,6 +9539,11 @@
             "textDeleteMultipleConfirm": "Are you sure you want to delete the \"{count}\" selected elements?"
         }
     },
+    "sw-tree-item": {
+        "childrenLabel": "Subitems for \"{name}\"",
+        "toggleItem": "Toggle item \"{name}\"",
+        "toggleTreeItem": "Toggle tree item \"{name}\""
+    },
     "sw-usage-data-consent-banner": {
         "acceptDataCollection": "Agree",
         "checkListDataSharing": {
@@ -9645,7 +9616,6 @@
             "role-grid": {
                 "contextMenuDelete": "Delete",
                 "contextMenuEdit": "Edit",
-                "labelButtonCancel": "Cancel",
                 "labelButtonDelete": "Delete",
                 "labelDescription": "Description",
                 "labelName": "Name",
@@ -9689,7 +9659,6 @@
                 "errorUsernameUsed": "This username is already in use.",
                 "labelAccessKey": "Access key",
                 "labelAdministrator": "Administrator",
-                "labelButtonCancel": "Cancel",
                 "labelButtonChangePassword": "Change",
                 "labelButtonSave": "Save",
                 "labelCard": "Basic information",
@@ -9712,7 +9681,6 @@
                 "modal": {
                     "buttonApply": "Save integration",
                     "buttonApplyEdit": "Save changes",
-                    "buttonCancel": "Cancel",
                     "buttonCreateNewApiKeys": "Create new API key",
                     "buttonDelete": "Delete",
                     "confirmDelete": "Are you sure you want to delete this integration?",
@@ -9740,7 +9708,6 @@
                     }
                 },
                 "passwordConfirmation": {
-                    "labelButtonCancel": "Cancel",
                     "labelButtonConfirm": "Confirm",
                     "labelConfirmPassword": "Password",
                     "notificationPasswordErrorMessage": "Please submit your current password correctly.",
@@ -9758,7 +9725,6 @@
                 "contextMenuDelete": "Delete",
                 "contextMenuDuplicate": "Duplicate",
                 "contextMenuEdit": "Edit",
-                "labelButtonCancel": "Cancel",
                 "labelButtonDelete": "Delete",
                 "labelEmail": "Email address",
                 "labelFirstName": "First name",

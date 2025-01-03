@@ -25,6 +25,11 @@ class LanguageExtension extends EntityExtension
         return LanguageDefinition::class;
     }
 
+    public function getEntityName(): string
+    {
+        return LanguageDefinition::ENTITY_NAME;
+    }
+
     public function extendFields(FieldCollection $collection): void
     {
         $collection->add(

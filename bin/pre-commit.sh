@@ -31,7 +31,6 @@ then
     done
 
     make phpstan
-    make psalm
 fi
 
 UNSTAGED_FILES="$(git diff --name-only -- ${PHP_FILES} ${JS_FILES})"

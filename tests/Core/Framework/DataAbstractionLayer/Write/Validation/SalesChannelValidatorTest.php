@@ -17,7 +17,6 @@ use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\Uuid\Uuid;
 use Shopware\Core\System\SalesChannel\SalesChannelCollection;
 use Shopware\Core\System\SalesChannel\SalesChannelDefinition;
-use Shopware\Core\System\SalesChannel\SalesChannelEntity;
 use Shopware\Core\Test\TestDefaults;
 use Swag\LanguagePack\Test\Helper\ServicesTrait;
 
@@ -42,7 +41,7 @@ class SalesChannelValidatorTest extends TestCase
     public function testCreatingASalesChannelWithADeactivatedDefaultLanguageFails(): void
     {
         $context = Context::createDefaultContext();
-        $languageId = $this->setSalesChannelActiveForLanguageByName('Dansk', false, $context);
+        $languageId = $this->prepareSalesChannelActiveForLanguageByName('Dansk', false, $context);
 
         $this->expectExceptionMessage(\sprintf('The language with the id "%s" is disabled for all Sales Channels.', $languageId));
         $this->createSalesChannelWithLanguage(Uuid::randomHex(), $languageId, $context);
@@ -51,15 +50,14 @@ class SalesChannelValidatorTest extends TestCase
     public function testThatUpdatingASalesChannelToADisabledSalesChannelFails(): void
     {
         $context = Context::createDefaultContext();
-        $enabledLanguageId = $this->setSalesChannelActiveForLanguageByName('Dansk', true, $context);
-        $disabledLanguageId = $this->setSalesChannelActiveForLanguageByName('Français', false, $context);
+        $enabledLanguageId = $this->prepareSalesChannelActiveForLanguageByName('Dansk', true, $context);
+        $disabledLanguageId = $this->prepareSalesChannelActiveForLanguageByName('Français', false, $context);
 
         $salesChannelId = Uuid::randomHex();
         $this->createSalesChannelWithLanguage($salesChannelId, $enabledLanguageId, $context);
 
         $criteria = new Criteria([$salesChannelId]);
 
-        /** @var SalesChannelEntity|null $salesChannel */
         $salesChannel = $this->salesChannelRepository->search($criteria, $context)->first();
         static::assertNotNull($salesChannel);
 

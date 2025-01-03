@@ -20,7 +20,6 @@ use Shopware\Core\Framework\Uuid\Uuid;
 use Shopware\Core\Maintenance\SalesChannel\Service\SalesChannelCreator;
 use Shopware\Core\System\Language\LanguageCollection;
 use Shopware\Core\System\SalesChannel\SalesChannelCollection;
-use Shopware\Core\System\SalesChannel\SalesChannelEntity;
 use Shopware\Core\System\Snippet\Aggregate\SnippetSet\SnippetSetCollection;
 use Shopware\Storefront\Storefront;
 use Swag\LanguagePack\Extension\LanguageExtension;
@@ -34,17 +33,17 @@ class SalesChannelCreateStorefrontCommandTest extends TestCase
     use IntegrationTestBehaviour;
 
     /**
-     * @var EntityRepository<SalesChannelCollection> $salesChannelRepository
+     * @var EntityRepository<SalesChannelCollection>
      */
     private EntityRepository $salesChannelRepository;
 
     /**
-     * @var EntityRepository<PackLanguageCollection> $languagePackLanguageRepository
+     * @var EntityRepository<PackLanguageCollection>
      */
     private EntityRepository $languagePackLanguageRepository;
 
     /**
-     * @var EntityRepository<LanguageCollection> $languageRepository
+     * @var EntityRepository<LanguageCollection>
      */
     private EntityRepository $languageRepository;
 
@@ -52,19 +51,14 @@ class SalesChannelCreateStorefrontCommandTest extends TestCase
 
     private Command $command;
 
-    /**
-     * @psalm-suppress PropertyTypeCoercion
-     */
-    public function setUp(): void
+    protected function setUp(): void
     {
         if (!\class_exists(Storefront::class)) {
             static::markTestSkipped('Skip test: Storefront bundle is not installed');
         }
 
-        /** @var DefinitionInstanceRegistry $definitionRegistry */
         $definitionRegistry = $this->getContainer()->get(DefinitionInstanceRegistry::class);
 
-        /** @var SalesChannelCreator $salesChannelCreator */
         $salesChannelCreator = $this->getContainer()->get(SalesChannelCreator::class);
 
         /** @var EntityRepository<SnippetSetCollection> $snippetSetRepository */
@@ -110,7 +104,6 @@ class SalesChannelCreateStorefrontCommandTest extends TestCase
             '--navigationCategoryId' => $navigationCategoryId,
         ]);
 
-        /** @var ?SalesChannelEntity $storefront */
         $storefront = $this->salesChannelRepository->search($this->getStorefrontCriteria($storefrontId), $this->context)
             ->getEntities()->first();
 
@@ -126,8 +119,8 @@ class SalesChannelCreateStorefrontCommandTest extends TestCase
 
         $activeLanguageIds = $this->languageRepository->searchIds($criteria, $this->context)->getIds();
 
-        /** @var LanguageCollection $associatedLanguages */
         $associatedLanguages = $storefront->getLanguages();
+        static::assertNotNull($associatedLanguages);
         $associatedLanguageIds = \array_values($associatedLanguages->getIds());
 
         static::assertCount(2, $activeLanguageIds);
@@ -153,14 +146,14 @@ class SalesChannelCreateStorefrontCommandTest extends TestCase
             '--navigationCategoryId' => $navigationCategoryId,
         ]);
 
-        /** @var SalesChannelEntity $storefront */
         $storefront = $this->salesChannelRepository->search($this->getStorefrontCriteria($storefrontId), $this->context)
             ->getEntities()->first();
+        static::assertNotNull($storefront);
 
         $activeLanguageIds = $this->languageRepository->searchIds(new Criteria(), $this->context)->getIds();
 
-        /** @var LanguageCollection $associatedLanguages */
         $associatedLanguages = $storefront->getLanguages();
+        static::assertNotNull($associatedLanguages);
         $associatedLanguageIds = \array_values($associatedLanguages->getIds());
 
         static::assertEquals(
@@ -171,7 +164,7 @@ class SalesChannelCreateStorefrontCommandTest extends TestCase
 
     public function setLanguagesActive(bool $active): void
     {
-        /** @var string[] $ids */
+        /** @var list<string> $ids */
         $ids = $this->languagePackLanguageRepository->searchIds(new Criteria(), $this->context)->getIds();
 
         $updateCommands = \array_map(static function (string $id) use ($active): array {

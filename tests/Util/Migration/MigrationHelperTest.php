@@ -32,13 +32,13 @@ use Swag\LanguagePack\Util\Migration\MigrationHelper;
 
 class MigrationHelperTest extends TestCase
 {
-    use KernelTestBehaviour;
+    use BasicTestDataBehaviour;
+    use CacheTestBehaviour;
     use DatabaseTransactionBehaviour;
     use FilesystemBehaviour;
-    use CacheTestBehaviour;
-    use BasicTestDataBehaviour;
-    use SessionTestBehaviour;
+    use KernelTestBehaviour;
     use RequestStackTestBehaviour;
+    use SessionTestBehaviour;
 
     private MigrationHelper $migrationHelper;
 
@@ -46,11 +46,10 @@ class MigrationHelperTest extends TestCase
 
     protected function setUp(): void
     {
-        /** @var Connection $connection */
         $connection = $this->getContainer()->get(Connection::class);
         $this->connection = $connection;
 
-        $this->connection->rollback();
+        $this->connection->rollBack();
 
         $this->migrationHelper = new MigrationHelper($this->connection);
         $this->uninstallPluginAndDeleteLanguages();
@@ -158,7 +157,6 @@ class MigrationHelperTest extends TestCase
 
     private function uninstallPluginAndDeleteLanguages(): void
     {
-        /** @var MockObject|UninstallContext $uninstallContext */
         $uninstallContext = $this->getMockBuilder(UninstallContext::class)
             ->disableOriginalConstructor()
             ->onlyMethods(['keepUserData'])
@@ -225,6 +223,7 @@ class MigrationHelperTest extends TestCase
 
     /**
      * @param array<int, string> $tables
+     *
      * @return array<string, int>
      */
     private function getTableCounts(array $tables): array

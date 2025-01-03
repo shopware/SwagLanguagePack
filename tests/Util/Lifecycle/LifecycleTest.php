@@ -9,9 +9,11 @@ declare(strict_types=1);
 
 namespace Swag\LanguagePack\Test\Util\Lifecycle;
 
+use Doctrine\DBAL\ArrayParameterType;
 use Doctrine\DBAL\Connection;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
+use Shopware\Core\Defaults;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\Migration\MigrationCollection;
@@ -29,7 +31,7 @@ class LifecycleTest extends TestCase
     {
         $connection = $this->getConnectionMock();
 
-        $connection->expects(static::atLeast(4))
+        $connection->expects(static::atLeast(5))
             ->method('executeStatement')
             ->willReturn(true);
 
@@ -48,8 +50,32 @@ class LifecycleTest extends TestCase
         $connection = $this->getConnectionMock();
         $uninstallContext = $this->getUninstallContext(true);
 
-        $connection->expects(static::never())
-            ->method('executeStatement');
+        $expectedSql = <<<'SQL'
+            UPDATE `user`
+            SET `locale_id` = (
+                SELECT `locale_id`
+                FROM `language`
+                WHERE `id` = UNHEX(:languageId)
+            )
+            WHERE `locale_id` IN (
+                SELECT `id`
+                FROM `locale`
+                WHERE `code` IN (:locales)
+            );
+        SQL;
+
+        $connection->expects(static::once())
+            ->method('executeStatement')
+            ->with(
+                $expectedSql,
+                [
+                    'languageId' => Defaults::LANGUAGE_SYSTEM,
+                    'locales' => array_values(SwagLanguagePack::SUPPORTED_LANGUAGES),
+                ],
+                [
+                    'locales' => ArrayParameterType::STRING,
+                ],
+            );
 
         /** @var EntityRepository<LanguageCollection> $languageRepository */
         $languageRepository = $this->getContainer()->get('language.repository');

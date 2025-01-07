@@ -26,7 +26,7 @@ jobs:
         shell: bash
         id: check-changes
         run: |
-          if [[ -z $(git diff HEAD $(git describe --tags $(git rev-list --tags --max-count=1)) src/) ]]; then
+          if [[ -z $(git diff HEAD $(git describe --tags $(git rev-list --tags --max-count=1)) -- src/ :^src/Resources/public) ]]; then
             echo "No changes detected"
             echo "no_changes=1" >> "$GITHUB_OUTPUT"
           fi

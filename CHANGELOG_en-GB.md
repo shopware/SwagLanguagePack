@@ -1,0 +1,11 @@
+# 4.23.0
+- [Update translations 2025-01-07](https://issues.shopware.com/issues/)
+- [Update translations 2025-01-03](https://issues.shopware.com/issues/)
+- [LAN-182 - static analyzer fixes](https://issues.shopware.com/issues/)
+- [LAN-182 - change decorator to SystemLanguageChangeSubscriber](https://issues.shopware.com/issues/)
+- [LAN-182 - keep language column](https://issues.shopware.com/issues/)
+- [LAN-182 - drop unnecesary language.swag_language_pack_language_id column and fix system default swap](https://issues.shopware.com/issues/)
+- [LAN-182 - swap LanguagePack references on default lang swap](https://issues.shopware.com/issues/)
+- [LAN-182 - disable decorator](https://issues.shopware.com/issues/)
+- [LAN-182 - add example decorator to ShopConfigurator](https://issues.shopware.com/issues/)
+- [LAN-182 - fetch languages from the language table instead of swag_language_pack_language, ignore intentionally deactivated languages](https://issues.shopware.com/issues/)

@@ -38,34 +38,6 @@ class Lifecycle
     ) {
     }
 
-    /**
-     * @deprecated tag:v4.0.0 - Will be removed without replacement
-     */
-    public function deactivate(DeactivateContext $deactivateContext): void
-    {
-        $criteria = (new Criteria())->addFilter(
-            new MultiFilter('AND', [
-                new NotFilter('AND', [
-                    new EqualsFilter('salesChannels.id', null),
-                ]),
-                new NotFilter('AND', [
-                    new EqualsFilter(
-                        \sprintf('%s.id', LanguageExtension::PACK_LANGUAGE_ASSOCIATION_PROPERTY_NAME),
-                        null,
-                    ),
-                ]),
-            ]),
-        )->addSorting(new FieldSorting('name', 'ASC'));
-
-        $result = $this->languageRepository->search($criteria, $deactivateContext->getContext());
-
-        if ($result->getTotal() > 0) {
-            $languages = $result->getEntities();
-
-            throw LanguagePackException::packLanguagesStillInUse($languages);
-        }
-    }
-
     public function uninstall(UninstallContext $uninstallContext): void
     {
         $this->updateInvalidUserLanguages();

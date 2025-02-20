@@ -20,11 +20,6 @@ class LanguageExtension extends EntityExtension
 {
     public const PACK_LANGUAGE_ASSOCIATION_PROPERTY_NAME = 'swagLanguagePackLanguage';
 
-    public function getDefinitionClass(): string
-    {
-        return LanguageDefinition::class;
-    }
-
     public function getEntityName(): string
     {
         return LanguageDefinition::ENTITY_NAME;

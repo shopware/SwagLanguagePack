@@ -48,41 +48,45 @@ class SystemLanguageChangeSubscriber implements EventSubscriberInterface
         $languagePackIdB = array_values($mapping)[1];
 
         RetryableTransaction::retryable($this->connection, function (Connection $connection) use ($languageIdA, $languageIdB, $languagePackIdA, $languagePackIdB): void {
-            $statement = $connection->prepare('
-                UPDATE swag_language_pack_language
-                SET language_id = CASE id
-                    WHEN :languagePackIdA THEN :languageIdB
-                    WHEN :languagePackIdB THEN :languageIdA
-                    ELSE language_id
+            $statement = $connection->prepare(
+                <<<'SQL'
+                    UPDATE swag_language_pack_language
+                    SET language_id = CASE id
+                        WHEN :languagePackIdA THEN :languageIdB
+                        WHEN :languagePackIdB THEN :languageIdA
+                        ELSE language_id
                     END
-                WHERE id IN (:languagePackIdA, :languagePackIdB)
-            ');
+                    WHERE id IN (:languagePackIdA, :languagePackIdB)
+                SQL
+            );
 
-            $statement->executeStatement([
-                'languageIdA' => $languageIdA,
-                'languageIdB' => $languageIdB,
-                'languagePackIdA' => $languagePackIdA,
-                'languagePackIdB' => $languagePackIdB,
-            ]);
+            $statement->bindValue('languageIdA', $languageIdA);
+            $statement->bindValue('languageIdB', $languageIdB);
+            $statement->bindValue('languagePackIdA', $languagePackIdA);
+            $statement->bindValue('languagePackIdB', $languagePackIdB);
+
+            $statement->executeStatement();
         });
 
         RetryableTransaction::retryable($this->connection, function (Connection $connection) use ($languageIdA, $languageIdB, $languagePackIdA, $languagePackIdB): void {
-            $statement = $connection->prepare('
-                UPDATE language
-                SET swag_language_pack_language_id = CASE id
-                    WHEN :languageIdA THEN :languagePackIdB
-                    WHEN :languageIdB THEN :languagePackIdA
-                    ELSE swag_language_pack_language_id
+            $statement = $connection->prepare(
+                <<<'SQL'
+                    UPDATE language
+                    SET swag_language_pack_language_id = CASE id
+                        WHEN :languageIdA THEN :languagePackIdB
+                        WHEN :languageIdB THEN :languagePackIdA
+                        ELSE swag_language_pack_language_id
                     END
-                WHERE id IN (:languageIdA, :languageIdB)
-            ');
+                    WHERE id IN (:languageIdA, :languageIdB)
+                SQL
+            );
 
-            $statement->executeStatement([
-                'languageIdA' => $languageIdA,
-                'languageIdB' => $languageIdB,
-                'languagePackIdA' => $languagePackIdA,
-                'languagePackIdB' => $languagePackIdB,
-            ]);
+            $statement->bindValue('languageIdA', $languageIdA);
+            $statement->bindValue('languageIdB', $languageIdB);
+            $statement->bindValue('languagePackIdA', $languagePackIdA);
+            $statement->bindValue('languagePackIdB', $languagePackIdB);
+
+            $statement->executeStatement();
         });
     }
 
@@ -95,10 +99,12 @@ class SystemLanguageChangeSubscriber implements EventSubscriberInterface
     {
         /** @var array<string, string|null> $mapping */
         $mapping = $this->connection->fetchAllKeyValue(
-            'SELECT language.id as language_id, swag_language_pack_language.id as language_pack_id
-             FROM language
-             LEFT JOIN swag_language_pack_language ON language.id = swag_language_pack_language.language_id
-             WHERE language.id IN (:previousId, :newId)',
+            <<<'SQL'
+                SELECT language.id as language_id, swag_language_pack_language.id as language_pack_id
+                FROM language
+                LEFT JOIN swag_language_pack_language ON language.id = swag_language_pack_language.language_id
+                WHERE language.id IN (:previousId, :newId)
+            SQL,
             [
                 'previousId' => $previousDefaultId,
                 'newId' => $newDefaultId,

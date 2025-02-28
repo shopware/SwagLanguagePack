@@ -13,7 +13,6 @@ use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Result;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\Plugin\Context\UninstallContext;
 use Shopware\Core\Framework\Test\TestCaseBase\BasicTestDataBehaviour;
 use Shopware\Core\Framework\Test\TestCaseBase\CacheTestBehaviour;
@@ -23,7 +22,6 @@ use Shopware\Core\Framework\Test\TestCaseBase\KernelTestBehaviour;
 use Shopware\Core\Framework\Test\TestCaseBase\RequestStackTestBehaviour;
 use Shopware\Core\Framework\Test\TestCaseBase\SessionTestBehaviour;
 use Shopware\Core\Framework\Uuid\Uuid;
-use Shopware\Core\System\Language\LanguageCollection;
 use Shopware\Core\System\Language\LanguageDefinition;
 use Swag\LanguagePack\PackLanguage\PackLanguageDefinition;
 use Swag\LanguagePack\SwagLanguagePack;
@@ -167,11 +165,7 @@ class MigrationHelperTest extends TestCase
             ->method('keepUserData')
             ->willReturn(false);
 
-        /** @var EntityRepository<LanguageCollection> $languageRepository */
-        $languageRepository = $this->getContainer()->get('language.repository');
-
-        (new Lifecycle($this->connection, $languageRepository))
-            ->uninstall($uninstallContext);
+        (new Lifecycle($this->connection))->uninstall($uninstallContext);
 
         $sql = \str_replace(
             ['#table#'],

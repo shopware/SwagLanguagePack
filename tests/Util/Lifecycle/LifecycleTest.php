@@ -15,11 +15,9 @@ use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Shopware\Core\Defaults;
 use Shopware\Core\Framework\Context;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\Migration\MigrationCollection;
 use Shopware\Core\Framework\Plugin\Context\UninstallContext;
 use Shopware\Core\Framework\Test\TestCaseBase\IntegrationTestBehaviour;
-use Shopware\Core\System\Language\LanguageCollection;
 use Swag\LanguagePack\SwagLanguagePack;
 use Swag\LanguagePack\Util\Lifecycle\Lifecycle;
 
@@ -32,16 +30,12 @@ class LifecycleTest extends TestCase
         $connection = $this->getConnectionMock();
 
         $connection->expects(static::atLeast(5))
-            ->method('executeStatement')
-            ->willReturn(true);
+            ->method('executeStatement');
 
         $connection->expects(static::atLeast(2))
             ->method('executeQuery');
 
-        /** @var EntityRepository<LanguageCollection> $languageRepository */
-        $languageRepository = $this->getContainer()->get('language.repository');
-
-        $lifecycle = new Lifecycle($connection, $languageRepository);
+        $lifecycle = new Lifecycle($connection);
         $lifecycle->uninstall($this->getUninstallContext());
     }
 
@@ -77,10 +71,7 @@ class LifecycleTest extends TestCase
                 ],
             );
 
-        /** @var EntityRepository<LanguageCollection> $languageRepository */
-        $languageRepository = $this->getContainer()->get('language.repository');
-
-        $lifecycle = new Lifecycle($connection, $languageRepository);
+        $lifecycle = new Lifecycle($connection);
         $lifecycle->uninstall($uninstallContext);
     }
 

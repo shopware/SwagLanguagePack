@@ -9,7 +9,7 @@ parameters:
         # run `php tests/TestBootstrap.php` to create the container
     symfony:
         constantHassers: false
-        containerXmlPath: '../../../var/cache/phpstan_dev/Shopware_Core_DevOps_StaticAnalyze_StaticAnalyzeKernelPhpstan_devDebugContainer.xml'
+        containerXmlPath: '../../../var/cache/static_phpstan_dev/Shopware_Core_DevOps_StaticAnalyze_StaticAnalyzeKernelPhpstan_devDebugContainer.xml'
         consoleApplicationLoader: ../../../src/Core/DevOps/StaticAnalyze/console-application.php
     paths:
         - src
@@ -19,10 +19,3 @@ parameters:
             message: '#Service ".*" is private#'
             paths:
                 - tests/*Test.php
-
-        - # Remove once minimum required SW version is 6.6.1.0
-            message: '#Method Context::createDefaultContext\(\) should not be used in CLI context\. Use Context::createCLIContext\(\) instead#'
-
-        - # Remove with SW 6.7 compatibility
-            message: '#Call to deprecated method getEntityName.*Extension#'
-        - message: '#deprecated class Shopware\\Core\\Maintenance\\SalesChannel\\Service\\SalesChannelCreator#'

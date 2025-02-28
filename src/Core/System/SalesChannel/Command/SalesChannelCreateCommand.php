@@ -75,7 +75,7 @@ class SalesChannelCreateCommand extends Command
     {
         $io = new ShopwareStyle($input, $output);
 
-        $context = Context::createDefaultContext();
+        $context = Context::createCLIContext();
 
         try {
             /** @var list<string> $languages */

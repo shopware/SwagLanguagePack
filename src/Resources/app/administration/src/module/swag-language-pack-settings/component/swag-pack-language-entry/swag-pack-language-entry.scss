@@ -5,10 +5,22 @@
     grid-template-columns: auto 1fr auto;
     align-items: center;
     column-gap: 16px;
-    padding: 16px;
+    padding: 16px 32px 16px 0;
     margin: 16px 0;
     border: 1px solid $color-gray-300;
     border-radius: $border-radius-default;
+
+    &__flag {
+        height: 26px;
+        width: fit-content;
+        border: 1px solid var(--color-border-primary-default);
+
+        &-container {
+            display: flex;
+            justify-content: flex-end;
+            width: 70px;
+        }
+    }
 
     &__name {
         font-weight: $font-weight-semi-bold;
@@ -19,16 +31,8 @@
         color: $color-gray-500;
     }
 
-    .sw-field--switch {
+    &__switch {
+        display: flex;
         margin: 0;
-
-        .sw-field--switch__input {
-            padding: 8px 0;
-        }
-
-        .sw-field__switch-state {
-            top: 0;
-            left: 0;
-        }
     }
 }

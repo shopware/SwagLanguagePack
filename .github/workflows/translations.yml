@@ -2,7 +2,7 @@ name: Translations
 on:
   push:
     branches:
-      - master
+      - 6.6.x
   workflow_dispatch:
   schedule:
     - cron: "0 3 * * *"
@@ -14,12 +14,11 @@ permissions:
 jobs:
   update_translations:
     runs-on: ubuntu-latest
-
     steps:
       - name: Setup Shopware
         uses: shopware/setup-shopware@main
         with:
-          shopware-version: trunk
+          shopware-version: "6.6.x"
 
       - uses: octo-sts/action@main
         id: octo-sts
@@ -32,6 +31,7 @@ jobs:
         with:
           path: custom/plugins/${{ github.event.repository.name }}
           token: ${{ steps.octo-sts.outputs.token }}
+          ref: "6.6.x"
 
       - name: Install extension with Composer
         run: composer require $(composer -d custom/plugins/${{ github.event.repository.name }} config name)

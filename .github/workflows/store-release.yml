@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: "6.6.x"
+          ref: ${{ vars.RELEASE_BRANCH }}
           fetch-depth: 0
       - uses: shopware/github-actions/store-release@main
         with:

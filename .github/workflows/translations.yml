@@ -18,7 +18,7 @@ jobs:
       - name: Setup Shopware
         uses: shopware/setup-shopware@main
         with:
-          shopware-version: "6.6.x"
+          shopware-version: ${{ vars.RELEASE_BRANCH }}
 
       - uses: octo-sts/action@main
         id: octo-sts
@@ -31,7 +31,7 @@ jobs:
         with:
           path: custom/plugins/${{ github.event.repository.name }}
           token: ${{ steps.octo-sts.outputs.token }}
-          ref: "6.6.x"
+          ref: ${{ vars.RELEASE_BRANCH }}
 
       - name: Install extension with Composer
         run: composer require $(composer -d custom/plugins/${{ github.event.repository.name }} config name)

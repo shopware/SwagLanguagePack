@@ -20,7 +20,7 @@ jobs:
           identity: prepare_release
       - uses: actions/checkout@v4
         with:
-          ref: "6.6.x"
+          ref: ${{ vars.RELEASE_BRANCH }}
           token: ${{ steps.octo-sts.outputs.token }}
           fetch-depth: 0
       - name: Check for changes

@@ -95,7 +95,6 @@ Component.register('swag-language-pack-settings', {
 
         savePackLanguages() {
             this.isLoading = true;
-
             return this.validateStates(this.packLanguages).then(() => {
                 return this.packLanguageRepository.saveAll(this.packLanguages).then(() => {
                     this.hasChanges = true;
@@ -110,7 +109,7 @@ Component.register('swag-language-pack-settings', {
                 const languages = `<b>${languageList.join(', ')}</b>`;
 
                 this.createNotificationError({
-                    message: this.$tc('swag-language-pack.settings.card.messageSalesChannelActiveError', 0, {
+                    message: this.$tc('swag-language-pack.settings.card.messageSalesChannelActiveError', {
                         languages,
                     }),
                     autoClose: false,

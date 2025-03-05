@@ -12,10 +12,16 @@ jobs:
   update_translations:
     runs-on: ubuntu-latest
     steps:
+      - name: Check if RELEASE_BRANCH and RELEASE_SHOPWARE_BRANCH is set
+        if: ${{ vars.RELEASE_BRANCH == '' || vars.RELEASE_SHOPWARE_BRANCH == '' }}
+        run: |
+          echo "The repository variable RELEASE_BRANCH is not set!"
+          exit 1
+
       - name: Setup Shopware
         uses: shopware/setup-shopware@main
         with:
-          shopware-version: ${{ vars.RELEASE_BRANCH }}
+          shopware-version: ${{ vars.RELEASE_SHOPWARE_BRANCH }}
 
       - uses: octo-sts/action@main
         id: octo-sts

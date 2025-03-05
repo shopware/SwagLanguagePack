@@ -13,6 +13,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Check if RELEASE_BRANCH is set
+        if: ${{ vars.RELEASE_BRANCH == '' }}
+        run: |
+          echo "The repository variable RELEASE_BRANCH is not set!"
+          exit 1
       - uses: actions/checkout@v4
         with:
           ref: ${{ vars.RELEASE_BRANCH }}

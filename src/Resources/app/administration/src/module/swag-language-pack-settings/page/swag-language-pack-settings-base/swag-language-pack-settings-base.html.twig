@@ -1,6 +1,6 @@
 {% block swag_language_pack_settings_base %}
 {% block swag_language_pack_settings_base_card_view_language_selection %}
-    <sw-card
+    <mt-card
         class="swag-language-pack-settings-base"
         position-identifier="swag-language-pack-settings-base"
         :title="$tc(`swag-language-pack.settings.card.${settingsType}.title`)"
@@ -8,7 +8,7 @@
     >
 
         {% block swag_language_pack_settings_base_card_view_card_loader %}
-        <sw-loader v-if="isLoading"/>
+        <mt-loader v-if="isLoading"/>
         {% endblock %}
 
         {% block swag_language_pack_settings_base_card_view_description%}
@@ -25,8 +25,8 @@
         >
             {% block swag_language_pack_settings_base_card_view_language_selection_language %}
             <swag-pack-language-entry
-                class="swag-language-pack-settings-base__entry"
                 v-model:value="packLanguage"
+                class="swag-language-pack-settings-base__entry"
                 :field="`${settingsType}Active`"
                 :label="packLanguage.language.name"
                 :description="packLanguage.language.locale?.code"
@@ -37,6 +37,6 @@
         </template>
         {% endblock %}
 
-    </sw-card>
+    </mt-card>
 {% endblock %}
 {% endblock %}

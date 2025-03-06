@@ -3,6 +3,9 @@ import './swag-language-pack-flag.scss';
 
 const { Component } = Shopware;
 
+/**
+ * @deprecated tag:v6.0.0 - Will be removed. Use native `img` tag instead
+ */
 Component.register('swag-language-pack-flag', {
     template,
 

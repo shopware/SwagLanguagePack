@@ -67,7 +67,7 @@ class SalesChannelCreateStorefrontCommand extends SalesChannelCreateCommand
             ->setLimit(1)
             ->addFilter(new EqualsFilter('iso', 'en-GB'));
 
-        $id = $this->snippetSetRepository->searchIds($criteria, Context::createDefaultContext())->getIds()[0] ?? null;
+        $id = $this->snippetSetRepository->searchIds($criteria, Context::createCLIContext())->getIds()[0] ?? null;
 
         if ($id === null || !\is_string($id)) {
             throw new \InvalidArgumentException('Unable to get default SnippetSet. Please provide a valid SnippetSetId.');

@@ -11,11 +11,9 @@ namespace Swag\LanguagePack;
 
 use Doctrine\DBAL\Connection;
 use Shopware\Core\Framework\Api\Acl\Role\AclRoleDefinition;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\Plugin;
 use Shopware\Core\Framework\Plugin\Context\UninstallContext;
 use Shopware\Core\Framework\Plugin\Context\UpdateContext;
-use Shopware\Core\System\Language\LanguageCollection;
 use Swag\LanguagePack\Util\Lifecycle\Lifecycle;
 use Swag\LanguagePack\Util\Migration\MigrationHelper;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -109,10 +107,7 @@ class SwagLanguagePack extends Plugin
 
         $connection = $this->container->get(Connection::class);
 
-        /** @var EntityRepository<LanguageCollection> $languageRepository */
-        $languageRepository = $this->container->get('language.repository');
-
-        (new Lifecycle($connection, $languageRepository))->uninstall($uninstallContext);
+        (new Lifecycle($connection))->uninstall($uninstallContext);
     }
 
     public function update(UpdateContext $updateContext): void

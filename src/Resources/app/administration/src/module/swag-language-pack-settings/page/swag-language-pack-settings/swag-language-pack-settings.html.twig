@@ -4,12 +4,12 @@
     {% block swag_language_pack_settings_header %}
     <template #smart-bar-header>
         <h2>
-            {{ $tc('sw-settings.index.title') }}
-            <sw-icon
+            <span>{{ $tc('sw-settings.index.title') }}</span>
+            <mt-icon
                 name="regular-chevron-right-xs"
-                small
+                size="14px"
             />
-            {{ $tc('swag-language-pack.settings.header') }}
+            <span>{{ $tc('swag-language-pack.settings.header') }}</span>
         </h2>
     </template>
     {% endblock %}
@@ -37,7 +37,7 @@
     <template #content>
 
         {% block swag_language_pack_settings_content_card_view %}
-        <sw-card-view>
+        <mt-card-view>
 
             {% block swag_language_pack_settings_content_tabs %}
             <sw-tabs
@@ -77,7 +77,7 @@
             {% endblock %}
 
             {% block swag_language_pack_settings_content_loader %}
-            <sw-loader v-if="isLoading"/>
+            <mt-loader v-if="isLoading"/>
             {% endblock %}
 
             {% block swag_language_pack_settings_content_verify_user_modal %}
@@ -88,7 +88,7 @@
             />
             {% endblock %}
 
-        </sw-card-view>
+        </mt-card-view>
         {% endblock %}
 
     </template>

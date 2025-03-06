@@ -1,8 +1,5 @@
 name: Translations
 on:
-  push:
-    branches:
-      - master
   workflow_dispatch:
   schedule:
     - cron: "0 3 * * *"
@@ -14,12 +11,17 @@ permissions:
 jobs:
   update_translations:
     runs-on: ubuntu-latest
-
     steps:
+      - name: Check if RELEASE_BRANCH and RELEASE_SHOPWARE_BRANCH is set
+        if: ${{ vars.RELEASE_BRANCH == '' || vars.RELEASE_SHOPWARE_BRANCH == '' }}
+        run: |
+          echo "The repository variable RELEASE_BRANCH is not set!"
+          exit 1
+
       - name: Setup Shopware
         uses: shopware/setup-shopware@main
         with:
-          shopware-version: trunk
+          shopware-version: ${{ vars.RELEASE_SHOPWARE_BRANCH }}
 
       - uses: octo-sts/action@main
         id: octo-sts
@@ -32,6 +34,7 @@ jobs:
         with:
           path: custom/plugins/${{ github.event.repository.name }}
           token: ${{ steps.octo-sts.outputs.token }}
+          ref: ${{ vars.RELEASE_BRANCH }}
 
       - name: Install extension with Composer
         run: composer require $(composer -d custom/plugins/${{ github.event.repository.name }} config name)

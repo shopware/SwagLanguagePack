@@ -1,9 +1,9 @@
 name: Prepare Release
 on:
   workflow_dispatch:
-#  schedule:
+  schedule:
     # Every Friday at 06:15 AM UTC
-#    - cron: "15 6 * * 5"
+    - cron: "15 6 * * 5"
 
 permissions:
   contents: read
@@ -13,6 +13,11 @@ jobs:
   prepare_release:
     runs-on: ubuntu-latest
     steps:
+      - name: Check if RELEASE_BRANCH is set
+        if: ${{ vars.RELEASE_BRANCH == '' }}
+        run: |
+          echo "The repository variable RELEASE_BRANCH is not set!"
+          exit 1
       - uses: octo-sts/action@main
         id: octo-sts
         with:
@@ -20,7 +25,7 @@ jobs:
           identity: prepare_release
       - uses: actions/checkout@v4
         with:
-          ref: "6.6.x"
+          ref: ${{ vars.RELEASE_BRANCH }}
           token: ${{ steps.octo-sts.outputs.token }}
           fetch-depth: 0
       - name: Check for changes

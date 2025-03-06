@@ -5,12 +5,28 @@ on:
     workflows: ["Prepare Release"]
     types:
       - completed
+
+permissions:
+  contents: write
+
 jobs:
   build:
-    uses: shopware/github-actions/.github/workflows/store-release.yml@main
-    with:
-      extensionName: ${{ github.event.repository.name }}
-    secrets:
-      accountUser: ${{ secrets.SHOPWARE_ACCOUNT_USER }}
-      accountPassword: ${{ secrets.SHOPWARE_ACCOUNT_PASSWORD }}
-      ghToken: ${{ secrets.GITHUB_TOKEN }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if RELEASE_BRANCH is set
+        if: ${{ vars.RELEASE_BRANCH == '' }}
+        run: |
+          echo "The repository variable RELEASE_BRANCH is not set!"
+          exit 1
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ vars.RELEASE_BRANCH }}
+          fetch-depth: 0
+      - uses: shopware/github-actions/store-release@main
+        with:
+          extensionName: ${{ github.event.repository.name }}
+          accountUser: ${{ secrets.SHOPWARE_ACCOUNT_USER }}
+          accountPassword: ${{ secrets.SHOPWARE_ACCOUNT_PASSWORD }}
+          ghToken: ${{ secrets.GITHUB_TOKEN }}
+          # As we are currently releasing from 6.6.x we checkout the repo separately
+          skipCheckout: true

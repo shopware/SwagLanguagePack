@@ -1,0 +1,10 @@
+# 4.30.0
+- [Update translations 2025-03-21](https://issues.shopware.com/issues/)
+- [Update translations 2025-03-20](https://issues.shopware.com/issues/)
+- [Update translations 2025-03-19](https://issues.shopware.com/issues/)
+- [Update translations 2025-03-18](https://issues.shopware.com/issues/)
+- [Update translations 2025-03-08](https://issues.shopware.com/issues/)
+- [Update translations 2025-03-07](https://issues.shopware.com/issues/)
+- [Update translations 2025-02-26](https://issues.shopware.com/issues/)
+- [Update translations 2025-02-25](https://issues.shopware.com/issues/)
+- [Update translations 2025-02-22](https://issues.shopware.com/issues/)

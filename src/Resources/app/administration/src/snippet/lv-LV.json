@@ -803,6 +803,60 @@
             "placeholderErrorMessage": "Vietnes vietturi nevar saglabāt."
         },
         "sw-condition-generic": {
+            "cartLineItemOfType": {
+                "lineItemType": {
+                    "options": {
+                        "product": "Produkts",
+                        "promotion": "Atlaide / piemaksa"
+                    }
+                }
+            },
+            "cartLineItemProductStates": {
+                "productState": {
+                    "options": {
+                        "is-download": "Digitālais",
+                        "is-physical": "Fiziskā"
+                    }
+                }
+            },
+            "cartTaxDisplay": {
+                "taxDisplay": {
+                    "options": {
+                        "gross": "Bruto",
+                        "net": "Neto"
+                    }
+                }
+            },
+            "cartTotalPurchasePrice": {
+                "type": {
+                    "options": {
+                        "gross": "Bruto",
+                        "net": "Neto"
+                    }
+                }
+            },
+            "dayOfWeek": {
+                "dayOfWeek": {
+                    "options": {
+                        "1": "Pirmdiena",
+                        "2": "Otrdiena",
+                        "3": "Trešdiena",
+                        "4": "Ceturtdiena",
+                        "5": "Piektdiena",
+                        "6": "Sestdiena",
+                        "7": "Svētdiena"
+                    }
+                }
+            },
+            "promotionCodeOfType": {
+                "promotionCodeType": {
+                    "options": {
+                        "fixed": "Fiksēts",
+                        "global": "Neviens",
+                        "individual": "Individuāls"
+                    }
+                }
+            },
             "units": {
                 "age": "Gadi",
                 "cm": "Centimetriem",
@@ -1431,6 +1485,10 @@
     "mt-text-editor-toolbar-button-link": {
         "label": "Saite"
     },
+    "sidebar": {
+        "ariaLabelButtonClose": "Aizvērt sānjoslu",
+        "ariaLabelButtonOpen": "Atvērt sānjoslu"
+    },
     "sw-ai-copilot-warning": {
         "text": "AI atbildes var būt neprecīzas vai maldinošas."
     },
@@ -1471,7 +1529,6 @@
                 "labelLearnMoreButton": "Uzzināt vairāk",
                 "linkToDocsArticle": "https://docs.shopware.com/en/shopware-6-en/tutorials-and-faq/notes-to-the-APP-URL",
                 "textDetails": "Tehniskā informācija: Nepareiza APP_URL konfigurācija.",
-                "textGetSupport": "Mēģiniet sazināties ar savu pieslēguma nodrošinātāju, lai saņemtu atbalstu.",
                 "title": "Nepareizi konfigurēts APP_URL"
             }
         }
@@ -1960,6 +2017,7 @@
                 "useAsLink": "Lietot kā saiti"
             },
             "link": {
+                "categoryHelpText": "Iekšējās saites uz kategorijām atbalsta šādus kategoriju tipus: {types}.",
                 "categoryPlaceholder": "Izvēlēties kategoriju...",
                 "example": "Piemērs:",
                 "externalDesc": "Lai iestatītu ārējās saites, ievietojiet pilnu tīmekļa adresi:",
@@ -2529,12 +2587,13 @@
                         "mediaUpload": "Augšuplādēt attēlu"
                     },
                     "helpText": {
-                        "autoSlide": "Slaids tiks slīdēts automātiski.",
                         "autoplayTimeout": "Milisekunžu ilgums, cik ilgi slaidam vajadzētu palikt nemainīgam.",
                         "displayMode": "<strong>Oriģināls:</strong> Attēls tiek parādīts sākotnējā izšķirtspējā vai samazināts līdz pašreizējās CMS lapas platumam.<br><br><strong>mērogots:</strong> Attēls tiek mērogots līdz CMS lapas platumam bez augstuma ierobežojumiem.<br><br><strong>Apgriezts:</strong> Attēls ir mērogots līdz pašreizējās CMS lapas platumam. Jebkura vertikālā pārplūde tiek apgriezta līdz konfigurētajam maksimālajam augstumam.",
                         "speed": "Animācijas milisekunžu ilgums."
                     },
                     "infoText": {
+                        "autoSlide": "Iespējot šo funkciju, jūsu veikala daļas var padarīt nepieejamas lietotājiem ar invaliditāti. Tas var izraisīt jūsu jurisdikcijā piemērojamo piekļuves tiesību aktu neievērošanu (piemēram, Eiropas Pieejamības likums). Turpinot darbu, jūs atzīstat šo risku un uzņematies pilnu atbildību.",
+                        "autoSlideTitle": "Bažas par pieejamību",
                         "listingElement": "Šī elementa produkta datus automātiski ielādē ar šo maketu saistītā kategorija. Saturs tikai parāda parauga priekšskatījumu."
                     },
                     "label": {
@@ -2579,6 +2638,7 @@
                 "config": {
                     "label": {
                         "isDecorative": "Atzīmējiet attēlu kā dekoratīvu",
+                        "isDecorativeHelpText": "Kad šī opcija ir iespējota, ekrāna lasītāji neizlasīs attēla informāciju.",
                         "linkNewTab": "Atvērt saiti jaunā cilnē",
                         "linkTo": "Saites mērķis",
                         "minHeight": "Minimālais augstums",
@@ -2635,6 +2695,11 @@
                 },
                 "config": {
                     "label": {
+                        "headlineLevel": "Produktu kastes virsraksta līmenis",
+                        "headlineLevelDefaultOption": "2. virsraksts (ieteicamais noklusējums)",
+                        "headlineLevelEmptyOption": "Nav virsraksta (nav ieteicams)",
+                        "headlineLevelHelp": "Izvēlieties virsraksta līmeni produktu lodziņu nosaukumiem šajā produktu sarakstā. Ja ir atlasīts “Nav virsraksta”, virsraksta līmenis netiks piemērots.",
+                        "headlineLevelOption": "Virsraksts {level}",
                         "layoutType": "Maketa tips",
                         "layoutTypeImage": "Liels attēls",
                         "layoutTypeMinimal": "Minimālais saturs",
@@ -3058,7 +3123,11 @@
             "placeholderNewPasswordConfirm": "Ievadiet jauno paroli atkārtoti...",
             "placeholderTitle": "Virsraksts",
             "placeholderVatId": "Ievadiet PVN reģ.Nr....",
-            "tooltipImitateCustomerGuest": "Viesu kontus nevar atdarināt."
+            "tooltipImitateCustomerGuest": "Viesu kontus nevar atdarināt.",
+            "tooltipImitateCustomerInactive": "Neaktīvos klientus nevar atdarināt.",
+            "tooltipImitateCustomerInactiveSalesChannel": "Klientu pārdošanas kanāls nav aktīvs.",
+            "tooltipImitateCustomerNoDomain": "Klienta pārdošanas kanālam nav konfigurēts domēns.",
+            "tooltipImitateCustomerNoStorefront": "Klienta pārdošanas kanāls nav Storefront tipa."
         },
         "customerGroupRegistration": {
             "accept": "Piekrist",
@@ -3138,6 +3207,7 @@
             "emptySearchTitle": "Nekas nav atrasts",
             "emptySubline": "Šeit pārvaldiet klienta pasūtījumus",
             "emptyTitle": "Pagaidām nav pasūtījumu",
+            "ordersTitle": "Pasūtījumi",
             "searchbarPlaceholder": "Meklēt pasūtījumus"
         },
         "error": {
@@ -3335,6 +3405,11 @@
             "orderTime": "Laiks",
             "orders": "Pasūtījumi",
             "turnover": "Kopējā vērtība"
+        }
+    },
+    "sw-date-filter": {
+        "selectTimeframe": {
+            "placeholder": "Izvēlieties laika grafiku"
         }
     },
     "sw-datepicker": {
@@ -5214,6 +5289,7 @@
             "cardTitleDetails": "Informācija",
             "cardTitleGeneralInfo": "Info",
             "cardTitleLineItems": "Vienības",
+            "cardTitlePromotions": "Akcijas",
             "columnPrice": "Cena",
             "columnPriceGross": "Cena (bruto)",
             "columnPriceNet": "Cena (neto)",
@@ -5231,11 +5307,14 @@
             "enterValidTrackingCode": "Ievadiet izsekošanas kodu",
             "headlineBillingAddress": "Norēķinu adrese",
             "headlineDeliveryAddress": "Piegādes adrese",
+            "helpTextCustomerComment": "Klienti var iesniegt šo komentāru, un visas izmaiņas viņiem būs redzamas.",
+            "helpTextInternalComment": "Šis komentārs ir paredzēts tikai iekšējai lietošanai un klientiem netiks prezentēts.",
             "labelAffiliateCode": "Partnera kods",
             "labelCampaignCode": "Akcijas kods",
             "labelCustomerComment": "Papildus informācija",
             "labelCustomerEmail": "E-pasta adrese",
             "labelCustomerPhoneNumber": "Tālruņa numurs",
+            "labelInternalComment": "Iekšējais komentārs",
             "labelLanguage": "Pasūtījuma valoda",
             "labelLastChange": "Pēdējoreiz mainīts",
             "labelNoChangesYet": "Vēl nav izmaiņu",
@@ -5291,9 +5370,20 @@
             "labelTransactionCard": "Maksājums",
             "promotionsField": {
                 "automaticPromotion": "automātiski lietots",
+                "automaticPromotions": {
+                    "labelButton": "Atjaunināt akcijas",
+                    "text": "Tas atjauninās pasūtījumu, noņemot akcijas, kas vairs nav piemērojamas, un pievienojot jaunas, kas to dara. Izmaiņas var būt saistītas ar atjauninātiem nosacījumiem vai atspējotām akcijām. Akcijas, kas pievienotas ar kodu, netiks mainītas.",
+                    "title": "Atjaunināt akcijas"
+                },
                 "labelPromotions": "Akcijas",
                 "labelToggleAutomaticPromotions": "Atspējot automātiski lietotās akcijas",
-                "placeholderPromotions": "Ievadiet akcijas kodu..."
+                "placeholderPromotions": "Ievadiet akcijas kodu...",
+                "updatesModal": {
+                    "description": "Atjauninātas šādas akcijas:",
+                    "promotionAddedTitle": "Pievienots:",
+                    "promotionRemovedTitle": "Noņemts:",
+                    "title": "Atjauninātas akcijas"
+                }
             }
         },
         "documentCard": {
@@ -6937,6 +7027,7 @@
             "columnName": "Nosaukums",
             "columnValidFrom": "Derīgs no",
             "columnValidUntil": "Derīgs līdz",
+            "deleteDisabledToolTip": "Piedāvājums pašlaik tiek izmantots, un to nevar izdzēst.",
             "descriptionEmpty": "Palieliniet savus pārdošanas apjomus, atlaižot produktus un pakalpojumus.",
             "duplicatePromotionInfo": "Reklāmas kodi netiek dublēti, un tie ir jāģenerē vēlreiz.",
             "placeholderSearchBar": "Meklēt akcijas...",
@@ -7952,6 +8043,7 @@
             "disabledSalesChannel": "Šajā pārdošanas kanālā jau ir vēl viens tāda paša tipa dokuments.",
             "disabledSalesChannelSelect": "Vispirms izvēlieties dokumenta veidu.",
             "disabledTypeSelect": "Globālo dokumentu veidu nevar mainīt.",
+            "helpTextDisplayAdditionalNoteDelivery": "Atbilstoši tikai ES dalībvalstīm, skatīt arī sadaļu “Iestatījumi > Valstis”.",
             "helpTextDisplayDeliveryCountries": "Parāda norādi par “Kopienas iekšējo piegādi” rēķina dokumentos atsevišķām valstīm.",
             "helpTextDisplayDocumentInCustomerAccount": "Dokuments tiek parādīts sadaļā “Pasūtījumi” attiecīgajā klienta kontā. Ņemiet vērā, ka klientam tiek parādīti tikai dokumenti, kas faktiski nosūtīti klientam.",
             "helpTextPaymentDueDate": "Piemēram: +30 dienas, +4 nedēļas, +1 nedēļa 2 dienas",

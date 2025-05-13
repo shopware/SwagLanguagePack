@@ -1,4 +1,15 @@
 {
+    "apps": {
+        "sw-cms": {
+            "detail": {
+                "label": {
+                    "blockCategory": {
+                        "spatial-commerce": "3D"
+                    }
+                }
+            }
+        }
+    },
     "error": {
         "edit": "There was a problem editing the requested text. Please try again later.",
         "generate": "There was a problem generating the requested text. Please try again later."
@@ -55,6 +66,7 @@
             "ADVANCED_SEARCH_BOOSTING_BOOST_INVALID": "The boost number must be a positive value",
             "ADVANCED_SEARCH_BOOSTING_NAME_DUPLICATED": "Boosting name already exists",
             "ADVANCED_SEARCH_BOOSTING_VALID_TO_INVALID": "The activation date should be set in the future",
+            "ORGANIZATION_UNIT_FIELD_REQUIRED": "This field must not be empty.",
             "SHOPPING_LIST_FIELD_REQUIRED": "This field must not be empty."
         },
         "swag-search-assistant": {
@@ -502,6 +514,101 @@
         "modalTitle": "Discard request",
         "placeholder": "Press the spacebar to inquire the AI Copilot..."
     },
+    "sw-config-sharing": {
+        "feature": {
+            "description": "This plugin allows you to share your configurations with other Shopware instances.",
+            "title": "Config Sharing"
+        },
+        "modals": {
+            "flow": {
+                "download": {
+                    "description": "This download will include all sequences and the configurations used in them. When uploaded to a foreign system, missing data or references, selected below, will be created.<br><br>Select references to include their data. When uploaded to a foreign system, these references will be created with their data. Otherwise, the references will have to be reassigned after upload.",
+                    "title": "Download flow"
+                },
+                "upload": {
+                    "title": "Upload flow"
+                }
+            },
+            "general": {
+                "download": {
+                    "button-label": "Download",
+                    "warning": {
+                        "description": "Including entities below can lead to missing or incorrect data when uploaded to a foreign system! Use with caution.",
+                        "title": "Download warning"
+                    }
+                },
+                "upload": {
+                    "button-label": "Upload",
+                    "file-upload": {
+                        "caption": "Please select a json file to upload a entity",
+                        "label": "Upload file"
+                    },
+                    "warning": {
+                        "description": "Included entities and their data will be created to this system. Be aware that this can lead to duplicates or incorrect data.",
+                        "title": "Upload warning"
+                    }
+                }
+            },
+            "notifications": {
+                "error": {
+                    "download": "An error occurred while creating the download file.",
+                    "fetch-data": "An error occurred while fetching the entity data.",
+                    "read-data": "An error occurred while reading the entity data: {error}",
+                    "upload": "An error occurred while uploading the file: {error}"
+                },
+                "success": {
+                    "download": "The download was successful.",
+                    "upload": "The upload was successful."
+                }
+            },
+            "references": {
+                "category": "Category",
+                "country": "Country",
+                "country_state": "Country state",
+                "currency": "Currency",
+                "custom_field": "Custom field",
+                "customer_group": "Customer group",
+                "document_type": "Document type",
+                "language": "Language",
+                "mail_template": "Mail template",
+                "payment_method": "Payment method",
+                "product_manufacturer": "Manufacturer",
+                "product_stream": "Dynamic product group",
+                "promotion": "Promotion",
+                "property_group_option": "Property group option",
+                "rule": "Rule",
+                "sales_channel": "Sales channel",
+                "salutation": "Salutation",
+                "shipping_method": "Shipping method",
+                "state_machine_state": "Status",
+                "tag": "Tag"
+            },
+            "rule": {
+                "download": {
+                    "description": "This download will include all conditions and the configurations used in them. When uploaded to a foreign system, missing data or references, selected below, will be created.<br><br>Select references to include their data. When uploaded to a foreign system, these references will be created with their data. Otherwise, the references will have to be reassigned after upload.",
+                    "title": "Download rule"
+                },
+                "upload": {
+                    "title": "Upload rule"
+                }
+            }
+        },
+        "rule": {
+            "warning": {
+                "description": "This rule is invalid and cannot be used right now. Please check the rule, resolve missing references and try again.",
+                "title": "Invalid rule"
+            }
+        },
+        "rule-list": {
+            "download-button": {
+                "label": "Download"
+            },
+            "upload-button": {
+                "label": "Upload rule",
+                "tooltip": "Upload a rule from your local storage."
+            }
+        }
+    },
     "sw-customer": {
         "businessPartner": {
             "buttonCreateEmployee": "Add employee account",
@@ -516,6 +623,7 @@
                     "titleActivate": "Activate employee account",
                     "titleDeactivate": "Deactivate employee account"
                 },
+                "sublineEmptyState": "Manage your customer's employee accounts here",
                 "titleEmptyState": "No employees yet."
             }
         },
@@ -524,6 +632,10 @@
         },
         "detailBase": {
             "labelCompanyCard": "Company"
+        },
+        "detailOrder": {
+            "columnOrganizationUnit": "Organization Units",
+            "columnOrganizationUnitEmpty": "No Unit"
         },
         "employee": {
             "buttonCreate": "Send invitation",
@@ -564,6 +676,23 @@
             "employees": "Employees",
             "warningEdit": "Be aware that any changes made will impact the company structure of your business partner."
         },
+        "list": {
+            "b2bLabel": "B2B",
+            "b2cLabel": "B2C",
+            "customerTypeLabel": "Customer type",
+            "customerTypePlaceholder": "Select customer type..."
+        },
+        "organizationUnit": {
+            "cardLabel": "Organization unit",
+            "createNewListLabel": "Add unit",
+            "createdAtColumn": "Created at",
+            "createdByColumn": "Created by",
+            "employeeColumn": "Employee",
+            "nameColumn": "Name",
+            "sublineEmptyState": "Manage your customer's organisation units here",
+            "tabLabel": "Company",
+            "titleEmptyState": "No organization unit yet"
+        },
         "quote": {
             "buttonAddQuote": "Add quote",
             "changeQuoteStateError": "There was an error while attempting to change the status of the quote to \"{stateName}\".",
@@ -600,6 +729,8 @@
                             "approval_rule": "Approval Rule Management",
                             "employee": "Employee management",
                             "order": "Orders",
+                            "organization_unit": "Organization Units",
+                            "organization_unit_address": "Organization Unit Addresses",
                             "pending_order": "Pending Order Management",
                             "quote": "Quote management",
                             "role": "Role management"
@@ -621,6 +752,28 @@
                                 "read": {
                                     "all": "Can view all orders"
                                 }
+                            },
+                            "organization_unit": {
+                                "billing_address": {
+                                    "create": "Create new billing address",
+                                    "delete": "Delete billing address",
+                                    "update": "Edit billing address"
+                                },
+                                "create": "Create new organization unit",
+                                "delete": "Delete organization unit",
+                                "order": {
+                                    "read": "Can view all orders from assigned organization unit"
+                                },
+                                "quote": {
+                                    "read": "Can view all quotes from assigned organization unit"
+                                },
+                                "read": "Can view organization units",
+                                "shipping_address": {
+                                    "create": "Create new shipping address",
+                                    "delete": "Delete shipping address",
+                                    "update": "Edit shipping address"
+                                },
+                                "update": "Edit organization unit"
                             },
                             "pending_order": {
                                 "approve_decline": "Can approve/decline pending orders",
@@ -670,6 +823,7 @@
                             "title": "Edit role"
                         }
                     },
+                    "sublineEmptyState": "Manage your customer's roles here",
                     "titleEmptyState": "No roles yet."
                 },
                 "title": "Roles"
@@ -686,11 +840,18 @@
             "cardLabel": "Shopping Lists",
             "createNewListLabel": "Add list",
             "creatorColumn": "Creator",
+            "detail": {
+                "labelCreator": "Creator",
+                "labelOrganizationUnit": "Organization Unit"
+            },
+            "emptyListSubline": "Manage your customer's shopping lists here",
             "emptyListTitle": "No lists yet",
             "modal": {
                 "deleteListDesc": "Are you sure you really want to delete \"{listName}\"?"
             },
             "nameColumn": "Name",
+            "noOrganizationUnitSelected": "No Unit",
+            "organizationUnitColumn": "Organization Unit",
             "productCountColumn": "Products",
             "tabLabel": "Company",
             "totalPriceColumn": "Total"
@@ -1024,10 +1185,83 @@
             }
         }
     },
+    "sw-organization-unit": {
+        "detail": {
+            "addressErrorNotification": "Please ensure this organizational unit has at least one shipping and one billing address",
+            "addresses": {
+                "addAdresses": "Add selected",
+                "billing": "Billing address",
+                "columns": {
+                    "city": "City",
+                    "company": "Company",
+                    "defaultAddress": "Default address",
+                    "firstName": "First Name",
+                    "lastName": "Last Name",
+                    "street": "Street",
+                    "zipcode": "Postal Code"
+                },
+                "default": "Default",
+                "messageEmptyAddress": "No addresses",
+                "modalTitle": "Add address",
+                "newAddress": "Add address",
+                "searchPlaceholder": "Search",
+                "setDefault": "Set as default",
+                "shipping": "Shipping address",
+                "tab": "Addresses",
+                "title": "{addressType} Addresses"
+            },
+            "errorNotification": "Error while saving organization unit",
+            "general": {
+                "field": {
+                    "createdAt": {
+                        "label": "Created at"
+                    },
+                    "employees": {
+                        "label": "Employees",
+                        "placeholder": "Select an employee"
+                    },
+                    "id": {
+                        "label": "Organization unit number"
+                    },
+                    "name": {
+                        "label": "Organization unit name",
+                        "placeholder": "Enter organization unit name"
+                    },
+                    "paymentMethod": {
+                        "label": "Payment methods",
+                        "placeholder": "Select a payment method"
+                    },
+                    "shippingMethod": {
+                        "label": "Shipping methods",
+                        "placeholder": "Select a shipping method"
+                    }
+                },
+                "tab": "General",
+                "title": "General Information"
+            },
+            "newTitle": "New organization unit",
+            "orders": {
+                "tab": "Orders",
+                "title": "Orders"
+            },
+            "quotes": {
+                "tab": "Quotes",
+                "title": "Quotes"
+            },
+            "shoppingList": {
+                "tab": "Shopping list",
+                "title": "Shopping list"
+            },
+            "successNotification": "Organization unit successfully saved"
+        }
+    },
     "sw-privileges": {
         "permissions": {
             "ai-image": {
                 "label": "Image keyword assistant"
+            },
+            "b2b_components_organization": {
+                "label": "Organisation Units"
             },
             "b2b_components_shopping_list": {
                 "label": "Shopping List"
@@ -1071,8 +1305,12 @@
             "columnName": "Name",
             "columnPriority": "Priority",
             "columnStock": "Stock",
+            "deliveryTimeHelpText": "Delivery time is saved automatically upon update",
+            "deliveryTimeLabel": "Delivery time",
             "labelTotalStock": "Total stock: ",
             "navigationLabelStock": "Stock {totalStock}",
+            "tabDeliveryTime": "Delivery time",
+            "tabStock": "Stock",
             "textHeadline": "Stock by warehouse and warehouse groups",
             "textInlineEdit": "Edit stock"
         },
@@ -1635,7 +1873,13 @@
                 "salesChannelCard": {
                     "descriptionLabel": "Context",
                     "descriptionPlaceholder": "Enter keywords...",
-                    "salesChannelDescriptionSubTitle": "To get the best results, describe your business in a few keywords (max 100 characters).",
+                    "salesChannelDescriptionExample": {
+                        "1": "“snacks, baked goods, coffee, kitchen, ingredients, utensils, household“",
+                        "2": "“outdoor, equipment, climbing, skiing, clothing, jackets, pants, waterproof, sun protection“",
+                        "3": "“craftsman supplies, screws, dowels, drills, saws, hammers, wood, equipment“",
+                        "title": "Examples:"
+                    },
+                    "salesChannelDescriptionSubTitle": "The AI Copilot's image and context-based search transfers uploaded images and natural language search queries into simple search terms using an AI prompting mechanism! It is important to add the context of your sales channel's product range to ensure that this generates the best possible results and that the search terms match your product range.\n\nEnter keywords that describe your product range (maximum 100 characters).",
                     "salesChannelDescriptionTitle": "Sales Channel context",
                     "title": "Sales Channel context"
                 }
@@ -1669,6 +1913,7 @@
             "activateCheckbox": {
                 "employee_management_activate_feature": "Enable B2B Component Employee Management",
                 "order_approval_activate_feature": "Enable B2B Component Order Approval",
+                "organization_units_activate_feature": "Enable B2B Component Organization Units",
                 "quote_management_activate_feature": "Enable B2B Component Quote Management",
                 "shopping_list_activate_feature": "Enable B2B Component Shopping Lists",
                 "swag_quick_order_activate_feature": "Enable B2B Component Quick Orders"
@@ -1677,6 +1922,7 @@
                 "features": {
                     "employee_management_activate_feature": "Employee Management",
                     "order_approval_activate_feature": "Order Approval",
+                    "organization_units_activate_feature": "Organization Units",
                     "quote_management_activate_feature": "Quote Management",
                     "shopping_list_activate_feature": "Shopping Lists",
                     "swag_quick_order_activate_feature": "Quick Orders"
@@ -1778,6 +2024,8 @@
             "buttonDelete": "Delete",
             "columnName": "Name",
             "columnWarehouseGroups": "Warehouse groups",
+            "placeholderSearchWarehouse": "Search warehouse...",
+            "placeholderSearchWarehouseGroup": "Search warehouse group...",
             "textDeleteConfirm-1": "Deleting a warehouse removes all associated stocks.",
             "textDeleteConfirm-2": "Are you sure you want to delete the warehouse ",
             "textDeleteConfirm-3": "?",
@@ -1922,6 +2170,8 @@
         "employeeManagementName": "Employee Management",
         "orderApprovalDescription": "Provides company-wide control over the order process, helps with keeping budget compliance and reduces ordering errors.",
         "orderApprovalName": "Order Approval",
+        "organizationUnitDescription": "Your customers can organize their employees with roles and permissions.",
+        "organizationUnitName": "Organization Units",
         "quickOrderDescription": "Your customers can speed up their ordering process by entering product numbers or uploading files.",
         "quickOrderName": "Quick Order",
         "quoteManagementDescription": "Your customers can request individual offering prices.",
@@ -1933,6 +2183,7 @@
                 "features": {
                     "EMPLOYEE_MANAGEMENT": "Employee Management",
                     "ORDER_APPROVAL": "Order Approval",
+                    "ORGANIZATION_UNITS": "Organization Units",
                     "QUICK_ORDER": "Quick Orders",
                     "QUOTE_MANAGEMENT": "Quote Management"
                 },
@@ -2080,7 +2331,7 @@
             "labelReturnCreated": "Return created on {time} by {user}",
             "labelTitle": "Return #{returnNumber}",
             "positionsTab": {
-                "labelPositions": "Positions"
+                "labelPositions": "Cart details"
             },
             "statusTab": {
                 "columnDate": "Date",

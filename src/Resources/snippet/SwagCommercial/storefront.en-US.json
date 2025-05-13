@@ -269,6 +269,13 @@
             "employees": "Employees",
             "roles": "Roles"
         },
+        "organizationUnit": {
+            "labelOrganizationUnit": "Organization unit",
+            "noOrganizationUnitSelected": "No Unit",
+            "organizationUnitConfirmModalText": "Do you really want to remove <strong>%name%</strong> from <strong>%unit%</strong>. <br />This will remove the current permissions of your employee?",
+            "organizationUnitConfirmModalTitle": "Remove organization unit assignment",
+            "removeAndSaveButton": "Remove and save"
+        },
         "overview": {
             "companyTitle": "Your company",
             "profileTitle": "Personal data"
@@ -293,6 +300,8 @@
                 "collapseMenuLabel": "Collapse menu for ",
                 "employee": "Employee management",
                 "order": "Orders",
+                "organization_unit": "Organization Units",
+                "organization_unit_address": "Organization Unit Addresses",
                 "pending_order": "Pending Order Management",
                 "quote": "Quote management",
                 "role": "Role management"
@@ -315,6 +324,28 @@
                     "read": {
                         "all": "Can view all orders"
                     }
+                },
+                "organization_unit": {
+                    "billing_address": {
+                        "create": "Create new billing address",
+                        "delete": "Delete billing address",
+                        "update": "Edit billing address"
+                    },
+                    "create": "Create new organization unit",
+                    "delete": "Delete organization unit",
+                    "order": {
+                        "read": "Can view all orders from assigned organization unit"
+                    },
+                    "quote": {
+                        "read": "Can view all quotes from assigned organization unit"
+                    },
+                    "read": "Can view organization units",
+                    "shipping_address": {
+                        "create": "Create new shipping address",
+                        "delete": "Delete shipping address",
+                        "update": "Edit shipping address"
+                    },
+                    "update": "Edit organization unit"
                 },
                 "pending_order": {
                     "approve_decline": "Can approve and decline pending orders",
@@ -354,6 +385,9 @@
             "searchPlaceholder": "Enter search term..."
         }
     },
+    "error": {
+        "VIOLATION::AT_LEAST_ONE_CHOICE": "Need to add at least one %option%"
+    },
     "general": {
         "categories": "Categories",
         "completion": "Suggestions",
@@ -366,7 +400,15 @@
         "fileTypeSizeError": "Could not read file. Make sure files do not exceed the size limit and use the correct file format.",
         "header": "Search by image",
         "searchButton": "Search by image",
-        "serviceError": "Service is currently not available",
+        "serviceError": {
+            "EmptyContext": "Context is empty. Please ask your administrator to configure the sales channel description",
+            "ImageTooLarge": "Image is too large",
+            "InvalidFileType": "Invalid file type",
+            "LongContext": "Context is too long. Please ask your administrator to configure the sales channel description",
+            "NoImage": "No image given",
+            "NotAnImage": "The file is not an image",
+            "default": "Service is currently not available"
+        },
         "subDescription": "*By uploading an image, you agree that it will be used for our service. Uploaded images will not be stored.",
         "title": "Please upload an image",
         "uploadButton": "Select file",
@@ -382,6 +424,9 @@
         "suggestion": "Try it out:",
         "title": "What are you looking for?"
     },
+    "order": {
+        "organizationLabel": "Organization Unit"
+    },
     "orderApproval": {
         "flashMessage": {
             "notAllowOrder": "You are not allowed to order.",
@@ -393,6 +438,57 @@
             "ruleCreated": "Approval rule created.",
             "ruleUpdated": "Approval rule updated."
         }
+    },
+    "organization-unit": {
+        "address": {
+            "billing": "Billing",
+            "markAsOrganizationBillingAddress": "Mark as Organization Billing Address",
+            "markAsOrganizationShippingAddress": "Mark as Organization Shipping Address",
+            "organizationAddressLabel": "Organization Address",
+            "shipping": "Shipping"
+        },
+        "create": {
+            "addressPlaceholder": "Search for addresses",
+            "billingAddressLabel": "Allow this organization access to billing addresses",
+            "billingAddressTitle": "Billing Addresses",
+            "defaultAddress": "Default",
+            "defaultButtonLabel": "Use as default",
+            "employeesLabel": "Assign Employees",
+            "employeesPlaceholder": "Search for employees",
+            "generalInformation": "General Information",
+            "nameLabel": "Organization unit name",
+            "namePlaceholder": "Enter organization unit name",
+            "noResults": "No results found",
+            "paymentMethodsLabel": "Allow this organization access to payment methods",
+            "paymentMethodsTitle": "Payment Methods",
+            "saveButtonLabel": "Create organization unit",
+            "shippingAddressLabel": "Allow this organization access to shipping addresses",
+            "shippingAddressTitle": "Shipping Addresses",
+            "shippingMethodsLabel": "Allow this organization access to shipping methods",
+            "shippingMethodsTitle": "Shipping Methods",
+            "title": "Create new organization unit"
+        },
+        "createButton": "Create unit",
+        "detail": {
+            "title": "Organization Unit Details"
+        },
+        "emptyDescription": "Create a new organization unit.",
+        "emptyTitle": "No organization unit yet?",
+        "listing": {
+            "emptyState": "You have not added any organization units yet.",
+            "removeMessage": "Do you really want to delete this organization unit?<br/>This action cannot be reversed.",
+            "removeTitle": "Remove organization unit",
+            "searchPlaceholder": "Search organization unit...",
+            "tableHeaderAction": "Actions",
+            "tableHeaderEmployee": "Employees",
+            "tableHeaderName": "Organization Units"
+        },
+        "noResultsFound": "No results found",
+        "organizationTitle": "Organization Units",
+        "paging": {
+            "itemsPerPage": "Items per page"
+        },
+        "roleAndOrganization": "Organization & Roles"
     },
     "pendingOrders": {
         "approveModal": {
@@ -674,6 +770,8 @@
             "fillProductsText": "Fill products to your list via",
             "quickOrderText": "Quick Orders",
             "textConfirmAddToCart": "Do you really want to add all products that are on this shopping list to your shopping cart?",
+            "title": "Details",
+            "titleItems": "Items",
             "variantLabel": "Options"
         },
         "shoppingListModal": {
@@ -707,6 +805,39 @@
         "button": {
             "revertToOriginal": "See original",
             "translateTo": "Translate review to %language%"
+        },
+        "locale": {
+            "bg-BG": "Bulgarian",
+            "bs-BA": "Bosnian",
+            "cs-CZ": "Czech",
+            "da-DK": "Danish",
+            "de-DE": "German",
+            "el-GR": "Greek",
+            "en-GB": "English",
+            "en-US": "English",
+            "es-ES": "Spanish",
+            "fi-FI": "Finnish",
+            "fr-FR": "French",
+            "hi-IN": "Hindi",
+            "hr-HR": "Croatian",
+            "hu-HU": "Hungarian",
+            "id-ID": "Indonesian",
+            "it-IT": "Italian",
+            "ko-KR": "Korean",
+            "lv-LV": "Latvian",
+            "nl-NL": "Dutch",
+            "nn-NO": "Norwegian",
+            "pl-PL": "Polish",
+            "pt-PT": "Portuguese",
+            "ro-RO": "Romanian",
+            "ru-RU": "Russian",
+            "sk-SK": "Slovak",
+            "sl-SI": "Slovene",
+            "sr-RS": "Serbian",
+            "sv-SE": "Swedish",
+            "tr-TR": "Turkish",
+            "uk-UA": "Ukrainian",
+            "vi-VN": "Vietnamese"
         },
         "translateError": "Could not translate review. Please try again later.",
         "translatedFrom": "Translated from %language%"

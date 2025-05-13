@@ -803,6 +803,60 @@
             "placeholderErrorMessage": "Placeholder cannot be saved."
         },
         "sw-condition-generic": {
+            "cartLineItemOfType": {
+                "lineItemType": {
+                    "options": {
+                        "product": "Product",
+                        "promotion": "Discount / surcharge"
+                    }
+                }
+            },
+            "cartLineItemProductStates": {
+                "productState": {
+                    "options": {
+                        "is-download": "Digital",
+                        "is-physical": "Physical"
+                    }
+                }
+            },
+            "cartTaxDisplay": {
+                "taxDisplay": {
+                    "options": {
+                        "gross": "Gross",
+                        "net": "Net"
+                    }
+                }
+            },
+            "cartTotalPurchasePrice": {
+                "type": {
+                    "options": {
+                        "gross": "Gross",
+                        "net": "Net"
+                    }
+                }
+            },
+            "dayOfWeek": {
+                "dayOfWeek": {
+                    "options": {
+                        "1": "Monday",
+                        "2": "Tuesday",
+                        "3": "Wednesday",
+                        "4": "Thursday",
+                        "5": "Friday",
+                        "6": "Saturday",
+                        "7": "Sunday"
+                    }
+                }
+            },
+            "promotionCodeOfType": {
+                "promotionCodeType": {
+                    "options": {
+                        "fixed": "Fixed",
+                        "global": "None",
+                        "individual": "Individual"
+                    }
+                }
+            },
             "units": {
                 "age": "Years",
                 "cm": "Centimeters",
@@ -1431,6 +1485,10 @@
     "mt-text-editor-toolbar-button-link": {
         "label": "Link"
     },
+    "sidebar": {
+        "ariaLabelButtonClose": "Close sidebar",
+        "ariaLabelButtonOpen": "Open sidebar"
+    },
     "sw-ai-copilot-warning": {
         "text": "AI responses can be inaccurate or misleading."
     },
@@ -1449,19 +1507,19 @@
                 "explanation": "Installed apps are still connected with the old domain and won't work with the new domain. There are three options from here to proceed.",
                 "explanationHeader": "We have noticed a change in your shop domain.",
                 "move-shop-permanently": {
-                    "description": "Make your apps use the new domain instead of the old domain. This will assign all apps and app data to your new domain and remove the assignment from the old domain.",
+                    "description": "This is typically the right option if you have permanently moved your shop from an old to a new domain. Shopware will notify app servers about the new domain (i.e. re-register at the app servers) and apps remain installed. The shop identifier remains unchanged.",
                     "name": "Migrate apps to new domain"
                 },
                 "newLabel": "New domain: ",
                 "oldLabel": "Old domain: ",
                 "reinstall-apps": {
-                    "description": "If you want to keep your apps working on both domains, this re-installs all apps on your new domain. Note: App data on your old domain will still be available, non-free apps may require additional charges for each domain.",
+                    "description": "This is typically the right option if you have made a copy of your shop (e.g. a staging or testing environment of a production shop) and you do want to use the apps in this copy. Shopware will re-install the apps and newly register at the app servers using the new domain. A new shop identifier will be generated.",
                     "name": "Copy apps to current domain"
                 },
                 "success": "Domain changed.",
                 "title": "Domain change detected",
                 "uninstall-apps": {
-                    "description": "Keeps app data on old domain and uninstalls all apps from the new domain.",
+                    "description": "This is typically the right option if you have made a copy of your shop (e.g. a staging or testing environment of a production shop) and you don’t want to use the apps in this copy. Shopware will delete the apps without notifying the app servers. A new shop identifier will be generated.",
                     "name": "Uninstall apps"
                 }
             },
@@ -1471,7 +1529,6 @@
                 "labelLearnMoreButton": "Learn more",
                 "linkToDocsArticle": "https://docs.shopware.com/en/shopware-6-en/tutorials-and-faq/notes-to-the-APP-URL",
                 "textDetails": "Technical details: Wrong APP_URL configuration.",
-                "textGetSupport": "Try contacting your hoster to get support.",
                 "title": "Wrongly configured APP_URL"
             }
         }
@@ -1960,6 +2017,7 @@
                 "useAsLink": "Use as link"
             },
             "link": {
+                "categoryHelpText": "Internal links to categories support the following category types: {types}.",
                 "categoryPlaceholder": "Choose a category...",
                 "example": "Example:",
                 "externalDesc": "To set external links, insert the complete web address:",
@@ -2529,12 +2587,13 @@
                         "mediaUpload": "Upload an image"
                     },
                     "helpText": {
-                        "autoSlide": "Temporarily disabled due to lack of accessibility.",
                         "autoplayTimeout": "The millisecond duration for how long the slide should stay still.",
                         "displayMode": "<strong>Original:</strong> The image is displayed in its original resolution or shrunk down to current CMS page's width.<br><br><strong>Scaled:</strong> The image is scaled to the CMS page's width without any height restrictions.<br><br><strong>Cropped:</strong> The image is scaled to the current CMS page's width. Any vertical overflow is cropped to the configured maximum height.",
                         "speed": "The millisecond duration of the sliding animation."
                     },
                     "infoText": {
+                        "autoSlide": "Enabling this feature may make parts of your storefront inaccessible to users with disabilities. This may result in non-compliance with accessibility laws applicable in your jurisdiction (e.g., the European Accessibility Act). By proceeding, you acknowledge this risk and accept full responsibility.",
+                        "autoSlideTitle": "Accessibility concerns",
                         "listingElement": "This element's product data is automatically loaded by the category associated with this layout. The content just shows a sample preview."
                     },
                     "label": {
@@ -2579,6 +2638,7 @@
                 "config": {
                     "label": {
                         "isDecorative": "Mark image as decorative",
+                        "isDecorativeHelpText": "When this option is enabled, the image information will not be read out by screen readers.",
                         "linkNewTab": "Open link in new tab",
                         "linkTo": "Link target",
                         "minHeight": "Minimum height",
@@ -2635,6 +2695,11 @@
                 },
                 "config": {
                     "label": {
+                        "headlineLevel": "Headline level for product boxes",
+                        "headlineLevelDefaultOption": "Headline 2 (recommended default)",
+                        "headlineLevelEmptyOption": "No headline (not recommended)",
+                        "headlineLevelHelp": "Choose a headline level for the product box titles in this product listing. If \"No headline\" is selected, no headline level will be applied.",
+                        "headlineLevelOption": "Headline {level}",
                         "layoutType": "Layout type",
                         "layoutTypeImage": "Big image",
                         "layoutTypeMinimal": "Minimal content",
@@ -2969,8 +3034,8 @@
             "labelTitle": "Title",
             "labelVatId": "Tax ID",
             "labelZipcode": "Postal code",
-            "placeholderAdditionalAddressLine1": "Enter a first additional address line...",
-            "placeholderAdditionalAddressLine2": "Enter a second additional address line...",
+            "placeholderAdditionalAddressLine1": "Enter a first address line...",
+            "placeholderAdditionalAddressLine2": "Enter a second address line...",
             "placeholderCity": "Enter city...",
             "placeholderCompany": "Enter company...",
             "placeholderCountry": "Select country...",
@@ -3058,7 +3123,11 @@
             "placeholderNewPasswordConfirm": "Re-enter new password...",
             "placeholderTitle": "Title",
             "placeholderVatId": "Enter Tax ID...",
-            "tooltipImitateCustomerGuest": "Guest accounts cannot be imitated."
+            "tooltipImitateCustomerGuest": "Guest accounts cannot be imitated.",
+            "tooltipImitateCustomerInactive": "Inactive customers cannot be imitated.",
+            "tooltipImitateCustomerInactiveSalesChannel": "The customers Sales Channel is not active.",
+            "tooltipImitateCustomerNoDomain": "The Sales Channel of the customer has no domain configured.",
+            "tooltipImitateCustomerNoStorefront": "The Sales Channel of the customer is not of type Storefront."
         },
         "customerGroupRegistration": {
             "accept": "Accept",
@@ -3138,6 +3207,7 @@
             "emptySearchTitle": "No search result",
             "emptySubline": "Manage your customers' orders here",
             "emptyTitle": "No orders yet",
+            "ordersTitle": "Orders",
             "searchbarPlaceholder": "Search orders"
         },
         "error": {
@@ -3204,6 +3274,7 @@
             "modalDescription": "Choose the Sales Channel in which you would like to log in as {firstname} {lastname}.",
             "modalInfo": "Please remember to {logout} after you have finished your work.",
             "modalInfoLogout": "log out",
+            "modalInfoNoDomains": "No active domain found. Please check your Sales Channel settings.",
             "modalTitle": "Log in as {firstname} {lastname}"
         },
         "list": {
@@ -3250,7 +3321,7 @@
     "sw-dashboard": {
         "feedbackCard": {
             "feedback": "Give feedback",
-            "feedbackLink": "https://github.com/shopware/shopware/issues",
+            "feedbackLink": "https://feedback.shopware.com",
             "headline": "First impressions count.",
             "text": "Share your first impressions and help us improve the overall Shopware experience."
         },
@@ -3335,6 +3406,11 @@
             "orderTime": "Time",
             "orders": "Orders",
             "turnover": "Total value"
+        }
+    },
+    "sw-date-filter": {
+        "selectTimeframe": {
+            "placeholder": "Select timeframe"
         }
     },
     "sw-datepicker": {
@@ -5214,6 +5290,7 @@
             "cardTitleDetails": "Details",
             "cardTitleGeneralInfo": "Info",
             "cardTitleLineItems": "Items",
+            "cardTitlePromotions": "Promotions",
             "columnPrice": "Price",
             "columnPriceGross": "Price (gross)",
             "columnPriceNet": "Price (net)",
@@ -5231,11 +5308,14 @@
             "enterValidTrackingCode": "Enter tracking code",
             "headlineBillingAddress": "Billing address",
             "headlineDeliveryAddress": "Shipping address",
+            "helpTextCustomerComment": "Customers can submit this comment, and any changes will be visible to them.",
+            "helpTextInternalComment": "This comment is for internal use only and will not be presented to customers.",
             "labelAffiliateCode": "Affiliate code",
             "labelCampaignCode": "Campaign code",
             "labelCustomerComment": "Additional information",
             "labelCustomerEmail": "Email address",
             "labelCustomerPhoneNumber": "Phone number",
+            "labelInternalComment": "Internal comment",
             "labelLanguage": "Order language",
             "labelLastChange": "Last changed",
             "labelNoChangesYet": "No changes yet",
@@ -5291,9 +5371,20 @@
             "labelTransactionCard": "Payment",
             "promotionsField": {
                 "automaticPromotion": "automatically applied",
-                "labelPromotions": "Promotions",
+                "automaticPromotions": {
+                    "labelButton": "Update promotions",
+                    "text": "This will update the order by removing promotions that no longer apply and adding new ones that do. Changes may be due to updated conditions or disabled promotions. Promotions added with a code won't be changed.",
+                    "title": "Update promotions"
+                },
+                "labelPromotions": "Promotions with code",
                 "labelToggleAutomaticPromotions": "Disable automatically applied promotions",
-                "placeholderPromotions": "Enter promotion code ..."
+                "placeholderPromotions": "Enter promotion code ...",
+                "updatesModal": {
+                    "description": "The following promotions have been updated:",
+                    "promotionAddedTitle": "Added:",
+                    "promotionRemovedTitle": "Removed:",
+                    "title": "Updated promotions"
+                }
             }
         },
         "documentCard": {
@@ -5580,7 +5671,9 @@
             "labelErrorNoAction": "Status unchanged.",
             "labelErrorStateChange": "An error occured while updating the status:",
             "labelHistory": "Status set {time} by {author}",
+            "labelIntegration": "Integration",
             "labelLastEditedBy": "Last edited by",
+            "labelLastEditedByIntegration": "Last edited by {integrationName} (Integration)",
             "labelNoDeliveryState": "No deliveries yet",
             "labelNoTransactionState": "No transactions yet",
             "labelSelectStateButton": "Update status",
@@ -5598,6 +5691,7 @@
                 "transaction": "Payment",
                 "user": "Changed By"
             },
+            "labelIntegration": "Integration",
             "labelSystemUser": "System",
             "modalTitle": "Status history"
         },
@@ -6937,6 +7031,7 @@
             "columnName": "Name",
             "columnValidFrom": "Valid from",
             "columnValidUntil": "Valid until",
+            "deleteDisabledToolTip": "Promotion is currently in use and cannot be deleted.",
             "descriptionEmpty": "Boost your sales by discounting your products and services.",
             "duplicatePromotionInfo": "Promotion codes are not duplicated and need to be generated again.",
             "placeholderSearchBar": "Search promotions...",
@@ -7952,6 +8047,7 @@
             "disabledSalesChannel": "There is already another document of the same type in this Sales Channel.",
             "disabledSalesChannelSelect": "Choose a document type first.",
             "disabledTypeSelect": "The type of global documents cannot be changed.",
+            "helpTextDisplayAdditionalNoteDelivery": "Eligible only for EU member states, see also \"Settings > Countries\".",
             "helpTextDisplayDeliveryCountries": "Displays indication of \"intra community delivery\" on invoice documents for selected countries.",
             "helpTextDisplayDocumentInCustomerAccount": "The document is displayed under \"Orders\" in the respective customer account. Note that only documents that have actually been sent to the customer are displayed in the customer account.",
             "helpTextPaymentDueDate": "E.g.: +30 days, +4 weeks, +1 week 2 days",

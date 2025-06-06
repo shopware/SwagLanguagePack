@@ -13,12 +13,10 @@ permissions:
 jobs:
   prepare_release:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        RELEASE_BRANCH: ${{ fromJSON(vars.RELEASE_BRANCHES) }}
     steps:
-      - name: Check if RELEASE_BRANCH is set
-        if: ${{ vars.RELEASE_BRANCH == '' }}
-        run: |
-          echo "The repository variable RELEASE_BRANCH is not set!"
-          exit 1
       - uses: octo-sts/action@main
         id: octo-sts
         with:
@@ -26,7 +24,7 @@ jobs:
           identity: prepare_release
       - uses: actions/checkout@v4
         with:
-          ref: ${{ vars.RELEASE_BRANCH }}
+          ref: ${{ matrix.RELEASE_BRANCH }}
           token: ${{ steps.octo-sts.outputs.token }}
           fetch-depth: 0
       - name: Check for changes
@@ -66,4 +64,4 @@ jobs:
         if: ${{ ! steps.check-changes.outputs.no_changes }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh workflow run store-release.yml -r ${{ vars.RELEASE_BRANCH }}
+        run: gh workflow run store-release.yml -r ${{ matrix.RELEASE_BRANCH }}

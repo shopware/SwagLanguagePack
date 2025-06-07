@@ -393,6 +393,7 @@
             "open": "Atvērt",
             "remove": "Izdzēst",
             "save": "Saglabāt",
+            "submit": "Apstiprināt",
             "success": "Veiksmīgi",
             "to": "Lai",
             "view": "Skatīt",
@@ -2336,7 +2337,8 @@
                 "removePreviewImage": "Dzēst priekšskatu",
                 "rename": "Pārsaukt",
                 "setAsDefaultProductDetail": "Iestatīt kā produkta noklusējuma lapu",
-                "setAsDefaultProductList": "Iestatīt kā produktu saraksta noklusējumu"
+                "setAsDefaultProductList": "Iestatīt kā produktu saraksta noklusējumu",
+                "view": "Skatīt"
             },
             "cmsMissingElementModal": {
                 "buttonSave": "Saglabāt izkārtojumu",
@@ -2539,7 +2541,6 @@
                 },
                 "element": {
                     "helpText": {
-                        "privacy": "Esmu lasījis datu aizsardzības informāciju.",
                         "requiredFields": "Lauki, kas atzīmēti ar * ir obligāti"
                     },
                     "label": {
@@ -2553,7 +2554,6 @@
                         "privacy": "Privātums",
                         "salutation": "Sveiciens*",
                         "salutationUndisclosed": "Neatvērt",
-                        "send": "Sūtīt",
                         "subject": "Subjekta līnija*",
                         "subscribeToNewsletter": "Parakstīties uz Jaunumiem"
                     },
@@ -2887,7 +2887,6 @@
             }
         },
         "general": {
-            "buttonDelete": "Dzēst",
             "createNewLayout": "Izveidot jaunu maketu",
             "deleteDisabledProductToolTip": "Izkārtojums, kuru vēlaties izdzēst, joprojām ir piešķirts vismaz vienam produktam.",
             "deleteDisabledToolTip": "Makets, kuru vēlaties izdzēst, joprojām tiek izmantots vismaz vienai kategorijai.",
@@ -2895,7 +2894,8 @@
             "greeting": "Maketi",
             "mainMenuItemGeneral": "Pirkumu pieredze",
             "moduleTitle": "Pirkumu pieredze",
-            "placeholderSearchBar": "Meklēt izkārtojumus..."
+            "placeholderSearchBar": "Meklēt izkārtojumus...",
+            "privacyNotice": "Izvēloties turpināt, jūs apstiprināt, ka esat izlasījis mūsu <a href=\"%privacyUrl%\" title=\"Data protection information\">datu aizsardzības informāciju</a> un piekrītat mūsu <a href=\"%tosUrl%\" title=\"general terms and conditions\">vispārīgajiem noteikumiem un nosacījumiem</a>."
         },
         "list": {
             "gridHeaderAssignedPages": "Piešķirtās lapas",
@@ -3274,6 +3274,7 @@
             "modalDescription": "Izvēlieties pārdošanas kanālu, kurā vēlaties pieteikties kā {firstname} {lastname}.",
             "modalInfo": "Lūdzu, atcerieties {logout} pēc darba pabeigšanas.",
             "modalInfoLogout": "izrakstīties",
+            "modalInfoNoDomains": "Aktīvs domēns nav atrasts. Lūdzu, pārbaudiet savus pārdošanas kanāla iestatījumus.",
             "modalTitle": "Piesakieties kā {firstname} {lastname}"
         },
         "list": {
@@ -5670,7 +5671,9 @@
             "labelErrorNoAction": "Statuss nav mainīts.",
             "labelErrorStateChange": "Kļūda atjauninot statusu:",
             "labelHistory": "Statusa iestatījums {time} ar {author}",
+            "labelIntegration": "Integrācija",
             "labelLastEditedBy": "Pēdējā rediģēšana",
+            "labelLastEditedByIntegration": "Pēdējo reizi rediģēja {integrationName} (Integrācija)",
             "labelNoDeliveryState": "Pagaidām nav piegādes",
             "labelNoTransactionState": "Nav transakciju",
             "labelSelectStateButton": "Atjaunot statusu",
@@ -5688,6 +5691,7 @@
                 "transaction": "Maksājums",
                 "user": "Mainīts ar"
             },
+            "labelIntegration": "Integrācija",
             "labelSystemUser": "Sistēma",
             "modalTitle": "Statusa vēsture"
         },
@@ -5956,7 +5960,7 @@
             "textEnterValidSearchKeyword": "Meklējamie atslēgvārdi"
         },
         "crossselling": {
-            "assignEmptyStateDescription": "Saglabājiet savstarpējo pārdošanu, lai tai pievienotu produktus.",
+            "assignEmptyStateTitle": "Nav pievienoti produkti",
             "assignPlaceholder": "Meklēt produktus...",
             "buttonAddCrossSelling": "Pievienojiet jaunu saistīto pārdošanu",
             "buttonAddCrossSellingLanguageWarning": "Noklusējuma valodā varat izveidot tikai jaunas savstarpējās pārdošanas",
@@ -5974,6 +5978,7 @@
             "inputCrossSellingPosition": "Pozīcija",
             "inputCrossSellingPositionPlaceholder": "Izvēlieties statusu...",
             "inputCrossSellingProductList": "Produktu piešķiršana",
+            "inputCrossSellingProductListPlaceholder": "Meklēt un pievienot produktus...",
             "inputCrossSellingProductStream": "Produkta grupa",
             "inputCrossSellingProductStreamPlaceholder": "Meklēt dinamisko produktu grupas...",
             "inputCrossSellingSorting": "Kārtot",
@@ -5983,6 +5988,7 @@
             "linkCrossSellingsOfParent": "Rādīt mātesprodukta savstarpējo pārdošanu",
             "linkOpenStreamPreview": "Atvērt priekšskatu",
             "nameSortingType": "Nosaukums",
+            "newCrossSellingTitle": "Jauna savstarpēja pārdošana",
             "notInheritedEmptyStateDescription": "Tagad šim variantam varat izmantot pielāgotas savstarpējās pārdošanas konfigurācijas.",
             "popularitySortingType": "Popularitāte",
             "priceAscendingSortingType": "Cena, no lētākā",
@@ -7502,7 +7508,7 @@
             "titleDetailPrefix": "{name} - detaļas"
         },
         "sw-sales-channel-defaults-select": {
-            "messageError": "Vērtība tiek izmantota šajā domēnā: \"%{url}\"."
+            "messageError": "Vērtība tiek izmantota šajā domēnā: \"{url}\"."
         }
     },
     "sw-sales-channel-switch": {
@@ -8363,6 +8369,29 @@
             "title": "Mēdiji"
         }
     },
+    "sw-settings-message-stats": {
+        "general": {
+            "averageTime": "Vidējais laiks rindā",
+            "averageTimeHelp": "Vidējais laiks (sekundēs), kad ziņojumi gaida rindā pirms apstrādes. Tas palīdz noteikt kavēšanos vai vājās vietas.",
+            "count": "Daudzums",
+            "description": "Šis skats sniedz detalizētu ieskatu Shopware ziņojumu rindas veiktspējā. Katram apstrādātam ziņojumam sistēma reģistrē, cik ilgi tas palika rindā. Šīs statistikas pamatā ir bīdāms laika logs, kuru varat pielāgot sistēmas iestatījumos.",
+            "descriptionTextModule": "Skatiet statistiku par apstrādātiem ziņojumiem ziņojumu rindas sistēmā",
+            "emptyStateSubline": "Ziņojumu rindas statistika vēl nav apkopota.",
+            "emptyStateTitle": "Statistika nav pieejama",
+            "errorTitle": "Kļūda ielādējot ziņojumu statistiku",
+            "mainMenuItemGeneral": "Ziņojumu rindas statistika",
+            "processingWindow": "Apstrādes logs",
+            "processingWindowHelp": "Parāda vecākā ziņojuma laiku, kas pašlaik iekļauts statistikā. Piemēram, ja jūsu statistikas logs ir iestatīts uz 1 stundu, bet apstrāde sākās tikai pirms 5 minūtēm, tas atspoguļos šo īsāko ilgumu.",
+            "refreshButton": "Atsvaidzināt datus",
+            "seconds": "s",
+            "statsCardTitle": "Pārskats",
+            "statsDisabledContent": "Lai iespējotu ziņojumu rindas statistiku, shopware.yaml konfigurācijas failā iestatiet atslēgu “shopware.messenger.stats.enabled” uz patiesu un restartējiet darbiniekus.",
+            "statsDisabledTitle": "Ziņojumu rindas statistika ir atspējota",
+            "totalMessages": "Apstrādāti ziņojumi",
+            "totalMessagesHelp": "Cik ziņojumu tika veiksmīgi apstrādāti noteiktajā laika posmā.",
+            "type": "Tips"
+        }
+    },
     "sw-settings-newsletter": {
         "general": {
             "buttonSave": "Saglabāt",
@@ -9125,31 +9154,26 @@
         "setList": {
             "buttonAddSet": "Pievienot teksta frāžu komplektu",
             "buttonClone": "Kopēt",
-            "buttonDelete": "Dzēst",
-            "buttonEditSet": "Labot teksta frāzes",
-            "buttonExport": "Eksportēt",
             "buttonImport": "Importēt",
             "cardTitle": "Frāžu fragmentu komplekti",
             "cloneErrorMessage": "Kļūda kopējot teksta frāžu komplektu.",
             "cloneSuccessMessage": "Teksta frāžu komplekts ir nokopēts.",
             "columnBaseFile": "Pamatfails",
             "columnChangedAt": "Pēdējais atjaunojums",
+            "columnIso": "Lokalizācija",
             "columnName": "Nosaukums",
             "contextMenuClone": "Dublēt",
             "contextMenuDelete": "Dzēst",
             "contextMenuEdit": "Labot",
             "deleteNoteErrorMessage": "Nevar izdzēst teksta frāžu komplektu.",
             "deleteNoteSuccessMessage": "Teksta frāžu komplekts ir izdzēsts.",
-            "description": "Šis ir jūsu fragmentu kopu pārskats. Atlasiet kopu un rediģējiet atsevišķus fragmentus pēc savas gaumes.",
             "inlineEditErrorMessage": "Fragmenta kopu nevarēja saglabāt | Fragmenta kopu \"{name}\" nevarēja saglabāt.",
             "inlineEditSuccessMessage": "Teksta frāžu komplekts “{name}” ir saglabāts.",
             "modalTitleClone": "Kopēt teksta frāžu komplektu",
+            "newSnippetName": "Jauns fragmentu komplekts",
             "notEditableNoteErrorMessage": "Radās kļūda labojot teksta frāžu komplektus.",
             "placeholderName": "Ievadiet teksta frāžu komplekta nosaukumu...",
-            "splitButtonDuplicateContent": "Dublēt no",
-            "textCloneConfirm": "Vai tiešām vēlaties kopēt teksta frāžu komplektu \"{name}\"?",
-            "textDeleteConfirm": "Vai tiešām vēlaties izdzēst fragmenta komplektu \"{name}\"?",
-            "title": "Pārvaldīt teksta fragmentus"
+            "textDeleteConfirm": "Vai tiešām vēlaties izdzēst fragmenta komplektu \"{name}\"?"
         }
     },
     "sw-settings-state-machine": {

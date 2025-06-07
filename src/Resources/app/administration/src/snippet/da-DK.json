@@ -393,6 +393,7 @@
             "open": "Åben",
             "remove": "Fjern",
             "save": "Gem",
+            "submit": "Gem",
             "success": "Succes",
             "to": "Til",
             "view": "Vis",
@@ -803,6 +804,60 @@
             "placeholderErrorMessage": "\"Wildcard\" kunne ikke gemmes."
         },
         "sw-condition-generic": {
+            "cartLineItemOfType": {
+                "lineItemType": {
+                    "options": {
+                        "product": "Produkt",
+                        "promotion": "Rabat / gebyr"
+                    }
+                }
+            },
+            "cartLineItemProductStates": {
+                "productState": {
+                    "options": {
+                        "is-download": "Digitale",
+                        "is-physical": "Fysisk"
+                    }
+                }
+            },
+            "cartTaxDisplay": {
+                "taxDisplay": {
+                    "options": {
+                        "gross": "Brutto",
+                        "net": "Netto"
+                    }
+                }
+            },
+            "cartTotalPurchasePrice": {
+                "type": {
+                    "options": {
+                        "gross": "Brutto",
+                        "net": "Netto"
+                    }
+                }
+            },
+            "dayOfWeek": {
+                "dayOfWeek": {
+                    "options": {
+                        "1": "Mandag",
+                        "2": "Tirsdag",
+                        "3": "Onsdag",
+                        "4": "Torsdag",
+                        "5": "Fredag",
+                        "6": "Lørdag",
+                        "7": "Søndag"
+                    }
+                }
+            },
+            "promotionCodeOfType": {
+                "promotionCodeType": {
+                    "options": {
+                        "fixed": "Fast",
+                        "global": "Ingen",
+                        "individual": "Individuelt"
+                    }
+                }
+            },
             "units": {
                 "age": "År",
                 "cm": "Centimeter",
@@ -1431,6 +1486,10 @@
     "mt-text-editor-toolbar-button-link": {
         "label": "Link"
     },
+    "sidebar": {
+        "ariaLabelButtonClose": "Luk sidebjælken",
+        "ariaLabelButtonOpen": "Åbn sidebjælke"
+    },
     "sw-ai-copilot-warning": {
         "text": "AI-svar kan være unøjagtige eller vildledende."
     },
@@ -1471,7 +1530,6 @@
                 "labelLearnMoreButton": "Lær mere",
                 "linkToDocsArticle": "https://docs.shopware.com/en/shopware-6-en/tutorials-and-faq/notes-to-the-APP-URL",
                 "textDetails": "Tekniske detaljer: Forkert APP_URL konfiguration.",
-                "textGetSupport": "Prøv at kontakte din hoster for at få support.",
                 "title": "Forkert konfigureret APP_URL"
             }
         }
@@ -2279,7 +2337,8 @@
                 "removePreviewImage": "Fjern Preview billede",
                 "rename": "Omdøb",
                 "setAsDefaultProductDetail": "Indstil som produktside standard",
-                "setAsDefaultProductList": "Angiv som produkt notering standard"
+                "setAsDefaultProductList": "Angiv som produkt notering standard",
+                "view": "Vis"
             },
             "cmsMissingElementModal": {
                 "buttonSave": "Gem layout",
@@ -2482,7 +2541,6 @@
                 },
                 "element": {
                     "helpText": {
-                        "privacy": "Jeg har læst databeskyttelse dokumentet.",
                         "requiredFields": "Felter markeret med * er påkrævet"
                     },
                     "label": {
@@ -2496,7 +2554,6 @@
                         "privacy": "Privatliv",
                         "salutation": "Tiltaleform*",
                         "salutationUndisclosed": "Fortrækker ikke at oplyse",
-                        "send": "Send",
                         "subject": "Emnefelt*",
                         "subscribeToNewsletter": "Tilmeld nyhedsbrev"
                     },
@@ -2830,7 +2887,6 @@
             }
         },
         "general": {
-            "buttonDelete": "Slet",
             "createNewLayout": "Opret nyt layout",
             "deleteDisabledProductToolTip": "Det layout, du vil slette, er stadig tildelt mindst ét produkt.",
             "deleteDisabledToolTip": "Layoutet du ønsker at slette er stadig tilknyttet mindst én kategori.",
@@ -2838,7 +2894,8 @@
             "greeting": "Layouts",
             "mainMenuItemGeneral": "CMS sider",
             "moduleTitle": "CMS sider",
-            "placeholderSearchBar": "Søg i layout..."
+            "placeholderSearchBar": "Søg i layout...",
+            "privacyNotice": "Ved at vælge Fortsæt bekræfter du, at du har læst vores <a href=\"%privacyUrl%\">databeskyttelsesinformation</a> og accepteret vores <a href=\"%tosUrl%\">generelle vilkår og betingelser</a>."
         },
         "list": {
             "gridHeaderAssignedPages": "Tildelte sider",
@@ -3150,6 +3207,7 @@
             "emptySearchTitle": "Søgningen gav ingen resultater",
             "emptySubline": "Håndter dine kunders ordrer her",
             "emptyTitle": "Ingen ordre endnu",
+            "ordersTitle": "Ordrer",
             "searchbarPlaceholder": "Søg i ordrer"
         },
         "error": {
@@ -3216,6 +3274,7 @@
             "modalDescription": "Vælg den salgskanal, hvor du gerne vil logge ind som {firstname} {lastname}.",
             "modalInfo": "Husk at {logout} , når du er færdig med dit arbejde.",
             "modalInfoLogout": "log ud",
+            "modalInfoNoDomains": "Intet aktivt domæne fundet. Kontroller indstillingerne for salgskanalen.",
             "modalTitle": "Log ind som {firstname} {lastname}"
         },
         "list": {
@@ -5612,7 +5671,9 @@
             "labelErrorNoAction": "Status uændret.",
             "labelErrorStateChange": "Der opstod en fejl under opdatering af status:",
             "labelHistory": "Status sat {time} af {author}",
+            "labelIntegration": "Integration",
             "labelLastEditedBy": "Sidst redigeret af",
+            "labelLastEditedByIntegration": "Sidst redigeret af {integrationName} (Integration)",
             "labelNoDeliveryState": "Ingen leveringer endnu",
             "labelNoTransactionState": "Ingen transaktioner endnu",
             "labelSelectStateButton": "Opdater status",
@@ -5630,6 +5691,7 @@
                 "transaction": "Betaling",
                 "user": "Ændret Af"
             },
+            "labelIntegration": "Integration",
             "labelSystemUser": "System",
             "modalTitle": "Status historik"
         },
@@ -5898,7 +5960,7 @@
             "textEnterValidSearchKeyword": "Søgbare søgeord"
         },
         "crossselling": {
-            "assignEmptyStateDescription": "Gem det valgte krydssalg for at tilføje produkter til det.",
+            "assignEmptyStateTitle": "Ingen produkter tildelt",
             "assignPlaceholder": "Søg blandt produkter...",
             "buttonAddCrossSelling": "Tilføj nyt krydssalg",
             "buttonAddCrossSellingLanguageWarning": "Du kan kun oprette nye cross sellings på dit standardsprog",
@@ -5916,6 +5978,7 @@
             "inputCrossSellingPosition": "Placering",
             "inputCrossSellingPositionPlaceholder": "Vælg en placering...",
             "inputCrossSellingProductList": "Produkt tildeling",
+            "inputCrossSellingProductListPlaceholder": "Søg og tilføj til produkter...",
             "inputCrossSellingProductStream": "Produktgruppe",
             "inputCrossSellingProductStreamPlaceholder": "Vælg en dynamisk produktgruppe...",
             "inputCrossSellingSorting": "Sortering",
@@ -5925,6 +5988,7 @@
             "linkCrossSellingsOfParent": "Vis krydssalg af moderprodukt",
             "linkOpenStreamPreview": "Åben forhåndsvisning",
             "nameSortingType": "Navn",
+            "newCrossSellingTitle": "Nyt krydssalg",
             "notInheritedEmptyStateDescription": "Du kan nu bruge brugerdefinerede Cross Selling konfigurationer til denne variant.",
             "popularitySortingType": "Popularitet",
             "priceAscendingSortingType": "Pris, stigende",
@@ -7444,7 +7508,7 @@
             "titleDetailPrefix": "{name} - detaljer"
         },
         "sw-sales-channel-defaults-select": {
-            "messageError": "Værdien er brugt på dette domæne: \"%{url}\"."
+            "messageError": "Værdien er brugt på dette domæne: \"{url}\"."
         }
     },
     "sw-sales-channel-switch": {
@@ -8305,6 +8369,29 @@
             "title": "Medie"
         }
     },
+    "sw-settings-message-stats": {
+        "general": {
+            "averageTime": "Gennemsnitlig tid i kø",
+            "averageTimeHelp": "Den gennemsnitlige tid (i sekunder), som meddelelser venter i køen, før de behandles. Dette hjælper med at identificere forsinkelser eller flaskehalse.",
+            "count": "Beløb",
+            "description": "Denne visning giver detaljeret indsigt i ydeevnen af Shopwares meddelelseskø. For hver behandlet meddelelse logger systemet, hvor længe den forblev i køen. Disse statistikker er baseret på et glidende tidsvindue, som du kan justere i systemindstillingerne.",
+            "descriptionTextModule": "Få vist statistik om behandlede meddelelser i meddelelseskøsystemet",
+            "emptyStateSubline": "Der er endnu ikke indsamlet statistikker over meddelelseskøer.",
+            "emptyStateTitle": "Ingen statistikker tilgængelig",
+            "errorTitle": "Fejl ved indlæsning af meddelelsesstatistik",
+            "mainMenuItemGeneral": "Statistik over meddelelseskøer",
+            "processingWindow": "Behandlingsvindue",
+            "processingWindowHelp": "Viser tidspunktet for den ældste meddelelse, der aktuelt er inkluderet i statistikken. Hvis dit statistikvindue f.eks. er indstillet til 1 time, men behandlingen startede for kun 5 minutter siden, afspejler det denne kortere varighed.",
+            "refreshButton": "Opdater data",
+            "seconds": "s",
+            "statsCardTitle": "Oversigt",
+            "statsDisabledContent": "Hvis du vil aktivere statistik over meddelelseskøer, skal du angive nøglen „shopware.messenger.stats.enabled“ til true i din shopware.yaml-konfigurationsfil og genstarte arbejdere.",
+            "statsDisabledTitle": "Statistikker for meddelelseskøer er deaktiveret",
+            "totalMessages": "Beskeder behandlet",
+            "totalMessagesHelp": "Hvor mange meddelelser blev behandlet med succes inden for den givne tidsramme.",
+            "type": "Type"
+        }
+    },
     "sw-settings-newsletter": {
         "general": {
             "buttonSave": "Gem",
@@ -9067,31 +9154,26 @@
         "setList": {
             "buttonAddSet": "Tilføj snippet sæt",
             "buttonClone": "Kopiér",
-            "buttonDelete": "Slet",
-            "buttonEditSet": "Rediger snippets",
-            "buttonExport": "Eksportér",
             "buttonImport": "Importér",
             "cardTitle": "Snippet sæt",
             "cloneErrorMessage": "Fejl ved kopiering af snippet sæt.",
             "cloneSuccessMessage": "Snippet er blevet kopieret.",
             "columnBaseFile": "Basis fil",
             "columnChangedAt": "Sidst opdateret",
+            "columnIso": "Lokalitet",
             "columnName": "Navn",
             "contextMenuClone": "Kopier",
             "contextMenuDelete": "Slet",
             "contextMenuEdit": "Rediger",
             "deleteNoteErrorMessage": "Kunne ikke slette snippet sæt.",
             "deleteNoteSuccessMessage": "Snippet sæt er blevet slettet.",
-            "description": "Dette er en oversigt over dine uddrag sæt. Vælg et sæt, og rediger individuelle uddrag efter eget valg.",
             "inlineEditErrorMessage": "Snippet sæt kunne ikke gemmes | Snippet sæt \"{name}\" kunne ikke gemmes.",
             "inlineEditSuccessMessage": "Snippet sæt \"{name}\" blev gemt.",
             "modalTitleClone": "Kopier snippet sæt",
+            "newSnippetName": "Nyt uddragssæt",
             "notEditableNoteErrorMessage": "Der opstod en fejl mens du redigerede snippets.",
             "placeholderName": "Indtast snippet sæt...",
-            "splitButtonDuplicateContent": "Kopier fra",
-            "textCloneConfirm": "Er du sikker på at du ønsker at kopiere snippet sættet \"{name}\"?",
-            "textDeleteConfirm": "Er du sikker på at du ønsker at slette snippet sættet \"{name}\"?",
-            "title": "Redigér snippets"
+            "textDeleteConfirm": "Er du sikker på at du ønsker at slette snippet sættet \"{name}\"?"
         }
     },
     "sw-settings-state-machine": {

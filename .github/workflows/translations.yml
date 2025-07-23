@@ -2,7 +2,7 @@ name: Translations
 on:
   push:
     branches:
-      - master
+      - 6.6.x
   workflow_dispatch:
   schedule:
     - cron: "0 3 * * *"
@@ -19,7 +19,7 @@ jobs:
       - name: Setup Shopware
         uses: shopware/setup-shopware@main
         with:
-          shopware-version: trunk
+          shopware-version: 6.6.x
 
       - uses: octo-sts/action@main
         id: octo-sts

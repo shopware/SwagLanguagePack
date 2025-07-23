@@ -8,10 +8,13 @@ on:
     paths:
       - '**/*.php'
     branches:
-      - master
+      - 6.6.x
   workflow_dispatch:
   schedule:
     - cron: '0 3 * * *'
+
+  env:
+      COMPOSER_ROOT_VERSION: 6.6.9999999.9999999
 
 jobs:
   cs:
@@ -24,13 +27,13 @@ jobs:
     uses: shopware/github-actions/.github/workflows/phpstan.yml@main
     with:
       extensionName: ${{ github.event.repository.name }}
-      shopwareVersion: trunk
+      shopwareVersion: 6.6.x
 
   phpunit:
     uses: shopware/github-actions/.github/workflows/phpunit.yml@main
     with:
       extensionName: ${{ github.event.repository.name }}
-      shopwareVersion: trunk
+      shopwareVersion: 6.6.x
       uploadCoverage: true
     secrets:
       codecovToken: ${{ secrets.CODECOV_TOKEN }}

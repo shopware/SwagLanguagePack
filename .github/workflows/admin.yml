@@ -14,7 +14,7 @@ on:
       - '**/*.html'
       - '**/*.html.twig'
     branches:
-      - master
+      - 6.6.x
   workflow_dispatch:
   schedule:
     - cron: '0 3 * * *'
@@ -24,7 +24,7 @@ jobs:
     uses: shopware/github-actions/.github/workflows/admin-jest.yml@main
     with:
       extensionName: ${{ github.event.repository.name }}
-      shopwareVersion: trunk
+      shopwareVersion: 6.6.x
       uploadCoverage: true
     secrets:
       codecovToken: ${{ secrets.CODECOV_TOKEN }}

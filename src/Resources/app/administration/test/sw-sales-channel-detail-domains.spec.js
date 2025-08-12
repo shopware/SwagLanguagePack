@@ -1,7 +1,8 @@
-import { mount } from '@vue/test-utils';
+import {mount} from '@vue/test-utils';
 
-import swSalesChannelDetailDomains from '@administration/module/sw-sales-channel/component/sw-sales-channel-detail-domains/index.js';
-import  './../src/module/sw-sales-channel-detail/component/sw-sales-channel-detail-domains/index.js';
+import swSalesChannelDetailDomains
+    from '@administration/module/sw-sales-channel/component/sw-sales-channel-detail-domains/index.js';
+import './../src/module/sw-sales-channel-detail/component/sw-sales-channel-detail-domains/index.js';
 
 Shopware.Component.register('sw-sales-channel-detail-domains', swSalesChannelDetailDomains);
 
@@ -13,12 +14,25 @@ async function createWrapper(salesChannel) {
             },
             provide: {
                 repositoryFactory: {
-                    create: () => ({})
+                    create: () => ({
+                        search: jest.fn(() => Promise.resolve([])),
+                    }),
                 },
             },
             stubs: {
                 'sw-button': true,
                 'sw-card': true,
+                'sw-modal': true,
+                'sw-container': true,
+                'sw-radio-field': true,
+                'sw-single-select': true,
+                'sw-sales-channel-measurement': true,
+                'sw-entity-single-select': true,
+                'sw-data-grid': true,
+                'sw-context-menu-item': true,
+                'mt-button': true,
+                'mt-card': true,
+                'mt-url-field': true,
             },
         },
         props: {

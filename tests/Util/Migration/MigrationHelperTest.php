@@ -93,14 +93,14 @@ class MigrationHelperTest extends TestCase
         $this->migrationHelper->alterLanguageAddPackLanguageColumn();
 
         $counts = $this->getTableCounts($tables);
-        static::assertEquals(2, $counts[LanguageDefinition::ENTITY_NAME]);
-        static::assertEquals(0, $counts[PackLanguageDefinition::ENTITY_NAME]);
+        static::assertSame(2, $counts[LanguageDefinition::ENTITY_NAME]);
+        static::assertSame(0, $counts[PackLanguageDefinition::ENTITY_NAME]);
 
         $this->migrationHelper->createPackLanguages();
 
         $counts = $this->getTableCounts($tables);
-        static::assertEquals(\count(SwagLanguagePack::SUPPORTED_LANGUAGES) + 2, $counts[LanguageDefinition::ENTITY_NAME]);
-        static::assertEquals(\count(SwagLanguagePack::SUPPORTED_LANGUAGES), $counts[PackLanguageDefinition::ENTITY_NAME]);
+        static::assertSame(\count(SwagLanguagePack::SUPPORTED_LANGUAGES) + 2, $counts[LanguageDefinition::ENTITY_NAME]);
+        static::assertSame(\count(SwagLanguagePack::SUPPORTED_LANGUAGES), $counts[PackLanguageDefinition::ENTITY_NAME]);
     }
 
     public function testCreatePackLanguagesCorrectlyEvenWithAlreadyInstalledPackLanguages(): void
@@ -110,20 +110,20 @@ class MigrationHelperTest extends TestCase
         $this->migrationHelper->alterLanguageAddPackLanguageColumn();
 
         $counts = $this->getTableCounts($tables);
-        static::assertEquals(2, $counts[LanguageDefinition::ENTITY_NAME]);
-        static::assertEquals(0, $counts[PackLanguageDefinition::ENTITY_NAME]);
+        static::assertSame(2, $counts[LanguageDefinition::ENTITY_NAME]);
+        static::assertSame(0, $counts[PackLanguageDefinition::ENTITY_NAME]);
 
         // Simulate already having one language installed
         $this->createMockPackLanguage();
         $counts = $this->getTableCounts($tables);
-        static::assertEquals(3, $counts[LanguageDefinition::ENTITY_NAME]);
-        static::assertEquals(1, $counts[PackLanguageDefinition::ENTITY_NAME]);
+        static::assertSame(3, $counts[LanguageDefinition::ENTITY_NAME]);
+        static::assertSame(1, $counts[PackLanguageDefinition::ENTITY_NAME]);
 
         $this->migrationHelper->createPackLanguages();
 
         $counts = $this->getTableCounts($tables);
-        static::assertEquals(\count(SwagLanguagePack::SUPPORTED_LANGUAGES) + 2, $counts[LanguageDefinition::ENTITY_NAME]);
-        static::assertEquals(\count(SwagLanguagePack::SUPPORTED_LANGUAGES), $counts[PackLanguageDefinition::ENTITY_NAME]);
+        static::assertSame(\count(SwagLanguagePack::SUPPORTED_LANGUAGES) + 2, $counts[LanguageDefinition::ENTITY_NAME]);
+        static::assertSame(\count(SwagLanguagePack::SUPPORTED_LANGUAGES), $counts[PackLanguageDefinition::ENTITY_NAME]);
     }
 
     public function testMissingLocaleWhileCreating(): void

@@ -124,10 +124,12 @@ class SalesChannelCreateStorefrontCommandTest extends TestCase
         $associatedLanguageIds = \array_values($associatedLanguages->getIds());
 
         static::assertCount(2, $activeLanguageIds);
+        \sort($activeLanguageIds);
+        \sort($associatedLanguageIds);
 
-        static::assertEquals(
-            \sort($activeLanguageIds),
-            \sort($associatedLanguageIds),
+        static::assertSame(
+            $activeLanguageIds,
+            $associatedLanguageIds,
         );
     }
 
@@ -155,10 +157,12 @@ class SalesChannelCreateStorefrontCommandTest extends TestCase
         $associatedLanguages = $storefront->getLanguages();
         static::assertNotNull($associatedLanguages);
         $associatedLanguageIds = \array_values($associatedLanguages->getIds());
+        \sort($activeLanguageIds);
+        \sort($associatedLanguageIds);
 
-        static::assertEquals(
-            \sort($activeLanguageIds),
-            \sort($associatedLanguageIds),
+        static::assertSame(
+            $activeLanguageIds,
+            $associatedLanguageIds,
         );
     }
 

@@ -95,6 +95,7 @@ class MigrationHelper
                     'name' => $locale['name'],
                     'localeId' => $locale['id'],
                     'translationCodeId' => $locale['id'],
+                    'active' => 1,
                 ];
             }
 
@@ -109,8 +110,8 @@ class MigrationHelper
         }
 
         $insertLanguagesSql = <<<'SQL'
-            INSERT INTO `language` (`id`, `name`, `locale_id`, `translation_code_id`, `created_at`)
-            VALUES (:id, :name, :localeId, :translationCodeId, NOW());
+            INSERT INTO `language` (`id`, `name`, `locale_id`, `translation_code_id`, `active`, `created_at`)
+            VALUES (:id, :name, :localeId, :translationCodeId, :active, NOW());
         SQL;
 
         foreach ($languages as $language) {

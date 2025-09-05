@@ -1,5 +1,3 @@
-import './component/structure/sw-language-switch/extension';
-
 import './init/locale.init';
 
 import './module/sw-extension';

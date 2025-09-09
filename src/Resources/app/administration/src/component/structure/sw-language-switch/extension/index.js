@@ -1,7 +1,7 @@
 const { Component, Defaults } = Shopware;
 const { Criteria } = Shopware.Data;
 
-Component.override('sw-sales-channel-detail-base', {
+Component.override('sw-language-switch', {
     computed: {
         languageCriteria() {
             return this.$super('languageCriteria').addFilter(
@@ -9,8 +9,8 @@ Component.override('sw-sales-channel-detail-base', {
                     Criteria.equals('extensions.swagLanguagePackLanguage.id', null),
                     Criteria.equals('extensions.swagLanguagePackLanguage.salesChannelActive', true),
                     Criteria.equals('id', Defaults.systemLanguageId),
-                ])
-            )
+                ]),
+            );
         },
     },
 });

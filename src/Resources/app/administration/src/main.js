@@ -1,7 +1,6 @@
-import './component/structure/sw-language-switch/extension';
-
 import './init/locale.init';
 
+import './component/structure/sw-language-switch/extension';
 import './module/sw-extension';
 import './module/sw-first-run-wizard';
 import './module/sw-sales-channel-detail';

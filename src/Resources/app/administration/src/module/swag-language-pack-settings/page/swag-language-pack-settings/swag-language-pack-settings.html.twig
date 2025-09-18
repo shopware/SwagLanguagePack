@@ -39,12 +39,11 @@
         {% block swag_language_pack_settings_content_card_view %}
         <sw-card-view>
             <mt-banner
-                v-if="this.shopwareHasTranslationSystem"
+                v-if="shopwareHasTranslationSystem"
                 class="swag-language-pack-settings__deprecation-banner"
                 variant="info"
             >
-                <p v-html="$t('swag-language-pack.settings.deprecationBanner')">
-                </p>
+                <p v-html="$t('swag-language-pack.settings.deprecationBanner')"></p>
             </mt-banner>
 
             {% block swag_language_pack_settings_content_tabs %}

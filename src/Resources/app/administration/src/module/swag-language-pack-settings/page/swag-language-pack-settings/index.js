@@ -1,4 +1,5 @@
 import template from './swag-language-pack-settings.html.twig';
+import './swag-language-pack-settings.scss';
 
 const { Component, Defaults } = Shopware;
 const { Criteria } = Shopware.Data;
@@ -52,6 +53,14 @@ Component.register('swag-language-pack-settings', {
                 .addAssociation('language.salesChannels.domains')
                 .addAssociation('language.locale');
         },
+
+        // Check if the shopware version is 6.7.3 or newer, since the translation system was introduced with this version
+        shopwareHasTranslationSystem() {
+            const currentVersion = Shopware.Context.app.config.version.replace(/-.*$/, '');
+            const requiredVersion = '6.7.3';
+
+            return currentVersion.localeCompare(requiredVersion, undefined, { numeric: true, sensitivity: 'base' }) >= 0;
+        }
     },
 
     created() {

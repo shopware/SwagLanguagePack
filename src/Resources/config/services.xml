@@ -5,6 +5,15 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
+        <!-- Services -->
+        <service id="Swag\LanguagePack\Core\System\Snippet\Service\CleanupReplacedLanguage">
+            <argument type="service" id="language.repository"/>
+            <argument type="service" id="snippet_set.repository"/>
+            <argument type="service" id="swag_language_pack_language.repository"/>
+            <argument type="service" id="sales_channel_domain.repository"/>
+            <argument type="service" id="Doctrine\DBAL\Connection"/>
+        </service>
+
         <!-- Definitions -->
         <service id="Swag\LanguagePack\PackLanguage\PackLanguageDefinition">
             <tag name="shopware.entity.definition" entity="swag_language_pack_language"/>
@@ -58,5 +67,14 @@
             <argument type="service" id="Doctrine\DBAL\Connection"/>
             <tag name="kernel.event_subscriber"/>
         </service>
+
+        <!-- Decorators -->
+        <service id="Swag\LanguagePack\Core\System\Snippet\Service\CleanupTranslationLoader"
+                 decorates="Shopware\Core\System\Snippet\Service\TranslationLoader"
+                 decoration-on-invalid="ignore">
+            <argument type="service" id=".inner"/>
+            <argument type="service" id="Swag\LanguagePack\Core\System\Snippet\Service\CleanupReplacedLanguage"/>
+        </service>
+
     </services>
 </container>

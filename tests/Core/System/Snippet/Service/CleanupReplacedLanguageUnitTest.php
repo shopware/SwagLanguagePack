@@ -126,7 +126,10 @@ class CleanupReplacedLanguageUnitTest extends TestCase
             new LanguageCollection([$this->createLanguage($languageId)]),
         ]);
 
-        $languageWithoutPackRelationService = $this->createCleanupReplacedLanguage($languageRepository, $snippetSetRepository, null, null);
+        /** @var StaticEntityRepository<PackLanguageCollection> $languageRepository */
+        $packLanguageRepository = new StaticEntityRepository([new PackLanguageCollection()]);
+
+        $languageWithoutPackRelationService = $this->createCleanupReplacedLanguage($languageRepository, $snippetSetRepository, $packLanguageRepository, null);
 
         // Last call. Will succeed if the connection won't execute a statement
         $languageWithoutPackRelationService->removeLanguageRelation($locale, $context);

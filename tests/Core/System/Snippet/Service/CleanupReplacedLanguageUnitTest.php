@@ -43,10 +43,29 @@ class CleanupReplacedLanguageUnitTest extends TestCase
         $this->ids = new IdsCollection();
     }
 
-    public function testChangeSalesChannelDomainSnippetSetReturnsEarlyWhenNoDomainsExist(): void
+    public function testChangeSalesChannelDomainSnippetSetReturnsEarlyForAllCases(): void
     {
         $locale = 'es-ES';
         $context = Context::createDefaultContext();
+
+        $snippetSetRepository = new StaticEntityRepository([
+            new SnippetSetCollection([]),
+            new SnippetSetCollection([]),
+        ]);
+
+        $salesChannelDomainRepository = new StaticEntityRepository([
+            fn () => static::fail('The SalesChannelDomainRepository should not be searched (first early return should have been hit)'),
+        ]);
+
+        $service = new CleanupReplacedLanguage(
+            languageRepository: new StaticEntityRepository([new LanguageCollection()]),
+            snippetSetRepository: $snippetSetRepository,
+            packLanguageRepository: new StaticEntityRepository([new PackLanguageCollection()]),
+            salesChannelDomainRepository: $salesChannelDomainRepository,
+            connection: $this->connection
+        );
+
+        $service->changeSalesChannelDomainSnippetSet($locale, $context);
 
         $languagePackSnippetSetId = Uuid::randomHex();
         $baseSnippetSetId = Uuid::randomHex();

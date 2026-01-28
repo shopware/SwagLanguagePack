@@ -98,17 +98,17 @@ readonly class CleanupReplacedLanguage
             return;
         }
 
-        $this->connection->executeStatement(
-            'UPDATE `' . LanguageDefinition::ENTITY_NAME . '` ' .
-            'SET `' . PackLanguageDefinition::PACK_LANGUAGE_FOREIGN_KEY_STORAGE_NAME . '` = NULL ' .
-            'WHERE `id` = UUID_TO_BIN(:id)',
-            ['id' => $language->getId()]
-        );
+        $queryBuilder = $this->connection->createQueryBuilder();
+        $updateQuery = $queryBuilder->update(LanguageDefinition::ENTITY_NAME)
+            ->set(PackLanguageDefinition::PACK_LANGUAGE_FOREIGN_KEY_STORAGE_NAME, 'NULL')
+            ->where('id = UUID_TO_BIN(:id)')
+            ->setParameter('id', $language->getId());
+        $updateQuery->executeQuery();
 
-        $this->connection->executeStatement(
-            'DELETE FROM `' . PackLanguageDefinition::ENTITY_NAME . '` WHERE `id` = UUID_TO_BIN(:id)',
-            ['id' => $packLanguage->getId()]
-        );
+        $deleteQuery = $queryBuilder->delete(LanguageDefinition::ENTITY_NAME)
+            ->where('id = UUID_TO_BIN(:id)')
+            ->setParameter('id', $packLanguage->getId());
+        $deleteQuery->executeQuery();
     }
 
     public function removeLanguagePackSnippetSet(string $locale, Context $context): void

@@ -1,7 +1,5 @@
 <?php declare(strict_types=1);
 
-namespace Swag\LanguagePack\Resources\config;
-
 use Swag\LanguagePack\Core\System\Snippet\Service\CleanupReplacedLanguage;
 use Swag\LanguagePack\Core\System\Snippet\Service\CleanupTranslationLoader;
 

@@ -5,17 +5,23 @@ parameters:
     tmpDir: var/cache/phpstan
 
     bootstrapFiles:
-        - ../../../src/Core/DevOps/StaticAnalyze/phpstan-bootstrap.php
-        # run `php tests/TestBootstrap.php` to create the container
+        - src/Core/DevOps/StaticAnalyze/phpstan-bootstrap.php
+
     symfony:
         constantHassers: false
         containerXmlPath: '../../../var/cache/static_phpstan_dev/Shopware_Core_DevOps_StaticAnalyze_StaticAnalyzeKernelPhpstan_devDebugContainer.xml'
         consoleApplicationLoader: ../../../src/Core/DevOps/StaticAnalyze/console-application.php
+
     paths:
         - src
         - tests
+
     ignoreErrors:
         -
             message: '#Service ".*" is private#'
             paths:
                 - tests/*Test.php
+        -
+            message: '#(Used )?[Ff]unction Symfony\\Component\\DependencyInjection\\Loader\\Configurator\\service not found#'
+            paths:
+                - src/Resources/config/*.php

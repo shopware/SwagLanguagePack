@@ -19,7 +19,7 @@ use Swag\LanguagePack\Util\Migration\MigrationHelper;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
+use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
 
 class SwagLanguagePack extends Plugin
 {
@@ -110,8 +110,8 @@ class SwagLanguagePack extends Plugin
 
         // Only register the decorator if AbstractTranslationLoader exists (Shopware 6.7.7+)
         if (class_exists(\Shopware\Core\System\Snippet\Service\AbstractTranslationLoader::class)) {
-            $loader = new XmlFileLoader($container, new FileLocator(__DIR__ . '/Resources/config'));
-            $loader->load('services_translation_decorator.xml');
+            $loader = new PhpFileLoader($container, new FileLocator(__DIR__ . '/Resources/config'));
+            $loader->load('services_translation_decorator.php');
         }
     }
 

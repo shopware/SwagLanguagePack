@@ -14,6 +14,10 @@ use Shopware\Core\System\Snippet\Service\AbstractTranslationLoader;
 
 /**
  * @internal
+ *
+ * Decorator for TranslationLoader that cleans up replaced languages.
+ * Note: AbstractTranslationLoader only exists in Shopware 6.7.7+
+ * This class is conditionally loaded via build() method in SwagLanguagePack.
  */
 class CleanupTranslationLoader extends AbstractTranslationLoader
 {

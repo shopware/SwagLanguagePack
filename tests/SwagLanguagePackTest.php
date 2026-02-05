@@ -21,7 +21,9 @@ use Shopware\Core\Framework\Plugin\PluginEntity;
 use Shopware\Core\Framework\Plugin\PluginLifecycleService;
 use Shopware\Core\Framework\Test\TestCaseBase\DatabaseTransactionBehaviour;
 use Shopware\Core\Framework\Test\TestCaseBase\KernelTestBehaviour;
+use Swag\LanguagePack\Core\System\Snippet\Service\CleanupTranslationLoader;
 use Swag\LanguagePack\SwagLanguagePack;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 class SwagLanguagePackTest extends TestCase
 {
@@ -98,5 +100,37 @@ class SwagLanguagePackTest extends TestCase
 
         static::assertEquals($languageCountBefore, $connection->fetchOne('SELECT COUNT(*) FROM `language`'));
         static::assertEquals($swagLanguageCountBefore, $connection->fetchOne('SELECT COUNT(*) FROM `swag_language_pack_language`'));
+    }
+
+    public function testBuildLoadsDecoratorWhenAbstractTranslationLoaderExists(): void
+    {
+        if (!class_exists(\Shopware\Core\System\Snippet\Service\AbstractTranslationLoader::class)) {
+            static::markTestSkipped('AbstractTranslationLoader does not exist in this Shopware version');
+        }
+
+        $plugin = new SwagLanguagePack(true, '');
+        $container = new ContainerBuilder();
+        $container->setParameter('kernel.environment', 'test');
+
+        static::assertFalse($container->hasDefinition(CleanupTranslationLoader::class));
+
+        $plugin->build($container);
+
+        static::assertTrue($container->hasDefinition(CleanupTranslationLoader::class));
+    }
+
+    public function testBuildDoesNotLoadDecoratorWhenAbstractTranslationLoaderDoesNotExist(): void
+    {
+        if (class_exists(\Shopware\Core\System\Snippet\Service\AbstractTranslationLoader::class)) {
+            static::markTestSkipped('This test only runs when AbstractTranslationLoader does not exist (Shopware < 6.7.7)');
+        }
+
+        $plugin = new SwagLanguagePack(true, '');
+        $container = new ContainerBuilder();
+        $container->setParameter('kernel.environment', 'test');
+
+        $plugin->build($container);
+
+        static::assertFalse($container->hasDefinition(CleanupTranslationLoader::class));
     }
 }

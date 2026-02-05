@@ -16,7 +16,10 @@ use Shopware\Core\Framework\Plugin\Context\UninstallContext;
 use Shopware\Core\Framework\Plugin\Context\UpdateContext;
 use Swag\LanguagePack\Util\Lifecycle\Lifecycle;
 use Swag\LanguagePack\Util\Migration\MigrationHelper;
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 
 class SwagLanguagePack extends Plugin
 {
@@ -99,6 +102,17 @@ class SwagLanguagePack extends Plugin
                 'swag_language_pack_language:update',
             ],
         ];
+    }
+
+    public function build(ContainerBuilder $container): void
+    {
+        parent::build($container);
+
+        // Only register the decorator if AbstractTranslationLoader exists (Shopware 6.7.7+)
+        if (class_exists(\Shopware\Core\System\Snippet\Service\AbstractTranslationLoader::class)) {
+            $loader = new XmlFileLoader($container, new FileLocator(__DIR__ . '/Resources/config'));
+            $loader->load('services_translation_decorator.xml');
+        }
     }
 
     public function uninstall(UninstallContext $uninstallContext): void

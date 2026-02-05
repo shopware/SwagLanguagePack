@@ -68,13 +68,5 @@
             <tag name="kernel.event_subscriber"/>
         </service>
 
-        <!-- Decorators -->
-        <service id="Swag\LanguagePack\Core\System\Snippet\Service\CleanupTranslationLoader"
-                 decorates="Shopware\Core\System\Snippet\Service\TranslationLoader"
-                 decoration-on-invalid="ignore">
-            <argument type="service" id=".inner"/>
-            <argument type="service" id="Swag\LanguagePack\Core\System\Snippet\Service\CleanupReplacedLanguage"/>
-        </service>
-
     </services>
 </container>

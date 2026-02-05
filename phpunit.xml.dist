@@ -23,5 +23,9 @@
         <include>
             <directory suffix=".php">./src/</directory>
         </include>
+        <exclude>
+            <!-- PHPStan bootstrap files are not covered by tests, following Shopware core pattern -->
+            <directory suffix=".php">./src/Core/DevOps/StaticAnalyze</directory>
+        </exclude>
     </source>
 </phpunit>

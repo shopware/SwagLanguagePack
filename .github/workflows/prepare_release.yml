@@ -27,6 +27,21 @@ jobs:
           ref: ${{ matrix.RELEASE_BRANCH }}
           token: ${{ steps.octo-sts.outputs.token }}
           fetch-depth: 0
+      - name: Check translations workflow success
+        shell: bash
+        env:
+          BRANCH: ${{ github.ref_name }}
+          GH_TOKEN: ${{ steps.octo-sts.outputs.token }}
+        run: |
+          LATEST_RUN=$(gh run list --workflow translations.yml --branch "$BRANCH" --limit 1 --json conclusion,url --jq '.[0]')
+          CONCLUSION=$(jq -r '.conclusion' <<<"$LATEST_RUN")
+          URL=$(jq -r '.url' <<<"$LATEST_RUN")
+
+          if [[ "$CONCLUSION" != "success" ]]; then
+            echo "::error::The latest run of "Translations" on \"$BRANCH\" was not successful (Status: $CONCLUSION)."
+            echo "::error::Check $URL for details."
+            exit 1
+          fi
       - name: Check for changes
         shell: bash
         id: check-changes

@@ -306,6 +306,7 @@
             "contact_form_send": "Kontaktveidlapa nosūtīta",
             "customer_group_registration_accepted": "Klientu grupas reģistrācijas pieprasījums pieņemts",
             "customer_group_registration_declined": "Klientu grupas reģistrācijas pieprasījums noraidīts",
+            "customer_password_changed": "Mainīta klienta parole",
             "customer_recovery_request": "Klients pieprasa jaunu paroli",
             "mail_after_create_message": "E-pasts izveidots",
             "mail_before_send": "E-pasts tiek nosūtīts",
@@ -503,6 +504,7 @@
             "FRAMEWORK__DELETE_RESTRICTED": "Dzēšana neizdevās.",
             "FRAMEWORK__MISSING_PRIVILEGE_ERROR": "Trūkst atļaujas.",
             "FRAMEWORK__RATE_LIMIT_EXCEEDED": "Pārāk daudz pieprasījumu. Lūdzu, uzgaidiet {seconds} sekundes, pirms mēģināt vēlreiz.",
+            "FRAMEWORK__ROUTE_BLOCKED_MESSAGE": "URL {path} ir pretrunā ar esošo maršrutu {blockedSegment}, un to nevar izmantot.",
             "INVALID_MAIL": "Lūdzu ievadiet derīgu e-pasta adresi.",
             "INVALID_MEDIA_URL": "Lai augšupielādētu failu lūdzu ievadiet derīgu URL.",
             "INVALID_URL": "Lūdzu ievadiet derīgu url.",
@@ -731,6 +733,7 @@
                     "product": "Produkts"
                 },
                 "lineItemProductStates": "Vienums ar produkta stāvokli",
+                "lineItemProductType": "Prece ar produkta veidu",
                 "lineItemPromotedRule": "Prece tiek reklamēta",
                 "lineItemPropertyRule": "Vienums ar variantu vai rekvizīta vērtību",
                 "lineItemPropertyValueRule": "Vienums ar īpašuma vērtību",
@@ -821,6 +824,14 @@
                     "options": {
                         "is-download": "Digitālais",
                         "is-physical": "Fiziskā"
+                    }
+                }
+            },
+            "cartLineItemProductType": {
+                "productType": {
+                    "options": {
+                        "digital": "Digitālais",
+                        "physical": "Fiziskā"
                     }
                 }
             },
@@ -1087,10 +1098,24 @@
             "labelContextMenuCopyLink": "Kopēt saiti",
             "labelContextMenuDetail": "Sīkāka informācija",
             "labelContextMenuMove": "Pārvietot",
+            "labelContextMenuRemoveCover": "Noņemt vāku",
             "labelContextMenuRename": "Pārsaukt",
             "labelContextMenuReplace": "Mainīt",
+            "labelContextMenuSetCover": "Iestatiet vāka attēlu",
             "labelUploading": "Augšupielāde...",
             "notification": {
+                "coverRemoveSuccess": {
+                    "message": "Vāka attēls ir noņemts."
+                },
+                "coverSaveError": {
+                    "message": "Vāka attēlu nevarēja saglabāt."
+                },
+                "coverSaveSuccess": {
+                    "message": "Vāka attēls ir saglabāts."
+                },
+                "coverSelectionInvalid": {
+                    "message": "Lūdzu, atlasiet attēlu, ko izmantot kā vāku."
+                },
                 "errorBlankItemName": {
                     "message": "Medija vienību nevarēja saglabāt: Lūdzu, ievadiet nosaukumu."
                 },
@@ -1237,6 +1262,9 @@
                 "failure": {
                     "message": "Kļūda augšuplādējot failu."
                 },
+                "illegalFileType": {
+                    "message": "Failu \"{name}\" nevarēja augšupielādēt. Šis faila tips netiek atbalstīts."
+                },
                 "illegalFileUrl": {
                     "message": "Augšupielāde no lokālā URL nav atļauta.",
                     "title": "Nederīga URL"
@@ -1244,9 +1272,22 @@
                 "illegalFilename": {
                     "message": "Faila nosaukums \"{fileName}\" satur nederīgas rakstzīmes."
                 },
+                "payloadTooLarge": {
+                    "message": "Fails ir pārāk liels. Lūdzu, samaziniet faila lielumu vai pārbaudiet servera konfigurāciju."
+                },
+                "requestCanceled": {
+                    "message": "Augšupielāde ir atcelta."
+                },
                 "success": {
                     "message": "Nav saglabāts neviens fails. | Fails ir saglabāts. | {count} / {total} faili ir saglabāti."
+                },
+                "transportError": {
+                    "message": "Augšupielāde neizdevās savienojuma vai servera laika beigu dēļ. Lūdzu, pārbaudiet savienojuma vai servera ierobežojumus."
                 }
+            },
+            "snackbar": {
+                "errorMessage": "Failu nevarēja augšupielādēt. | Dažus failus nevarēja augšupielādēt.",
+                "message": "Faila augšupielāde | Failu augšupielāde"
             }
         },
         "sw-media-upload-v2": {
@@ -2335,6 +2376,9 @@
                 }
             },
             "video": {
+                "video": {
+                    "label": "Video"
+                },
                 "vimeoVideo": {
                     "label": "Vimeo video"
                 },
@@ -2717,21 +2761,20 @@
             "image": {
                 "config": {
                     "helpText": {
+                        "ariaLabel": "Ekrāna lasītāji šo tekstu nolasīs kā saites tekstu.",
                         "fetchPriorityHigh": "Aktivizējiet šo opciju, ja attēls ir pirmais lapā. Pēc tam attēlam tiks piešķirts atribūts 'fetchpriority=\"high\"', liekot pārlūkprogrammai ielādēt to ar augstāku prioritāti. Tas var palīdzēt uzlabot lielāko saturīgu krāsu (LCP).",
-                        "isDecorative": "Kad šī opcija ir iespējota, ekrāna lasītāji neizlasīs attēla informāciju. Tas nozīmē, ka tagi “alt” un “title” paliks tukši."
+                        "isDecorative": "Kad šī opcija ir iespējota, ekrāna lasītāji neizlasīs attēla informāciju. Tas nozīmē, ka tagi “alt” un “title” paliks tukši.",
+                        "minHeight": "Ievadiet minimālo augstumu ar vēlamo vienību. Piemēram: 200px",
+                        "useFetchPriorityOnFirstItem": "Kad šī opcija ir iespējota, pirmais attēls tiek ielādēts ar augstāku prioritāti. Tas var uzlabot lapas atveidošanas ātrumu pārlūkprogrammā."
                     },
                     "label": {
                         "ariaLabel": "Saites apraksts",
-                        "ariaLabelHelpText": "Ekrāna lasītāji šo tekstu nolasīs kā saites tekstu.",
                         "fetchPriorityHigh": "Iegūstiet augstu prioritāti",
                         "isDecorative": "Atzīmējiet attēlu kā dekoratīvu",
-                        "isDecorativeHelpText": "Kad šī opcija ir iespējota, ekrāna lasītāji neizlasīs attēla informāciju.",
                         "linkNewTab": "Atvērt saiti jaunā cilnē",
                         "linkTo": "Saites mērķis",
                         "minHeight": "Minimālais augstums",
-                        "minHeightHelpText": "Ievadiet minimālo augstumu ar vēlamo vienību. Piemēram: 200px",
-                        "useFetchPriorityOnFirstItem": "Ielādējiet pirmo attēlu ar augstāku prioritāti",
-                        "useFetchPriorityOnFirstItemHelpText": "Kad šī opcija ir iespējota, pirmais attēls tiek ielādēts ar augstāku prioritāti. Tas var uzlabot lapas atveidošanas ātrumu pārlūkprogrammā."
+                        "useFetchPriorityOnFirstItem": "Ielādējiet pirmo attēlu ar augstāku prioritāti"
                     },
                     "placeholder": {
                         "enterMinHeight": "Ievadiet minimālo augstumu...",
@@ -2818,6 +2861,14 @@
                         "descriptionAndReviews": "Produktu apraksts un atsauksmes",
                         "reviews": "Atsauksmes"
                     }
+                }
+            },
+            "productHeading": {
+                "logo": {
+                    "label": "Ražotāja logotips"
+                },
+                "name": {
+                    "label": "Produkta nosaukums"
                 }
             },
             "productListing": {
@@ -2942,6 +2993,32 @@
                     }
                 },
                 "label": "Teksts"
+            },
+            "video": {
+                "config": {
+                    "helpText": {
+                        "ariaLabel": "Izlasiet ekrāna lasītāji, un tam vajadzētu īsi aprakstīt video saturu vai mērķi. Ja tas tiek atstāts tukšs, tā vietā tiks izmantots multivides modulī konfigurētais nosaukums vai alternatīvais teksts.",
+                        "autoPlay": "Daudzas pārlūkprogrammas automātisko atskaņošanu atļauj tikai tad, ja videoklips ir izslēgts.<br>Izmantojot automātisko atskaņošanu, vāks nav nozīmes, jo atskaņošana sākas nekavējoties un nav nepieciešams apstiprinājums.",
+                        "minHeight": "Ievadiet minimālo augstumu ar vēlamo vienību. Piemēram: 200px",
+                        "playsInline": "Operētājsistēmā iOS videoklipi bieži tiek atvērti pilnekrāna režīmā. Iespējojiet šo opciju, lai saglabātu atskaņošanu.",
+                        "showCover": "Multivides atlasē konfigurētais vāks tiks parādīts, līdz lietotājs apstiprinās videoklipa ielādi, izmantojot klikšķi."
+                    },
+                    "label": {
+                        "ariaLabel": "Ekrāna lasītāja nosaukums",
+                        "autoPlay": "Atskaņot video automātiski",
+                        "loop": "Atskaņot video cilpā",
+                        "minHeight": "Minimālais augstums",
+                        "muted": "Spēlēt izslēgts",
+                        "playsInline": "Spēlējiet inline iOS ierīcēs",
+                        "showControls": "Rādīt video kontroli",
+                        "showCover": "Ielādēt video tikai pēc tam, kad lietotājs ir apstiprinājis"
+                    },
+                    "placeholder": {
+                        "ariaLabel": "Ievadiet ekrāna lasītāja nosaukumu...",
+                        "minHeight": "Ievadiet minimālo augstumu..."
+                    }
+                },
+                "label": "Video"
             },
             "vimeoVideo": {
                 "config": {
@@ -3234,6 +3311,7 @@
             "accept": "Piekrist",
             "acceptMessage": "Klientu grupa ir mainīta",
             "alert": "Pieprasīta piekļuve klientu grupai \"{name}\".",
+            "customerInactiveMessage": "Neaktīvos klientus nevar pieņemt vai noraidīt nevienai klientu grupai.",
             "decline": "Noraidīt",
             "declineMessage": "Pieprasījums ir noraidīts",
             "errorMessage": "Nevar apstrādāt pieprasījumu",
@@ -4320,7 +4398,10 @@
                 "placeholderDeliveryStatus": "Izvēlēties piegādes statusu...",
                 "placeholderOrderStatus": "Izvēlēties pasūtījuma statusu...",
                 "placeholderPaymentStatus": "Izvēlēties maksājuma statusu...",
-                "titleSetStatus": "Piešķirt statusu"
+                "titleSetStatus": "Piešķirt statusu",
+                "transitionWarning": {
+                    "message": "Esiet piesardzīgs, lietojot statusa pārejas, jo tās var izraisīt neveiksmīgas plūsmas, ja statusa pāreja nav derīga. Lai izvairītos no šādām problēmām, apsveriet iespēju iespējot “Piespiedu statusa pārejas”."
+                }
             },
             "tag": {
                 "labelAddTag": "Pievienot tagu",
@@ -4385,6 +4466,7 @@
             "orderTransactionCaptureRefund": "Pasūtījuma transakcijas uzņemšanas atmaksa",
             "paid": "Apmaksāts",
             "paidPartially": "Daļēji samaksāts",
+            "password": "Parole",
             "paymentMethod": "Maksāšanas veids",
             "pending": "Gaidot",
             "placed": "Novietots",
@@ -4423,8 +4505,7 @@
                 "profile": "Profils",
                 "records": "Ieraksti",
                 "size": "Izmērs",
-                "state": "Statuss",
-                "user": "Lietotājs"
+                "state": "Statuss"
             },
             "contextMenu": {
                 "abortProcess": "Pārtraukt procesu",
@@ -4436,6 +4517,10 @@
                 "showLogInfo": "Atvērt žurnāla informāciju",
                 "showProfile": "Rādīt profilu",
                 "showResults": "Rādīt apkopojumu"
+            },
+            "detail": {
+                "ExportLabel": "Eksportēt",
+                "importLabel": "Importēt"
             },
             "dryrun": "Sausā skrējiens",
             "emptyState": {
@@ -4811,6 +4896,7 @@
             "messageInvalidScope": "Nederīgs darbības lauka pieprasījums.",
             "messageServerError": "Autorizācijas serveris saskārās ar neparedzētu stāvokli.",
             "messageUnsupportedGrantType": "Autorizāciju neatbalsta autorizācijas serveris.",
+            "orContinueWith": "Vai arī turpiniet",
             "placeholderPassword": "Ievadiet savu paroli...",
             "placeholderUsername": "Ievadiet savu lietotājvārdu...",
             "subheadlineMain": "Ar atgriešanos."
@@ -4977,6 +5063,8 @@
             "emptyStateSubTitle": "Pievienojiet e-pasta veidnes, noklikšķinot uz pogas “Pievienot”.",
             "emptyStateTitle": "Vēl nav e-pasta veidņu",
             "errorMediaItemDuplicated": "Mediju vienība jau ir pievienota",
+            "tabHeaderFooter": "Galvenes un kājenes",
+            "tabMailTemplates": "Sagataves",
             "textDeleteConfirm": "Vai tiešām vēlaties dzēst e-pasta veidni \"{subject}\"?",
             "textMailTemplateOverview": "E-pasta veidnes",
             "titleMailFooterList": "Kājene",
@@ -5058,7 +5146,9 @@
                 "download": "Lejupielādēt",
                 "horizontal": "Horizontāls",
                 "move": "Pārvietot",
+                "removeCover": "Noņemt vāku",
                 "replace": "Mainīt",
+                "setCover": "Iestatiet vāka attēlu",
                 "settings": "Iestatījumi",
                 "vertical": "Vertikāls"
             },
@@ -5126,6 +5216,9 @@
         },
         "sw-media-save-modal": {
             "titleModal": "Saglabāt plašsaziņas līdzekļos"
+        },
+        "sw-model-viewer": {
+            "titleModal": "Modeļu skatītājs"
         }
     },
     "sw-meteor": {
@@ -6186,11 +6279,16 @@
                 "placeholder": "Ievadiet produkta numuru..."
             },
             "productStatesFilter": {
+                "deprecationWarning": "Produkta stāvokļu filtrs ir novecojis un tiks noņemts v6.8. Lūdzu, izmantojiet produkta tipa filtru.",
                 "label": "Produktu stāvokļi",
                 "options": {
                     "digital": "Digitālais",
                     "physical": "Fiziskā"
                 },
+                "placeholder": "Izvēlēties produkta stāvokli..."
+            },
+            "productTypeFilter": {
+                "label": "Tips",
                 "placeholder": "Izvēlēties produkta stāvokli..."
             },
             "releaseDateFilter": {
@@ -6371,6 +6469,7 @@
             "cardTitleProperties": "Iespējamie iestatījumi",
             "columnProperty": "Īpašības",
             "columnValue": "Īpašuma vērtība",
+            "descriptionEmptyState": "Īpašības pārvaldiet šeit.",
             "emptyStateNoOptionsDescription": "Vispirms izveidojiet rekvizītus un īpašuma vērtības, pēc tam atgriezieties šeit, lai tos piešķirtu.",
             "emptyStateNoOptionsTitle": "Nav pieejamu vērtību",
             "emptyStateNoSelectedOptionsDescription": "Lūdzu izvēlieties vērtibas no meklēšanas augstāk.",
@@ -6465,6 +6564,10 @@
             "cardTitleMeasurement": "Produkta mērījumi",
             "cardTitleProperties": "Rekvizīti",
             "cardTitleSellingPackaging": "Informācija par pārdošanu un iepakošanu"
+        },
+        "type": {
+            "digital": "Digitālais",
+            "physical": "Fiziskā"
         },
         "variations": {
             "backVariationsButton": "Atpakaļ",
@@ -6597,6 +6700,12 @@
             "messageSaveSuccess": "Dinamiskā produktu grupa \"{name}\" ir saglabāta.",
             "placeholderDescription": "Ievadiet aprakstu...",
             "placeholderName": "Ievadiet virsrakstu...",
+            "productStatesFilterWarning": "Šī dinamiskā produktu grupa joprojām izmanto novecojušo produktu stāvokļu filtru. Tas tiks noņemts v6.8 - lūdzu, pārslēdzieties uz produkta tipa filtru.",
+            "productStreamIndexingWarning": {
+                "action": "Uzziniet vairāk mūsu dokumentācijā",
+                "message": "Dažas funkcijas var nedarboties, kā paredzēts: <ul><li>Kategorijas lapas var neatspoguļot izmaiņas, kamēr HTTP kešatmiņa beidzas vai tiek manuāli notīrīta.</li><li>Noteikuma nosacījums “Vienība dinamiskajā produktu grupā” nekad nebūs patiess.</li></ul>",
+                "title": "Dinamiskā produktu grupas indeksēšana ir atspējota"
+            },
             "textHeadline": "Jauna dinamiskā produktu grupa",
             "titleCard": "Pamatinformācija",
             "titleFilter": "Nosacījumi",
@@ -6762,6 +6871,9 @@
         },
         "tabGeneral": {
             "title": "Vispārīgi"
+        },
+        "tabPrivacyPreferences": {
+            "title": "Privātuma preferences"
         },
         "tabSearchPreferences": {
             "alert_elasticsearch": {
@@ -7309,6 +7421,30 @@
             "textHeadline": "Atsauksme",
             "titleCardComment": "Komentārs"
         },
+        "filters": {
+            "customerFilter": {
+                "label": "Klients",
+                "placeholder": "Filtrēt pēc klienta..."
+            },
+            "languageFilter": {
+                "label": "Valoda",
+                "placeholder": "Filtrēt pēc valodas..."
+            },
+            "pointsFilter": {
+                "label": "Vērtējums (Zvaigznes)"
+            },
+            "productFilter": {
+                "label": "Produkts",
+                "placeholder": "Filtrēt pēc produkta..."
+            },
+            "salesChannelFilter": {
+                "label": "Pārdošanas kanāls",
+                "placeholder": "Filtrējiet pēc pārdošanas kanāla..."
+            },
+            "statusFilter": {
+                "label": "Apstiprināts"
+            }
+        },
         "general": {
             "descriptionTextModule": "Šeit var pārvaldīt atsauksmes.",
             "mainMenuItemGeneral": "Atsauksmes",
@@ -7355,6 +7491,10 @@
                     },
                     "anonymizeIp": {
                         "label": "Anonīmizēt IP"
+                    },
+                    "trackOffcanvasCart": {
+                        "helpText": "Kad tas ir iespējots, notikums “view_cart” tiek aktivizēts arī tad, kad tiek atvērts offcanvas grozs, ne tikai īpašajā groza lapā. Noderīga detalizētai piltuves analīzei, bet var palielināt groza skata metriku.",
+                        "label": "Izsekojiet audekla grozu"
                     },
                     "trackOrders": {
                         "label": "Sekot pasūtījumiem"
@@ -7695,6 +7835,11 @@
             "mainMenuItemGeneral": "Iestatījumi"
         },
         "index": {
+            "search": {
+                "noResultsDescription": "Iestatījumus nevarēja atrast. Mēģiniet izmantot citu meklēšanas terminu.",
+                "noResultsHeadline": "Nav atrasti ieraksti",
+                "placeholder": "Atrodiet iestatījumus..."
+            },
             "tabAutomation": "Automatizācija",
             "tabCommerce": "Tirdzniecība",
             "tabContent": "Saturs",
@@ -7975,6 +8120,7 @@
     "sw-settings-custom-field": {
         "customField": {
             "detail": {
+                "bannerSearchableEnabled": "Ieteicams atkārtoti indeksēt datus, ja meklēšanas statuss ir mainījies, lai nodrošinātu precīzus meklēšanas rezultātus.",
                 "buttonAddOption": "Pievienot parametru",
                 "buttonEditApply": "Lietot izmaiņas",
                 "helpTextEntitySelect": "Entītijas tipu nevar mainīt, kad ir izveidots pielāgotais lauks.",
@@ -7982,6 +8128,7 @@
                 "infoText": "Ja ir izveidots pielāgots lauks, tiks izveidots arī visu fragmentu kopu atbilstošais fragments. Fragments tiks nosaukts par “CustomFields.{name}”.",
                 "labelAllowCartExpose": "Pieejams iepirkumu ratiņi",
                 "labelAllowCustomerWrite": "Modificējams, izmantojot veikala API",
+                "labelAllowSearchable": "Iekļaut meklēšanā",
                 "labelCustomFieldPosition": "Pozīcija",
                 "labelCustomFieldType": "Tips",
                 "labelDate": "Datums",
@@ -8009,6 +8156,7 @@
                 "titleNewCustomField": "Jauns pielāgotais lauks",
                 "tooltipAllowCartExpose": "Aktivizēt, lai padarītu šo pielāgoto lauku pieejamu derīgās kravas iepirkumu grozs līnijas vienumiem. Tas ir nepieciešams, lai sākotnēji izmantotu šo pielāgoto lauku kārtulu veidotājā vai pielāgotajās veidnēs.",
                 "tooltipAllowCustomerWrite": "Ja aktīvs, veikala API ir atļauts modificēt šo lauku. To var izmantot, lai saglabātu pielāgotus datus, ja veikalam pievieno jaunus laukus. Piemēram, jauniem laukiem reģistrācijas veidlapā.",
+                "tooltipAllowSearchable": "Kad tas ir aktīvs, šis pielāgotais lauks tiks indeksēts un to varēs izmantot meklēšanas konfigurācijās. Ja meklēšanai šis lauks nav nepieciešams, tas ir jāatspējo, lai samazinātu indeksa krātuves lielumu un uzlabotu meklēšanas veiktspēju.",
                 "tooltipCartExposeDisabled": "Šo iestatījumu pašlaik nevar mainīt, jo pielāgoto lauku izmanto viens vai vairāki nosacījumi kārtulu veidotājā.",
                 "tooltipCustomFieldPosition": "Kontrolē pielāgotā lauka stāvokli detaļu lapās.",
                 "tooltipStoreApiAware": "Kad tas ir aktīvs, šis lauks būs pieejams veikala API. Šo opciju var atspējot, lai pielāgotus datus glabātu tikai iekšēji un nepadarītu tos pieejamus, izmantojot Store API."
@@ -8345,6 +8493,7 @@
             "labelDefaultSearchResultSorting": "Noklusējuma meklēšanas rezultātu šķirošana",
             "labelDefaultSorting": "Noklusējuma šķirošana",
             "mainMenuItemGeneral": "Produkti",
+            "messageSaveDefaultValuesEmpty": "Nepieciešama noklusējuma vērtība",
             "messageSaveError": "Konfigurāciju nevarēja saglabāt.",
             "messageSaveSuccess": "Konfigurācija ir saglabāta.",
             "placeholderDefaultSearchResultSorting": "Izvēlieties noklusējuma meklēšanas rezultātu šķirošanu...",
@@ -8532,12 +8681,6 @@
         }
     },
     "sw-settings-media": {
-        "3d": {
-            "lightIntensity": {
-                "helpText": "Mainiet gaismas intensitāti 3D skatā.",
-                "label": "Gaismas intensitāte"
-            }
-        },
         "general": {
             "buttonSave": "Saglabāt",
             "description": "Pārvaldiet multivides iestatījumus šeit.",
@@ -8816,6 +8959,8 @@
             "placeholderName": "Ierakstīt nosaukumu šim noteikumam...",
             "placeholderPriority": "Ievadiet šī noteikuma prioritāti...",
             "placeholderTags": "Ievadiet tagu...",
+            "placeholderType": "Ievadiet veidu...",
+            "productStatesConditionWarning": "Nosacījums “Vienība ar produkta stāvokli” ir novecojis un tiks noņemts versijā 6.8. Lūdzu, izmantojiet “Preces ar produkta veidu”.",
             "productStreamIndexingWarning": {
                 "action": "Uzziniet vairāk mūsu dokumentācijā",
                 "message": "Nosacījums “Vienība dinamiskajā produktu grupā” nekad nebūs patiess.",
@@ -9707,6 +9852,60 @@
         }
     },
     "sw-settings-usage-data": {
+        "consent-modal": {
+            "actions": {
+                "save-preferences": "Saglabāt preferences",
+                "share-all-data": "Kopīgot visu",
+                "share-nothing": "Nedalieties neko"
+            },
+            "external-links": {
+                "data-use-details": {
+                    "label": "shopware.com/lv/data-use-details",
+                    "link": "https://www.shopware.com/en/data-use-details/"
+                },
+                "label": "Lai iegūtu pilnu informāciju, skatiet {data-use-details} un mūsu {privacy-policy}.",
+                "privacy-policy": {
+                    "label": "Privātuma politika",
+                    "link": "https://www.shopware.com/en/privacy/"
+                }
+            },
+            "intro": "Kopīgojot veikala un lietotāju datus, jūs palīdzat mums saprast, kā tiek izmantota administrācija, un izstrādāt uzlabojumus, kas atvieglo jūsu ikdienas darbu.",
+            "opt-out-info": "Jūs varat atteikties jebkurā laikā, izmantojot iestatījumus un profila iestatījumus.",
+            "promises": {
+                "gdpr-compliant": "Atbilst GDPR",
+                "no-third-party": "Dati netiek kopīgoti ar trešajām personām",
+                "securely-processed": "Droši glabātie dati"
+            },
+            "share-store-data": "Kopīgojot veikala datus, jūs palīdzat mums saprast, kā tiek izmantota administrācija, un izstrādāt uzlabojumus, kas atvieglo jūsu ikdienas darbu.",
+            "share-user-data": "Kopīgojot lietotāja datus, jūs palīdzat mums saprast, kā tiek izmantota administrācija, un izstrādāt uzlabojumus, kas atvieglo jūsu ikdienas darbu.",
+            "store-data": {
+                "description": "Apvienotie dati no {order}, {diagnostic}un {store} palīdz mums uzlabot funkcijas. Lūdzu, apstipriniet, ka esat pilnvarots sniegt piekrišanu savam uzņēmumam.",
+                "emphasizes": {
+                    "diagnostic": "diagnostika",
+                    "order": "rīkojumi",
+                    "store": "uzglabāt datus"
+                },
+                "help-text": {
+                    "diagnostic": "<strong>Diagnostikas dati</strong> Shopware ietvaros attiecas uz informāciju, kas saistīta ar sistēmas veselību, kļūdām un platformas veiktspējas metriku. Tas ietver informāciju, piemēram, sistēmas žurnālus, kļūdu ziņojumus, servera reakcijas laikus un citus tehniskos rādītājus. Šo datu analīze palīdz mums ātri identificēt, risināt un izvietot labojumus izplatītām problēmām vai ievainojamībām, saglabājot platformas integritāti.",
+                    "order": "<strong>Pasūtījumu dati</strong> Shopware ietvaros attiecas uz detalizētu informāciju par klientu pasūtījumiem, kas veikti platformā. Tas ietver tādas specifikas kā pasūtītie produkti, daudzumi, cenas, izcelsme, maksājuma veidi, sūtījums utt. Mēs analizējam šos datus, lai izprastu tendences un modeļus, kas palīdz mums uzlabot funkcijas, kā arī izstrādāt jaunus pakalpojumus, kas paredzēti, lai uzlabotu jūsu biznesa panākumus. Mēs neapkopojam jūsu klientu personas datus, kurus var izmantot, lai identificētu vienu personu.",
+                    "store": "<strong>Veikala dati</strong> veikalā Shopware attiecas uz visu informāciju, kas saistīta ar jūsu tiešsaistes veikalu. Piemēram, produkti, saraksti, cenas, attēli, apraksti utt., kā arī metadati par jūsu veikala iestatījumiem, piemēram, motīvi un spraudņi. Mēs neapkopojam personas datus, kurus var izmantot, lai identificētu administratora lietotāju vai veikala apmeklētāju. Izmantojot apkopotos veikala datus, mēs varam sniegt ieskatu, izmantojot mašīnmācīšanos, piemēram, jaunās tirgus tendences, ļaujot attiecīgi pielāgot produktu piedāvājumus vai mārketinga stratēģijas."
+                },
+                "label-checkbox": "Kopīgojiet veikala datus",
+                "title": "Glabājiet datus"
+            },
+            "title": "Palīdziet mums uzlabot",
+            "user-data": {
+                "description": "Mēs izmantojam {data} par to, kā jūs mijiedarboties ar administrāciju, lai uzlabotu tās lietojamību un veiktspēju.",
+                "emphasizes": {
+                    "data": "dati"
+                },
+                "help-text": {
+                    "data": "<strong>Lietošanas dati</strong> Shopware ietvaros attiecas uz informāciju, kas saistīta ar to, kā administratora lietotāji un veikalu apmeklētāji mijiedarbojas ar mūsu platformu. Tas ietver informāciju, piemēram, mijiedarbību ar dažādiem Shopware administratora moduļiem, skatītās lapas, apmeklējumu ilgumu, klikšķu ceļus un lietotāju darbības platformā un veikalā. Novērtējot lietošanas datus, mēs varam identificēt platformas apgabalus, kurus bieži apmeklē vai no kurām izvairās, lai izmērītu funkciju pieņemšanu, kā rezultātā iespējamie uzlabojumi izkārtojumā, dizainā un funkcionalitātē."
+                },
+                "label-checkbox": "Kopīgot savus datus",
+                "title": "Mani dati"
+            }
+        },
         "general": {
             "description": "Konfigurējiet, lai kopīgotu lietojuma datus ar mums, lai uzlabotu Shopware.",
             "mainMenuItemGeneral": "Datu koplietošana",

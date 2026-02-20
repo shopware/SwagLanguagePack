@@ -306,6 +306,7 @@
             "contact_form_send": "Kontaktformular sendt",
             "customer_group_registration_accepted": "Anmodning om registrering af kundegruppe accepteret",
             "customer_group_registration_declined": "Anmodning om registrering af kundegrupper afviste",
+            "customer_password_changed": "Kundekodeord ændret",
             "customer_recovery_request": "Kunden anmoder om ny adgangskode",
             "mail_after_create_message": "E-mail oprettet",
             "mail_before_send": "E-mail bliver sendt",
@@ -503,6 +504,7 @@
             "FRAMEWORK__DELETE_RESTRICTED": "Sletning mislykkedes.",
             "FRAMEWORK__MISSING_PRIVILEGE_ERROR": "Mangler tilladelser.",
             "FRAMEWORK__RATE_LIMIT_EXCEEDED": "For mange anmodninger. Vent venligst {seconds} sekunder, før du prøver igen.",
+            "FRAMEWORK__ROUTE_BLOCKED_MESSAGE": "URL-adressen {path} er i konflikt med den eksisterende rute {blockedSegment} og kan ikke bruges.",
             "INVALID_MAIL": "Indtast venligst en gyldig e-mailadresse.",
             "INVALID_MEDIA_URL": "Venligst indtast en gyldig URL for at uploade en fil.",
             "INVALID_URL": "Indtast en valid Url.",
@@ -731,6 +733,7 @@
                     "product": "Produkt"
                 },
                 "lineItemProductStates": "Vare med produkttilstand",
+                "lineItemProductType": "Vare med produkttype",
                 "lineItemPromotedRule": "Produkter der er promoveret",
                 "lineItemPropertyRule": "Vare med variant eller egenskabsværdi",
                 "lineItemPropertyValueRule": "Vare med egenskabsværdi",
@@ -821,6 +824,14 @@
                     "options": {
                         "is-download": "Digitale",
                         "is-physical": "Fysisk"
+                    }
+                }
+            },
+            "cartLineItemProductType": {
+                "productType": {
+                    "options": {
+                        "digital": "Digitale",
+                        "physical": "Fysisk"
                     }
                 }
             },
@@ -980,6 +991,8 @@
             "messageNoResults": "Ingen resultater fundet for \"{term}\"."
         },
         "sw-field": {
+            "ariaLinkInheritance": "Link arv",
+            "ariaUnlinkInheritance": "Fjern sammenkædning af arv",
             "notification": {
                 "notificationCopyFailureMessage": "Teksten kunne ikke kopieres til udklipsholderen.",
                 "notificationCopySuccessMessage": "Teksten er kopieret til udklipsholderen."
@@ -1085,10 +1098,24 @@
             "labelContextMenuCopyLink": "Kopier link",
             "labelContextMenuDetail": "Detaljer",
             "labelContextMenuMove": "Flyt",
+            "labelContextMenuRemoveCover": "Fjern dækslet",
             "labelContextMenuRename": "Omdøb",
             "labelContextMenuReplace": "Erstat",
+            "labelContextMenuSetCover": "Indstil forsidebillede",
             "labelUploading": "Uploader...",
             "notification": {
+                "coverRemoveSuccess": {
+                    "message": "Forsidebilledet er blevet fjernet."
+                },
+                "coverSaveError": {
+                    "message": "Forsidebilledet kunne ikke gemmes."
+                },
+                "coverSaveSuccess": {
+                    "message": "Forsidebilledet er blevet gemt."
+                },
+                "coverSelectionInvalid": {
+                    "message": "Vælg et billede, der skal bruges som omslag."
+                },
                 "errorBlankItemName": {
                     "message": "Mediet kunne ikke omdøbes: Indtast venligst et navn."
                 },
@@ -1218,7 +1245,8 @@
         "sw-media-preview-v2": {
             "fallbackAudioTagSupport": "Din browser understøtter ikke dette audio tag",
             "fallbackVideoTagSupport": "Din browser understøtter ikke dette video tag",
-            "textNoMedia": "Intet medie tilgængeligt"
+            "textNoMedia": "Intet medie tilgængeligt",
+            "warningUnsupportedFormat": "Formatet \"{format}\" understøttes muligvis ikke i alle browsere."
         },
         "sw-media-upload": {
             "buttonFileUpload": "Upload fil",
@@ -1234,6 +1262,9 @@
                 "failure": {
                     "message": "Fejl under upload af fil."
                 },
+                "illegalFileType": {
+                    "message": "Filen \"{name}\" kunne ikke uploades. Denne filtype understøttes ikke."
+                },
                 "illegalFileUrl": {
                     "message": "Upload fra en lokal URL er ikke tilladt.",
                     "title": "Ugyldig URL"
@@ -1241,9 +1272,22 @@
                 "illegalFilename": {
                     "message": "Filnavnet \"{fileName}\" indeholder ugyldige tegn."
                 },
+                "payloadTooLarge": {
+                    "message": "Filen er for stor. Reducer filstørrelsen, eller kontroller serverkonfigurationen."
+                },
+                "requestCanceled": {
+                    "message": "Uploadet er blevet annulleret."
+                },
                 "success": {
                     "message": "Ingen fil er gemt. | Filen er gemt. | {count} / {total} filer er gemt."
+                },
+                "transportError": {
+                    "message": "Upload mislykkedes på grund af en forbindelse eller servertimeout. Kontroller dine forbindelses- eller servergrænser."
                 }
+            },
+            "snackbar": {
+                "errorMessage": "Filen kunne ikke uploades. | Nogle filer kunne ikke uploades.",
+                "message": "Upload fil | Upload af filer"
             }
         },
         "sw-media-upload-v2": {
@@ -2332,6 +2376,9 @@
                 }
             },
             "video": {
+                "video": {
+                    "label": "Video"
+                },
                 "vimeoVideo": {
                     "label": "Vimeo video"
                 },
@@ -2708,21 +2755,26 @@
                 "config": {
                     "warning": "Ufiltreret HTML-kode kan føre til sikkerhedsrisici. Indsæt kun HTML-kode fra pålidelige kilder, og test dine ændringer, før du offentliggør dem."
                 },
-                "label": "HTML"
+                "label": "HTML",
+                "labelContent": "Indhold"
             },
             "image": {
                 "config": {
+                    "helpText": {
+                        "ariaLabel": "Denne tekst læses af skærmlæsere som linktekst.",
+                        "fetchPriorityHigh": "Aktivér denne indstilling, hvis billedet er det første på siden. Billedet tildeles derefter attributten 'fetchpriority=\"high\"', hvilket beder browseren om at indlæse det med højere prioritet. Dette kan hjælpe med at forbedre LCP (Largest Contentful Paint).",
+                        "isDecorative": "Når denne indstilling er aktiveret, læses billedoplysningerne ikke af skærmlæsere. Dette betyder, at taggene „alt“ og „title“ forbliver tomme.",
+                        "minHeight": "Indtast minimumshøjden med den ønskede enhed. For eksempel: 200px",
+                        "useFetchPriorityOnFirstItem": "Når denne indstilling er aktiveret, indlæses det første billede med en højere prioritet. Dette kan forbedre den hastighed, hvormed siden gengives i browseren."
+                    },
                     "label": {
                         "ariaLabel": "Link beskrivelse",
-                        "ariaLabelHelpText": "Denne tekst læses af skærmlæsere som linktekst.",
+                        "fetchPriorityHigh": "Hent prioritet høj",
                         "isDecorative": "Marker billedet som dekorativt",
-                        "isDecorativeHelpText": "Når denne indstilling er aktiveret, læses billedoplysningerne ikke af skærmlæsere.",
                         "linkNewTab": "Åbn link i ny fane",
                         "linkTo": "Linkmål",
                         "minHeight": "Minimum højde",
-                        "minHeightHelpText": "Indtast minimumshøjden med din ønskede enhed. For eksempel: 200px",
-                        "useFetchPriorityOnFirstItem": "Indlæs første billede med højere prioritet",
-                        "useFetchPriorityOnFirstItemHelpText": "Når denne indstilling er aktiveret, indlæses det første billede med en højere prioritet. Dette kan forbedre den hastighed, hvormed siden gengives i browseren."
+                        "useFetchPriorityOnFirstItem": "Indlæs første billede med højere prioritet"
                     },
                     "placeholder": {
                         "enterMinHeight": "Angiv en minimums højde...",
@@ -2759,7 +2811,8 @@
                         "navigationDots": "Priknavigation",
                         "navigationPositionInside": "Inden i",
                         "navigationPositionNone": "Ingen",
-                        "navigationPositionOutside": "Udenfor"
+                        "navigationPositionOutside": "Udenfor",
+                        "sliderItems": "Billeder"
                     }
                 },
                 "label": "Billedeslider"
@@ -2808,6 +2861,14 @@
                         "descriptionAndReviews": "Produktbeskrivelse & anmeldelser",
                         "reviews": "Anmeldelser"
                     }
+                }
+            },
+            "productHeading": {
+                "logo": {
+                    "label": "Producentens logo"
+                },
+                "name": {
+                    "label": "Produktnavn"
                 }
             },
             "productListing": {
@@ -2933,6 +2994,32 @@
                 },
                 "label": "Tekst"
             },
+            "video": {
+                "config": {
+                    "helpText": {
+                        "ariaLabel": "Læses af skærmlæsere og skal kort beskrive indholdet eller formålet med videoen. Hvis den efterlades tom, bruges enten titlen eller alt-teksten, der er konfigureret i mediemodulet, i stedet.",
+                        "autoPlay": "Autoplay er kun tilladt af mange browsere, når videoen er slået fra.<br>Med autoplay er et cover ikke meningsfuldt, fordi afspilningen starter med det samme, og der kræves ingen bekræftelse.",
+                        "minHeight": "Indtast minimumshøjden med den ønskede enhed. For eksempel: 200px",
+                        "playsInline": "På iOS åbner videoer ofte fuldskærm. Aktivér denne indstilling for at holde afspilningen integreret.",
+                        "showCover": "Coveret, der er konfigureret i medievalget, vises, indtil brugeren bekræfter at indlæse videoen via klik."
+                    },
+                    "label": {
+                        "ariaLabel": "Skærmlæsertitel",
+                        "autoPlay": "Afspil video automatisk",
+                        "loop": "Afspil video i ring",
+                        "minHeight": "Minimum højde",
+                        "muted": "Afspil dæmpet",
+                        "playsInline": "Spil inline på iOS-enheder",
+                        "showControls": "Lad bruger styre video",
+                        "showCover": "Indlæs kun video efter bekræftelse fra brugeren"
+                    },
+                    "placeholder": {
+                        "ariaLabel": "Indtast skærmlæsertitel...",
+                        "minHeight": "Indtast minimumshøjde..."
+                    }
+                },
+                "label": "Video"
+            },
             "vimeoVideo": {
                 "config": {
                     "helpText": {
@@ -2977,6 +3064,16 @@
             "moduleTitle": "CMS sider",
             "placeholderSearchBar": "Søg i layout...",
             "privacyNotice": "Ved at vælge Fortsæt bekræfter du, at du har læst vores <a href=\"%privacyUrl%\">databeskyttelsesinformation</a> og accepteret vores <a href=\"%tosUrl%\">generelle vilkår og betingelser</a>."
+        },
+        "inherit": {
+            "formBanner": "Dette layout har nedarvede felter. Det betyder, at så længe den nedarvede tilstand er aktiv, vil indholdet blive arvet. Arvelige felter kan fjernes ved at klikke på linksymbolet. Hvis du klikker på symbolet igen, indstilles den nedarvede tilstand tilbage.",
+            "tooltip": "Dette felt findes ikke i basislayoutet og kan ikke arves.",
+            "unlinkAllButton": "Nulstil alle felter.",
+            "unlinkAllConfirmText": "Er du sikker på, at du vil nulstille alle felter? Dette sletter alt indhold, der ikke er linket, permanent.",
+            "unlinkAllTitle": "Nulstil alle felter",
+            "unlinkFieldConfirmText": "Er du sikker på, at du vil gendanne arv? Dette fjerner alle brugerdefinerede data i dette felt og gendanner værdier fra det overordnede element.",
+            "unlinkFieldTitle": "Gendan orginale indstillinger",
+            "unlinkNotice": "Nogle nedarvede felter er blevet fjernet."
         },
         "list": {
             "gridHeaderAssignedPages": "Tildelte sider",
@@ -3214,6 +3311,7 @@
             "accept": "Acceptér",
             "acceptMessage": "Kundegruppe er blevet ændret",
             "alert": "Adgang til kundegruppe \"{name}\" anmodet om.",
+            "customerInactiveMessage": "Inaktive kunder kan ikke accepteres eller afvises til nogen kundegruppe.",
             "decline": "Afvis",
             "declineMessage": "Din anmodning er blevet afvist",
             "errorMessage": "Kan ikke behandle anmodningen",
@@ -4300,7 +4398,10 @@
                 "placeholderDeliveryStatus": "Vælg forsendelsesstatus...",
                 "placeholderOrderStatus": "Vælg ordrestatus...",
                 "placeholderPaymentStatus": "Vælg betalingsstatus...",
-                "titleSetStatus": "Tildel status"
+                "titleSetStatus": "Tildel status",
+                "transitionWarning": {
+                    "message": "Vær forsigtig, når du bruger statusovergange, da de kan føre til svigtende flow, hvis statusovergangen ikke er gyldig. Overvej at aktivere „Force statusovergange“ for at undgå sådanne problemer."
+                }
             },
             "tag": {
                 "labelAddTag": "Tilføj tag",
@@ -4365,6 +4466,7 @@
             "orderTransactionCaptureRefund": "Tilbagebetaling af ordretransaktion",
             "paid": "Betalt",
             "paidPartially": "Betalt delvist",
+            "password": "Adgangskode",
             "paymentMethod": "Betalingsmetode",
             "pending": "Afventer",
             "placed": "Placeret",
@@ -4403,8 +4505,7 @@
                 "profile": "Profil",
                 "records": "Poster",
                 "size": "Størrelse",
-                "state": "Status",
-                "user": "Bruger"
+                "state": "Status"
             },
             "contextMenu": {
                 "abortProcess": "Afbryd proces",
@@ -4416,6 +4517,10 @@
                 "showLogInfo": "Åben log filer",
                 "showProfile": "Vis profil",
                 "showResults": "Vis resumé"
+            },
+            "detail": {
+                "ExportLabel": "Eksport",
+                "importLabel": "Importér"
             },
             "dryrun": "Dry run",
             "emptyState": {
@@ -4791,6 +4896,7 @@
             "messageInvalidScope": "Ugyldig scope request.",
             "messageServerError": "Autoriseringsserveren stødte på en uventet fejl.",
             "messageUnsupportedGrantType": "Godkendelsesstype understøttes ikke af autorisationsserver.",
+            "orContinueWith": "Eller fortsæt med",
             "placeholderPassword": "Indtast dit password...",
             "placeholderUsername": "Indtast dit brugernavn...",
             "subheadlineMain": "Velkommen tilbage."
@@ -4877,6 +4983,7 @@
         },
         "modal": {
             "affectedList": "Følgende salgskanaler vil blive påvirket:",
+            "confirmButton": "Fortsæt alligevel",
             "mainContent": "Der er allerede en sidehoved- og sidefodsskabelon tildelt til følgende salgskanaler. Hvis du fortsætter og gemmer, vil den tildeling blive overskrevet med dine ændringer.",
             "title": "Flere tildelinger"
         }
@@ -4956,6 +5063,8 @@
             "emptyStateSubTitle": "Tilføj e-mail-skabeloner ved at klikke på knappen „Tilføj“.",
             "emptyStateTitle": "Ingen e-mail-skabeloner endnu",
             "errorMediaItemDuplicated": "Medie er allerede tildelt",
+            "tabHeaderFooter": "Sidehoveder og -fødder",
+            "tabMailTemplates": "Skabeloner",
             "textDeleteConfirm": "Er du sikker på, at du vil slette denne email skabelonen {subject}\"?",
             "textMailTemplateOverview": "Email skabeloner",
             "titleMailFooterList": "Footer",
@@ -5037,7 +5146,9 @@
                 "download": "Download",
                 "horizontal": "Horisontal",
                 "move": "Flyt",
+                "removeCover": "Fjern dækslet",
                 "replace": "Erstat",
+                "setCover": "Indstil forsidebillede",
                 "settings": "Indstillinger",
                 "vertical": "Vertikal"
             },
@@ -5102,6 +5213,12 @@
             "labelTabItemLibrary": "Mediebibliotek",
             "labelTabItemUpload": "Upload filer",
             "titleModal": "Vælg medie"
+        },
+        "sw-media-save-modal": {
+            "titleModal": "Gem i medier"
+        },
+        "sw-model-viewer": {
+            "titleModal": "Modelfremviser"
         }
     },
     "sw-meteor": {
@@ -5619,7 +5736,6 @@
                     "and": "og",
                     "by": "af",
                     "lastChanged": "Sidst ændret",
-                    "on": "på",
                     "with": "med"
                 }
             },
@@ -6163,12 +6279,17 @@
                 "placeholder": "Indtast et produktnummer..."
             },
             "productStatesFilter": {
+                "deprecationWarning": "Produktstatusfilteret er forældet og fjernes i v6.8. Brug venligst produkttypefilteret i stedet.",
                 "label": "Produkt tilstande",
                 "options": {
                     "digital": "Digitale",
                     "physical": "Fysisk"
                 },
                 "placeholder": "Vælg produkttilstand..."
+            },
+            "productTypeFilter": {
+                "label": "Type",
+                "placeholder": "Vælg produkttype..."
             },
             "releaseDateFilter": {
                 "label": "Udgivelsesdato"
@@ -6348,6 +6469,7 @@
             "cardTitleProperties": "Tilgængelige egenskaber",
             "columnProperty": "Egenskab",
             "columnValue": "Egenskabsværdi",
+            "descriptionEmptyState": "Håndtér egenskaber her.",
             "emptyStateNoOptionsDescription": "Opret egenskaber og egenskabsværdier først, derefter kan de tildeles her.",
             "emptyStateNoOptionsTitle": "Ingen værdier tilgængelig",
             "emptyStateNoSelectedOptionsDescription": "Vælg værdier fra overstående søgefunktion.",
@@ -6442,6 +6564,10 @@
             "cardTitleMeasurement": "Produktmålinger",
             "cardTitleProperties": "Egenskaber",
             "cardTitleSellingPackaging": "Oplysninger om salg og emballage"
+        },
+        "type": {
+            "digital": "Digitale",
+            "physical": "Fysisk"
         },
         "variations": {
             "backVariationsButton": "Tilbage",
@@ -6574,6 +6700,12 @@
             "messageSaveSuccess": "Dynamisk produktgruppe \"{name}\" er blevet gemt.",
             "placeholderDescription": "Skriv en beskrivelse...",
             "placeholderName": "Indtast navn...",
+            "productStatesFilterWarning": "Denne dynamiske produktgruppe bruger stadig filteret for forældede produkttilstande. Det fjernes i v6.8 - skift venligst til produkttypefilteret i stedet.",
+            "productStreamIndexingWarning": {
+                "action": "Få mere at vide i vores dokumentation",
+                "message": "Nogle funktioner fungerer muligvis ikke som forventet: <ul><li>Kategorisider afspejler muligvis ikke ændringer, før HTTP-cachen udløber eller ryddes manuelt.</li><li>Regelbetingelsen „Vare i dynamisk produktgruppe“ vil aldrig være sand.</li></ul>",
+                "title": "Dynamisk produktgruppeindeksering er deaktiveret"
+            },
             "textHeadline": "Ny dynamisk produktgruppe",
             "titleCard": "Generel information",
             "titleFilter": "Betingelser",
@@ -6739,6 +6871,9 @@
         },
         "tabGeneral": {
             "title": "Generel"
+        },
+        "tabPrivacyPreferences": {
+            "title": "Privatlivspræferencer"
         },
         "tabSearchPreferences": {
             "alert_elasticsearch": {
@@ -7286,6 +7421,30 @@
             "textHeadline": "Anmeldelse",
             "titleCardComment": "Kommentar"
         },
+        "filters": {
+            "customerFilter": {
+                "label": "Kunder",
+                "placeholder": "Filtrer efter kunde..."
+            },
+            "languageFilter": {
+                "label": "Sprog",
+                "placeholder": "Filtrer efter sprog..."
+            },
+            "pointsFilter": {
+                "label": "Bedømmelse (stjerner)"
+            },
+            "productFilter": {
+                "label": "Produkt",
+                "placeholder": "Filtrer efter produkt..."
+            },
+            "salesChannelFilter": {
+                "label": "Salgskanal",
+                "placeholder": "Filtrer efter salgskanal..."
+            },
+            "statusFilter": {
+                "label": "Godkendt"
+            }
+        },
         "general": {
             "descriptionTextModule": "Håndtér anmeldelser her.",
             "mainMenuItemGeneral": "Anmeldelser",
@@ -7333,6 +7492,10 @@
                     "anonymizeIp": {
                         "label": "Anonymér IP"
                     },
+                    "trackOffcanvasCart": {
+                        "helpText": "Når aktiveret, udløses også en 'view_cart' begivenhed, når offcanvas-kurven åbnes, ikke kun på den dedikerede indkøbskurvside. Nyttig til detaljeret tragtanalyse, men kan øge indkøbskurvvisningsmålingerne.",
+                        "label": "Track offcanvas vogn"
+                    },
                     "trackOrders": {
                         "label": "Spor ordre"
                     },
@@ -7366,6 +7529,7 @@
             "descriptionTaxCalculation": "Hvis du ændrer denne indstilling, kan det medføre problemer med eksterne betalingsudbydere. Tjek, hvordan momsen beregnes af betalingsudbydere, du benytter, før du foretager ændringer.",
             "favouriteLabel": "Markér salgskanal som favorit",
             "footerCategory": "Vælg kategori for footer navigation",
+            "foreignKeyDelete": "Denne salgskanal kan ikke slettes, fordi den stadig er i brug af {assignment}.",
             "helpTextTaxCalculation": {
                 "label": "Hvis en skatteudbyder er aktiveret, kan disse indstillinger blive overskrevet. Du kan tjekke dette ind {link}.",
                 "linkText": "indstillinger"
@@ -7671,6 +7835,11 @@
             "mainMenuItemGeneral": "Indstillinger"
         },
         "index": {
+            "search": {
+                "noResultsDescription": "Indstillinger kunne ikke findes. Prøv at bruge et andet søgeord.",
+                "noResultsHeadline": "Ingen poster fundet",
+                "placeholder": "Find indstillinger..."
+            },
             "tabAutomation": "Automatisering",
             "tabCommerce": "E-handel",
             "tabContent": "Indhold",
@@ -7951,6 +8120,7 @@
     "sw-settings-custom-field": {
         "customField": {
             "detail": {
+                "bannerSearchableEnabled": "Det anbefales at genindeksere dataene, hvis søgestatus er ændret, for at sikre nøjagtige søgeresultater.",
                 "buttonAddOption": "Tilføj mulighed",
                 "buttonEditApply": "Foretag ændringer",
                 "helpTextEntitySelect": "Objekttypen kan ikke ændres, når det brugerdefinerede felt er oprettet.",
@@ -7958,6 +8128,7 @@
                 "infoText": "Hvis der oprettes et brugerdefineret felt, oprettes den tilsvarende snippet for alle dine uddrag også. Uddrag vil blive navngivet „CustomFields.{name}“.",
                 "labelAllowCartExpose": "Fås i indkøbsvogne",
                 "labelAllowCustomerWrite": "Kan ændres via Store API",
+                "labelAllowSearchable": "Medtag i søgningen",
                 "labelCustomFieldPosition": "Placering",
                 "labelCustomFieldType": "Type",
                 "labelDate": "Dato",
@@ -7985,6 +8156,7 @@
                 "titleNewCustomField": "Nyt brugerdefineret felt",
                 "tooltipAllowCartExpose": "Aktivér, for at gøre dette brugerdefinerede felt tilgængeligt i nyttelasten for indkøbskurvlinjevarer. Dette er nødvendigt for i første omgang at bruge dette brugerdefinerede felt i regelværktøjet eller brugerdefinerede skabeloner.",
                 "tooltipAllowCustomerWrite": "Når det er aktivt, Store API har tilladelse til at ændre dette felt. Dette kan bruges til at gemme brugerdefinerede data, hvis du tilføjer nye felter til butiksfacaden. For eksempel til nye felter i registreringsformularen.",
+                "tooltipAllowSearchable": "Når det er aktivt, indekseres dette brugerdefinerede felt og kan bruges i søgekonfigurationer. Hvis dette felt ikke er påkrævet til søgningen, skal det deaktiveres for at reducere indekslagerstørrelsen og forbedre ydeevnen af søgningen.",
                 "tooltipCartExposeDisabled": "Denne indstilling kan i øjeblikket ikke ændres, fordi det brugerdefinerede felt bruges af en eller flere betingelser i Regelgenerator.",
                 "tooltipCustomFieldPosition": "Afgør placeringen af det brugerdefinerede felt.",
                 "tooltipStoreApiAware": "Når det er aktivt, vil dette felt være tilgængeligt i Store API. Denne indstilling kan deaktiveres for kun at gemme brugerdefinerede data internt og ikke gøre dem tilgængelige via Store API."
@@ -8321,6 +8493,7 @@
             "labelDefaultSearchResultSorting": "Standard sortering af søgeresultater",
             "labelDefaultSorting": "Standard sortering",
             "mainMenuItemGeneral": "Produkter",
+            "messageSaveDefaultValuesEmpty": "Standardværdi er påkrævet",
             "messageSaveError": "Konfigurationen kunne ikke gemmes.",
             "messageSaveSuccess": "Konfigurationen er gemt.",
             "placeholderDefaultSearchResultSorting": "Vælg en standardsortering af søgeresultater...",
@@ -8338,6 +8511,7 @@
                         "_score": "_score",
                         "customField": "Brugerdefineret felt",
                         "product": {
+                            "available": "Til rådig",
                             "cheapestPrice": "Billigste produktpris",
                             "createdAt": "Oprettelsesdato",
                             "listingPrices": "Produkt notering pris",
@@ -8507,12 +8681,6 @@
         }
     },
     "sw-settings-media": {
-        "3d": {
-            "lightIntensity": {
-                "helpText": "Skift lysintensiteten i 3D-visningen.",
-                "label": "Lysintensitet"
-            }
-        },
         "general": {
             "buttonSave": "Gem",
             "description": "Administrer medieindstillinger her.",
@@ -8718,6 +8886,7 @@
                 "height": "Højde",
                 "length": "Længde",
                 "manufacturerNumber": "Leverandør produkt nummer",
+                "packUnit": "Emballageenhed",
                 "property": "Egenskab",
                 "referencePrice": "Enhedspris",
                 "releaseDate": "Udgivelsesdato",
@@ -8790,6 +8959,8 @@
             "placeholderName": "Giv reglen et navn...",
             "placeholderPriority": "Indtast en proritet for denne regel...",
             "placeholderTags": "Tilføj et tag...",
+            "placeholderType": "Indtast en type...",
+            "productStatesConditionWarning": "Betingelsen „Vare med produkttilstand“ er forældet og fjernes i v6.8. Brug venligst „Vare med produkttype“ i stedet.",
             "productStreamIndexingWarning": {
                 "action": "Få mere at vide i vores dokumentation",
                 "message": "Betingelsen „Vare i dynamisk produktgruppe“ vil aldrig være sand.",
@@ -9681,6 +9852,60 @@
         }
     },
     "sw-settings-usage-data": {
+        "consent-modal": {
+            "actions": {
+                "save-preferences": "Gem præferencer",
+                "share-all-data": "Del alle",
+                "share-nothing": "Del intet"
+            },
+            "external-links": {
+                "data-use-details": {
+                    "label": "shopware.com/da/data-use-details",
+                    "link": "https://www.shopware.com/en/data-use-details/"
+                },
+                "label": "For alle detaljer, se {data-use-details} og vores {privacy-policy}.",
+                "privacy-policy": {
+                    "label": "Privatlivspolitik",
+                    "link": "https://www.shopware.com/en/privacy/"
+                }
+            },
+            "intro": "Ved at dele butiks- og brugerdata hjælper du os med at forstå, hvordan administrationen bruges, og udvikle forbedringer, der gør dit daglige arbejde lettere.",
+            "opt-out-info": "Du kan til enhver tid fravælge via indstillingerne og profilindstillingerne.",
+            "promises": {
+                "gdpr-compliant": "GDPR-kompatibel",
+                "no-third-party": "Ingen data deles med tredjeparter",
+                "securely-processed": "Sikkert gemte data"
+            },
+            "share-store-data": "Ved at dele butiksdata hjælper du os med at forstå, hvordan administrationen bruges, og udvikle forbedringer, der gør dit daglige arbejde lettere.",
+            "share-user-data": "Ved at dele dine brugerdata hjælper du os med at forstå, hvordan administrationen bruges, og udvikle forbedringer, der gør dit daglige arbejde lettere.",
+            "store-data": {
+                "description": "Kombinerede data fra {order}, {diagnostic}og {store} hjælper os med at forbedre funktioner. Bekræft, at du er autoriseret til at give samtykke til din virksomhed.",
+                "emphasizes": {
+                    "diagnostic": "diagnostik",
+                    "order": "ordrer",
+                    "store": "lagre data"
+                },
+                "help-text": {
+                    "diagnostic": "<strong>Diagnosedata</strong> i Shopware henviser til oplysninger relateret til systemtilstand, fejl og ydelsesmålinger på platformen. Dette omfatter detaljer såsom systemlogfiler, fejlmeddelelser, serverresponstider og andre tekniske indikatorer. Analyse af disse data hjælper os med hurtigt at identificere, adressere og implementere rettelser til almindelige problemer eller sårbarheder, hvilket bevarer platformens integritet.",
+                    "order": "<strong>Ordredata</strong> inden for Shopware henviser til detaljerede oplysninger om kundeordrer placeret på platformen. Dette inkluderer specifikationer såsom bestilte produkter, mængder, priser, oprindelse, betalingsmetoder, forsendelse osv. Vi analyserer disse data for at forstå tendenser og mønstre, der hjælper os med at forbedre funktioner samt udvikle nye tjenester designet til at forbedre din virksomheds succes. Vi indsamler ikke personlige data fra dine kunder, der kan bruges til at identificere en enkelt person.",
+                    "store": "<strong>Butiksdata</strong> i Shopware vedrører alle de oplysninger, der er relateret til din online butik. Såsom produkter, lister, priser, billeder, beskrivelser osv., og metadata om din butiks opsætning, såsom temaer og plugins. Vi indsamler ikke personlige data, der kan bruges til at identificere en administratorbruger eller en butiksbesøgende. Ved hjælp af aggregerede butiksdata kan vi give indsigt via maskinlæring såsom tendenser på nye markeder, så du kan justere produkttilbud eller markedsføringsstrategier i overensstemmelse hermed."
+                },
+                "label-checkbox": "Del butiksdata",
+                "title": "Opbevar data"
+            },
+            "title": "Hjælp os med at forbedre",
+            "user-data": {
+                "description": "Vi bruger {data} om, hvordan du interagerer med administrationen for at forbedre dens brugervenlighed og ydeevne.",
+                "emphasizes": {
+                    "data": "data"
+                },
+                "help-text": {
+                    "data": "<strong>Brugsdata</strong> i Shopware vedrører oplysninger relateret til, hvordan administratorbrugere og butiksbesøgende interagerer med vores platform. Dette inkluderer detaljer som interaktioner med forskellige Shopware-administratormoduler, viste sider, varighed af besøg, klikstier og brugerhandlinger inden for platformen og butiksfronten. Ved at evaluere brugsdataene kan vi identificere områder på platformen, der ofte besøges eller undgås for at måle funktionens anvendelse, hvilket fører til potentielle forbedringer i layout, design og funktionalitet."
+                },
+                "label-checkbox": "Del mine data",
+                "title": "Mine data"
+            }
+        },
         "general": {
             "description": "Konfigurer til at dele brugsdata med os for at forbedre Shopware.",
             "mainMenuItemGeneral": "Brugsdata",

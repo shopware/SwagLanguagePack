@@ -306,6 +306,7 @@
             "contact_form_send": "Kontaktskjema sendt",
             "customer_group_registration_accepted": "Forespørsel om registrering av kundegruppe",
             "customer_group_registration_declined": "Registreringsforespørsel for kundegruppe avvist",
+            "customer_password_changed": "Kundepassord endret",
             "customer_recovery_request": "Kunden ber om nytt passord",
             "mail_after_create_message": "E-post opprettet",
             "mail_before_send": "E-post blir sendt",
@@ -503,13 +504,14 @@
             "FRAMEWORK__DELETE_RESTRICTED": "Sletting mislyktes.",
             "FRAMEWORK__MISSING_PRIVILEGE_ERROR": "Mangler tillatelser.",
             "FRAMEWORK__RATE_LIMIT_EXCEEDED": "For mange forespørsler. Vennligst vent {seconds} sekunder før du prøver igjen.",
+            "FRAMEWORK__ROUTE_BLOCKED_MESSAGE": "URL-adressen {path} er i konflikt med den eksisterende ruten {blockedSegment} og kan ikke brukes.",
             "INVALID_MAIL": "Skriv inn en gyldig e-postadresse.",
             "INVALID_MEDIA_URL": "Angi en gyldig URL-adresse for å laste opp en fil.",
             "INVALID_URL": "Skriv inn en gyldig url.",
             "PARENT_MUST_NOT_BE_EMPTY": "Dette feltets arver må ikke være tom.",
             "SHOPWARE_INVALID_IP": "Skriv inn en gyldig IP-adresse.",
             "SHOPWARE_INVALID_IP_CIDR": "Vennligst skriv inn en gyldig IP-adresse eller en gyldig IP-adresse med CIDR-maske.",
-            "THEME__INVALID_SCSS_VAR": "SCSS-verdien \"{value}\" er ikke gyldig for typen \"{type}».",
+            "THEME__INVALID_SCSS_VAR": "SCSS-verdien \"{value}\" er ikke gyldig for typen \"{type}\".",
             "c1051bb4-d103-4f74-8988-acbcafc7fdc3": "Dette feltet må ikke være tomt."
         },
         "notification": {
@@ -731,6 +733,7 @@
                     "product": "Produkt"
                 },
                 "lineItemProductStates": "Vare med produktstatus",
+                "lineItemProductType": "Vare med produkttype",
                 "lineItemPromotedRule": "Varen er fremmet",
                 "lineItemPropertyRule": "Vare med variant eller eiendomsverdi",
                 "lineItemPropertyValueRule": "Vare med eiendomsverdi",
@@ -821,6 +824,14 @@
                     "options": {
                         "is-download": "Digitalt",
                         "is-physical": "Fysisk"
+                    }
+                }
+            },
+            "cartLineItemProductType": {
+                "productType": {
+                    "options": {
+                        "digital": "Digitalt",
+                        "physical": "Fysisk"
                     }
                 }
             },
@@ -980,6 +991,8 @@
             "messageNoResults": "Ingen resultater funnet for \"{term}»."
         },
         "sw-field": {
+            "ariaLinkInheritance": "Link arv",
+            "ariaUnlinkInheritance": "Koble fra arv",
             "notification": {
                 "notificationCopyFailureMessage": "Tekst kunne ikke kopieres til udklipsholder.",
                 "notificationCopySuccessMessage": "Tekst har blitt kopiert til utklippstavlen."
@@ -1085,10 +1098,24 @@
             "labelContextMenuCopyLink": "Kopier lenke",
             "labelContextMenuDetail": "Detaljer",
             "labelContextMenuMove": "Flytt",
+            "labelContextMenuRemoveCover": "Fjern dekselet",
             "labelContextMenuRename": "Gi nytt navn",
             "labelContextMenuReplace": "Bytt",
+            "labelContextMenuSetCover": "Angi forsidebilde",
             "labelUploading": "Laster opp...",
             "notification": {
+                "coverRemoveSuccess": {
+                    "message": "Forsidebildet er fjernet."
+                },
+                "coverSaveError": {
+                    "message": "Forsidebildet kunne ikke lagres."
+                },
+                "coverSaveSuccess": {
+                    "message": "Forsidebildet er lagret."
+                },
+                "coverSelectionInvalid": {
+                    "message": "Velg et bilde som skal brukes som omslag."
+                },
                 "errorBlankItemName": {
                     "message": "Kan ikke lagre medieelementet: Skriv inn et navn."
                 },
@@ -1218,7 +1245,8 @@
         "sw-media-preview-v2": {
             "fallbackAudioTagSupport": "Nettleseren din støtter ikke lydkoden",
             "fallbackVideoTagSupport": "Nettleseren din støtter ikke video-taggen",
-            "textNoMedia": "Ingen medier tilgjengelig"
+            "textNoMedia": "Ingen medier tilgjengelig",
+            "warningUnsupportedFormat": "Formatet \"{format}\" støttes kanskje ikke i alle nettlesere."
         },
         "sw-media-upload": {
             "buttonFileUpload": "Last opp fil",
@@ -1234,6 +1262,9 @@
                 "failure": {
                     "message": "Feil under opplasting av fil."
                 },
+                "illegalFileType": {
+                    "message": "Filen \"{name}\" kunne ikke lastes opp. Denne filtypen støttes ikke."
+                },
                 "illegalFileUrl": {
                     "message": "Opplasting fra lokale URL-adresser er ikke tillatt.",
                     "title": "Ugyldig URL"
@@ -1241,9 +1272,22 @@
                 "illegalFilename": {
                     "message": "Filnavnet \"{fileName}\" inneholder ugyldige tegn."
                 },
+                "payloadTooLarge": {
+                    "message": "Filen er for stor. Reduser filstørrelsen eller sjekk serverkonfigurasjonen."
+                },
+                "requestCanceled": {
+                    "message": "Opplastingen er kansellert."
+                },
                 "success": {
                     "message": "Ingen fil er lagret. | Filen er lagret. | {count} / {total} filer er lagret."
+                },
+                "transportError": {
+                    "message": "Opplastingen mislyktes på grunn av en tilkoblings- eller servertidsavbrudd. Kontroller tilkoblings- eller servergrensene dine."
                 }
+            },
+            "snackbar": {
+                "errorMessage": "Filen kunne ikke lastes opp. | Enkelte filer kunne ikke lastes opp.",
+                "message": "Laste opp fil | Laste opp filer"
             }
         },
         "sw-media-upload-v2": {
@@ -2332,6 +2376,9 @@
                 }
             },
             "video": {
+                "video": {
+                    "label": "Video"
+                },
                 "vimeoVideo": {
                     "label": "Vimeo-video"
                 },
@@ -2708,21 +2755,26 @@
                 "config": {
                     "warning": "Ufiltrert HTML-kode kan føre til sikkerhetsrisiko. Vennligst sett inn HTML-kode fra pålitelige kilder og test endringene før du publiserer dem."
                 },
-                "label": "HTML"
+                "label": "HTML",
+                "labelContent": "Innhold"
             },
             "image": {
                 "config": {
+                    "helpText": {
+                        "ariaLabel": "Denne teksten blir lest opp av skjermlesere som lenketekst.",
+                        "fetchPriorityHigh": "Aktiver dette alternativet hvis bildet er det første på siden. Bildet vil da bli tildelt attributtet 'fetchpriority=\"high\"', slik at nettleseren skal laste det med høyere prioritet. Dette kan bidra til å forbedre Largest Contentful Paint (LCP).",
+                        "isDecorative": "Når dette alternativet er aktivert, blir ikke bildeinformasjonen lest opp av skjermlesere. Dette betyr at «alt» og «title» -kodene forblir tomme.",
+                        "minHeight": "Angi minimumshøyden med ønsket enhet. For eksempel: 200px",
+                        "useFetchPriorityOnFirstItem": "Når dette alternativet er aktivert, lastes det første bildet med høyere prioritet. Dette kan forbedre hastigheten som siden gjengis i nettleseren."
+                    },
                     "label": {
                         "ariaLabel": "Link beskrivelse",
-                        "ariaLabelHelpText": "Denne teksten blir lest opp av skjermlesere som lenketekst.",
+                        "fetchPriorityHigh": "Hent prioritet høy",
                         "isDecorative": "Merk bildet som dekorativt",
-                        "isDecorativeHelpText": "Når dette alternativet er aktivert, blir ikke bildeinformasjonen lest opp av skjermlesere.",
                         "linkNewTab": "Åpne lenke i ny fane",
                         "linkTo": "Koblingsmål",
                         "minHeight": "Minimum høyde",
-                        "minHeightHelpText": "Angi minimumshøyden med ønsket enhet. For eksempel: 200px",
-                        "useFetchPriorityOnFirstItem": "Last inn første bilde med høyere prioritet",
-                        "useFetchPriorityOnFirstItemHelpText": "Når dette alternativet er aktivert, lastes det første bildet med høyere prioritet. Dette kan forbedre hastigheten som siden gjengis i nettleseren."
+                        "useFetchPriorityOnFirstItem": "Last inn første bilde med høyere prioritet"
                     },
                     "placeholder": {
                         "enterMinHeight": "Angi en minimumshøyde...",
@@ -2759,7 +2811,8 @@
                         "navigationDots": "Prikker navigasjon",
                         "navigationPositionInside": "Innvendig",
                         "navigationPositionNone": "Ingen",
-                        "navigationPositionOutside": "Utenfor"
+                        "navigationPositionOutside": "Utenfor",
+                        "sliderItems": "Bilder"
                     }
                 },
                 "label": "Skyvekontrollen"
@@ -2808,6 +2861,14 @@
                         "descriptionAndReviews": "Produktbeskrivelse og anmeldelser",
                         "reviews": "Vurderinger"
                     }
+                }
+            },
+            "productHeading": {
+                "logo": {
+                    "label": "Produsentens logo"
+                },
+                "name": {
+                    "label": "Produktnavn"
                 }
             },
             "productListing": {
@@ -2933,6 +2994,32 @@
                 },
                 "label": "Tekst"
             },
+            "video": {
+                "config": {
+                    "helpText": {
+                        "ariaLabel": "Les av skjermlesere og bør kort beskrive innholdet eller formålet med videoen. Hvis den blir tom, brukes enten tittelen eller alt-teksten som er konfigurert i mediemodulen, i stedet.",
+                        "autoPlay": "Autoplay er tillatt av mange nettlesere bare når videoen er dempet.<br>Med autoplay er et cover ikke meningsfylt fordi avspillingen starter umiddelbart og ingen bekreftelse er nødvendig.",
+                        "minHeight": "Angi minimumshøyden med ønsket enhet. For eksempel: 200px",
+                        "playsInline": "På iOS åpner videoer ofte fullskjerm. Aktiver dette alternativet for å holde avspillingen innebygd.",
+                        "showCover": "Dekselet som er konfigurert i medievalget, vises til brukeren bekrefter å laste inn videoen via klikk."
+                    },
+                    "label": {
+                        "ariaLabel": "Skjermlesertittel",
+                        "autoPlay": "Spill av video automatisk",
+                        "loop": "Spill av video i en sløyfe",
+                        "minHeight": "Minimum høyde",
+                        "muted": "Spill dempet",
+                        "playsInline": "Spill inline på iOS-enheter",
+                        "showControls": "Vis videokontroller",
+                        "showCover": "Last inn video bare etter bekreftelse av brukeren"
+                    },
+                    "placeholder": {
+                        "ariaLabel": "Skriv inn skjermleserens tittel...",
+                        "minHeight": "Angi minimumshøyde..."
+                    }
+                },
+                "label": "Video"
+            },
             "vimeoVideo": {
                 "config": {
                     "helpText": {
@@ -2977,6 +3064,16 @@
             "moduleTitle": "Shoppingopplevelser",
             "placeholderSearchBar": "Søk i oppsett...",
             "privacyNotice": "Ved å velge Fortsett bekrefter du at du har lest vår <a href=\"%privacyUrl%\">databeskyttelsesinformasjon</a> og akseptert våre <a href=\"%tosUrl%\">generelle vilkår og betingelser</a>."
+        },
+        "inherit": {
+            "formBanner": "Denne layouten har arvet felt. Det betyr at så lenge den arvelige tilstanden er aktiv, vil innholdet bli arvet. Arvede felt kan kobles fra ved å klikke på koblingssymbolet. Hvis du klikker på symbolet igjen, settes den arvede tilstanden tilbake.",
+            "tooltip": "Dette feltet finnes ikke i basisoppsettet og kan ikke arves.",
+            "unlinkAllButton": "Tilbakestill alle felt.",
+            "unlinkAllConfirmText": "Er du sikker på at du vil tilbakestille alle feltene? Dette vil slette alt innhold som ikke er koblet til permanent.",
+            "unlinkAllTitle": "Tilbakestill alle felt",
+            "unlinkFieldConfirmText": "Er du sikker på at du vil gjenopprette arv? Dette vil fjerne alle egendefinerte data i dette feltet og gjenopprette verdier fra det overordnede elementet.",
+            "unlinkFieldTitle": "Gjenopprett arv",
+            "unlinkNotice": "Noen arvelige felt er frakoblet."
         },
         "list": {
             "gridHeaderAssignedPages": "Tildelte sider",
@@ -3214,6 +3311,7 @@
             "accept": "Godta",
             "acceptMessage": "Kundegruppen er endret",
             "alert": "Tilgang til kundegruppe \"{name}\" forespurt.",
+            "customerInactiveMessage": "Inaktive kunder kan ikke godtas eller avvises til noen kundegruppe.",
             "decline": "Avslå",
             "declineMessage": "Forespørselen har blitt avvist",
             "errorMessage": "Kan ikke behandle forespørsel",
@@ -4300,7 +4398,10 @@
                 "placeholderDeliveryStatus": "Velg fraktstatus...",
                 "placeholderOrderStatus": "Velg ordrestatus...",
                 "placeholderPaymentStatus": "Velg betalingsstatus...",
-                "titleSetStatus": "Tilordne status"
+                "titleSetStatus": "Tilordne status",
+                "transitionWarning": {
+                    "message": "Vær forsiktig når du bruker statusoverganger, da de kan føre til sviktende flyter hvis statusovergangen ikke er gyldig. Vurder å aktivere «Force statusoverganger» for å unngå slike problemer."
+                }
             },
             "tag": {
                 "labelAddTag": "Legg til tag",
@@ -4365,6 +4466,7 @@
             "orderTransactionCaptureRefund": "Refusjon for innhenting av bestillingstransaksjoner",
             "paid": "Betalt",
             "paidPartially": "Betalt delvis",
+            "password": "Passord",
             "paymentMethod": "Betalingsmåte",
             "pending": "Venter",
             "placed": "Plassert",
@@ -4403,8 +4505,7 @@
                 "profile": "Profil",
                 "records": "Rekorder",
                 "size": "Størrelse",
-                "state": "Status",
-                "user": "Bruker"
+                "state": "Status"
             },
             "contextMenu": {
                 "abortProcess": "Avbryt prosess",
@@ -4416,6 +4517,10 @@
                 "showLogInfo": "Åpne logginformasjon",
                 "showProfile": "Vis profil",
                 "showResults": "Vis sammendrag"
+            },
+            "detail": {
+                "ExportLabel": "Eksporter",
+                "importLabel": "Importer"
             },
             "dryrun": "Tørr løp",
             "emptyState": {
@@ -4791,6 +4896,7 @@
             "messageInvalidScope": "Ugyldig omfang forespørsel.",
             "messageServerError": "Autorisasjonsserveren oppdaget en uventet betingelse.",
             "messageUnsupportedGrantType": "Godkjenningstilskuddstypen støttes ikke av autorisasjonsserver.",
+            "orContinueWith": "Eller fortsett med",
             "placeholderPassword": "Skriv inn passordet ditt...",
             "placeholderUsername": "Skriv inn brukernavnet ditt...",
             "subheadlineMain": "Velkommen tilbake."
@@ -4877,6 +4983,7 @@
         },
         "modal": {
             "affectedList": "Følgende salgskanaler påvirkes:",
+            "confirmButton": "Fortsett uansett",
             "mainContent": "Det er allerede en topp- og bunntekstmal tilordnet følgende salgskanaler. Hvis du fortsetter og sparer, den oppgaven vil bli overskrevet med endringene dine.",
             "title": "Flere oppgaver"
         }
@@ -4956,6 +5063,8 @@
             "emptyStateSubTitle": "Legg til e-postmaler ved å klikke på «legg til» -knappen.",
             "emptyStateTitle": "Ingen e-postmaler ennå",
             "errorMediaItemDuplicated": "Medieelement allerede tilordnet",
+            "tabHeaderFooter": "Topptekst og bunntekst",
+            "tabMailTemplates": "Maler",
             "textDeleteConfirm": "Er du sikker på at du vil slette e-postmalen \"{subject}«?",
             "textMailTemplateOverview": "E-postmaler",
             "titleMailFooterList": "Bunntekst",
@@ -5037,7 +5146,9 @@
                 "download": "Last ned",
                 "horizontal": "Vannrett",
                 "move": "Flytt",
+                "removeCover": "Fjern dekselet",
                 "replace": "Bytt",
+                "setCover": "Angi forsidebilde",
                 "settings": "Innstillinger",
                 "vertical": "vertikalt"
             },
@@ -5102,6 +5213,12 @@
             "labelTabItemLibrary": "Mediebibliotek",
             "labelTabItemUpload": "Last opp filer",
             "titleModal": "Velg medier"
+        },
+        "sw-media-save-modal": {
+            "titleModal": "Lagre i media"
+        },
+        "sw-model-viewer": {
+            "titleModal": "Modellvisning"
         }
     },
     "sw-meteor": {
@@ -5619,7 +5736,6 @@
                     "and": "og",
                     "by": "av",
                     "lastChanged": "Sist endret",
-                    "on": "på",
                     "with": "med"
                 }
             },
@@ -6163,12 +6279,17 @@
                 "placeholder": "Skriv inn et produktnummer..."
             },
             "productStatesFilter": {
+                "deprecationWarning": "Produktstatusfilteret er utdatert og vil bli fjernet i v6.8. Bruk produkttypefilteret i stedet.",
                 "label": "Produkttilstander",
                 "options": {
                     "digital": "Digitalt",
                     "physical": "Fysisk"
                 },
                 "placeholder": "Velg produktstatus..."
+            },
+            "productTypeFilter": {
+                "label": "Type",
+                "placeholder": "Velg produkttype..."
             },
             "releaseDateFilter": {
                 "label": "Utgivelsesdato"
@@ -6348,6 +6469,7 @@
             "cardTitleProperties": "Tilgjengelige eiendommer",
             "columnProperty": "Eiendom",
             "columnValue": "Eiendomsverdi",
+            "descriptionEmptyState": "Administrer egenskaper her.",
             "emptyStateNoOptionsDescription": "Opprett egenskaper og egenskapsverdier først, og returner deretter hit for å tilordne dem.",
             "emptyStateNoOptionsTitle": "Ingen tilgjengelige verdier",
             "emptyStateNoSelectedOptionsDescription": "Velg verdier fra søket ovenfor.",
@@ -6442,6 +6564,10 @@
             "cardTitleMeasurement": "Produktmålinger",
             "cardTitleProperties": "Egenskaper",
             "cardTitleSellingPackaging": "Informasjon om salg og emballasje"
+        },
+        "type": {
+            "digital": "Digitalt",
+            "physical": "Fysisk"
         },
         "variations": {
             "backVariationsButton": "Rygg",
@@ -6574,6 +6700,12 @@
             "messageSaveSuccess": "Dynamisk produktgruppe{name}er lagret.",
             "placeholderDescription": "Skriv inn beskrivelse...",
             "placeholderName": "Skriv inn tittel...",
+            "productStatesFilterWarning": "Denne dynamiske produktgruppen bruker fortsatt filteret for utdaterte produkttilstander. Det vil bli fjernet i v6.8 - bytt til produkttypefilteret i stedet.",
+            "productStreamIndexingWarning": {
+                "action": "Finn ut mer i vår dokumentasjon",
+                "message": "Noen funksjoner fungerer kanskje ikke som forventet: <ul><li>Kategorisider gjenspeiler kanskje ikke endringer før HTTP-hurtigbufferen utløper eller tømmes manuelt.</li><li>Regelbetingelsen «Vare i dynamisk produktgruppe» vil aldri være sant.</li></ul>",
+                "title": "Dynamisk produktgruppeindeksering er deaktivert"
+            },
             "textHeadline": "Ny dynamisk produktgruppe",
             "titleCard": "Generell informasjon",
             "titleFilter": "Vilkår",
@@ -6739,6 +6871,9 @@
         },
         "tabGeneral": {
             "title": "Generell"
+        },
+        "tabPrivacyPreferences": {
+            "title": "Personverninnstillinger"
         },
         "tabSearchPreferences": {
             "alert_elasticsearch": {
@@ -7286,6 +7421,30 @@
             "textHeadline": "Gjennomgang",
             "titleCardComment": "kommentar"
         },
+        "filters": {
+            "customerFilter": {
+                "label": "Kunden",
+                "placeholder": "Filtrer etter kunde..."
+            },
+            "languageFilter": {
+                "label": "språk",
+                "placeholder": "Filtrer etter språk..."
+            },
+            "pointsFilter": {
+                "label": "Vurdering (stjerner)"
+            },
+            "productFilter": {
+                "label": "Produkt",
+                "placeholder": "Filtrer etter produkt..."
+            },
+            "salesChannelFilter": {
+                "label": "Salgskanal",
+                "placeholder": "Filtrer etter salgskanal..."
+            },
+            "statusFilter": {
+                "label": "Godkjent"
+            }
+        },
         "general": {
             "descriptionTextModule": "Administrer anmeldelser her.",
             "mainMenuItemGeneral": "Vurderinger",
@@ -7333,6 +7492,10 @@
                     "anonymizeIp": {
                         "label": "Anonymisere IP"
                     },
+                    "trackOffcanvasCart": {
+                        "helpText": "Når aktivert, utløses også en «view_cart» -hendelse når offcanvas-handlekurven åpnes, ikke bare på den dedikerte handlekurvsiden. Nyttig for detaljert traktanalyse, men kan øke beregningene for handlekurvvisning.",
+                        "label": "Spor offcanvas-handlekurv"
+                    },
                     "trackOrders": {
                         "label": "Spor ordrer"
                     },
@@ -7366,6 +7529,7 @@
             "descriptionTaxCalculation": "Endring av denne innstillingen kan føre til regnskapsproblemer med eksterne betalingsleverandører. Sjekk tilbake hvordan mva beregnes av betalingsleverandører du ansetter, før du gjør noen endringer.",
             "favouriteLabel": "Merk salgskanalen som favoritt",
             "footerCategory": "Navigering av bunntekst",
+            "foreignKeyDelete": "Denne salgskanalen kan ikke slettes fordi den fortsatt er i bruk av {assignment}.",
             "helpTextTaxCalculation": {
                 "label": "Hvis en skatteleverandør er aktivert, kan disse innstillingene bli overskrevet. Du kan sjekke dette i {link}.",
                 "linkText": "innstillinger"
@@ -7671,6 +7835,11 @@
             "mainMenuItemGeneral": "Innstillinger"
         },
         "index": {
+            "search": {
+                "noResultsDescription": "Innstillinger ble ikke funnet. Prøv å bruke et annet søkeord.",
+                "noResultsHeadline": "Ingen oppføringer funnet",
+                "placeholder": "Finn innstillinger..."
+            },
             "tabAutomation": "Automatisering",
             "tabCommerce": "Handel",
             "tabContent": "Innhold",
@@ -7951,6 +8120,7 @@
     "sw-settings-custom-field": {
         "customField": {
             "detail": {
+                "bannerSearchableEnabled": "Det anbefales å reindeksere dataene, hvis søkestatusen er endret, for å sikre nøyaktige søkeresultater.",
                 "buttonAddOption": "Legg til alternativ",
                 "buttonEditApply": "Ta i bruk endringer",
                 "helpTextEntitySelect": "Enhetstypen kan ikke endres når det egendefinerte feltet er opprettet.",
@@ -7958,6 +8128,7 @@
                 "infoText": "Hvis det opprettes et egendefinert felt, opprettes også en definisjefelt for alle dine utdrag sett. Snippet vil bli kalt «CustomFields.{name}».",
                 "labelAllowCartExpose": "Tilgjengelig i handlekurver",
                 "labelAllowCustomerWrite": "Modifiserbar via Store API",
+                "labelAllowSearchable": "Inkluder i søk",
                 "labelCustomFieldPosition": "Posisjon",
                 "labelCustomFieldType": "Type",
                 "labelDate": "Dato",
@@ -7985,6 +8156,7 @@
                 "titleNewCustomField": "Nytt egendefinert felt",
                 "tooltipAllowCartExpose": "Aktiver, for å gjøre dette tilpassede feltet tilgjengelig i nyttelasten til varer i handlekurven. Dette kreves for å begynne med å bruke dette egendefinerte feltet i regelbygger eller egendefinerte maler.",
                 "tooltipAllowCustomerWrite": "Når den er aktiv, kan Store API endre dette feltet. Dette kan brukes til å lagre egendefinerte data hvis du legger til nye felt i butikkfronten. For eksempel for nye felt i registreringsskjemaet.",
+                "tooltipAllowSearchable": "Når det er aktivt, indekseres dette egendefinerte feltet og kan brukes i søkekonfigurasjoner. Hvis dette feltet ikke er nødvendig for søket, bør det deaktiveres for å redusere indekslagringsstørrelsen og forbedre ytelsen til søket.",
                 "tooltipCartExposeDisabled": "Denne innstillingen kan for øyeblikket ikke endres, fordi det egendefinerte feltet brukes av en eller flere betingelser i Regelbygger.",
                 "tooltipCustomFieldPosition": "Styrer plasseringen av dette egendefinerte feltet på detaljsider.",
                 "tooltipStoreApiAware": "Når det er aktivt, vil dette feltet være tilgjengelig i Store API. Dette alternativet kan deaktiveres for å lagre egendefinerte data bare internt og ikke gjøre dem tilgjengelige via Store API."
@@ -8321,6 +8493,7 @@
             "labelDefaultSearchResultSorting": "Standard sortering av søkeresultater",
             "labelDefaultSorting": "Standard sortering",
             "mainMenuItemGeneral": "Produkter",
+            "messageSaveDefaultValuesEmpty": "Standardverdi er påkrevd",
             "messageSaveError": "Konfigurasjonen kan ikke lagres.",
             "messageSaveSuccess": "Konfigurasjon lagret.",
             "placeholderDefaultSearchResultSorting": "Velg en standard søkeresultatsortering...",
@@ -8338,6 +8511,7 @@
                         "_score": "_score",
                         "customField": "Egendefinert felt",
                         "product": {
+                            "available": "Tilgjengelig",
                             "cheapestPrice": "Billigste produktpris",
                             "createdAt": "Opprettelsesdato",
                             "listingPrices": "Pris for oppføring av produktet",
@@ -8507,12 +8681,6 @@
         }
     },
     "sw-settings-media": {
-        "3d": {
-            "lightIntensity": {
-                "helpText": "Endre lysintensiteten i 3D-visningen.",
-                "label": "Lysintensitet"
-            }
-        },
         "general": {
             "buttonSave": "Spar",
             "description": "Administrer medieinnstillinger her.",
@@ -8718,6 +8886,7 @@
                 "height": "Høyde",
                 "length": "Lengde",
                 "manufacturerNumber": "Produsent produktnummer",
+                "packUnit": "Pakke enhet",
                 "property": "Eiendom",
                 "referencePrice": "Enhetspris",
                 "releaseDate": "Utgivelsesdato",
@@ -8790,6 +8959,8 @@
             "placeholderName": "Angi et navn for denne regelen...",
             "placeholderPriority": "Sett en prioritet for denne regelen...",
             "placeholderTags": "Skriv inn en kode...",
+            "placeholderType": "Skriv inn en type...",
+            "productStatesConditionWarning": "Betingelsen «Vare med produktstatus» er utdatert og vil bli fjernet i v6.8. Bruk «Vare med produkttype» i stedet.",
             "productStreamIndexingWarning": {
                 "action": "Finn ut mer i vår dokumentasjon",
                 "message": "Betingelsen «Vare i dynamisk produktgruppe» vil aldri være sant.",
@@ -9681,6 +9852,60 @@
         }
     },
     "sw-settings-usage-data": {
+        "consent-modal": {
+            "actions": {
+                "save-preferences": "Lagre innstillinger",
+                "share-all-data": "Del alle",
+                "share-nothing": "Del ingenting"
+            },
+            "external-links": {
+                "data-use-details": {
+                    "label": "shopware.com/no/data-use-details",
+                    "link": "https://www.shopware.com/en/data-use-details/"
+                },
+                "label": "For fullstendige detaljer, se {data-use-details} og vår {privacy-policy}.",
+                "privacy-policy": {
+                    "label": "Personvernerklæring",
+                    "link": "https://www.shopware.com/en/privacy/"
+                }
+            },
+            "intro": "Ved å dele lagrings- og brukerdata hjelper du oss med å forstå hvordan administrasjonen brukes og utvikle forbedringer som gjør det daglige arbeidet ditt enklere.",
+            "opt-out-info": "Du kan når som helst melde deg av via innstillingene, og profilinnstillinger.",
+            "promises": {
+                "gdpr-compliant": "GDPR-kompatibel",
+                "no-third-party": "Ingen data deles med tredjeparter",
+                "securely-processed": "Sikkert lagrede data"
+            },
+            "share-store-data": "Ved å dele butikkdata hjelper du oss med å forstå hvordan administrasjonen brukes og utvikle forbedringer som gjør det daglige arbeidet ditt enklere.",
+            "share-user-data": "Ved å dele brukerdataene dine hjelper du oss med å forstå hvordan administrasjonen brukes og utvikle forbedringer som gjør det daglige arbeidet ditt enklere.",
+            "store-data": {
+                "description": "Kombinerte data fra {order}, {diagnostic}og {store} hjelper oss med å forbedre funksjonene. Bekreft at du er autorisert til å gi samtykke til selskapet ditt.",
+                "emphasizes": {
+                    "diagnostic": "diagnostikk",
+                    "order": "bestillinger",
+                    "store": "lagre data"
+                },
+                "help-text": {
+                    "diagnostic": "<strong>Diagnostiske data</strong> i Shopware refererer til informasjonen relatert til systemhelse, feil og ytelsesberegninger for plattformen. Dette inkluderer detaljer som systemlogger, feilmeldinger, serverresponstider og andre tekniske indikatorer. Analysering av disse dataene hjelper oss med å raskt identifisere, adressere og distribuere rettelser for vanlige problemer eller sårbarheter, og opprettholde integriteten til plattformen.",
+                    "order": "<strong>Ordredata</strong> innenfor Shopware refererer til detaljert informasjon om kundebestillinger plassert på plattformen. Dette inkluderer spesifikasjoner som bestilte produkter, mengder, priser, opprinnelse, betalingsmåter, forsendelse osv. Vi analyserer disse dataene for å forstå trender og mønstre som hjelper oss med å forbedre funksjoner, samt utvikle nye tjenester designet for å forbedre suksessen din. Vi samler ikke inn personopplysninger fra kundene dine som kan brukes til å identifisere en enkelt person.",
+                    "store": "<strong>Lagre data</strong> i Shopware gjelder all informasjon relatert til nettbutikken din. For eksempel produkter, oppføringer, priser, bilder, beskrivelser osv., og metadata om butikkens oppsett, for eksempel temaer og plugins. Vi samler ikke inn personopplysninger som kan brukes til å identifisere en administratorbruker eller en butikkbesøkende. Ved å bruke aggregerte butikkdata kan vi gi innsikt via maskinlæring, for eksempel trender i nye markeder, slik at du kan justere produkttilbud eller markedsføringsstrategier deretter."
+                },
+                "label-checkbox": "Del butikkdata",
+                "title": "Lagre data"
+            },
+            "title": "Hjelp oss å forbedre oss",
+            "user-data": {
+                "description": "Vi bruker {data} om hvordan du samhandler med administrasjonen for å forbedre brukervennligheten og ytelsen.",
+                "emphasizes": {
+                    "data": "data"
+                },
+                "help-text": {
+                    "data": "<strong>Bruksdata</strong> i Shopware gjelder informasjon relatert til hvordan administratorbrukere og butikkbesøkende samhandler med plattformen vår. Dette inkluderer detaljer som interaksjoner med forskjellige Shopware-administratormoduler, sider som er vist, varighet av besøk, klikkstier og brukerhandlinger innenfor plattformen og butikkfronten. Ved å evaluere bruksdataene kan vi identifisere områder på plattformen som ofte besøkes eller unngås for å måle bruken av funksjoner, noe som fører til potensielle forbedringer i layout, design og funksjonalitet."
+                },
+                "label-checkbox": "Del dataene mine",
+                "title": "Mine data"
+            }
+        },
         "general": {
             "description": "Konfigurer til å dele bruksdata med oss for å forbedre Shopware.",
             "mainMenuItemGeneral": "Datadeling",

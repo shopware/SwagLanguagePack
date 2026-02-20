@@ -306,6 +306,7 @@
             "contact_form_send": "Formulir kontak dikirim",
             "customer_group_registration_accepted": "Permintaan pendaftaran grup pelanggan diterima",
             "customer_group_registration_declined": "Permintaan pendaftaran kelompok pelanggan ditolak",
+            "customer_password_changed": "Kata sandi pelanggan diubah",
             "customer_recovery_request": "Pelanggan meminta kata sandi baru",
             "mail_after_create_message": "Email dibuat",
             "mail_before_send": "Email sedang dikirim",
@@ -503,6 +504,7 @@
             "FRAMEWORK__DELETE_RESTRICTED": "Penghapusan gagal.",
             "FRAMEWORK__MISSING_PRIVILEGE_ERROR": "Izin hilang.",
             "FRAMEWORK__RATE_LIMIT_EXCEEDED": "Terlalu banyak permintaan. Silakan tunggu {seconds} detik sebelum mencoba lagi.",
+            "FRAMEWORK__ROUTE_BLOCKED_MESSAGE": "URL {path} bertentangan dengan rute {blockedSegment} yang ada dan tidak dapat digunakan.",
             "INVALID_MAIL": "Silahkan masukkan alamat email yang valid.",
             "INVALID_MEDIA_URL": "Silahkan masukkan URL valid untuk mengupload berkas.",
             "INVALID_URL": "Sila masukkan url yang valid.",
@@ -731,6 +733,7 @@
                     "product": "Produk"
                 },
                 "lineItemProductStates": "Item dengan status produk",
+                "lineItemProductType": "Item dengan jenis produk",
                 "lineItemPromotedRule": "Item dipromosikan",
                 "lineItemPropertyRule": "Item dengan varian atau nilai properti",
                 "lineItemPropertyValueRule": "Item dengan nilai properti",
@@ -821,6 +824,14 @@
                     "options": {
                         "is-download": "Digital",
                         "is-physical": "Fisik"
+                    }
+                }
+            },
+            "cartLineItemProductType": {
+                "productType": {
+                    "options": {
+                        "digital": "Digital",
+                        "physical": "Fisik"
                     }
                 }
             },
@@ -980,6 +991,8 @@
             "messageNoResults": "Tidak ada hasil ditemukan untuk\"{term}\"."
         },
         "sw-field": {
+            "ariaLinkInheritance": "Warisan tautan",
+            "ariaUnlinkInheritance": "Putuskan tautan warisan",
             "notification": {
                 "notificationCopyFailureMessage": "Teks tidak bisa disalin ke klipboard.",
                 "notificationCopySuccessMessage": "Teks telah disalin ke klipboard."
@@ -1085,10 +1098,24 @@
             "labelContextMenuCopyLink": "Salin tautan",
             "labelContextMenuDetail": "Rincian",
             "labelContextMenuMove": "Pindah",
+            "labelContextMenuRemoveCover": "Lepaskan penutup",
             "labelContextMenuRename": "Menamai ulang",
             "labelContextMenuReplace": "Menggantikan",
+            "labelContextMenuSetCover": "Atur gambar sampul",
             "labelUploading": "Mengunggah...",
             "notification": {
+                "coverRemoveSuccess": {
+                    "message": "Gambar sampul telah dihapus."
+                },
+                "coverSaveError": {
+                    "message": "Gambar sampul tidak dapat disimpan."
+                },
+                "coverSaveSuccess": {
+                    "message": "Gambar sampul telah disimpan."
+                },
+                "coverSelectionInvalid": {
+                    "message": "Silakan pilih gambar yang akan digunakan sebagai sampul."
+                },
                 "errorBlankItemName": {
                     "message": "Item media tidak bisa disimpan: silahkan masukkan sebuah nama."
                 },
@@ -1218,7 +1245,8 @@
         "sw-media-preview-v2": {
             "fallbackAudioTagSupport": "Browser anda tidak mendukung tag audio",
             "fallbackVideoTagSupport": "Browser anda tidak mendukung tag video",
-            "textNoMedia": "Tidak ada media yang tersedia"
+            "textNoMedia": "Tidak ada media yang tersedia",
+            "warningUnsupportedFormat": "Format \"{format}\" mungkin tidak didukung di semua browser."
         },
         "sw-media-upload": {
             "buttonFileUpload": "Unggah berkas",
@@ -1234,6 +1262,9 @@
                 "failure": {
                     "message": "Kesalahan saat mengunggah berkas."
                 },
+                "illegalFileType": {
+                    "message": "File \"{name}\" tidak dapat diunggah. Jenis file ini tidak didukung."
+                },
                 "illegalFileUrl": {
                     "message": "Tidak diperbolehkan untuk mengunggah dari URL lokal.",
                     "title": "URL tidak valid"
@@ -1241,9 +1272,22 @@
                 "illegalFilename": {
                     "message": "Nama berkas \"{fileName}\" berisi karakter tidak valid."
                 },
+                "payloadTooLarge": {
+                    "message": "File terlalu besar. Harap kurangi ukuran file atau periksa konfigurasi server."
+                },
+                "requestCanceled": {
+                    "message": "Pengunggahan telah dibatalkan."
+                },
                 "success": {
                     "message": "Tidak ada berkas disimpan.| Berkas telah disimpan.|{count}/{total} berkas telah disimpan."
+                },
+                "transportError": {
+                    "message": "Pengunggahan gagal karena koneksi atau batas waktu server. Silakan periksa batas koneksi atau server Anda."
                 }
+            },
+            "snackbar": {
+                "errorMessage": "File tidak dapat diunggah. | Beberapa file tidak dapat diunggah.",
+                "message": "Mengunggah file | Mengunggah file"
             }
         },
         "sw-media-upload-v2": {
@@ -2332,6 +2376,9 @@
                 }
             },
             "video": {
+                "video": {
+                    "label": "Video"
+                },
                 "vimeoVideo": {
                     "label": "Video vimeo"
                 },
@@ -2708,21 +2755,26 @@
                 "config": {
                     "warning": "Kode HTML yang tidak difilter dapat menyebabkan risiko keamanan. Harap hanya memasukkan kode HTML dari sumber tepercaya dan uji perubahan Anda sebelum menerbitkannya."
                 },
-                "label": "HTML"
+                "label": "HTML",
+                "labelContent": "Konten"
             },
             "image": {
                 "config": {
+                    "helpText": {
+                        "ariaLabel": "Teks ini akan dibaca oleh pembaca layar sebagai teks tautan.",
+                        "fetchPriorityHigh": "Aktifkan opsi ini jika gambar adalah yang pertama di halaman. Gambar kemudian akan diberi atribut 'fetchpriority=\"high\"', memberitahu browser untuk memuatnya dengan prioritas yang lebih tinggi. Ini dapat membantu meningkatkan Largest Contentful Paint (LCP).",
+                        "isDecorative": "Ketika opsi ini diaktifkan, informasi gambar tidak akan dibaca oleh pembaca layar. Ini berarti bahwa tag “alt” dan “title” akan tetap kosong.",
+                        "minHeight": "Masukkan ketinggian minimum dengan unit yang Anda inginkan. Sebagai contoh: 200px",
+                        "useFetchPriorityOnFirstItem": "Ketika opsi ini diaktifkan, gambar pertama dimuat dengan prioritas yang lebih tinggi. Ini dapat meningkatkan kecepatan di mana halaman dirender di browser."
+                    },
                     "label": {
                         "ariaLabel": "Deskripsi tautan",
-                        "ariaLabelHelpText": "Teks ini akan dibacakan oleh pembaca layar sebagai teks tautan.",
+                        "fetchPriorityHigh": "Ambil prioritas tinggi",
                         "isDecorative": "Tandai gambar sebagai dekoratif",
-                        "isDecorativeHelpText": "Ketika opsi ini diaktifkan, informasi gambar tidak akan dibaca oleh pembaca layar.",
                         "linkNewTab": "Buka tautan di tab baru",
                         "linkTo": "Target tautan",
                         "minHeight": "Tinggi minimum",
-                        "minHeightHelpText": "Masukkan ketinggian minimum dengan unit yang Anda inginkan. Sebagai contoh: 200px",
-                        "useFetchPriorityOnFirstItem": "Muat gambar pertama dengan prioritas lebih tinggi",
-                        "useFetchPriorityOnFirstItemHelpText": "Ketika opsi ini diaktifkan, gambar pertama akan dimuat dengan prioritas yang lebih tinggi. Hal ini dapat meningkatkan kecepatan rendering halaman di browser."
+                        "useFetchPriorityOnFirstItem": "Muat gambar pertama dengan prioritas lebih tinggi"
                     },
                     "placeholder": {
                         "enterMinHeight": "Masukkan tinggi minimum...",
@@ -2759,7 +2811,8 @@
                         "navigationDots": "Navigasi dot",
                         "navigationPositionInside": "Di dalam",
                         "navigationPositionNone": "Tidak satupun",
-                        "navigationPositionOutside": "Di luar"
+                        "navigationPositionOutside": "Di luar",
+                        "sliderItems": "Gambar"
                     }
                 },
                 "label": "Slider gambar"
@@ -2808,6 +2861,14 @@
                         "descriptionAndReviews": "Deskripsi & ulasan produk",
                         "reviews": "Ulasan"
                     }
+                }
+            },
+            "productHeading": {
+                "logo": {
+                    "label": "Logo pabrikan"
+                },
+                "name": {
+                    "label": "Nama produk"
                 }
             },
             "productListing": {
@@ -2933,6 +2994,32 @@
                 },
                 "label": "Teks"
             },
+            "video": {
+                "config": {
+                    "helpText": {
+                        "ariaLabel": "Dibaca oleh pembaca layar dan harus menjelaskan secara singkat konten atau tujuan video. Jika dibiarkan kosong, judul atau teks alt yang dikonfigurasi dalam modul media akan digunakan, sebagai gantinya.",
+                        "autoPlay": "Putar otomatis diizinkan oleh banyak browser hanya ketika video dibisukan.<br>Dengan autoplay, sampul tidak berarti karena pemutaran dimulai segera dan tidak diperlukan konfirmasi.",
+                        "minHeight": "Masukkan ketinggian minimum dengan unit yang Anda inginkan. Sebagai contoh: 200px",
+                        "playsInline": "Di iOS, video sering membuka layar penuh. Aktifkan opsi ini untuk menjaga pemutaran tetap sebaris.",
+                        "showCover": "Sampul yang dikonfigurasi dalam pemilihan media akan ditampilkan sampai pengguna mengonfirmasi untuk memuat video melalui klik."
+                    },
+                    "label": {
+                        "ariaLabel": "Judul pembaca layar",
+                        "autoPlay": "Putar video secara otomatis",
+                        "loop": "Putar video di sebuah penulangan",
+                        "minHeight": "Tinggi minimum",
+                        "muted": "Putar dibisukan",
+                        "playsInline": "Mainkan sebaris di perangkat iOS",
+                        "showControls": "Kontrol tonton video",
+                        "showCover": "Muat video hanya setelah konfirmasi oleh pengguna"
+                    },
+                    "placeholder": {
+                        "ariaLabel": "Masukkan judul pembaca layar...",
+                        "minHeight": "Masukkan tinggi minimum..."
+                    }
+                },
+                "label": "Video"
+            },
             "vimeoVideo": {
                 "config": {
                     "helpText": {
@@ -2977,6 +3064,16 @@
             "moduleTitle": "Pengalaman berbelanja",
             "placeholderSearchBar": "Cari layout...",
             "privacyNotice": "Dengan memilih lanjutkan, Anda mengonfirmasi bahwa Anda telah membaca informasi perlindungan data <a href=\"%privacyUrl%\">kami</a> dan menerima syarat dan ketentuan umum <a href=\"%tosUrl%\">kami</a>."
+        },
+        "inherit": {
+            "formBanner": "Tata letak ini telah mewarisi bidang. Artinya selama status warisan aktif konten akan diwariskan. Bidang yang diwariskan dapat dibatalkan tautan dengan mengklik simbol tautan. Mengklik simbol lagi akan mengatur status warisan kembali.",
+            "tooltip": "Bidang ini tidak ada pada tata letak dasar dan tidak dapat diwariskan.",
+            "unlinkAllButton": "Setel ulang semua bidang.",
+            "unlinkAllConfirmText": "Apakah Anda yakin ingin mengatur ulang semua bidang? Ini akan menghapus semua konten yang tidak ditautkan secara permanen.",
+            "unlinkAllTitle": "Setel ulang semua bidang",
+            "unlinkFieldConfirmText": "Apakah Anda yakin ingin mengembalikan warisan? Ini akan menghapus semua data kustom bidang ini dan mengembalikan nilai dari elemen induk.",
+            "unlinkFieldTitle": "Mengembalikan warisan",
+            "unlinkNotice": "Beberapa bidang yang diwariskan telah dibatalkan tautan."
         },
         "list": {
             "gridHeaderAssignedPages": "Halaman yang ditugaskan",
@@ -3214,6 +3311,7 @@
             "accept": "Terima",
             "acceptMessage": "Grup pelanggan telah diubah",
             "alert": "Akses ke grup pelanggan \"{name}\" telah diminta.",
+            "customerInactiveMessage": "Pelanggan yang tidak aktif tidak dapat diterima atau ditolak ke grup pelanggan mana pun.",
             "decline": "Tolak",
             "declineMessage": "Permohonan telah ditolak",
             "errorMessage": "Tidak bisa memproses permintaan",
@@ -4300,7 +4398,10 @@
                 "placeholderDeliveryStatus": "Pilih status pengiriman...",
                 "placeholderOrderStatus": "Pilih status pesanan...",
                 "placeholderPaymentStatus": "Pilih status pembayaran...",
-                "titleSetStatus": "Tetapkan status"
+                "titleSetStatus": "Tetapkan status",
+                "transitionWarning": {
+                    "message": "Berhati-hatilah saat menggunakan transisi status, karena transisi status dapat menyebabkan aliran gagal jika transisi status tidak valid. Pertimbangkan untuk mengaktifkan “Paksa transisi status” untuk menghindari masalah tersebut."
+                }
             },
             "tag": {
                 "labelAddTag": "Tambahkan tag",
@@ -4365,6 +4466,7 @@
             "orderTransactionCaptureRefund": "Pengembalian dana pengambilan transaksi pesanan",
             "paid": "Dibayar",
             "paidPartially": "Dibayar sebagian",
+            "password": "Kata sandi",
             "paymentMethod": "Metode pembayaran",
             "pending": "Tertunda",
             "placed": "Ditempatkan",
@@ -4403,8 +4505,7 @@
                 "profile": "Profil",
                 "records": "Catatan",
                 "size": "Ukuran",
-                "state": "Status",
-                "user": "Pengguna"
+                "state": "Status"
             },
             "contextMenu": {
                 "abortProcess": "Batalkan proses",
@@ -4416,6 +4517,10 @@
                 "showLogInfo": "Informasi log terbuka",
                 "showProfile": "Tampilkan profil",
                 "showResults": "Tampilkan ringkasan"
+            },
+            "detail": {
+                "ExportLabel": "Ekspor",
+                "importLabel": "Impor"
             },
             "dryrun": "lari kering",
             "emptyState": {
@@ -4791,6 +4896,7 @@
             "messageInvalidScope": "Permintaan ruang lingkup tidak valid.",
             "messageServerError": "Otorisasi server menemukan sebuah kondisi tidak diharapkan.",
             "messageUnsupportedGrantType": "Otorisasi jenis hibah tidak didukung oleh otorisasi server.",
+            "orContinueWith": "Atau lanjutkan dengan",
             "placeholderPassword": "Masukkan kata sandi anda...",
             "placeholderUsername": "Masukkan nama pengguna anda...",
             "subheadlineMain": "Selamat datang kembali."
@@ -4877,6 +4983,7 @@
         },
         "modal": {
             "affectedList": "Saluran Penjualan berikut terpengaruh:",
+            "confirmButton": "Tetap lanjutkan",
             "mainContent": "Sudah ada template header dan footer yang ditugaskan ke Sales Channels berikut. Jika Anda melanjutkan dan menyimpan, tugas itu akan ditimpa dengan perubahan Anda.",
             "title": "Beberapa tugas"
         }
@@ -4956,6 +5063,8 @@
             "emptyStateSubTitle": "Tambahkan template email dengan mengklik tombol “add”.",
             "emptyStateTitle": "Belum ada template email",
             "errorMediaItemDuplicated": "Item media sudah ditugaskan",
+            "tabHeaderFooter": "Header dan footer",
+            "tabMailTemplates": "Template",
             "textDeleteConfirm": "Anda yakin ingin menghapus template email \"{subject}\"?",
             "textMailTemplateOverview": "Template email",
             "titleMailFooterList": "Footer",
@@ -5037,7 +5146,9 @@
                 "download": "Unduh",
                 "horizontal": "Horizontal",
                 "move": "Pindah",
+                "removeCover": "Lepaskan penutup",
                 "replace": "Mengganti",
+                "setCover": "Atur gambar sampul",
                 "settings": "Pengaturan",
                 "vertical": "Vertikal"
             },
@@ -5102,6 +5213,12 @@
             "labelTabItemLibrary": "Pustaka Media",
             "labelTabItemUpload": "Berkas yang diunggah",
             "titleModal": "Pilih media"
+        },
+        "sw-media-save-modal": {
+            "titleModal": "Simpan di media"
+        },
+        "sw-model-viewer": {
+            "titleModal": "Penampil Model"
         }
     },
     "sw-meteor": {
@@ -5619,7 +5736,6 @@
                     "and": "dan",
                     "by": "oleh",
                     "lastChanged": "Perubahan terakhir",
-                    "on": "di atas",
                     "with": "bersama"
                 }
             },
@@ -6163,12 +6279,17 @@
                 "placeholder": "Masukkan nomor produk..."
             },
             "productStatesFilter": {
+                "deprecationWarning": "Filter status produk tidak digunakan lagi dan akan dihapus di v6.8. Silakan gunakan filter jenis produk sebagai gantinya.",
                 "label": "Status produk",
                 "options": {
                     "digital": "Digital",
                     "physical": "Fisik"
                 },
                 "placeholder": "Pilih status produk..."
+            },
+            "productTypeFilter": {
+                "label": "Jenis",
+                "placeholder": "Pilih jenis produk..."
             },
             "releaseDateFilter": {
                 "label": "Tanggal rilis"
@@ -6348,6 +6469,7 @@
             "cardTitleProperties": "Properti tersedia",
             "columnProperty": "Properti",
             "columnValue": "Nilai properti",
+            "descriptionEmptyState": "Mengelola properti disini.",
             "emptyStateNoOptionsDescription": "Buat properti dan nilai properti pertama, kemudian kembali ke sini untuk menetapkan mereka.",
             "emptyStateNoOptionsTitle": "Tidak ada nilai yang tersedia",
             "emptyStateNoSelectedOptionsDescription": "Silakan pilih nilai dari pencarian di atas.",
@@ -6442,6 +6564,10 @@
             "cardTitleMeasurement": "Pengukuran produk",
             "cardTitleProperties": "Properties",
             "cardTitleSellingPackaging": "Informasi Penjualan & Pengemasan"
+        },
+        "type": {
+            "digital": "Digital",
+            "physical": "Fisik"
         },
         "variations": {
             "backVariationsButton": "Kembali",
@@ -6574,6 +6700,12 @@
             "messageSaveSuccess": "Kelompok produk dinamis \"{name}\" telah disimpan.",
             "placeholderDescription": "Masukkan dezkripsi...",
             "placeholderName": "Masukkan judul...",
+            "productStatesFilterWarning": "Grup produk dinamis ini masih menggunakan filter status produk yang tidak digunakan lagi. Ini akan dihapus di v6.8 - silakan beralih ke filter jenis produk sebagai gantinya.",
+            "productStreamIndexingWarning": {
+                "action": "Pelajari lebih lanjut di dokumentasi kami",
+                "message": "Beberapa fitur mungkin tidak berfungsi seperti yang diharapkan: Halaman Kategori <ul><li>mungkin tidak mencerminkan perubahan sampai cache HTTP berakhir atau dihapus secara manual.</li><li>Kondisi aturan “Item dalam grup produk dinamis” tidak akan pernah benar.</li></ul>",
+                "title": "Pengindeksan Grup Produk Dinamis dinonaktifkan"
+            },
             "textHeadline": "Kelompok produk dinamis baru",
             "titleCard": "Informasi umum",
             "titleFilter": "Kondisi",
@@ -6739,6 +6871,9 @@
         },
         "tabGeneral": {
             "title": "Umum"
+        },
+        "tabPrivacyPreferences": {
+            "title": "Preferensi privasi"
         },
         "tabSearchPreferences": {
             "alert_elasticsearch": {
@@ -7286,6 +7421,30 @@
             "textHeadline": "Ulasan",
             "titleCardComment": "Komentar"
         },
+        "filters": {
+            "customerFilter": {
+                "label": "Pelanggan",
+                "placeholder": "Filter berdasarkan Pelanggan..."
+            },
+            "languageFilter": {
+                "label": "Bahasa",
+                "placeholder": "Filter berdasarkan Bahasa..."
+            },
+            "pointsFilter": {
+                "label": "Peringkat (Bintang)"
+            },
+            "productFilter": {
+                "label": "Produk",
+                "placeholder": "Filter berdasarkan Produk..."
+            },
+            "salesChannelFilter": {
+                "label": "Jalur penjualan",
+                "placeholder": "Filter berdasarkan Saluran Penjualan..."
+            },
+            "statusFilter": {
+                "label": "Disetujui"
+            }
+        },
         "general": {
             "descriptionTextModule": "Kelola ulasan di sini.",
             "mainMenuItemGeneral": "Ulasan",
@@ -7333,6 +7492,10 @@
                     "anonymizeIp": {
                         "label": "IP anonimisasi"
                     },
+                    "trackOffcanvasCart": {
+                        "helpText": "Saat diaktifkan, acara 'view_cart' juga diaktifkan saat keranjang offcanvas terbuka, tidak hanya di halaman keranjang khusus. Berguna untuk analisis corong terperinci tetapi dapat meningkatkan metrik tampilan keranjang.",
+                        "label": "Lacak keranjang di luar kanvas"
+                    },
                     "trackOrders": {
                         "label": "Lacak pengiriman"
                     },
@@ -7366,6 +7529,7 @@
             "descriptionTaxCalculation": "Mengubah pengaturan ini dapat menyebabkan masalah akuntansi dengan penyedia pembayaran eksternal. Periksa kembali bagaimana PPN dihitung oleh penyedia pembayaran yang Anda gunakan, sebelum Anda melakukan perubahan.",
             "favouriteLabel": "Tandai Sales Channel sebagai favorit",
             "footerCategory": "Navigasi footer titik masuk",
+            "foreignKeyDelete": "Saluran penjualan ini tidak dapat dihapus karena masih digunakan oleh {assignment}.",
             "helpTextTaxCalculation": {
                 "label": "Jika penyedia pajak diaktifkan, pengaturan ini dapat ditimpa. Anda dapat memeriksa ini di {link}.",
                 "linkText": "pengaturan"
@@ -7671,6 +7835,11 @@
             "mainMenuItemGeneral": "Pengaturan"
         },
         "index": {
+            "search": {
+                "noResultsDescription": "Pengaturan tidak dapat ditemukan. Coba gunakan istilah pencarian lain.",
+                "noResultsHeadline": "Tidak ada entri yang ditemukan",
+                "placeholder": "Temukan pengaturan..."
+            },
             "tabAutomation": "Otomatisasi",
             "tabCommerce": "Pwrdagangan",
             "tabContent": "Konten",
@@ -7951,6 +8120,7 @@
     "sw-settings-custom-field": {
         "customField": {
             "detail": {
+                "bannerSearchableEnabled": "Disarankan untuk mengindeks ulang data, jika status pencarian telah berubah, untuk memastikan hasil pencarian yang akurat.",
                 "buttonAddOption": "Tambah opsi",
                 "buttonEditApply": "Terapkan perubahan",
                 "helpTextEntitySelect": "Jenis entitas tidak dapat diubah setelah bidang kustom telah dibuat.",
@@ -7958,6 +8128,7 @@
                 "infoText": "Jika bidang kustom dibuat, cuplikan sesuai untuk semua rangkaian cuplikan Anda akan dibuat juga. Potongan akan diberi nama “CustomFields.{name}”.",
                 "labelAllowCartExpose": "Tersedia di keranjang belanja",
                 "labelAllowCustomerWrite": "Dapat dimodifikasi melalui Store API",
+                "labelAllowSearchable": "Sertakan dalam pencarian",
                 "labelCustomFieldPosition": "Posisi",
                 "labelCustomFieldType": "Jenis",
                 "labelDate": "Tanggal",
@@ -7985,6 +8156,7 @@
                 "titleNewCustomField": "Kolom khusus baru",
                 "tooltipAllowCartExpose": "Aktifkan, untuk membuat bidang khusus ini tersedia dalam payload item baris keranjang belanja. Hal ini diperlukan untuk awalnya menggunakan bidang kustom ini di Rule Builder atau template kustom.",
                 "tooltipAllowCustomerWrite": "Saat aktif, API Store diizinkan untuk memodifikasi bidang ini. Ini dapat digunakan untuk menyimpan data kustom jika menambahkan bidang baru ke etalase. Misalnya untuk bidang baru dalam formulir pendaftaran.",
+                "tooltipAllowSearchable": "Saat aktif, bidang kustom ini akan diindeks dan dapat digunakan dalam konfigurasi pencarian. Jika bidang ini tidak diperlukan untuk pencarian, itu harus dinonaktifkan untuk mengurangi ukuran penyimpanan indeks dan meningkatkan kinerja pencarian.",
                 "tooltipCartExposeDisabled": "Pengaturan ini saat ini tidak dapat diubah, karena bidang kustom sedang digunakan oleh satu atau beberapa kondisi di Pembuat Aturan.",
                 "tooltipCustomFieldPosition": "Mengontrol posisi bidang kustom ini pada halaman detail.",
                 "tooltipStoreApiAware": "Saat aktif, bidang ini akan tersedia di Store API. Opsi ini dapat dinonaktifkan untuk menyimpan data khusus hanya secara internal dan tidak membuatnya tersedia melalui Store API."
@@ -8321,6 +8493,7 @@
             "labelDefaultSearchResultSorting": "Penyortiran hasil pencarian default",
             "labelDefaultSorting": "Penyortiran default",
             "mainMenuItemGeneral": "Produk",
+            "messageSaveDefaultValuesEmpty": "Nilai default diperlukan",
             "messageSaveError": "Konfigurasi tidak dapat disimpan.",
             "messageSaveSuccess": "Konfigurasi tersimpan.",
             "placeholderDefaultSearchResultSorting": "Pilih penyortiran hasil pencarian default...",
@@ -8338,6 +8511,7 @@
                         "_score": "_skor",
                         "customField": "Bidang kustom",
                         "product": {
+                            "available": "Tersedia",
                             "cheapestPrice": "Harga produk termurah",
                             "createdAt": "Tanggal pembuatan",
                             "listingPrices": "Harga daftar produk",
@@ -8507,12 +8681,6 @@
         }
     },
     "sw-settings-media": {
-        "3d": {
-            "lightIntensity": {
-                "helpText": "Ubah intensitas cahaya dalam tampilan 3D.",
-                "label": "Intensitas Cahaya"
-            }
-        },
         "general": {
             "buttonSave": "Simpan",
             "description": "Kelola pengaturan media di sini.",
@@ -8718,6 +8886,7 @@
                 "height": "Tinggi",
                 "length": "Panjang",
                 "manufacturerNumber": "Nomor produk produsen",
+                "packUnit": "Satuan kemasan",
                 "property": "Properti",
                 "referencePrice": "Harga unit",
                 "releaseDate": "Tanggal rilis",
@@ -8790,6 +8959,8 @@
             "placeholderName": "Tetapkan nama untuk aturan ini...",
             "placeholderPriority": "Tetapkan prioritas untuk aturan ini...",
             "placeholderTags": "Masukkan tag...",
+            "placeholderType": "Masukkan jenis...",
+            "productStatesConditionWarning": "Kondisi “Item dengan status produk” tidak digunakan lagi dan akan dihapus di v6.8. Silakan gunakan “Item dengan jenis produk” sebagai gantinya.",
             "productStreamIndexingWarning": {
                 "action": "Pelajari lebih lanjut di dokumentasi kami",
                 "message": "Kondisi “Item dalam grup produk dinamis” tidak akan pernah benar.",
@@ -9681,6 +9852,60 @@
         }
     },
     "sw-settings-usage-data": {
+        "consent-modal": {
+            "actions": {
+                "save-preferences": "Simpan preferensi",
+                "share-all-data": "Bagikan semua",
+                "share-nothing": "Tidak berbagi apapun"
+            },
+            "external-links": {
+                "data-use-details": {
+                    "label": "shopware.com/id/data-use-details",
+                    "link": "https://www.shopware.com/en/data-use-details/"
+                },
+                "label": "Untuk detail selengkapnya, lihat {data-use-details} dan {privacy-policy}kami.",
+                "privacy-policy": {
+                    "label": "Kebijakan Privasi",
+                    "link": "https://www.shopware.com/en/privacy/"
+                }
+            },
+            "intro": "Dengan berbagi data toko dan pengguna, Anda membantu kami memahami bagaimana Administrasi digunakan dan mengembangkan peningkatan yang membuat pekerjaan sehari-hari Anda lebih mudah.",
+            "opt-out-info": "Anda dapat memilih keluar kapan saja melalui pengaturan, dan pengaturan Profil.",
+            "promises": {
+                "gdpr-compliant": "Sesuai dengan GDPR",
+                "no-third-party": "Tidak ada data yang dibagikan dengan pihak ketiga",
+                "securely-processed": "Data yang disimpan dengan aman"
+            },
+            "share-store-data": "Dengan berbagi data toko, Anda membantu kami memahami bagaimana Administrasi digunakan dan mengembangkan peningkatan yang membuat pekerjaan sehari-hari Anda lebih mudah.",
+            "share-user-data": "Dengan membagikan data pengguna Anda, Anda membantu kami memahami bagaimana Administrasi digunakan dan mengembangkan peningkatan yang membuat pekerjaan sehari-hari Anda lebih mudah.",
+            "store-data": {
+                "description": "Data gabungan dari {order}, {diagnostic}, dan {store} membantu kami meningkatkan fitur. Harap konfirmasikan bahwa Anda berwenang untuk memberikan persetujuan untuk perusahaan Anda.",
+                "emphasizes": {
+                    "diagnostic": "diagnostik",
+                    "order": "memesan",
+                    "store": "menyimpan data"
+                },
+                "help-text": {
+                    "diagnostic": "<strong>Data diagnostik</strong> dalam Shopware mengacu pada informasi yang terkait dengan kesehatan sistem, kesalahan, dan metrik kinerja platform. Ini termasuk detail seperti log sistem, pesan kesalahan, waktu respons server, dan indikator teknis lainnya. Menganalisis data ini membantu kami mengidentifikasi, mengatasi, dan menerapkan perbaikan untuk masalah umum atau kerentanan dengan cepat, menjaga integritas platform.",
+                    "order": "<strong>Data pesanan</strong> dalam Shopware mengacu pada informasi terperinci tentang pesanan pelanggan yang ditempatkan di platform. Ini termasuk spesifikasi seperti produk yang dipesan, jumlah, harga, asal, metode pembayaran, pengiriman, dll. Kami menganalisis data ini untuk memahami tren dan pola yang membantu kami meningkatkan fitur serta mengembangkan layanan baru yang dirancang untuk meningkatkan kesuksesan bisnis Anda. Kami tidak mengumpulkan data pribadi dari pelanggan Anda yang dapat digunakan untuk mengidentifikasi satu orang.",
+                    "store": "<strong>Menyimpan data</strong> dalam Shopware berkaitan dengan semua informasi yang terkait dengan etalase online Anda. Seperti produk, daftar, harga, gambar, deskripsi, dll., dan metadata tentang pengaturan toko Anda, seperti tema dan plugin. Kami tidak mengumpulkan data pribadi yang dapat digunakan untuk mengidentifikasi pengguna admin atau pengunjung etalase. Dengan menggunakan data toko agregat, kami dapat memberikan wawasan melalui pembelajaran mesin seperti tren pasar yang sedang berkembang, memungkinkan Anda menyesuaikan penawaran produk atau strategi pemasaran yang sesuai."
+                },
+                "label-checkbox": "Bagikan data toko",
+                "title": "Simpan data"
+            },
+            "title": "Bantu kami meningkatkan",
+            "user-data": {
+                "description": "Kami menggunakan {data} tentang bagaimana Anda berinteraksi dengan Administrasi untuk meningkatkan kegunaan dan kinerjanya.",
+                "emphasizes": {
+                    "data": "data"
+                },
+                "help-text": {
+                    "data": "<strong>Data penggunaan</strong> dalam Shopware berkaitan dengan informasi yang terkait dengan bagaimana pengguna admin dan pengunjung etalase berinteraksi dengan platform kami. Ini termasuk detail seperti interaksi dengan modul admin Shopware yang berbeda, halaman yang dilihat, durasi kunjungan, jalur klik, dan tindakan pengguna dalam platform dan etalase. Dengan mengevaluasi data penggunaan, kami dapat mengidentifikasi area platform yang sering dikunjungi atau dihindari untuk mengukur adopsi fitur, yang mengarah pada peningkatan potensial dalam tata letak, desain, dan fungsionalitas."
+                },
+                "label-checkbox": "Bagikan data saya",
+                "title": "Data saya"
+            }
+        },
         "general": {
             "description": "Konfigurasikan untuk berbagi data penggunaan dengan kami untuk meningkatkan Shopware.",
             "mainMenuItemGeneral": "Berbagi data",

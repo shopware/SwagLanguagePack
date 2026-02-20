@@ -306,6 +306,7 @@
             "contact_form_send": "Formular de contact trimis",
             "customer_group_registration_accepted": "Cererea de înregistrare a grupului client acceptată",
             "customer_group_registration_declined": "Cererea de înregistrare a grupului de clienți a refuzat",
+            "customer_password_changed": "Parola clientului a fost modificată",
             "customer_recovery_request": "Clientul solicită o parolă nouă",
             "mail_after_create_message": "E-mail creat",
             "mail_before_send": "E-mailul este trimis",
@@ -503,6 +504,7 @@
             "FRAMEWORK__DELETE_RESTRICTED": "Ștergerea a eșuat.",
             "FRAMEWORK__MISSING_PRIVILEGE_ERROR": "Permisiuni lipsă.",
             "FRAMEWORK__RATE_LIMIT_EXCEEDED": "Prea multe cereri. Vă rugăm să așteptați {seconds} secunde înainte de a încerca din nou.",
+            "FRAMEWORK__ROUTE_BLOCKED_MESSAGE": "Adresa URL {path} intră în conflict cu ruta {blockedSegment} existentă și nu poate fi utilizată.",
             "INVALID_MAIL": "Vă rugăm să introduceți o adresă de e-mail validă.",
             "INVALID_MEDIA_URL": "Introduceți un URL valid pentru a încărca un fișier.",
             "INVALID_URL": "Vă rugăm să introduceți un URL valid.",
@@ -731,6 +733,7 @@
                     "product": "Produs"
                 },
                 "lineItemProductStates": "Articol cu starea produsului",
+                "lineItemProductType": "Articol cu tip de produs",
                 "lineItemPromotedRule": "Postul este promovat",
                 "lineItemPropertyRule": "Articol cu valoarea variantei sau a proprietății",
                 "lineItemPropertyValueRule": "Articol cu valoarea proprietății",
@@ -821,6 +824,14 @@
                     "options": {
                         "is-download": "Digitale",
                         "is-physical": "Fizică"
+                    }
+                }
+            },
+            "cartLineItemProductType": {
+                "productType": {
+                    "options": {
+                        "digital": "Digitale",
+                        "physical": "Fizică"
                     }
                 }
             },
@@ -980,6 +991,8 @@
             "messageNoResults": "Nu a fost gasit nici un rezultat dupa \"{term}”."
         },
         "sw-field": {
+            "ariaLinkInheritance": "Moștenirea legăturii",
+            "ariaUnlinkInheritance": "Deconectați moștenirea",
             "notification": {
                 "notificationCopyFailureMessage": "Textul nu a putut fi copiat în clipboard.",
                 "notificationCopySuccessMessage": "Textul a fost copiat în clipboard."
@@ -1085,10 +1098,24 @@
             "labelContextMenuCopyLink": "Copiere link",
             "labelContextMenuDetail": "Detalii",
             "labelContextMenuMove": "Mutare",
+            "labelContextMenuRemoveCover": "Scoateți capacul",
             "labelContextMenuRename": "Redenumire",
             "labelContextMenuReplace": "Înlocuieşte",
+            "labelContextMenuSetCover": "Setați imaginea de copertă",
             "labelUploading": "Se încarcă...",
             "notification": {
+                "coverRemoveSuccess": {
+                    "message": "Imaginea de copertă a fost eliminată."
+                },
+                "coverSaveError": {
+                    "message": "Imaginea de copertă nu a putut fi salvată."
+                },
+                "coverSaveSuccess": {
+                    "message": "Imaginea de copertă a fost salvată."
+                },
+                "coverSelectionInvalid": {
+                    "message": "Vă rugăm să selectați o imagine pe care să o utilizați ca copertă."
+                },
                 "errorBlankItemName": {
                     "message": "Elementul media nu a putut fi salvat: Introduceți un nume."
                 },
@@ -1218,7 +1245,8 @@
         "sw-media-preview-v2": {
             "fallbackAudioTagSupport": "Browserul dvs. nu acceptă eticheta audio",
             "fallbackVideoTagSupport": "Browserul dvs. nu acceptă eticheta video",
-            "textNoMedia": "Nu există suport media disponibil"
+            "textNoMedia": "Nu există suport media disponibil",
+            "warningUnsupportedFormat": "Este posibil ca formatul \"{format}\" să nu fie acceptat în toate browserele."
         },
         "sw-media-upload": {
             "buttonFileUpload": "Încărcați fișierul",
@@ -1234,6 +1262,9 @@
                 "failure": {
                     "message": "Eroare la încărcarea fișierului."
                 },
+                "illegalFileType": {
+                    "message": "Fișierul \"{name}\" nu a putut fi încărcat. Acest tip de fișier nu este acceptat."
+                },
                 "illegalFileUrl": {
                     "message": "Încărcarea de la adresele URL locale nu este permisă.",
                     "title": "URL nevalid"
@@ -1241,9 +1272,22 @@
                 "illegalFilename": {
                     "message": "Numele fișierului „{fileName}” conține caractere nevalide."
                 },
+                "payloadTooLarge": {
+                    "message": "Fișierul este prea mare. Vă rugăm să reduceți dimensiunea fișierului sau să verificați configurația serverului."
+                },
+                "requestCanceled": {
+                    "message": "Încărcarea a fost anulată."
+                },
                 "success": {
                     "message": "Nu a fost salvat niciun fișier. | Fișierul a fost salvat. | Fișierele {count} / {total} au fost salvate."
+                },
+                "transportError": {
+                    "message": "Încărcarea a eșuat din cauza unei conexiuni sau a unui interval de timp de expirare a serverului. Vă rugăm să verificați limitele conexiunii sau serverului."
                 }
+            },
+            "snackbar": {
+                "errorMessage": "Fișierul nu a putut fi încărcat. | Unele fișiere nu au putut fi încărcate.",
+                "message": "Încărcarea fișierelor | Încărcarea fișierelor"
             }
         },
         "sw-media-upload-v2": {
@@ -2332,6 +2376,9 @@
                 }
             },
             "video": {
+                "video": {
+                    "label": "Video"
+                },
                 "vimeoVideo": {
                     "label": "Vimeo video"
                 },
@@ -2708,21 +2755,26 @@
                 "config": {
                     "warning": "Codul HTML nefiltrat poate duce la riscuri de securitate. Vă rugăm să introduceți numai cod HTML din surse de încredere și să testați modificările înainte de a le publica."
                 },
-                "label": "HTML"
+                "label": "HTML",
+                "labelContent": "Conținut"
             },
             "image": {
                 "config": {
+                    "helpText": {
+                        "ariaLabel": "Acest text va fi citit de cititoarele de ecran ca text de link.",
+                        "fetchPriorityHigh": "Activați această opțiune dacă imaginea este prima de pe pagină. Imaginii i se va atribui apoi atributul 'fetchpriority=\"high\"', spunând browserului să o încarce cu prioritate mai mare. Acest lucru poate ajuta la îmbunătățirea vopselei cu conținut cel mai mare (LCP).",
+                        "isDecorative": "Când această opțiune este activată, informațiile despre imagine nu vor fi citite de cititoarele de ecran. Aceasta înseamnă că etichetele „alt” și „titlu” vor rămâne goale.",
+                        "minHeight": "Introduceți înălțimea minimă cu unitatea dorită. De exemplu: 200px",
+                        "useFetchPriorityOnFirstItem": "Când această opțiune este activată, prima imagine este încărcată cu o prioritate mai mare. Acest lucru poate îmbunătăți viteza cu care pagina este redată în browser."
+                    },
                     "label": {
                         "ariaLabel": "Descrierea link-ului",
-                        "ariaLabelHelpText": "Acest text va fi citit de cititoarele de ecran ca text de link.",
+                        "fetchPriorityHigh": "Prioritate ridicată de preluare",
                         "isDecorative": "Marcați imaginea ca decorativă",
-                        "isDecorativeHelpText": "Când această opțiune este activată, informațiile despre imagine nu vor fi citite de cititoarele de ecran.",
                         "linkNewTab": "Deschiderea linkului în filă nouă",
                         "linkTo": "Link țintă",
                         "minHeight": "Înălțime minimă",
-                        "minHeightHelpText": "Introduceți înălțimea minimă cu unitatea dorită. De exemplu: 200px",
-                        "useFetchPriorityOnFirstItem": "Încărcați prima imagine cu prioritate mai mare",
-                        "useFetchPriorityOnFirstItemHelpText": "Când această opțiune este activată, prima imagine este încărcată cu o prioritate mai mare. Acest lucru poate îmbunătăți viteza cu care pagina este redată în browser."
+                        "useFetchPriorityOnFirstItem": "Încărcați prima imagine cu prioritate mai mare"
                     },
                     "placeholder": {
                         "enterMinHeight": "Introduceţi o înălţime minimă...",
@@ -2759,7 +2811,8 @@
                         "navigationDots": "Navigare puncte",
                         "navigationPositionInside": "În interior",
                         "navigationPositionNone": "Nici unul",
-                        "navigationPositionOutside": "Afară"
+                        "navigationPositionOutside": "Afară",
+                        "sliderItems": "Imagini"
                     }
                 },
                 "label": "Glisorul imagine"
@@ -2808,6 +2861,14 @@
                         "descriptionAndReviews": "Descrierea produsului și recenzii",
                         "reviews": "Recenzii"
                     }
+                }
+            },
+            "productHeading": {
+                "logo": {
+                    "label": "Logo-ul producătorului"
+                },
+                "name": {
+                    "label": "Denumirea produsului"
                 }
             },
             "productListing": {
@@ -2933,6 +2994,32 @@
                 },
                 "label": "Text"
             },
+            "video": {
+                "config": {
+                    "helpText": {
+                        "ariaLabel": "Citit de cititoarele de ecran și ar trebui să descrie pe scurt conținutul sau scopul videoclipului. Dacă este lăsat gol, se va folosi titlul sau textul alternativ configurat în modulul media.",
+                        "autoPlay": "Redarea automată este permisă de multe browsere numai atunci când videoclipul este dezactivat.<br>Cu redarea automată, o copertă nu are sens, deoarece redarea începe imediat și nu este necesară confirmarea.",
+                        "minHeight": "Introduceți înălțimea minimă cu unitatea dorită. De exemplu: 200px",
+                        "playsInline": "Pe iOS, videoclipurile se deschid adesea pe ecran complet. Activați această opțiune pentru a menține redarea în linie.",
+                        "showCover": "Capacul configurat în selecția media va fi afișat până când utilizatorul confirmă încărcarea videoclipului prin clic."
+                    },
+                    "label": {
+                        "ariaLabel": "Titlul cititorului de ecran",
+                        "autoPlay": "Redarea automată a videoclip",
+                        "loop": "Redarea videoclipurilor într-o buclă",
+                        "minHeight": "Înălțime minimă",
+                        "muted": "Redare dezactivată",
+                        "playsInline": "Redați în linie pe dispozitive iOS",
+                        "showControls": "Afișează controalele video",
+                        "showCover": "Încărcați videoclipul numai după confirmarea de către utilizator"
+                    },
+                    "placeholder": {
+                        "ariaLabel": "Introduceți titlul cititorului de ecran...",
+                        "minHeight": "Introduceți înălțimea minimă..."
+                    }
+                },
+                "label": "Video"
+            },
             "vimeoVideo": {
                 "config": {
                     "helpText": {
@@ -2977,6 +3064,16 @@
             "moduleTitle": "Experiențe de",
             "placeholderSearchBar": "Aspecte de căutare...",
             "privacyNotice": "Selectând continuați confirmați că ați citit informațiile <a href=\"%privacyUrl%\">privind protecția datelor</a> și ați acceptat termenii și condițiile generale <a href=\"%tosUrl%\"></a>."
+        },
+        "inherit": {
+            "formBanner": "Acest aspect a moștenit câmpuri. Înseamnă că, atâta timp cât starea moștenită este activă, conținutul va fi moștenit. Câmpurile moștenite pot fi deconectate făcând clic pe simbolul linkului. Dacă faceți clic din nou pe simbol, veți seta starea moștenită înapoi.",
+            "tooltip": "Acest câmp nu există în aspectul de bază și nu poate fi moștenit.",
+            "unlinkAllButton": "Resetați toate câmpurile.",
+            "unlinkAllConfirmText": "Sigur doriți să resetați toate câmpurile? Aceasta va șterge definitiv tot conținutul nelegat.",
+            "unlinkAllTitle": "Resetați toate câmpurile",
+            "unlinkFieldConfirmText": "Ești sigur că vrei să restabilești moștenirea? Aceasta va elimina toate datele personalizate ale acestui câmp și va restabili valorile din elementul părinte.",
+            "unlinkFieldTitle": "Restaurare moștenire",
+            "unlinkNotice": "Unele câmpuri moștenite au fost deconectate."
         },
         "list": {
             "gridHeaderAssignedPages": "Pagini atribuite",
@@ -3214,6 +3311,7 @@
             "accept": "Accept",
             "acceptMessage": "Grupul de clienți a fost modificat",
             "alert": "Accesul la grupul de clienți „{name}” solicitat.",
+            "customerInactiveMessage": "Clienții inactivi nu pot fi acceptați sau refuzați niciunui grup de clienți.",
             "decline": "Refuz",
             "declineMessage": "Cererea a fost respinsă",
             "errorMessage": "Nu pot procesa solicitarea",
@@ -4300,7 +4398,10 @@
                 "placeholderDeliveryStatus": "Selectați starea de expediere...",
                 "placeholderOrderStatus": "Selectați starea comenzii...",
                 "placeholderPaymentStatus": "Selectați starea plății...",
-                "titleSetStatus": "Alocați starea"
+                "titleSetStatus": "Alocați starea",
+                "transitionWarning": {
+                    "message": "Aveți grijă când utilizați tranzițiile de stare, deoarece acestea pot duce la fluxuri eșuate dacă tranziția de stare nu este validă. Luați în considerare activarea „Forțați tranzițiile de stare” pentru a evita astfel de probleme."
+                }
             },
             "tag": {
                 "labelAddTag": "Adaugă etichetă",
@@ -4365,6 +4466,7 @@
             "orderTransactionCaptureRefund": "Comandați rambursarea capturii tranzacțiilor",
             "paid": "Plătit",
             "paidPartially": "Plătit parțial",
+            "password": "Parole",
             "paymentMethod": "Metoda de plată",
             "pending": "În așteptare",
             "placed": "Plasat",
@@ -4403,8 +4505,7 @@
                 "profile": "Profil",
                 "records": "Înregistrări",
                 "size": "Dimensiune",
-                "state": "Stare",
-                "user": "Utilizator"
+                "state": "Stare"
             },
             "contextMenu": {
                 "abortProcess": "Abandonați procesul",
@@ -4416,6 +4517,10 @@
                 "showLogInfo": "Deschideți informațiile din jurnal",
                 "showProfile": "Arată profilul",
                 "showResults": "Arată rezumatul"
+            },
+            "detail": {
+                "ExportLabel": "Export",
+                "importLabel": "Import"
             },
             "dryrun": "Alergare uscată",
             "emptyState": {
@@ -4791,6 +4896,7 @@
             "messageInvalidScope": "Cerere de aplicare nevalidă.",
             "messageServerError": "Serverul de autorizare a întâmpinat o condiție neașteptată.",
             "messageUnsupportedGrantType": "Tipul de autorizare de acordare nu este acceptat de serverul de autorizare.",
+            "orContinueWith": "Sau continuați cu",
             "placeholderPassword": "Introdu parola...",
             "placeholderUsername": "Introdu numele tău de utilizator...",
             "subheadlineMain": "Bine ai revenit."
@@ -4877,6 +4983,7 @@
         },
         "modal": {
             "affectedList": "Următoarele canale de vânzare sunt afectate:",
+            "confirmButton": "Continuă oricum",
             "mainContent": "Există deja un șablon de antet și subsol atribuit următoarelor canale de vânzări. Dacă continuați și salvați, acea misiune va fi suprascrisă cu modificările dvs.",
             "title": "Alocări multiple"
         }
@@ -4956,6 +5063,8 @@
             "emptyStateSubTitle": "Adăugați șabloane de e-mail făcând clic pe butonul „Adăugați”.",
             "emptyStateTitle": "Nu există încă șabloane de e-mail",
             "errorMediaItemDuplicated": "Elementul media deja atribuit",
+            "tabHeaderFooter": "Anteturi și subsoluri",
+            "tabMailTemplates": "Șabloane",
             "textDeleteConfirm": "Sunteți sigur că doriți să ștergeți șablonul de e-mail „{subject}”?",
             "textMailTemplateOverview": "Șabloane de e-mail",
             "titleMailFooterList": "Subsol",
@@ -5037,7 +5146,9 @@
                 "download": "Descarca",
                 "horizontal": "orizontală",
                 "move": "Mutare",
+                "removeCover": "Scoateți capacul",
                 "replace": "Înlocuieşte",
+                "setCover": "Setați imaginea de copertă",
                 "settings": "Setări",
                 "vertical": "Vertical"
             },
@@ -5102,6 +5213,12 @@
             "labelTabItemLibrary": "Biblioteca Media",
             "labelTabItemUpload": "Încărcați fișiere",
             "titleModal": "Alegeți un suport media"
+        },
+        "sw-media-save-modal": {
+            "titleModal": "Salvați în media"
+        },
+        "sw-model-viewer": {
+            "titleModal": "Vizualizator de modele"
         }
     },
     "sw-meteor": {
@@ -5619,7 +5736,6 @@
                     "and": "și",
                     "by": "de",
                     "lastChanged": "Ultima modificare",
-                    "on": "pe",
                     "with": "cu"
                 }
             },
@@ -6163,12 +6279,17 @@
                 "placeholder": "Introduceți un număr de produs..."
             },
             "productStatesFilter": {
+                "deprecationWarning": "Filtrul de stări ale produsului este învechit și va fi eliminat în v6.8. Vă rugăm să utilizați filtrul tip de produs în schimb.",
                 "label": "Stările produsului",
                 "options": {
                     "digital": "Digitale",
                     "physical": "Fizică"
                 },
                 "placeholder": "Selectați starea produsului..."
+            },
+            "productTypeFilter": {
+                "label": "Tip",
+                "placeholder": "Selectați tipul de produs..."
             },
             "releaseDateFilter": {
                 "label": "Data lansării"
@@ -6348,6 +6469,7 @@
             "cardTitleProperties": "Proprietăți disponibile",
             "columnProperty": "Proprietate",
             "columnValue": "Valoarea proprietății",
+            "descriptionEmptyState": "Gestionați proprietățile aici.",
             "emptyStateNoOptionsDescription": "Creați mai întâi proprietăți și valori de proprietăți, apoi reveniți aici pentru a le atribui.",
             "emptyStateNoOptionsTitle": "Nu există valori disponibile",
             "emptyStateNoSelectedOptionsDescription": "Vă rugăm să selectați valorile din căutarea de mai sus.",
@@ -6442,6 +6564,10 @@
             "cardTitleMeasurement": "Măsurătorile produsului",
             "cardTitleProperties": "Proprietăți",
             "cardTitleSellingPackaging": "Informații de vânzare și ambalare"
+        },
+        "type": {
+            "digital": "Digitale",
+            "physical": "Fizică"
         },
         "variations": {
             "backVariationsButton": "Înapoi",
@@ -6574,6 +6700,12 @@
             "messageSaveSuccess": "Grupul dinamic de produse „{name}” a fost salvat.",
             "placeholderDescription": "Introduceți descrierea...",
             "placeholderName": "Introduceți titlul...",
+            "productStatesFilterWarning": "Acest grup dinamic de produse utilizează în continuare filtrul de stări de produs învechite. Acesta va fi eliminat în v6.8 - vă rugăm să treceți la filtrul de tip de produs.",
+            "productStreamIndexingWarning": {
+                "action": "Aflați mai multe în documentația noastră",
+                "message": "Este posibil ca unele caracteristici să nu funcționeze așa cum era de așteptat: <ul><li>Paginile categoriei pot să nu reflecte modificările până când memoria cache HTTP expiră sau nu este ștersă manual.</li><li>Condiția de regulă „Articol din grupul dinamic de produse” nu va fi niciodată adevărată.</li></ul>",
+                "title": "Indexarea dinamică a grupului de produse este dezactivată"
+            },
             "textHeadline": "Noua grupă de produse dinamice",
             "titleCard": "Informaţii generale",
             "titleFilter": "Condiții",
@@ -6739,6 +6871,9 @@
         },
         "tabGeneral": {
             "title": "General"
+        },
+        "tabPrivacyPreferences": {
+            "title": "Preferințe de confidențialitate"
         },
         "tabSearchPreferences": {
             "alert_elasticsearch": {
@@ -7286,6 +7421,30 @@
             "textHeadline": "Recenzie",
             "titleCardComment": "Comentariu"
         },
+        "filters": {
+            "customerFilter": {
+                "label": "Client",
+                "placeholder": "Filtrează după client..."
+            },
+            "languageFilter": {
+                "label": "Limba",
+                "placeholder": "Filtrează după limbă..."
+            },
+            "pointsFilter": {
+                "label": "Evaluare (stele)"
+            },
+            "productFilter": {
+                "label": "Produs",
+                "placeholder": "Filtrează după produs..."
+            },
+            "salesChannelFilter": {
+                "label": "Canal de vânzări",
+                "placeholder": "Filtrează după canalul de vânzări..."
+            },
+            "statusFilter": {
+                "label": "Aprobat"
+            }
+        },
         "general": {
             "descriptionTextModule": "Gestionați recenziile aici.",
             "mainMenuItemGeneral": "Recenzii",
@@ -7333,6 +7492,10 @@
                     "anonymizeIp": {
                         "label": "Anonimare IP"
                     },
+                    "trackOffcanvasCart": {
+                        "helpText": "Când este activat, un eveniment „view_cart” este declanșat și atunci când se deschide coșul offcanvas, nu doar pe pagina dedicată coșului de cumpărături. Util pentru analiza detaliată a pâlniei, dar poate umfla valorile de vizualizare a coșului.",
+                        "label": "Urmăriți coșul offcanvas"
+                    },
                     "trackOrders": {
                         "label": "Urmăriți comenzile"
                     },
@@ -7366,6 +7529,7 @@
             "descriptionTaxCalculation": "Modificarea acestei setări ar putea duce la probleme contabile cu furnizorii externi de plăți. Verificați din nou modul în care TVA este calculată de furnizorii de plăți pe care îi angajați, înainte de a efectua modificări.",
             "favouriteLabel": "Marcați canalul de vânzări ca favorit",
             "footerCategory": "Navigare subsolul punctului de intrare",
+            "foreignKeyDelete": "Acest canal de vânzări nu poate fi șters deoarece este încă utilizat de {assignment}.",
             "helpTextTaxCalculation": {
                 "label": "Dacă un furnizor fiscal este activat, aceste setări pot fi suprascrise. Puteți verifica acest lucru în {link}.",
                 "linkText": "setări"
@@ -7671,6 +7835,11 @@
             "mainMenuItemGeneral": "Setări"
         },
         "index": {
+            "search": {
+                "noResultsDescription": "Setările nu au putut fi găsite. Încercați să utilizați un alt termen de căutare.",
+                "noResultsHeadline": "Nu au fost găsite intrări",
+                "placeholder": "Găsiți setări..."
+            },
             "tabAutomation": "Automatizare",
             "tabCommerce": "Comerț",
             "tabContent": "Conținut",
@@ -7951,6 +8120,7 @@
     "sw-settings-custom-field": {
         "customField": {
             "detail": {
+                "bannerSearchableEnabled": "Se recomandă reindexarea datelor, dacă starea căutării s-a schimbat, pentru a asigura rezultate precise ale căutării.",
                 "buttonAddOption": "Adăugare opțiune",
                 "buttonEditApply": "Aplică modificările",
                 "helpTextEntitySelect": "Tipul de entitate nu poate fi modificat odată ce câmpul particularizat a fost creat.",
@@ -7958,6 +8128,7 @@
                 "infoText": "Dacă este creat un câmp particularizat, fragmentul potrivit pentru toate seturile de fragmente va fi creat, de asemenea. Fragmentul va fi numit „CustomFields.{name}”.",
                 "labelAllowCartExpose": "Disponibil în cărucioare de cumpărături",
                 "labelAllowCustomerWrite": "Modificabil prin API-ul Store",
+                "labelAllowSearchable": "Includeți în căutare",
                 "labelCustomFieldPosition": "Poziție",
                 "labelCustomFieldType": "Tip",
                 "labelDate": "Data",
@@ -7985,6 +8156,7 @@
                 "titleNewCustomField": "Câmp particularizat nou",
                 "tooltipAllowCartExpose": "Activați, pentru a face acest câmp personalizat disponibil în sarcina utilă a articolelor din linia coșului de cumpărături. Acest lucru este necesar pentru a utiliza inițial acest câmp personalizat în Generatorul de reguli sau șabloane personalizate.",
                 "tooltipAllowCustomerWrite": "Când este activ, API-ul Store este permis să modifice acest câmp. Acest lucru poate fi folosit pentru a stoca date personalizate dacă adăugați câmpuri noi în vitrină. De exemplu, pentru câmpurile noi din formularul de înregistrare.",
+                "tooltipAllowSearchable": "Când este activ, acest câmp personalizat va fi indexat și poate fi utilizat în configurațiile de căutare. Dacă acest câmp nu este necesar pentru căutare, acesta ar trebui să fie dezactivat pentru a reduce dimensiunea stocării indexului și pentru a îmbunătăți performanța căutării.",
                 "tooltipCartExposeDisabled": "Această setare nu poate fi modificată în prezent, deoarece câmpul personalizat este utilizat de una sau mai multe condiții din Generatorul de reguli.",
                 "tooltipCustomFieldPosition": "Controlează poziția acestui câmp particularizat în paginile cu detalii.",
                 "tooltipStoreApiAware": "Când este activ, acest câmp va fi disponibil în API-ul magazinului. Această opțiune poate fi dezactivată pentru a stoca date personalizate numai intern și nu pentru a le face disponibile prin API-ul magazinului."
@@ -8321,6 +8493,7 @@
             "labelDefaultSearchResultSorting": "Sortarea implicită a rezultatelor căutării",
             "labelDefaultSorting": "Sortare implicită",
             "mainMenuItemGeneral": "Produse",
+            "messageSaveDefaultValuesEmpty": "Valoarea implicită este necesară",
             "messageSaveError": "Configurația nu a putut fi salvată.",
             "messageSaveSuccess": "Configurația salvată.",
             "placeholderDefaultSearchResultSorting": "Selectați o sortare implicită a rezultatelor căutării...",
@@ -8338,6 +8511,7 @@
                         "_score": "_scor",
                         "customField": "Câmp particularizat",
                         "product": {
+                            "available": "Disponibil",
                             "cheapestPrice": "Cel mai ieftin preț produs",
                             "createdAt": "Data creării",
                             "listingPrices": "Preţul listării produselor",
@@ -8507,12 +8681,6 @@
         }
     },
     "sw-settings-media": {
-        "3d": {
-            "lightIntensity": {
-                "helpText": "Modificați intensitatea luminii în vizualizarea 3D.",
-                "label": "Intensitatea luminii"
-            }
-        },
         "general": {
             "buttonSave": "Salvează",
             "description": "Gestionați setările media aici.",
@@ -8718,6 +8886,7 @@
                 "height": "Înălțime",
                 "length": "Lungimea",
                 "manufacturerNumber": "Numărul produsului producătorului",
+                "packUnit": "Unitate de ambalaj",
                 "property": "Proprietate",
                 "referencePrice": "Preț unitar",
                 "releaseDate": "Data lansării",
@@ -8790,6 +8959,8 @@
             "placeholderName": "Stabileşte un nume pentru această regulă...",
             "placeholderPriority": "Stabileşte o prioritate pentru această regulă...",
             "placeholderTags": "Introduceți o etichetă...",
+            "placeholderType": "Introduceți un tip...",
+            "productStatesConditionWarning": "Condiția „Articol cu stare produs” este învechită și va fi eliminată în v6.8. Vă rugăm să utilizați în schimb „Articol cu tip de produs”.",
             "productStreamIndexingWarning": {
                 "action": "Aflați mai multe în documentația noastră",
                 "message": "Condiția „Articol din grupul dinamic de produse” nu va fi niciodată adevărată.",
@@ -9681,6 +9852,60 @@
         }
     },
     "sw-settings-usage-data": {
+        "consent-modal": {
+            "actions": {
+                "save-preferences": "Salvați preferințele",
+                "share-all-data": "Partajează toate",
+                "share-nothing": "Nu împărtășiți nimic"
+            },
+            "external-links": {
+                "data-use-details": {
+                    "label": "shopware.com/ro/detalii privind utilizarea datelor",
+                    "link": "https://www.shopware.com/en/data-use-details/"
+                },
+                "label": "Pentru detalii complete, consultați {data-use-details} și {privacy-policy}.",
+                "privacy-policy": {
+                    "label": "Politica de confidențialitate",
+                    "link": "https://www.shopware.com/en/privacy/"
+                }
+            },
+            "intro": "Prin partajarea datelor din magazin și utilizator, ne ajutați să înțelegem modul în care este utilizată Administrația și să dezvoltăm îmbunătățiri care vă ușurează munca zilnică.",
+            "opt-out-info": "Puteți renunța oricând prin setări și Setări profil.",
+            "promises": {
+                "gdpr-compliant": "Conform GDPR",
+                "no-third-party": "Nu sunt partajate date cu terți",
+                "securely-processed": "Datele stocate în siguranță"
+            },
+            "share-store-data": "Prin partajarea datelor din magazin, ne ajutați să înțelegem modul în care este utilizată Administrația și să dezvoltăm îmbunătățiri care să vă ușureze munca zilnică.",
+            "share-user-data": "Prin partajarea datelor dvs. de utilizator, ne ajutați să înțelegem modul în care este utilizată Administrația și să dezvoltăm îmbunătățiri care să vă ușureze munca zilnică.",
+            "store-data": {
+                "description": "Datele combinate de la {order}, {diagnostic}și {store} ne ajută să îmbunătățim caracteristicile. Vă rugăm să confirmați că sunteți autorizat să dați consimțământul pentru compania dvs.",
+                "emphasizes": {
+                    "diagnostic": "diagnostice",
+                    "order": "comenzi",
+                    "store": "stochează date"
+                },
+                "help-text": {
+                    "diagnostic": "<strong>Date de diagnosticare</strong> din Shopware se referă la informațiile legate de starea sistemului, erorile și valorile de performanță ale platformei. Aceasta include detalii precum jurnalele de sistem, mesajele de eroare, timpii de răspuns ai serverului și alți indicatori tehnici. Analiza acestor date ne ajută să identificăm rapid, să abordăm și să implementăm remedieri pentru probleme sau vulnerabilități comune, menținând integritatea platformei.",
+                    "order": "<strong>Datele comenzii</strong> în cadrul Shopware se referă la informațiile detaliate despre comenzile clienților plasate pe platformă. Aceasta include specificații precum produsele comandate, cantitățile, prețurile, originea, metodele de plată, expedierea etc. Analizăm aceste date pentru a înțelege tendințele și modelele care ne ajută să îmbunătățim caracteristicile, precum și să dezvoltăm noi servicii concepute pentru a îmbunătăți succesul afacerii dvs. Nu colectăm date personale de la clienții dvs. care pot fi utilizate pentru a identifica o singură persoană.",
+                    "store": "<strong>Stocarea datelor</strong> în Shopware se referă la toate informațiile legate de magazinul dvs. online. Cum ar fi produse, listări, prețuri, imagini, descrieri etc. și metadate despre configurarea magazinului dvs., cum ar fi teme și pluginuri. Nu colectăm date personale care pot fi utilizate pentru a identifica un utilizator administrator sau un vizitator al magazinului. Folosind date agregate din magazin, putem oferi informații prin învățarea automată, cum ar fi tendințele pieței emergente, permițându-vă să ajustați ofertele de produse sau strategiile de marketing în consecință."
+                },
+                "label-checkbox": "Partajați datele magazinului",
+                "title": "Stocarea datelor"
+            },
+            "title": "Ajută-ne să ne îmbunătățim",
+            "user-data": {
+                "description": "Folosim {data} despre modul în care interacționați cu Administrația pentru a îmbunătăți gradul de utilizare și performanța acesteia.",
+                "emphasizes": {
+                    "data": "informație"
+                },
+                "help-text": {
+                    "data": "<strong>Datele de utilizare</strong> în cadrul Shopware se referă la informațiile legate de modul în care utilizatorii de administrare și vizitatorii magazinelor interacționează cu platforma noastră. Aceasta include detalii precum interacțiunile cu diferite module de administrare Shopware, paginile vizualizate, durata vizitelor, căile de clic și acțiunile utilizatorilor în cadrul platformei și vitrinei. Prin evaluarea datelor de utilizare, putem identifica zonele platformei care sunt vizitate frecvent sau evitate pentru a măsura adoptarea caracteristicilor, ceea ce duce la îmbunătățiri potențiale în aspect, design și funcționalitate."
+                },
+                "label-checkbox": "Distribuiți datele mele",
+                "title": "Datele mele"
+            }
+        },
         "general": {
             "description": "Configurați pentru a partaja datele de utilizare cu noi pentru a îmbunătăți Shopware.",
             "mainMenuItemGeneral": "Partajarea datelor",

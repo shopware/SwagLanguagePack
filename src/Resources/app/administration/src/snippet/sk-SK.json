@@ -306,6 +306,7 @@
             "contact_form_send": "Kontaktný formulár odoslaný",
             "customer_group_registration_accepted": "Žiadosť o registráciu skupiny zákazníkov prijatá",
             "customer_group_registration_declined": "Žiadosť o registráciu skupiny zákazníkov odmietnutá",
+            "customer_password_changed": "Zmenené heslo zákazníka",
             "customer_recovery_request": "Zákazník žiada nové heslo",
             "mail_after_create_message": "Vytvorený e-mail",
             "mail_before_send": "E-mail sa odosiela",
@@ -503,13 +504,14 @@
             "FRAMEWORK__DELETE_RESTRICTED": "Odstránenie zlyhalo.",
             "FRAMEWORK__MISSING_PRIVILEGE_ERROR": "Chýbajúce povolenia.",
             "FRAMEWORK__RATE_LIMIT_EXCEEDED": "Príliš veľa žiadostí. Prosím, počkajte {seconds} sekúnd, kým sa pokúsite znova.",
+            "FRAMEWORK__ROUTE_BLOCKED_MESSAGE": "Adresa URL {path} je v rozpore s existujúcou trasou {blockedSegment} a nie je možné ju použiť.",
             "INVALID_MAIL": "Zadajte platnú e-mailovú adresu.",
             "INVALID_MEDIA_URL": "Zadajte platnú adresu URL na odovzdanie súboru.",
             "INVALID_URL": "Zadajte platnú adresu URL.",
             "PARENT_MUST_NOT_BE_EMPTY": "Dedič tohto poľa nesmie byť prázdny.",
             "SHOPWARE_INVALID_IP": "Zadajte platnú IP adresu.",
             "SHOPWARE_INVALID_IP_CIDR": "Zadajte platnú IP adresu alebo platnú IP adresu s CIDR maskou.",
-            "THEME__INVALID_SCSS_VAR": "Hodnota SCSS \"{value}\" nie je platná pre typ \"{type}“.",
+            "THEME__INVALID_SCSS_VAR": "Hodnota SCSS „{value}“ nie je platný typ „{type}“.",
             "c1051bb4-d103-4f74-8988-acbcafc7fdc3": "Toto pole nesmie byť prázdne."
         },
         "notification": {
@@ -633,7 +635,7 @@
                 "AddAndCondition": "Pridať a podmienku",
                 "AddOrCondition": "Pridať OR podmienku",
                 "AddSubCondition": "Pridať podpodmienky",
-                "adminSalesChannelSourceRule": "Uplatniteľné v správe",
+                "adminSalesChannelSourceRule": "Použiteľné v správe",
                 "alwaysValidRule": "Vždy platný",
                 "and": "A",
                 "billingCityRule": "Fakturačná adresa: Mesto",
@@ -657,7 +659,7 @@
                 "customerAffiliateCodeRule": "Partnerský kód",
                 "customerAgeRule": "Vek zákazníka",
                 "customerBirthdayRule": "Dátum narodenia zákazníka",
-                "customerCampaignCodeRule": "Kód kampane",
+                "customerCampaignCodeRule": "Kód kampane (zákazník)",
                 "customerCreatedByAdminRule": "Zákazník vytvoril admin",
                 "customerCustomFieldRule": "Zákazník s vlastným poľom",
                 "customerDaysSinceFirstLogin": "Čas od prvého prihlásenia",
@@ -731,6 +733,7 @@
                     "product": "Produkt"
                 },
                 "lineItemProductStates": "Položka so stavom produktu",
+                "lineItemProductType": "Položka s typom produktu",
                 "lineItemPromotedRule": "Položka je propagovaná",
                 "lineItemPropertyRule": "Položka s variantom alebo hodnotou nehnuteľnosti",
                 "lineItemPropertyValueRule": "Položka s hodnotou nehnuteľnosti",
@@ -756,7 +759,7 @@
                 "orderCountRule": "Množstvo vyplnených objednávok",
                 "orderCreatedByAdminRule": "Objednávka vytvorená správcom",
                 "orderCustomFieldRule": "Objednať s vlastným poľom",
-                "orderDeliveryStatusRule": "Stav doručenia",
+                "orderDeliveryStatusRule": "Stav doručenia (tok)",
                 "orderDocumentTypeRule": "Objednať s dokumentom",
                 "orderDocumentTypeSentRule": "Objednávka s odoslaným dokumentom",
                 "orderStatusRule": "Stav objednávky",
@@ -824,6 +827,14 @@
                     }
                 }
             },
+            "cartLineItemProductType": {
+                "productType": {
+                    "options": {
+                        "digital": "Digitálne",
+                        "physical": "Fyzikálne"
+                    }
+                }
+            },
             "cartTaxDisplay": {
                 "taxDisplay": {
                     "options": {
@@ -847,9 +858,9 @@
                         "2": "utorok",
                         "3": "streda",
                         "4": "štvrtok",
-                        "5": "piatok",
+                        "5": "Piatok",
                         "6": "sobota",
-                        "7": "nedeľa"
+                        "7": "Nedeľa"
                     }
                 }
             },
@@ -919,7 +930,7 @@
         },
         "sw-data-grid": {
             "actionsMenu": "Otvoriť ponuku akcií",
-            "columnsActions": "Akcie stĺpcov",
+            "columnsActions": "Akcie riadkov",
             "labelColumnHide": "Skryť stĺpec",
             "labelDeSelectAll": "Zrušte výber všetkých",
             "labelSelectAll": "Vyberte všetko",
@@ -980,6 +991,8 @@
             "messageNoResults": "Neboli nájdené žiadne výsledky pre \"{term}“."
         },
         "sw-field": {
+            "ariaLinkInheritance": "Dedičnosť prepojenia",
+            "ariaUnlinkInheritance": "Zrušiť prepojenie dedičstva",
             "notification": {
                 "notificationCopyFailureMessage": "Text sa nepodarilo skopírovať do schránky.",
                 "notificationCopySuccessMessage": "Text bol skopírovaný do schránky."
@@ -1085,10 +1098,24 @@
             "labelContextMenuCopyLink": "Kopírovať odkaz",
             "labelContextMenuDetail": "Podrobnosti",
             "labelContextMenuMove": "Presunúť",
+            "labelContextMenuRemoveCover": "Odstrániť obal",
             "labelContextMenuRename": "Premenovať",
             "labelContextMenuReplace": "Nahradiť",
+            "labelContextMenuSetCover": "Nastavte obrázok na obale",
             "labelUploading": "Nahrávanie...",
             "notification": {
+                "coverRemoveSuccess": {
+                    "message": "Obrázok na obálke bol odstránený."
+                },
+                "coverSaveError": {
+                    "message": "Obrázok na obálke sa nepodarilo uložiť."
+                },
+                "coverSaveSuccess": {
+                    "message": "Obrázok na obale bol uložený."
+                },
+                "coverSelectionInvalid": {
+                    "message": "Vyberte obrázok, ktorý chcete použiť ako kryt."
+                },
                 "errorBlankItemName": {
                     "message": "Položka médií sa nedá uložiť: Zadajte meno."
                 },
@@ -1218,7 +1245,8 @@
         "sw-media-preview-v2": {
             "fallbackAudioTagSupport": "Váš prehliadač nepodporuje zvukovú značku",
             "fallbackVideoTagSupport": "Váš prehliadač nepodporuje značku videa",
-            "textNoMedia": "Nie sú dostupné žiadne médiá"
+            "textNoMedia": "Nie sú dostupné žiadne médiá",
+            "warningUnsupportedFormat": "Formát \"{format}\" nemusí byť podporovaný vo všetkých prehliadačoch."
         },
         "sw-media-upload": {
             "buttonFileUpload": "Nahrať súbor",
@@ -1234,6 +1262,9 @@
                 "failure": {
                     "message": "Chyba pri nahrávaní súboru."
                 },
+                "illegalFileType": {
+                    "message": "Súbor \"{name}\" sa nepodarilo nahrať. Tento typ súboru nie je podporovaný."
+                },
                 "illegalFileUrl": {
                     "message": "Nahrať z lokálnych adries URL nie je povolené.",
                     "title": "Neplatná URL adresa"
@@ -1241,9 +1272,22 @@
                 "illegalFilename": {
                     "message": "Názov súboru \"{fileName}\" obsahuje neplatné znaky."
                 },
+                "payloadTooLarge": {
+                    "message": "Súbor je príliš veľký. Znížte veľkosť súboru alebo skontrolujte konfiguráciu servera."
+                },
+                "requestCanceled": {
+                    "message": "Nahrávanie bolo zrušené."
+                },
                 "success": {
                     "message": "Žiadny súbor nebol uložený. | Súbor bol uložený. | {count} / {total} súbory boli uložené."
+                },
+                "transportError": {
+                    "message": "Nahrávanie zlyhalo v dôsledku pripojenia alebo časového limitu servera. Skontrolujte limity pripojenia alebo servera."
                 }
+            },
+            "snackbar": {
+                "errorMessage": "Súbor sa nepodarilo nahrať. | Niektoré súbory sa nepodarilo nahrať.",
+                "message": "Nahrávanie súboru | Nahrávanie súborov"
             }
         },
         "sw-media-upload-v2": {
@@ -2332,6 +2376,9 @@
                 }
             },
             "video": {
+                "video": {
+                    "label": "Video"
+                },
                 "vimeoVideo": {
                     "label": "Vimeo video"
                 },
@@ -2708,21 +2755,26 @@
                 "config": {
                     "warning": "Nefiltrovaný HTML kód môže viesť k bezpečnostným rizikám. Prosím, vložte iba kód HTML z dôveryhodných zdrojov a pred ich zverejnením otestujte svoje zmeny."
                 },
-                "label": "HTML"
+                "label": "HTML",
+                "labelContent": "Obsah"
             },
             "image": {
                 "config": {
+                    "helpText": {
+                        "ariaLabel": "Tento text prečítajú čítačky obrazovky ako text odkazu.",
+                        "fetchPriorityHigh": "Aktivujte túto možnosť, ak je obrázok prvý na stránke. Obrázku sa potom priradí atribút 'fetchpriority=\"high\"', ktorý povie prehliadaču, aby ho načítal s vyššou prioritou. To môže pomôcť zlepšiť najväčšiu obsahovú farbu (LCP).",
+                        "isDecorative": "Ak je táto možnosť povolená, čítačky obrazovky nebudú čítať informácie o obrázku. To znamená, že značky „alt“ a „title“ zostanú prázdne.",
+                        "minHeight": "Zadajte minimálnu výšku s požadovanou jednotkou. Napríklad: 200px",
+                        "useFetchPriorityOnFirstItem": "Keď je táto možnosť povolená, prvý obrázok sa načíta s vyššou prioritou. To môže zlepšiť rýchlosť vykresľovania stránky v prehliadači."
+                    },
                     "label": {
                         "ariaLabel": "Popis odkazu",
-                        "ariaLabelHelpText": "Tento text prečítajú čítačky obrazovky ako text odkazu.",
+                        "fetchPriorityHigh": "Získajte vysokú prioritu",
                         "isDecorative": "Označte obrázok ako dekoratívny",
-                        "isDecorativeHelpText": "Ak je táto možnosť povolená, čítačky obrazovky nebudú čítať informácie o obrázku.",
                         "linkNewTab": "Otvoriť odkaz na novej karte",
                         "linkTo": "Cieľ odkazu",
                         "minHeight": "Minimálna výška",
-                        "minHeightHelpText": "Zadajte minimálnu výšku s požadovanou jednotkou. Napríklad: 200px",
-                        "useFetchPriorityOnFirstItem": "Načítajte prvý obrázok s vyššou prioritou",
-                        "useFetchPriorityOnFirstItemHelpText": "Keď je táto možnosť povolená, prvý obrázok sa načíta s vyššou prioritou. To môže zlepšiť rýchlosť vykresľovania stránky v prehliadači."
+                        "useFetchPriorityOnFirstItem": "Načítajte prvý obrázok s vyššou prioritou"
                     },
                     "placeholder": {
                         "enterMinHeight": "Zadajte minimálnu výšku...",
@@ -2759,7 +2811,8 @@
                         "navigationDots": "Navigácia bodiek",
                         "navigationPositionInside": "Vnútri",
                         "navigationPositionNone": "Žiadne",
-                        "navigationPositionOutside": "Vonku"
+                        "navigationPositionOutside": "Vonku",
+                        "sliderItems": "Obrázky"
                     }
                 },
                 "label": "Posuvník obrázka"
@@ -2808,6 +2861,14 @@
                         "descriptionAndReviews": "Popis a recenzie produktov",
                         "reviews": "Recenzie"
                     }
+                }
+            },
+            "productHeading": {
+                "logo": {
+                    "label": "Logo výrobcu"
+                },
+                "name": {
+                    "label": "Názov produktu"
                 }
             },
             "productListing": {
@@ -2933,6 +2994,32 @@
                 },
                 "label": "Text"
             },
+            "video": {
+                "config": {
+                    "helpText": {
+                        "ariaLabel": "Prečítajte si čítačky obrazovky a mali by stručne opísať obsah alebo účel videa. Ak zostane prázdny, použije sa namiesto toho názov alebo alternatívny text nakonfigurovaný v mediálnom module.",
+                        "autoPlay": "Automatické prehrávanie je povolené mnohými prehliadačmi iba vtedy, keď je video stlmené.<br>Pri automatickom prehrávaní nemá obal zmysel, pretože prehrávanie sa spustí okamžite a nie je potrebné žiadne potvrdenie.",
+                        "minHeight": "Zadajte minimálnu výšku s požadovanou jednotkou. Napríklad: 200px",
+                        "playsInline": "V systéme iOS sa videá často otvárajú na celú obrazovku. Ak chcete zachovať prehrávanie v riadku, povoľte túto možnosť.",
+                        "showCover": "Kryt nakonfigurovaný vo výbere média sa zobrazí, kým používateľ nepotvrdí načítanie videa kliknutím."
+                    },
+                    "label": {
+                        "ariaLabel": "Názov čítačky obrazovky",
+                        "autoPlay": "Automatické prehrávanie videa",
+                        "loop": "Prehrávanie videa v slučke",
+                        "minHeight": "Minimálna výška",
+                        "muted": "Prehrávanie stlmené",
+                        "playsInline": "Prehrávanie inline na zariadeniach so systémom iOS",
+                        "showControls": "Zobraziť ovládacie prvky videa",
+                        "showCover": "Načítať video až po potvrdení užívateľom"
+                    },
+                    "placeholder": {
+                        "ariaLabel": "Zadajte názov čítačky obrazovky...",
+                        "minHeight": "Zadajte minimálnu výšku..."
+                    }
+                },
+                "label": "Video"
+            },
             "vimeoVideo": {
                 "config": {
                     "helpText": {
@@ -2977,6 +3064,16 @@
             "moduleTitle": "Nákupné zážitky",
             "placeholderSearchBar": "Vyhľadávanie rozloženia...",
             "privacyNotice": "Výberom Pokračovať potvrdzujete, že ste si prečítali naše <a href=\"%privacyUrl%\">informácie o ochrane údajov</a> a súhlasili s našimi <a href=\"%tosUrl%\">všeobecnými obchodnými podmienkami</a>."
+        },
+        "inherit": {
+            "formBanner": "Toto rozloženie má zdedené polia. To znamená, že pokiaľ je dedičný stav aktívny, obsah bude zdedený. Zdedené polia je možné zrušiť kliknutím na symbol prepojenia. Opätovným kliknutím na symbol sa zdedený stav nastaví späť.",
+            "tooltip": "Toto pole neexistuje v základnom rozložení a nemôže byť zdedené.",
+            "unlinkAllButton": "Obnoviť všetky polia.",
+            "unlinkAllConfirmText": "Ste si istí, že chcete resetovať všetky polia? Tým sa natrvalo odstráni všetok neprepojený obsah.",
+            "unlinkAllTitle": "Obnoviť všetky polia",
+            "unlinkFieldConfirmText": "Ste si istí, že chcete obnoviť dedičstvo? Tým sa odstránia všetky vlastné údaje tohto poľa a obnovia sa hodnoty z nadradeného prvku.",
+            "unlinkFieldTitle": "Obnoviť dedičnosť",
+            "unlinkNotice": "Niektoré zdedené polia boli odpojené."
         },
         "list": {
             "gridHeaderAssignedPages": "Priradené stránky",
@@ -3214,6 +3311,7 @@
             "accept": "Prijať",
             "acceptMessage": "Skupina zákazníkov bola zmenená",
             "alert": "Prístup k zákazníckej skupine \"{name}\" požadované.",
+            "customerInactiveMessage": "Neaktívnych zákazníkov nemožno akceptovať ani odmietnuť žiadnej skupine zákazníkov.",
             "decline": "Odmietnuť",
             "declineMessage": "Žiadosť bola zamietnutá",
             "errorMessage": "Žiadosť sa nedá spracovať",
@@ -4300,7 +4398,10 @@
                 "placeholderDeliveryStatus": "Vyberte stav zásielky...",
                 "placeholderOrderStatus": "Vyberte stav objednávky...",
                 "placeholderPaymentStatus": "Vyberte stav platby...",
-                "titleSetStatus": "Priradiť stav"
+                "titleSetStatus": "Priradiť stav",
+                "transitionWarning": {
+                    "message": "Pri používaní stavových prechodov buďte opatrní, pretože môžu viesť k zlyhaniu toku, ak prechod stavu nie je platný. Zvážte povolenie „Vynútiť prechody stavu“, aby ste sa vyhli takýmto problémom."
+                }
             },
             "tag": {
                 "labelAddTag": "Pridať značku",
@@ -4365,6 +4466,7 @@
             "orderTransactionCaptureRefund": "Vrátenie vrátenia transakcie objednávky",
             "paid": "Zaplatené",
             "paidPartially": "Platené čiastočne",
+            "password": "Heslo",
             "paymentMethod": "Spôsob platby",
             "pending": "Čaká",
             "placed": "Umiestnené",
@@ -4403,8 +4505,7 @@
                 "profile": "Profil",
                 "records": "Záznamy",
                 "size": "Veľkosť",
-                "state": "Stav",
-                "user": "Užívateľ"
+                "state": "Stav"
             },
             "contextMenu": {
                 "abortProcess": "Zrušenie procesu",
@@ -4416,6 +4517,10 @@
                 "showLogInfo": "Otvoriť informácie o protokole",
                 "showProfile": "Zobraziť profil",
                 "showResults": "Zobraziť súhrn"
+            },
+            "detail": {
+                "ExportLabel": "Exportovať",
+                "importLabel": "Importovať"
             },
             "dryrun": "Beh na sucho",
             "emptyState": {
@@ -4791,6 +4896,7 @@
             "messageInvalidScope": "Neplatná žiadosť o rozsah.",
             "messageServerError": "Autorizačný server sa vyskytla neočakávaná podmienka.",
             "messageUnsupportedGrantType": "Typ udelenia autorizácie nepodporuje autorizačný server.",
+            "orContinueWith": "Alebo pokračujte",
             "placeholderPassword": "Zadajte svoje heslo...",
             "placeholderUsername": "Zadajte svoje používateľské meno...",
             "subheadlineMain": "Vitaj späť."
@@ -4877,6 +4983,7 @@
         },
         "modal": {
             "affectedList": "Tieto kanály predaja sú ovplyvnené:",
+            "confirmButton": "Pokračovať aj tak",
             "mainContent": "Existuje už šablóna hlavičky a päty priradená k nasledujúcim predajným kanálom. Ak pokračujete a uložíte, toto priradenie sa prepíše zmenami.",
             "title": "Viaceré priradenia"
         }
@@ -4956,6 +5063,8 @@
             "emptyStateSubTitle": "Pridajte šablóny e-mailov kliknutím na tlačidlo „Pridať“.",
             "emptyStateTitle": "Zatiaľ žiadne e-mailové šablóny",
             "errorMediaItemDuplicated": "Položka médií už priradená",
+            "tabHeaderFooter": "Hlavičky a päty",
+            "tabMailTemplates": "Šablóny",
             "textDeleteConfirm": "Naozaj chcete odstrániť e-mailovú šablónu \"{subject}„?",
             "textMailTemplateOverview": "Šablóny e-mailov",
             "titleMailFooterList": "Päta",
@@ -5037,7 +5146,9 @@
                 "download": "Stiahnite si",
                 "horizontal": "Horizontálne",
                 "move": "Presunúť",
+                "removeCover": "Odstrániť obal",
                 "replace": "Nahradiť",
+                "setCover": "Nastavte obrázok na obale",
                 "settings": "Nastavenia",
                 "vertical": "Vertikálne"
             },
@@ -5102,6 +5213,12 @@
             "labelTabItemLibrary": "Mediálna knižnica",
             "labelTabItemUpload": "Nahrať súbory",
             "titleModal": "Vybrať médiá"
+        },
+        "sw-media-save-modal": {
+            "titleModal": "Uložiť v médiách"
+        },
+        "sw-model-viewer": {
+            "titleModal": "Prehliadač modelov"
         }
     },
     "sw-meteor": {
@@ -5619,7 +5736,6 @@
                     "and": "a",
                     "by": "podľa",
                     "lastChanged": "Naposledy zmenené",
-                    "on": "na",
                     "with": "so"
                 }
             },
@@ -6163,12 +6279,17 @@
                 "placeholder": "Zadajte číslo produktu..."
             },
             "productStatesFilter": {
+                "deprecationWarning": "Filter stavov produktu je zastaraný a bude odstránený vo verzii 6.8. Namiesto toho použite filter typu produktu.",
                 "label": "Stavy produktu",
                 "options": {
                     "digital": "Digitálne",
                     "physical": "Fyzikálne"
                 },
                 "placeholder": "Vyberte stav produktu..."
+            },
+            "productTypeFilter": {
+                "label": "Typ",
+                "placeholder": "Vyberte typ produktu..."
             },
             "releaseDateFilter": {
                 "label": "Dátum vydania"
@@ -6348,6 +6469,7 @@
             "cardTitleProperties": "Dostupné vlastnosti",
             "columnProperty": "Nehnuteľnosť",
             "columnValue": "Hodnota nehnuteľnosti",
+            "descriptionEmptyState": "Spravujte vlastnosti tu.",
             "emptyStateNoOptionsDescription": "Najprv vytvorte vlastnosti a hodnoty vlastností a potom sa vráťte sem a priraďte ich.",
             "emptyStateNoOptionsTitle": "Nie sú k dispozícii žiadne hodnoty",
             "emptyStateNoSelectedOptionsDescription": "Vyberte hodnoty z vyššie uvedeného vyhľadávania.",
@@ -6442,6 +6564,10 @@
             "cardTitleMeasurement": "Merania produktu",
             "cardTitleProperties": "Vlastnosti",
             "cardTitleSellingPackaging": "Informácie o predaji a balení"
+        },
+        "type": {
+            "digital": "Digitálne",
+            "physical": "Fyzikálne"
         },
         "variations": {
             "backVariationsButton": "Späť",
@@ -6574,6 +6700,12 @@
             "messageSaveSuccess": "Dynamická skupina produktov \"{name}\" bola uložená.",
             "placeholderDescription": "Zadajte popis...",
             "placeholderName": "Zadajte názov...",
+            "productStatesFilterWarning": "Táto dynamická skupina produktov stále používa filter zastaraných stavov produktov. Bude odstránený vo v6.8 - namiesto toho prepnite na filter typu produktu.",
+            "productStreamIndexingWarning": {
+                "action": "Prečítajte si viac v našej dokumentácii",
+                "message": "Niektoré funkcie nemusia fungovať podľa očakávania: Stránky kategórie <ul><li>nemusia odrážať zmeny, kým nevyprší vyrovnávacia pamäť HTTP alebo nie je manuálne vymazaná.</li><li>Podmienka pravidla „Položka v dynamickej skupine produktov“ nebude nikdy pravdivá.</li></ul>",
+                "title": "Dynamické indexovanie skupín produktov je zakázané"
+            },
             "textHeadline": "Nová dynamická skupina produktov",
             "titleCard": "Všeobecné informácie",
             "titleFilter": "Podmienky",
@@ -6739,6 +6871,9 @@
         },
         "tabGeneral": {
             "title": "generál"
+        },
+        "tabPrivacyPreferences": {
+            "title": "Nastavenia ochrany osobných údajov"
         },
         "tabSearchPreferences": {
             "alert_elasticsearch": {
@@ -7286,6 +7421,30 @@
             "textHeadline": "Recenzia",
             "titleCardComment": "Komentár"
         },
+        "filters": {
+            "customerFilter": {
+                "label": "Zákazník",
+                "placeholder": "Filtrovať podľa zákazníka..."
+            },
+            "languageFilter": {
+                "label": "Jazyk",
+                "placeholder": "Filtrovať podľa jazyka..."
+            },
+            "pointsFilter": {
+                "label": "Hodnotenie (hviezdičky)"
+            },
+            "productFilter": {
+                "label": "Produkt",
+                "placeholder": "Filtrovať podľa produktu..."
+            },
+            "salesChannelFilter": {
+                "label": "Predajný kanál",
+                "placeholder": "Filtrovať podľa predajného kanála..."
+            },
+            "statusFilter": {
+                "label": "Schválené"
+            }
+        },
         "general": {
             "descriptionTextModule": "Spravujte recenzie tu.",
             "mainMenuItemGeneral": "Recenzie",
@@ -7333,6 +7492,10 @@
                     "anonymizeIp": {
                         "label": "Anonymizácia IP"
                     },
+                    "trackOffcanvasCart": {
+                        "helpText": "Ak je povolená, udalosť „view_cart“ sa spustí aj pri otvorení košíka offcanvas, nielen na vyhradenej stránke košíka. Užitočné pre podrobnú analýzu lievikov, ale môže zvýšiť metriky zobrazenia košíka.",
+                        "label": "Track off-canvas košík"
+                    },
                     "trackOrders": {
                         "label": "Sledovanie objednávok"
                     },
@@ -7366,6 +7529,7 @@
             "descriptionTaxCalculation": "Zmena tohto nastavenia by mohla viesť k problémom s účtovníctvom u externých poskytovateľov platieb. Pred vykonaním akýchkoľvek zmien skontrolujte, ako vypočítavajú DPH poskytovateľmi platieb, ktorých zamestnávate.",
             "favouriteLabel": "Označiť predajný kanál ako obľúbený",
             "footerCategory": "Navigácia v päte vstupného bodu",
+            "foreignKeyDelete": "Tento predajný kanál nemožno odstrániť, pretože ho stále používa {assignment}.",
             "helpTextTaxCalculation": {
                 "label": "Ak je aktivovaný poskytovateľ dane, tieto nastavenia sa môžu prepísať. Môžete to skontrolovať v {link}.",
                 "linkText": "nastavenia"
@@ -7671,6 +7835,11 @@
             "mainMenuItemGeneral": "Nastavenia"
         },
         "index": {
+            "search": {
+                "noResultsDescription": "Nastavenia sa nepodarilo nájsť. Skúste použiť iný vyhľadávací termín.",
+                "noResultsHeadline": "Nenašli sa žiadne záznamy",
+                "placeholder": "Nájsť nastavenia..."
+            },
             "tabAutomation": "Automatizácia",
             "tabCommerce": "obchod",
             "tabContent": "Obsah",
@@ -7951,6 +8120,7 @@
     "sw-settings-custom-field": {
         "customField": {
             "detail": {
+                "bannerSearchableEnabled": "Ak sa stav vyhľadávania zmenil, odporúča sa údaje opätovne spracovať, aby sa zabezpečila presnosť výsledkov vyhľadávania.",
                 "buttonAddOption": "Pridať možnosť",
                 "buttonEditApply": "Použiť zmeny",
                 "helpTextEntitySelect": "Typ entity sa nedá zmeniť po vytvorení vlastného poľa.",
@@ -7958,6 +8128,7 @@
                 "infoText": "Ak sa vytvorí vlastné pole, vytvorí sa aj úryvok pre všetky vaše sady úryvkov. Úryvok bude pomenovaný „CustomFields.{name}“.",
                 "labelAllowCartExpose": "K dispozícii v nákupných vozíkoch",
                 "labelAllowCustomerWrite": "Modifikovateľné pomocou rozhrania Store API",
+                "labelAllowSearchable": "Zahrnúť do vyhľadávania",
                 "labelCustomFieldPosition": "Pozícia",
                 "labelCustomFieldType": "Typ",
                 "labelDate": "Dátum",
@@ -7985,6 +8156,7 @@
                 "titleNewCustomField": "Nové vlastné pole",
                 "tooltipAllowCartExpose": "Aktivujte, aby bolo toto vlastné pole k dispozícii v užitočnom zaťažení položiek riadku nákupného košíka. Toto je potrebné na počiatočné použitie tohto vlastného poľa v nástroju na tvorbu pravidiel alebo vo vlastných šablónach.",
                 "tooltipAllowCustomerWrite": "Ak je aktívna, rozhranie API Store môže toto pole upraviť. Toto je možné použiť na ukladanie vlastných údajov pri pridávaní nových polí do výkladnej plochy. Napríklad pre nové polia v registračnom formulári.",
+                "tooltipAllowSearchable": "Ak je pole aktívne, bude zahrnuté do indexu a použité v nastaveniach vyhľadávania. Ak toto pole nie je potrebné na vyhľadávanie, odporúča sa ho deaktivovať, aby sa zmenšila veľkosť indexu a zlepšil výkon vyhľadávania.",
                 "tooltipCartExposeDisabled": "Toto nastavenie momentálne nie je možné zmeniť, pretože vlastné pole používa jedna alebo viac podmienok v nástroji na tvorbu pravidiel.",
                 "tooltipCustomFieldPosition": "Určuje pozíciu tohto vlastného poľa na stránkach s podrobnosťami.",
                 "tooltipStoreApiAware": "Ak je toto pole aktívne, bude k dispozícii v rozhraní API Store. Túto možnosť je možné zakázať na ukladanie vlastných údajov iba interne a nesprístupňovať ich prostredníctvom rozhrania API Store."
@@ -8321,6 +8493,7 @@
             "labelDefaultSearchResultSorting": "Predvolené zoradenie výsledkov vyhľadávania",
             "labelDefaultSorting": "Predvolené triedenie",
             "mainMenuItemGeneral": "Produkty",
+            "messageSaveDefaultValuesEmpty": "Vyžaduje sa predvolená hodnota",
             "messageSaveError": "Konfigurácia sa nepodarilo uložiť.",
             "messageSaveSuccess": "Konfigurácia uložená.",
             "placeholderDefaultSearchResultSorting": "Vyberte predvolené zoradenie výsledkov vyhľadávania...",
@@ -8338,6 +8511,7 @@
                         "_score": "_skóre",
                         "customField": "Vlastné pole",
                         "product": {
+                            "available": "Dostupné",
                             "cheapestPrice": "Najlacnejšia cena produktu",
                             "createdAt": "Dátum vytvorenia",
                             "listingPrices": "Výpisová cena výrobku",
@@ -8507,12 +8681,6 @@
         }
     },
     "sw-settings-media": {
-        "3d": {
-            "lightIntensity": {
-                "helpText": "Zmeňte intenzitu svetla v 3D zobrazení.",
-                "label": "Intenzita svetla"
-            }
-        },
         "general": {
             "buttonSave": "Uložiť",
             "description": "Spravujte nastavenia médií tu.",
@@ -8718,6 +8886,7 @@
                 "height": "Výška",
                 "length": "Dĺžka",
                 "manufacturerNumber": "Číslo produktu výrobcu",
+                "packUnit": "Jednotka balenia",
                 "property": "Nehnuteľnosť",
                 "referencePrice": "Jednotková cena",
                 "releaseDate": "Dátum vydania",
@@ -8790,6 +8959,8 @@
             "placeholderName": "Nastaviť názov tohto pravidla...",
             "placeholderPriority": "Nastaviť prioritu pre toto pravidlo...",
             "placeholderTags": "Zadajte značku...",
+            "placeholderType": "Zadajte typ...",
+            "productStatesConditionWarning": "Podmienka „Položka so stavom produktu“ je zastaraná a bude odstránená vo verzii 6.8. Namiesto toho použite položku „Položka s typom produktu“.",
             "productStreamIndexingWarning": {
                 "action": "Prečítajte si viac v našej dokumentácii",
                 "message": "Podmienka „Položka v dynamickej skupine produktov“ nikdy nebude pravdivá.",
@@ -9681,6 +9852,60 @@
         }
     },
     "sw-settings-usage-data": {
+        "consent-modal": {
+            "actions": {
+                "save-preferences": "Uložiť predvoľby",
+                "share-all-data": "Zdieľať všetko",
+                "share-nothing": "Zdieľajte nič"
+            },
+            "external-links": {
+                "data-use-details": {
+                    "label": "shopware.com/sk/údajov-use-details",
+                    "link": "https://www.shopware.com/en/data-use-details/"
+                },
+                "label": "Podrobné informácie nájdete v {data-use-details} a našom {privacy-policy}.",
+                "privacy-policy": {
+                    "label": "Zásady ochrany osobných údajov",
+                    "link": "https://www.shopware.com/en/privacy/"
+                }
+            },
+            "intro": "Zdieľaním údajov z obchodu a používateľov nám pomáhate pochopiť, ako sa používa správa, a vyvinúť vylepšenia, ktoré uľahčia vašu každodennú prácu.",
+            "opt-out-info": "Odhlásiť sa môžete kedykoľvek prostredníctvom nastavení a nastavení profilu.",
+            "promises": {
+                "gdpr-compliant": "V súlade s GDPR",
+                "no-third-party": "Žiadne údaje nie sú zdieľané s tretími stranami",
+                "securely-processed": "Bezpečne uložené dáta"
+            },
+            "share-store-data": "Zdieľaním údajov o vašom obchode nám pomáhate pochopiť, ako sa správa používa, a vyvíjať vylepšenia, ktoré vám uľahčia každodennú prácu.",
+            "share-user-data": "Zdieľaním vašich údajov nám pomáhate pochopiť, ako sa Administrácia používa, a vyvíjať vylepšenia, ktoré uľahčia vašu každodennú prácu.",
+            "store-data": {
+                "description": "Kombinované údaje z {order}, {diagnostic}a {store} nám pomáhajú zlepšovať funkcie. Potvrďte, že ste oprávnení udeliť súhlas so svojou spoločnosťou.",
+                "emphasizes": {
+                    "diagnostic": "diagnostika",
+                    "order": "objednávky",
+                    "store": "ukladať údaje"
+                },
+                "help-text": {
+                    "diagnostic": "<strong>Diagnostické údaje</strong> v rámci Shopware sa vzťahujú na informácie týkajúce sa stavu systému, chýb a metriky výkonnosti platformy. Patria sem podrobnosti, ako sú systémové protokoly, chybové hlásenia, časy odozvy servera a ďalšie technické ukazovatele. Analýza týchto údajov nám pomáha rýchlo identifikovať, riešiť a nasadiť opravy bežných problémov alebo zraniteľností a zachovať integritu platformy.",
+                    "order": "<strong>Údaje o objednávke</strong> v rámci Shopware sa vzťahujú na podrobné informácie o zákazníckych objednávkach zadaných na platforme. Patria sem špecifiká, ako sú objednané výrobky, množstvá, ceny, pôvod, spôsoby platby, zásielka atď. Tieto údaje analyzujeme, aby sme pochopili trendy a vzorce, ktoré nám pomáhajú vylepšiť funkcie a vyvíjať nové služby určené na zlepšenie vášho obchodného úspechu. Nezhromažďujeme osobné údaje od vašich zákazníkov, ktoré môžu byť použité na identifikáciu jednej osoby.",
+                    "store": "<strong>Údaje o ukladaní</strong> v rámci Shopware sa týkajú všetkých informácií týkajúcich sa vášho online obchodu. Napríklad produkty, zoznamy, ceny, obrázky, popisy atď. a metadáta o nastavení vášho obchodu, ako sú témy a doplnky. Nezhromažďujeme osobné údaje, ktoré môžu byť použité na identifikáciu používateľa správcu alebo návštevníka obchodu. Pomocou súhrnných údajov z obchodu môžeme poskytnúť informácie prostredníctvom strojového učenia, ako sú rozvíjajúce sa trendy na trhu, čo vám umožní zodpovedajúcim spôsobom upraviť ponuky produktov alebo marketingové stratégie."
+                },
+                "label-checkbox": "Zdieľanie údajov z úložiska",
+                "title": "Ukladať údaje"
+            },
+            "title": "Pomôžte nám zlepšiť",
+            "user-data": {
+                "description": "Používame {data} o tom, ako komunikujete s administratívou, aby sme zlepšili jej použiteľnosť a výkon.",
+                "emphasizes": {
+                    "data": "údaje"
+                },
+                "help-text": {
+                    "data": "<strong>Údaje o používaní</strong> v rámci Shopware sa týkajú informácií týkajúcich sa interakcie používateľov administrátorov a návštevníkov obchodov s našou platformou. Patria sem podrobnosti, ako sú interakcie s rôznymi správcovskými modulmi Shopware, zobrazené stránky, trvanie návštev, cesty kliknutí a akcie používateľov v rámci platformy a predajne. Vyhodnotením údajov o používaní môžeme identifikovať oblasti platformy, ktoré sú často navštevované alebo sa vyhýbajú, aby sme merali prijatie funkcií, čo vedie k potenciálnym zlepšeniam rozloženia, dizajnu a funkčnosti."
+                },
+                "label-checkbox": "Zdieľať moje údaje",
+                "title": "Moje údaje"
+            }
+        },
         "general": {
             "description": "Nakonfigurujte tak, aby ste s nami zdieľali údaje o používaní, aby ste vylepšili Shopware.",
             "mainMenuItemGeneral": "Zdieľanie údajov",

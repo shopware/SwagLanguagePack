@@ -306,6 +306,7 @@
             "contact_form_send": "Kontaktformulär skickas",
             "customer_group_registration_accepted": "Begäran om registrering av kundgrupp godkänd",
             "customer_group_registration_declined": "Begäran om registrering av kundgrupp avvisades",
+            "customer_password_changed": "Kundens lösenord har ändrats",
             "customer_recovery_request": "Kunden begär nytt lösenord",
             "mail_after_create_message": "E-post skapad",
             "mail_before_send": "E-post skickas",
@@ -503,6 +504,7 @@
             "FRAMEWORK__DELETE_RESTRICTED": "Det gick inte att radera.",
             "FRAMEWORK__MISSING_PRIVILEGE_ERROR": "Saknade behörigheter.",
             "FRAMEWORK__RATE_LIMIT_EXCEEDED": "För många förfrågningar. Vänta {seconds} sekunder innan du försöker igen.",
+            "FRAMEWORK__ROUTE_BLOCKED_MESSAGE": "Webbadressen {path} står i konflikt med den befintliga rutten {blockedSegment} och kan inte användas.",
             "INVALID_MAIL": "Ange en giltig e-postadress.",
             "INVALID_MEDIA_URL": "Ange en giltig URL för att ladda upp en fil.",
             "INVALID_URL": "Vänligen, ange en giltig URL.",
@@ -731,6 +733,7 @@
                     "product": "Produkt"
                 },
                 "lineItemProductStates": "Artikel med produktstatus",
+                "lineItemProductType": "Objekt med produkttyp",
                 "lineItemPromotedRule": "Objektet befordras",
                 "lineItemPropertyRule": "Objekt med variant- eller egenskapsvärde",
                 "lineItemPropertyValueRule": "Objekt med fastighetsvärde",
@@ -821,6 +824,14 @@
                     "options": {
                         "is-download": "Digitalt",
                         "is-physical": "Fysisk"
+                    }
+                }
+            },
+            "cartLineItemProductType": {
+                "productType": {
+                    "options": {
+                        "digital": "Digitalt",
+                        "physical": "Fysisk"
                     }
                 }
             },
@@ -980,6 +991,8 @@
             "messageNoResults": "Inga resultat funna för \"{term}\"."
         },
         "sw-field": {
+            "ariaLinkInheritance": "Länkarv",
+            "ariaUnlinkInheritance": "Koppla bort arv",
             "notification": {
                 "notificationCopyFailureMessage": "Texten kunde inte kopieras till urklippet.",
                 "notificationCopySuccessMessage": "Texten har kopierats till urklippet."
@@ -1085,10 +1098,24 @@
             "labelContextMenuCopyLink": "Kopiera länk",
             "labelContextMenuDetail": "Information",
             "labelContextMenuMove": "Flytta",
+            "labelContextMenuRemoveCover": "Ta bort locket",
             "labelContextMenuRename": "Byt namn",
             "labelContextMenuReplace": "Ersätt",
+            "labelContextMenuSetCover": "Ställ in omslagsbild",
             "labelUploading": "Uppladdning pågår...",
             "notification": {
+                "coverRemoveSuccess": {
+                    "message": "Omslagsbilden har tagits bort."
+                },
+                "coverSaveError": {
+                    "message": "Omslagsbilden kunde inte sparas."
+                },
+                "coverSaveSuccess": {
+                    "message": "Omslagsbilden har sparats."
+                },
+                "coverSelectionInvalid": {
+                    "message": "Välj en bild som ska användas som omslag."
+                },
                 "errorBlankItemName": {
                     "message": "Det gick inte att byta namn på mappen. Lägg till ett filnamn."
                 },
@@ -1218,7 +1245,8 @@
         "sw-media-preview-v2": {
             "fallbackAudioTagSupport": "Din webbläsare stöder inte den här audiotaggen",
             "fallbackVideoTagSupport": "Din webbläsare stöder inte den här videotaggen",
-            "textNoMedia": "Inga media tillgängliga"
+            "textNoMedia": "Inga media tillgängliga",
+            "warningUnsupportedFormat": "Formatet \"{format}\" kanske inte stöds i alla webbläsare."
         },
         "sw-media-upload": {
             "buttonFileUpload": "Ladda upp filer",
@@ -1234,6 +1262,9 @@
                 "failure": {
                     "message": "Fel vid uppladdning."
                 },
+                "illegalFileType": {
+                    "message": "Filen \"{name}\" kunde inte laddas upp. Den här filtypen stöds inte."
+                },
                 "illegalFileUrl": {
                     "message": "Det går inte att ladda upp via lokala webbadresser",
                     "title": "Ogiltig URL"
@@ -1241,9 +1272,22 @@
                 "illegalFilename": {
                     "message": "Filnamnet \"{fileName}\" innehåller ogiltiga specialtecken."
                 },
+                "payloadTooLarge": {
+                    "message": "Filen är för stor. Minska filstorleken eller kontrollera serverkonfigurationen."
+                },
+                "requestCanceled": {
+                    "message": "Uppladdningen har avbrutits."
+                },
                 "success": {
                     "message": "Ingen fil framgångsrikt sparad. | En fil framgångsrikt sparad | {count} / {total} Filer framgångsrikt sparade."
+                },
+                "transportError": {
+                    "message": "Överföringen misslyckades på grund av en anslutning eller servertidsgräns. Kontrollera dina anslutnings- eller servergränser."
                 }
+            },
+            "snackbar": {
+                "errorMessage": "Filen kunde inte laddas upp. | Vissa filer kunde inte laddas upp.",
+                "message": "Ladda upp fil | Ladda upp filer"
             }
         },
         "sw-media-upload-v2": {
@@ -2332,6 +2376,9 @@
                 }
             },
             "video": {
+                "video": {
+                    "label": "Video"
+                },
                 "vimeoVideo": {
                     "label": "Vimeo-video"
                 },
@@ -2708,21 +2755,26 @@
                 "config": {
                     "warning": "Ofiltrerad HTML-kod kan leda till säkerhetsrisker. Infoga bara HTML-kod från betrodda källor och testa dina ändringar innan du publicerar dem."
                 },
-                "label": "HTML"
+                "label": "HTML",
+                "labelContent": "Innehåll"
             },
             "image": {
                 "config": {
+                    "helpText": {
+                        "ariaLabel": "Denna text kommer att läsas upp av skärmläsare som länktext.",
+                        "fetchPriorityHigh": "Aktivera det här alternativet om bilden är den första på sidan. Bilden kommer sedan att tilldelas attributet 'fetchpriority=\"high\"', vilket säger till webbläsaren att ladda den med högre prioritet. Detta kan hjälpa till att förbättra LCP (Largest Contentful Paint).",
+                        "isDecorative": "När det här alternativet är aktiverat läses inte bildinformationen av skärmläsarna. Detta innebär att taggarna ”alt” och ”title” förblir tomma.",
+                        "minHeight": "Ange minsta höjd med önskad enhet. Till exempel: 200px",
+                        "useFetchPriorityOnFirstItem": "När det här alternativet är aktiverat laddas den första bilden med högre prioritet. Detta kan förbättra hastigheten med vilken sidan återges i webbläsaren."
+                    },
                     "label": {
                         "ariaLabel": "Länkbeskrivning",
-                        "ariaLabelHelpText": "Denna text kommer att läsas upp av skärmläsare som länktext.",
+                        "fetchPriorityHigh": "Hög hämtningsprioritet",
                         "isDecorative": "Markera bilden som dekorativ",
-                        "isDecorativeHelpText": "När det här alternativet är aktiverat läses inte bildinformationen av skärmläsare.",
                         "linkNewTab": "Öppna länken i ny flik",
                         "linkTo": "Länkmål",
                         "minHeight": "Minimal höjd",
-                        "minHeightHelpText": "Ange minsta höjd med önskad enhet. Till exempel: 200px",
-                        "useFetchPriorityOnFirstItem": "Ladda första bilden med högre prioritet",
-                        "useFetchPriorityOnFirstItemHelpText": "När det här alternativet är aktiverat laddas den första bilden med högre prioritet. Detta kan förbättra hastigheten med vilken sidan återges i webbläsaren."
+                        "useFetchPriorityOnFirstItem": "Ladda första bilden med högre prioritet"
                     },
                     "placeholder": {
                         "enterMinHeight": "Ange minimal höjd...",
@@ -2759,7 +2811,8 @@
                         "navigationDots": "Punktnavigering",
                         "navigationPositionInside": "Inuti",
                         "navigationPositionNone": "Ingen",
-                        "navigationPositionOutside": "Utanför"
+                        "navigationPositionOutside": "Utanför",
+                        "sliderItems": "Bilder"
                     }
                 },
                 "label": "Bildspel"
@@ -2808,6 +2861,14 @@
                         "descriptionAndReviews": "Produktbeskrivning & recensioner",
                         "reviews": "Recensioner"
                     }
+                }
+            },
+            "productHeading": {
+                "logo": {
+                    "label": "Tillverkarens logotyp"
+                },
+                "name": {
+                    "label": "Produktens namn"
                 }
             },
             "productListing": {
@@ -2933,6 +2994,32 @@
                 },
                 "label": "Text"
             },
+            "video": {
+                "config": {
+                    "helpText": {
+                        "ariaLabel": "Läses av skärmläsare och bör kort beskriva innehållet eller syftet med videon. Om den lämnas tom används antingen titeln eller alternativtexten som konfigurerats i mediemodulen istället.",
+                        "autoPlay": "Autoplay tillåts av många webbläsare endast när videon är avstängd.<br>Med autoplay är omslaget inte meningsfullt eftersom uppspelningen startar omedelbart och ingen bekräftelse behövs.",
+                        "minHeight": "Ange minsta höjd med önskad enhet. Till exempel: 200px",
+                        "playsInline": "På iOS öppnar videor ofta helskärm. Aktivera det här alternativet för att hålla uppspelningen inbyggd.",
+                        "showCover": "Omslaget som konfigurerats i medievalet visas tills användaren bekräftar att videon laddas via klick."
+                    },
+                    "label": {
+                        "ariaLabel": "Skärmläsarens titel",
+                        "autoPlay": "Spela upp automatiskt",
+                        "loop": "Upprepa video",
+                        "minHeight": "Minimal höjd",
+                        "muted": "Spela avstängd",
+                        "playsInline": "Spela inline på iOS-enheter",
+                        "showControls": "Visa videonavigering",
+                        "showCover": "Ladda video först efter bekräftelse av användaren"
+                    },
+                    "placeholder": {
+                        "ariaLabel": "Ange skärmläsarens titel...",
+                        "minHeight": "Ange minsta höjd..."
+                    }
+                },
+                "label": "Video"
+            },
             "vimeoVideo": {
                 "config": {
                     "helpText": {
@@ -2977,6 +3064,16 @@
             "moduleTitle": "Upplevelsevärldar",
             "placeholderSearchBar": "Sök i layouter...",
             "privacyNotice": "Genom att välja Fortsätt bekräftar du att du har läst vår <a href=\"%privacyUrl%\">dataskyddsinformation</a> och accepterat våra <a href=\"%tosUrl%\">allmänna villkor</a>."
+        },
+        "inherit": {
+            "formBanner": "Den här layouten har ärvt fält. Det betyder att så länge det ärvda tillståndet är aktivt kommer innehållet att ärvas. Ärvda fält kan kopplas bort genom att klicka på länksymbolen. Om du klickar på symbolen igen ställs det ärvda tillståndet tillbaka.",
+            "tooltip": "Det här fältet finns inte i baslayouten och kan inte ärvas.",
+            "unlinkAllButton": "Återställ alla fält.",
+            "unlinkAllConfirmText": "Är du säker på att du vill återställa alla fält? Detta kommer att radera allt olänkat innehåll permanent.",
+            "unlinkAllTitle": "Återställ alla fält",
+            "unlinkFieldConfirmText": "Är du säker på att du vill återställa arvet? Detta tar bort alla anpassade data i det här fältet och återställer värden från det överordnade elementet.",
+            "unlinkFieldTitle": "Återställ ursprungliga inställningar",
+            "unlinkNotice": "Vissa ärvda fält har kopplats bort."
         },
         "list": {
             "gridHeaderAssignedPages": "Tilldelade sidor",
@@ -3214,6 +3311,7 @@
             "accept": "Acceptera",
             "acceptMessage": "Kundgruppen har ändrats",
             "alert": "Åtkomst till kundgrupp \"{name}\" begärs.",
+            "customerInactiveMessage": "Inaktiva kunder kan inte accepteras eller avvisas till någon kundgrupp.",
             "decline": "Avböj",
             "declineMessage": "Begäran har avvisats",
             "errorMessage": "Det går inte att behandla begäran",
@@ -4300,7 +4398,10 @@
                 "placeholderDeliveryStatus": "Välj leveransstatus...",
                 "placeholderOrderStatus": "Välj orderstatus...",
                 "placeholderPaymentStatus": "Välj betalningsstatus...",
-                "titleSetStatus": "Tilldela status"
+                "titleSetStatus": "Tilldela status",
+                "transitionWarning": {
+                    "message": "Var försiktig när du använder statusövergångar, eftersom de kan leda till misslyckade flöden om statusövergången inte är giltig. Överväg att aktivera ”Tvinga statusövergångar” för att undvika sådana problem."
+                }
             },
             "tag": {
                 "labelAddTag": "Lägg till tagg",
@@ -4365,6 +4466,7 @@
             "orderTransactionCaptureRefund": "Återbetalning av ordertransaktionsfångst",
             "paid": "Betald",
             "paidPartially": "Betalas delvis",
+            "password": "Lösenord",
             "paymentMethod": "Betalningsmetod",
             "pending": "Väntande",
             "placed": "Placerad",
@@ -4403,8 +4505,7 @@
                 "profile": "Profil",
                 "records": "Poster",
                 "size": "Storlek",
-                "state": "Status",
-                "user": "Användare"
+                "state": "Status"
             },
             "contextMenu": {
                 "abortProcess": "Avbryt process",
@@ -4416,6 +4517,10 @@
                 "showLogInfo": "Öppna logginformation",
                 "showProfile": "Visa profil",
                 "showResults": "Visa sammanfattning"
+            },
+            "detail": {
+                "ExportLabel": "Export",
+                "importLabel": "Import"
             },
             "dryrun": "Torr löpning",
             "emptyState": {
@@ -4791,6 +4896,7 @@
             "messageInvalidScope": "Det angivna omfånget är ogiltigt.",
             "messageServerError": "Ett allmänt fel har uppstått i autentiseringsservern.",
             "messageUnsupportedGrantType": "\"Grant-Type\" stöds inte.",
+            "orContinueWith": "Eller fortsätt med",
             "placeholderPassword": "Ange ditt lösenord...",
             "placeholderUsername": "Ange ditt användarnamn...",
             "subheadlineMain": "Välkommen tillbaka."
@@ -4877,6 +4983,7 @@
         },
         "modal": {
             "affectedList": "Följande försäljningskanaler påverkas:",
+            "confirmButton": "Fortsätt ändå",
             "mainContent": "Det finns redan en sidhuvud- och sidfotsmall som tilldelats följande försäljningskanaler. Om du fortsätter och sparar kommer det uppdraget att skrivas över med dina ändringar.",
             "title": "Flera uppdrag"
         }
@@ -4956,6 +5063,8 @@
             "emptyStateSubTitle": "Lägg till e-postmallar genom att klicka på ”lägg till” -knappen.",
             "emptyStateTitle": "Inga e-postmallar ännu",
             "errorMediaItemDuplicated": "Media används redan",
+            "tabHeaderFooter": "Rubrik och sidfötter",
+            "tabMailTemplates": "Mallar",
             "textDeleteConfirm": "Vill du verkligen ta bort e-postmallen \"{subject}\"?",
             "textMailTemplateOverview": "E-postmallar",
             "titleMailFooterList": "Sidfötter",
@@ -5037,7 +5146,9 @@
                 "download": "Download",
                 "horizontal": "Horisontell",
                 "move": "Flytta",
+                "removeCover": "Ta bort locket",
                 "replace": "Ersätt",
+                "setCover": "Ställ in omslagsbild",
                 "settings": "Inställningar",
                 "vertical": "Vertikal"
             },
@@ -5102,6 +5213,12 @@
             "labelTabItemLibrary": "Bibliotek",
             "labelTabItemUpload": "Ladda upp filer",
             "titleModal": "Välj media"
+        },
+        "sw-media-save-modal": {
+            "titleModal": "Spara i media"
+        },
+        "sw-model-viewer": {
+            "titleModal": "Modellvisare"
         }
     },
     "sw-meteor": {
@@ -5619,7 +5736,6 @@
                     "and": "och",
                     "by": "av",
                     "lastChanged": "Senast ändrad",
-                    "on": "på",
                     "with": "med"
                 }
             },
@@ -6163,12 +6279,17 @@
                 "placeholder": "Ange ett produktnummer..."
             },
             "productStatesFilter": {
+                "deprecationWarning": "Produktstatusfiltret är föråldrat och kommer att tas bort i v6.8. Använd istället produkttypfiltret.",
                 "label": "Produkt tillstånd",
                 "options": {
                     "digital": "Digitalt",
                     "physical": "Fysisk"
                 },
                 "placeholder": "Välj produktstatus..."
+            },
+            "productTypeFilter": {
+                "label": "Typ",
+                "placeholder": "Välj produkttyp..."
             },
             "releaseDateFilter": {
                 "label": "Utgivningsdatum"
@@ -6348,6 +6469,7 @@
             "cardTitleProperties": "Egenskaper",
             "columnProperty": "Egenskap",
             "columnValue": "Specifikationer",
+            "descriptionEmptyState": "Hantering av egenskaper",
             "emptyStateNoOptionsDescription": "Du måste först skapa egenskaper och dess specifikationer för att kunna tilldela dem här.",
             "emptyStateNoOptionsTitle": "Ännu finns inga egenskaper-specifikationer",
             "emptyStateNoSelectedOptionsDescription": "Vänligen välj specifikationer från ovanstående sökning.",
@@ -6442,6 +6564,10 @@
             "cardTitleMeasurement": "Produktmätningar",
             "cardTitleProperties": "Egenskaper",
             "cardTitleSellingPackaging": "Försäljnings- och förpackningsinformation"
+        },
+        "type": {
+            "digital": "Digitalt",
+            "physical": "Fysisk"
         },
         "variations": {
             "backVariationsButton": "Tillbaka",
@@ -6574,6 +6700,12 @@
             "messageSaveSuccess": "Produktgruppen \"{name}\" sparades framgångsrikt.",
             "placeholderDescription": "Ange en beskrivning...",
             "placeholderName": "Ange ett namn...",
+            "productStatesFilterWarning": "Denna dynamiska produktgrupp använder fortfarande det föråldrade produkttillståndsfiltret. Det kommer att tas bort i v6.8 - byt till produkttypfiltret istället.",
+            "productStreamIndexingWarning": {
+                "action": "Läs mer i vår dokumentation",
+                "message": "Vissa funktioner kanske inte fungerar som förväntat: <ul><li>Kategorisidor kanske inte återspeglar ändringar förrän HTTP-cachen löper ut eller rensas manuellt.</li><li>Regelvillkoret ”Objekt i dynamisk produktgrupp” kommer aldrig att vara sant.</li></ul>",
+                "title": "Dynamisk indexering av produktgrupper är inaktiverad"
+            },
             "textHeadline": "Nya produktgrupper",
             "titleCard": "Information",
             "titleFilter": "Villkor",
@@ -6739,6 +6871,9 @@
         },
         "tabGeneral": {
             "title": "General"
+        },
+        "tabPrivacyPreferences": {
+            "title": "Sekretessinställningar"
         },
         "tabSearchPreferences": {
             "alert_elasticsearch": {
@@ -7286,6 +7421,30 @@
             "textHeadline": "Omdöme",
             "titleCardComment": "Kommentar"
         },
+        "filters": {
+            "customerFilter": {
+                "label": "Kund",
+                "placeholder": "Filtrera efter kund..."
+            },
+            "languageFilter": {
+                "label": "Språk",
+                "placeholder": "Filtrera efter språk..."
+            },
+            "pointsFilter": {
+                "label": "Betyg (stjärnor)"
+            },
+            "productFilter": {
+                "label": "Produkt",
+                "placeholder": "Filtrera efter produkt..."
+            },
+            "salesChannelFilter": {
+                "label": "Försäljningskanal",
+                "placeholder": "Filtrera efter försäljningskanal..."
+            },
+            "statusFilter": {
+                "label": "Godkänd"
+            }
+        },
         "general": {
             "descriptionTextModule": "Hantering av omdömen.",
             "mainMenuItemGeneral": "Omdömen",
@@ -7333,6 +7492,10 @@
                     "anonymizeIp": {
                         "label": "IP-anonymisering"
                     },
+                    "trackOffcanvasCart": {
+                        "helpText": "När det är aktiverat avfyras även en ”view_cart” -händelse när offcanvas-vagnen öppnas, inte bara på den dedikerade kundvagnssidan. Användbar för detaljerad trattanalys men kan blåsa upp mätvärden för kundvagnsvisning.",
+                        "label": "Spåra offcanvas kundvagn"
+                    },
                     "trackOrders": {
                         "label": "Spåra beställningar"
                     },
@@ -7366,6 +7529,7 @@
             "descriptionTaxCalculation": "Om du ändrar den här inställningen kan det leda till redovisningsproblem med externa betalningsleverantörer. Kontrollera hur moms beräknas av betalningsleverantörer du använder innan du gör några ändringar.",
             "favouriteLabel": "Markera Sales Channel som favorit",
             "footerCategory": "Startpunkt för sidfotsnavigeringen",
+            "foreignKeyDelete": "Den här försäljningskanalen kan inte tas bort eftersom den fortfarande används av {assignment}.",
             "helpTextTaxCalculation": {
                 "label": "Om en skatteleverantör är aktiverad kan dessa inställningar skrivas över. Du kan kontrollera detta i {link}.",
                 "linkText": "inställningar"
@@ -7671,6 +7835,11 @@
             "mainMenuItemGeneral": "Inställningar"
         },
         "index": {
+            "search": {
+                "noResultsDescription": "Inställningarna kunde inte hittas. Försök att använda en annan sökterm.",
+                "noResultsHeadline": "Inga poster hittades",
+                "placeholder": "Hitta inställningar..."
+            },
             "tabAutomation": "Automatisering",
             "tabCommerce": "Handel",
             "tabContent": "Innehåll",
@@ -7951,6 +8120,7 @@
     "sw-settings-custom-field": {
         "customField": {
             "detail": {
+                "bannerSearchableEnabled": "Det rekommenderas att indexera data igen, om sökstatusen har ändrats, för att säkerställa korrekta sökresultat.",
                 "buttonAddOption": "Lägg till alternativ",
                 "buttonEditApply": "Ta över ändringar",
                 "helpTextEntitySelect": "Entitetstypen kan inte ändras när det anpassade fältet har skapats.",
@@ -7958,6 +8128,7 @@
                 "infoText": "Om ett anpassat fält skapas också ett textsnutt för alla dina kodsnuttar. Skutdraget kommer att kallas ”CustomFields.{name}”.",
                 "labelAllowCartExpose": "Finns i kundvagnar",
                 "labelAllowCustomerWrite": "Ändringsbar via Store API",
+                "labelAllowSearchable": "Inkludera i sökningen",
                 "labelCustomFieldPosition": "Position",
                 "labelCustomFieldType": "Typ",
                 "labelDate": "Datum",
@@ -7985,6 +8156,7 @@
                 "titleNewCustomField": "Skapa nytt tilläggsfält",
                 "tooltipAllowCartExpose": "Aktivera, för att göra detta anpassade fält tillgängligt i nyttolasten för varukorgsradartiklar. Detta krävs för att initialt kunna använda det här anpassade fältet i regelverktyget eller anpassade mallar.",
                 "tooltipAllowCustomerWrite": "När den är aktiv tillåts Store API att ändra det här fältet. Detta kan användas för att lagra anpassade data om du lägger till nya fält i skyltfönstret. Till exempel för nya fält i registreringsformuläret.",
+                "tooltipAllowSearchable": "När det är aktivt kommer det här anpassade fältet att indexeras och kan användas i sökkonfigurationer. Om det här fältet inte krävs för sökningen bör det inaktiveras för att minska indexlagringsstorleken och förbättra sökningens prestanda.",
                 "tooltipCartExposeDisabled": "Den här inställningen kan för närvarande inte ändras, eftersom det anpassade fältet används av ett eller flera villkor i Regelverktyget.",
                 "tooltipCustomFieldPosition": "Kontrollerar positionen för tilläggsfältet på detaljsidorna.",
                 "tooltipStoreApiAware": "När det är aktivt kommer det här fältet att vara tillgängligt i Store API. Det här alternativet kan inaktiveras för att lagra anpassade data endast internt och inte göra dem tillgängliga via Store API."
@@ -8321,6 +8493,7 @@
             "labelDefaultSearchResultSorting": "Standardsortering av sökresultat",
             "labelDefaultSorting": "Standardsortering",
             "mainMenuItemGeneral": "Produkter",
+            "messageSaveDefaultValuesEmpty": "Standardvärde krävs",
             "messageSaveError": "Konfigurationen kunde inte sparas.",
             "messageSaveSuccess": "Konfigurationen sparades framgångsrikt.",
             "placeholderDefaultSearchResultSorting": "Välj en standardsortering av sökresultat...",
@@ -8338,6 +8511,7 @@
                         "_score": "_score",
                         "customField": "Anpassat fält",
                         "product": {
+                            "available": "Fortfarande tillgänglig",
                             "cheapestPrice": "Billigaste produktpriset",
                             "createdAt": "Tillverkningsdatum",
                             "listingPrices": "Pris för produktnotering",
@@ -8507,12 +8681,6 @@
         }
     },
     "sw-settings-media": {
-        "3d": {
-            "lightIntensity": {
-                "helpText": "Ändra ljusintensiteten i 3D-vyn.",
-                "label": "Ljusintensitet"
-            }
-        },
         "general": {
             "buttonSave": "Spara",
             "description": "Hantera mediainställningar här.",
@@ -8718,6 +8886,7 @@
                 "height": "Höjd",
                 "length": "Längd",
                 "manufacturerNumber": "Tillverkarens produktnummer",
+                "packUnit": "Förpackningsenhet",
                 "property": "Egenskap",
                 "referencePrice": "Styckpris",
                 "releaseDate": "Utgivningsdatum",
@@ -8790,6 +8959,8 @@
             "placeholderName": "Definiera ett namn för den här regeln...",
             "placeholderPriority": "Definiera en prioritet för den här regeln...",
             "placeholderTags": "Ange taggar..",
+            "placeholderType": "Ange en typ...",
+            "productStatesConditionWarning": "Villkoret ”Objekt med produktstatus” är föråldrat och kommer att tas bort i v6.8. Använd ”Objekt med produkttyp” istället.",
             "productStreamIndexingWarning": {
                 "action": "Läs mer i vår dokumentation",
                 "message": "Villkoret ”Objekt i dynamisk produktgrupp” kommer aldrig att vara sant.",
@@ -9681,6 +9852,60 @@
         }
     },
     "sw-settings-usage-data": {
+        "consent-modal": {
+            "actions": {
+                "save-preferences": "Spara inställningar",
+                "share-all-data": "Dela alla",
+                "share-nothing": "Dela ingenting"
+            },
+            "external-links": {
+                "data-use-details": {
+                    "label": "shopware.com/sv/data-use-details",
+                    "link": "https://www.shopware.com/en/data-use-details/"
+                },
+                "label": "För fullständig information, se {data-use-details} och vår {privacy-policy}.",
+                "privacy-policy": {
+                    "label": "Sekretesspolicy",
+                    "link": "https://www.shopware.com/en/privacy/"
+                }
+            },
+            "intro": "Genom att dela butiks- och användardata hjälper du oss att förstå hur administrationen används och utveckla förbättringar som underlättar ditt dagliga arbete.",
+            "opt-out-info": "Du kan välja bort när som helst via inställningarna, och Profilinställningar.",
+            "promises": {
+                "gdpr-compliant": "GDPR-kompatibel",
+                "no-third-party": "Ingen data delas med tredje part",
+                "securely-processed": "Säkert lagrade data"
+            },
+            "share-store-data": "Genom att dela butiksdata hjälper du oss att förstå hur administrationen används och utveckla förbättringar som underlättar ditt dagliga arbete.",
+            "share-user-data": "Genom att dela dina användardata hjälper du oss att förstå hur administrationen används och utveckla förbättringar som underlättar ditt dagliga arbete.",
+            "store-data": {
+                "description": "Kombinerade data från {order}, {diagnostic}och {store} hjälper oss att förbättra funktioner. Bekräfta att du är behörig att ge samtycke till ditt företag.",
+                "emphasizes": {
+                    "diagnostic": "diagnostik",
+                    "order": "order",
+                    "store": "lagra data"
+                },
+                "help-text": {
+                    "diagnostic": "<strong>Diagnostiska data</strong> inom Shopware avser information relaterad till systemhälsa, fel och prestandamätvärden för plattformen. Detta inkluderar detaljer som systemloggar, felmeddelanden, serverns svarstider och andra tekniska indikatorer. Genom att analysera dessa data kan vi snabbt identifiera, åtgärda och distribuera korrigeringar för vanliga problem eller sårbarheter, vilket bibehåller plattformens integritet.",
+                    "order": "<strong>Beställningsdata</strong> inom Shopware avser detaljerad information om kundorder som görs på plattformen. Detta inkluderar detaljer som beställda produkter, kvantiteter, priser, ursprung, betalningsmetoder, leverans, etc.. Vi analyserar dessa data för att förstå trender och mönster som hjälper oss att förbättra funktioner samt utveckla nya tjänster som är utformade för att förbättra din affärsframgång. Vi samlar inte in personuppgifter från dina kunder som kan användas för att identifiera en enda person.",
+                    "store": "<strong>Butiksdata</strong> inom Shopware avser all information relaterad till din onlinebutik. Till exempel produkter, listor, priser, bilder, beskrivningar etc. och metadata om din butiks inställningar, till exempel teman och plugins. Vi samlar inte in personuppgifter som kan användas för att identifiera en administratörsanvändare eller en butiksbesökare. Med hjälp av aggregerade butiksdata kan vi ge insikter via maskininlärning, till exempel trender på framväxande marknader, så att du kan anpassa produktutbud eller marknadsföringsstrategier därefter."
+                },
+                "label-checkbox": "Dela butiksdata",
+                "title": "Lagra data"
+            },
+            "title": "Hjälp oss att förbättra",
+            "user-data": {
+                "description": "Vi använder {data} om hur du interagerar med administrationen för att förbättra dess användbarhet och prestanda.",
+                "emphasizes": {
+                    "data": "data"
+                },
+                "help-text": {
+                    "data": "<strong>Användningsdata</strong> inom Shopware avser information relaterad till hur administratörsanvändare och butiksbesökare interagerar med vår plattform. Detta inkluderar detaljer som interaktioner med olika Shopware-administratörsmoduler, visade sidor, besökstid, klickvägar, och användaråtgärder inom plattformen och butiken. Genom att utvärdera användningsdata kan vi identifiera områden på plattformen som ofta besöks eller undviks för att mäta användningen av funktioner, vilket leder till potentiella förbättringar av layout, design och funktionalitet."
+                },
+                "label-checkbox": "Dela mina uppgifter",
+                "title": "Mina uppgifter"
+            }
+        },
         "general": {
             "description": "Konfigurera för att dela användningsdata med oss för att förbättra Shopware.",
             "mainMenuItemGeneral": "Användningsdata",

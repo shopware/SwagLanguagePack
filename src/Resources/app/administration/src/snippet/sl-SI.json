@@ -306,6 +306,7 @@
             "contact_form_send": "Poslani kontaktni obrazec",
             "customer_group_registration_accepted": "Zahteva za registracijo skupine strank sprejeta",
             "customer_group_registration_declined": "Zahtevek za registracijo skupine strank se je zavrnil",
+            "customer_password_changed": "Spremenjeno geslo stranke",
             "customer_recovery_request": "Stranka zahteva novo geslo",
             "mail_after_create_message": "Ustvarjena e-pošta",
             "mail_before_send": "E-pošta se pošilja",
@@ -503,6 +504,7 @@
             "FRAMEWORK__DELETE_RESTRICTED": "Brisanje ni uspelo.",
             "FRAMEWORK__MISSING_PRIVILEGE_ERROR": "Manjkajoča dovoljenja.",
             "FRAMEWORK__RATE_LIMIT_EXCEEDED": "Preveč zahtev. Prosimo, počakajte {seconds} sekund, preden poskusite znova.",
+            "FRAMEWORK__ROUTE_BLOCKED_MESSAGE": "URL {path} je v nasprotju z obstoječo pot {blockedSegment} in ga ni mogoče uporabiti.",
             "INVALID_MAIL": "Prosimo, vnesite veljaven e-poštni naslov.",
             "INVALID_MEDIA_URL": "Vnesite veljaven URL za prenos datoteke.",
             "INVALID_URL": "Prosimo, vnesite veljaven URL.",
@@ -731,6 +733,7 @@
                     "product": "Izdelek"
                 },
                 "lineItemProductStates": "Postavka s stanjem izdelka",
+                "lineItemProductType": "Izdelek z vrsto izdelka",
                 "lineItemPromotedRule": "Postavka se promovira",
                 "lineItemPropertyRule": "Postavka z varianto ali vrednostjo lastnosti",
                 "lineItemPropertyValueRule": "Postavka z vrednostjo nepremičnine",
@@ -821,6 +824,14 @@
                     "options": {
                         "is-download": "Digitalna",
                         "is-physical": "Fizično"
+                    }
+                }
+            },
+            "cartLineItemProductType": {
+                "productType": {
+                    "options": {
+                        "digital": "Digitalna",
+                        "physical": "Fizično"
                     }
                 }
             },
@@ -980,6 +991,8 @@
             "messageNoResults": "Za \"{term}« ni najdenih rezultatov."
         },
         "sw-field": {
+            "ariaLinkInheritance": "Povezovanje dedovanja",
+            "ariaUnlinkInheritance": "Prekinite povezavo dedovanja",
             "notification": {
                 "notificationCopyFailureMessage": "Besedila ni bilo mogoče kopirati v odložišče.",
                 "notificationCopySuccessMessage": "Besedilo je bilo kopirano v odložišče."
@@ -1085,10 +1098,24 @@
             "labelContextMenuCopyLink": "Kopiraj povezavo",
             "labelContextMenuDetail": "Podrobnosti",
             "labelContextMenuMove": "Premakni",
+            "labelContextMenuRemoveCover": "Odstrani naslovnico",
             "labelContextMenuRename": "Preimenuj",
             "labelContextMenuReplace": "Zamenjaj",
+            "labelContextMenuSetCover": "Nastavi naslovno sliko",
             "labelUploading": "Nalaganje...",
             "notification": {
+                "coverRemoveSuccess": {
+                    "message": "Slika naslovnice je odstranjena."
+                },
+                "coverSaveError": {
+                    "message": "Slike naslovnice ni bilo mogoče shraniti."
+                },
+                "coverSaveSuccess": {
+                    "message": "Slika naslovnice je bila shranjena."
+                },
+                "coverSelectionInvalid": {
+                    "message": "Prosimo izberite sliko, ki jo želite uporabiti kot naslovnico."
+                },
                 "errorBlankItemName": {
                     "message": "Predstavnostnega elementa ni bilo mogoče shraniti: Vnesite ime."
                 },
@@ -1218,7 +1245,8 @@
         "sw-media-preview-v2": {
             "fallbackAudioTagSupport": "Vaš brskalnik ne podpira zvočne oznake",
             "fallbackVideoTagSupport": "Vaš brskalnik ne podpira video oznake",
-            "textNoMedia": "Mediji niso na voljo"
+            "textNoMedia": "Mediji niso na voljo",
+            "warningUnsupportedFormat": "Format \"{format}\" morda ni podprt v vseh brskalnikih."
         },
         "sw-media-upload": {
             "buttonFileUpload": "Naloži datoteko",
@@ -1234,6 +1262,9 @@
                 "failure": {
                     "message": "Napaka pri nalaganju datoteke."
                 },
+                "illegalFileType": {
+                    "message": "Datoteke \"{name}\" ni bilo mogoče naložiti. Ta vrsta datoteke ni podprta."
+                },
                 "illegalFileUrl": {
                     "message": "Nalaganje iz lokalnih URL-jev ni dovoljeno.",
                     "title": "Neveljaven URL"
@@ -1241,9 +1272,22 @@
                 "illegalFilename": {
                     "message": "Ime datoteke \"{fileName}\" vsebuje neveljavne znake."
                 },
+                "payloadTooLarge": {
+                    "message": "Datoteka je prevelika. Prosimo, zmanjšajte velikost datoteke ali preverite konfiguracijo strežnika."
+                },
+                "requestCanceled": {
+                    "message": "Nalaganje je bilo preklicano."
+                },
                 "success": {
                     "message": "Datoteka ni bila shranjena | Datoteka je bila shranjena | {count} / {total} datoteke so bile shranjene."
+                },
+                "transportError": {
+                    "message": "Nalaganje ni uspelo zaradi povezave ali časovne omejitve strežnika. Preverite omejitve povezave ali strežnika."
                 }
+            },
+            "snackbar": {
+                "errorMessage": "Datoteke ni bilo mogoče naložiti. | Nekatere datoteke ni bilo mogoče naložiti.",
+                "message": "Nalaganje datoteke | Nalaganje datotek"
             }
         },
         "sw-media-upload-v2": {
@@ -2332,6 +2376,9 @@
                 }
             },
             "video": {
+                "video": {
+                    "label": "Video"
+                },
                 "vimeoVideo": {
                     "label": "Vimeo video"
                 },
@@ -2708,21 +2755,26 @@
                 "config": {
                     "warning": "Nefiltrirana koda HTML lahko povzroči varnostna tveganja. Prosimo, vstavite samo kodo HTML iz zaupanja vrednih virov in preizkusite spremembe, preden jih objavite."
                 },
-                "label": "HTML"
+                "label": "HTML",
+                "labelContent": "Vsebina"
             },
             "image": {
                 "config": {
+                    "helpText": {
+                        "ariaLabel": "To besedilo bodo bralniki zaslona prebrali kot besedilo povezave.",
+                        "fetchPriorityHigh": "Aktivirajte to možnost, če je slika prva na strani. Sliku bo nato dodeljen atribut 'fetchpriority=\"high\"', ki brskalniku pove, naj jo naloži z višjo prednostno nalogo. To lahko pomaga izboljšati največjo vsebnostno barvo (LCP).",
+                        "isDecorative": "Ko je ta možnost omogočena, bralniki zaslona ne bodo prebrali informacij o sliki. To pomeni, da bosta oznaka »alt« in »naslov« ostala prazna.",
+                        "minHeight": "Vnesite najmanjšo višino z želeno enoto. Na primer: 200px",
+                        "useFetchPriorityOnFirstItem": "Ko je ta možnost omogočena, se prva slika naloži z višjo prednostno nalogo. To lahko izboljša hitrost, s katero je stran prikazana v brskalniku."
+                    },
                     "label": {
                         "ariaLabel": "Opis povezave",
-                        "ariaLabelHelpText": "To besedilo bodo bralniki zaslona prebrali kot besedilo povezave.",
+                        "fetchPriorityHigh": "Pridobite visoko prioriteto",
                         "isDecorative": "Označite sliko kot dekorativno",
-                        "isDecorativeHelpText": "Ko je ta možnost omogočena, bralniki zaslona ne bodo prebrali informacij o sliki.",
                         "linkNewTab": "Odpri povezavo v novem zavihku",
                         "linkTo": "Cilj povezave",
                         "minHeight": "Najmanjša višina",
-                        "minHeightHelpText": "Vnesite najmanjšo višino z želeno enoto. Na primer: 200px",
-                        "useFetchPriorityOnFirstItem": "Naložite prvo sliko z višjo prednostno nalogo",
-                        "useFetchPriorityOnFirstItemHelpText": "Ko je ta možnost omogočena, se prva slika naloži z višjo prednostno nalogo. To lahko izboljša hitrost, s katero je stran prikazana v brskalniku."
+                        "useFetchPriorityOnFirstItem": "Naložite prvo sliko z višjo prednostno nalogo"
                     },
                     "placeholder": {
                         "enterMinHeight": "Vnesite najmanjšo višino...",
@@ -2759,7 +2811,8 @@
                         "navigationDots": "Navigacija s pikami",
                         "navigationPositionInside": "Inside",
                         "navigationPositionNone": "Noben",
-                        "navigationPositionOutside": "Zunaj"
+                        "navigationPositionOutside": "Zunaj",
+                        "sliderItems": "Slike"
                     }
                 },
                 "label": "Slikovni drsnik"
@@ -2808,6 +2861,14 @@
                         "descriptionAndReviews": "Opis izdelka in ocene",
                         "reviews": "Mnenja"
                     }
+                }
+            },
+            "productHeading": {
+                "logo": {
+                    "label": "Logotip proizvajalca"
+                },
+                "name": {
+                    "label": "Ime izdelka"
                 }
             },
             "productListing": {
@@ -2933,6 +2994,32 @@
                 },
                 "label": "Besedilo"
             },
+            "video": {
+                "config": {
+                    "helpText": {
+                        "ariaLabel": "Preberite bralniki zaslona in naj na kratko opišejo vsebino ali namen videoposnetka. Če ostane prazno, se namesto tega uporabi naslov ali nadomestno besedilo, konfigurirano v medijskem modulu.",
+                        "autoPlay": "Številni brskalniki samodejno predvajanje dovoljujejo le, če je video utišan.<br>Pri samodejnem predvajanju naslovnica nima smisla, ker se predvajanje začne takoj in potrditev ni potrebna.",
+                        "minHeight": "Vnesite najmanjšo višino z želeno enoto. Na primer: 200px",
+                        "playsInline": "V iOS-u se videoposnetki pogosto odpirajo na celotnem zaslonu. Omogočite to možnost, da ohranite vgrajeno predvajanje.",
+                        "showCover": "Ovitek, konfiguriran v izbiri medija, bo prikazan, dokler uporabnik ne potrdi, da videoposnetek naloži s klikom."
+                    },
+                    "label": {
+                        "ariaLabel": "Naslov bralnika zaslona",
+                        "autoPlay": "Samodejno predvajanje videa",
+                        "loop": "Predvajanje videa v zanki",
+                        "minHeight": "Najmanjša višina",
+                        "muted": "Predvajanje utišano",
+                        "playsInline": "Predvajanje v liniji v napravah iOS",
+                        "showControls": "Pokaži kontrolnike videoposnetkov",
+                        "showCover": "Naložite videoposnetek šele po potrditvi s strani uporabnika"
+                    },
+                    "placeholder": {
+                        "ariaLabel": "Vnesite naslov bralnika zaslona...",
+                        "minHeight": "Vnesite najmanjšo višino..."
+                    }
+                },
+                "label": "Video"
+            },
             "vimeoVideo": {
                 "config": {
                     "helpText": {
@@ -2977,6 +3064,16 @@
             "moduleTitle": "Nakupovalne izkušnje",
             "placeholderSearchBar": "Išči postavitve...",
             "privacyNotice": "Z izbiro nadaljuj potrjujete, da ste prebrali naše <a href=\"%privacyUrl%\">informacije o varstvu podatkov</a> in sprejeli naše <a href=\"%tosUrl%\">splošne pogoje</a>."
+        },
+        "inherit": {
+            "formBanner": "Ta postavitev ima podedovana polja. To pomeni, da dokler je podedovano stanje aktivno, bo vsebina podedovana. Podedovana polja lahko prekinete povezavo s klikom na simbol povezave. S ponovnim klikom na simbol se podedovano stanje vrne nazaj.",
+            "tooltip": "To polje ne obstaja v osnovni postavitvi in ga ni mogoče podedovati.",
+            "unlinkAllButton": "Ponastavi vsa polja.",
+            "unlinkAllConfirmText": "Ali ste prepričani, da želite ponastaviti vsa polja? To bo trajno izbrisalo vso nepovezano vsebino.",
+            "unlinkAllTitle": "Ponastavi vsa polja",
+            "unlinkFieldConfirmText": "Ste prepričani, da želite obnoviti dediščino? To bo odstranilo vse podatke po meri tega polja in obnovilo vrednosti iz nadrejenega elementa.",
+            "unlinkFieldTitle": "Obnovitev dedovanja",
+            "unlinkNotice": "Nekatera podedovana polja niso bila povezana."
         },
         "list": {
             "gridHeaderAssignedPages": "Dodeljene strani",
@@ -3214,6 +3311,7 @@
             "accept": "Sprejmi",
             "acceptMessage": "Skupina strank je bila spremenjena",
             "alert": "Dostop do skupine strank \"{name}\" zahteval.",
+            "customerInactiveMessage": "Neaktivnih strank ni mogoče sprejeti ali zavrniti nobeni skupini strank.",
             "decline": "Zavrnitev",
             "declineMessage": "Zahteva je bila zavrnjena",
             "errorMessage": "Zahtevek ni mogoče obdelati",
@@ -4300,7 +4398,10 @@
                 "placeholderDeliveryStatus": "Izberite stanje pošiljanja...",
                 "placeholderOrderStatus": "Izberite stanje naročila...",
                 "placeholderPaymentStatus": "Izberite status plačila...",
-                "titleSetStatus": "Dodeli status"
+                "titleSetStatus": "Dodeli status",
+                "transitionWarning": {
+                    "message": "Pri uporabi prehodov stanja bodite previdni, saj lahko privedejo do neuspešnih tokov, če prehod stanja ni veljaven. Razmislite o omogočitvi« Prisilite prehode stanja », da se izognete takšnim težavam."
+                }
             },
             "tag": {
                 "labelAddTag": "Dodaj oznako",
@@ -4365,6 +4466,7 @@
             "orderTransactionCaptureRefund": "Naročite vračilo zajemanja transakcij",
             "paid": "Plačano",
             "paidPartially": "Plačano delno",
+            "password": "Geslo",
             "paymentMethod": "Način plačila",
             "pending": "V teku",
             "placed": "Postavljeno",
@@ -4403,8 +4505,7 @@
                 "profile": "Profil",
                 "records": "Plošče",
                 "size": "Velikost",
-                "state": "Status",
-                "user": "Uporabnik"
+                "state": "Status"
             },
             "contextMenu": {
                 "abortProcess": "Prekinite postopek",
@@ -4416,6 +4517,10 @@
                 "showLogInfo": "Odprite podatke dnevnika",
                 "showProfile": "Prikaži profil",
                 "showResults": "Prikaži povzetek"
+            },
+            "detail": {
+                "ExportLabel": "Izvoz",
+                "importLabel": "Uvoz"
             },
             "dryrun": "Suhi tek",
             "emptyState": {
@@ -4791,6 +4896,7 @@
             "messageInvalidScope": "Neveljavna zahteva za področje uporabe.",
             "messageServerError": "Strežnik odobritve je naletel na nepričakovano stanje.",
             "messageUnsupportedGrantType": "Vrsta odobritve, ki ga strežnik avtorizacije ne podpira.",
+            "orContinueWith": "Ali nadaljujte z",
             "placeholderPassword": "Vnesite svoje geslo...",
             "placeholderUsername": "Vnesite svoje uporabniško ime...",
             "subheadlineMain": "Dobrodošli nazaj."
@@ -4877,6 +4983,7 @@
         },
         "modal": {
             "affectedList": "Prizadeti so naslednji prodajni kanali:",
+            "confirmButton": "Nadaljuj vseeno",
             "mainContent": "Predloga glave in noge je že dodeljena naslednjim prodajnim kanalom. Če nadaljujete in shranite, bo ta naloga prepisana z vašimi spremembami.",
             "title": "Več nalog"
         }
@@ -4956,6 +5063,8 @@
             "emptyStateSubTitle": "Dodajte e-poštne predloge s klikom na gumb« Dodaj«.",
             "emptyStateTitle": "Še ni e-poštnih predlog",
             "errorMediaItemDuplicated": "Element predstavnosti že dodeljen",
+            "tabHeaderFooter": "Glave in noge",
+            "tabMailTemplates": "Predloge",
             "textDeleteConfirm": "Ali ste prepričani, da želite izbrisati e-poštno predlogo \"{subject}»?",
             "textMailTemplateOverview": "E-poštne predloge",
             "titleMailFooterList": "Noga",
@@ -5037,7 +5146,9 @@
                 "download": "Prenesi",
                 "horizontal": "Vodoravno",
                 "move": "Premakni",
+                "removeCover": "Odstrani naslovnico",
                 "replace": "Zamenjaj",
+                "setCover": "Nastavi naslovno sliko",
                 "settings": "Nastavitve",
                 "vertical": "Navpično"
             },
@@ -5102,6 +5213,12 @@
             "labelTabItemLibrary": "Medijska knjižnica",
             "labelTabItemUpload": "Naloži datoteke",
             "titleModal": "Izberite predstavnost"
+        },
+        "sw-media-save-modal": {
+            "titleModal": "Shrani v medijih"
+        },
+        "sw-model-viewer": {
+            "titleModal": "Pregledovalnik modelov"
         }
     },
     "sw-meteor": {
@@ -5619,7 +5736,6 @@
                     "and": "in",
                     "by": "s",
                     "lastChanged": "Zadnja sprememba",
-                    "on": "on",
                     "with": "z"
                 }
             },
@@ -6163,12 +6279,17 @@
                 "placeholder": "Vnesite številko izdelka..."
             },
             "productStatesFilter": {
+                "deprecationWarning": "Filter izdelka navaja, da je zastarel in bo odstranjen v v6.8. Namesto tega uporabite filter vrste izdelka.",
                 "label": "Stanja izdelka",
                 "options": {
                     "digital": "Digitalna",
                     "physical": "Fizično"
                 },
                 "placeholder": "Izberite stanje izdelka..."
+            },
+            "productTypeFilter": {
+                "label": "Vrsta",
+                "placeholder": "Izberite vrsto izdelka..."
             },
             "releaseDateFilter": {
                 "label": "Datum izdaje"
@@ -6348,6 +6469,7 @@
             "cardTitleProperties": "Razpoložljive lastnosti",
             "columnProperty": "Nepremičnine",
             "columnValue": "Vrednost nepremičnine",
+            "descriptionEmptyState": "Upravljanje lastnosti tukaj.",
             "emptyStateNoOptionsDescription": "Najprej ustvarite lastnosti in vrednosti lastnosti, nato pa se vrnite tukaj, da jih dodelite.",
             "emptyStateNoOptionsTitle": "Vrednosti niso na voljo",
             "emptyStateNoSelectedOptionsDescription": "Izberite vrednosti iz zgornjega iskanja.",
@@ -6442,6 +6564,10 @@
             "cardTitleMeasurement": "Meritve izdelkov",
             "cardTitleProperties": "Lastnosti",
             "cardTitleSellingPackaging": "Informacije o prodaji in pakiranju"
+        },
+        "type": {
+            "digital": "Digitalna",
+            "physical": "Fizično"
         },
         "variations": {
             "backVariationsButton": "Nazaj",
@@ -6574,6 +6700,12 @@
             "messageSaveSuccess": "Dinamična skupina izdelkov \"{name}\" je bila shranjena.",
             "placeholderDescription": "Vnesite opis...",
             "placeholderName": "Vnesite naslov...",
+            "productStatesFilterWarning": "Ta dinamična skupina izdelkov še vedno uporablja filter zastarelih stanj izdelkov. Odstranjen bo v v6.8 - namesto tega preklopite na filter tipa izdelka.",
+            "productStreamIndexingWarning": {
+                "action": "Več o tem v naši dokumentaciji",
+                "message": "Nekatere funkcije morda ne bodo delovale po pričakovanjih: <ul><li>Strani kategorije morda ne bodo odražale sprememb, dokler predpomnilnik HTTP ne poteče ali se ročno izbriše.</li><li>Pogoj pravila »Artikel v dinamični skupini izdelkov« ne bo nikoli veljaven.</li></ul>",
+                "title": "Dinamično indeksiranje skupine izdelkov je onemogočeno"
+            },
             "textHeadline": "Nova dinamična skupina izdelkov",
             "titleCard": "Splošne informacije",
             "titleFilter": "Pogoji",
@@ -6739,6 +6871,9 @@
         },
         "tabGeneral": {
             "title": "Splošno"
+        },
+        "tabPrivacyPreferences": {
+            "title": "Nastavitve zasebnosti"
         },
         "tabSearchPreferences": {
             "alert_elasticsearch": {
@@ -7286,6 +7421,30 @@
             "textHeadline": "Pregled",
             "titleCardComment": "Komentar"
         },
+        "filters": {
+            "customerFilter": {
+                "label": "Stranka",
+                "placeholder": "Filtriraj po stranki..."
+            },
+            "languageFilter": {
+                "label": "Jezik",
+                "placeholder": "Filtriraj po jeziku..."
+            },
+            "pointsFilter": {
+                "label": "Ocena (zvezdice)"
+            },
+            "productFilter": {
+                "label": "Izdelek",
+                "placeholder": "Filtriraj po izdelku..."
+            },
+            "salesChannelFilter": {
+                "label": "Prodajni kanal",
+                "placeholder": "Filtriraj po prodajnem kanalu..."
+            },
+            "statusFilter": {
+                "label": "Odobreno"
+            }
+        },
         "general": {
             "descriptionTextModule": "Upravljajte preglede tukaj.",
             "mainMenuItemGeneral": "Mnenja",
@@ -7333,6 +7492,10 @@
                     "anonymizeIp": {
                         "label": "Anonimizacija IP"
                     },
+                    "trackOffcanvasCart": {
+                        "helpText": "Ko je omogočeno, se dogodek 'view_cart' sproži tudi, ko se odpre košarica offcanvas, ne le na strani namenske košarice. Uporabno za podrobno analizo lijaka, vendar lahko napihne meritve pogleda košarice.",
+                        "label": "Track off-canvas voziček"
+                    },
                     "trackOrders": {
                         "label": "Nalogi za sledenje"
                     },
@@ -7366,6 +7529,7 @@
             "descriptionTaxCalculation": "Sprememba te nastavitve bi lahko povzročila računovodske težave pri zunanjih ponudnikih plačil. Pred kakršnimi koli spremembami preverite, kako DDV obračunajo ponudniki plačil, ki jih zaposlujete.",
             "favouriteLabel": "Označi prodajni kanal kot priljubljeno",
             "footerCategory": "Navigacija noge vstopne točke",
+            "foreignKeyDelete": "Tega prodajnega kanala ni mogoče izbrisati, ker ga še vedno uporablja {assignment}.",
             "helpTextTaxCalculation": {
                 "label": "Če je davčni ponudnik aktiviran, se lahko te nastavitve prepišejo. To lahko preverite v {link}.",
                 "linkText": "nastavitve"
@@ -7671,6 +7835,11 @@
             "mainMenuItemGeneral": "Nastavitve"
         },
         "index": {
+            "search": {
+                "noResultsDescription": "Nastavitev ni bilo mogoče najti. Poskusite uporabiti drug iskalni izraz.",
+                "noResultsHeadline": "Ni najdenih vnosov",
+                "placeholder": "Poiščite nastavitve..."
+            },
             "tabAutomation": "Avtomatizacija",
             "tabCommerce": "Trgovina",
             "tabContent": "Vsebina",
@@ -7951,6 +8120,7 @@
     "sw-settings-custom-field": {
         "customField": {
             "detail": {
+                "bannerSearchableEnabled": "Če se je stanje iskanja spremenilo, je priporočljivo ponovno indeksirati podatke, da zagotovite natančne rezultate iskanja.",
                 "buttonAddOption": "Dodaj možnost",
                 "buttonEditApply": "Uporabi spremembe",
                 "helpTextEntitySelect": "Ko je polje po meri ustvarjeno, vrste entitete ni mogoče spremeniti.",
@@ -7958,6 +8128,7 @@
                 "infoText": "Če je ustvarjeno polje po meri, bo ustvarjen tudi odlomek glede na vse nabore izrezkov. Deseček bo imenovan« CustomFields.{name}«.",
                 "labelAllowCartExpose": "Na voljo v nakupovalnih vozičkih",
                 "labelAllowCustomerWrite": "Spremenljivo prek API-ja Store",
+                "labelAllowSearchable": "Vključi v iskanje",
                 "labelCustomFieldPosition": "Položaj",
                 "labelCustomFieldType": "Vrsta",
                 "labelDate": "Datum",
@@ -7985,6 +8156,7 @@
                 "titleNewCustomField": "Novo polje po meri",
                 "tooltipAllowCartExpose": "Aktivirajte, da bo to polje po meri na voljo v koristnem tovoru predmetov linije nakupovalne košarice. To je potrebno za začetek uporabe tega polja po meri v izdelovalniku pravil ali predlogah po meri.",
                 "tooltipAllowCustomerWrite": "Ko je aktiven, lahko API Store spremeni to polje. To lahko uporabite za shranjevanje podatkov po meri, če dodate nova polja v prodajalno. Na primer za nova polja v obrazcu za registracijo.",
+                "tooltipAllowSearchable": "Ko je to polje po meri aktivno, bo indeksirano in ga je mogoče uporabiti v konfiguracijah iskanja. Če to polje ni potrebno za iskanje, ga je treba onemogočiti, da zmanjšate velikost shrambe indeksa in izboljšate učinkovitost iskanja.",
                 "tooltipCartExposeDisabled": "Te nastavitve trenutno ni mogoče spremeniti, ker polje po meri uporablja eden ali več pogojev v Graditelju pravil.",
                 "tooltipCustomFieldPosition": "Nadzira položaj polja po meri na straneh s podrobnostmi.",
                 "tooltipStoreApiAware": "Ko je to polje aktivno, bo na voljo v API-ju Store. To možnost je mogoče onemogočiti za shranjevanje podatkov po meri samo interno in jih ne dajete na voljo prek API-ja Store."
@@ -8321,6 +8493,7 @@
             "labelDefaultSearchResultSorting": "Privzeto razvrščanje rezultatov iskanja",
             "labelDefaultSorting": "Privzeto razvrščanje",
             "mainMenuItemGeneral": "Izdelki",
+            "messageSaveDefaultValuesEmpty": "Zahtevana je privzeta vrednost",
             "messageSaveError": "Konfiguracije ni bilo mogoče shraniti.",
             "messageSaveSuccess": "Shranjena konfiguracija.",
             "placeholderDefaultSearchResultSorting": "Izberite privzeto razvrščanje rezultatov iskanja...",
@@ -8338,6 +8511,7 @@
                         "_score": "_score",
                         "customField": "Polje po meri",
                         "product": {
+                            "available": "Na voljo",
                             "cheapestPrice": "Najcenejša cena izdelka",
                             "createdAt": "Datum nastanka",
                             "listingPrices": "Cena za kotacijo izdelkov",
@@ -8507,12 +8681,6 @@
         }
     },
     "sw-settings-media": {
-        "3d": {
-            "lightIntensity": {
-                "helpText": "Spremenite intenzivnost svetlobe v 3D pogledu.",
-                "label": "Intenzivnost svetlobe"
-            }
-        },
         "general": {
             "buttonSave": "Shrani",
             "description": "Upravljajte nastavitve medijev tukaj.",
@@ -8718,6 +8886,7 @@
                 "height": "Višina",
                 "length": "Dolžina",
                 "manufacturerNumber": "Številka izdelka proizvajalca",
+                "packUnit": "Enota pakiranja",
                 "property": "Nepremičnine",
                 "referencePrice": "Cena na enoto",
                 "releaseDate": "Datum izdaje",
@@ -8790,6 +8959,8 @@
             "placeholderName": "Nastavite ime za to pravilo...",
             "placeholderPriority": "Določite prednostno nalogo za to pravilo...",
             "placeholderTags": "Vnesite oznako...",
+            "placeholderType": "Vnesite vrsto...",
+            "productStatesConditionWarning": "Pogoj« Element with product state »je zastarel in bo odstranjen v verziji 6.8. Namesto tega uporabite »Artikel z vrsto izdelka«.",
             "productStreamIndexingWarning": {
                 "action": "Več o tem v naši dokumentaciji",
                 "message": "Pogoj »Artikel v dinamični skupini izdelkov« nikoli ne bo resničen.",
@@ -9681,6 +9852,60 @@
         }
     },
     "sw-settings-usage-data": {
+        "consent-modal": {
+            "actions": {
+                "save-preferences": "Shrani nastavitve",
+                "share-all-data": "Delite vse",
+                "share-nothing": "Ne delite ničesar"
+            },
+            "external-links": {
+                "data-use-details": {
+                    "label": "shopware.com/sl/podatkov-uporabe-podrobnosti",
+                    "link": "https://www.shopware.com/en/data-use-details/"
+                },
+                "label": "Za vse podrobnosti glejte {data-use-details} in naš {privacy-policy}.",
+                "privacy-policy": {
+                    "label": "Politika zasebnosti",
+                    "link": "https://www.shopware.com/en/privacy/"
+                }
+            },
+            "intro": "Z skupno rabo podatkov o trgovini in uporabnikih nam pomagate razumeti, kako se uporablja uprava, in razvijemo izboljšave, ki olajšajo vaše vsakodnevno delo.",
+            "opt-out-info": "Kadar koli se lahko odjavite prek nastavitev in nastavitev profila.",
+            "promises": {
+                "gdpr-compliant": "Skladno z GDPR",
+                "no-third-party": "Podatki se ne delijo s tretjimi osebami",
+                "securely-processed": "Varno shranjeni podatki"
+            },
+            "share-store-data": "Z delitvijo podatkov o trgovini nam pomagate razumeti, kako se uporablja administracija, in razviti izboljšave, ki olajšajo vaše vsakodnevno delo.",
+            "share-user-data": "Z delitvijo vaših uporabniških podatkov nam pomagate razumeti, kako se uporablja administracija, in razviti izboljšave, ki olajšajo vaše vsakodnevno delo.",
+            "store-data": {
+                "description": "Kombinirani podatki iz {order}, {diagnostic}in {store} nam pomagajo izboljšati funkcije. Prosimo, potrdite, da ste pooblaščeni za soglasje za vaše podjetje.",
+                "emphasizes": {
+                    "diagnostic": "diagnostika",
+                    "order": "naročila",
+                    "store": "shranjevanje podatkov"
+                },
+                "help-text": {
+                    "diagnostic": "<strong>Diagnostični podatki</strong> znotraj Shopware se nanašajo na informacije, povezane z zdravstvenim stanjem sistema, napakami in meritvami uspešnosti platforme. To vključuje podrobnosti, kot so sistemski dnevniki, sporočila o napakah, odzivni časi strežnika in drugi tehnični kazalniki. Analiza teh podatkov nam pomaga hitro prepoznati, odpraviti in uvajati popravke pogostih težav ali ranljivosti ter ohraniti celovitost platforme.",
+                    "order": "<strong>Podatki o naročilu</strong> znotraj Shopware se nanašajo na podrobne informacije o naročilih strank, oddanih na platformi. To vključuje posebnosti, kot so naročeni izdelki, količine, cene, poreklo, načini plačila, pošiljka itd. Te podatke analiziramo, da bi razumeli trende in vzorce, ki nam pomagajo izboljšati funkcije in razviti nove storitve, namenjene izboljšanju vašega poslovnega uspeha. Ne zbiramo osebnih podatkov vaših strank, ki jih je mogoče uporabiti za identifikacijo posamezne osebe.",
+                    "store": "<strong>Podatki o shranjevanju</strong> znotraj Shopware se nanašajo na vse informacije, povezane z vašo spletno trgovino. Na primer izdelki, oglasi, cene, slike, opisi itd. ter metapodatki o nastavitvi vaše trgovine, kot so teme in vtičniki. Ne zbiramo osebnih podatkov, ki bi jih lahko uporabili za identifikacijo skrbniškega uporabnika ali obiskovalca trgovine. Z zbirnimi podatki o trgovinah lahko zagotovimo vpoglede prek strojnega učenja, kot so nastajajoči tržni trendi, kar vam omogoča, da ustrezno prilagodite ponudbo izdelkov ali tržne strategije."
+                },
+                "label-checkbox": "Skupna raba podatkov o trgovini",
+                "title": "Shranjevanje podatkov"
+            },
+            "title": "Pomagajte nam izboljšati",
+            "user-data": {
+                "description": "Uporabljamo {data} o tem, kako komunicirate z administracijo, da izboljšamo njeno uporabnost in delovanje.",
+                "emphasizes": {
+                    "data": "podatkov"
+                },
+                "help-text": {
+                    "data": "<strong>Podatki o uporabi</strong> znotraj Shopware se nanašajo na informacije, povezane s tem, kako skrbniški uporabniki in obiskovalci trgovine komunicirajo z našo platformo. To vključuje podrobnosti, kot so interakcije z različnimi skrbniškimi moduli Shopware, ogledane strani, trajanje obiskov, poti klikov in dejanja uporabnikov znotraj platforme in prodajalne. Z ocenjevanjem podatkov o uporabi lahko prepoznamo področja platforme, ki jih pogosto obiskujemo ali se izogibamo za merjenje sprejetja funkcij, kar vodi do potencialnih izboljšav postavitve, oblikovanja in funkcionalnosti."
+                },
+                "label-checkbox": "Delite moje podatke",
+                "title": "Moji podatki"
+            }
+        },
         "general": {
             "description": "Konfigurirajte tako, da z nami delite podatke o uporabi, da izboljšate Shopware.",
             "mainMenuItemGeneral": "Skupna raba podatkov",

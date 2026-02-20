@@ -306,6 +306,7 @@
             "contact_form_send": "Formulário de contato enviado",
             "customer_group_registration_accepted": "Solicitação de registro de grupo de clientes aceita",
             "customer_group_registration_declined": "Solicitação de registro de grupo de clientes recusada",
+            "customer_password_changed": "Alteração da palavra-passe do cliente",
             "customer_recovery_request": "Cliente solicita nova senha",
             "mail_after_create_message": "E-mail criado",
             "mail_before_send": "Email está sendo enviado",
@@ -503,6 +504,7 @@
             "FRAMEWORK__DELETE_RESTRICTED": "Falha na exclusão.",
             "FRAMEWORK__MISSING_PRIVILEGE_ERROR": "Permissões ausentes.",
             "FRAMEWORK__RATE_LIMIT_EXCEEDED": "Muitos pedidos. Aguarde {seconds} segundos antes de tentar novamente.",
+            "FRAMEWORK__ROUTE_BLOCKED_MESSAGE": "O URL {path} entra em conflito com a rota existente {blockedSegment} e não pode ser utilizado.",
             "INVALID_MAIL": "Insere um endereço de e-mail válido.",
             "INVALID_MEDIA_URL": "Insere um URL válido para carregar um ficheiro.",
             "INVALID_URL": "Insere um URL válido.",
@@ -731,6 +733,7 @@
                     "product": "Produto"
                 },
                 "lineItemProductStates": "Item com estado do produto",
+                "lineItemProductType": "Item com tipo de produto",
                 "lineItemPromotedRule": "O item é promovido",
                 "lineItemPropertyRule": "Item com valor de variante ou propriedade",
                 "lineItemPropertyValueRule": "Item com valor da propriedade",
@@ -821,6 +824,14 @@
                     "options": {
                         "is-download": "Digital",
                         "is-physical": "Físico"
+                    }
+                }
+            },
+            "cartLineItemProductType": {
+                "productType": {
+                    "options": {
+                        "digital": "Digital",
+                        "physical": "Físico"
                     }
                 }
             },
@@ -980,6 +991,8 @@
             "messageNoResults": "Não foram encontrados resultados para \"{term}\"."
         },
         "sw-field": {
+            "ariaLinkInheritance": "Herança de vínculo",
+            "ariaUnlinkInheritance": "Desvincular herança",
             "notification": {
                 "notificationCopyFailureMessage": "Não foi possível copiar o texto para a área de transferência.",
                 "notificationCopySuccessMessage": "O texto foi copiado para a área de transferência."
@@ -1085,10 +1098,24 @@
             "labelContextMenuCopyLink": "Copiar hiperligação",
             "labelContextMenuDetail": "Informações",
             "labelContextMenuMove": "Mover",
+            "labelContextMenuRemoveCover": "Remover a tampa",
             "labelContextMenuRename": "Dar novo nome",
             "labelContextMenuReplace": "Substituir",
+            "labelContextMenuSetCover": "Definir imagem de capa",
             "labelUploading": "A ser carregado...",
             "notification": {
+                "coverRemoveSuccess": {
+                    "message": "A imagem da capa foi removida."
+                },
+                "coverSaveError": {
+                    "message": "Não foi possível guardar a imagem da capa."
+                },
+                "coverSaveSuccess": {
+                    "message": "A imagem da capa foi guardada."
+                },
+                "coverSelectionInvalid": {
+                    "message": "Seleccione uma imagem para utilizar como capa."
+                },
                 "errorBlankItemName": {
                     "message": "Não foi possível dar um novo nome ao meio de comunicação. Adiciona um nome do ficheiro."
                 },
@@ -1218,7 +1245,8 @@
         "sw-media-preview-v2": {
             "fallbackAudioTagSupport": "O seu browser não suporta este audio-tag",
             "fallbackVideoTagSupport": "O seu browser não suporta este video-tag",
-            "textNoMedia": "Sem meio de comunicação disponível"
+            "textNoMedia": "Sem meio de comunicação disponível",
+            "warningUnsupportedFormat": "O formato \"{format}\" pode não ser suportado em todos os browsers."
         },
         "sw-media-upload": {
             "buttonFileUpload": "Carregar ficheiros",
@@ -1234,6 +1262,9 @@
                 "failure": {
                     "message": "Erro ao carregar."
                 },
+                "illegalFileType": {
+                    "message": "Não foi possível carregar o ficheiro \"{name}\". Este tipo de ficheiro não é suportado."
+                },
                 "illegalFileUrl": {
                     "message": "Não é permitido o carregamento através de URLs locais.",
                     "title": "URL inválido"
@@ -1241,9 +1272,22 @@
                 "illegalFilename": {
                     "message": "O nome do ficheiro \"{fileName}\" inclui símbolos especiais inválidos."
                 },
+                "payloadTooLarge": {
+                    "message": "O ficheiro é demasiado grande. Reduza o tamanho do ficheiro ou verifique a configuração do servidor."
+                },
+                "requestCanceled": {
+                    "message": "O upload foi cancelado."
+                },
                 "success": {
                     "message": "Nenhum ficheiro guardado com sucesso. | Um ficheiro guardado com sucesso. | {count} / {total} ficheiros guardados com sucesso."
+                },
+                "transportError": {
+                    "message": "Falha no carregamento devido a uma ligação ou tempo limite do servidor. Verifique a sua ligação ou os limites do servidor."
                 }
+            },
+            "snackbar": {
+                "errorMessage": "Não foi possível carregar o ficheiro. | Não foi possível carregar alguns ficheiros.",
+                "message": "Carregamento de ficheiros | Carregar ficheiros"
             }
         },
         "sw-media-upload-v2": {
@@ -2332,6 +2376,9 @@
                 }
             },
             "video": {
+                "video": {
+                    "label": "Vídeo"
+                },
                 "vimeoVideo": {
                     "label": "Vídeo Vimeo"
                 },
@@ -2708,21 +2755,26 @@
                 "config": {
                     "warning": "O código HTML não filtrado pode levar a riscos de segurança. Insira somente código HTML de fontes confiáveis e teste suas alterações antes de publicá-las."
                 },
-                "label": "HTML"
+                "label": "HTML",
+                "labelContent": "Conteúdos"
             },
             "image": {
                 "config": {
+                    "helpText": {
+                        "ariaLabel": "Este texto será lido pelos leitores de ecrã como texto de ligação.",
+                        "fetchPriorityHigh": "Ative esta opção se a imagem for a primeira da página. A imagem será então atribuído o atributo 'fetchpriority=\"high\"', informando-o para o browser carregá-lo com maior prioridade. Isso pode ajudar a melhorar a Largest Contentful Paint (LCP).",
+                        "isDecorative": "Quando esta opção estiver activada, as informações da imagem não serão lidas pelos leitores de ecrã. Isto significa que as tags “alt” e “title” permanecerão vazias.",
+                        "minHeight": "Introduza a altura mínima com a unidade pretendida. Por exemplo: 200px",
+                        "useFetchPriorityOnFirstItem": "Quando esta opção está activada, a primeira imagem é carregada com uma prioridade mais elevada. Isso pode melhorar a velocidade com que a página é renderizada no navegador."
+                    },
                     "label": {
                         "ariaLabel": "Descrição do link",
-                        "ariaLabelHelpText": "Este texto será lido pelos leitores de ecrã como texto de ligação.",
+                        "fetchPriorityHigh": "Obtendo prioridade alta",
                         "isDecorative": "Marcar imagem como decorativa",
-                        "isDecorativeHelpText": "Quando esta opção estiver activada, as informações da imagem não serão lidas pelos leitores de ecrã.",
                         "linkNewTab": "Abrir hiperligação em nova janela",
                         "linkTo": "Destino do link",
                         "minHeight": "Altura mínima",
-                        "minHeightHelpText": "Insira a altura mínima com a unidade desejada. Por exemplo: 200px",
-                        "useFetchPriorityOnFirstItem": "Carregar a primeira imagem com maior prioridade",
-                        "useFetchPriorityOnFirstItemHelpText": "Quando esta opção está activada, a primeira imagem é carregada com uma prioridade mais elevada. Isso pode melhorar a velocidade com que a página é renderizada no navegador."
+                        "useFetchPriorityOnFirstItem": "Carregar a primeira imagem com maior prioridade"
                     },
                     "placeholder": {
                         "enterMinHeight": "Inserir altura mínima...",
@@ -2759,7 +2811,8 @@
                         "navigationDots": "Navegação por pontos",
                         "navigationPositionInside": "Interior",
                         "navigationPositionNone": "Nenhuma",
-                        "navigationPositionOutside": "Exterior"
+                        "navigationPositionOutside": "Exterior",
+                        "sliderItems": "Imagens"
                     }
                 },
                 "label": "Slider de imagem"
@@ -2808,6 +2861,14 @@
                         "descriptionAndReviews": "Descrição do produto & comentários",
                         "reviews": "Comentários"
                     }
+                }
+            },
+            "productHeading": {
+                "logo": {
+                    "label": "Logotipo do fabricante"
+                },
+                "name": {
+                    "label": "Nome do produto"
                 }
             },
             "productListing": {
@@ -2933,6 +2994,32 @@
                 },
                 "label": "Texto"
             },
+            "video": {
+                "config": {
+                    "helpText": {
+                        "ariaLabel": "Leia-se por leitores de ecrã e deve descrever brevemente o conteúdo ou finalidade do vídeo. Se deixado em branco, será utilizado o título ou o texto alternativo configurado no módulo multimédia.",
+                        "autoPlay": "A reprodução automática é permitida por muitos navegadores apenas quando o vídeo está silenciado.<br>Com a reprodução automática, uma capa não é significativa porque a reprodução começa imediatamente e não é necessária confirmação.",
+                        "minHeight": "Introduza a altura mínima com a unidade pretendida. Por exemplo: 200px",
+                        "playsInline": "No iOS, os vídeos abrem frequentemente em ecrã inteiro. Active esta opção para manter a reprodução em linha.",
+                        "showCover": "A capa configurada na seleção de suportes será apresentada até que o utilizador confirme para carregar o vídeo através de um clique."
+                    },
+                    "label": {
+                        "ariaLabel": "Título do leitor de ecrã",
+                        "autoPlay": "Reproduzir automaticamente",
+                        "loop": "Repetir vídeo",
+                        "minHeight": "Altura mínima",
+                        "muted": "Reproduzir silenciado",
+                        "playsInline": "Reproduzir em linha em dispositivos iOS",
+                        "showControls": "Mostrar o controlo do vídeo",
+                        "showCover": "Carregar vídeo somente após a confirmação pelo usuário"
+                    },
+                    "placeholder": {
+                        "ariaLabel": "Introduza o título do leitor de ecrã...",
+                        "minHeight": "Introduzir altura mínima..."
+                    }
+                },
+                "label": "Vídeo"
+            },
             "vimeoVideo": {
                 "config": {
                     "helpText": {
@@ -2977,6 +3064,16 @@
             "moduleTitle": "Mundos de vivências",
             "placeholderSearchBar": "Pesquisar layouts...",
             "privacyNotice": "Ao selecionar continuar, confirma que leu as nossas <a href=\"%privacyUrl%\">informações de proteção de dados</a> e aceitou os nossos <a href=\"%tosUrl%\">termos e condições gerais</a>."
+        },
+        "inherit": {
+            "formBanner": "Este layout herdou campos. O que significa que, enquanto o estado herdado estiver ativo, o conteúdo será herdado. Os campos herdados podem ser desvinculados clicando no símbolo do link. Clicar novamente no símbolo irá definir o estado herdado de volta.",
+            "tooltip": "Este campo não existe no layout base e não pode ser herdado.",
+            "unlinkAllButton": "Redefinir todos os campos.",
+            "unlinkAllConfirmText": "Tem a certeza de que deseja repor todos os campos? Isso excluirá permanentemente todo o conteúdo não vinculado.",
+            "unlinkAllTitle": "Redefinir todos os campos",
+            "unlinkFieldConfirmText": "Tem a certeza de que quer restaurar a herança? Isto irá remover todos os dados personalizados deste campo e restaurar os valores do elemento pai.",
+            "unlinkFieldTitle": "Restaurar herança",
+            "unlinkNotice": "Alguns campos herdados foram desvinculados."
         },
         "list": {
             "gridHeaderAssignedPages": "Páginas atribuídas",
@@ -3214,6 +3311,7 @@
             "accept": "Aceitar",
             "acceptMessage": "O grupo de clientes foi alterado",
             "alert": "Acesso ao grupo de clientes \"{name}\" solicitado.",
+            "customerInactiveMessage": "Os clientes inactivos não podem ser aceites ou recusados a nenhum grupo de clientes.",
             "decline": "Declínio",
             "declineMessage": "Solicitação foi recusada",
             "errorMessage": "Não é possível processar a solicitação",
@@ -4300,7 +4398,10 @@
                 "placeholderDeliveryStatus": "Selecione o status de envio...",
                 "placeholderOrderStatus": "Selecione o status do pedido...",
                 "placeholderPaymentStatus": "Selecione o status do pagamento...",
-                "titleSetStatus": "Atribuir status"
+                "titleSetStatus": "Atribuir status",
+                "transitionWarning": {
+                    "message": "Tenha cuidado ao usar transições de status, pois elas podem levar a falhas nos fluxos se a transição de status não for válida. Considere ativar “Forçar transições de status” para evitar tais problemas."
+                }
             },
             "tag": {
                 "labelAddTag": "Adicionar tag",
@@ -4365,6 +4466,7 @@
             "orderTransactionCaptureRefund": "Reembolso de captura de transação de pedido",
             "paid": "Pago",
             "paidPartially": "Pago parcialmente",
+            "password": "Palavra-passe",
             "paymentMethod": "Meio de pagamento",
             "pending": "Pendente",
             "placed": "Colocado",
@@ -4403,8 +4505,7 @@
                 "profile": "Perfil",
                 "records": "Entradas",
                 "size": "Tamanho",
-                "state": "Estado",
-                "user": "Utilizador"
+                "state": "Estado"
             },
             "contextMenu": {
                 "abortProcess": "Abortar processo",
@@ -4416,6 +4517,10 @@
                 "showLogInfo": "Abrir informações de registro",
                 "showProfile": "Exibir perfil",
                 "showResults": "Mostrar resumo"
+            },
+            "detail": {
+                "ExportLabel": "Exportação",
+                "importLabel": "Importação"
             },
             "dryrun": "Corrida a seco",
             "emptyState": {
@@ -4791,6 +4896,7 @@
             "messageInvalidScope": "O Scope indicado é inválido.",
             "messageServerError": "Ocorreu um erro geral no servidor de autenticação.",
             "messageUnsupportedGrantType": "\"Grant-Type\" não é suportado.",
+            "orContinueWith": "Ou continuar com",
             "placeholderPassword": "Insere a tua palavra-passe...",
             "placeholderUsername": "Insere o teu nome de utilizador...",
             "subheadlineMain": "Bem-vindo novamente."
@@ -4877,6 +4983,7 @@
         },
         "modal": {
             "affectedList": "Os seguintes canais de vendas foram afetados:",
+            "confirmButton": "Continuar mesmo assim",
             "mainContent": "Já existe um modelo de cabeçalho e rodapé atribuído aos seguintes canais de vendas. Se você continuar e salvar, essa tarefa será substituída por suas alterações.",
             "title": "Várias tarefas"
         }
@@ -4956,6 +5063,8 @@
             "emptyStateSubTitle": "Adicione modelos de e-mail clicando no botão “adicionar”.",
             "emptyStateTitle": "Ainda não há modelos de e-mail",
             "errorMediaItemDuplicated": "Meio já utilizado",
+            "tabHeaderFooter": "Cabeçalhos e rodapés",
+            "tabMailTemplates": "Templates",
             "textDeleteConfirm": "Desejas realmente eliminar o template de e-mail \"{subject}\"?",
             "textMailTemplateOverview": "Templates de e-mail",
             "titleMailFooterList": "Rodapés",
@@ -5037,7 +5146,9 @@
                 "download": "Download",
                 "horizontal": "Horizontal",
                 "move": "Mover",
+                "removeCover": "Remover a tampa",
                 "replace": "Substituir",
+                "setCover": "Definir imagem de capa",
                 "settings": "Ajustes",
                 "vertical": "Vertical"
             },
@@ -5102,6 +5213,12 @@
             "labelTabItemLibrary": "Biblioteca",
             "labelTabItemUpload": "Carregar ficheiros",
             "titleModal": "Selecionar meios de comunicação"
+        },
+        "sw-media-save-modal": {
+            "titleModal": "Guardar nos suportes"
+        },
+        "sw-model-viewer": {
+            "titleModal": "Visualizador de modelos"
         }
     },
     "sw-meteor": {
@@ -5619,7 +5736,6 @@
                     "and": "e",
                     "by": "de",
                     "lastChanged": "Alterado pela última vez",
-                    "on": "em",
                     "with": "com"
                 }
             },
@@ -6163,12 +6279,17 @@
                 "placeholder": "Introduza um número de produto..."
             },
             "productStatesFilter": {
+                "deprecationWarning": "O filtro de estados do produto está desativado e será removido na v6.8. Em vez disso, use o filtro de tipo de produto.",
                 "label": "Estados do produto",
                 "options": {
                     "digital": "Digital",
                     "physical": "Físico"
                 },
                 "placeholder": "Selecione o estado do produto..."
+            },
+            "productTypeFilter": {
+                "label": "Tipo",
+                "placeholder": "Seleccione o tipo de produto..."
             },
             "releaseDateFilter": {
                 "label": "Data de lançamento"
@@ -6348,6 +6469,7 @@
             "cardTitleProperties": "Propriedades",
             "columnProperty": "Propriedade",
             "columnValue": "Características",
+            "descriptionEmptyState": "Gestão de propriedades.",
             "emptyStateNoOptionsDescription": "Deves primeiro criar propriedades e as respetivas características para poderes atribuí-las aqui.",
             "emptyStateNoOptionsTitle": "Nenhumas características de propriedades existentes.",
             "emptyStateNoSelectedOptionsDescription": "Seleciona características na pesquisa.",
@@ -6442,6 +6564,10 @@
             "cardTitleMeasurement": "Medições do produto",
             "cardTitleProperties": "Propriedades",
             "cardTitleSellingPackaging": "Informações sobre venda e embalagem"
+        },
+        "type": {
+            "digital": "Digital",
+            "physical": "Físico"
         },
         "variations": {
             "backVariationsButton": "Voltar",
@@ -6574,6 +6700,12 @@
             "messageSaveSuccess": "O Grupo de produto \"{name}\" foi guardado com sucesso",
             "placeholderDescription": "Insere uma descrição...",
             "placeholderName": "Insere um nome...",
+            "productStatesFilterWarning": "Este grupo dinâmico de produtos ainda utiliza o filtro de estados do produto descontinuado. Ele será removido na v6.8 — em vez disso, mude para o filtro de tipo de produto.",
+            "productStreamIndexingWarning": {
+                "action": "Saiba mais na nossa documentação",
+                "message": "Algumas funcionalidades podem não funcionar como esperado: <ul><li>As páginas da categoria poderão não reflectir as alterações até que a cache HTTP expire ou seja limpa manualmente.</li><li>A condição da regra “Item em grupo dinâmico de produtos” nunca será verdadeira.</li></ul>",
+                "title": "A indexação dinâmica do grupo de produtos está desativada"
+            },
             "textHeadline": "Novo Grupo de produto",
             "titleCard": "Informações",
             "titleFilter": "Condições",
@@ -6739,6 +6871,9 @@
         },
         "tabGeneral": {
             "title": "Geral"
+        },
+        "tabPrivacyPreferences": {
+            "title": "Preferências de privacidade"
         },
         "tabSearchPreferences": {
             "alert_elasticsearch": {
@@ -7286,6 +7421,30 @@
             "textHeadline": "Avaliação",
             "titleCardComment": "Comentário"
         },
+        "filters": {
+            "customerFilter": {
+                "label": "Cliente",
+                "placeholder": "Filtrar por Cliente..."
+            },
+            "languageFilter": {
+                "label": "Idioma",
+                "placeholder": "Filtrar por Língua..."
+            },
+            "pointsFilter": {
+                "label": "Avaliação (Estrelas)"
+            },
+            "productFilter": {
+                "label": "Produto",
+                "placeholder": "Filtrar por Produto..."
+            },
+            "salesChannelFilter": {
+                "label": "Canal de venda",
+                "placeholder": "Filtrar por Canal de Vendas..."
+            },
+            "statusFilter": {
+                "label": "Aprovado"
+            }
+        },
         "general": {
             "descriptionTextModule": "Gestão de avaliações.",
             "mainMenuItemGeneral": "Avaliações",
@@ -7333,6 +7492,10 @@
                     "anonymizeIp": {
                         "label": "Anonimização de IP"
                     },
+                    "trackOffcanvasCart": {
+                        "helpText": "Quando ativado, um evento 'view_cart' também é acionado quando o carrinho offcanvas abre, não apenas na página do carrinho dedicado. Útil para análise detalhada do funil mas pode aumentar as métricas de visualização do carrinho.",
+                        "label": "Rastreie o carrinho de tela"
+                    },
                     "trackOrders": {
                         "label": "Localizar encomendas"
                     },
@@ -7366,6 +7529,7 @@
             "descriptionTaxCalculation": "Alterar essa configuração pode causar problemas contábeis com provedores de pagamento externos. Verifique novamente como o IVA é calculado pelos provedores de pagamento que você emprega, antes de fazer qualquer alteração.",
             "favouriteLabel": "Marcar canal de vendas como favorito",
             "footerCategory": "Ponto de entrada para a navegação do rodapé",
+            "foreignKeyDelete": "Este canal de vendas não pode ser eliminado porque continua a ser utilizado pelo {assignment}.",
             "helpTextTaxCalculation": {
                 "label": "Se um provedor fiscal estiver ativado, essas configurações poderão ser substituídas. Você pode verificar isso em {link}.",
                 "linkText": "configurações"
@@ -7671,6 +7835,11 @@
             "mainMenuItemGeneral": "Ajustes"
         },
         "index": {
+            "search": {
+                "noResultsDescription": "Não foi possível encontrar as definições. Tente usar outro termo de pesquisa.",
+                "noResultsHeadline": "Não foram encontradas entradas",
+                "placeholder": "Localizar definições..."
+            },
             "tabAutomation": "Automação",
             "tabCommerce": "Commerce",
             "tabContent": "Conteúdos",
@@ -7951,6 +8120,7 @@
     "sw-settings-custom-field": {
         "customField": {
             "detail": {
+                "bannerSearchableEnabled": "Recomenda-se reindexar os dados, caso o estado da pesquisa tenha mudado, para garantir resultados de pesquisa precisos.",
                 "buttonAddOption": "Adicionar opção",
                 "buttonEditApply": "Assumir alterações",
                 "helpTextEntitySelect": "O tipo de entidade não pode ser alterado depois que o campo personalizado tiver sido criado.",
@@ -7958,6 +8128,7 @@
                 "infoText": "Se um campo personalizado for criado, o snippet de acordo para todos os seus conjuntos de snippet também será criado. O snippet será nomeado “CustomFields.{name}”.",
                 "labelAllowCartExpose": "Disponível em carrinhos de compras",
                 "labelAllowCustomerWrite": "Modificável por meio da API da loja",
+                "labelAllowSearchable": "Incluir na pesquisa",
                 "labelCustomFieldPosition": "Item",
                 "labelCustomFieldType": "Tipo",
                 "labelDate": "Data",
@@ -7985,6 +8156,7 @@
                 "titleNewCustomField": "Criar novo campo adicional",
                 "tooltipAllowCartExpose": "Ative para tornar esse campo personalizado disponível na carga útil dos itens da linha do carrinho de compras. Isso é necessário para usar inicialmente esse campo personalizado no Construtor de regras ou em modelos personalizados.",
                 "tooltipAllowCustomerWrite": "Quando ativa, a API Store pode modificar esse campo. Isso pode ser usado para armazenar dados personalizados ao adicionar novos campos à vitrine. Por exemplo, para novos campos no formulário de registro.",
+                "tooltipAllowSearchable": "Quando activo, este campo personalizado será indexado e poderá ser utilizado nas configurações de pesquisa. Se este campo não for obrigatório para a pesquisa, deverá ser desactivado para reduzir o tamanho do armazenamento do índice e melhorar o desempenho da pesquisa.",
                 "tooltipCartExposeDisabled": "No momento, essa configuração não pode ser alterada porque o campo personalizado está sendo usado por uma ou mais condições no Construtor de Regras.",
                 "tooltipCustomFieldPosition": "Controla a posição do campo adicional nas páginas de detalhes.",
                 "tooltipStoreApiAware": "Quando activo, este campo estará disponível na API Store. Esta opção pode ser desactivada para armazenar dados personalizados apenas internamente e não disponibilizá-los através da API Store."
@@ -8321,6 +8493,7 @@
             "labelDefaultSearchResultSorting": "Ordenação padrão dos resultados da pesquisa",
             "labelDefaultSorting": "Ordenação padrão",
             "mainMenuItemGeneral": "Produtos",
+            "messageSaveDefaultValuesEmpty": "O valor predefinido é obrigatório",
             "messageSaveError": "A configuração não pôde ser salva.",
             "messageSaveSuccess": "A configuração foi guardada com sucesso.",
             "placeholderDefaultSearchResultSorting": "Seleccione uma ordenação de resultados de pesquisa predefinida...",
@@ -8338,6 +8511,7 @@
                         "_score": "_score",
                         "customField": "Campo personalizado",
                         "product": {
+                            "available": "Ainda disponível",
                             "cheapestPrice": "Preço mais barato do produto",
                             "createdAt": "Data de criação",
                             "listingPrices": "Preço da listagem do produto",
@@ -8507,12 +8681,6 @@
         }
     },
     "sw-settings-media": {
-        "3d": {
-            "lightIntensity": {
-                "helpText": "Alterar a intensidade da luz na vista 3D.",
-                "label": "Intensidade da Luz"
-            }
-        },
         "general": {
             "buttonSave": "Guardar",
             "description": "Gerencie as configurações de mídia aqui.",
@@ -8718,6 +8886,7 @@
                 "height": "Altura",
                 "length": "Comprimento",
                 "manufacturerNumber": "Número do produto do fabricante",
+                "packUnit": "Unidade de embalagem",
                 "property": "Propriedade",
                 "referencePrice": "Preço unitário",
                 "releaseDate": "Data de lançamento",
@@ -8790,6 +8959,8 @@
             "placeholderName": "Define um nome para esta regra...",
             "placeholderPriority": "Define uma prioridade para esta regra...",
             "placeholderTags": "Insere tags...",
+            "placeholderType": "Introduza um tipo...",
+            "productStatesConditionWarning": "A condição “Item com estado do produto” está desprovida e será removida na v6.8. Em vez disso, use “Item com tipo de produto”.",
             "productStreamIndexingWarning": {
                 "action": "Saiba mais na nossa documentação",
                 "message": "A condição “Item no grupo dinâmico de produtos” nunca será verdadeira.",
@@ -9681,6 +9852,60 @@
         }
     },
     "sw-settings-usage-data": {
+        "consent-modal": {
+            "actions": {
+                "save-preferences": "Guardar preferências",
+                "share-all-data": "Partilhar tudo",
+                "share-nothing": "Não partilhar nada"
+            },
+            "external-links": {
+                "data-use-details": {
+                    "label": "shopware.com/en/data-use-details",
+                    "link": "https://www.shopware.com/en/data-use-details/"
+                },
+                "label": "Para detalhes completos, consulte {data-use-details} e o nosso {privacy-policy}.",
+                "privacy-policy": {
+                    "label": "Política de Privacidade",
+                    "link": "https://www.shopware.com/en/privacy/"
+                }
+            },
+            "intro": "Ao partilhar os dados da loja e do utilizador, ajuda-nos a perceber como a Administração é utilizada e a desenvolver melhorias que facilitam o seu trabalho diário.",
+            "opt-out-info": "Pode optar por não participar a qualquer momento através das definições e Definições de perfil.",
+            "promises": {
+                "gdpr-compliant": "Compatível com RGPD",
+                "no-third-party": "Não são partilhados dados com terceiros",
+                "securely-processed": "Dados armazenados de forma segura"
+            },
+            "share-store-data": "Ao partilhar os dados da loja, ajuda-nos a perceber como a Administração é utilizada e a desenvolver melhorias que facilitam o seu trabalho diário.",
+            "share-user-data": "Ao partilhar os seus dados de utilizador, ajuda-nos a perceber como é utilizada a Administração e a desenvolver melhorias que facilitam o seu trabalho diário.",
+            "store-data": {
+                "description": "Os dados combinados de {order}, {diagnostic}e {store} ajudam-nos a melhorar as funcionalidades. Confirme que está autorizado a dar consentimento para a sua empresa.",
+                "emphasizes": {
+                    "diagnostic": "diagnósticos",
+                    "order": "ordens",
+                    "store": "armazenar dados"
+                },
+                "help-text": {
+                    "diagnostic": "<strong>Os dados de diagnóstico</strong> no Shopware referem-se às informações relacionadas com a integridade do sistema, erros e métricas de desempenho da plataforma. Isso inclui detalhes como logs do sistema, mensagens de erro, tempos de resposta do servidor e outros indicadores técnicos. A análise destes dados ajuda-nos a identificar, resolver e implementar rapidamente correções para problemas comuns ou vulnerabilidades, mantendo a integridade da plataforma.",
+                    "order": "<strong>Os dados da encomenda</strong> no Shopware referem-se às informações detalhadas sobre as encomendas dos clientes efetuadas na plataforma. Isto inclui especificidades como produtos encomendados, quantidades, preços, origem, métodos de pagamento, expedição, etc. Analisamos estes dados para compreender tendências e padrões que nos ajudam a melhorar funcionalidades, bem como desenvolver novos serviços concebidos para melhorar o sucesso do seu negócio. Não recolhemos dados pessoais dos seus clientes que possam ser utilizados para identificar uma única pessoa.",
+                    "store": "<strong>Os dados da loja</strong> no Shopware referem-se a todas as informações relacionadas com a sua loja online. Como produtos, listagens, preços, imagens, descrições, etc., e metadados sobre a configuração da sua loja, tais como temas e plugins. Não recolhemos dados pessoais que possam ser utilizados para identificar um utilizador administrador ou um visitante da loja. Usando dados agregados da loja, podemos fornecer insights por meio de aprendizado de máquina, como tendências de mercado emergentes, permitindo que você ajuste ofertas de produtos ou estratégias de marketing de acordo."
+                },
+                "label-checkbox": "Partilhar dados da loja",
+                "title": "Armazenar dados"
+            },
+            "title": "Ajude-nos a melhorar",
+            "user-data": {
+                "description": "Usamos {data} sobre como interage com a Administração para melhorar a sua usabilidade e desempenho.",
+                "emphasizes": {
+                    "data": "dados"
+                },
+                "help-text": {
+                    "data": "<strong>Os dados de utilização</strong> no Shopware dizem respeito às informações relacionadas com a forma como os utilizadores administradores e os visitantes da loja interagem com a nossa plataforma. Isso inclui detalhes como interações com diferentes módulos de administração do Shopware, páginas visualizadas, duração das visitas, caminhos de cliques e ações do usuário dentro da plataforma e da loja. Ao avaliar os dados de utilização, podemos identificar áreas da plataforma que são frequentemente visitadas ou evitadas para medir a adoção de funcionalidades, levando a potenciais melhorias no layout, design e funcionalidade."
+                },
+                "label-checkbox": "Partilhar os meus dados",
+                "title": "Os meus dados"
+            }
+        },
         "general": {
             "description": "Configure para compartilhar dados de uso conosco para melhorar o Shopware.",
             "mainMenuItemGeneral": "Compartilhamento de dados",

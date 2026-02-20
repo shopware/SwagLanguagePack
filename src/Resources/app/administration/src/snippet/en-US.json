@@ -306,6 +306,7 @@
             "contact_form_send": "Contact form sent",
             "customer_group_registration_accepted": "Customer group registration request accepted",
             "customer_group_registration_declined": "Customer group registration request declined",
+            "customer_password_changed": "Customer password changed",
             "customer_recovery_request": "Customer requests new password",
             "mail_after_create_message": "Email created",
             "mail_before_send": "Email is being sent",
@@ -503,6 +504,7 @@
             "FRAMEWORK__DELETE_RESTRICTED": "Deletion failed.",
             "FRAMEWORK__MISSING_PRIVILEGE_ERROR": "Missing permissions.",
             "FRAMEWORK__RATE_LIMIT_EXCEEDED": "Too many requests. Please wait {seconds} seconds before trying again.",
+            "FRAMEWORK__ROUTE_BLOCKED_MESSAGE": "The URL {path} conflicts with the existing route {blockedSegment} and cannot be used.",
             "INVALID_MAIL": "Please enter a valid email address.",
             "INVALID_MEDIA_URL": "Please enter a valid URL to upload a file.",
             "INVALID_URL": "Please enter a valid url.",
@@ -731,6 +733,7 @@
                     "product": "Product"
                 },
                 "lineItemProductStates": "Item with product state",
+                "lineItemProductType": "Item with product type",
                 "lineItemPromotedRule": "Item is promoted",
                 "lineItemPropertyRule": "Item with variant or property value",
                 "lineItemPropertyValueRule": "Item with property value",
@@ -821,6 +824,14 @@
                     "options": {
                         "is-download": "Digital",
                         "is-physical": "Physical"
+                    }
+                }
+            },
+            "cartLineItemProductType": {
+                "productType": {
+                    "options": {
+                        "digital": "Digital",
+                        "physical": "Physical"
                     }
                 }
             },
@@ -1087,10 +1098,24 @@
             "labelContextMenuCopyLink": "Copy Link",
             "labelContextMenuDetail": "Details",
             "labelContextMenuMove": "Move",
+            "labelContextMenuRemoveCover": "Remove cover",
             "labelContextMenuRename": "Rename",
             "labelContextMenuReplace": "Replace",
+            "labelContextMenuSetCover": "Set cover image",
             "labelUploading": "Uploading...",
             "notification": {
+                "coverRemoveSuccess": {
+                    "message": "Cover image has been removed."
+                },
+                "coverSaveError": {
+                    "message": "Cover image could not be saved."
+                },
+                "coverSaveSuccess": {
+                    "message": "Cover image has been saved."
+                },
+                "coverSelectionInvalid": {
+                    "message": "Please select an image to use as the cover."
+                },
                 "errorBlankItemName": {
                     "message": "Media item could not be saved: Please enter a name."
                 },
@@ -1237,6 +1262,9 @@
                 "failure": {
                     "message": "Error while uploading file."
                 },
+                "illegalFileType": {
+                    "message": "The file \"{name}\" could not be uploaded. This file type is not supported."
+                },
                 "illegalFileUrl": {
                     "message": "Upload from local URLs not allowed.",
                     "title": "Invalid URL"
@@ -1244,9 +1272,22 @@
                 "illegalFilename": {
                     "message": "The filename \"{fileName}\" contains invalid characters."
                 },
+                "payloadTooLarge": {
+                    "message": "File is too large. Please reduce the file size or check the server configuration."
+                },
+                "requestCanceled": {
+                    "message": "The upload has been cancelled."
+                },
                 "success": {
                     "message": "No file has been saved. | File has been saved. | {count} / {total} files have been saved."
+                },
+                "transportError": {
+                    "message": "Upload failed due to a connection or server timeout. Please check your connection or server limits."
                 }
+            },
+            "snackbar": {
+                "errorMessage": "File could not be uploaded. | Some files could not be uploaded.",
+                "message": "Uploading file | Uploading files ({processed}/{total})"
             }
         },
         "sw-media-upload-v2": {
@@ -1792,6 +1833,9 @@
                 "statusMails": {
                     "helpText": "Available only if status has been changed.",
                     "label": "Send: Status emails"
+                },
+                "transitionInternalComment": {
+                    "label": "Internal comment on status change"
                 }
             },
             "tags": {
@@ -2335,6 +2379,9 @@
                 }
             },
             "video": {
+                "video": {
+                    "label": "Video"
+                },
                 "vimeoVideo": {
                     "label": "Vimeo video"
                 },
@@ -2717,21 +2764,20 @@
             "image": {
                 "config": {
                     "helpText": {
+                        "ariaLabel": "This text will be read out by screen readers as link text.",
                         "fetchPriorityHigh": "Activate this option if the image is the first one on the page. The image will then be assigned the attribute 'fetchpriority=\"high\"', telling the browser to load it with higher priority. This can help improve the Largest Contentful Paint (LCP).",
-                        "isDecorative": "When this option is enabled, the image information will not be read out by screen readers. This means that the \"alt\" and \"title\" tags will remain empty."
+                        "isDecorative": "When this option is enabled, the image information will not be read out by screen readers. This means that the \"alt\" and \"title\" tags will remain empty.",
+                        "minHeight": "Enter the minimum height with your desired unit. For example: 200px",
+                        "useFetchPriorityOnFirstItem": "When this option is enabled, the first image is loaded with a higher priority. This can improve the speed at which the page is rendered in the browser."
                     },
                     "label": {
                         "ariaLabel": "Link description",
-                        "ariaLabelHelpText": "This text will be read out by screen readers as link text.",
                         "fetchPriorityHigh": "Fetch priority high",
                         "isDecorative": "Mark image as decorative",
-                        "isDecorativeHelpText": "When this option is enabled, the image information will not be read out by screen readers.",
                         "linkNewTab": "Open link in new tab",
                         "linkTo": "Link target",
                         "minHeight": "Minimum height",
-                        "minHeightHelpText": "Enter the minimum height with your desired unit. For example: 200px",
-                        "useFetchPriorityOnFirstItem": "Load first image with higher priority",
-                        "useFetchPriorityOnFirstItemHelpText": "When this option is enabled, the first image is loaded with a higher priority. This can improve the speed at which the page is rendered in the browser."
+                        "useFetchPriorityOnFirstItem": "Load first image with higher priority"
                     },
                     "placeholder": {
                         "enterMinHeight": "Enter a minimum height...",
@@ -2818,6 +2864,14 @@
                         "descriptionAndReviews": "Product description & reviews",
                         "reviews": "Reviews"
                     }
+                }
+            },
+            "productHeading": {
+                "logo": {
+                    "label": "Manufacturer logo"
+                },
+                "name": {
+                    "label": "Product name"
                 }
             },
             "productListing": {
@@ -2942,6 +2996,32 @@
                     }
                 },
                 "label": "Text"
+            },
+            "video": {
+                "config": {
+                    "helpText": {
+                        "ariaLabel": "Read by screen readers and should briefly describe the content or purpose of the video. If left empty, either the title or alt text configured in the media module will be used, instead.",
+                        "autoPlay": "Autoplay is allowed by many browsers only when the video is muted.<br>With autoplay, a cover is not meaningful because playback starts immediately and no confirmation is needed.",
+                        "minHeight": "Enter the minimum height with your desired unit. For example: 200px",
+                        "playsInline": "On iOS, videos often open fullscreen. Enable this option to keep playback inline.",
+                        "showCover": "The cover configured in the media selection will be displayed until the user confirms to load the video via click."
+                    },
+                    "label": {
+                        "ariaLabel": "Screen reader title",
+                        "autoPlay": "Play automatically",
+                        "loop": "Play in a loop",
+                        "minHeight": "Minimum height",
+                        "muted": "Play muted",
+                        "playsInline": "Play inline on iOS devices",
+                        "showControls": "Show controls",
+                        "showCover": "Load only after confirmation"
+                    },
+                    "placeholder": {
+                        "ariaLabel": "Enter screen reader title...",
+                        "minHeight": "Enter minimum height..."
+                    }
+                },
+                "label": "Video"
             },
             "vimeoVideo": {
                 "config": {
@@ -3234,6 +3314,7 @@
             "accept": "Accept",
             "acceptMessage": "Customer group has been changed",
             "alert": "Access to customer group \"{name}\" requested.",
+            "customerInactiveMessage": "Inactive customers cannot be accepted or declined to any customer group.",
             "decline": "Decline",
             "declineMessage": "Request has been declined",
             "errorMessage": "Cannot process request",
@@ -4320,7 +4401,10 @@
                 "placeholderDeliveryStatus": "Select shipping status...",
                 "placeholderOrderStatus": "Select order status...",
                 "placeholderPaymentStatus": "Select payment status...",
-                "titleSetStatus": "Assign status"
+                "titleSetStatus": "Assign status",
+                "transitionWarning": {
+                    "message": "Be careful when using status transitions, as they can lead to failing flows if the status transition isn't valid. Consider enabling \"Force status transitions\" to avoid such issues."
+                }
             },
             "tag": {
                 "labelAddTag": "Add tag",
@@ -4385,6 +4469,7 @@
             "orderTransactionCaptureRefund": "Order transaction capture refund",
             "paid": "Paid",
             "paidPartially": "Paid partially",
+            "password": "Password",
             "paymentMethod": "Payment method",
             "pending": "Pending",
             "placed": "Placed",
@@ -4423,8 +4508,7 @@
                 "profile": "Profile",
                 "records": "Records",
                 "size": "Size",
-                "state": "Status",
-                "user": "User"
+                "state": "Status"
             },
             "contextMenu": {
                 "abortProcess": "Abort process",
@@ -4436,6 +4520,10 @@
                 "showLogInfo": "Open log information",
                 "showProfile": "Show profile",
                 "showResults": "Show summary"
+            },
+            "detail": {
+                "ExportLabel": "Export",
+                "importLabel": "Import"
             },
             "dryrun": "Dry run",
             "emptyState": {
@@ -4794,7 +4882,7 @@
         },
         "index": {
             "buttonLogin": "Log in",
-            "buttonSsoLogin": "Log in with Shopware SSO",
+            "buttonSsoLogin": "Log in with Shopware",
             "forgottenPasswordLink": "Did you forget your password?",
             "headlineForm": "Log in to your Shopware store",
             "headlineMain": "Hello!",
@@ -4811,6 +4899,7 @@
             "messageInvalidScope": "Invalid scope request.",
             "messageServerError": "The authorization server encountered an unexpected condition.",
             "messageUnsupportedGrantType": "Authorization grant type not supported by authorization server.",
+            "orContinueWith": "Or continue with",
             "placeholderPassword": "Enter your password...",
             "placeholderUsername": "Enter your username...",
             "subheadlineMain": "Welcome back."
@@ -4977,6 +5066,8 @@
             "emptyStateSubTitle": "Add email templates by clicking the \"add\" button.",
             "emptyStateTitle": "No email templates yet",
             "errorMediaItemDuplicated": "Media item already assigned",
+            "tabHeaderFooter": "Headers and Footers",
+            "tabMailTemplates": "Templates",
             "textDeleteConfirm": "Are you sure you want to delete the email template \"{subject}\"?",
             "textMailTemplateOverview": "Email templates",
             "titleMailFooterList": "Footer",
@@ -5058,7 +5149,9 @@
                 "download": "Download",
                 "horizontal": "Horizontal",
                 "move": "Move",
+                "removeCover": "Remove cover",
                 "replace": "Replace",
+                "setCover": "Set cover image",
                 "settings": "Settings",
                 "vertical": "Vertical"
             },
@@ -5126,6 +5219,9 @@
         },
         "sw-media-save-modal": {
             "titleModal": "Save in media"
+        },
+        "sw-model-viewer": {
+            "titleModal": "Model Viewer"
         }
     },
     "sw-meteor": {
@@ -5764,6 +5860,7 @@
         },
         "stateCard": {
             "cardTitle": "Status",
+            "cartTitleChangeState": "Change status",
             "draftPlaceholder": "Draft",
             "headlineDeliveryState": "Delivery status",
             "headlineOrderState": "Order status",
@@ -5772,6 +5869,7 @@
             "labelErrorStateChange": "An error occured while updating the status:",
             "labelHistory": "Status set {time} by {author}",
             "labelIntegration": "Integration",
+            "labelInternalComment": "Internal comment",
             "labelLastEditedBy": "Last edited by",
             "labelLastEditedByIntegration": "Last edited by {integrationName} (Integration)",
             "labelNoDeliveryState": "No deliveries yet",
@@ -5787,6 +5885,7 @@
                 "createdAt": "Date",
                 "delivery": "Shipping",
                 "entity": "Changed",
+                "internalComment": "Internal comment",
                 "order": "Order",
                 "transaction": "Payment",
                 "user": "Changed By"
@@ -6186,12 +6285,17 @@
                 "placeholder": "Enter a product number..."
             },
             "productStatesFilter": {
+                "deprecationWarning": "The product states filter is deprecated and will be removed in v6.8. Please use the product type filter instead.",
                 "label": "Product states",
                 "options": {
                     "digital": "Digital",
                     "physical": "Physical"
                 },
                 "placeholder": "Select product state..."
+            },
+            "productTypeFilter": {
+                "label": "Product type",
+                "placeholder": "Select product type..."
             },
             "releaseDateFilter": {
                 "label": "Release date"
@@ -6371,6 +6475,7 @@
             "cardTitleProperties": "Available properties",
             "columnProperty": "Property",
             "columnValue": "Property value",
+            "descriptionEmptyState": "Manage properties here.",
             "emptyStateNoOptionsDescription": "Create properties and property values first, then return here to assign them.",
             "emptyStateNoOptionsTitle": "No values available",
             "emptyStateNoSelectedOptionsDescription": "Please select values from the search above.",
@@ -6466,6 +6571,10 @@
             "cardTitleProperties": "Properties",
             "cardTitleSellingPackaging": "Selling & Packaging Information"
         },
+        "type": {
+            "digital": "Digital",
+            "physical": "Physical"
+        },
         "variations": {
             "backVariationsButton": "Back",
             "configuratorCardTitle": "Variant generator",
@@ -6544,8 +6653,10 @@
             "generatedListDeleteModalButtonDelete": "Delete",
             "generatedListDeleteModalMessage": "Do you really want to delete this variant?",
             "generatedListDeleteModalMessagePlural": "Do you really want to delete these variants?",
+            "generatedListMessageDeleteError": "An unexpected error occurred. Please refresh the page to try again.",
             "generatedListMessageDeleteErrorCanonicalUrl": "Variant could not be deleted because it is being used as the canonical url template.",
             "generatedListMessageDeleteSuccess": "Variant has been deleted.",
+            "generatedListMessageGenerateError": "An unexpected error occurred. Please refresh the page to try again.",
             "generatedListMessageSaveError": "Variant could not be saved.",
             "generatedListMessageSaveSuccess": "Variant has been saved.",
             "generatedVariationCardTitle": "Variants",
@@ -6597,6 +6708,12 @@
             "messageSaveSuccess": "Dynamic product group \"{name}\" has been saved.",
             "placeholderDescription": "Enter description...",
             "placeholderName": "Enter title...",
+            "productStatesFilterWarning": "This dynamic product group still uses the deprecated product states filter. It will be removed in v6.8 – please switch to the product type filter instead.",
+            "productStreamIndexingWarning": {
+                "action": "Learn more in our documentation",
+                "message": "Some features may not work as expected: <ul><li>Category pages may not reflect changes until the HTTP cache expires or is manually cleared.</li><li>The rule condition \"Item in dynamic product group\" will never be true.</li></ul>",
+                "title": "Dynamic Product Group indexing is disabled"
+            },
             "textHeadline": "New dynamic product group",
             "titleCard": "General information",
             "titleFilter": "Conditions",
@@ -6762,6 +6879,9 @@
         },
         "tabGeneral": {
             "title": "General"
+        },
+        "tabPrivacyPreferences": {
+            "title": "Privacy preferences"
         },
         "tabSearchPreferences": {
             "alert_elasticsearch": {
@@ -7309,6 +7429,30 @@
             "textHeadline": "Review",
             "titleCardComment": "Comment"
         },
+        "filters": {
+            "customerFilter": {
+                "label": "Customer",
+                "placeholder": "Filter by Customer..."
+            },
+            "languageFilter": {
+                "label": "Language",
+                "placeholder": "Filter by Language..."
+            },
+            "pointsFilter": {
+                "label": "Rating (Stars)"
+            },
+            "productFilter": {
+                "label": "Product",
+                "placeholder": "Filter by Product..."
+            },
+            "salesChannelFilter": {
+                "label": "Sales Channel",
+                "placeholder": "Filter by Sales Channel..."
+            },
+            "statusFilter": {
+                "label": "Approved"
+            }
+        },
         "general": {
             "descriptionTextModule": "Manage reviews here.",
             "mainMenuItemGeneral": "Reviews",
@@ -7355,6 +7499,10 @@
                     },
                     "anonymizeIp": {
                         "label": "Anonymise IP"
+                    },
+                    "trackOffcanvasCart": {
+                        "helpText": "When enabled, a 'view_cart' event is also fired when the offcanvas cart opens, not just on the dedicated cart page. Useful for detailed funnel analysis but may inflate cart view metrics.",
+                        "label": "Track offcanvas cart"
                     },
                     "trackOrders": {
                         "label": "Track orders"
@@ -7695,6 +7843,11 @@
             "mainMenuItemGeneral": "Settings"
         },
         "index": {
+            "search": {
+                "noResultsDescription": "Settings couldn't be found. Try to use another search term.",
+                "noResultsHeadline": "No entries found",
+                "placeholder": "Find settings..."
+            },
             "tabAutomation": "Automation",
             "tabCommerce": "Commerce",
             "tabContent": "Content",
@@ -7975,6 +8128,7 @@
     "sw-settings-custom-field": {
         "customField": {
             "detail": {
+                "bannerSearchableEnabled": "It is recommended to reindex the data, if the search status has changed, to ensure accurate search results.",
                 "buttonAddOption": "Add option",
                 "buttonEditApply": "Apply changes",
                 "helpTextEntitySelect": "The entity type cannot be changed once the custom field has been created.",
@@ -7982,6 +8136,7 @@
                 "infoText": "If a custom field is created, the according snippet for all of your snippet sets will be created as well. The snippet will be named \"customFields.{name}\".",
                 "labelAllowCartExpose": "Available in shopping carts",
                 "labelAllowCustomerWrite": "Modifiable via Store API",
+                "labelAllowSearchable": "Include in search",
                 "labelCustomFieldPosition": "Position",
                 "labelCustomFieldType": "Type",
                 "labelDate": "Date",
@@ -8009,6 +8164,7 @@
                 "titleNewCustomField": "New custom field",
                 "tooltipAllowCartExpose": "Activate, to make this custom field available in the payload of shopping cart line items. This is required in order to initially use this custom field in the Rule Builder or custom templates.",
                 "tooltipAllowCustomerWrite": "When active, the Store API is allowed to modify this field. This can be used to store custom data if adding new fields to the storefront. For example for new fields in the registration form.",
+                "tooltipAllowSearchable": "When active, this custom field will be indexed and can be used in search configurations. If this field is not required for the search, it should be disabled to reduce the index storage size  and improve the performance of the search.",
                 "tooltipCartExposeDisabled": "This setting can currently not be changed because the custom field is in use by one or more conditions in the Rule Builder.",
                 "tooltipCustomFieldPosition": "Controls this custom field's position on detail pages.",
                 "tooltipStoreApiAware": "When active, this field will be available in the Store API. This option can be disabled to store custom data only internally and not make it available via the Store API."
@@ -8345,6 +8501,7 @@
             "labelDefaultSearchResultSorting": "Default search result sorting",
             "labelDefaultSorting": "Default sorting",
             "mainMenuItemGeneral": "Products",
+            "messageSaveDefaultValuesEmpty": "Default value is required",
             "messageSaveError": "Configuration could not be saved due to: \"{message}\"",
             "messageSaveSuccess": "Configuration saved.",
             "placeholderDefaultSearchResultSorting": "Select a default search result sorting...",
@@ -8532,12 +8689,6 @@
         }
     },
     "sw-settings-media": {
-        "3d": {
-            "lightIntensity": {
-                "helpText": "Change the light intensity in the 3D view.",
-                "label": "Light Intensity"
-            }
-        },
         "general": {
             "buttonSave": "Save",
             "description": "Manage media settings here.",
@@ -8816,6 +8967,8 @@
             "placeholderName": "Set a name for this rule...",
             "placeholderPriority": "Set a priority for this rule...",
             "placeholderTags": "Enter a tag...",
+            "placeholderType": "Enter a type...",
+            "productStatesConditionWarning": "The condition \"Item with product state\" is deprecated and will be removed in v6.8. Please use \"Item with product type\" instead.",
             "productStreamIndexingWarning": {
                 "action": "Learn more in our documentation",
                 "message": "The condition “Item in dynamic product group” will never be true.",
@@ -9707,6 +9860,60 @@
         }
     },
     "sw-settings-usage-data": {
+        "consent-modal": {
+            "actions": {
+                "save-preferences": "Save preferences",
+                "share-all-data": "Share all",
+                "share-nothing": "Share nothing"
+            },
+            "external-links": {
+                "data-use-details": {
+                    "label": "shopware.com/en/data-use-details",
+                    "link": "https://www.shopware.com/en/data-use-details/"
+                },
+                "label": "For full details, see {data-use-details} and our {privacy-policy}.",
+                "privacy-policy": {
+                    "label": "Privacy Policy",
+                    "link": "https://www.shopware.com/en/privacy/"
+                }
+            },
+            "intro": "By sharing store and user data, you help us understand how the Administration is used and develop improvements that make your daily work easier.",
+            "opt-out-info": "You can opt out at any time via the settings, and Profile settings.",
+            "promises": {
+                "gdpr-compliant": "GDPR compliant",
+                "no-third-party": "No data is shared with third parties",
+                "securely-processed": "Securely stored data"
+            },
+            "share-store-data": "By sharing store data, you help us understand how the Administration is used and develop improvements that make your daily work easier.",
+            "share-user-data": "By sharing your user data, you help us understand how the Administration is used and develop improvements that make your daily work easier.",
+            "store-data": {
+                "description": "Combined data from {order}, {diagnostic}, and {store} helps us improve features. Please confirm you’re authorized to give consent for your company.",
+                "emphasizes": {
+                    "diagnostic": "diagnostics",
+                    "order": "orders",
+                    "store": "store data"
+                },
+                "help-text": {
+                    "diagnostic": "<strong>Diagnostic data</strong> within Shopware refers to the information related to system health, errors, and performance metrics of the platform. This includes details such as system logs, error messages, server response times, and other technical indicators. Analysing this data helps us to quickly identify, address, and deploy fixes for common issues or vulnerabilities, maintaining the integrity of the platform.",
+                    "order": "<strong>Order data</strong> within Shopware refers to the detailed information about customer orders placed on the platform. This includes specifics such as products ordered, quantities, prices, origin, payment methods, shipment, etc.. We analyze this data to understand trends and patterns that help us to enhance features as well as develop new services designed to improve your business success. We don’t collect personal data from your customers that can be used to identify a single person.",
+                    "store": "<strong>Store data</strong> within Shopware pertains to all the information related to your online storefront. Such as products, listings, prices, images, descriptions, etc., and metadata about your shop's setup, such as themes and plugins. We don’t collect personal data that can be used to identify an admin user or a storefront visitor. Using aggregated store data, we can provide insights via machine learning such as emerging market trends, allowing you to adjust product offerings or marketing strategies accordingly."
+                },
+                "label-checkbox": "Share store data",
+                "title": "Store data"
+            },
+            "title": "Help us improve",
+            "user-data": {
+                "description": "We use {data} about how you interact with the Administration to improve its usability and performance.",
+                "emphasizes": {
+                    "data": "data"
+                },
+                "help-text": {
+                    "data": "<strong>Usage data</strong> within Shopware pertains to the information related to how admin users and storefront vistors interact with our platform. This includes details like interactions with different Shopware admin modules, pages viewed, duration of visits, click paths, and user actions within the platform and storefront. By evaluating the usage data, we can identify areas of the platform that are frequently visit or avoid to measure feature adoption, leading to potential improvements in layout, design, and functionality."
+                },
+                "label-checkbox": "Share my data",
+                "title": "My data"
+            }
+        },
         "general": {
             "description": "Configure to share usage data with us to improve Shopware.",
             "mainMenuItemGeneral": "Data sharing",

@@ -306,6 +306,7 @@
             "contact_form_send": "Contactformulier verzonden",
             "customer_group_registration_accepted": "Aanvraag voor klantgroep geaccepteerd",
             "customer_group_registration_declined": "Klantengroep registratieverzoek geweigerd",
+            "customer_password_changed": "Wachtwoord van de klant gewijzigd",
             "customer_recovery_request": "Klant vraagt een nieuw wachtwoord aan",
             "mail_after_create_message": "E-mail aangemaakt",
             "mail_before_send": "E-mail wordt verzonden",
@@ -503,6 +504,7 @@
             "FRAMEWORK__DELETE_RESTRICTED": "Verwijderen is mislukt.",
             "FRAMEWORK__MISSING_PRIVILEGE_ERROR": "Machtigingen ontbreken.",
             "FRAMEWORK__RATE_LIMIT_EXCEEDED": "Te veel verzoeken. Wacht {seconds} seconden voordat u het opnieuw probeert.",
+            "FRAMEWORK__ROUTE_BLOCKED_MESSAGE": "De URL {path} conflicteert met de bestaande route {blockedSegment} en kan niet worden gebruikt.",
             "INVALID_MAIL": "Voer een geldig e-mailadres in.",
             "INVALID_MEDIA_URL": "Vul een geldige URL in om een bestand te uploaden.",
             "INVALID_URL": "Vul een geldige URL in.",
@@ -731,6 +733,7 @@
                     "product": "Product"
                 },
                 "lineItemProductStates": "Artikel met productstatus",
+                "lineItemProductType": "Artikel met producttype",
                 "lineItemPromotedRule": "Object wordt gepromoveerd",
                 "lineItemPropertyRule": "Item met een variant of eigenschapswaarde",
                 "lineItemPropertyValueRule": "Object met eigendomswaarde",
@@ -821,6 +824,14 @@
                     "options": {
                         "is-download": "Digitaal",
                         "is-physical": "Fysiek"
+                    }
+                }
+            },
+            "cartLineItemProductType": {
+                "productType": {
+                    "options": {
+                        "digital": "Digitaal",
+                        "physical": "Fysiek"
                     }
                 }
             },
@@ -980,6 +991,8 @@
             "messageNoResults": "Geen resultaten gevonden voor \"{term}\"."
         },
         "sw-field": {
+            "ariaLinkInheritance": "Overerving koppelen",
+            "ariaUnlinkInheritance": "Overerving ontkoppelen",
             "notification": {
                 "notificationCopyFailureMessage": "De tekst kon niet naar het klembord worden gekopieerd.",
                 "notificationCopySuccessMessage": "De tekst is naar het klembord gekopieerd."
@@ -1085,10 +1098,24 @@
             "labelContextMenuCopyLink": "Link kopiëren",
             "labelContextMenuDetail": "Details",
             "labelContextMenuMove": "Verplaatsen",
+            "labelContextMenuRemoveCover": "Deksel verwijderen",
             "labelContextMenuRename": "Hernoemen",
             "labelContextMenuReplace": "Vervangen",
+            "labelContextMenuSetCover": "Omslagafbeelding instellen",
             "labelUploading": "Wordt geüpload...",
             "notification": {
+                "coverRemoveSuccess": {
+                    "message": "De omslagafbeelding is verwijderd."
+                },
+                "coverSaveError": {
+                    "message": "De omslagafbeelding kon niet worden opgeslagen."
+                },
+                "coverSaveSuccess": {
+                    "message": "De omslagafbeelding is opgeslagen."
+                },
+                "coverSelectionInvalid": {
+                    "message": "Selecteer een afbeelding om als omslag te gebruiken."
+                },
                 "errorBlankItemName": {
                     "message": "Media item kan niet worden opgeslagen. Voeg een bestandsnaam toe."
                 },
@@ -1218,7 +1245,8 @@
         "sw-media-preview-v2": {
             "fallbackAudioTagSupport": "Uw browser ondersteunt deze audiotag niet",
             "fallbackVideoTagSupport": "Uw browser ondersteunt deze videotag niet",
-            "textNoMedia": "Geen media beschikbaar"
+            "textNoMedia": "Geen media beschikbaar",
+            "warningUnsupportedFormat": "Het formaat \"{format}\" wordt mogelijk niet in alle browsers ondersteund."
         },
         "sw-media-upload": {
             "buttonFileUpload": "Bestanden uploaden",
@@ -1234,6 +1262,9 @@
                 "failure": {
                     "message": "Fout bij het uploaden."
                 },
+                "illegalFileType": {
+                    "message": "Het bestand \"{name}\" kon niet worden geüpload. Dit bestandstype wordt niet ondersteund."
+                },
                 "illegalFileUrl": {
                     "message": "Uploaden vanaf lokale URLs niet toegestaan.",
                     "title": "Ongeldige URL"
@@ -1241,9 +1272,22 @@
                 "illegalFilename": {
                     "message": "De bestandsnaam \"{fileName}\" bevat ongeldige speciale tekens."
                 },
+                "payloadTooLarge": {
+                    "message": "Het bestand is te groot. Verklein de bestandsgrootte of controleer de serverconfiguratie."
+                },
+                "requestCanceled": {
+                    "message": "De upload is geannuleerd."
+                },
                 "success": {
                     "message": "Geen bestand opgeslagen. | Een bestand opgeslagen. | {count} / {total} bestanden opgeslagen."
+                },
+                "transportError": {
+                    "message": "Het uploaden is mislukt vanwege een verbinding of een time-out op de server. Controleer de limieten van je verbinding of server."
                 }
+            },
+            "snackbar": {
+                "errorMessage": "Bestand kon niet worden geüpload. | Sommige bestanden konden niet worden geüpload.",
+                "message": "Bestand uploaden | Bestanden uploaden"
             }
         },
         "sw-media-upload-v2": {
@@ -1537,7 +1581,7 @@
         "ariaLabelButtonClose": "Zijbalk sluiten",
         "ariaLabelButtonCollapse": "Zijbalk samenvouwen",
         "ariaLabelButtonOpen": "Zijbalk openen",
-        "buttonCollapse": "ineenstorting"
+        "buttonCollapse": "Uitvouwen"
     },
     "sw-ai-copilot-warning": {
         "text": "AI-reacties kunnen onnauwkeurig of misleidend zijn."
@@ -2332,6 +2376,9 @@
                 }
             },
             "video": {
+                "video": {
+                    "label": "Video"
+                },
                 "vimeoVideo": {
                     "label": "Vimeo video"
                 },
@@ -2708,21 +2755,26 @@
                 "config": {
                     "warning": "Ongefilterde HTML-code kan leiden tot veiligheidsrisico's. Voeg alleen HTML-code van betrouwbare bronnen in en test je wijzigingen voordat je ze publiceert."
                 },
-                "label": "HTML"
+                "label": "HTML",
+                "labelContent": "Inhoud"
             },
             "image": {
                 "config": {
+                    "helpText": {
+                        "ariaLabel": "Deze tekst wordt door schermlezers voorgelezen als linktekst.",
+                        "fetchPriorityHigh": "Activeer deze optie als de afbeelding de eerste is op de pagina. De afbeelding krijgt dan het attribuut 'fetchpriority=\"high\"' toegewezen, zodat de browser de afbeelding met een hogere prioriteit moet laden. Dit kan helpen om de Largest Contentful Paint (LCP) te verbeteren.",
+                        "isDecorative": "Als deze optie is ingeschakeld, wordt de beeldinformatie niet voorgelezen door schermlezers. Dit betekent dat de tags „alt” en „title” leeg blijven.",
+                        "minHeight": "Voer de minimale hoogte in met de gewenste eenheid. Bijvoorbeeld: 200px",
+                        "useFetchPriorityOnFirstItem": "Als deze optie is ingeschakeld, wordt de eerste afbeelding met een hogere prioriteit geladen. Dit kan de snelheid verbeteren waarmee de pagina in de browser wordt weergegeven."
+                    },
                     "label": {
                         "ariaLabel": "Beschrijving van de link",
-                        "ariaLabelHelpText": "Deze tekst wordt door schermlezers voorgelezen als linktekst.",
+                        "fetchPriorityHigh": "Hoogste prioriteit ophalen",
                         "isDecorative": "Markeer de afbeelding als decoratief",
-                        "isDecorativeHelpText": "Als deze optie is ingeschakeld, wordt de beeldinformatie niet voorgelezen door schermlezers.",
                         "linkNewTab": "Open link in nieuw tabblad",
                         "linkTo": "Doel van de link",
                         "minHeight": "Minimale hoogte",
-                        "minHeightHelpText": "Voer de minimale hoogte in bij de gewenste eenheid. Bijvoorbeeld: 200px",
-                        "useFetchPriorityOnFirstItem": "Laad de eerste afbeelding met een hogere prioriteit",
-                        "useFetchPriorityOnFirstItemHelpText": "Als deze optie is ingeschakeld, wordt de eerste afbeelding met een hogere prioriteit geladen. Dit kan de snelheid verbeteren waarmee de pagina in de browser wordt weergegeven."
+                        "useFetchPriorityOnFirstItem": "Laad de eerste afbeelding met een hogere prioriteit"
                     },
                     "placeholder": {
                         "enterMinHeight": "Minimale hoogte invoeren...",
@@ -2759,7 +2811,8 @@
                         "navigationDots": "Puntennavigatie",
                         "navigationPositionInside": "Binnen",
                         "navigationPositionNone": "Geen",
-                        "navigationPositionOutside": "Buiten"
+                        "navigationPositionOutside": "Buiten",
+                        "sliderItems": "Afbeeldingen"
                     }
                 },
                 "label": "Slider met afbeeldingen"
@@ -2808,6 +2861,14 @@
                         "descriptionAndReviews": "Beschrijving van het product & beoordelingen",
                         "reviews": "Beoordelingen"
                     }
+                }
+            },
+            "productHeading": {
+                "logo": {
+                    "label": "Logo van de fabrikant"
+                },
+                "name": {
+                    "label": "Product Naam"
                 }
             },
             "productListing": {
@@ -2933,6 +2994,32 @@
                 },
                 "label": "Tekst"
             },
+            "video": {
+                "config": {
+                    "helpText": {
+                        "ariaLabel": "Voorgelezen door schermlezers en moet de inhoud of het doel van de video kort beschrijven. Indien leeg gelaten, wordt in plaats daarvan de titel of de alt-tekst gebruikt die in de mediamodule is geconfigureerd.",
+                        "autoPlay": "Autoplay is in veel browsers alleen toegestaan als de video gedempt is.<br>Bij autoplay heeft een cover geen betekenis omdat het afspelen onmiddellijk start en er geen bevestiging nodig is.",
+                        "minHeight": "Voer de minimale hoogte in met de gewenste eenheid. Bijvoorbeeld: 200px",
+                        "playsInline": "Op iOS worden video's vaak op volledig scherm geopend. Schakel deze optie in om de weergave inline te houden.",
+                        "showCover": "De cover die in de mediaselectie is geconfigureerd, wordt weergegeven totdat de gebruiker met een klik bevestigt dat de video is geladen."
+                    },
+                    "label": {
+                        "ariaLabel": "Titel van de schermlezer",
+                        "autoPlay": "Video automatisch afspelen",
+                        "loop": "Video herhalend afspelen",
+                        "minHeight": "Minimale hoogte",
+                        "muted": "Speel gedempt",
+                        "playsInline": "Speel online op iOS-apparaten",
+                        "showControls": "Video navigatie tonen",
+                        "showCover": "Video alleen laden na bevestiging door de gebruiker"
+                    },
+                    "placeholder": {
+                        "ariaLabel": "Voer de titel van de schermlezer in...",
+                        "minHeight": "Voer de minimumhoogte in..."
+                    }
+                },
+                "label": "Video"
+            },
             "vimeoVideo": {
                 "config": {
                     "helpText": {
@@ -2977,6 +3064,16 @@
             "moduleTitle": "Belevingswerelden",
             "placeholderSearchBar": "Lay-outs zoeken...",
             "privacyNotice": "Door doorgaan te selecteren, bevestigt u dat u onze <a href=\"%privacyUrl%\">-informatie over gegevensbescherming</a> hebt gelezen en onze <a href=\"%tosUrl%\">algemene voorwaarden</a>hebt geaccepteerd."
+        },
+        "inherit": {
+            "formBanner": "Deze indeling heeft overgeërfde velden. Dit betekent dat zolang de overgeërfde staat actief is, de inhoud wordt overgeërfd. Overgenomen velden kunnen worden ontkoppeld door op het koppelingssymbool te klikken. Als u nogmaals op het symbool klikt, wordt de overgeërfde status teruggezet.",
+            "tooltip": "Dit veld bestaat niet in de basislay-out en kan niet worden overgenomen.",
+            "unlinkAllButton": "Alle velden opnieuw instellen.",
+            "unlinkAllConfirmText": "Weet je zeker dat je alle velden opnieuw wilt instellen? Hiermee wordt alle niet-gekoppelde inhoud definitief verwijderd.",
+            "unlinkAllTitle": "Alle velden opnieuw instellen",
+            "unlinkFieldConfirmText": "Weet je zeker dat je de erfenis wilt herstellen? Hiermee worden alle aangepaste gegevens van dit veld verwijderd en worden waarden van het bovenliggende element hersteld.",
+            "unlinkFieldTitle": "Overname herstellen",
+            "unlinkNotice": "Sommige overgeërfde velden zijn ontkoppeld."
         },
         "list": {
             "gridHeaderAssignedPages": "Toegewezen pagina's",
@@ -3214,6 +3311,7 @@
             "accept": "Akkoord",
             "acceptMessage": "De klantgroep is verwijderd",
             "alert": "Toegang tot klantgroep \"{name}\" verzocht.",
+            "customerInactiveMessage": "Inactieve klanten kunnen voor geen enkele klantgroep worden geaccepteerd of geweigerd.",
             "decline": "Weigeren",
             "declineMessage": "Verzoek is afgewezen",
             "errorMessage": "Kan verzoek niet verwerken",
@@ -4300,7 +4398,10 @@
                 "placeholderDeliveryStatus": "Selecteer de verzendstatus...",
                 "placeholderOrderStatus": "Status van bestelling selecteren...",
                 "placeholderPaymentStatus": "Selecteer betalingsstatus...",
-                "titleSetStatus": "Status toewijzen"
+                "titleSetStatus": "Status toewijzen",
+                "transitionWarning": {
+                    "message": "Wees voorzichtig bij het gebruik van statusovergangen, omdat deze kunnen leiden tot falende stromen als de statusovergang niet geldig is. Overweeg om „Forceer statusovergangen” in te schakelen om dergelijke problemen te voorkomen."
+                }
             },
             "tag": {
                 "labelAddTag": "Tag toevoegen",
@@ -4365,6 +4466,7 @@
             "orderTransactionCaptureRefund": "Terugbetaling van de bestelling, transactie vastleggen",
             "paid": "Betaald",
             "paidPartially": "Gedeeltelijk betaald",
+            "password": "Wachtwoord",
             "paymentMethod": "Betaalwijze",
             "pending": "In afwachting",
             "placed": "Geplaatst",
@@ -4403,8 +4505,7 @@
                 "profile": "Profiel",
                 "records": "Records",
                 "size": "Maat",
-                "state": "Status",
-                "user": "Gebruiker"
+                "state": "Status"
             },
             "contextMenu": {
                 "abortProcess": "Proces afbreken",
@@ -4416,6 +4517,10 @@
                 "showLogInfo": "Log-informatie openen",
                 "showProfile": "Profiel tonen",
                 "showResults": "Samenvatting tonen"
+            },
+            "detail": {
+                "ExportLabel": "Export",
+                "importLabel": "Import"
             },
             "dryrun": "Proefdraai",
             "emptyState": {
@@ -4791,6 +4896,7 @@
             "messageInvalidScope": "De opgegeven scope is ongeldig.",
             "messageServerError": "Bij de verificatieserver is een algemene fout opgetreden.",
             "messageUnsupportedGrantType": "Grant-type wordt niet ondersteund.",
+            "orContinueWith": "Of ga verder met",
             "placeholderPassword": "Voer je wachtwoord in...",
             "placeholderUsername": "Voer je gebruikersnaam in...",
             "subheadlineMain": "Welkom terug."
@@ -4877,6 +4983,7 @@
         },
         "modal": {
             "affectedList": "De volgende verkoopkanalen worden beïnvloed:",
+            "confirmButton": "Ga toch verder",
             "mainContent": "Er is al een kop- en voettekstsjabloon toegewezen aan de volgende verkoopkanalen. Als je doorgaat en opslaat, wordt die opdracht overschreven met je wijzigingen.",
             "title": "Meerdere opdrachten"
         }
@@ -4956,6 +5063,8 @@
             "emptyStateSubTitle": "Voeg e-mailsjablonen toe door op de knop „Toevoegen” te klikken.",
             "emptyStateTitle": "Nog geen e-mailsjablonen",
             "errorMediaItemDuplicated": "Media item al gebruikt",
+            "tabHeaderFooter": "Kop- en voettekst",
+            "tabMailTemplates": "Sjablonen",
             "textDeleteConfirm": "Wil je het e-mailsjabloon \"{subject}\" echt verwijderen?",
             "textMailTemplateOverview": "E-mailsjablonen",
             "titleMailFooterList": "Voetteksten",
@@ -5037,7 +5146,9 @@
                 "download": "Download",
                 "horizontal": "Horizontaal",
                 "move": "Verplaatsen",
+                "removeCover": "Deksel verwijderen",
                 "replace": "Vervangen",
+                "setCover": "Omslagafbeelding instellen",
                 "settings": "Instellingen",
                 "vertical": "Verticaal"
             },
@@ -5102,6 +5213,12 @@
             "labelTabItemLibrary": "Bibliotheek",
             "labelTabItemUpload": "Bestanden uploaden",
             "titleModal": "Media selecteren"
+        },
+        "sw-media-save-modal": {
+            "titleModal": "Opslaan in media"
+        },
+        "sw-model-viewer": {
+            "titleModal": "Modelviewer"
         }
     },
     "sw-meteor": {
@@ -5619,7 +5736,6 @@
                     "and": "en",
                     "by": "door",
                     "lastChanged": "Laatst gewijzigd",
-                    "on": "op",
                     "with": "met"
                 }
             },
@@ -6163,12 +6279,17 @@
                 "placeholder": "Voer een productnummer in..."
             },
             "productStatesFilter": {
+                "deprecationWarning": "Het filter met de productstatus is verouderd en wordt verwijderd in v6.8. Gebruik in plaats daarvan het producttypefilter.",
                 "label": "Statussen van het product",
                 "options": {
                     "digital": "Digitaal",
                     "physical": "Fysiek"
                 },
                 "placeholder": "Selecteer de staat van het product..."
+            },
+            "productTypeFilter": {
+                "label": "Type",
+                "placeholder": "Selecteer het producttype..."
             },
             "releaseDateFilter": {
                 "label": "Release datum"
@@ -6348,6 +6469,7 @@
             "cardTitleProperties": "Eigenschappen",
             "columnProperty": "Eigenschap",
             "columnValue": "Eigenschapswaarde",
+            "descriptionEmptyState": "Beheer van attribbuten.",
             "emptyStateNoOptionsDescription": "Maak eerst eigenschappen en eigenschapswaarden aan, keer dan terug om ze toe te wijzen.",
             "emptyStateNoOptionsTitle": "Geen gegevens beschikbaar",
             "emptyStateNoSelectedOptionsDescription": "Selecteer opties uit de bovenstaande zoekresultaten.",
@@ -6442,6 +6564,10 @@
             "cardTitleMeasurement": "Afmetingen van het product",
             "cardTitleProperties": "Eigenschappen",
             "cardTitleSellingPackaging": "Verkoop- en verpakkingsinformatie"
+        },
+        "type": {
+            "digital": "Digitaal",
+            "physical": "Fysiek"
         },
         "variations": {
             "backVariationsButton": "Terug",
@@ -6574,6 +6700,12 @@
             "messageSaveSuccess": "De productgroep \"{name}\" is opgeslagen.",
             "placeholderDescription": "Voer een beschrijving in …",
             "placeholderName": "Titel invoeren...",
+            "productStatesFilterWarning": "Deze dynamische productgroep gebruikt nog steeds het filter voor verouderde productstatussen. Het wordt verwijderd in v6.8 — schakel in plaats daarvan over naar het producttypefilter.",
+            "productStreamIndexingWarning": {
+                "action": "Meer informatie vindt u in onze documentatie",
+                "message": "Sommige functies werken mogelijk niet zoals verwacht: op de categoriepagina's van <ul><li>worden wijzigingen mogelijk pas weergegeven nadat de HTTP-cache is verlopen of handmatig is gewist.</li><li>De regelvoorwaarde „Artikel in dynamische productgroep” zal nooit waar zijn.</li></ul>",
+                "title": "Dynamische productgroepindexering is uitgeschakeld"
+            },
             "textHeadline": "Nieuwe dynamische productgroep",
             "titleCard": "Algemene informatie",
             "titleFilter": "Voorwaarden",
@@ -6739,6 +6871,9 @@
         },
         "tabGeneral": {
             "title": "Generaal"
+        },
+        "tabPrivacyPreferences": {
+            "title": "Privacyvoorkeuren"
         },
         "tabSearchPreferences": {
             "alert_elasticsearch": {
@@ -7286,6 +7421,30 @@
             "textHeadline": "Beoordeling",
             "titleCardComment": "Commentaar"
         },
+        "filters": {
+            "customerFilter": {
+                "label": "Klant",
+                "placeholder": "Op klant filteren..."
+            },
+            "languageFilter": {
+                "label": "Taal",
+                "placeholder": "Filteren op taal..."
+            },
+            "pointsFilter": {
+                "label": "Beoordeling (sterren)"
+            },
+            "productFilter": {
+                "label": "Product",
+                "placeholder": "Op product filteren..."
+            },
+            "salesChannelFilter": {
+                "label": "Verkoopkanaal",
+                "placeholder": "Filteren op verkoopkanaal..."
+            },
+            "statusFilter": {
+                "label": "Goedgekeurd"
+            }
+        },
         "general": {
             "descriptionTextModule": "Beheer van beoordelingen",
             "mainMenuItemGeneral": "Beoordelingen",
@@ -7333,6 +7492,10 @@
                     "anonymizeIp": {
                         "label": "Anoniem IP"
                     },
+                    "trackOffcanvasCart": {
+                        "helpText": "Indien ingeschakeld, wordt een 'view_cart'-gebeurtenis ook geactiveerd wanneer de offcanvas-winkelwagen wordt geopend, niet alleen op de speciale winkelwagenpagina. Handig voor gedetailleerde trechteranalyses, maar kan de statistieken van de winkelwagenweergave verhogen.",
+                        "label": "Canvaswagen met track off"
+                    },
                     "trackOrders": {
                         "label": "Bestellingen tracken"
                     },
@@ -7366,6 +7529,7 @@
             "descriptionTaxCalculation": "Het wijzigen van deze instelling kan leiden tot boekhoudkundige problemen met externe betalingsproviders. Controleer hoe de btw wordt berekend door betalingsproviders die u in dienst heeft, voordat u wijzigingen aanbrengt.",
             "favouriteLabel": "Verkoopkanaal markeren als favoriet",
             "footerCategory": "Startpunt footernavigatie",
+            "foreignKeyDelete": "Dit verkoopkanaal kan niet worden verwijderd omdat het nog steeds wordt gebruikt door {assignment}.",
             "helpTextTaxCalculation": {
                 "label": "Als een belastingdienst is geactiveerd, worden deze instellingen mogelijk overschreven. Je kunt dit controleren in {link}.",
                 "linkText": "instellingen"
@@ -7671,6 +7835,11 @@
             "mainMenuItemGeneral": "Instellingen"
         },
         "index": {
+            "search": {
+                "noResultsDescription": "De instellingen konden niet worden gevonden. Probeer een andere zoekterm te gebruiken.",
+                "noResultsHeadline": "Geen inzendingen gevonden",
+                "placeholder": "Instellingen zoeken..."
+            },
             "tabAutomation": "Automatisering",
             "tabCommerce": "Handel",
             "tabContent": "Inhoud",
@@ -7951,6 +8120,7 @@
     "sw-settings-custom-field": {
         "customField": {
             "detail": {
+                "bannerSearchableEnabled": "Het wordt aanbevolen om de gegevens opnieuw te indexeren, als de zoekstatus is gewijzigd, om nauwkeurige zoekresultaten te garanderen.",
                 "buttonAddOption": "Optie toevoegen",
                 "buttonEditApply": "Wijzigingen toepassen",
                 "helpTextEntitySelect": "Het entiteitstype kan niet worden gewijzigd nadat het aangepaste veld is gemaakt.",
@@ -7958,6 +8128,7 @@
                 "infoText": "Als er een aangepast veld wordt gemaakt, wordt ook het betreffende fragment voor al uw snippetsets gemaakt. Het fragment krijgt de naam „CustomFields.{name}”.",
                 "labelAllowCartExpose": "Verkrijgbaar in winkelwagentjes",
                 "labelAllowCustomerWrite": "Aanpasbaar via Store API",
+                "labelAllowSearchable": "In de zoekopdracht opnemen",
                 "labelCustomFieldPosition": "Positie",
                 "labelCustomFieldType": "Type",
                 "labelDate": "Datum",
@@ -7985,6 +8156,7 @@
                 "titleNewCustomField": "Nieuw vrij tekstveld",
                 "tooltipAllowCartExpose": "Activeer, om dit aangepaste veld beschikbaar te maken in de payload van artikelen in de winkelwagenlijn. Dit is vereist om dit aangepaste veld in eerste instantie te kunnen gebruiken in de Rule Builder of aangepaste sjablonen.",
                 "tooltipAllowCustomerWrite": "Indien actief, mag de Store API dit veld wijzigen. Dit kan worden gebruikt om aangepaste gegevens op te slaan als u nieuwe velden aan de webwinkel toevoegt. Bijvoorbeeld voor nieuwe velden in het registratieformulier.",
+                "tooltipAllowSearchable": "Indien actief, wordt dit aangepaste veld geïndexeerd en kan het worden gebruikt in zoekconfiguraties. Als dit veld niet vereist is voor de zoekopdracht, moet het worden uitgeschakeld om de omvang van de indexopslag te beperken en de prestaties van de zoekopdracht te verbeteren.",
                 "tooltipCartExposeDisabled": "Deze instelling kan momenteel niet worden gewijzigd, omdat het aangepaste veld wordt gebruikt door een of meer voorwaarden in de Rule Builder.",
                 "tooltipCustomFieldPosition": "Bepaalt de positie van het vrije tekstveld op de detailpagina's.",
                 "tooltipStoreApiAware": "Indien actief, is dit veld beschikbaar in de Store API. Deze optie kan worden uitgeschakeld om aangepaste gegevens alleen intern op te slaan en niet beschikbaar te maken via de Store API."
@@ -8321,6 +8493,7 @@
             "labelDefaultSearchResultSorting": "Standaard sortering van zoekresultaten",
             "labelDefaultSorting": "Standaardsortering",
             "mainMenuItemGeneral": "Producten",
+            "messageSaveDefaultValuesEmpty": "De standaardwaarde is vereist",
             "messageSaveError": "Configuratie kon niet worden opgeslagen.",
             "messageSaveSuccess": "Configuratie opgeslagen.",
             "placeholderDefaultSearchResultSorting": "Selecteer een standaardsortering van zoekresultaten...",
@@ -8338,6 +8511,7 @@
                         "_score": "_score",
                         "customField": "Extra velden",
                         "product": {
+                            "available": "Beschikbaar",
                             "cheapestPrice": "Goedkoopste product prijs",
                             "createdAt": "Aanmaakdatum",
                             "listingPrices": "Prijs aanbieding product",
@@ -8507,12 +8681,6 @@
         }
     },
     "sw-settings-media": {
-        "3d": {
-            "lightIntensity": {
-                "helpText": "Wijzig de lichtintensiteit in de 3D-weergave.",
-                "label": "Lichtintensiteit"
-            }
-        },
         "general": {
             "buttonSave": "Opslaan",
             "description": "Beheer hier de media-instellingen.",
@@ -8718,6 +8886,7 @@
                 "height": "Hoogte",
                 "length": "Lengte",
                 "manufacturerNumber": "Fabrikantnummer",
+                "packUnit": "Verpakkingseenheid",
                 "property": "Eigenschap",
                 "referencePrice": "Stukprijs",
                 "releaseDate": "Verschijningsdatum",
@@ -8790,6 +8959,8 @@
             "placeholderName": "Geef deze regel een naam …",
             "placeholderPriority": "Geef deze regel een prioriteit …",
             "placeholderTags": "Voer tags in…",
+            "placeholderType": "Voer een type in...",
+            "productStatesConditionWarning": "De voorwaarde „Artikel met productstatus” is verouderd en wordt verwijderd in v6.8. Gebruik in plaats daarvan „Artikel met producttype”.",
             "productStreamIndexingWarning": {
                 "action": "Meer informatie vindt u in onze documentatie",
                 "message": "De voorwaarde „Artikel in dynamische productgroep” zal nooit waar zijn.",
@@ -9681,6 +9852,60 @@
         }
     },
     "sw-settings-usage-data": {
+        "consent-modal": {
+            "actions": {
+                "save-preferences": "Voorkeuren opslaan",
+                "share-all-data": "Alles delen",
+                "share-nothing": "Niets delen"
+            },
+            "external-links": {
+                "data-use-details": {
+                    "label": "shopware.com/en/gegevens over het gebruik van gegevens",
+                    "link": "https://www.shopware.com/en/data-use-details/"
+                },
+                "label": "Zie {data-use-details} en onze {privacy-policy}voor meer informatie.",
+                "privacy-policy": {
+                    "label": "Privacybeleid",
+                    "link": "https://www.shopware.com/en/privacy/"
+                }
+            },
+            "intro": "Door winkel- en gebruikersgegevens te delen, helpt u ons te begrijpen hoe de administratie wordt gebruikt en verbeteringen te ontwikkelen die uw dagelijkse werk eenvoudiger maken.",
+            "opt-out-info": "Je kunt je op elk gewenst moment afmelden via de instellingen en de profielinstellingen.",
+            "promises": {
+                "gdpr-compliant": "Voldoet aan de AVG",
+                "no-third-party": "Er worden geen gegevens gedeeld met derden",
+                "securely-processed": "Veilig opgeslagen gegevens"
+            },
+            "share-store-data": "Door winkelgegevens te delen, helpt u ons te begrijpen hoe de administratie wordt gebruikt en verbeteringen te ontwikkelen die uw dagelijkse werk eenvoudiger maken.",
+            "share-user-data": "Door uw gebruikersgegevens te delen, helpt u ons te begrijpen hoe de administratie wordt gebruikt en verbeteringen te ontwikkelen die uw dagelijkse werk eenvoudiger maken.",
+            "store-data": {
+                "description": "Gecombineerde gegevens van {order}, {diagnostic}en {store} helpen ons om functies te verbeteren. Bevestig dat je bevoegd bent om toestemming te geven voor je bedrijf.",
+                "emphasizes": {
+                    "diagnostic": "diagnostiek",
+                    "order": "orders",
+                    "store": "gegevens opslaan"
+                },
+                "help-text": {
+                    "diagnostic": "<strong>Diagnostische gegevens</strong> binnen Shopware verwijst naar de informatie met betrekking tot de systeemstatus, fouten en prestatiestatistieken van het platform. Dit omvat details zoals systeemlogboeken, foutmeldingen, responstijden van de server en andere technische indicatoren. Door deze gegevens te analyseren, kunnen we snel oplossingen voor veelvoorkomende problemen of kwetsbaarheden identificeren, aanpakken en implementeren, waarbij de integriteit van het platform behouden blijft.",
+                    "order": "<strong>Bestelgegevens</strong> binnen Shopware verwijst naar de gedetailleerde informatie over bestellingen van klanten die op het platform zijn geplaatst. Dit omvat specifieke informatie zoals bestelde producten, hoeveelheden, prijzen, herkomst, betaalmethoden, verzending, enz. We analyseren deze gegevens om inzicht te krijgen in trends en patronen die ons helpen om functies te verbeteren en nieuwe diensten te ontwikkelen die zijn ontworpen om het succes van uw bedrijf te verbeteren. We verzamelen geen persoonlijke gegevens van uw klanten die kunnen worden gebruikt om één persoon te identificeren.",
+                    "store": "<strong>Bewaar gegevens</strong> in Shopware heeft betrekking op alle informatie met betrekking tot uw online winkel. Zoals producten, aanbiedingen, prijzen, afbeeldingen, beschrijvingen, enz., en metagegevens over de instellingen van je winkel, zoals thema's en plug-ins. We verzamelen geen persoonlijke gegevens die kunnen worden gebruikt om een beheerdergebruiker of een winkelbezoeker te identificeren. Met behulp van geaggregeerde winkelgegevens kunnen we via machine learning inzichten verschaffen, zoals trends in opkomende markten, zodat u productaanbod of marketingstrategieën daarop kunt aanpassen."
+                },
+                "label-checkbox": "Winkelgegevens delen",
+                "title": "Gegevens opslaan"
+            },
+            "title": "Help ons te verbeteren",
+            "user-data": {
+                "description": "We gebruiken {data} over hoe u omgaat met de administratie om de bruikbaarheid en prestaties te verbeteren.",
+                "emphasizes": {
+                    "data": "gegevens"
+                },
+                "help-text": {
+                    "data": "<strong>Gebruiksgegevens</strong> binnen Shopware hebben betrekking op de manier waarop beheerders en winkelbezoekers omgaan met ons platform. Dit omvat details zoals interacties met verschillende Shopware-beheermodules, bekeken pagina's, duur van bezoeken, klikpaden en gebruikersacties binnen het platform en de winkel. Door de gebruiksgegevens te evalueren, kunnen we delen van het platform identificeren die vaak worden bezocht of vermeden om de acceptatie van functies te meten, wat kan leiden tot mogelijke verbeteringen in lay-out, ontwerp en functionaliteit."
+                },
+                "label-checkbox": "Mijn gegevens delen",
+                "title": "Mijn gegevens"
+            }
+        },
         "general": {
             "description": "Configureer om gebruiksgegevens met ons te delen om Shopware te verbeteren.",
             "mainMenuItemGeneral": "Het delen van gegevens",

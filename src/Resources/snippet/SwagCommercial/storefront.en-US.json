@@ -170,6 +170,7 @@
             "placeholderTriggerNotificationPercentOfBudgetValue": "Enter % value...",
             "placeholderTriggerNotificationType": "Select condition...",
             "recipientsRequiredFieldMessage": "Please select at least one recipient.",
+            "reviewFormInfoAlert": "Please note that employees cannot approve their own orders.",
             "searchAriaLabel": "Search employees",
             "searchPlaceholder": "Enter search term...",
             "selectAll": "Select all (%count%)",
@@ -185,6 +186,7 @@
             "unassignedGroupName": "Unassigned"
         },
         "error": {
+            "budgetApprovalNotAllowed": "Approval not possible due to missing permissions.",
             "dateInvalid": "Invalid date format for type: %value%.",
             "notificationConfigInvalid": "Notification config must be an array containing keys 'type' and 'value'.",
             "notificationConfigType": "Invalid notification type {{ value }}. Allowed types: {{ choices }}.",
@@ -214,6 +216,9 @@
             "tableHeaderUsed": "Used"
         },
         "noResultsFound": "No results found.",
+        "order": {
+            "budgetUsed": "Budget used"
+        },
         "renews": {
             "biannual": "Biannual",
             "monthly": "Monthly",
@@ -287,14 +292,15 @@
                 "subscriptionsSubtitle": "Here you can find your subscriptions sorted by date.",
                 "subscriptionsTitle": "Subscriptions",
                 "viewAllSubscriptions": "View all subscriptions",
-                "viewSubscription": "View subscription"
+                "viewSubscription": "View subscription",
+                "viewSubscriptions": "View subscriptions"
             },
             "box": {
                 "label": "{0} One-Time Shipment | {1} %interval% (Starting Today)",
                 "shippingCosts": "{0} Free shipping costs for recurring delivery | {1} Shipping costs for recurring delivery: %shippingCosts%"
             },
             "checkout": {
-                "experienceHint": "<b>You are currently in a separate subscription checkout.</b><br>Your existing cart is saved. Once you finish this subscription, you’ll be taken back to your shopping cart."
+                "experienceHint": "<b>You are currently in a separate subscription checkout.</b><br>Your existing cart is saved. Once you finish this subscription or leave, you’ll be taken back to your shopping cart."
             },
             "confirm": {
                 "submitDisclaimer": "By clicking on \"Submit order\" you confirm that your subscription will be automatically renewed and your account will be automatically debited according to your payment method in accordance with the subscription price in the \"Products\" section. You can cancel your subscription at any time via the customer account. A minimum number of deliveries may apply."
@@ -395,6 +401,7 @@
             "tableHeaderFirstName": "First name",
             "tableHeaderLastName": "Last name",
             "tableHeaderName": "Name",
+            "tableHeaderOrganizationUnit": "Organization unit",
             "tableHeaderRole": "Role",
             "tableHeaderStatus": "Status",
             "title": "Employees"
@@ -459,7 +466,8 @@
                 "organization_unit_address": "Organization Unit Addresses",
                 "pending_order": "Pending Order Management",
                 "quote": "Quote management",
-                "role": "Role management"
+                "role": "Role management",
+                "subscription": "Subscriptions"
             },
             "permissionTooltip": "This permission depends on:",
             "permissions": {
@@ -501,6 +509,9 @@
                         "delete": "Delete billing address",
                         "update": "Edit billing address"
                     },
+                    "budget": {
+                        "read": "View all budgets from assigned organization unit"
+                    },
                     "create": "Create new organization unit",
                     "delete": "Delete organization unit",
                     "order": {
@@ -514,6 +525,9 @@
                         "create": "Create new shipping address",
                         "delete": "Delete shipping address",
                         "update": "Edit shipping address"
+                    },
+                    "subscription": {
+                        "read": "View all subscriptions from assigned organization unit"
                     },
                     "update": "Edit organization unit"
                 },
@@ -536,6 +550,11 @@
                     "delete": "Can delete roles",
                     "edit": "Can edit roles",
                     "read": "Can view roles"
+                },
+                "subscription": {
+                    "read": {
+                        "all": "View all subscriptions"
+                    }
                 }
             },
             "title": "Role details"
@@ -552,6 +571,12 @@
             "title": "Roles"
         },
         "seePermissions": "See permissions",
+        "subscriptions": {
+            "account": {
+                "subscriptionEmployee": "Created by",
+                "subscriptionOrganization": "Organization Unit"
+            }
+        },
         "tableHeader": {
             "searchButton": "Search",
             "searchPlaceholder": "Enter search term..."
@@ -839,7 +864,7 @@
             "messageButtonLabel": "Show messages",
             "netTotal": "Total (net)",
             "orderNumber": "Order number",
-            "plusTax": "VAT (%rate%%)",
+            "plusTax": "Tax (%rate%%)",
             "quoteTotal": "Quote total",
             "requestedAt": "Created at",
             "requestedBy": "Created by",

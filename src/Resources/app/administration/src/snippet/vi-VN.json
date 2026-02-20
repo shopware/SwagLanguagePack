@@ -306,6 +306,7 @@
             "contact_form_send": "Mẫu liên hệ đã gửi",
             "customer_group_registration_accepted": "Yêu cầu đăng ký nhóm khách hàng được chấp nhận",
             "customer_group_registration_declined": "Yêu cầu đăng ký nhóm khách hàng bị từ chối",
+            "customer_password_changed": "Mật khẩu khách hàng đã thay đổi",
             "customer_recovery_request": "Khách hàng yêu cầu mật khẩu mới",
             "mail_after_create_message": "Email đã tạo",
             "mail_before_send": "Email đang được gửi",
@@ -503,6 +504,7 @@
             "FRAMEWORK__DELETE_RESTRICTED": "Xóa bị lỗi.",
             "FRAMEWORK__MISSING_PRIVILEGE_ERROR": "Thiếu quyền.",
             "FRAMEWORK__RATE_LIMIT_EXCEEDED": "Quá nhiều yêu cầu. Vui lòng đợi {seconds} giây trước khi thử lại.",
+            "FRAMEWORK__ROUTE_BLOCKED_MESSAGE": "URL {path} xung đột với tuyến hiện có {blockedSegment} và không thể được sử dụng.",
             "INVALID_MAIL": "Vui lòng nhập địa chỉ email hợp lệ.",
             "INVALID_MEDIA_URL": "Vui lòng nhập một URL hợp lệ để tải lên một tập tin.",
             "INVALID_URL": "Vui lòng nhập một url hợp lệ.",
@@ -731,6 +733,7 @@
                     "product": "Sản Phẩm"
                 },
                 "lineItemProductStates": "Mục có trạng thái sản phẩm",
+                "lineItemProductType": "Mặt hàng có loại sản phẩm",
                 "lineItemPromotedRule": "Mục được quảng bá",
                 "lineItemPropertyRule": "Mục có giá trị mẫu mã hoặc thuộc tính",
                 "lineItemPropertyValueRule": "Mục có giá trị tài sản",
@@ -821,6 +824,14 @@
                     "options": {
                         "is-download": "Kỹ thuật số",
                         "is-physical": "Vật lý"
+                    }
+                }
+            },
+            "cartLineItemProductType": {
+                "productType": {
+                    "options": {
+                        "digital": "Kỹ thuật số",
+                        "physical": "Vật lý"
                     }
                 }
             },
@@ -980,6 +991,8 @@
             "messageNoResults": "Không tìm thấy kết quả cho \"{term}”."
         },
         "sw-field": {
+            "ariaLinkInheritance": "Kế thừa liên kết",
+            "ariaUnlinkInheritance": "Hủy liên kết thừa kế",
             "notification": {
                 "notificationCopyFailureMessage": "Không thể sao chép văn bản vào bảng tạm.",
                 "notificationCopySuccessMessage": "Văn bản đã được sao chép vào clipboard."
@@ -1085,10 +1098,24 @@
             "labelContextMenuCopyLink": "Sao chép liên kết",
             "labelContextMenuDetail": "Thông tin chi tiết",
             "labelContextMenuMove": "Di chuyển",
+            "labelContextMenuRemoveCover": "Tháo nắp",
             "labelContextMenuRename": "Đổi tên",
             "labelContextMenuReplace": "Thay thế",
+            "labelContextMenuSetCover": "Đặt hình ảnh bìa",
             "labelUploading": "Đang tải lên...",
             "notification": {
+                "coverRemoveSuccess": {
+                    "message": "Ảnh bìa đã bị xóa."
+                },
+                "coverSaveError": {
+                    "message": "Hình ảnh bìa không thể được lưu."
+                },
+                "coverSaveSuccess": {
+                    "message": "Ảnh bìa đã được lưu."
+                },
+                "coverSelectionInvalid": {
+                    "message": "Vui lòng chọn một hình ảnh để sử dụng làm bìa."
+                },
                 "errorBlankItemName": {
                     "message": "Không thể lưu mục phương tiện: Vui lòng nhập tên."
                 },
@@ -1218,7 +1245,8 @@
         "sw-media-preview-v2": {
             "fallbackAudioTagSupport": "Trình duyệt của bạn không hỗ trợ thẻ âm thanh",
             "fallbackVideoTagSupport": "Trình duyệt của bạn không hỗ trợ thẻ video",
-            "textNoMedia": "Không có phương tiện nào"
+            "textNoMedia": "Không có phương tiện nào",
+            "warningUnsupportedFormat": "Định dạng \"{format}\" có thể không được hỗ trợ trong tất cả các trình duyệt."
         },
         "sw-media-upload": {
             "buttonFileUpload": "Tải lên tệp",
@@ -1234,6 +1262,9 @@
                 "failure": {
                     "message": "Lỗi khi tải lên tệp."
                 },
+                "illegalFileType": {
+                    "message": "Không thể tải lên tệp \"{name}\". Loại tệp này không được hỗ trợ."
+                },
                 "illegalFileUrl": {
                     "message": "Không được phép tải lên từ URL địa phương.",
                     "title": "URL không hợp lệ"
@@ -1241,9 +1272,22 @@
                 "illegalFilename": {
                     "message": "Tên tập tin \"{fileName}\" chứa các ký tự không hợp lệ."
                 },
+                "payloadTooLarge": {
+                    "message": "File quá lớn Vui lòng giảm kích thước tệp hoặc kiểm tra cấu hình máy chủ."
+                },
+                "requestCanceled": {
+                    "message": "Việc tải lên đã bị hủy."
+                },
                 "success": {
                     "message": "Không có tập tin nào được lưu. | tập tin đã được lưu. | {count} / {total} tập tin đã được lưu."
+                },
+                "transportError": {
+                    "message": "Tải lên không thành công do kết nối hoặc thời gian chờ máy chủ. Vui lòng kiểm tra giới hạn kết nối hoặc máy chủ của bạn."
                 }
+            },
+            "snackbar": {
+                "errorMessage": "Không thể tải lên tệp | Không thể tải lên một số tệp.",
+                "message": "Tải lên tập tin | Tải lên tập tin"
             }
         },
         "sw-media-upload-v2": {
@@ -2332,6 +2376,9 @@
                 }
             },
             "video": {
+                "video": {
+                    "label": "Video"
+                },
                 "vimeoVideo": {
                     "label": "Vimeo video"
                 },
@@ -2708,21 +2755,26 @@
                 "config": {
                     "warning": "Mã HTML không được lọc có thể dẫn đến rủi ro bảo mật. Vui lòng chỉ chèn mã HTML từ các nguồn đáng tin cậy và kiểm tra các thay đổi của bạn trước khi xuất bản chúng."
                 },
-                "label": "HTML"
+                "label": "HTML",
+                "labelContent": "Nội dung"
             },
             "image": {
                 "config": {
+                    "helpText": {
+                        "ariaLabel": "Văn bản này sẽ được đọc bởi trình đọc màn hình dưới dạng văn bản liên kết.",
+                        "fetchPriorityHigh": "Kích hoạt tùy chọn này nếu hình ảnh là hình ảnh đầu tiên trên trang. Hình ảnh sau đó sẽ được gán thuộc tính 'fetchpriority=\"high\"', yêu cầu trình duyệt tải nó với mức độ ưu tiên cao hơn. Điều này có thể giúp cải thiện Largest Contentful Paint (LCP).",
+                        "isDecorative": "Khi tùy chọn này được bật, thông tin hình ảnh sẽ không được đọc ra bởi trình đọc màn hình. Điều này có nghĩa là các thẻ “alt” và “title” sẽ vẫn trống.",
+                        "minHeight": "Nhập chiều cao tối thiểu với đơn vị mong muốn của bạn. Ví dụ: 200px",
+                        "useFetchPriorityOnFirstItem": "Khi tùy chọn này được bật, hình ảnh đầu tiên được tải với mức độ ưu tiên cao hơn. Điều này có thể cải thiện tốc độ hiển thị trang trong trình duyệt."
+                    },
                     "label": {
                         "ariaLabel": "Mô tả liên kết",
-                        "ariaLabelHelpText": "Văn bản này sẽ được đọc bởi trình đọc màn hình dưới dạng văn bản liên kết.",
+                        "fetchPriorityHigh": "Ưu tiên tìm nạp cao",
                         "isDecorative": "Đánh dấu hình ảnh là trang trí",
-                        "isDecorativeHelpText": "Khi tùy chọn này được bật, thông tin hình ảnh sẽ không được đọc ra bởi trình đọc màn hình.",
                         "linkNewTab": "Mở liên kết trong tab mới",
                         "linkTo": "Mục tiêu liên kết",
                         "minHeight": "Chiều cao tối thiểu",
-                        "minHeightHelpText": "Nhập chiều cao tối thiểu với đơn vị mong muốn của bạn. Ví dụ: 200px",
-                        "useFetchPriorityOnFirstItem": "Tải hình ảnh đầu tiên với mức độ ưu tiên cao hơn",
-                        "useFetchPriorityOnFirstItemHelpText": "Khi tùy chọn này được bật, hình ảnh đầu tiên được tải với mức độ ưu tiên cao hơn. Điều này có thể cải thiện tốc độ hiển thị trang trong trình duyệt."
+                        "useFetchPriorityOnFirstItem": "Tải hình ảnh đầu tiên với mức độ ưu tiên cao hơn"
                     },
                     "placeholder": {
                         "enterMinHeight": "Nhập chiều cao tối thiểu...",
@@ -2759,7 +2811,8 @@
                         "navigationDots": "Điều hướng dấu chấm",
                         "navigationPositionInside": "Bên trong",
                         "navigationPositionNone": "Không có",
-                        "navigationPositionOutside": "Bên ngoài"
+                        "navigationPositionOutside": "Bên ngoài",
+                        "sliderItems": "Hình ảnh"
                     }
                 },
                 "label": "Trượt hình ảnh"
@@ -2808,6 +2861,14 @@
                         "descriptionAndReviews": "Mô tả & đánh giá sản phẩm",
                         "reviews": "Đánh giá"
                     }
+                }
+            },
+            "productHeading": {
+                "logo": {
+                    "label": "Logo nhà sản xuất"
+                },
+                "name": {
+                    "label": "Tên sản phẩm"
                 }
             },
             "productListing": {
@@ -2933,6 +2994,32 @@
                 },
                 "label": "Văn bản"
             },
+            "video": {
+                "config": {
+                    "helpText": {
+                        "ariaLabel": "Đọc bởi trình đọc màn hình và nên mô tả ngắn gọn nội dung hoặc mục đích của video. Nếu để trống, tiêu đề hoặc văn bản thay thế được cấu hình trong mô-đun phương tiện sẽ được sử dụng thay thế.",
+                        "autoPlay": "Tự động phát được nhiều trình duyệt chỉ cho phép khi video bị tắt tiếng.<br>Với tính năng tự động phát, ảnh bìa không có ý nghĩa vì việc phát lại bắt đầu ngay lập tức và không cần xác nhận.",
+                        "minHeight": "Nhập chiều cao tối thiểu với đơn vị mong muốn của bạn. Ví dụ: 200px",
+                        "playsInline": "Trên iOS, video thường mở toàn màn hình. Bật tùy chọn này để giữ cho phát lại nội tuyến.",
+                        "showCover": "Bìa được cấu hình trong lựa chọn phương tiện truyền thông sẽ được hiển thị cho đến khi người dùng xác nhận tải video thông qua nhấp chuột."
+                    },
+                    "label": {
+                        "ariaLabel": "Tiêu đề trình đọc màn hình",
+                        "autoPlay": "Phát video tự động",
+                        "loop": "Phát video trong một vòng lặp",
+                        "minHeight": "Chiều cao tối thiểu",
+                        "muted": "Chơi tắt tiếng",
+                        "playsInline": "Chơi nội tuyến trên thiết bị iOS",
+                        "showControls": "Hiển thị điều khiển video",
+                        "showCover": "Chỉ tải video sau khi xác nhận bởi người dùng"
+                    },
+                    "placeholder": {
+                        "ariaLabel": "Nhập tiêu đề trình đọc màn hình...",
+                        "minHeight": "Nhập chiều cao tối thiểu..."
+                    }
+                },
+                "label": "Video"
+            },
             "vimeoVideo": {
                 "config": {
                     "helpText": {
@@ -2977,6 +3064,16 @@
             "moduleTitle": "Trải nghiệm mua sắm",
             "placeholderSearchBar": "Tìm kiếm bố trí...",
             "privacyNotice": "Bằng cách chọn tiếp tục, bạn xác nhận rằng bạn đã đọc thông tin bảo vệ dữ liệu <a href=\"%privacyUrl%\">của chúng tôi</a> và chấp nhận các điều khoản và điều kiện chung <a href=\"%tosUrl%\">của chúng tôi</a>."
+        },
+        "inherit": {
+            "formBanner": "Bố cục này đã kế thừa các trường. Có nghĩa là miễn là trạng thái thừa kế hoạt động, nội dung sẽ được kế thừa. Các trường kế thừa có thể được hủy liên kết bằng cách nhấp vào biểu tượng liên kết. Nhấp vào biểu tượng một lần nữa sẽ đặt trạng thái thừa kế trở lại.",
+            "tooltip": "Trường này không tồn tại trên bố cục cơ sở và không thể được kế thừa.",
+            "unlinkAllButton": "Đặt lại tất cả các trường.",
+            "unlinkAllConfirmText": "Bạn có chắc chắn muốn thiết lập lại tất cả các trường không? Điều này sẽ xóa vĩnh viễn tất cả nội dung chưa được liên kết.",
+            "unlinkAllTitle": "Đặt lại tất cả các trường",
+            "unlinkFieldConfirmText": "Bạn có chắc chắn muốn khôi phục quyền thừa kế? Thao tác này sẽ xóa tất cả dữ liệu tùy chỉnh của trường này và khôi phục các giá trị khỏi phần tử cha.",
+            "unlinkFieldTitle": "Khôi phục thừa kế",
+            "unlinkNotice": "Một số trường thừa kế đã bị hủy liên kết."
         },
         "list": {
             "gridHeaderAssignedPages": "Các trang được chỉ định",
@@ -3214,6 +3311,7 @@
             "accept": "Chấp nhận",
             "acceptMessage": "Nhóm khách hàng đã được thay đổi",
             "alert": "Yêu cầu truy cập vào nhóm khách hàng \"{name}\".",
+            "customerInactiveMessage": "Khách hàng không hoạt động không thể được chấp nhận hoặc từ chối cho bất kỳ nhóm khách hàng nào.",
             "decline": "Từ chối",
             "declineMessage": "Yêu cầu đã bị từ chối",
             "errorMessage": "Không thể xử lý yêu cầu",
@@ -4300,7 +4398,10 @@
                 "placeholderDeliveryStatus": "Chọn trạng thái vận chuyển...",
                 "placeholderOrderStatus": "Chọn trạng thái đơn hàng...",
                 "placeholderPaymentStatus": "Chọn trạng thái thanh toán...",
-                "titleSetStatus": "Gán trạng thái"
+                "titleSetStatus": "Gán trạng thái",
+                "transitionWarning": {
+                    "message": "Hãy cẩn thận khi sử dụng chuyển đổi trạng thái, vì chúng có thể dẫn đến luồng thất bại nếu quá trình chuyển trạng thái không hợp lệ. Cân nhắc bật “Buộc chuyển trạng thái” để tránh các vấn đề như vậy."
+                }
             },
             "tag": {
                 "labelAddTag": "Thêm thẻ",
@@ -4365,6 +4466,7 @@
             "orderTransactionCaptureRefund": "Hoàn tiền nắm bắt giao dịch đơn hàng",
             "paid": "Đã thanh toán",
             "paidPartially": "Trả một phần",
+            "password": "Mật khẩu",
             "paymentMethod": "Phương thức thanh toán",
             "pending": "Đang chờ xử lý",
             "placed": "Đặt",
@@ -4403,8 +4505,7 @@
                 "profile": "Hồ sơ Cá nhân",
                 "records": "Bản ghi",
                 "size": "Kích thước",
-                "state": "Trạng thái",
-                "user": "Người dùng"
+                "state": "Trạng thái"
             },
             "contextMenu": {
                 "abortProcess": "Quá trình hủy",
@@ -4416,6 +4517,10 @@
                 "showLogInfo": "Mở thông tin nhật ký",
                 "showProfile": "Hiển thị trang cá nhân",
                 "showResults": "Hiển thị tóm tắt"
+            },
+            "detail": {
+                "ExportLabel": "Xuất",
+                "importLabel": "Nhập"
             },
             "dryrun": "Chạy khô",
             "emptyState": {
@@ -4791,6 +4896,7 @@
             "messageInvalidScope": "Yêu cầu phạm vi không hợp lệ.",
             "messageServerError": "Máy chủ ủy quyền gặp phải một điều kiện bất ngờ.",
             "messageUnsupportedGrantType": "Loại cấp ủy quyền không được hỗ trợ bởi máy chủ ủy quyền.",
+            "orContinueWith": "Hoặc tiếp tục với",
             "placeholderPassword": "Nhập mật khẩu của bạn...",
             "placeholderUsername": "Nhập tên người dùng của bạn...",
             "subheadlineMain": "Chào mừng trở lại."
@@ -4877,6 +4983,7 @@
         },
         "modal": {
             "affectedList": "Các kênh bán hàng sau bị ảnh hưởng:",
+            "confirmButton": "Dù sao vẫn tiếp tục",
             "mainContent": "Đã có một mẫu đầu trang và chân trang được gán cho các kênh bán hàng sau đây. Nếu bạn tiếp tục và lưu, nhiệm vụ đó sẽ bị ghi đè bằng các thay đổi của bạn.",
             "title": "Nhiều bài tập"
         }
@@ -4956,6 +5063,8 @@
             "emptyStateSubTitle": "Thêm mẫu email bằng cách nhấp vào nút “thêm”.",
             "emptyStateTitle": "Chưa có mẫu email",
             "errorMediaItemDuplicated": "Mục phương tiện đã được gán",
+            "tabHeaderFooter": "Đầu trang và chân trang",
+            "tabMailTemplates": "Mẫu",
             "textDeleteConfirm": "Bạn có chắc muốn xóa mẫu email \"{subject}“không?",
             "textMailTemplateOverview": "Mẫu email",
             "titleMailFooterList": "Chân trang",
@@ -5037,7 +5146,9 @@
                 "download": "Tải xuống",
                 "horizontal": "Ngang",
                 "move": "Di chuyển",
+                "removeCover": "Tháo nắp",
                 "replace": "Thay thế",
+                "setCover": "Đặt hình ảnh bìa",
                 "settings": "Thiết đặt",
                 "vertical": "Dọc"
             },
@@ -5102,6 +5213,12 @@
             "labelTabItemLibrary": "Thư viện phương tiện",
             "labelTabItemUpload": "Tải lên tệp",
             "titleModal": "Chọn phương tiện"
+        },
+        "sw-media-save-modal": {
+            "titleModal": "Lưu trong phương tiện truyền thông"
+        },
+        "sw-model-viewer": {
+            "titleModal": "Trình xem mô hình"
         }
     },
     "sw-meteor": {
@@ -5619,7 +5736,6 @@
                     "and": "và",
                     "by": "bởi",
                     "lastChanged": "Thay đổi lần cuối",
-                    "on": "trên",
                     "with": "với"
                 }
             },
@@ -6163,12 +6279,17 @@
                 "placeholder": "Nhập số sản phẩm..."
             },
             "productStatesFilter": {
+                "deprecationWarning": "Bộ lọc trạng thái sản phẩm không được sử dụng và sẽ bị xóa trong v6.8. Vui lòng sử dụng bộ lọc loại sản phẩm thay thế.",
                 "label": "Trạng thái sản phẩm",
                 "options": {
                     "digital": "Kỹ thuật số",
                     "physical": "Vật lý"
                 },
                 "placeholder": "Chọn trạng thái sản phẩm..."
+            },
+            "productTypeFilter": {
+                "label": "Loại",
+                "placeholder": "Chọn loại sản phẩm..."
             },
             "releaseDateFilter": {
                 "label": "Ngày phát hành"
@@ -6348,6 +6469,7 @@
             "cardTitleProperties": "Thuộc tính có sẵn",
             "columnProperty": "Thuộc tính",
             "columnValue": "Giá trị thuộc tính",
+            "descriptionEmptyState": "Quản lý các thuộc tính tại đây.",
             "emptyStateNoOptionsDescription": "Tạo các thuộc tính và giá trị thuộc tính trước tiên, sau đó trở lại đây để gán chúng.",
             "emptyStateNoOptionsTitle": "Không có giá trị sẵn dùng",
             "emptyStateNoSelectedOptionsDescription": "Vui lòng chọn giá trị từ tìm kiếm ở trên.",
@@ -6442,6 +6564,10 @@
             "cardTitleMeasurement": "Đo lường sản phẩm",
             "cardTitleProperties": "Thuộc tính",
             "cardTitleSellingPackaging": "Thông tin bán hàng & đóng gói"
+        },
+        "type": {
+            "digital": "Kỹ thuật số",
+            "physical": "Vật lý"
         },
         "variations": {
             "backVariationsButton": "Quay lại",
@@ -6574,6 +6700,12 @@
             "messageSaveSuccess": "Nhóm sản phẩm động \"{name}\" đã được lưu.",
             "placeholderDescription": "Nhập mô tả...",
             "placeholderName": "Nhập tiêu đề...",
+            "productStatesFilterWarning": "Nhóm sản phẩm động này vẫn sử dụng bộ lọc trạng thái sản phẩm không dùng nữa. Nó sẽ bị xóa trong v6.8 - thay vào đó, vui lòng chuyển sang bộ lọc loại sản phẩm.",
+            "productStreamIndexingWarning": {
+                "action": "Tìm hiểu thêm trong tài liệu của chúng tôi",
+                "message": "Một số tính năng có thể không hoạt động như mong đợi: <ul><li>Các trang Danh mục có thể không phản ánh các thay đổi cho đến khi bộ nhớ cache HTTP hết hạn hoặc được xóa thủ công.</li><li>Điều kiện quy tắc “Mục trong nhóm sản phẩm động” sẽ không bao giờ đúng.</li></ul>",
+                "title": "Tính năng lập chỉ mục Nhóm sản phẩm động bị vô hiệu hóa"
+            },
             "textHeadline": "Nhóm sản phẩm động mới",
             "titleCard": "Thông tin chung",
             "titleFilter": "Điều kiện",
@@ -6739,6 +6871,9 @@
         },
         "tabGeneral": {
             "title": "Chung"
+        },
+        "tabPrivacyPreferences": {
+            "title": "Tùy chọn quyền riêng tư"
         },
         "tabSearchPreferences": {
             "alert_elasticsearch": {
@@ -7286,6 +7421,30 @@
             "textHeadline": "Xem lại",
             "titleCardComment": "Bình luận"
         },
+        "filters": {
+            "customerFilter": {
+                "label": "Khách hàng",
+                "placeholder": "Lọc theo Khách hàng..."
+            },
+            "languageFilter": {
+                "label": "Ngôn ngữ",
+                "placeholder": "Lọc theo ngôn ngữ..."
+            },
+            "pointsFilter": {
+                "label": "Xếp hạng (Sao)"
+            },
+            "productFilter": {
+                "label": "Sản Phẩm",
+                "placeholder": "Lọc theo sản phẩm..."
+            },
+            "salesChannelFilter": {
+                "label": "Kênh bán hàng",
+                "placeholder": "Lọc theo kênh bán hàng..."
+            },
+            "statusFilter": {
+                "label": "Được phê duyệt"
+            }
+        },
         "general": {
             "descriptionTextModule": "Quản lý đánh giá tại đây.",
             "mainMenuItemGeneral": "Đánh giá",
@@ -7333,6 +7492,10 @@
                     "anonymizeIp": {
                         "label": "IP ẩn danh"
                     },
+                    "trackOffcanvasCart": {
+                        "helpText": "Khi bật, sự kiện 'view_cart' cũng được kích hoạt khi giỏ hàng offcanvas mở ra, không chỉ trên trang giỏ hàng chuyên dụng. Hữu ích cho việc phân tích kênh chi tiết nhưng có thể làm tăng số liệu xem giỏ hàng.",
+                        "label": "Theo dõi giỏ hàng ngoài canvas"
+                    },
                     "trackOrders": {
                         "label": "Theo dõi đơn đặt hàng"
                     },
@@ -7366,6 +7529,7 @@
             "descriptionTaxCalculation": "Thay đổi cài đặt này có thể dẫn đến vấn đề kế toán với các nhà cung cấp thanh toán bên ngoài. Kiểm tra lại cách VAT được tính bởi các nhà cung cấp thanh toán mà bạn sử dụng, trước khi bạn thực hiện bất kỳ thay đổi nào.",
             "favouriteLabel": "Đánh dấu Kênh Sales là yêu thích",
             "footerCategory": "Điều hướng chân trang điểm nhập",
+            "foreignKeyDelete": "Kênh bán hàng này không thể bị xóa vì nó vẫn đang được sử dụng bởi {assignment}.",
             "helpTextTaxCalculation": {
                 "label": "Nếu nhà cung cấp dịch vụ thuế được kích hoạt, các cài đặt này có thể bị ghi đè. Bạn có thể kiểm tra điều này trong {link}.",
                 "linkText": "cài đặt"
@@ -7671,6 +7835,11 @@
             "mainMenuItemGeneral": "Cài đặt"
         },
         "index": {
+            "search": {
+                "noResultsDescription": "Không thể tìm thấy cài đặt. Cố gắng sử dụng một cụm từ tìm kiếm khác.",
+                "noResultsHeadline": "Không có mục nào được tìm thấy",
+                "placeholder": "Tìm cài đặt..."
+            },
             "tabAutomation": "Tự động hóa",
             "tabCommerce": "thương mại",
             "tabContent": "Nội dung",
@@ -7951,6 +8120,7 @@
     "sw-settings-custom-field": {
         "customField": {
             "detail": {
+                "bannerSearchableEnabled": "Bạn nên lập chỉ mục lại dữ liệu, nếu trạng thái tìm kiếm đã thay đổi, để đảm bảo kết quả tìm kiếm chính xác.",
                 "buttonAddOption": "Thêm tùy chọn",
                 "buttonEditApply": "Áp dụng thay đổi",
                 "helpTextEntitySelect": "Không thể thay đổi kiểu thực thể sau khi trường tùy chỉnh đã được tạo ra.",
@@ -7958,6 +8128,7 @@
                 "infoText": "Nếu một trường tùy chỉnh được tạo ra, đoạn mã theo cho tất cả các tập đoạn mã của bạn cũng sẽ được tạo ra. Đoạn mã sẽ được đặt tên là “CustomFields.{name}”.",
                 "labelAllowCartExpose": "Có sẵn trong giỏ hàng",
                 "labelAllowCustomerWrite": "Sửa đổi được thông qua API Store",
+                "labelAllowSearchable": "Bao gồm trong tìm kiếm",
                 "labelCustomFieldPosition": "Vị trí",
                 "labelCustomFieldType": "Loại",
                 "labelDate": "Ngày",
@@ -7985,6 +8156,7 @@
                 "titleNewCustomField": "Trường tùy chỉnh mới",
                 "tooltipAllowCartExpose": "Kích hoạt, để làm cho trường tùy chỉnh này có sẵn trong trọng tải của các mục hàng giỏ hàng. Điều này là bắt buộc để ban đầu sử dụng trường tùy chỉnh này trong Trình tạo quy tắc hoặc mẫu tùy chỉnh.",
                 "tooltipAllowCustomerWrite": "Khi hoạt động, API Store được phép sửa đổi trường này. Điều này có thể được sử dụng để lưu trữ dữ liệu tùy chỉnh nếu thêm trường mới vào cửa hàng. Ví dụ cho các trường mới trong biểu mẫu đăng ký.",
+                "tooltipAllowSearchable": "Khi hoạt động, trường tùy chỉnh này sẽ được lập chỉ mục và có thể được sử dụng trong cấu hình tìm kiếm. Nếu trường này không bắt buộc cho tìm kiếm, nó sẽ bị vô hiệu hóa để giảm kích thước lưu trữ chỉ mục và cải thiện hiệu suất tìm kiếm.",
                 "tooltipCartExposeDisabled": "Cài đặt này hiện không thể thay đổi, vì trường tùy chỉnh đang được sử dụng bởi một hoặc nhiều điều kiện trong Trình tạo quy tắc.",
                 "tooltipCustomFieldPosition": "Điều khiển vị trí của trường tùy chỉnh này trên các trang chi tiết.",
                 "tooltipStoreApiAware": "Khi hoạt động, trường này sẽ có sẵn trong API Store. Tùy chọn này có thể bị vô hiệu hóa để chỉ lưu trữ dữ liệu tùy chỉnh trong nội bộ và không cung cấp dữ liệu đó thông qua API Store."
@@ -8321,6 +8493,7 @@
             "labelDefaultSearchResultSorting": "Sắp xếp kết quả tìm kiếm mặc định",
             "labelDefaultSorting": "Sắp xếp mặc định",
             "mainMenuItemGeneral": "Sản Phẩm",
+            "messageSaveDefaultValuesEmpty": "Giá trị mặc định là bắt buộc",
             "messageSaveError": "Không thể lưu cấu hình.",
             "messageSaveSuccess": "Cấu hình đã lưu.",
             "placeholderDefaultSearchResultSorting": "Chọn sắp xếp kết quả tìm kiếm mặc định...",
@@ -8338,6 +8511,7 @@
                         "_score": "_score",
                         "customField": "Trường tùy chỉnh",
                         "product": {
+                            "available": "Có sẵn",
                             "cheapestPrice": "Giá sản phẩm rẻ nhất",
                             "createdAt": "Ngày tạo",
                             "listingPrices": "Giá niêm yết sản phẩm",
@@ -8507,12 +8681,6 @@
         }
     },
     "sw-settings-media": {
-        "3d": {
-            "lightIntensity": {
-                "helpText": "Thay đổi cường độ ánh sáng trong chế độ xem 3D.",
-                "label": "Cường độ ánh sáng"
-            }
-        },
         "general": {
             "buttonSave": "Lưu",
             "description": "Quản lý cài đặt phương tiện tại đây.",
@@ -8718,6 +8886,7 @@
                 "height": "Chiều cao",
                 "length": "Chiều dài",
                 "manufacturerNumber": "Số sản phẩm nhà sản xuất",
+                "packUnit": "Đơn vị gói",
                 "property": "Bất động sản",
                 "referencePrice": "Đơn giá",
                 "releaseDate": "Ngày phát hành",
@@ -8790,6 +8959,8 @@
             "placeholderName": "Đặt tên cho quy tắc này...",
             "placeholderPriority": "Đặt ưu tiên cho quy tắc này...",
             "placeholderTags": "Nhập thẻ...",
+            "placeholderType": "Nhập một loại...",
+            "productStatesConditionWarning": "Điều kiện “Mục có trạng thái sản phẩm” không được sử dụng và sẽ bị xóa trong v6.8. Vui lòng sử dụng “Item with product type” để thay thế.",
             "productStreamIndexingWarning": {
                 "action": "Tìm hiểu thêm trong tài liệu của chúng tôi",
                 "message": "Điều kiện “Mục trong nhóm sản phẩm động” sẽ không bao giờ đúng.",
@@ -9681,6 +9852,60 @@
         }
     },
     "sw-settings-usage-data": {
+        "consent-modal": {
+            "actions": {
+                "save-preferences": "Lưu tùy chọn",
+                "share-all-data": "Chia sẻ tất cả",
+                "share-nothing": "Không chia sẻ gì"
+            },
+            "external-links": {
+                "data-use-details": {
+                    "label": "shopware.com/vi/data-use-details",
+                    "link": "https://www.shopware.com/en/data-use-details/"
+                },
+                "label": "Để biết chi tiết đầy đủ, hãy xem {data-use-details} và {privacy-policy}của chúng tôi.",
+                "privacy-policy": {
+                    "label": "Chính sách bảo mật",
+                    "link": "https://www.shopware.com/en/privacy/"
+                }
+            },
+            "intro": "Bằng cách chia sẻ dữ liệu cửa hàng và người dùng, bạn giúp chúng tôi hiểu cách Quản trị được sử dụng và phát triển các cải tiến giúp công việc hàng ngày của bạn dễ dàng hơn.",
+            "opt-out-info": "Bạn có thể chọn không tham gia bất cứ lúc nào thông qua cài đặt và cài đặt Hồ sơ.",
+            "promises": {
+                "gdpr-compliant": "Tuân thủ GDPR",
+                "no-third-party": "Không có dữ liệu nào được chia sẻ với bên thứ ba",
+                "securely-processed": "Dữ liệu được lưu trữ an toàn"
+            },
+            "share-store-data": "Bằng cách chia sẻ dữ liệu cửa hàng, bạn giúp chúng tôi hiểu cách quản trị được sử dụng và phát triển các cải tiến giúp công việc hàng ngày của bạn dễ dàng hơn.",
+            "share-user-data": "Bằng cách chia sẻ dữ liệu người dùng của bạn, bạn giúp chúng tôi hiểu cách Quản trị được sử dụng và phát triển các cải tiến giúp công việc hàng ngày của bạn dễ dàng hơn.",
+            "store-data": {
+                "description": "Dữ liệu kết hợp từ {order}, {diagnostic}và {store} giúp chúng tôi cải thiện các tính năng. Vui lòng xác nhận bạn được ủy quyền đồng ý cho công ty của bạn.",
+                "emphasizes": {
+                    "diagnostic": "chẩn đoán",
+                    "order": "mệnh lệnh",
+                    "store": "lưu trữ dữ liệu"
+                },
+                "help-text": {
+                    "diagnostic": "<strong>Dữ liệu chẩn đoán</strong> trong Shopware đề cập đến thông tin liên quan đến tình trạng hệ thống, lỗi và chỉ số hiệu suất của nền tảng. Điều này bao gồm các chi tiết như nhật ký hệ thống, thông báo lỗi, thời gian phản hồi của máy chủ và các chỉ số kỹ thuật khác. Phân tích dữ liệu này giúp chúng tôi nhanh chóng xác định, giải quyết và triển khai các bản sửa lỗi cho các vấn đề hoặc lỗ hổng phổ biến, duy trì tính toàn vẹn của nền tảng.",
+                    "order": "<strong>Dữ liệu đơn hàng</strong> trong Shopware đề cập đến thông tin chi tiết về các đơn đặt hàng của khách hàng được đặt trên nền tảng. Điều này bao gồm các chi tiết cụ thể như sản phẩm được đặt hàng, số lượng, giá cả, xuất xứ, phương thức thanh toán, lô hàng, v.v. Chúng tôi phân tích dữ liệu này để hiểu các xu hướng và mô hình giúp chúng tôi nâng cao các tính năng cũng như phát triển các dịch vụ mới được thiết kế để cải thiện thành công kinh doanh của bạn. Chúng tôi không thu thập dữ liệu cá nhân từ khách hàng của bạn có thể được sử dụng để xác định một người duy nhất.",
+                    "store": "<strong>Lưu trữ dữ liệu</strong> trong Shopware liên quan đến tất cả thông tin liên quan đến cửa hàng trực tuyến của bạn. Chẳng hạn như sản phẩm, danh sách, giá cả, hình ảnh, mô tả, v.v., và siêu dữ liệu về thiết lập cửa hàng của bạn, chẳng hạn như chủ đề và plugin. Chúng tôi không thu thập dữ liệu cá nhân có thể được sử dụng để xác định người dùng quản trị viên hoặc khách truy cập cửa hàng. Sử dụng dữ liệu cửa hàng tổng hợp, chúng tôi có thể cung cấp thông tin chi tiết thông qua học máy như xu hướng thị trường mới nổi, cho phép bạn điều chỉnh các dịch vụ sản phẩm hoặc chiến lược tiếp thị cho phù hợp."
+                },
+                "label-checkbox": "Chia sẻ dữ liệu cửa hàng",
+                "title": "Lưu trữ dữ liệu"
+            },
+            "title": "Giúp chúng tôi cải thiện",
+            "user-data": {
+                "description": "Chúng tôi sử dụng {data} về cách bạn tương tác với Quản trị để cải thiện khả năng sử dụng và hiệu suất của Quản trị.",
+                "emphasizes": {
+                    "data": "dữ liệu"
+                },
+                "help-text": {
+                    "data": "<strong>Dữ liệu sử dụng</strong> trong Shopware liên quan đến thông tin liên quan đến cách người dùng quản trị và khách truy cập cửa hàng tương tác với nền tảng của chúng tôi. Điều này bao gồm các chi tiết như tương tác với các mô-đun quản trị Shopware khác nhau, các trang đã xem, thời lượng truy cập, đường dẫn nhấp chuột và hành động của người dùng trong nền tảng và mặt tiền cửa hàng. Bằng cách đánh giá dữ liệu sử dụng, chúng tôi có thể xác định các khu vực của nền tảng thường xuyên được truy cập hoặc tránh để đo lường việc áp dụng tính năng, dẫn đến những cải tiến tiềm năng trong bố cục, thiết kế và chức năng."
+                },
+                "label-checkbox": "Chia sẻ dữ liệu của tôi",
+                "title": "Dữ liệu của tôi"
+            }
+        },
         "general": {
             "description": "Định cấu hình để chia sẻ dữ liệu sử dụng với chúng tôi để cải thiện Shopware.",
             "mainMenuItemGeneral": "Chia sẻ dữ liệu",

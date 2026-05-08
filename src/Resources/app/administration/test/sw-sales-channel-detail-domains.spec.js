@@ -10,7 +10,7 @@ async function createWrapper(salesChannel) {
     return mount(await Shopware.Component.build('sw-sales-channel-detail-domains'), {
         global: {
             mocks: {
-                $tc: v => v,
+                $t: v => v,
             },
             provide: {
                 repositoryFactory: {

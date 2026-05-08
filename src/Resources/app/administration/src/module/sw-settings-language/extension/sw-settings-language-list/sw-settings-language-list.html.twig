@@ -4,13 +4,13 @@
         {% block sw_settings_language_list_content_list_delete_action_language_pack %}
             <template v-if="isPackLanguage(item.id)">
                 <sw-context-menu-item
-                    v-tooltip.bottom="$tc('swag-language-pack.sw-settings-language-list.deleteLanguagePackTooltip')"
+                    v-tooltip.bottom="$t('swag-language-pack.sw-settings-language-list.deleteLanguagePackTooltip')"
                     class="sw-settings-language-list__delete-action"
                     variant="danger"
                     disabled
                     @click="showDelete(item.id)"
                 >
-                    {{ $tc('global.default.delete') }}
+                    {{ $t('global.default.delete') }}
                 </sw-context-menu-item>
             </template>
         {% endblock %}
@@ -24,7 +24,7 @@
                     :disabled="isDefault(item.id) || !allowDelete"
                     @click="showDelete(item.id)"
                 >
-                    {{ $tc('global.default.delete') }}
+                    {{ $t('global.default.delete') }}
                 </sw-context-menu-item>
             </template>
         {% endblock %}

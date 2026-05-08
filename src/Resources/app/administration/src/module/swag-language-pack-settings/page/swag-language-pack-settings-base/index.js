@@ -33,10 +33,10 @@ Component.register('swag-language-pack-settings-base', {
     computed: {
         description() {
             const userInterfaceLanguageLink = `<a href="#/sw/profile/index">
-                ${this.$tc('swag-language-pack.settings.card.administration.descriptionTargetLinkText')}
+                ${this.$t('swag-language-pack.settings.card.administration.descriptionTargetLinkText')}
             </a>`;
 
-            return this.$tc(`swag-language-pack.settings.card.${this.settingsType}.description`, 0, {
+            return this.$t(`swag-language-pack.settings.card.${this.settingsType}.description`, 0, {
                 userInterfaceLanguageLink,
             });
         },

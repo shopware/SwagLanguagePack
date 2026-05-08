@@ -4,12 +4,12 @@
     {% block swag_language_pack_settings_header %}
     <template #smart-bar-header>
         <h2>
-            <span>{{ $tc('sw-settings.index.title') }}</span>
+            <span>{{ $t('sw-settings.index.title') }}</span>
             <mt-icon
                 name="regular-chevron-right-xs"
                 size="14px"
             />
-            <span>{{ $tc('swag-language-pack.settings.header') }}</span>
+            <span>{{ $t('swag-language-pack.settings.header') }}</span>
         </h2>
     </template>
     {% endblock %}
@@ -26,7 +26,7 @@
             @process-finish="onSaveFinish"
             @click="onSave"
         >
-            {{ $tc('global.default.save') }}
+            {{ $t('global.default.save') }}
         </sw-button-process>
         {% endblock %}
 
@@ -59,7 +59,7 @@
                     :route="{ name: 'swag.language.pack.index.administration' }"
                     :disabled="!acl.can('language.viewer')"
                 >
-                    {{ $tc('swag-language-pack.settings.card.administration.tabTitle') }}
+                    {{ $t('swag-language-pack.settings.card.administration.tabTitle') }}
                 </sw-tabs-item>
                 {% endblock %}
 
@@ -69,7 +69,7 @@
                     :route="{ name: 'swag.language.pack.index.salesChannel' }"
                     :disabled="!acl.can('language.viewer')"
                 >
-                    {{ $tc('swag-language-pack.settings.card.salesChannel.tabTitle') }}
+                    {{ $t('swag-language-pack.settings.card.salesChannel.tabTitle') }}
                 </sw-tabs-item>
                 {% endblock %}
             </sw-tabs>

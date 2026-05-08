@@ -5,7 +5,7 @@ async function createWrapperWithVersion() {
     return mount(await Shopware.Component.build('swag-language-pack-settings'), {
         global: {
             mocks: {
-                $tc: v => v,
+                $t: v => v,
             },
             provide: {
                 repositoryFactory: {

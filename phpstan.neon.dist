@@ -1,5 +1,6 @@
 includes:
     - ../../../src/Core/DevOps/StaticAnalyze/PHPStan/common.neon
+    - phpstan-baseline.neon
 
 parameters:
     tmpDir: var/cache/phpstan
@@ -15,13 +16,3 @@ parameters:
     paths:
         - src
         - tests
-
-    ignoreErrors:
-        -
-            message: '#Service ".*" is private#'
-            paths:
-                - tests/*Test.php
-        -
-            message: '#(Used )?[Ff]unction Symfony\\Component\\DependencyInjection\\Loader\\Configurator\\service not found#'
-            paths:
-                - src/Resources/config/*.php

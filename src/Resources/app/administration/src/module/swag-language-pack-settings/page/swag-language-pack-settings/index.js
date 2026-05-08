@@ -110,7 +110,7 @@ Component.register('swag-language-pack-settings', {
                     return this.resetInvalidUserLanguages();
                 }).catch(() => {
                     this.createNotificationError({
-                        message: this.$tc('swag-language-pack.settings.card.messageSaveError'),
+                        message: this.$t('swag-language-pack.settings.card.messageSaveError'),
                     });
                 });
             }).catch((invalidLanguages) => {
@@ -118,7 +118,7 @@ Component.register('swag-language-pack-settings', {
                 const languages = `<b>${languageList.join(', ')}</b>`;
 
                 this.createNotificationError({
-                    message: this.$tc('swag-language-pack.settings.card.messageSalesChannelActiveError', {
+                    message: this.$t('swag-language-pack.settings.card.messageSalesChannelActiveError', {
                         languages,
                     }),
                     autoClose: false,

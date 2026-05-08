@@ -34,3 +34,37 @@ jobs:
       uploadCoverage: true
     secrets:
       codecovToken: ${{ secrets.CODECOV_TOKEN }}
+
+  notify-slack-on-schedule-failure:
+    name: Slack Notify
+    runs-on: ubuntu-latest
+    needs: [cs, phpstan, phpunit]
+    if: >-
+      ${{
+        always() &&
+        github.event_name == 'schedule' &&
+        (needs.cs.result == 'failure' || needs.phpstan.result == 'failure' || needs.phpunit.result == 'failure')
+      }}
+    steps:
+      - name: Create Disaster
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          PLUGIN_NAME: ${{ github.event.repository.name }}
+        run: |
+          payload=$(
+            jq -n \
+              --arg plugin "$PLUGIN_NAME" \
+              --arg run_url "$RUN_URL" \
+              --arg workflow "${{ github.workflow }}" '
+              {
+                text: (
+                  "*" + $plugin + " scheduled action run failed*\n"
+                  + "Workflow: " + $workflow + "\n"
+                  + "<" + $run_url + "|This run caused doom>"
+                )
+              }
+            '
+          )
+
+          curl -sS -X POST -H 'Content-type: application/json' --data "${payload}" "${SLACK_WEBHOOK_URL}"

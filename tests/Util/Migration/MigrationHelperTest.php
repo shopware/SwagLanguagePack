@@ -165,7 +165,10 @@ class MigrationHelperTest extends TestCase
             ->method('keepUserData')
             ->willReturn(false);
 
-        (new Lifecycle($this->connection))->uninstall($uninstallContext);
+        $lifecycle = $this->getContainer()->get(Lifecycle::class);
+        \assert($lifecycle instanceof Lifecycle);
+
+        $lifecycle->uninstall($uninstallContext);
 
         $sql = \str_replace(
             ['#table#'],

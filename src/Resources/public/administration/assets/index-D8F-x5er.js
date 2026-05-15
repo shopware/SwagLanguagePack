@@ -1,0 +1,2 @@
+const n=`{% block sw_installed_extension_card_removal_content_modal_body %} <mt-banner v-if="['Language pack', 'Sprachpaket'].includes(extensionName)" class="swag-language-pack__sw-extension-uninstall-modal-info" variant="info" >{{ $t('swag-language-pack.sw-extension-uninstall-modal.infoText') }}</mt-banner> {% parent %} {% endblock %}`,a={template:n};export{a as default};
+//# sourceMappingURL=index-D8F-x5er.js.map

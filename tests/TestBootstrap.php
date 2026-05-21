@@ -17,9 +17,18 @@ if (is_readable($platformRoot . '/src/Core/TestBootstrapper.php')) {
     require __DIR__ . '/../vendor/shopware/core/TestBootstrapper.php';
 }
 
-return (new TestBootstrapper())
+$classLoader = (new TestBootstrapper())
     ->setProjectDir($_SERVER['PROJECT_ROOT'] ?? $platformRoot)
     ->setForceInstallPlugins(true)
     ->addCallingPlugin()
     ->bootstrap()
     ->getClassLoader();
+
+/**
+ * Belt-and-suspenders: re-register the plugin's PSR-4 root in case the composer
+ * autoload generated during the CI `composer require` step is missing this mapping,
+ * which has historically led to flaky "Class ... not found" errors in random-ordered runs.
+ */
+$classLoader->addPsr4('Swag\\LanguagePack\\', dirname(__DIR__) . '/src');
+
+return $classLoader;

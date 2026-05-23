@@ -501,6 +501,7 @@
             "DUPLICATED_SALUTATION_KEY": "Technical name already in use. Please choose a different one.",
             "DUPLICATED_SNIPPET_KEY": "Snippets already exists for \"{key}\". Please choose a new name.",
             "DUPLICATED_URL": "This URL is already in use. Please choose another URL.",
+            "FRAMEWORK__API_SALES_CHANNEL_MAINTENANCE_MODE": "The selected sales channel is in maintenance mode and your IP address is not allowlisted. Disable maintenance mode or add your IP address to the allowlist.",
             "FRAMEWORK__DELETE_RESTRICTED": "Deletion failed.",
             "FRAMEWORK__MISSING_PRIVILEGE_ERROR": "Missing permissions.",
             "FRAMEWORK__RATE_LIMIT_EXCEEDED": "Too many requests. Please wait {seconds} seconds before trying again.",
@@ -2258,6 +2259,9 @@
         "blocks": {
             "blockDisableState": "This block is not visible on any device. You can edit the block but the changes will not be visible in your shop. Edit this layout in shopping experiences module to change the block visibility.",
             "commerce": {
+                "categoryHeading": {
+                    "label": "Category name"
+                },
                 "crossSelling": {
                     "label": "Cross Selling"
                 },
@@ -2640,6 +2644,9 @@
                 },
                 "label": "Buy box"
             },
+            "categoryName": {
+                "label": "Category name"
+            },
             "crossSelling": {
                 "config": {
                     "infoText": {
@@ -2932,7 +2939,7 @@
                 "label": "Product listing"
             },
             "productName": {
-                "label": "Product Name"
+                "label": "Product name"
             },
             "productSlider": {
                 "config": {
@@ -7678,6 +7685,10 @@
                     "anonymizeIp": {
                         "label": "Anonymise IP"
                     },
+                    "enhancedConversions": {
+                        "helpText": "When enabled, the SHA256-hashed customer email address is sent with the purchase event to support Google Ads Enhanced Conversions. This helps recover conversion attribution lost due to browser cookie restrictions or cross-device behavior.",
+                        "label": "Enhanced Conversions"
+                    },
                     "trackOffcanvasCart": {
                         "helpText": "When enabled, a 'view_cart' event is also fired when the offcanvas cart opens, not just on the dedicated cart page. Useful for detailed funnel analysis but may inflate cart view metrics.",
                         "label": "Track offcanvas cart"
@@ -7691,7 +7702,11 @@
                         "placeHolder": "Enter tracking ID..."
                     }
                 },
-                "headline": "Google Analytics integration"
+                "headline": "Google Analytics integration",
+                "tracking": {
+                    "cardTitle": "Tracking",
+                    "description": "Configure which e-commerce interactions are tracked and sent to Google Analytics."
+                }
             },
             "basicinformationLink": "Change default maintenance layout here",
             "buttonAddDomain": "Add domain",
@@ -7807,6 +7822,8 @@
                 "buttonTestLabel": "Test template",
                 "cliCommand": "CLI Command to generate the product export",
                 "encoding": "Encoding",
+                "feedLabelHelpText": "Optional feed label for grouping products within the same data source in Google Merchant Center. Uppercase letters (A–Z), numbers (0–9), hyphens (-), and underscores (_) are allowed, with a maximum length of 20 characters.",
+                "feedLabelLabel": "Google feed label",
                 "fileFormat": "File format",
                 "fileFormatLabels": {
                     "csv": "CSV",

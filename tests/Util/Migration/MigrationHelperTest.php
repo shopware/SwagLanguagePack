@@ -25,6 +25,7 @@ use Shopware\Core\Framework\Uuid\Uuid;
 use Shopware\Core\System\Language\LanguageDefinition;
 use Swag\LanguagePack\PackLanguage\PackLanguageDefinition;
 use Swag\LanguagePack\SwagLanguagePack;
+use Swag\LanguagePack\Util\Exception\LanguagePackException;
 use Swag\LanguagePack\Util\Lifecycle\Lifecycle;
 use Swag\LanguagePack\Util\Migration\MigrationHelper;
 
@@ -135,7 +136,12 @@ class MigrationHelperTest extends TestCase
         $this->migrationHelper->createPackLanguageTable();
         $this->migrationHelper->alterLanguageAddPackLanguageColumn();
 
-        $this->expectExceptionMessage('No LocaleEntities associated to the following locale codes: bg-BG, bs-BA, cs-CZ, da-DK, el-GR, en-US, es-ES, fi-FI, fr-FR, hi-IN, hr-HR, hu-HU, id-ID, it-IT, ko-KR, lv-LV, nl-NL, nn-NO, pl-PL, pt-PT, ro-RO, ru-RU, sk-SK, sl-SI, sr-RS, sv-SE, tr-TR, uk-UA, vi-VN');
+        $this->expectExceptionObject(LanguagePackException::installWithoutLocales([
+            'bg-BG', 'bs-BA', 'cs-CZ', 'da-DK', 'el-GR', 'en-US', 'es-ES', 'fi-FI', 'fr-FR',
+            'hi-IN', 'hr-HR', 'hu-HU', 'id-ID', 'it-IT', 'ko-KR', 'lv-LV', 'nl-NL', 'nn-NO',
+            'pl-PL', 'pt-PT', 'ro-RO', 'ru-RU', 'sk-SK', 'sl-SI', 'sr-RS', 'sv-SE', 'tr-TR',
+            'uk-UA', 'vi-VN',
+        ]));
 
         $mockedMigrationHelper = new MigrationHelper($connectionMock);
         $mockedMigrationHelper->createPackLanguages();

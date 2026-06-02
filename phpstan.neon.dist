@@ -16,3 +16,7 @@ parameters:
     paths:
         - src
         - tests
+
+    ignoreErrors:
+        - # Shopware trunk classifies plugin test namespaces as non-Unit; unit tests here may still carry CoversClass
+            identifier: shopware.unexpectedTestCovers

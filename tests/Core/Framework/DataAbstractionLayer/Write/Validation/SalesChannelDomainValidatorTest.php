@@ -14,11 +14,15 @@ use Shopware\Core\Defaults;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
+use Shopware\Core\Framework\DataAbstractionLayer\Write\WriteException;
 use Shopware\Core\Framework\Uuid\Uuid;
+use Shopware\Core\Framework\Validation\WriteConstraintViolationException;
 use Shopware\Core\System\SalesChannel\Aggregate\SalesChannelDomain\SalesChannelDomainDefinition;
 use Shopware\Core\System\SalesChannel\SalesChannelCollection;
 use Shopware\Core\Test\TestDefaults;
 use Swag\LanguagePack\Test\Helper\ServicesTrait;
+use Symfony\Component\Validator\ConstraintViolation;
+use Symfony\Component\Validator\ConstraintViolationList;
 
 class SalesChannelDomainValidatorTest extends TestCase
 {
@@ -43,8 +47,20 @@ class SalesChannelDomainValidatorTest extends TestCase
         $context = Context::createDefaultContext();
         $languageId = $this->prepareSalesChannelActiveForLanguageByName('Dansk', false, $context);
 
-        $this->expectExceptionMessage(\sprintf('The language with the id "%s" is disabled for all Sales Channels.', $languageId));
-        $this->createSalesChannelDomain(Uuid::randomHex(), $languageId, $context);
+        $this->expectExceptionObject(new WriteConstraintViolationException(
+            new ConstraintViolationList([
+                new ConstraintViolation(\sprintf('The language with the id "%s" is disabled for all Sales Channels.', $languageId), null, [], '', null, null),
+            ]),
+        ));
+
+        try {
+            $this->createSalesChannelDomain(Uuid::randomHex(), $languageId, $context);
+        } catch (WriteException $e) {
+            foreach ($e->getExceptions() as $inner) {
+                throw $inner;
+            }
+            throw $e;
+        }
     }
 
     public function testUpdatingASalesChannelDomainToADisabledLanguageFails(): void
@@ -61,13 +77,25 @@ class SalesChannelDomainValidatorTest extends TestCase
         $domain = $this->salesChannelDomainRepository->search($criteria, $context)->first();
         static::assertNotNull($domain);
 
-        $this->expectExceptionMessage(\sprintf('The language with the id "%s" is disabled for all Sales Channels.', $disabledLanguageId));
-        $this->salesChannelDomainRepository->update([
-            [
-                'id' => $domainId,
-                'languageId' => $disabledLanguageId,
-            ],
-        ], $context);
+        $this->expectExceptionObject(new WriteConstraintViolationException(
+            new ConstraintViolationList([
+                new ConstraintViolation(\sprintf('The language with the id "%s" is disabled for all Sales Channels.', $disabledLanguageId), null, [], '', null, null),
+            ]),
+        ));
+
+        try {
+            $this->salesChannelDomainRepository->update([
+                [
+                    'id' => $domainId,
+                    'languageId' => $disabledLanguageId,
+                ],
+            ], $context);
+        } catch (WriteException $e) {
+            foreach ($e->getExceptions() as $inner) {
+                throw $inner;
+            }
+            throw $e;
+        }
     }
 
     private function createSalesChannelDomain(string $domainId, string $languageId, Context $context): void

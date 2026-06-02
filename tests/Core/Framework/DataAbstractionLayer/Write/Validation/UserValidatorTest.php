@@ -13,10 +13,14 @@ use PHPUnit\Framework\TestCase;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
+use Shopware\Core\Framework\DataAbstractionLayer\Write\WriteException;
 use Shopware\Core\Framework\Uuid\Uuid;
+use Shopware\Core\Framework\Validation\WriteConstraintViolationException;
 use Shopware\Core\System\User\UserCollection;
 use Shopware\Core\System\User\UserDefinition;
 use Swag\LanguagePack\Test\Helper\ServicesTrait;
+use Symfony\Component\Validator\ConstraintViolation;
+use Symfony\Component\Validator\ConstraintViolationList;
 
 class UserValidatorTest extends TestCase
 {
@@ -41,8 +45,20 @@ class UserValidatorTest extends TestCase
         $context = Context::createDefaultContext();
         $localeId = $this->prepareAdministrationActiveForLanguageByLocale('da-DK', false, $context);
 
-        $this->expectExceptionMessage(\sprintf('The language bound to the locale with the id "%s" is disabled for the Administration.', $localeId));
-        $this->createUser(Uuid::randomHex(), $localeId, $context);
+        $this->expectExceptionObject(new WriteConstraintViolationException(
+            new ConstraintViolationList([
+                new ConstraintViolation(\sprintf('The language bound to the locale with the id "%s" is disabled for the Administration.', $localeId), null, [], '', null, null),
+            ]),
+        ));
+
+        try {
+            $this->createUser(Uuid::randomHex(), $localeId, $context);
+        } catch (WriteException $e) {
+            foreach ($e->getExceptions() as $inner) {
+                throw $inner;
+            }
+            throw $e;
+        }
     }
 
     public function testUpdateUserToDisabledLanguageFails(): void
@@ -59,11 +75,23 @@ class UserValidatorTest extends TestCase
         $user = $this->userRepository->search($criteria, $context)->first();
         static::assertNotNull($user);
 
-        $this->expectExceptionMessage(\sprintf('The language bound to the locale with the id "%s" is disabled for the Administration.', $disabledLocaleId));
-        $this->userRepository->update([[
-            'id' => $userId,
-            'localeId' => $disabledLocaleId,
-        ]], $context);
+        $this->expectExceptionObject(new WriteConstraintViolationException(
+            new ConstraintViolationList([
+                new ConstraintViolation(\sprintf('The language bound to the locale with the id "%s" is disabled for the Administration.', $disabledLocaleId), null, [], '', null, null),
+            ]),
+        ));
+
+        try {
+            $this->userRepository->update([[
+                'id' => $userId,
+                'localeId' => $disabledLocaleId,
+            ]], $context);
+        } catch (WriteException $e) {
+            foreach ($e->getExceptions() as $inner) {
+                throw $inner;
+            }
+            throw $e;
+        }
     }
 
     private function createUser(string $userId, string $localeId, Context $context): void

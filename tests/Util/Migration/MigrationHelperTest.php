@@ -253,13 +253,9 @@ class MigrationHelperTest extends TestCase
      */
     private function prepareLocaleConnectionMock(array $locales): Connection&MockObject
     {
-        $connectionMock = $this->getMockBuilder(Connection::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $connectionMock = $this->createMock(Connection::class);
 
-        $resultStatementMock = $this->getMockBuilder(Result::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $resultStatementMock = $this->createMock(Result::class);
 
         $resultStatementMock
             ->expects(static::once())

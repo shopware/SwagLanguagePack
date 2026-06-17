@@ -11,10 +11,12 @@ namespace Swag\LanguagePack\Test;
 
 use Doctrine\DBAL\Connection;
 use PHPUnit\Framework\TestCase;
+use Shopware\Core\Defaults;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
+use Shopware\Core\Framework\Plugin\Context\UninstallContext;
 use Shopware\Core\Framework\Plugin\PluginCollection;
 use Shopware\Core\Framework\Plugin\PluginDefinition;
 use Shopware\Core\Framework\Plugin\PluginEntity;
@@ -24,6 +26,7 @@ use Shopware\Core\Framework\Test\TestCaseBase\KernelTestBehaviour;
 use Swag\LanguagePack\Core\System\Snippet\Service\CleanupTranslationLoader;
 use Swag\LanguagePack\SwagLanguagePack;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class SwagLanguagePackTest extends TestCase
 {
@@ -100,6 +103,29 @@ class SwagLanguagePackTest extends TestCase
 
         static::assertEquals($languageCountBefore, $connection->fetchOne('SELECT COUNT(*) FROM `language`'));
         static::assertEquals($swagLanguageCountBefore, $connection->fetchOne('SELECT COUNT(*) FROM `swag_language_pack_language`'));
+    }
+
+    public function testItUninstalls(): void
+    {
+        $plugin = new SwagLanguagePack(true, '');
+        $container = $this->createMock(ContainerInterface::class);
+        $connection = $this->createMock(Connection::class);
+        $container->expects(static::once())->method('get')->willReturn($connection);
+        $reflection = new \ReflectionProperty(SwagLanguagePack::class, 'container');
+        $reflection->setValue($plugin, $container);
+
+        $connection->expects(static::once())->method('executeStatement')->with(
+            static::anything(),
+            [
+                'languageId' => Defaults::LANGUAGE_SYSTEM,
+                'locales' => array_values(SwagLanguagePack::SUPPORTED_LANGUAGES),
+            ]
+        );
+
+        $uninstallContext = $this->createMock(UninstallContext::class);
+        $uninstallContext->expects(static::once())->method('keepUserData')->willReturn(true);
+
+        $plugin->uninstall($uninstallContext);
     }
 
     public function testBuildLoadsDecoratorWhenAbstractTranslationLoaderExists(): void

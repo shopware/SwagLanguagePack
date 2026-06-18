@@ -110,9 +110,11 @@ class SwagLanguagePackTest extends TestCase
         $plugin = new SwagLanguagePack(true, '');
         $container = $this->createMock(ContainerInterface::class);
         $connection = $this->createMock(Connection::class);
-        $container->expects(static::once())->method('get')->willReturn($connection);
-        $reflection = new \ReflectionProperty(SwagLanguagePack::class, 'container');
-        $reflection->setValue($plugin, $container);
+        $container->expects(static::once())
+            ->method('get')
+            ->with(Connection::class)
+            ->willReturn($connection);
+        $plugin->setContainer($container);
 
         $connection->expects(static::once())->method('executeStatement')->with(
             static::anything(),

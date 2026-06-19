@@ -119,8 +119,9 @@ class SwagLanguagePack extends Plugin
     {
         \assert($this->container instanceof ContainerInterface, 'Container is not set yet, please call setContainer() before calling boot(), see `src/Core/Kernel.php:186`.');
 
-        $lifecycle = $this->container->get(Lifecycle::class);
-        \assert($lifecycle instanceof Lifecycle);
+        $connection = $this->container->get(Connection::class);
+        \assert($connection instanceof Connection);
+        $lifecycle = new Lifecycle($connection);
 
         $lifecycle->uninstall($uninstallContext);
     }

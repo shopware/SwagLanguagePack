@@ -753,8 +753,8 @@
                 "lineItemTotalPriceRule": "Item subtotal",
                 "lineItemUnitPriceRule": "Item unit price",
                 "lineItemVariantValueRule": "Item with variant value",
-                "lineItemWithQuantityRule": "Item quantity",
-                "lineItemsInCartCountRule": "Quantity of distinct items",
+                "lineItemWithQuantityRule": "Item with quantity",
+                "lineItemsInCartCountRule": "Number of distinct items",
                 "not-found": {
                     "error-message": "Condition type {type} was not found. The condition includes the field: {fields} | The condition type {type} was not found. The conditions include the fields: {fields}",
                     "label": "Condition was not found"
@@ -785,7 +785,7 @@
                 },
                 "promotionLineItemRule": "Promotion",
                 "promotionValueRule": "Subtotal of all discounts",
-                "promotionsInCartCountRule": "Quantity of discounts",
+                "promotionsInCartCountRule": "Number of discounts",
                 "salesChannelRule": "Sales Channel",
                 "shippingCityRule": "Shipping address: City",
                 "shippingCountryRule": "Shipping address: Country",
@@ -1795,12 +1795,11 @@
                     "columnDocumentType": "Document type",
                     "columnOrder": "Order",
                     "documentTypes": {
+                        "cancellationInvoice": "Cancellation invoice",
                         "creditNote": "Credit note",
                         "deliveryNote": "Delivery note",
-                        "invoice": "Invoice",
-                        "storno": "Cancellation invoice"
+                        "invoice": "Invoice"
                     },
-                    "downloadFileName": "bulk-edit-document-generation-result",
                     "downloadHeadline": "Failed documents",
                     "downloadResult": "Download result"
                 },
@@ -2838,7 +2837,7 @@
                         "ariaLabel": "This text will be read out by screen readers as link text.",
                         "fetchPriorityHigh": "Activate this option if the image is the first one on the page. The image will then be assigned the attribute 'fetchpriority=\"high\"', telling the browser to load it with higher priority. This can help improve the Largest Contentful Paint (LCP).",
                         "isDecorative": "When this option is enabled, the image information will not be read out by screen readers. This means that the \"alt\" and \"title\" tags will remain empty.",
-                        "minHeight": "Enter the minimum height with your desired unit. For example: 200px",
+                        "minHeight": "Enter the minimum height. A plain number is treated as pixels. For example, \"200\" becomes \"200px\".",
                         "useFetchPriorityOnFirstItem": "When this option is enabled, the first image is loaded with a higher priority. This can improve the speed at which the page is rendered in the browser."
                     },
                     "label": {
@@ -3419,6 +3418,7 @@
             "buttonDelete": "Delete",
             "buttonSaveAndSelect": "Save and select",
             "buttonSelect": "Select",
+            "cardTitle": "Addresses",
             "columnActions": "Actions",
             "columnCity": "City",
             "columnCompany": "Company",
@@ -3433,6 +3433,7 @@
             "contextMenuDelete": "Delete",
             "contextMenuDuplicate": "Duplicate",
             "contextMenuEdit": "Edit",
+            "filterPlaceholder": "Search addresses...",
             "modalTitleAddAddress": "Add address",
             "modalTitleAddress": "Address",
             "modalTitleEditAddress": "Edit address",
@@ -6918,6 +6919,8 @@
         "detail": {
             "buttonOpenPreview": "Preview",
             "buttonSave": "Save",
+            "deprecatedFilterWarning": "The filter \"{label}\" is deprecated and will be removed in {version}. Please use \"{replacement}\" instead.",
+            "deprecatedFilterWarningNoReplacement": "The filter \"{label}\" is deprecated and will be removed in {version}.",
             "helpTextDisplayAsGroup": "When enabled, matching variants are grouped according to the product presentation setting. Disable to show them individually.",
             "labelDescription": "Description",
             "labelDisplayAsGroup": "Keep matching variants grouped",
@@ -6926,7 +6929,6 @@
             "messageSaveSuccess": "Dynamic product group \"{name}\" has been saved.",
             "placeholderDescription": "Enter description...",
             "placeholderName": "Enter title...",
-            "productStatesFilterWarning": "This dynamic product group still uses the deprecated product states filter. It will be removed in v6.8 – please switch to the product type filter instead.",
             "productStreamIndexingWarning": {
                 "action": "Learn more in our documentation",
                 "message": "Some features may not work as expected: <ul><li>Category pages may not reflect changes until the HTTP cache expires or is manually cleared.</li><li>The rule condition \"Item in dynamic product group\" will never be true.</li></ul>",
@@ -8329,7 +8331,7 @@
             "columnStateShortCodeLabel": "ISO",
             "currencyDependentValues": "Currency dependent values",
             "editAction": "Edit",
-            "helpTextAdvancedPostalCodePattern": "Possible formats to use:<br><br>^\\d{5}$ - Exact 5 Digits, e.g 12345<br><br>^(\\d{4})\\s*([A-Z]{2})$ - Exact 4 Digits and 2 Letters, e.g 1234 AB",
+            "helpTextAdvancedPostalCodePattern": "Possible formats to use:<ul><li>^\\d&#123;5&#125;$ - Exact 5 Digits, e.g 12345</li><li>^(\\d&#123;4&#125;)\\s*([A-Z]&#123;2&#125;)$ - Exact 4 Digits and 2 Letters, e.g 1234 AB</li></ul>",
             "helpTextCheckPostalCodePattern": "Enables validation of postal codes for a range of countries",
             "helpTextCheckVatIdFormat": "Validates tax ID format for EU member states.",
             "helpTextCompanyTaxFree": "In order to conduct tax-free B2B transactions, the respective customer accounts need to have a valid Tax ID.",
@@ -9540,6 +9542,7 @@
             "labelCustomFieldsTab": "Custom fields",
             "labelExcludedSearchTerms": "Excluded search terms",
             "labelExcludedSearchTermsNoResults": "No results found.",
+            "labelExcludedSearchTermsNoResultsDescription": "Try adjusting your search to find what you're looking for.",
             "labelGeneralTab": "General",
             "labelMinimalSearchTerm": "Minimal search term length",
             "labelSearchAndCondition": "“AND” Search",
@@ -9574,7 +9577,9 @@
             "textColumnSearchTerm": "Excluded search terms",
             "textDescriptionSearchableContent": "All searchable content is listed in the table below. To customise search results in your Sales Channels go ahead and either exclude content from being searchable at all or tweak the ranking of each individual element to your liking. Higher ranking elements have an increased \"search value\" and will place higher in the search results.",
             "textEmptyStateExcludedSearchTerms": "No search terms excluded yet",
+            "textEmptyStateExcludedSearchTermsDescription": "Exclude search terms to stop them from being matched in your Sales Channels' search results.",
             "textEmptyStateSearchableContent": "No searchable content added yet.",
+            "textEmptyStateSearchableContentDescription": "Add searchable content to control what can be found in your Sales Channels' search.",
             "textLastedBuild": "Latest build:",
             "textPlaceholderTermsFilter": "Search excluded search terms...",
             "textRebuildSearchIndexDescription": "Rebuilding the search index takes some time. During that time, it is mandatory to keep this window open in order to successfully rebuild the search index. You'll be notified as soon as the process has finished.",
@@ -9592,7 +9597,8 @@
             "labelScore": "Ranking score",
             "linkRebuildSearchIndex": "Rebuild search index",
             "textDescription": "Test your custom search settings below.",
-            "textNoResult": "No results found. Please try again with another search term.",
+            "textNoResult": "No results found.",
+            "textNoResultDescription": "Please try again with another search term.",
             "textPlaceholderSalesChannel": "Select a Sales Channel...",
             "textPlaceholderSorting": "Select sorting...",
             "titleCard": "Sales Channel live search"
@@ -9916,6 +9922,7 @@
             "labelNamePlaceholder": "Add name...",
             "labelNamespace": "Section",
             "labelNamespacePlaceholder": "Select section",
+            "labelOriginal": "Original:",
             "messageSaveError": "Snippets for \"{key}\" could not be saved.",
             "messageSaveErrorNumericKey": "Exclusively numeric snippet keys are not allowed.",
             "messageSaveSuccess": "Snippet for \"{key}\" has been saved.",

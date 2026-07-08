@@ -20,3 +20,6 @@ parameters:
     ignoreErrors:
         - # Shopware trunk classifies plugin test namespaces as non-Unit; unit tests here may still carry CoversClass
             identifier: shopware.unexpectedTestCovers
+
+        # Shopware deprecation handling is not handled by PHPStan, but by our own `triggerDeprecationOrThrow` @deprecated tag:v6.8.0 comment following line to fix deprecations
+        - message: '#deprecated .* Shopware\\#'

@@ -14,6 +14,7 @@ use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\AndFilter;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
+use Shopware\Core\Framework\Uuid\Uuid;
 use Shopware\Core\System\Language\LanguageCollection;
 use Shopware\Core\System\Language\LanguageDefinition;
 use Shopware\Core\System\Language\LanguageEntity;
@@ -98,16 +99,17 @@ readonly class CleanupReplacedLanguage
             return;
         }
 
-        $queryBuilder = $this->connection->createQueryBuilder();
-        $updateQuery = $queryBuilder->update(LanguageDefinition::ENTITY_NAME)
+        $updateQuery = $this->connection->createQueryBuilder()
+            ->update(LanguageDefinition::ENTITY_NAME)
             ->set(PackLanguageDefinition::PACK_LANGUAGE_FOREIGN_KEY_STORAGE_NAME, 'NULL')
-            ->where('id = UUID_TO_BIN(:id)')
-            ->setParameter('id', $language->getId());
+            ->where('id = :id')
+            ->setParameter('id', Uuid::fromHexToBytes($language->getId()));
         $updateQuery->executeQuery();
 
-        $deleteQuery = $queryBuilder->delete(LanguageDefinition::ENTITY_NAME)
-            ->where('id = UUID_TO_BIN(:id)')
-            ->setParameter('id', $packLanguage->getId());
+        $deleteQuery = $this->connection->createQueryBuilder()
+            ->delete(PackLanguageDefinition::ENTITY_NAME)
+            ->where('id = :id')
+            ->setParameter('id', Uuid::fromHexToBytes($packLanguage->getId()));
         $deleteQuery->executeQuery();
     }
 

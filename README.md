@@ -2,6 +2,13 @@
 
 ## A unified language extension for [Shopware 6](https://github.com/shopware/shopware).
 
+> [!IMPORTANT]
+> This plugin is obsolete as of **Shopware 6.8** and will no longer be compatible.
+> Since Shopware 6.7.3.0, translations are managed by the platform itself and can be installed via
+> `bin/console translation:install --locales <locale-code>`.
+> See the [migration guide](https://developer.shopware.com/docs/resources/references/upgrades/core/translation/language-pack-migration.html)
+> for details on switching to the built-in translation handling.
+
 ### Description
 
 The path to internationalisation is an exciting one and requires quite a bit of work - everything needs to be set up

@@ -61,6 +61,8 @@ class CleanupReplacedLanguageIntegrationTest extends TestCase
 
     private string $languageId;
 
+    private string $packLanguageId;
+
     private string $locale;
 
     protected function setUp(): void
@@ -75,8 +77,8 @@ class CleanupReplacedLanguageIntegrationTest extends TestCase
 
         $this->locale = 'es-ES';
         $localeId = $this->createLocaleIfNotExists($this->locale, 'Español', 'España');
-        $packLanguageId = Uuid::randomHex();
-        $this->languageId = $this->createLanguageWithPackLanguage($this->locale, $localeId, $packLanguageId);
+        $this->packLanguageId = Uuid::randomHex();
+        $this->languageId = $this->createLanguageWithPackLanguage($this->locale, $localeId, $this->packLanguageId);
         $this->createSnippetSetsForLocale($this->locale);
     }
 
@@ -132,6 +134,9 @@ class CleanupReplacedLanguageIntegrationTest extends TestCase
         $language = $this->languageRepository->search($criteria, $this->context)->first();
         static::assertInstanceOf(LanguageEntity::class, $language);
         static::assertFalse($language->has(LanguageExtension::PACK_LANGUAGE_ASSOCIATION_PROPERTY_NAME));
+
+        $packLanguage = $this->packLanguageRepository->search(new Criteria([$this->packLanguageId]), $this->context)->first();
+        static::assertNull($packLanguage);
     }
 
     public function testLanguagePackSnippetSetIsDeleted(): void

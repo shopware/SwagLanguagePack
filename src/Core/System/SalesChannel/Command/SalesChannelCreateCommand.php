@@ -10,7 +10,6 @@ declare(strict_types=1);
 namespace Swag\LanguagePack\Core\System\SalesChannel\Command;
 
 use Shopware\Core\Defaults;
-use Shopware\Core\Framework\Adapter\Console\ShopwareStyle;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\DefinitionInstanceRegistry;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
@@ -28,6 +27,7 @@ use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Style\SymfonyStyle;
 
 /**
  * This class is a modified version of Shopware\Core\System\SalesChannel\Command\SalesChannelCreateCommand
@@ -73,7 +73,7 @@ class SalesChannelCreateCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $io = new ShopwareStyle($input, $output);
+        $io = new SymfonyStyle($input, $output);
 
         $context = Context::createCLIContext();
 

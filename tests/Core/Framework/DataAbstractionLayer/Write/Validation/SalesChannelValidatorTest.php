@@ -74,7 +74,7 @@ class SalesChannelValidatorTest extends TestCase
 
         $criteria = new Criteria([$salesChannelId]);
 
-        $salesChannel = $this->salesChannelRepository->search($criteria, $context)->first();
+        $salesChannel = $this->salesChannelRepository->search($criteria, $context)->getEntities()->first();
         static::assertNotNull($salesChannel);
 
         $this->expectExceptionObject(new WriteConstraintViolationException(

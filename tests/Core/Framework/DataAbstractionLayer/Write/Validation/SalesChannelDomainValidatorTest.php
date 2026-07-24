@@ -74,7 +74,7 @@ class SalesChannelDomainValidatorTest extends TestCase
 
         $criteria = new Criteria([$domainId]);
 
-        $domain = $this->salesChannelDomainRepository->search($criteria, $context)->first();
+        $domain = $this->salesChannelDomainRepository->search($criteria, $context)->getEntities()->first();
         static::assertNotNull($domain);
 
         $this->expectExceptionObject(new WriteConstraintViolationException(

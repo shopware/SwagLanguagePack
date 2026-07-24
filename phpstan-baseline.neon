@@ -19,20 +19,15 @@ parameters:
                 - tests/Extension/LanguageExtensionTest.php
 
         -
-            message: '#^Call to method first\(\) of deprecated class Shopware\\Core\\Framework\\DataAbstractionLayer\\Search\\EntitySearchResult\:\Rtag\:v6\.8\.0 reason\:class\-hierarchy\-change \- Will no longer extend EntityCollection, but will keep extending Struct\.$#'
+            message: '#^Call to method getEntities\(\) of deprecated class Shopware\\Core\\Framework\\DataAbstractionLayer\\Search\\EntitySearchResult\:\Rtag\:v6\.8\.0 reason\:class\-hierarchy\-change \- Will no longer extend EntityCollection, but will keep extending Struct\.$#'
             paths:
                 - src/Core/System/Snippet/Service/CleanupReplacedLanguage.php
                 - tests/Core/Framework/DataAbstractionLayer/Write/Validation/SalesChannelDomainValidatorTest.php
                 - tests/Core/Framework/DataAbstractionLayer/Write/Validation/SalesChannelValidatorTest.php
                 - tests/Core/Framework/DataAbstractionLayer/Write/Validation/UserValidatorTest.php
-                - tests/Core/System/Snippet/Service/CleanupReplacedLanguageIntegrationTest.php
-                - tests/SwagLanguagePackTest.php
-
-        -
-            message: '#^Call to method getEntities\(\) of deprecated class Shopware\\Core\\Framework\\DataAbstractionLayer\\Search\\EntitySearchResult\:\Rtag\:v6\.8\.0 reason\:class\-hierarchy\-change \- Will no longer extend EntityCollection, but will keep extending Struct\.$#'
-            paths:
-                - src/Core/System/Snippet/Service/CleanupReplacedLanguage.php
                 - tests/Core/System/SalesChannel/Command/SalesChannelCreateCommandTest.php
+                - tests/Core/System/Snippet/Service/CleanupReplacedLanguageIntegrationTest.php
                 - tests/Helper/ServicesTrait.php
                 - tests/Storefront/Framework/Command/SalesChannelCreateStorefrontCommandTest.php
+                - tests/SwagLanguagePackTest.php
 

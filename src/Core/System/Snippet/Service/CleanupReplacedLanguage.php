@@ -84,7 +84,7 @@ readonly class CleanupReplacedLanguage
         $criteria->addAssociation('locale');
         $criteria->addFilter(new EqualsFilter('locale.code', $locale));
 
-        $language = $this->languageRepository->search($criteria, $context)->first();
+        $language = $this->languageRepository->search($criteria, $context)->getEntities()->first();
 
         if (!$language instanceof LanguageEntity) {
             return;
@@ -93,7 +93,7 @@ readonly class CleanupReplacedLanguage
         $criteria = new Criteria();
         $criteria->addFilter(new EqualsFilter('languageId', $language->getId()));
 
-        $packLanguage = $this->packLanguageRepository->search($criteria, $context)->first();
+        $packLanguage = $this->packLanguageRepository->search($criteria, $context)->getEntities()->first();
 
         if (!$packLanguage instanceof PackLanguageEntity) {
             return;

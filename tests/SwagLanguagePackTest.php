@@ -52,7 +52,7 @@ class SwagLanguagePackTest extends TestCase
             new EqualsFilter('baseClass', SwagLanguagePack::class),
         );
 
-        $plugin = $this->pluginRepository->search($criteria, Context::createDefaultContext())->first();
+        $plugin = $this->pluginRepository->search($criteria, Context::createDefaultContext())->getEntities()->first();
 
         static::assertNotNull($plugin, 'Plugin needs to be installed to run testsuite');
     }
@@ -96,7 +96,7 @@ class SwagLanguagePackTest extends TestCase
 
         $context = Context::createDefaultContext();
 
-        $plugin = $this->pluginRepository->search($criteria, $context)->first();
+        $plugin = $this->pluginRepository->search($criteria, $context)->getEntities()->first();
         static::assertInstanceOf(PluginEntity::class, $plugin);
 
         $pluginLifeCycleService->updatePlugin($plugin, $context);

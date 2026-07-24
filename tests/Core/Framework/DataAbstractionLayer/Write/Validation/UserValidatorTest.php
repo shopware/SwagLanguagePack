@@ -72,7 +72,7 @@ class UserValidatorTest extends TestCase
 
         $criteria = new Criteria([$userId]);
 
-        $user = $this->userRepository->search($criteria, $context)->first();
+        $user = $this->userRepository->search($criteria, $context)->getEntities()->first();
         static::assertNotNull($user);
 
         $this->expectExceptionObject(new WriteConstraintViolationException(

@@ -88,7 +88,7 @@ class CleanupReplacedLanguageIntegrationTest extends TestCase
         $domainId = $this->createSalesChannelDomainIfNotExists($this->languageId, $languagePackSnippetSetId, TestDefaults::SALES_CHANNEL);
 
         $criteria = new Criteria([$domainId]);
-        $domain = $this->salesChannelDomainRepository->search($criteria, $this->context)->first();
+        $domain = $this->salesChannelDomainRepository->search($criteria, $this->context)->getEntities()->first();
         static::assertNotNull($domain);
         static::assertSame($languagePackSnippetSetId, $domain->getSnippetSetId());
 
@@ -105,7 +105,7 @@ class CleanupReplacedLanguageIntegrationTest extends TestCase
         $baseSnippetSetId = $this->getBaseSnippetSetId($this->locale);
 
         $criteria = new Criteria([$domainId]);
-        $domain = $this->salesChannelDomainRepository->search($criteria, $this->context)->first();
+        $domain = $this->salesChannelDomainRepository->search($criteria, $this->context)->getEntities()->first();
         static::assertNotNull($domain);
         static::assertSame($baseSnippetSetId, $domain->getSnippetSetId());
     }
@@ -115,7 +115,7 @@ class CleanupReplacedLanguageIntegrationTest extends TestCase
         $criteria = new Criteria([$this->languageId]);
         $criteria->addAssociation(LanguageExtension::PACK_LANGUAGE_ASSOCIATION_PROPERTY_NAME);
 
-        $language = $this->languageRepository->search($criteria, $this->context)->first();
+        $language = $this->languageRepository->search($criteria, $this->context)->getEntities()->first();
         static::assertNotNull($language);
         static::assertNotNull($language->get(LanguageExtension::PACK_LANGUAGE_ASSOCIATION_PROPERTY_NAME));
 
@@ -131,11 +131,11 @@ class CleanupReplacedLanguageIntegrationTest extends TestCase
         $criteria = new Criteria([$this->languageId]);
         $criteria->addAssociation(LanguageExtension::PACK_LANGUAGE_ASSOCIATION_PROPERTY_NAME);
 
-        $language = $this->languageRepository->search($criteria, $this->context)->first();
+        $language = $this->languageRepository->search($criteria, $this->context)->getEntities()->first();
         static::assertInstanceOf(LanguageEntity::class, $language);
         static::assertFalse($language->has(LanguageExtension::PACK_LANGUAGE_ASSOCIATION_PROPERTY_NAME));
 
-        $packLanguage = $this->packLanguageRepository->search(new Criteria([$this->packLanguageId]), $this->context)->first();
+        $packLanguage = $this->packLanguageRepository->search(new Criteria([$this->packLanguageId]), $this->context)->getEntities()->first();
         static::assertNull($packLanguage);
     }
 
@@ -156,11 +156,11 @@ class CleanupReplacedLanguageIntegrationTest extends TestCase
         $cleanupReplacedLanguageService->removeLanguagePackSnippetSet($this->locale, $this->context);
 
         $criteria = new Criteria([$languagePackSnippetSetId]);
-        $languagePackSnippetSet = $this->snippetSetRepository->search($criteria, $this->context)->first();
+        $languagePackSnippetSet = $this->snippetSetRepository->search($criteria, $this->context)->getEntities()->first();
         static::assertNull($languagePackSnippetSet);
 
         $criteria = new Criteria([$baseSnippetSetId]);
-        $baseSnippetSet = $this->snippetSetRepository->search($criteria, $this->context)->first();
+        $baseSnippetSet = $this->snippetSetRepository->search($criteria, $this->context)->getEntities()->first();
         static::assertNotNull($baseSnippetSet);
     }
 
@@ -193,7 +193,7 @@ class CleanupReplacedLanguageIntegrationTest extends TestCase
         $criteria->addFilter(new EqualsFilter('localeId', $localeId));
         $criteria->addAssociation(LanguageExtension::PACK_LANGUAGE_ASSOCIATION_PROPERTY_NAME);
 
-        $existingLanguage = $this->languageRepository->search($criteria, $this->context)->first();
+        $existingLanguage = $this->languageRepository->search($criteria, $this->context)->getEntities()->first();
 
         if ($existingLanguage !== null) {
             $languageId = $existingLanguage->getId();

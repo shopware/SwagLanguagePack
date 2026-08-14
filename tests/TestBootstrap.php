@@ -13,7 +13,7 @@ $platformRoot = dirname(__DIR__, 4);
 
 if (is_readable($platformRoot . '/src/Core/TestBootstrapper.php')) {
     require $platformRoot . '/src/Core/TestBootstrapper.php';
-} else {
+} elseif (is_readable(__DIR__ . '/../vendor/shopware/core/TestBootstrapper.php')) {
     require __DIR__ . '/../vendor/shopware/core/TestBootstrapper.php';
 }
 

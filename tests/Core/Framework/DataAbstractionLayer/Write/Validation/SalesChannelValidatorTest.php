@@ -106,6 +106,7 @@ class SalesChannelValidatorTest extends TestCase
             'typeId' => Defaults::SALES_CHANNEL_TYPE_STOREFRONT,
             'customerGroupId' => TestDefaults::FALLBACK_CUSTOMER_GROUP,
             'currencyId' => Defaults::CURRENCY,
+            'currencies' => [['id' => Defaults::CURRENCY]],
             'paymentMethodId' => $this->getValidPaymentMethodId(),
             'shippingMethodId' => $this->getValidShippingMethodId(),
             'countryId' => $this->getValidCountryId(),

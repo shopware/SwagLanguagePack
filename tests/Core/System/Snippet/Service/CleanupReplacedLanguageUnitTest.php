@@ -46,13 +46,11 @@ class CleanupReplacedLanguageUnitTest extends TestCase
         $locale = 'es-ES';
         $context = Context::createDefaultContext();
 
-        /** @var StaticEntityRepository<SnippetSetCollection> $snippetSetRepository */
         $snippetSetRepository = new StaticEntityRepository([
             new SnippetSetCollection([]),
             new SnippetSetCollection([]),
         ]);
 
-        /** @var StaticEntityRepository<SalesChannelDomainCollection> $salesChannelDomainRepository */
         $salesChannelDomainRepository = new StaticEntityRepository([
             fn () => static::fail('The SalesChannelDomainRepository should not be searched (first early return should have been hit)'),
         ]);
@@ -65,13 +63,11 @@ class CleanupReplacedLanguageUnitTest extends TestCase
         $languagePackSnippetSet = $this->createLanguagePackSnippetSet($languagePackSnippetSetId, $locale);
         $baseSnippetSet = $this->createBaseSnippetSet($baseSnippetSetId, $locale);
 
-        /** @var StaticEntityRepository<SnippetSetCollection> $snippetSetRepository */
         $snippetSetRepository = new StaticEntityRepository([
             new SnippetSetCollection([$languagePackSnippetSet]),
             new SnippetSetCollection([$baseSnippetSet]),
         ]);
 
-        /** @var StaticEntityRepository<SalesChannelDomainCollection> $salesChannelDomainRepository */
         $salesChannelDomainRepository = new StaticEntityRepository([
             new IdSearchResult(0, [], new Criteria(), $context),
         ]);
@@ -91,14 +87,12 @@ class CleanupReplacedLanguageUnitTest extends TestCase
 
         $this->connection->expects(static::never())->method('executeStatement');
 
-        /** @var StaticEntityRepository<SnippetSetCollection> $snippetSetRepository */
         $snippetSetRepository = new StaticEntityRepository([
             new SnippetSetCollection([]),
             new SnippetSetCollection([$this->createLanguagePackSnippetSet(Uuid::randomHex(), $locale)]),
             new SnippetSetCollection([$this->createLanguagePackSnippetSet(Uuid::randomHex(), $locale)]),
         ]);
 
-        /** @var StaticEntityRepository<LanguageCollection> $languageRepository */
         $languageRepository = new StaticEntityRepository([
             fn () => static::fail('The LanguageRepository should not be searched (first early return should have been hit)'),
         ]);
@@ -107,12 +101,10 @@ class CleanupReplacedLanguageUnitTest extends TestCase
 
         $emptySnippetSetService->removeLanguageRelation($locale, $context);
 
-        /** @var StaticEntityRepository<LanguageCollection> $languageRepository */
         $languageRepository = new StaticEntityRepository([
-            new SnippetSetCollection([]),
+            new LanguageCollection([]),
         ]);
 
-        /** @var StaticEntityRepository<PackLanguageCollection> $packLanguageRepository */
         $packLanguageRepository = new StaticEntityRepository([
             fn () => static::fail('The PackLanguageRepository should not be searched (second early return should have been hit)'),
         ]);
@@ -121,12 +113,10 @@ class CleanupReplacedLanguageUnitTest extends TestCase
 
         $invalidLanguageResultService->removeLanguageRelation($locale, $context);
 
-        /** @var StaticEntityRepository<LanguageCollection> $languageRepository */
         $languageRepository = new StaticEntityRepository([
             new LanguageCollection([$this->createLanguage($languageId)]),
         ]);
 
-        /** @var StaticEntityRepository<PackLanguageCollection> $packLanguageRepository */
         $packLanguageRepository = new StaticEntityRepository([new PackLanguageCollection()]);
 
         $languageWithoutPackRelationService = $this->createCleanupReplacedLanguage($languageRepository, $snippetSetRepository, $packLanguageRepository, null);
@@ -140,7 +130,6 @@ class CleanupReplacedLanguageUnitTest extends TestCase
         $locale = 'es-ES';
         $context = Context::createDefaultContext();
 
-        /** @var StaticEntityRepository<SnippetSetCollection> $snippetSetRepository */
         $snippetSetRepository = new StaticEntityRepository([new SnippetSetCollection([])]);
 
         $emptySnippetSetService = $this->createCleanupReplacedLanguage(null, $snippetSetRepository, null, null);

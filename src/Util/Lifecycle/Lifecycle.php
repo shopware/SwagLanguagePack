@@ -14,6 +14,7 @@ use Doctrine\DBAL\Connection;
 use Shopware\Core\Defaults;
 use Shopware\Core\Framework\Plugin\Context\UninstallContext;
 use Shopware\Core\System\Language\LanguageDefinition;
+use Swag\LanguagePack\Core\System\Snippet\Service\LanguagePackSnippetSetMigrator;
 use Swag\LanguagePack\PackLanguage\PackLanguageDefinition;
 use Swag\LanguagePack\SwagLanguagePack;
 
@@ -32,7 +33,7 @@ class Lifecycle
             return;
         }
 
-        $this->deleteBaseSnippetSets();
+        $this->removeOrMigrateSnippetSets();
         $this->dropConstraints();
         $this->dropTables();
         $this->dropColumns();
@@ -64,22 +65,12 @@ class Lifecycle
         );
     }
 
-    private function deleteBaseSnippetSets(): void
+    private function removeOrMigrateSnippetSets(): void
     {
-        $sql = <<<'SQL'
-            DELETE FROM `snippet_set`
-            WHERE `name` = :name
-              AND `base_file` = :baseFile;
-        SQL;
+        $snippetSetMigrator = new LanguagePackSnippetSetMigrator($this->connection);
 
         foreach (SwagLanguagePack::BASE_SNIPPET_SET_LOCALES as $locale) {
-            $this->connection->executeStatement(
-                $sql,
-                [
-                    'name' => \sprintf('LanguagePack %s', $locale),
-                    'baseFile' => \sprintf('messages.%s', $locale),
-                ],
-            );
+            $snippetSetMigrator->removeOrMigrate($locale);
         }
     }
 

@@ -29,14 +29,28 @@ class LifecycleTest extends TestCase
     {
         $connection = $this->getConnectionMock();
 
-        $connection->expects(static::atLeast(5))
+        $connection->expects(static::atLeast(2))
             ->method('executeStatement');
 
         $connection->expects(static::atLeast(2))
             ->method('executeQuery');
 
+        $queriedSnippetSets = [];
+        $connection->method('fetchFirstColumn')
+            ->willReturnCallback(static function (string $sql, array $params) use (&$queriedSnippetSets): array {
+                $queriedSnippetSets[] = $params['name'];
+
+                return [];
+            });
+        $connection->method('transactional')
+            ->willReturnCallback(static fn (\Closure $func): mixed => $func());
+
         $lifecycle = new Lifecycle($connection);
         $lifecycle->uninstall($this->getUninstallContext());
+
+        foreach (SwagLanguagePack::BASE_SNIPPET_SET_LOCALES as $locale) {
+            static::assertContains('LanguagePack ' . $locale, $queriedSnippetSets);
+        }
     }
 
     public function testUninstallKeepsUserData(): void
@@ -94,7 +108,7 @@ class LifecycleTest extends TestCase
     {
         return $this->getMockBuilder(Connection::class)
             ->disableOriginalConstructor()
-            ->onlyMethods(['executeStatement', 'executeQuery'])
+            ->onlyMethods(['executeStatement', 'executeQuery', 'fetchFirstColumn', 'transactional'])
             ->getMock();
     }
 }

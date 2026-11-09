@@ -10,10 +10,13 @@ declare(strict_types=1);
 namespace Swag\LanguagePack;
 
 use Doctrine\DBAL\Connection;
+use Shopware\Core\Framework\Adapter\Cache\CacheInvalidator;
+use Shopware\Core\Framework\Adapter\Translation\Translator;
 use Shopware\Core\Framework\Api\Acl\Role\AclRoleDefinition;
 use Shopware\Core\Framework\Plugin;
 use Shopware\Core\Framework\Plugin\Context\UninstallContext;
 use Shopware\Core\Framework\Plugin\Context\UpdateContext;
+use Swag\LanguagePack\Core\System\Snippet\Service\LanguagePackSnippetSetMigrator;
 use Swag\LanguagePack\Util\Lifecycle\Lifecycle;
 use Swag\LanguagePack\Util\Migration\MigrationHelper;
 use Symfony\Component\Config\FileLocator;
@@ -136,5 +139,17 @@ class SwagLanguagePack extends Plugin
 
         $migrationHelper->createPackLanguages();
         $migrationHelper->createSnippetSets();
+
+        $snippetSetMigrator = new LanguagePackSnippetSetMigrator($connection);
+        $changedSetIds = [];
+        foreach (self::BASE_SNIPPET_SET_LOCALES as $locale) {
+            $changedSetIds = [...$changedSetIds, ...$snippetSetMigrator->mergeIntoBaseSet($locale)];
+        }
+
+        if ($changedSetIds !== []) {
+            $cacheInvalidator = $this->container->get(CacheInvalidator::class);
+            \assert($cacheInvalidator instanceof CacheInvalidator);
+            $cacheInvalidator->invalidate(array_map(Translator::tag(...), $changedSetIds));
+        }
     }
 }

@@ -135,13 +135,14 @@ class MigrationHelper
     public function createSnippetSets(): void
     {
         $sql = <<<'SQL'
-            SELECT `id`, `iso`, `name`
+            SELECT DISTINCT `iso`
             FROM `snippet_set`
-            WHERE (`name` LIKE 'BASE%' OR `name` LIKE 'LanguagePack%')
+            WHERE `name` IN (CONCAT('BASE ', `iso`), CONCAT('LanguagePack ', `iso`))
               AND `iso` IN (:isos);
         SQL;
 
-        $existingSnippetSets = $this->connection->executeQuery(
+        // A `BASE <locale>` set means core serves the locale, so the plugin creates no set of its own next to it.
+        $localesWithSnippetSet = $this->connection->executeQuery(
             $sql,
             [
                 'isos' => SwagLanguagePack::BASE_SNIPPET_SET_LOCALES,
@@ -149,27 +150,7 @@ class MigrationHelper
             [
                 'isos' => ArrayParameterType::STRING,
             ],
-        )->fetchAllAssociative();
-
-        $existingIsos = [];
-        foreach ($existingSnippetSets as $snippetSet) {
-            $existingIsos[] = $snippetSet['iso'];
-            $snippetSetName = \sprintf('LanguagePack %s', $snippetSet['iso']);
-
-            if ($snippetSet['name'] === $snippetSetName) {
-                continue;
-            }
-
-            $this->connection->update(
-                'snippet_set',
-                [
-                    'name' => $snippetSetName,
-                ],
-                [
-                    'id' => $snippetSet['id'],
-                ],
-            );
-        }
+        )->fetchFirstColumn();
 
         $insertSnippetSetSql = <<<'SQL'
             INSERT INTO `snippet_set` (`id`, `name`, `base_file`, `iso`, `created_at`)
@@ -177,7 +158,7 @@ class MigrationHelper
         SQL;
 
         foreach (SwagLanguagePack::BASE_SNIPPET_SET_LOCALES as $locale) {
-            if (\in_array($locale, $existingIsos, true)) {
+            if (\in_array($locale, $localesWithSnippetSet, true)) {
                 continue;
             }
 
@@ -240,10 +221,22 @@ class MigrationHelper
             [ArrayParameterType::STRING],
         )->fetchAllAssociative();
 
+        $coreTranslatedLocales = $this->connection->executeQuery(
+            <<<'SQL'
+                SELECT `iso`
+                FROM `snippet_set`
+                WHERE `name` = CONCAT('BASE ', `iso`)
+                  AND `iso` IN (?)
+            SQL,
+            [\array_values(SwagLanguagePack::SUPPORTED_LANGUAGES)],
+            [ArrayParameterType::STRING],
+        )->fetchFirstColumn();
+
+        $skippedLocales = [...\array_column($alreadyInstalledLocales, 'code'), ...$coreTranslatedLocales];
         $languageNames = array_flip(SwagLanguagePack::SUPPORTED_LANGUAGES);
 
-        return array_reduce($requiredLocales, static function (array $accumulator, array $requiredLocale) use ($alreadyInstalledLocales, $languageNames) {
-            if (!\in_array($requiredLocale['code'], \array_column($alreadyInstalledLocales, 'code'), true)) {
+        return array_reduce($requiredLocales, static function (array $accumulator, array $requiredLocale) use ($skippedLocales, $languageNames) {
+            if (!\in_array($requiredLocale['code'], $skippedLocales, true)) {
                 $currentCode = $requiredLocale['code'];
 
                 $accumulator[$currentCode] = array_merge(

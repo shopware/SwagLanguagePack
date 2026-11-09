@@ -39,9 +39,16 @@ class MigrationHelperTest extends TestCase
     use RequestStackTestBehaviour;
     use SessionTestBehaviour;
 
+    private const CORE_SNIPPET_SET_NAME = 'BASE fr-FR';
+
     private MigrationHelper $migrationHelper;
 
     private Connection $connection;
+
+    /**
+     * @var list<string>
+     */
+    private array $coreSnippetSetIds = [];
 
     protected function setUp(): void
     {
@@ -56,6 +63,10 @@ class MigrationHelperTest extends TestCase
 
     protected function tearDown(): void
     {
+        foreach ($this->coreSnippetSetIds as $coreSnippetSetId) {
+            $this->connection->delete('snippet_set', ['id' => $coreSnippetSetId]);
+        }
+
         $this->migrationHelper->createPackLanguageTable();
         $this->migrationHelper->alterLanguageAddPackLanguageColumn();
         $this->migrationHelper->createPackLanguages();
@@ -157,6 +168,58 @@ class MigrationHelperTest extends TestCase
         // test again for duplicates, for example when plugin update is triggered
         $this->migrationHelper->createSnippetSets();
         static::assertTrue($this->databaseHasBaseSnippetSetsForPackLanguages());
+    }
+
+    public function testCreateSnippetSetsKeepsSnippetSetOfCoreTranslation(): void
+    {
+        $coreSnippetSetId = $this->createCoreSnippetSet();
+
+        $this->migrationHelper->createSnippetSets();
+
+        static::assertSame(self::CORE_SNIPPET_SET_NAME, $this->connection->fetchOne(
+            'SELECT `name` FROM `snippet_set` WHERE `id` = :id',
+            ['id' => $coreSnippetSetId],
+        ));
+        static::assertFalse($this->connection->fetchOne(
+            'SELECT 1 FROM `snippet_set` WHERE `name` = :name',
+            ['name' => 'LanguagePack fr-FR'],
+        ));
+        static::assertTrue($this->databaseHasBaseSnippetSetsForPackLanguages());
+    }
+
+    public function testCreatePackLanguagesSkipsLocaleOfCoreTranslation(): void
+    {
+        $this->migrationHelper->createPackLanguageTable();
+        $this->migrationHelper->alterLanguageAddPackLanguageColumn();
+        $this->createCoreSnippetSet();
+
+        $this->migrationHelper->createPackLanguages();
+
+        $counts = $this->getTableCounts([PackLanguageDefinition::ENTITY_NAME]);
+        static::assertSame(\count(SwagLanguagePack::SUPPORTED_LANGUAGES) - 1, $counts[PackLanguageDefinition::ENTITY_NAME]);
+        static::assertFalse($this->connection->fetchOne(<<<'SQL'
+            SELECT 1
+            FROM `swag_language_pack_language` pack_language
+            JOIN `language` ON `language`.`id` = pack_language.`language_id`
+            JOIN `locale` ON `locale`.`id` = `language`.`locale_id`
+            WHERE `locale`.`code` = 'fr-FR';
+        SQL));
+    }
+
+    private function createCoreSnippetSet(): string
+    {
+        $id = Uuid::randomBytes();
+
+        $this->connection->insert('snippet_set', [
+            'id' => $id,
+            'name' => self::CORE_SNIPPET_SET_NAME,
+            'base_file' => 'messages.fr-FR',
+            'iso' => 'fr-FR',
+            'created_at' => '2025-01-01 00:00:00.000',
+        ]);
+        $this->coreSnippetSetIds[] = $id;
+
+        return $id;
     }
 
     private function uninstallPluginAndDeleteLanguages(): void

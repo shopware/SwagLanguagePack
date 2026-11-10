@@ -6,13 +6,12 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
-use Shopware\Core\Framework\Adapter\Cache\CacheInvalidator;
-use Shopware\Core\Framework\Adapter\Translation\Translator;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\System\Snippet\Service\TranslationLoader;
 use Swag\LanguagePack\Core\System\Snippet\Service\CleanupReplacedLanguage;
 use Swag\LanguagePack\Core\System\Snippet\Service\CleanupTranslationLoader;
 use Swag\LanguagePack\Core\System\Snippet\Service\LanguagePackSnippetSetMigrator;
+use Swag\LanguagePack\Core\System\Snippet\Service\SnippetSetCacheInvalidator;
 
 /**
  * @internal
@@ -26,7 +25,7 @@ class CleanupTranslationLoaderTest extends TestCase
 
     private LanguagePackSnippetSetMigrator&MockObject $snippetSetMigrator;
 
-    private CacheInvalidator&MockObject $cacheInvalidator;
+    private SnippetSetCacheInvalidator&MockObject $snippetSetCacheInvalidator;
 
     /**
      * @var list<string>
@@ -38,7 +37,7 @@ class CleanupTranslationLoaderTest extends TestCase
         $this->translationLoader = $this->createMock(TranslationLoader::class);
         $this->cleanupReplacedLanguage = $this->createMock(CleanupReplacedLanguage::class);
         $this->snippetSetMigrator = $this->createMock(LanguagePackSnippetSetMigrator::class);
-        $this->cacheInvalidator = $this->createMock(CacheInvalidator::class);
+        $this->snippetSetCacheInvalidator = $this->createMock(SnippetSetCacheInvalidator::class);
     }
 
     public function testGetDecorated(): void
@@ -82,7 +81,7 @@ class CleanupTranslationLoaderTest extends TestCase
                 $this->calls[] = 'removeLanguageRelation';
             });
 
-        $this->cacheInvalidator->expects(static::never())->method('invalidate');
+        $this->snippetSetCacheInvalidator->expects(static::once())->method('invalidate')->with([]);
 
         $loader = $this->createCleanupTranslationLoader();
         $context = Context::createDefaultContext();
@@ -96,16 +95,16 @@ class CleanupTranslationLoaderTest extends TestCase
         static::assertSame(['migrate', $method, 'removeLanguageRelation'], $this->calls);
     }
 
-    public function testInvalidatesTranslatorCacheOfChangedSnippetSets(): void
+    public function testInvalidatesCachesOfChangedSnippetSets(): void
     {
         $this->snippetSetMigrator
             ->method('migrate')
             ->willReturn(['first-set-id', 'second-set-id']);
 
-        $this->cacheInvalidator
+        $this->snippetSetCacheInvalidator
             ->expects(static::once())
             ->method('invalidate')
-            ->with([Translator::tag('first-set-id'), Translator::tag('second-set-id')]);
+            ->with(['first-set-id', 'second-set-id']);
 
         $this->createCleanupTranslationLoader()->load('es-ES', Context::createDefaultContext());
     }
@@ -116,7 +115,7 @@ class CleanupTranslationLoaderTest extends TestCase
             $this->translationLoader,
             $this->cleanupReplacedLanguage,
             $this->snippetSetMigrator,
-            $this->cacheInvalidator,
+            $this->snippetSetCacheInvalidator,
         );
     }
 }

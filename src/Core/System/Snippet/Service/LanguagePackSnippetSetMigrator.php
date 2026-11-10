@@ -42,13 +42,16 @@ readonly class LanguagePackSnippetSetMigrator
         return $this->migrateLanguagePackSets($locale, false);
     }
 
-    public function removeOrMigrate(string $locale): void
+    /**
+     * @return list<string> hex ids of the snippet sets whose snippets changed
+     */
+    public function removeOrMigrate(string $locale): array
     {
         foreach ($this->fetchSnippetSetIds('LanguagePack', $locale) as $languagePackSetId) {
             $this->deleteIfUnused($languagePackSetId);
         }
 
-        $this->migrate($locale);
+        return $this->migrate($locale);
     }
 
     /**

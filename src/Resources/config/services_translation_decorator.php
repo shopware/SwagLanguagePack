@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-use Shopware\Core\Framework\Adapter\Cache\CacheInvalidator;
 use Swag\LanguagePack\Core\System\Snippet\Service\CleanupReplacedLanguage;
 use Swag\LanguagePack\Core\System\Snippet\Service\CleanupTranslationLoader;
 use Swag\LanguagePack\Core\System\Snippet\Service\LanguagePackSnippetSetMigrator;
+use Swag\LanguagePack\Core\System\Snippet\Service\SnippetSetCacheInvalidator;
 
 use function Symfony\Component\DependencyInjection\Loader\Configurator\service;
 
@@ -15,7 +15,7 @@ return [
                 service('.inner'),
                 service(CleanupReplacedLanguage::class),
                 service(LanguagePackSnippetSetMigrator::class),
-                service(CacheInvalidator::class),
+                service(SnippetSetCacheInvalidator::class),
             ],
         ],
     ],

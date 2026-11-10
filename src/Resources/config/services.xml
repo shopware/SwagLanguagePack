@@ -16,6 +16,10 @@
             <argument type="service" id="Doctrine\DBAL\Connection"/>
         </service>
 
+        <service id="Swag\LanguagePack\Core\System\Snippet\Service\SnippetSetCacheInvalidator">
+            <argument type="service" id="Shopware\Core\Framework\Adapter\Cache\CacheInvalidator"/>
+        </service>
+
         <service id="Swag\LanguagePack\Util\Lifecycle\Lifecycle" public="true">
             <argument type="service" id="Doctrine\DBAL\Connection"/>
         </service>

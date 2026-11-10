@@ -156,10 +156,24 @@ class LanguagePackSnippetSetMigratorTest extends TestCase
         $languagePackSetId = $this->createSnippetSet('LanguagePack');
         $this->createSnippet($languagePackSetId, 'custom.key', 'custom value');
 
-        $this->migrator->removeOrMigrate(self::LOCALE);
-
+        static::assertSame([], $this->migrator->removeOrMigrate(self::LOCALE));
         static::assertSame('BASE ' . self::LOCALE, $this->fetchSnippetSetName($languagePackSetId));
         static::assertSame(['custom.key' => 'custom value'], $this->fetchSnippets($languagePackSetId));
+    }
+
+    public function testRemoveOrMigrateMovesSnippetsAndDomainsIntoExistingBaseSet(): void
+    {
+        $languagePackSetId = $this->createSnippetSet('LanguagePack');
+        $baseSetId = $this->createSnippetSet('BASE');
+        $this->createSnippet($languagePackSetId, 'custom.key', 'custom value');
+        $domainId = $this->createSalesChannelDomain($languagePackSetId);
+
+        $changedSetIds = $this->migrator->removeOrMigrate(self::LOCALE);
+
+        static::assertEqualsCanonicalizing([$languagePackSetId, $baseSetId], $changedSetIds);
+        static::assertNull($this->fetchSnippetSetName($languagePackSetId));
+        static::assertSame(['custom.key' => 'custom value'], $this->fetchSnippets($baseSetId));
+        static::assertSame($baseSetId, $this->fetchDomainSnippetSetId($domainId));
     }
 
     public function testRemoveOrMigrateKeepsLanguagePackSetUsedByDomainAsBaseSet(): void

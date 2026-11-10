@@ -8,8 +8,6 @@
 
 namespace Swag\LanguagePack\Core\System\Snippet\Service;
 
-use Shopware\Core\Framework\Adapter\Cache\CacheInvalidator;
-use Shopware\Core\Framework\Adapter\Translation\Translator;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\Plugin;
 use Shopware\Core\System\Snippet\Service\AbstractTranslationLoader;
@@ -26,7 +24,7 @@ class CleanupTranslationLoader extends AbstractTranslationLoader
         private readonly AbstractTranslationLoader $decorated,
         private readonly CleanupReplacedLanguage $cleanupReplacedLanguage,
         private readonly LanguagePackSnippetSetMigrator $snippetSetMigrator,
-        private readonly CacheInvalidator $cacheInvalidator,
+        private readonly SnippetSetCacheInvalidator $snippetSetCacheInvalidator,
     ) {
     }
 
@@ -71,12 +69,6 @@ class CleanupTranslationLoader extends AbstractTranslationLoader
 
     private function migrateSnippetSet(string $locale): void
     {
-        $changedSetIds = $this->snippetSetMigrator->migrate($locale);
-
-        if ($changedSetIds === []) {
-            return;
-        }
-
-        $this->cacheInvalidator->invalidate(array_map(Translator::tag(...), $changedSetIds));
+        $this->snippetSetCacheInvalidator->invalidate($this->snippetSetMigrator->migrate($locale));
     }
 }

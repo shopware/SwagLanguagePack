@@ -25,18 +25,23 @@ class Lifecycle
     ) {
     }
 
-    public function uninstall(UninstallContext $uninstallContext): void
+    /**
+     * @return list<string> hex ids of the snippet sets whose snippets changed
+     */
+    public function uninstall(UninstallContext $uninstallContext): array
     {
         $this->updateInvalidUserLanguages();
 
         if ($uninstallContext->keepUserData()) {
-            return;
+            return [];
         }
 
-        $this->removeOrMigrateSnippetSets();
+        $changedSetIds = $this->removeOrMigrateSnippetSets();
         $this->dropConstraints();
         $this->dropTables();
         $this->dropColumns();
+
+        return $changedSetIds;
     }
 
     private function updateInvalidUserLanguages(): void
@@ -65,13 +70,19 @@ class Lifecycle
         );
     }
 
-    private function removeOrMigrateSnippetSets(): void
+    /**
+     * @return list<string>
+     */
+    private function removeOrMigrateSnippetSets(): array
     {
         $snippetSetMigrator = new LanguagePackSnippetSetMigrator($this->connection);
+        $changedSetIds = [];
 
         foreach (SwagLanguagePack::BASE_SNIPPET_SET_LOCALES as $locale) {
-            $snippetSetMigrator->removeOrMigrate($locale);
+            $changedSetIds = [...$changedSetIds, ...$snippetSetMigrator->removeOrMigrate($locale)];
         }
+
+        return $changedSetIds;
     }
 
     private function dropConstraints(): void

@@ -12,6 +12,8 @@ namespace Swag\LanguagePack\Test;
 use Doctrine\DBAL\Connection;
 use PHPUnit\Framework\TestCase;
 use Shopware\Core\Defaults;
+use Shopware\Core\Framework\Adapter\Cache\CacheInvalidator;
+use Shopware\Core\Framework\Adapter\Translation\Translator;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
@@ -23,6 +25,7 @@ use Shopware\Core\Framework\Plugin\PluginEntity;
 use Shopware\Core\Framework\Plugin\PluginLifecycleService;
 use Shopware\Core\Framework\Test\TestCaseBase\DatabaseTransactionBehaviour;
 use Shopware\Core\Framework\Test\TestCaseBase\KernelTestBehaviour;
+use Shopware\Core\Framework\Uuid\Uuid;
 use Swag\LanguagePack\Core\System\Snippet\Service\CleanupTranslationLoader;
 use Swag\LanguagePack\SwagLanguagePack;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -126,6 +129,46 @@ class SwagLanguagePackTest extends TestCase
 
         $uninstallContext = $this->createMock(UninstallContext::class);
         $uninstallContext->expects(static::once())->method('keepUserData')->willReturn(true);
+
+        $plugin->uninstall($uninstallContext);
+    }
+
+    public function testUninstallInvalidatesCachesOfSnippetSetsMergedIntoBaseSet(): void
+    {
+        $languagePackSetId = Uuid::randomBytes();
+        $baseSetId = Uuid::randomBytes();
+
+        $connection = $this->createMock(Connection::class);
+        $connection->method('fetchFirstColumn')
+            ->willReturnCallback(static fn (string $sql, array $params): array => match ($params['name'] ?? null) {
+                'LanguagePack es-ES' => [$languagePackSetId],
+                'BASE es-ES' => [$baseSetId],
+                default => [],
+            });
+        $connection->method('transactional')
+            ->willReturnCallback(static fn (\Closure $func): mixed => $func());
+
+        $cacheInvalidator = $this->createMock(CacheInvalidator::class);
+        $cacheInvalidator->expects(static::exactly(2))
+            ->method('invalidate')
+            ->willReturnCallback(static function (array $tags) use ($languagePackSetId, $baseSetId): void {
+                if (!\in_array('routing-domains', $tags, true)) {
+                    static::assertSame([
+                        Translator::tag(Uuid::fromBytesToHex($languagePackSetId)),
+                        Translator::tag(Uuid::fromBytesToHex($baseSetId)),
+                    ], $tags);
+                }
+            });
+
+        $container = new ContainerBuilder();
+        $container->set(Connection::class, $connection);
+        $container->set(CacheInvalidator::class, $cacheInvalidator);
+
+        $plugin = new SwagLanguagePack(true, '');
+        $plugin->setContainer($container);
+
+        $uninstallContext = $this->createMock(UninstallContext::class);
+        $uninstallContext->method('keepUserData')->willReturn(false);
 
         $plugin->uninstall($uninstallContext);
     }

@@ -14,6 +14,7 @@ use Doctrine\DBAL\Connection;
 use Shopware\Core\Defaults;
 use Shopware\Core\Framework\Plugin\Context\UninstallContext;
 use Shopware\Core\System\Language\LanguageDefinition;
+use Swag\LanguagePack\Core\System\Snippet\Service\LanguagePackSnippetSetMigrator;
 use Swag\LanguagePack\PackLanguage\PackLanguageDefinition;
 use Swag\LanguagePack\SwagLanguagePack;
 
@@ -24,18 +25,23 @@ class Lifecycle
     ) {
     }
 
-    public function uninstall(UninstallContext $uninstallContext): void
+    /**
+     * @return list<string> hex ids of the snippet sets whose snippets changed
+     */
+    public function uninstall(UninstallContext $uninstallContext): array
     {
         $this->updateInvalidUserLanguages();
 
         if ($uninstallContext->keepUserData()) {
-            return;
+            return [];
         }
 
-        $this->deleteBaseSnippetSets();
+        $changedSetIds = $this->removeOrMigrateSnippetSets();
         $this->dropConstraints();
         $this->dropTables();
         $this->dropColumns();
+
+        return $changedSetIds;
     }
 
     private function updateInvalidUserLanguages(): void
@@ -64,23 +70,19 @@ class Lifecycle
         );
     }
 
-    private function deleteBaseSnippetSets(): void
+    /**
+     * @return list<string>
+     */
+    private function removeOrMigrateSnippetSets(): array
     {
-        $sql = <<<'SQL'
-            DELETE FROM `snippet_set`
-            WHERE `name` = :name
-              AND `base_file` = :baseFile;
-        SQL;
+        $snippetSetMigrator = new LanguagePackSnippetSetMigrator($this->connection);
+        $changedSetIds = [];
 
         foreach (SwagLanguagePack::BASE_SNIPPET_SET_LOCALES as $locale) {
-            $this->connection->executeStatement(
-                $sql,
-                [
-                    'name' => \sprintf('LanguagePack %s', $locale),
-                    'baseFile' => \sprintf('messages.%s', $locale),
-                ],
-            );
+            $changedSetIds = [...$changedSetIds, ...$snippetSetMigrator->removeOrMigrate($locale)];
         }
+
+        return $changedSetIds;
     }
 
     private function dropConstraints(): void

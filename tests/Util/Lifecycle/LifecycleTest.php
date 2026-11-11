@@ -18,6 +18,7 @@ use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\Migration\MigrationCollection;
 use Shopware\Core\Framework\Plugin\Context\UninstallContext;
 use Shopware\Core\Framework\Test\TestCaseBase\IntegrationTestBehaviour;
+use Shopware\Core\Framework\Uuid\Uuid;
 use Swag\LanguagePack\SwagLanguagePack;
 use Swag\LanguagePack\Util\Lifecycle\Lifecycle;
 
@@ -29,14 +30,28 @@ class LifecycleTest extends TestCase
     {
         $connection = $this->getConnectionMock();
 
-        $connection->expects(static::atLeast(5))
+        $connection->expects(static::atLeast(2))
             ->method('executeStatement');
 
         $connection->expects(static::atLeast(2))
             ->method('executeQuery');
 
+        $queriedSnippetSets = [];
+        $connection->method('fetchFirstColumn')
+            ->willReturnCallback(static function (string $sql, array $params) use (&$queriedSnippetSets): array {
+                $queriedSnippetSets[] = $params['name'];
+
+                return [];
+            });
+        $connection->method('transactional')
+            ->willReturnCallback(static fn (\Closure $func): mixed => $func());
+
         $lifecycle = new Lifecycle($connection);
-        $lifecycle->uninstall($this->getUninstallContext());
+        static::assertSame([], $lifecycle->uninstall($this->getUninstallContext()));
+
+        foreach (SwagLanguagePack::BASE_SNIPPET_SET_LOCALES as $locale) {
+            static::assertContains('LanguagePack ' . $locale, $queriedSnippetSets);
+        }
     }
 
     public function testUninstallKeepsUserData(): void
@@ -72,7 +87,30 @@ class LifecycleTest extends TestCase
             );
 
         $lifecycle = new Lifecycle($connection);
-        $lifecycle->uninstall($uninstallContext);
+        static::assertSame([], $lifecycle->uninstall($uninstallContext));
+    }
+
+    public function testUninstallReturnsSnippetSetsMergedIntoBaseSet(): void
+    {
+        $languagePackSetId = Uuid::randomBytes();
+        $baseSetId = Uuid::randomBytes();
+
+        $connection = $this->getConnectionMock();
+        $connection->method('fetchFirstColumn')
+            ->willReturnCallback(static fn (string $sql, array $params): array => match ($params['name'] ?? null) {
+                'LanguagePack es-ES' => [$languagePackSetId],
+                'BASE es-ES' => [$baseSetId],
+                default => [],
+            });
+        $connection->method('transactional')
+            ->willReturnCallback(static fn (\Closure $func): mixed => $func());
+
+        $lifecycle = new Lifecycle($connection);
+
+        static::assertSame(
+            [Uuid::fromBytesToHex($languagePackSetId), Uuid::fromBytesToHex($baseSetId)],
+            $lifecycle->uninstall($this->getUninstallContext()),
+        );
     }
 
     private function getUninstallContext(bool $keepUserData = false): UninstallContext
@@ -94,7 +132,7 @@ class LifecycleTest extends TestCase
     {
         return $this->getMockBuilder(Connection::class)
             ->disableOriginalConstructor()
-            ->onlyMethods(['executeStatement', 'executeQuery'])
+            ->onlyMethods(['executeStatement', 'executeQuery', 'fetchFirstColumn', 'transactional', 'update'])
             ->getMock();
     }
 }

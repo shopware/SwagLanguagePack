@@ -2,6 +2,8 @@
 
 use Swag\LanguagePack\Core\System\Snippet\Service\CleanupReplacedLanguage;
 use Swag\LanguagePack\Core\System\Snippet\Service\CleanupTranslationLoader;
+use Swag\LanguagePack\Core\System\Snippet\Service\LanguagePackSnippetSetMigrator;
+use Swag\LanguagePack\Core\System\Snippet\Service\SnippetSetCacheInvalidator;
 
 use function Symfony\Component\DependencyInjection\Loader\Configurator\service;
 
@@ -12,6 +14,8 @@ return [
             'arguments' => [
                 service('.inner'),
                 service(CleanupReplacedLanguage::class),
+                service(LanguagePackSnippetSetMigrator::class),
+                service(SnippetSetCacheInvalidator::class),
             ],
         ],
     ],

@@ -8,10 +8,16 @@
         <!-- Services -->
         <service id="Swag\LanguagePack\Core\System\Snippet\Service\CleanupReplacedLanguage">
             <argument type="service" id="language.repository"/>
-            <argument type="service" id="snippet_set.repository"/>
             <argument type="service" id="swag_language_pack_language.repository"/>
-            <argument type="service" id="sales_channel_domain.repository"/>
             <argument type="service" id="Doctrine\DBAL\Connection"/>
+        </service>
+
+        <service id="Swag\LanguagePack\Core\System\Snippet\Service\LanguagePackSnippetSetMigrator">
+            <argument type="service" id="Doctrine\DBAL\Connection"/>
+        </service>
+
+        <service id="Swag\LanguagePack\Core\System\Snippet\Service\SnippetSetCacheInvalidator">
+            <argument type="service" id="Shopware\Core\Framework\Adapter\Cache\CacheInvalidator"/>
         </service>
 
         <service id="Swag\LanguagePack\Util\Lifecycle\Lifecycle" public="true">
